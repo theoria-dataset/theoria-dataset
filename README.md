@@ -69,7 +69,7 @@ Feed `dataset.json` (or per‑entry files) straight into your training pipeline.
 Licensed under [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode.en). If you use it please cite it as:
 
 ```
-THEORIA Dataset, 2025, v0.0.1. Available at: https://github.com/manuelsh/theoria-dataset
+THEORIA Dataset, 2025, v0.0.1. Available at: https://github.com/theoria-dataset/theoria-dataset
 ```
 
 ## Contact
