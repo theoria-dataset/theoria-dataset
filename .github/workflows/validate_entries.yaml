@@ -1,0 +1,25 @@
+name: Validate Dataset Entries
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli
+
+      - name: Validate JSON entries
+        run: |
+          for file in entries/*.json; do
+            echo "Validating $file"
+            ajv validate -s schemas/entry.schema.json -d "$file" || exit 1
+          done

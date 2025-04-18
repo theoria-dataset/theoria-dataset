@@ -1,0 +1,27 @@
+{
+  "dataset_name": "Theoretical Physics Inference Dataset",
+  "dataset_version": "0.0.1",
+  "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
+  "created_at": "2025-04-14",
+  "license": "CC-BY 4.0",
+  "domains": [
+    "astro-ph",
+    "cond-mat",
+    "gr-qc",
+    "hep-ex",
+    "hep-lat",
+    "hep-th",
+    "hep-ph",
+    "math-ph",
+    "nucl-th",
+    "physics",
+    "quant-ph"
+  ],
+  "changelog": [
+    {
+      "version": "0.0.1",
+      "date": "2025-04-14",
+      "changes": ["Initial release with two entries."]
+    }
+  ]
+}
