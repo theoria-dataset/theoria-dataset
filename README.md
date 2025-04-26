@@ -4,7 +4,7 @@ THEORIA stands for Trusted Human-curated Equations Open-licensed Reproducible It
 
 > **🚀 Jump in!** We've kicked off THEORIA with a handful of killer entries, and we need your help to grow it. If you're a theoretical‑physics buff—researcher, educator, or enthusiast—now's the time to contribute your favorite equations, crisp derivations, and clear explanations.
 
-**[Browse the THEORIA Dataset Online](https://theoria-dataset.org)** - View and explore the equations and derivations through our interactive web interface.
+**[Browse the THEORIA Dataset Online](https://theoria-dataset.github.io/theoria-dataset/)** - View and explore the equations and derivations through our interactive web interface.
 
 ## Why THEORIA?
 
@@ -40,7 +40,7 @@ theoretical-physics-dataset/
 ├── entries/                           # Folder for individual dataset entries (one JSON file per entry)
 ├── schemas/
 │   └── entry.schema.json              # JSON Schema defining required fields and rules for each entry
-├── site/                              # Web interface for viewing the dataset
+├── docs/                              # Web interface for viewing the dataset
 ├── manifest.json                      # Global metadata, dataset version, changelog, and entry list
 ├── CONTRIBUTING.md                    # Detailed guidelines for contributors
 └── README.md                          # Project overview and usage instructions (this file)
