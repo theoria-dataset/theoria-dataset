@@ -24,14 +24,16 @@
       "changes": ["Initial release with two entries."]
     },
     {
-      "version": "0.2.0",
+      "version": "0.2.2",
       "date": "2025-05-01",
       "changes": [
         "Added new entries for Lorentz transformations and Maxwell equations.",
         "Added index.html for better navigation.",
         "Improved schema validation for equations and assumptions.",
         "Updated references and citations.",
-        "Fixed the previous entries"
+        "Fixed the previous entries",
+        "Updated README.md and CONTRIBUTING.md files with new contribution guidelines.",
+        "Change schema to accept dots for the `domain` field."
       ]
     }
   ]

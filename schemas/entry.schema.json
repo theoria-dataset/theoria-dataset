@@ -157,7 +157,7 @@
     "domain": {
       "type": "string",
       "description": "arXiv category identifier",
-      "pattern": "^[a-z\\-]+$"
+      "pattern": "^[a-z][a-z\\-\\.]+$"
     },
 
     "references": {
