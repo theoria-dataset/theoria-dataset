@@ -2,7 +2,9 @@
 
 THEORIA stands for Trusted Human-curated Equations Open-licensed Reproducible Itemized Archive.
 
-> **🚀 Jump in!** We’ve kicked off THEORIA with a handful of killer entries, and we need your help to grow it. If you’re a theoretical‑physics buff—researcher, educator, or enthusiast—now’s the time to contribute your favorite equations, crisp derivations, and clear explanations.
+> **🚀 Jump in!** We've kicked off THEORIA with a handful of killer entries, and we need your help to grow it. If you're a theoretical‑physics buff—researcher, educator, or enthusiast—now's the time to contribute your favorite equations, crisp derivations, and clear explanations.
+
+**[Browse the THEORIA Dataset Online](https://theoria-dataset.org)** - View and explore the equations and derivations through our interactive web interface.
 
 ## Why THEORIA?
 
@@ -36,9 +38,9 @@ theoretical-physics-dataset/
 │   └── workflows/
 │       └── validate_entries.yaml      # CI workflow for JSON Schema validation of entries
 ├── entries/                           # Folder for individual dataset entries (one JSON file per entry)
-│   └── lorentz_transformations.json   # Example entry file
 ├── schemas/
 │   └── entry.schema.json              # JSON Schema defining required fields and rules for each entry
+├── site/                              # Web interface for viewing the dataset
 ├── manifest.json                      # Global metadata, dataset version, changelog, and entry list
 ├── CONTRIBUTING.md                    # Detailed guidelines for contributors
 └── README.md                          # Project overview and usage instructions (this file)
