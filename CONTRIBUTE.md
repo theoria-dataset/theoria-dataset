@@ -33,6 +33,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
     - Why it matters in physics.
     - How it's used or where it appears.
   - Avoid derivation steps (covered in the `derivation_explanation` section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon.
+  - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
 
   ```json
@@ -42,13 +43,13 @@ The following fields are required in each entry JSON file. Ensure that all entri
 - **`equations_assumptions`:**
 
   - List any assumptions directly related to the equations.
-  - If there is math included, use the AsciiMath format.
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
 
   ```json
       {
       "id": "eq_assump1",
-      "text": "The transformation is performed only along the x-axis, meaning that the y and z coordinates remain unchanged."
+      "text": "The transformation is performed only along the x-axis, meaning that the `y` and `z` coordinates remain unchanged."
     },
   ```
 
@@ -56,6 +57,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 
   - Define every symbol used in the equations, to ensure the entry is self-contained.
   - Each definition should include a `symbol` field, with the symbol represented in AsciiMath format and a `definition` field.
+  - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
 
   ```json
@@ -69,7 +71,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
   ```
 
   - **`derivation`:**
-  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format.
+  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format. If the equation cannot be derived from other first principles, the 
   - Each step should contain the `id` and `equation` fields.
   - The `step` field should be an integer, following the sequential order of the reasoning process.
   - The `equation` field should contain the equation in AsciiMath format, without any additional text such as explanations or assumptions.
@@ -99,7 +101,8 @@ The following fields are required in each entry JSON file. Ensure that all entri
 - **`derivation_assumptions`:**
 
   - Specify the assumptions behind the derivation.
-  - Easch assumption should have a unique "id" ("assumption1", "assumption2",...) and a "text" description.
+  - Each assumption should have a unique "id" ("assumption1", "assumption2",...) and a "text" description.
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
 
   ```json
@@ -117,6 +120,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
   - Each explanation object consists of:
     - "step": An integer that must coincide with the corresponding one in the `derivation`.
     - "text": A concise and clear description of the rationale behind certain steps in the derivation process.
+  - If there are math symbols or equations included in the `text`, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
 
   ```json
@@ -126,7 +130,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
       "text": "Postulate the most general linear transformation between coordinates in two inertial frames."
     },
     {
-      "step": 2,
+      "step": 2,<>
       "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
     },
     {

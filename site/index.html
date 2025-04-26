@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+
+<head>
+    <meta charset="utf-8" />
+    <title>THEORIA — Theoretical Physics Dataset</title>
+
+    <!-- LaTeX.css dark theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css" />
+
+    <!-- MathJax for AsciiMath -->
+    <script>
+        window.MathJax = {
+            loader: { load: ["input/asciimath", "output/chtml"] },
+            asciimath: { delimiters: [["`", "`"]] },
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+
+    <!-- highlight.js -->
+    <link id="hl-theme" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" defer></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+
+    <!-- Home View -->
+    <div id="homeView" class="home-view">
+        <div class="hero">
+            <h1>THEORIA Dataset</h1>
+            <p>A curated, high-quality dataset of Theoretical Physics equations and derivations.</p>
+
+            <div class="entry-selector-container">
+                <select id="homeEntrySelector">
+                    <option value="">View entries</option>
+                </select>
+            </div>
+
+            <a href="https://github.com/theoria-dataset/theoria-dataset" class="cta-button">GitHub Repository</a>
+        </div>
+
+        <section>
+            <h2>Why THEORIA?</h2>
+            <p>There is a <a
+                    href="https://manuelsh.github.io/blog/2025/datasets-for-advancing-Theoretical-Physics/">lack of
+                    curated datasets</a> with all important equations and derivations of theoretical physics to train
+                better machine learning models, beyond raw text in papers and books.</p>
+            <p>THEORIA bridges that gap; it is the first dataset to provide a high-quality collection of theoretical
+                physics equations, their derivations and explanations in a structured format.</p>
+            <blockquote>
+                <p><strong>🚀 Jump in!</strong> We've kicked off THEORIA with a handful of killer entries, and we need
+                    your help to grow it. If you're a theoretical‑physics buff—researcher, educator, or enthusiast—now's
+                    the time to contribute your favorite equations, crisp derivations, and clear explanations.</p>
+            </blockquote>
+        </section>
+
+        <section>
+            <h2>What's Inside?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>High Quality</h3>
+                    <p>Each entry is crafted and carefully reviewed by someone with a background in physics. Contributor
+                        name or ORCID is baked into the metadata.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Formal Derivations</h3>
+                    <p>AsciiMath step by step, annotated for easier understanding and programmatic formalization to
+                        guarantee correctness.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Self-Contained JSON</h3>
+                    <p>One entry per file under <code class="inline">entries/</code> folder, so you can fork, version,
+                        and collaborate without conflicts.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Domain Tags</h3>
+                    <p>ArXiv‑style categories (e.g., gr-qc, hep-th) for easy filtering.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Global Manifest</h3>
+                    <p><code class="inline">manifest.json</code> tracks versions, file list, covered domains, and
+                        updates.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Open License</h3>
+                    <p><code class="inline">CC‑BY 4.0</code>—use it, remix it, teach with it.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>How to Contribute</h2>
+            <p>We are <em>tiny</em> right now, every new entry counts! To contribute:</p>
+
+            <div class="feature-card">
+                <h3><span class="step-number">1</span>Fork and Clone</h3>
+                <p>Fork the repository on GitHub and clone it to your local machine.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="step-number">2</span>Create a JSON Entry</h3>
+                <p>Create a JSON file in the <code class="inline">entries/</code> folder following the instructions in
+                    the <code class="inline">CONTRIBUTING.md</code> file and the schema in <code
+                        class="inline">schemas/entry.schema.json</code>.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="step-number">3</span>Submit a Pull Request</h3>
+                <p>CI will automatically validate your JSON against the schema. If it passes, we will review and merge
+                    it.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Using THEORIA for Machine Learning</h2>
+            <p>You can either use the individual JSON files or automatically generate a single merged file using a
+                script (e.g., with <code class="inline">jq</code>):</p>
+            <pre><code>jq -s '.' entries/*.json > dataset.json</code></pre>
+            <p>Feed <code class="inline">dataset.json</code> (or per‑entry files) straight into your training pipeline.
+            </p>
+        </section>
+
+        <section>
+            <h2>License & Citation</h2>
+            <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode.en">CC-BY 4.0 License</a>.
+                If you use it please cite it as:</p>
+            <pre><code>THEORIA Dataset, 2025, v0.0.1. Available at: https://github.com/theoria-dataset/theoria-dataset</code></pre>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <p>Issues, questions, or exciting physics ideas? Drop an issue on GitHub—and let's build this thing
+                together.</p>
+        </section>
+    </div>
+
+    <!-- Entry View -->
+    <div id="entryView" class="entry-view hidden">
+        <button id="viewToggleBtn" class="cta-button">← Back to Home</button>
+
+        <h1 id="title">Select an entry</h1>
+        <div class="controls">
+            <label for="entrySelector"><strong>Select Entry:</strong></label>
+            <select id="entrySelector">
+                <option value="">— choose one —</option>
+            </select>
+        </div>
+        <p id="explanation"></p>
+
+        <section id="equations">
+            <h2>Equations</h2>
+            <ul></ul>
+        </section>
+        <section id="assumptions">
+            <h2>Equations Assumptions</h2>
+            <ul></ul>
+        </section>
+        <section id="derivationAssumptions">
+            <h2>Derivation Assumptions</h2>
+            <ul></ul>
+        </section>
+        <section id="definitions">
+            <h2>Definitions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <section id="derivation">
+            <h2>Derivation</h2>
+            <ol></ol>
+        </section>
+        <section id="programmaticVerification">
+            <h2>Programmatic Verification</h2>
+            <p><strong>Language:</strong> <span id="pv-language"></span></p>
+            <p><strong>Library:</strong> <span id="pv-library"></span></p>
+            <pre><code id="pv-code" class="language-python"></code></pre>
+        </section>
+        <section id="references">
+            <h2>References</h2>
+            <ul></ul>
+        </section>
+        <section class="metadata">
+            <ul>
+                <li><strong>Domain:</strong> <span id="meta-domain"></span></li>
+                <li>
+                    <strong>Dataset Version:</strong> <span id="meta-dataset"></span>
+                </li>
+                <li><strong>Created By:</strong> <span id="meta-created"></span></li>
+                <li><strong>Review Status:</strong> <span id="meta-status"></span></li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

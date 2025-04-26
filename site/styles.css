@@ -1,0 +1,187 @@
+#themeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--color);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#themeToggle:focus {
+  outline: none;
+}
+
+#programmaticVerification pre {
+  background: var(--shade-dark);
+  padding: 1em;
+  border: 1px solid var(--shade-light);
+  overflow-x: auto;
+}
+
+/* Highlight the "Jump in!" blockquote */
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background-color: rgba(0, 0, 255, 0.05);
+}
+
+.latex-dark blockquote {
+  background-color: rgba(100, 149, 237, 0.1);
+}
+
+blockquote p {
+  font-size: 1.05rem !important;
+  margin: 0 !important;
+}
+
+blockquote strong {
+  color: var(--primary);
+}
+
+/* Reduced spacing for hero section */
+.hero {
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+/* Reduced spacing for sections */
+section {
+  margin-top: 0.8rem;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem;
+  background: var(--primary);
+  color: #ffffff; /* White text for dark mode (default) */
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background: var(--primary-dark);
+}
+
+/* Light mode specific button styling */
+html:not(.latex-dark) .cta-button {
+  color: #000000; /* Black text in light mode */
+}
+
+/* Reduced spacing for feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.feature-card {
+  padding: 0.8rem;
+  border: 1px solid var(--shade-light);
+  border-radius: 4px;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.feature-card p {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.home-view,
+.entry-view {
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Reduced spacing for step containers */
+.step-container {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid var(--shade-light);
+  border-radius: 4px;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+code.inline {
+  padding: 0.1rem 0.3rem;
+  background: var(--shade-dark);
+  border-radius: 3px;
+}
+
+#viewToggleBtn {
+  margin-bottom: 0.5rem;
+}
+
+.entry-selector-container {
+  margin: 0.5rem 0;
+}
+
+.entry-selector-container select {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--shade-light);
+  background-color: var(--bg);
+  color: var(--color);
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Fix dropdown text visibility in dark mode */
+select option {
+  color: black;
+  background-color: white;
+}
+
+.latex-dark select option {
+  color: white;
+  background-color: #333;
+}

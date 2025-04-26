@@ -36,31 +36,31 @@
   "definitions": [
     {
       "symbol": "t",
-      "definition": "Time coordinate in the stationary frame (S)."
+      "definition": "Time coordinate in the stationary frame (`S`)."
     },
     {
-      "symbol": "t'",
-      "definition": "Time coordinate in the moving frame (S')."
+      "symbol": "`t'`",
+      "definition": "Time coordinate in the moving frame (`S'`)."
     },
     {
-      "symbol": "x",
-      "definition": "Spatial coordinate in the stationary frame (S) along the x-axis."
+      "symbol": "`x`",
+      "definition": "Spatial coordinate in the stationary frame (`S`) along the x-axis."
     },
     {
-      "symbol": "x'",
-      "definition": "Spatial coordinate in the moving frame (S') along the x-axis."
+      "symbol": "`x'`",
+      "definition": "Spatial coordinate in the moving frame (`S'`) along the x-axis."
     },
     {
-      "symbol": "v",
+      "symbol": "`v`",
       "definition": "Relative velocity between the two frames (along the x-axis)."
     },
     {
-      "symbol": "c",
+      "symbol": "`c`",
       "definition": "Speed of light in vacuum."
     },
     {
-      "symbol": "gamma",
-      "definition": "Lorentz factor, defined as 1/sqrt(1-(v^2/c^2))."
+      "symbol": "`gamma`",
+      "definition": "Lorentz factor, defined as `1/sqrt(1-(v^2/c^2))`."
     }
   ],
 
@@ -117,15 +117,15 @@
   "derivation_assumptions": [
     {
       "id": "assumption1",
-      "text": "Linearity: the transformation (x,t) → (x',t') is linear owing to homogeneity of space‑time."
+      "text": "Linearity: the transformation `(x,t) → (x',t')` is linear owing to homogeneity of space‑time."
     },
     {
       "id": "assumption2",
-      "text": "Light‑speed invariance: a ray with x = ±c·t in S satisfies x' = ±c·t' in S'."
+      "text": "Light‑speed invariance: a ray with `x = ±c·t` in `S` satisfies `x' = ±c·t'` in `S'`."
     },
     {
       "id": "assumption3",
-      "text": "Frame setup: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0."
+      "text": "Frame setup: `S'` moves with velocity v along the common x-axis and origins coincide at `t = t' = 0`."
     }
   ],
   "derivation_explanation": [
@@ -135,47 +135,47 @@
     },
     {
       "step": 2,
-      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
+      "text": "Impose that the spatial origin of `S'` (`x' = 0`) moves as `x = v·t` in `S`."
     },
     {
       "step": 3,
-      "text": "Get the relationship between coefficients A and B."
+      "text": "Get the relationship between coefficients `A` and `B`."
     },
     {
       "step": 4,
-      "text": "Demand that any right light x=+c*t in S also satisfies x'=+c*t' in S' substituting in equations from step1. Use step3."
+      "text": "Demand that any right light `x=+c*t` in `S` also satisfies `x'=+c*t'` in `S'` substituting in equations from step1. Use step3."
     },
     {
       "step": 5,
-      "text": "Repeat for a left-moving pulse (x=-c*t in S and x'=-c*t' in S') to get a second constraint."
+      "text": "Repeat for a left-moving pulse (`x=-c*t` in `S` and `x'=-c*t'` in `S'`) to get a second constraint."
     },
     {
       "step": 6,
-      "text": "Subtracting equation in step4 from the one in step5 gives a relationship between A and E."
+      "text": "Subtracting equation in step 4 from the one in step 5 gives a relationship between `A` and `E`."
     },
     {
       "step": 7,
-      "text": "Adding equations in step4 and step5 gives a relationship between A and D."
+      "text": "Adding equations in step 4 and step 5 gives a relationship between `A` and `D`."
     },
     {
       "step": 8,
-      "text": "Substitute E-A, B=-A*v, and D=-A*v/c^2 into the equations from step1."
+      "text": "Substitute `E = A`, `B = -A*v`, and `D = -A*v/c^2` into the equations from step 1."
     },
     {
       "step": 9,
-      "text": "Demand invariance of the spacetime interval: x'^2 - c^2*t'^2 = x^2 - c^2*t^2."
+      "text": "Demand invariance of the spacetime interval: `x'^2 - c^2*t'^2 = x^2 - c^2*t^2`."
     },
     {
       "step": 10,
-      "text": "Collect terms to obtain A²(1 - v²/c²) = 1."
+      "text": "Collect terms to obtain `A²(1 - v²/c²) = 1`."
     },
     {
       "step": 11,
-      "text": "Solve for A."
+      "text": "Solve for `A`."
     },
     {
       "step": 12,
-      "text": "Substitute γ back into the equations to obtain the Lorentz tranformation."
+      "text": "Substitute `γ` back into the equations to obtain the Lorentz tranformation."
     }
   ],
   "programmatic_verification": {

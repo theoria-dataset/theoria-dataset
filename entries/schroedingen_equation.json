@@ -3,22 +3,22 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "i*hbar*partial_t psi = - (hbar^2/(2*m))*nabla^2 psi + V*psi"
+      "equation": "i*ħ*partial_t psi = - (ħ^2/(2*m))*nabla^2 psi + V*psi"
     }
   ],
   "explanation": "The time-dependent Schrödinger equation governs the non-relativistic evolution of a quantum particle's wavefunction ψ(x,t). By promoting energy and momentum to differential operators, it relates the temporal derivative of ψ to the kinetic (−ħ²/2m∇²) and potential (V) terms. It's the foundational equation of quantum mechanics, determining probabilities and dynamics of microscopic systems.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
-      "text": "Non-relativistic regime: particle velocity v ≪ c."
+      "text": "Non-relativistic regime: particle velocity `v ≪ c`."
     },
     {
       "id": "eq_assump2",
-      "text": "Single, spin-zero particle described by a scalar wavefunction ψ(x,t)."
+      "text": "Single, spin-zero particle described by a scalar wavefunction `psi(x,t)`."
     },
     {
       "id": "eq_assump3",
-      "text": "Potential V = V(x,t) is a well-defined real function."
+      "text": "Potential `V = V(x,t)` is a well-defined real function."
     }
   ],
   "definitions": [
@@ -28,7 +28,7 @@
     },
     {
       "symbol": "hbar",
-      "definition": "Reduced Planck constant (ħ = h/2π)."
+      "definition": "Reduced Planck constant (`ħ = h/2π`)."
     },
     {
       "symbol": "m",
@@ -36,7 +36,7 @@
     },
     {
       "symbol": "partial_t",
-      "definition": "Partial derivative with respect to time t."
+      "definition": "Partial derivative with respect to time `t`."
     },
     {
       "symbol": "nabla^2",
@@ -44,11 +44,11 @@
     },
     {
       "symbol": "V",
-      "definition": "Potential energy function V(x,t)."
+      "definition": "Potential energy function `V(x,t)`."
     },
     {
       "symbol": "i",
-      "definition": "Imaginary unit, i^2 = -1."
+      "definition": "Imaginary unit (`i^2 = -1`)."
     }
   ],
   "derivation_assumptions": [
@@ -62,7 +62,7 @@
     },
     {
       "id": "assumption3",
-      "text": "Potential V(x,t) enters multiplicatively."
+      "text": "Potential `V(x,t)` enters multiplicatively."
     }
   ],
   "derivation": [
@@ -72,41 +72,41 @@
     },
     {
       "step": 2,
-      "equation": "p = -i*hbar*nabla"
+      "equation": "p = -i*ħ*nabla"
     },
     {
       "step": 3,
-      "equation": "E = i*hbar*partial_t"
+      "equation": "E = i*ħ*partial_t"
     },
     {
       "step": 4,
-      "equation": "i*hbar*partial_t(psi) = (p^2/(2*m) + V)*psi"
+      "equation": "i*ħ*partial_t(psi) = (p^2/(2*m) + V)*psi"
     },
     {
       "step": 5,
-      "equation": "i*hbar*partial_t(psi) = - (hbar^2/(2*m))*nabla^2(psi) + V*psi"
+      "equation": "i*ħ*partial_t(psi) = - (ħ^2/(2*m))*nabla^2(psi) + V*psi"
     }
   ],
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Start from the classical energy-momentum relation for a particle in potential V."
+      "text": "Start from the classical energy-momentum relation for a particle in potential `V`."
     },
     {
       "step": 2,
-      "text": "Promote momentum to the operator -iħ∇ acting on ψ."
+      "text": "Promote momentum to the operator `-iħ∇` acting on `psi`."
     },
     {
       "step": 3,
-      "text": "Promote energy to the operator iħ∂/∂t acting on ψ."
+      "text": "Promote energy to the operator `iħ∂/∂t` acting on `psi`."
     },
     {
       "step": 4,
-      "text": "Apply both operators to ψ and equate to get an operator equation."
+      "text": "Apply both operators to `psi` and equate to get an operator equation."
     },
     {
       "step": 5,
-      "text": "Expand p^2 = (-iħ∇)^2 = −ħ²∇² and write the final Schrödinger equation."
+      "text": "Expand `p^2 = (-iħ∇)^2 = −ħ²∇²` and write the final Schrödinger equation."
     }
   ],
   "programmatic_verification": {
