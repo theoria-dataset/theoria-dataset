@@ -1,4 +1,4 @@
-/* filepath: c:\Users\Manuel\Google Drive\TheorIA Dataset\site\script.js */
+/* filepath: c:\Users\Manuel\Google Drive\TheorIA Dataset\docs\script.js */
 // Helpers
 const $ = (id) => document.getElementById(id);
 const qs = (sel) => document.querySelector(sel);
@@ -37,6 +37,12 @@ btn.addEventListener("click", () => {
   htmlEl.classList.contains("latex-dark") ? enableLight() : enableDark();
 });
 
+// Get the base URL for GitHub Pages or local development
+const isGitHubPages = window.location.hostname.includes("github.io");
+const baseUrl = isGitHubPages
+  ? "https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/main"
+  : "..";
+
 // Populate entries for both selectors
 fetch("index.json")
   .then((r) => r.json())
@@ -67,8 +73,8 @@ $("homeEntrySelector").addEventListener("change", () => {
   // Show entry view
   showEntryView();
 
-  // Load the entry
-  fetch(`../entries/${file}`)
+  // Load the entry using the appropriate base URL
+  fetch(`${baseUrl}/entries/${file}`)
     .then((r) => r.json())
     .then(render)
     .catch(console.error);
@@ -77,7 +83,10 @@ $("homeEntrySelector").addEventListener("change", () => {
 // Handler for entry selector in entry view
 $("entrySelector").addEventListener("change", () => {
   const file = $("entrySelector").value;
-  fetch(`../entries/${file}`)
+  if (!file) return;
+
+  // Load the entry using the appropriate base URL
+  fetch(`${baseUrl}/entries/${file}`)
     .then((r) => r.json())
     .then(render)
     .catch(console.error);
