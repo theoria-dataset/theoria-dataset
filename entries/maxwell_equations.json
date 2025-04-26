@@ -185,8 +185,7 @@
     },
     { "step": 12, "text": "Equate integrands to derive ∇×bbE = −∂bbB/∂t." },
 
-    { "step": 13,
-      "text": "State Ampère’s law for steady currents." },
+    { "step": 13, "text": "State Ampère’s law for steady currents." },
     {
       "step": 14,
       "text": "Include Maxwell’s displacement‑current term for time‑varying fields."
