@@ -71,7 +71,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
   ```
 
   - **`derivation`:**
-  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format. If the equation cannot be derived from other first principles, the 
+  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format. If the equation cannot be derived from other first principles, the
   - Each step should contain the `id` and `equation` fields.
   - The `step` field should be an integer, following the sequential order of the reasoning process.
   - The `equation` field should contain the equation in AsciiMath format, without any additional text such as explanations or assumptions.
@@ -198,8 +198,6 @@ The following fields are required in each entry JSON file. Ensure that all entri
 }
 ]
 ```
-
-- **`dataset_version`:** Must follow the format MAJOR.MINOR.PATCH (e.g., "1.0.0"). This should match the global version in `manifest.json`.
 
 - **`created_ by`:** Full name or ORCID of author of the entry.
 

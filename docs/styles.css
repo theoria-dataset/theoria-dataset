@@ -190,3 +190,62 @@ select option {
   background-color: #222;
   color: #fff;
 }
+
+/* Metadata footer styles */
+.entry-footer {
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  background: #f5f5f7; /* light mode default */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.latex-dark .entry-footer {
+  background: #2c2c2c;
+  border: 1px solid #444;
+}
+
+.metadata-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 2.2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 120px;
+}
+
+.metadata-item strong {
+  color: var(--primary);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.metadata-item span {
+  font-size: 0.97em;
+  color: #555;
+}
+
+.latex-dark .metadata-item span {
+  color: #b0b0b0;
+}
+
+@media (max-width: 600px) {
+  .metadata-grid {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .entry-footer {
+    padding: 0.5rem 0.7rem;
+  }
+}

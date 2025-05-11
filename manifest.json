@@ -54,7 +54,10 @@
     {
       "version": "0.2.5",
       "date": "2025-05-11",
-      "changes": ["Removed dataset version from entries"]
+      "changes": [
+        "Removed dataset version from entries",
+        "Added footer to each entry with licence in entries.html"
+      ]
     }
   ]
 }
