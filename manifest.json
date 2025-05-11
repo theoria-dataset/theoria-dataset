@@ -57,7 +57,6 @@
       "changes": [
         "Removed dataset version from entries",
         "Added footer to each entry with licence in entries.html"
-      ]
-    }
+        "index.html shows version from manifest.json"]
   ]
 }

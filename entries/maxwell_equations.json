@@ -22,7 +22,7 @@
   "equations_assumptions": [
     {
       "id": "eq_assump1",
-      "text": "The medium is free space (epsilon_0, mu_0 constants) but may contain charge rho(r,t) and current J(r,t)."
+      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`."
     },
     {
       "id": "eq_assump2",
@@ -30,48 +30,48 @@
     },
     {
       "id": "eq_assump3",
-      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so grad cdot B = 0."
+      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`."
     },
     {
       "id": "eq_assump4",
-      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations D = epsilon_0 * E and H = B/mu_0; consequently c^2 = 1/(epsilon_0 * mu_0)."
+      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
     }
   ],
 
-  "explanation": "With free charge density rho and current density J present, Maxwell's equations relate sources to the divergence of the electric field and to the curl of the magnetic field. Together with Faraday's law and the absence of magnetic monopoles, they predict electromagnetic waves and guarantee local charge conservation via the continuity equation.",
+  "explanation": "Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents. These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light. They are essential for understanding electromagnetic phenomena from radio waves to optics, and form the basis for electrical engineering and modern communications technology.",
 
   "definitions": [
     {
       "symbol": "E",
-      "definition": "Electric field vector (units V·m^-1)."
+      "definition": "Electric field vector (units `V·m^-1`)."
     },
     {
       "symbol": "B",
-      "definition": "Magnetic‑field vector (units T)."
+      "definition": "Magnetic‑field vector (units `T`)."
     },
     {
       "symbol": "rho",
-      "definition": "Charge‑density scalar (units C·m^-3)."
+      "definition": "Charge‑density scalar (units `C·m^-3`)."
     },
     {
       "symbol": "J",
-      "definition": "Current‑density vector (units A·m^-2)."
+      "definition": "Current‑density vector (units `A·m^-2`)."
     },
     {
       "symbol": "t",
-      "definition": "Time coordinate (units s)."
+      "definition": "Time coordinate (units `s`)."
     },
     {
       "symbol": "epsilon_0",
-      "definition": "Vacuum permittivity, electric constant or permitivity of free space. ε₀ ≈ 8.8541878188 × 10⁻¹² F·m⁻¹."
+      "definition": "Vacuum permittivity, electric constant or permitivity of free space. `epsilon_0 ≈ 8.8541878188 × 10⁻¹² F·m⁻¹.`"
     },
     {
       "symbol": "mu_0",
-      "definition": "Magnetic‑constant, vacuum magnetic permeability, vacuum permeability, permeability of free space or permeability of vacuum μ₀ = 4π × 10⁻⁷ H·m⁻¹."
+      "definition": "Magnetic‑constant, vacuum magnetic permeability, vacuum permeability, permeability of free space or permeability of vacuum `mu_0 = 4 pi × 10⁻⁷ H·m⁻¹`."
     },
     {
       "symbol": "c",
-      "definition": "Speed of light in vacuum, related by c^2 = 1/(epsilon_0*mu_0)."
+      "definition": "Speed of light in vacuum, related by `c^2 = 1/(epsilon_0*mu_0)`."
     }
   ],
   "derivation_assumptions": [
@@ -93,11 +93,11 @@
     },
     {
       "id": "assumption5",
-      "text": "The vacuum is linear, homogeneous, and isotropic, with D = epsilon_0 * E and B = mu_0 * H."
+      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`."
     },
     {
       "id": "assumption6",
-      "text": "Fields and sources are classical, smooth (C^1), and defined on flat space-time. Quantum and gravitational effects are ignored."
+      "text": "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
     }
   ],
   "derivation": [
@@ -142,7 +142,7 @@
       "equation": "curl(bbB) = mu_0*bbJ + (1/c^2)*partial(bbE)/partial(t)"
     },
 
-    { "step": 17, "equation": "partial(rho)/partial(t) + div(bbJ) = 0" }
+    { "step": 17, "equation": "(partial rho)/(partial t ) + grad bbJ = 0" }
   ],
 
   "derivation_explanation": [
@@ -152,9 +152,12 @@
     },
     {
       "step": 2,
-      "text": "Compute the flux of bbE through a sphere of radius r."
+      "text": "Compute the flux of `bbE` through a sphere of radius `r`."
     },
-    { "step": 3, "text": "Substitute bbE(r) to show the flux equals q/ε₀." },
+    {
+      "step": 3,
+      "text": "Substitute `bbE(r)` to show the flux equals `q/epsilon_0`."
+    },
     {
       "step": 4,
       "text": "Generalize by superposition to any charge distribution."
@@ -163,7 +166,10 @@
       "step": 5,
       "text": "Apply the divergence theorem to convert the surface integral into a volume integral."
     },
-    { "step": 6, "text": "Equate integrands to obtain ∇·bbE = ρ/ε₀." },
+    {
+      "step": 6,
+      "text": "Equate integrands to obtain `grad·bbE = rho/epsilon_0`."
+    },
 
     {
       "step": 7,
@@ -171,9 +177,9 @@
     },
     {
       "step": 8,
-      "text": "Use the divergence theorem to show zero net flux of bbB implies ∇·bbB = 0."
+      "text": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`"
     },
-    { "step": 9, "text": "Conclude ∇·bbB = 0." },
+    { "step": 9, "text": "Conclude `grad·bbB = 0`." },
 
     {
       "step": 10,
@@ -183,7 +189,10 @@
       "step": 11,
       "text": "Apply Stokes’ theorem to convert the loop integral to a surface integral of curl."
     },
-    { "step": 12, "text": "Equate integrands to derive ∇×bbE = −∂bbB/∂t." },
+    {
+      "step": 12,
+      "text": "Equate integrands to derive `grad xx bbE = - (partial bbB)/(partial t)`."
+    },
 
     { "step": 13, "text": "State Ampère’s law for steady currents." },
     {
@@ -196,12 +205,12 @@
     },
     {
       "step": 16,
-      "text": "Equate integrands to derive ∇×bbB = μ₀bbJ + (1/c²)∂bbE/∂t."
+      "text": "Equate integrands to derive `grad xx bbB = mu_0 bbJ + (1/c^2)(partial bbE)/(partial t)`."
     },
 
     {
       "step": 17,
-      "text": "Take divergence of the Ampère–Maxwell law and use ∇·bbE = ρ/ε₀ to recover charge conservation."
+      "text": "Take divergence of the Ampère–Maxwell law and use `grad · bbE = rho / epsilon_0` to recover charge conservation."
     }
   ],
   "programmatic_verification": {

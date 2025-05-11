@@ -181,9 +181,11 @@ function render(data) {
   const tbody = qs("#definitions tbody");
   tbody.innerHTML = "";
   data.definitions.forEach((d) => {
+    // Ensure symbol is wrapped in backticks if it's not already
+    const symbol = d.symbol.startsWith("`") ? d.symbol : `\`${d.symbol}\``;
     tbody.insertAdjacentHTML(
       "beforeend",
-      `<tr><td>${d.symbol}</td><td>${d.definition}</td></tr>`
+      `<tr><td>${symbol}</td><td>${d.definition}</td></tr>`
     );
   });
   MathJax.typesetPromise([qs("#definitions")]);
