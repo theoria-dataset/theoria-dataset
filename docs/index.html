@@ -192,7 +192,7 @@
             >CC-BY 4.0 License</a
           >. If you use it please cite it as:
         </p>
-        <pre><code>THEORIA Dataset, 2025, v0.0.1. Available at: https://github.com/theoria-dataset/theoria-dataset</code></pre>
+        <pre><code id="citation">Loading citation...</code></pre>
       </section>
 
       <section>
@@ -205,5 +205,19 @@
     </div>
 
     <script src="script.js" defer></script>
+    <script>
+      // Load and display the version from manifest.json
+      fetch("../manifest.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const citation = document.getElementById("citation");
+          citation.textContent = `TheorIA Dataset, 2025, v${data.dataset_version}. Available at: https://github.com/theoria-dataset/theoria-dataset`;
+        })
+        .catch((error) => {
+          console.error("Error loading manifest:", error);
+          document.getElementById("citation").textContent =
+            "TheorIA Dataset, 2025. Available at: https://github.com/theoria-dataset/theoria-dataset";
+        });
+    </script>
   </body>
 </html>

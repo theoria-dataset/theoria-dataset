@@ -10,7 +10,7 @@ TheorIA stands for Theoretical Physics Intelligent Anthology
 
 There is a [lack of curated datasets](https://manuelsh.github.io/blog/2025/datasets-for-advancing-Theoretical-Physics/) with all important equations and derivations of theoretical physics to train better machine learning models, beyond raw text in papers and books.
 
-THEORIA bridges that gap; it is the first datasets to provide a high-quality collection of theoretical physics equations, its respective derivations and explanations in a structured format.
+TheorIA bridges that gap; it is the first datasets being built to provide a high-quality collection of theoretical physics equations, its respective derivations and explanations in a structured format.
 
 We have an open license and encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics.
 
@@ -71,7 +71,7 @@ Feed `dataset.json` (or per‑entry files) straight into your training pipeline.
 Licensed under [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode.en). If you use it please cite it as:
 
 ```
-TheorIA Dataset, 2025, v0.0.1. Available at: https://github.com/theoria-dataset/theoria-dataset
+TheorIA Dataset, 2025, v0.2.5. Available at: https://github.com/theoria-dataset/theoria-dataset
 ```
 
 ## Contact

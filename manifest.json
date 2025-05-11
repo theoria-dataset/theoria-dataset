@@ -58,6 +58,11 @@
         "Removed dataset version from entries",
         "Added footer to each entry with licence in entries.html"
       ]
+    },
+    {
+      "version": "0.2.6",
+      "date": "2025-05-11",
+      "changes": ["index.html shows version from manifest.json"]
     }
   ]
 }
