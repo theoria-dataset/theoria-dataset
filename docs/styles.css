@@ -185,3 +185,8 @@ select option {
   color: white;
   background-color: #333;
 }
+
+.latex-dark select {
+  background-color: #222;
+  color: #fff;
+}
