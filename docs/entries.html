@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>TheorIA — Dataset Entries</title>
+    <!-- LaTeX.css dark theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css"
+    />
+    <!-- MathJax for AsciiMath -->
+    <script>
+      window.MathJax = {
+        loader: { load: ["input/asciimath", "output/chtml"] },
+        asciimath: { delimiters: [["`", "`"]] },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"
+      async
+    ></script>
+    <!-- highlight.js -->
+    <link
+      id="hl-theme"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
+      defer
+    ></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+    <div id="entryView" class="entry-view">
+      <button onclick="window.location.href='index.html'" class="cta-button">
+        ← Back to Home
+      </button>
+      <div class="controls">
+        <label for="entrySelector"><strong>Select Entry:</strong></label>
+        <select id="entrySelector">
+          <option value="">— choose one —</option>
+        </select>
+      </div>
+      <h1 id="title" style="display: none">Select an entry</h1>
+      <p id="explanation"></p>
+      <section id="equations" style="display: none">
+        <h2>Main result</h2>
+        <div id="equations-content"></div>
+      </section>
+      <section id="definitions" style="display: none">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+      <section id="assumptions" style="display: none">
+        <h2>Result assumptions</h2>
+        <ul></ul>
+      </section>
+      <section id="derivation" style="display: none">
+        <h2>Derivation</h2>
+        <section id="derivationAssumptions" style="display: none">
+          <h3>Assumptions</h3>
+          <ul></ul>
+        </section>
+        <section id="derivationSteps" style="display: none">
+          <h3>Derivation steps</h3>
+          <ol></ol>
+        </section>
+      </section>
+      <section id="programmaticVerification" style="display: none">
+        <h2>Programmatic Verification</h2>
+        <p><strong>Language:</strong> <span id="pv-language"></span></p>
+        <p><strong>Library:</strong> <span id="pv-library"></span></p>
+        <pre><code id="pv-code" class="language-python"></code></pre>
+      </section>
+      <section id="references" style="display: none">
+        <h2>References</h2>
+        <ul></ul>
+      </section>
+      <section class="metadata" style="display: none">
+        <small>
+          <ul>
+            <li>
+              <strong>Created By:</strong> <span id="meta-created"></span>
+            </li>
+            <li>
+              <strong>Review Status:</strong> <span id="meta-status"></span>
+            </li>
+          </ul>
+        </small>
+      </section>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
