@@ -18,7 +18,6 @@
     "programmatic_verification",
     "domain",
     "references",
-    "dataset_version",
     "created_by",
     "review_status"
   ],
@@ -173,11 +172,6 @@
           "citation": { "type": "string" }
         }
       }
-    },
-
-    "dataset_version": {
-      "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$"
     },
 
     "created_by": {
