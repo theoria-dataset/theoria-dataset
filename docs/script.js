@@ -41,69 +41,71 @@ const baseUrl = isGitHubPages
   : "..";
 
 // Populate entries for the selector in entries.html only
-fetch("index.json")
-  .then((r) => r.json())
-  .then((list) => {
-    list.forEach((fn) => {
-      const o1 = document.createElement("option");
-      o1.value = fn;
-      o1.textContent = fn.replace(".json", "");
-      $("entrySelector").appendChild(o1);
+if (window.location.pathname.includes("entries.html")) {
+  fetch("index.json")
+    .then((r) => r.json())
+    .then((list) => {
+      list.forEach((fn) => {
+        const o1 = document.createElement("option");
+        o1.value = fn;
+        o1.textContent = fn.replace(".json", "");
+        $("entrySelector").appendChild(o1);
+      });
     });
-  });
 
-// Handler for entry selector in entry view
-$("entrySelector").addEventListener("change", () => {
-  const file = $("entrySelector").value;
-  const sections = [
-    "equations",
-    "assumptions",
-    "derivationAssumptions",
-    "definitions",
-    "derivation",
-    "programmaticVerification",
-    "references",
-    "meta-domain",
-    "meta-dataset",
-    "meta-created",
-    "meta-status",
-  ];
-  // Also hide all section titles (h2, h1, etc) when no entry is selected
-  if (!file) {
-    $("title").style.display = "none";
-    $("explanation").textContent = "Select any entry to show it.";
-    // Hide all sections and their headings
+  // Handler for entry selector in entry view
+  $("entrySelector").addEventListener("change", () => {
+    const file = $("entrySelector").value;
+    const sections = [
+      "equations",
+      "assumptions",
+      "derivationAssumptions",
+      "definitions",
+      "derivation",
+      "programmaticVerification",
+      "references",
+      "meta-domain",
+      "meta-created",
+      "meta-status",
+      "metadata",
+    ];
+    // Also hide all section titles (h2, h1, etc) when no entry is selected
+    if (!file) {
+      $("title").style.display = "none";
+      $("explanation").textContent = "Select any entry to show it.";
+      // Hide all sections and their headings
+      sections.forEach((id) => {
+        const el = $(id) || qs(`.${id}`);
+        if (el) el.style.display = "none";
+        // Hide section headings (h2) inside each section
+        if (el && el.querySelector && el.querySelector("h2")) {
+          el.querySelector("h2").style.display = "none";
+        }
+      });
+      // Hide all h2s globally (for metadata section)
+      document
+        .querySelectorAll("#entryView h2")
+        .forEach((h) => (h.style.display = "none"));
+      return;
+    }
+    $("title").style.display = "";
     sections.forEach((id) => {
       const el = $(id) || qs(`.${id}`);
-      if (el) el.style.display = "none";
-      // Hide section headings (h2) inside each section
+      if (el) el.style.display = "";
       if (el && el.querySelector && el.querySelector("h2")) {
-        el.querySelector("h2").style.display = "none";
+        el.querySelector("h2").style.display = "";
       }
     });
-    // Hide all h2s globally (for metadata section)
     document
       .querySelectorAll("#entryView h2")
-      .forEach((h) => (h.style.display = "none"));
-    return;
-  }
-  $("title").style.display = "";
-  sections.forEach((id) => {
-    const el = $(id) || qs(`.${id}`);
-    if (el) el.style.display = "";
-    if (el && el.querySelector && el.querySelector("h2")) {
-      el.querySelector("h2").style.display = "";
-    }
+      .forEach((h) => (h.style.display = ""));
+    // Load the entry using the appropriate base URL
+    fetch(`${baseUrl}/entries/${file}`)
+      .then((r) => r.json())
+      .then(render)
+      .catch(console.error);
   });
-  document
-    .querySelectorAll("#entryView h2")
-    .forEach((h) => (h.style.display = ""));
-  // Load the entry using the appropriate base URL
-  fetch(`${baseUrl}/entries/${file}`)
-    .then((r) => r.json())
-    .then(render)
-    .catch(console.error);
-});
+}
 
 // Render function
 function render(data) {
@@ -120,9 +122,9 @@ function render(data) {
     "programmaticVerification",
     "references",
     "meta-domain",
-    "meta-dataset",
     "meta-created",
     "meta-status",
+    "metadata",
   ].forEach((id) => {
     const el = $(id) || qs(`.${id}`);
     if (el) el.style.display = "";
@@ -198,7 +200,6 @@ function render(data) {
   MathJax.typesetPromise([qs("#references")]);
 
   $("meta-domain").textContent = data.domain;
-  $("meta-dataset").textContent = data.dataset_version;
   $("meta-created").textContent = data.created_by;
   $("meta-status").textContent = data.review_status;
 
