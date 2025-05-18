@@ -1,5 +1,18 @@
 [
+  "bernoulli_equation.json",
+  "dirac_equation_em.json",
+  "dirac_equation_free.json",
+  "first_law_thermodynamics.json",
+  "fourier_heat_conduction.json",
+  "ideal_gas_law.json",
+  "klein_gordon_equation.json",
   "lorentz_transformations.json",
+  "mass_energy_equivalence.json",
   "maxwell_equations.json",
-  "schroedingen_equation.json"
+  "maxwell_lorenz_gauge.json",
+  "navier_stokes_incompressible.json",
+  "noethers_theorem.json",
+  "qed_lagrangian.json",
+  "schroedingen_equation.json",
+  "stefan_boltzmann_law.json"
 ]

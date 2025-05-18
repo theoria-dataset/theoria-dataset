@@ -1,0 +1,184 @@
+{
+  "result_name": "Maxwell's Equations (Lorenz Gauge)",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*phi = -rho/epsilon_0"
+    },
+    {
+      "id": "eq2",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*vec A = -mu_0*vec J"
+    },
+    {
+      "id": "eq3",
+      "equation": "nabla dot vec A + (1/c^2)*partial phi/partial t = 0"
+    }
+  ],
+  "explanation": "In Lorenz gauge, Maxwell's equations for the scalar (phi) and vector (vec A) electromagnetic potentials reduce to decoupled inhomogeneous wave equations driven by charge and current densities. These forms make the causal propagation of electromagnetic influences explicit, simplify relativistic formulations, and are widely used in field quantisation and numerical electrodynamics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Sources are represented by smooth charge density `rho` and current density `vec J`."
+    }
+  ],
+  "definitions": [
+    { "symbol": "phi", "definition": "Scalar electromagnetic potential." },
+    { "symbol": "vec A", "definition": "Vector electromagnetic potential." },
+    { "symbol": "rho", "definition": "Electric charge density." },
+    { "symbol": "vec J", "definition": "Electric current density." },
+    { "symbol": "epsilon_0", "definition": "Vacuum permittivity." },
+    { "symbol": "mu_0", "definition": "Vacuum permeability." },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum, `c = 1/sqrt(mu_0*epsilon_0)`."
+    },
+    {
+      "symbol": "nabla",
+      "definition": "Vector differential operator with respect to spatial coordinates."
+    },
+    { "symbol": "t", "definition": "Time coordinate." }
+  ],
+  "derivation": [
+    { "id": "der1", "step": 1, "equation": "nabla dot vec E = rho/epsilon_0" },
+    {
+      "id": "der2",
+      "step": 2,
+      "equation": "vec E = -nabla phi - partial vec A/partial t"
+    },
+    {
+      "id": "der3",
+      "step": 3,
+      "equation": "-nabla^2 phi - partial/partial t(nabla dot vec A) = rho/epsilon_0"
+    },
+    {
+      "id": "der4",
+      "step": 4,
+      "equation": "nabla dot vec A + (1/c^2)*partial phi/partial t = 0"
+    },
+    {
+      "id": "der5",
+      "step": 5,
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*phi = -rho/epsilon_0"
+    },
+    {
+      "id": "der6",
+      "step": 6,
+      "equation": "nabla cross vec B - (1/c^2)*partial vec E/partial t = mu_0*vec J"
+    },
+    { "id": "der7", "step": 7, "equation": "vec B = nabla cross vec A" },
+    {
+      "id": "der8",
+      "step": 8,
+      "equation": "nabla cross (nabla cross vec A) + (1/c^2)*partial/partial t(nabla phi + partial vec A/partial t) = mu_0*vec J"
+    },
+    {
+      "id": "der9",
+      "step": 9,
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*vec A = -mu_0*vec J"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`."
+    },
+    {
+      "id": "ass2",
+      "text": "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`)."
+    },
+    {
+      "id": "ass3",
+      "text": "Fields and sources are sufficiently smooth to permit interchange of derivatives."
+    }
+  ],
+  "derivation_explanation": [
+    { "step": 1, "text": "Start with Gauss's law for electricity." },
+    {
+      "step": 2,
+      "text": "Express the electric field in terms of scalar and vector potentials."
+    },
+    {
+      "step": 3,
+      "text": "Insert the potentials into Gauss's law and rearrange the derivatives."
+    },
+    {
+      "step": 4,
+      "text": "Impose the Lorenz gauge to relate the divergence of `vec A` to the time derivative of `phi`."
+    },
+    {
+      "step": 5,
+      "text": "Combine the previous two steps to obtain the inhomogeneous wave equation for the scalar potential."
+    },
+    {
+      "step": 6,
+      "text": "Write Ampère–Maxwell law with Maxwell's displacement current term."
+    },
+    {
+      "step": 7,
+      "text": "Express the magnetic field through the vector potential."
+    },
+    {
+      "step": 8,
+      "text": "Substitute potentials into Ampère–Maxwell law and use the vector identity `nabla cross (nabla cross vec A) = nabla(nabla dot vec A) - nabla^2 vec A`."
+    },
+    {
+      "step": 9,
+      "text": "Employ the Lorenz gauge again to isolate the vector potential, yielding its wave equation."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11",
+    "library": "sympy 1.12",
+    "code": [
+      "import sympy as sp",
+      "# ---- Verification that wave equations + Lorenz gauge imply charge conservation ----",
+      "t, x, y, z, c = sp.symbols('t x y z c', positive=True)",
+      "epsilon0, mu0 = sp.symbols('epsilon0 mu0', positive=True)",
+      "phi = sp.Function('phi')(x, y, z, t)",
+      "Ax = sp.Function('Ax')(x, y, z, t)",
+      "Ay = sp.Function('Ay')(x, y, z, t)",
+      "Az = sp.Function('Az')(x, y, z, t)",
+      "# Define the d'Alembert operator",
+      "def box(f):\n    return sp.diff(f, x, 2) + sp.diff(f, y, 2) + sp.diff(f, z, 2) - 1/c**2 * sp.diff(f, t, 2)",
+      "# Source definitions from wave equations",
+      "rho = -epsilon0*box(phi)",
+      "Jx  = -1/mu0*box(Ax)",
+      "Jy  = -1/mu0*box(Ay)",
+      "Jz  = -1/mu0*box(Az)",
+      "# Continuity equation (should be zero when satisfied)",
+      "continuity = sp.diff(rho, t) + sp.diff(Jx, x) + sp.diff(Jy, y) + sp.diff(Jz, z)",
+      "# Substitute relation mu0*epsilon0*c**2 = 1",
+      "continuity = continuity.subs(mu0, 1/(epsilon0*c**2))",
+      "# Substitute Lorenz gauge to eliminate div A in favour of d(phi)/dt",
+      "lorenz = sp.diff(Ax, x) + sp.diff(Ay, y) + sp.diff(Az, z) + 1/c**2*sp.diff(phi, t)",
+      "continuity = continuity.expand().subs(sp.diff(Ax, x) + sp.diff(Ay, y) + sp.diff(Az, z), -1/c**2*sp.diff(phi, t))",
+      "# Simplify the expression; it should vanish identically",
+      "assert sp.simplify(continuity) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Jackson, J. D. (1999). *Classical Electrodynamics* (3rd ed.). Wiley."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2013). *Introduction to Electrodynamics* (4th ed.). Pearson."
+    },
+    {
+      "id": "R3",
+      "citation": "Lorenz, L. (1867). 'Über die Identität der Schwingungen des Lichts mit den elektrischen Strömen.' *Annalen der Physik und Chemie*, 131(10), 243–263."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

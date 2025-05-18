@@ -55,7 +55,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 
 - **`definitions`:**
 
-  - Define every symbol used in the equations, to ensure the entry is self-contained.
+  - Define every symbol used in the `result_equations` field, to ensure the entry is self-contained.
   - Each definition should include a `symbol` field, with the symbol represented in AsciiMath format and a `definition` field.
   - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
@@ -117,6 +117,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 - **`derivation_explanation`:**
 
   - Add textual explanations for each step. Not all steps need explanations, as some may be self-evident.
+  - If new symbols appear, define them.
   - Each explanation object consists of:
     - "step": An integer that must coincide with the corresponding one in the `derivation`.
     - "text": A concise and clear description of the rationale behind certain steps in the derivation process.

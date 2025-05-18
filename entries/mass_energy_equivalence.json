@@ -1,0 +1,197 @@
+{
+  "result_name": "Mass–Energy Equivalence",
+  "result_equations": [{ "id": "eq1", "equation": "E = m*c^2" }],
+  "explanation": "Einstein's relation `E = m*c^2` states that the rest energy of a body equals its invariant mass times the square of the speed of light. The formula unifies mass and energy, showing that mass can be converted to other energy forms and vice-versa. It underlies nuclear fission, fusion, particle–antiparticle creation and stellar power generation. Physicists use it whenever reaction thresholds, binding energies or annihilation yields must be balanced.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Special-relativity postulates hold; inertial frames are related by `gamma = 1/sqrt(1 - v^2/c^2)`."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "E",
+      "definition": "Rest energy, or energy of a body at rest."
+    },
+    { "symbol": "m", "definition": "Invariant rest mass." },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum (`3*10^8 m*s^-1`)."
+    }
+  ],
+  "derivation": [
+    { "step": 1, "equation": "gamma = 1/sqrt(1 - v^2/c^2)" },
+    { "step": 2, "equation": "vec p = gamma*m*vec v" },
+    { "step": 3, "equation": "vec F = (d vec p)/(dt)" },
+    { "step": 4, "equation": "dK = vec F * d vec r" },
+    { "step": 5, "equation": "dK = vec v * d vec p" },
+    { "step": 6, "equation": "dK = vec v * d(gamma*m*vec v)" },
+    { "step": 7, "equation": "dK = v * d(gamma*m*v)" },
+    { "step": 8, "equation": "d(gamma*m*v) = m * d(gamma*v)" },
+    { "step": 9, "equation": "d(gamma*v) = gamma^3 dv" },
+    { "step": 10, "equation": "d(gamma*m*v) = m*gamma^3 dv" },
+    { "step": 11, "equation": "dK = m*gamma^3*v dv" },
+    { "step": 12, "equation": "K = int_0^v m*gamma'^3*v' dv'" },
+    { "step": 13, "equation": "int m*gamma'^3*v' dv' = gamma'*m*c^2" },
+    {
+      "step": 14,
+      "equation": "K = [gamma'*m*c^2]_text(v'=0)^(v'=v) = (gamma*m*c^2 - m*c^2)"
+    },
+    { "step": 15, "equation": "E = K + E_0" },
+    { "step": 16, "equation": "E = gamma*m*c^2" },
+    { "step": 17, "equation": "E_0 = m*c^2" }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assump_deriv_1",
+      "text": "The principles of special relativity hold (e.g., the form of physical laws is the same in all inertial frames, the speed of light `c` is constant)."
+    },
+    {
+      "id": "assump_deriv_2",
+      "text": "Relativistic momentum of a particle with rest mass `m` and velocity `vec v` is `vec p = gamma*m*vec v`."
+    },
+    {
+      "id": "assump_deriv_3",
+      "text": "The work-energy theorem (`dK = vec F * d vec r`) and the definition of force (`vec F = d vec p / dt`) are applicable in relativistic mechanics."
+    },
+    {
+      "id": "assump_deriv_4",
+      "text": "Kinetic energy `K` is defined as the work done to accelerate a particle from rest to velocity `v`."
+    },
+    {
+      "id": "assump_deriv_5",
+      "text": "Total energy `E` is the sum of kinetic energy `K` and rest energy `E_0` (energy at `v=0`)."
+    },
+    {
+      "id": "assump_deriv_6",
+      "text": "The expression `gamma*m*c^2` is identified as the total relativistic energy `E` of a particle."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define the Lorentz factor `gamma` as a function of speed `v` and speed of light `c`."
+    },
+    {
+      "step": 2,
+      "text": "Define relativistic momentum `vec p` for a particle of rest mass `m` and velocity `vec v`."
+    },
+    {
+      "step": 3,
+      "text": "Define relativistic force `vec F` as the time rate of change of relativistic momentum."
+    },
+    {
+      "step": 4,
+      "text": "State the work-energy theorem: the infinitesimal change in kinetic energy `dK` due to work done by the net force is `vec F * d vec r`."
+    },
+    {
+      "step": 5,
+      "text": "Rewrite `dK` using `dt`: `dK = ((d vec p)/dt) * d vec r = d vec p * ((d vec r)/dt) = vec v * d vec p`."
+    },
+    {
+      "step": 6,
+      "text": "Substitute the definition of relativistic momentum into the expression for `dK`."
+    },
+    {
+      "step": 7,
+      "text": "For one-dimensional motion, `vec v * d(gamma*m*vec v)` simplifies to `v * d(gamma*m*v)`, where `v` is the speed."
+    },
+    {
+      "step": 8,
+      "text": "Since the rest mass `m` is constant, factor it out of the differential: `d(gamma*m*v) = m * d(gamma*v)`."
+    },
+    {
+      "step": 9,
+      "text": "The derivative of `gamma*v` with respect to `v` is `d(gamma*v)/dv = gamma^3`. Therefore, the differential `d(gamma*v)` is `gamma^3 dv` (where `dv` is the differential of `v`)."
+    },
+    {
+      "step": 10,
+      "text": "Substitute the result from step 9 back into the expression from step 8: `d(gamma*m*v) = m*gamma^3 dv`."
+    },
+    {
+      "step": 11,
+      "text": "Substitute this into the expression for `dK` from step 7: `dK = m*gamma^3*v dv`."
+    },
+    {
+      "step": 12,
+      "text": "Integrate `dK` from an initial speed `v'=0` to a final speed `v'=v` to find the total kinetic energy `K`. The variables `v'` and `gamma'` (where `gamma'` depends on `v'`) are used for integration."
+    },
+    {
+      "step": 13,
+      "text": "Evaluate the indefinite integral `int m*gamma'^3*v' dv'`, which is `int m*(v')/(1-(v')^2/c^2)^(3/2) dv'`. This yields `gamma'*m*c^2` (plus an integration constant, handled by the definite integral limits)."
+    },
+    {
+      "step": 14,
+      "text": "Evaluate the definite integral between `v'=0` (where `gamma'=1`) and `v'=v` (where `gamma'=gamma`), resulting in `K = gamma*m*c^2 - m*c^2`. This is the relativistic kinetic energy."
+    },
+    {
+      "step": 15,
+      "text": "The total energy `E` of a particle is defined as the sum of its kinetic energy `K` and its rest energy `E_0` (energy when `v=0`)."
+    },
+    {
+      "step": 16,
+      "text": "The total relativistic energy `E` is also identified as `gamma*m*c^2`. This expression consistently incorporates both kinetic energy and the energy associated with rest mass."
+    },
+    {
+      "step": 17,
+      "text": "Equating the expression for `E` from step 15 (using `K` from step 14) with `E` from step 16: `(gamma*m*c^2 - m*c^2) + E_0 = gamma*m*c^2`. This simplifies to `E_0 = m*c^2`, identifying the rest energy."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11",
+    "library": "sympy 1.12",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "m, c, v = sp.symbols('m c v', positive=True, real=True)",
+      "v_prime = sp.symbols('v_prime', real=True) # Integration variable",
+      "",
+      "# Step 1: Lorentz factor gamma (in terms of final speed v)",
+      "gamma = 1/sp.sqrt(1 - v**2/c**2)",
+      "",
+      "# Step 11 & 12: Define the integrand for kinetic energy dK = m*gamma_prime**3*v_prime dv_prime",
+      "# Integrand is m * v_prime / (1 - v_prime**2/c**2)**(3/2)",
+      "# gamma_prime would be 1/sp.sqrt(1 - v_prime**2/c**2)",
+      "# So gamma_prime**3 * v_prime = v_prime / (1 - v_prime**2/c**2)**(sp.Rational(3,2))",
+      "integrand = m * v_prime / (1 - v_prime**2/c**2)**(sp.Rational(3,2))",
+      "",
+      "# Step 13 & 14: Calculate kinetic energy K by integrating integrand from 0 to v",
+      "# K = integral_0^v (integrand) dv'",
+      "K_derived = sp.integrate(integrand, (v_prime, 0, v))",
+      "",
+      "# Expected kinetic energy from derivation step 14",
+      "K_expected = gamma*m*c**2 - m*c**2",
+      "",
+      "# Verify that the derived kinetic energy matches the expected formula",
+      "# We need to ensure SymPy can simplify the result of the integration, which can be complex.",
+      "# It's often better to test if their difference simplifies to zero.",
+      "assert sp.simplify(K_derived - K_expected) == 0, f\"Kinetic energy derivation mismatch. Derived: {K_derived}, Expected: {K_expected}\"",
+      "",
+      "# Step 16: Total relativistic energy E is gamma*m*c**2",
+      "E_total = gamma*m*c**2",
+      "",
+      "# Step 17: Rest energy E_0 is obtained by setting v=0 in E_total",
+      "# E_0 = E_total.subs(v, 0)",
+      "# When v=0, gamma = 1/sp.sqrt(1 - 0) = 1.",
+      "E0_derived = E_total.subs(v,0)",
+      "E0_expected = m*c**2",
+      "",
+      "# Verify that the rest energy E_0 is m*c**2",
+      "assert sp.simplify(E0_derived - E0_expected) == 0, f\"Rest energy E_0 mismatch. Derived: {E0_derived}, Expected: {E0_expected}\""
+    ]
+  },
+  "domain": "gr-qc",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Einstein, A. (1905). *Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?* Annalen der Physik, 18, 639–641."
+    },
+    {
+      "id": "R2",
+      "citation": "Kleppner, D., & Kolenkow, R. J. (2014). *An Introduction to Mechanics* (2nd ed.). Cambridge University Press. (Chapter 13 provides a derivation of relativistic energy)."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

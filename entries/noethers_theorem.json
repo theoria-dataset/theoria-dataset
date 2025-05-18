@@ -1,0 +1,216 @@
+{
+  "result_name": "Noether's Theorem",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "J = sum_i ( (del L)/(del dot q_i) X_(q_i) ) - ( sum_i ( (del L)/(del dot q_i) dot q_i ) - L ) X_t"
+    },
+    {
+      "id": "eq2",
+      "equation": "dJ/dt = 0"
+    }
+  ],
+  "explanation": "Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities. For example, time translation symmetry leads to energy conservation, spatial translation symmetry to linear momentum conservation, and rotational symmetry to angular momentum conservation. It is a cornerstone of theoretical physics, providing deep insights into the structure of physical laws.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The physical system is described by a Lagrangian `L` that is a function of generalized coordinates `q_i`, generalized velocities `dot q_i`, and time `t`."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The action `S = int L dt` is invariant under a continuous infinitesimal transformation of coordinates and time."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The transformation is characterized by generators `X_(q_i)` for coordinates and `X_t` for time, such that `delta q_i = epsilon X_(q_i)` and `delta t = epsilon X_t`, where `epsilon` is an infinitesimal parameter."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "L",
+      "definition": "The Lagrangian of the physical system, typically `L = T - V`, where `T` is kinetic energy and `V` is potential energy. It is a function `L(q_i, dot q_i, t)`."
+    },
+    {
+      "symbol": "q_i",
+      "definition": "The generalized coordinates of the system. The subscript `i` indexes the degrees of freedom."
+    },
+    {
+      "symbol": "dot q_i",
+      "definition": "The generalized velocities of the system, representing the time derivatives of the generalized coordinates, `dq_i/dt`."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time."
+    },
+    {
+      "symbol": "X_(q_i)",
+      "definition": "The generator of the infinitesimal transformation for the generalized coordinate `q_i`. It defines how `q_i` changes under the symmetry transformation: `delta q_i = epsilon X_(q_i)`."
+    },
+    {
+      "symbol": "X_t",
+      "definition": "The generator of the infinitesimal transformation for time `t`. It defines how `t` changes under the symmetry transformation: `delta t = epsilon X_t`."
+    },
+    {
+      "symbol": "epsilon",
+      "definition": "An infinitesimal parameter characterizing the 'amount' of transformation."
+    },
+    {
+      "symbol": "(del L)/(del dot q_i)",
+      "definition": "The partial derivative of the Lagrangian `L` with respect to the generalized velocity `dot q_i`. This is also known as the generalized momentum `p_i` conjugate to `q_i`."
+    },
+    {
+      "symbol": "J",
+      "definition": "The conserved quantity, also known as the Noether charge or Noether current, associated with the continuous symmetry."
+    },
+    {
+      "symbol": "sum_i",
+      "definition": "Represents the summation over all generalized coordinates indexed by `i`."
+    },
+    {
+      "symbol": "dJ/dt",
+      "definition": "The total time derivative of the conserved quantity `J`. Noether's theorem states this is zero."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "delta S = delta (int L(q_i, dot q_i, t) dt) = 0"
+    },
+    {
+      "step": 2,
+      "equation": "delta S = int [ sum_i ( (del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) ) (X_(q_i) - dot q_i X_t) + d/dt ( L X_t + sum_i ((del L)/(del dot q_i)) (X_(q_i) - dot q_i X_t) ) ] dt"
+    },
+    {
+      "step": 3,
+      "equation": "(del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) = 0"
+    },
+    {
+      "step": 4,
+      "equation": "delta S = int [ d/dt ( L X_t + sum_i ((del L)/(del dot q_i)) (X_(q_i) - dot q_i X_t) ) ] dt = 0"
+    },
+    {
+      "step": 5,
+      "equation": "J = sum_i ((del L)/(del dot q_i) X_(q_i)) - (sum_i ((del L)/(del dot q_i) dot q_i) - L) X_t"
+    },
+    {
+      "step": 6,
+      "equation": "dJ/dt = 0"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "The system obeys the principle of stationary action, meaning the path taken by the system minimizes the action, leading to the Euler-Lagrange equations."
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "The Lagrangian `L` is a sufficiently smooth (differentiable) function of its arguments `q_i, dot q_i, t`."
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "The symmetry transformation is continuous and differentiable, allowing for infinitesimal changes `delta q_i` and `delta t`."
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "The variations `delta q_i` and `delta t` vanish at the endpoints of integration if boundary terms are to be ignored, or the Lagrangian transforms by a total time derivative that matches boundary terms."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "The derivation starts from the fundamental assumption that the action `S` is invariant (`delta S = 0`) under an infinitesimal continuous symmetry transformation."
+    },
+    {
+      "step": 2,
+      "text": "The variation of the action `delta S` is expressed in terms of variations of coordinates `delta q_i = epsilon X_(q_i)` and time `delta t = epsilon X_t`. This expression involves the Lagrangian and its derivatives."
+    },
+    {
+      "step": 3,
+      "text": "The Euler-Lagrange equations, `(del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) = 0`, which describe the equations of motion of the system, are used. These equations hold for the physical path of the system."
+    },
+    {
+      "step": 4,
+      "text": "Applying the Euler-Lagrange equations simplifies the expression for `delta S` to the integral of a total time derivative of a certain quantity. For `delta S` to be zero, this quantity evaluated at the boundaries must be zero, or the quantity itself must be conserved if the boundary terms vanish appropriately."
+    },
+    {
+      "step": 5,
+      "text": "The quantity whose total time derivative appears in the integrand is identified as the (negative of the) Noether current or charge, `J`. Its specific form depends on the Lagrangian and the generators of the symmetry `X_(q_i)` and `X_t`."
+    },
+    {
+      "step": 6,
+      "text": "The condition `delta S = 0` (after considering boundary conditions) implies that the total time derivative of `J` is zero, `dJ/dt = 0`, meaning `J` is a conserved quantity."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.x.x",
+    "library": "sympy 1.x.x",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "t, m, x_t, v_t, a_t = sp.symbols('t m x_t v_t a_t', real=True)",
+      "V_x = sp.Function('V')(x_t)",
+      "",
+      "# Define x(t) and its derivatives for substitution",
+      "x = sp.Function('x')(t)",
+      "v = x.diff(t)",
+      "a = v.diff(t)",
+      "",
+      "# Lagrangian for a particle in 1D with potential V(x)",
+      "L = 0.5 * m * v**2 - V_x.subs(x_t, x)",
+      "",
+      "# Euler-Lagrange equation: d/dt(dL/dv) - dL/dx = 0",
+      "dL_dv = L.diff(v)",
+      "ddt_dL_dv = dL_dv.diff(t).subs([(x.diff(t,t),a_t), (x.diff(t),v_t), (x,x_t)]) # substitute for explicit evaluation",
+      "dL_dx = L.diff(x).subs([(x.diff(t,t),a_t), (x.diff(t),v_t), (x,x_t)])",
+      "euler_lagrange_eq = sp.Eq(ddt_dL_dv, dL_dx)",
+      "# Represents m*a = -dV/dx",
+      "",
+      "# Hamiltonian (conserved energy for time-translation symmetry)",
+      "# H = p*v - L, where p = dL/dv",
+      "p = L.diff(v) # p = m*v",
+      "H_expr = p*v - L",
+      "H_simplified = sp.simplify(H_expr)",
+      "# H_simplified should be 0.5*m*v**2 + V(x)",
+      "",
+      "# Verify dH/dt = 0 using Euler-Lagrange equation",
+      "# dH/dt = d/dt ( (dL/dv)*v - L )",
+      "# dH/dt = (d/dt(dL/dv))*v + (dL/dv)*a - dL/dt",
+      "# dL/dt = (dL/dx)*v + (dL/dv)*a (since L has no explicit t dependence for conservation of H)",
+      "# So, dH/dt = (d/dt(dL/dv) - dL/dx) * v",
+      "dH_dt_symbolic = (ddt_dL_dv - dL_dx) * v_t",
+      "",
+      "# Substitute Euler-Lagrange (m*a_t = -dV/dx) into dH/dt",
+      "# From euler_lagrange_eq, ddt_dL_dv - dL_dx = 0",
+      "dH_dt_verified = sp.simplify(dH_dt_symbolic.subs(euler_lagrange_eq.lhs - euler_lagrange_eq.rhs, 0)) # This is conceptually what we want to show",
+      "# More direct: substitute the EL equation into the expression",
+      "dH_dt_final = (euler_lagrange_eq.lhs - euler_lagrange_eq.rhs) * v_t.subs(x,x_t).subs(v, v_t)",
+      "assert sp.simplify(dH_dt_final) == 0",
+      "",
+      "# Print a confirmation if successful (code will be executed, assert will check)",
+      "print('Programmatic verification conceptual check: dH/dt simplifies to 0 if Euler-Lagrange holds.')",
+      "print(f'Hamiltonian H = {H_simplified.subs([(x.diff(t),v_t),(x,x_t)])}')",
+      "print(f'Euler-Lagrange equation: {ddt_dL_dv.subs([(x.diff(t,t),a_t), (x.diff(t),v_t), (x,x_t)])} = {dL_dx.subs([(x.diff(t,t),a_t), (x.diff(t),v_t), (x,x_t)])}')",
+      "print(f'Symbolic dH/dt based on EL: {dH_dt_symbolic}')",
+      "print(f'Simplified dH/dt (should be 0): {sp.simplify(dH_dt_final)}')",
+      "print('Verification successful if the last line is 0 and assert passes.')"
+    ]
+  },
+  "domain": "math-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Noether, E. (1918). Invariante Variationsprobleme. *Nachrichten von der Königlichen Gesellschaft der Wissenschaften zu Göttingen, Mathematisch-physikalische Klasse*, 1918, 235–257."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C. P., & Safko, J. L. (2002). *Classical Mechanics* (3rd ed.). Addison Wesley. (Chapter 13 discusses Noether's Theorem)."
+    },
+    {
+      "id": "R3",
+      "citation": "Lanczos, C. (1970). *The Variational Principles of Mechanics* (4th ed.). Dover Publications. (Chapter 4, Section 10 discusses symmetry and conservation laws)."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

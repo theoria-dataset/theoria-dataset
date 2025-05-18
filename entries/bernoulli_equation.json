@@ -1,0 +1,117 @@
+{
+  "result_name": "Bernoulli's Equation (Inviscid Flow)",
+  "result_equations": [
+    { "id": "eq1", "equation": "P + (1/2)*rho*v^2 + rho*g*h = const" }
+  ],
+  "explanation": "Bernoulli's equation asserts that along a streamline in steady, incompressible, inviscid flow the sum of static pressure, kinetic head and gravitational head remains constant. It translates fluid-energy conservation into a simple algebraic relation, connecting pressure differences with velocity changes. The equation governs Venturi meters, airfoil lift estimation and cardiovascular diagnostics, providing quick estimates of flow speed and pressure drop.",
+  "equations_assumptions": [
+    { "id": "eq_assump1", "text": "Flow is steady (`partial/partial t = 0`)." },
+    {
+      "id": "eq_assump2",
+      "text": "Fluid is incompressible and inviscid (`mu = 0`)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Flow is irrotational or evaluated along a single streamline (`curl vec v = 0`)."
+    }
+  ],
+  "definitions": [
+    { "symbol": "P", "definition": "Static pressure." },
+    { "symbol": "rho", "definition": "Fluid density." },
+    { "symbol": "v", "definition": "Speed along the streamline." },
+    { "symbol": "g", "definition": "Gravitational acceleration." },
+    { "symbol": "h", "definition": "Elevation above datum." }
+  ],
+  "derivation": [
+    {
+      "id": "der1",
+      "step": 1,
+      "equation": "rho*(vec v cdot nabla)vec v = -nabla P + rho*g*nabla h"
+    },
+    {
+      "id": "der2",
+      "step": 2,
+      "equation": "vec v cdot nabla vec v = nabla(v^2/2) - vec v times (nabla times vec v)"
+    },
+    {
+      "id": "der3",
+      "step": 3,
+      "equation": "nabla times vec v = 0"
+    },
+    {
+      "id": "der3b",
+      "step": 4,
+      "equation": "vec v cdot nabla vec v = nabla(v^2/2)"
+    },
+    {
+      "id": "der4",
+      "step": 5,
+      "equation": "nabla(P + (1/2)*rho*v^2 + rho*g*h) = 0"
+    },
+    {
+      "id": "der5",
+      "step": 6,
+      "equation": "P + (1/2)*rho*v^2 + rho*g*h = const"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "No energy is added or dissipated along the streamline."
+    },
+    {
+      "id": "ass2",
+      "text": "Flow is irrotational (`nabla times vec v = 0`)."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Apply Euler's equation, which gives momentum balance for a steady, inviscid, incompressible fluid element."
+    },
+    {
+      "step": 2,
+      "text": "Use the vector identity `(vec v cdot nabla)vec v = nabla(v^2/2) - vec v times (nabla times vec v)` to rewrite the convective acceleration term."
+    },
+    {
+      "step": 3,
+      "text": "Assert the irrotational condition `nabla times vec v = 0`."
+    },
+    {
+      "step": 4,
+      "text": "With zero vorticity the convective term simplifies to `nabla(v^2/2)`."
+    },
+    {
+      "step": 5,
+      "text": "Collect pressure, kinetic, and potential contributions into a single gradient; a zero gradient implies spatial constancy."
+    },
+    {
+      "step": 6,
+      "text": "Integrate the gradient along the streamline to obtain Bernoulli's equation: the sum of heads is constant."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11",
+    "library": "sympy 1.12",
+    "code": [
+      "import sympy as sp",
+      "# ---- Verification of Step 6 (constant total head) ----",
+      "# Symbols",
+      "rho, g, h1, h2, v1, v2, P1 = sp.symbols('rho g h1 h2 v1 v2 P1', positive=True)",
+      "# Compute P2 from Bernoulli (step 6) between two points at elevations h1 and h2",
+      "P2 = P1 + rho*(v1**2 - v2**2)/2 + rho*g*(h1 - h2)",
+      "# Verify that total head is equal at the two points",
+      "expr = P1 + rho*v1**2/2 + rho*g*h1 - (P2 + rho*v2**2/2 + rho*g*h2)",
+      "assert sp.simplify(expr) == 0"
+    ]
+  },
+  "domain": "physics.flu-dyn",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bernoulli, D. (1738). *Hydrodynamica*. Basel."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

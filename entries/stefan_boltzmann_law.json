@@ -1,0 +1,143 @@
+{
+  "result_name": "Stefan–Boltzmann Law",
+  "result_equations": [{ "id": "eq1", "equation": "j^* = sigma*T^4" }],
+  "explanation": "The Stefan–Boltzmann law gives the radiant energy flux emitted by an ideal black body as the fourth power of its absolute temperature, `j^* = sigma*T^4`. By linking thermodynamic temperature to measurable luminosity, the law is fundamental to stellar astrophysics, climate modelling and furnace engineering. It enables surface temperatures to be inferred from radiative output and sets theoretical efficiency limits for thermal devices.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Emitter behaves as an ideal black body (`epsilon = 1`)."
+    }
+  ],
+  "definitions": [
+    { "symbol": "j^*", "definition": "Radiant exitance (`W*m^-2`)." },
+    {
+      "symbol": "sigma",
+      "definition": "Stefan–Boltzmann constant (`5.670374*10^-8 W*m^-2*K^-4`)."
+    },
+    { "symbol": "T", "definition": "Absolute temperature (`K`)." }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"
+    },
+    { "step": 2, "equation": "u(T) = int_0^oo u(nu,T) dnu" },
+    {
+      "step": 3,
+      "equation": "x = h*nu/(k*T) => nu = (x*k*T)/h, dnu = (k*T/h)*dx"
+    },
+    {
+      "step": 4,
+      "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * int_0^oo (x^3)/(exp(x)-1) dx"
+    },
+    { "step": 5, "equation": "int_0^oo (x^3)/(exp(x)-1) dx = pi^4/15" },
+    {
+      "step": 6,
+      "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * (pi^4/15) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)"
+    },
+    { "step": 7, "equation": "j^* = (c/4)*u(T)" },
+    {
+      "step": 8,
+      "equation": "j^* = (c/4) * (8*pi^5*k^4*T^4)/(15*h^3*c^3) = (2*pi^5*k^4*T^4)/(15*h^3*c^2)"
+    },
+    { "step": 9, "equation": "sigma = (2*pi^5*k^4)/(15*h^3*c^2)" },
+    { "step": 10, "equation": "j^* = sigma*T^4" }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "Radiation is isotropic, allowing conversion of energy density `u(T)` to radiant exitance `j^*` by the factor `c/4`."
+    },
+    {
+      "id": "ass2",
+      "text": "The emitter is an ideal black body in thermal equilibrium, whose spectral energy density is described by Planck's law."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start from Planck's law, which gives the spectral energy density `u(nu,T)` of black-body radiation as a function of frequency `nu` and temperature `T`. Here, `h` is the Planck constant, `k` is the Boltzmann constant, and `c` is the speed of light in vacuum."
+    },
+    {
+      "step": 2,
+      "text": "To find the total energy density `u(T)`, integrate the spectral energy density `u(nu,T)` over all frequencies `nu` from 0 to infinity."
+    },
+    {
+      "step": 3,
+      "text": "Perform a substitution to simplify the integral. Let `x = h*nu/(k*T)` be a dimensionless variable for integration. This implies `nu = (x*k*T)/h` and `dnu = ((k*T)/h)*dx`."
+    },
+    {
+      "step": 4,
+      "text": "Rewrite the integral for `u(T)` in terms of the dimensionless variable `x`. The expression shows that `u(T)` is proportional to `T^4` times a definite integral."
+    },
+    {
+      "step": 5,
+      "text": "The definite integral `int_0^oo x^3/(exp(x)-1) dx` is a standard Bose-Einstein integral, which evaluates to `pi^4/15`."
+    },
+    {
+      "step": 6,
+      "text": "Substitute the value of the integral back into the expression for `u(T)` to obtain the total energy density of black-body radiation: `u(T) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)`."
+    },
+    {
+      "step": 7,
+      "text": "Relate the total energy density `u(T)` to the radiant exitance `j^*` (power emitted per unit area). For isotropic radiation from a black body, this relationship is `j^* = (c/4)*u(T)`."
+    },
+    {
+      "step": 8,
+      "text": "Substitute the derived expression for `u(T)` into the formula for `j^*`. This simplifies to `j^* = (2*pi^5*k^4*T^4)/(15*h^3*c^2)`."
+    },
+    {
+      "step": 9,
+      "text": "Define the Stefan-Boltzmann constant `sigma` by grouping all the physical constants: `sigma = (2*pi^5*k^4)/(15*h^3*c^2)`."
+    },
+    {
+      "step": 10,
+      "text": "This yields the Stefan-Boltzmann law, `j^* = sigma*T^4`, where the radiant exitance `j^*` is directly proportional to the fourth power of the absolute temperature `T`."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11",
+    "library": "sympy 1.12",
+    "code": [
+      "import sympy as sp",
+      "# Define symbolic variables (positive, real constants and temperature; frequency nu)",
+      "nu, T, h, k, c = sp.symbols('nu T h k c', positive=True, real=True)",
+      "",
+      "# Derivation Step 1: Planck's law for spectral energy density u(nu,T)",
+      "u_nu = (8*sp.pi*h*nu**3)/(c**3*(sp.exp(h*nu/(k*T)) - 1))",
+      "",
+      "# Derivation Step 2: Total energy density u(T) is the integral of u(nu,T) over all frequencies.",
+      "# Derivation Step 3: Substitute x = h*nu/(k*T). This means nu = x*k*T/h, and dnu = (k*T/h)*dx.",
+      "# Derivation Step 4: Rewrite the integral for u(T) in terms of x.",
+      "x = sp.symbols('x', positive=True, real=True)",
+      "integrand_for_u_T = u_nu.subs(nu, (x*k*T)/h) * ((k*T)/h) # This is u_nu(nu(x)) * (dnu/dx)",
+      "",
+      "# Perform the integration (Corresponds to evaluating the integral in Derivation Step 4 and using result from Derivation Step 5)",
+      "u_T_calculated = sp.integrate(integrand_for_u_T, (x, 0, sp.oo))",
+      "",
+      "# Derivation Step 6: Expected analytical result for u(T)",
+      "u_T_expected = (8*sp.pi**5*k**4*T**4)/(15*h**3*c**3)",
+      "assert sp.simplify(u_T_calculated - u_T_expected) == 0, f'Verification of u(T) failed. Calculated: {u_T_calculated}, Expected: {u_T_expected}'",
+      "",
+      "# Derivation Step 7: Relate u(T) to radiant exitance j_star: j_star = (c/4)*u(T)",
+      "# Derivation Step 8: Substitute u(T) into j_star formula to get j_star in terms of constants and T",
+      "j_star_from_u_T = (c/4) * u_T_calculated",
+      "",
+      "# Derivation Step 9: Define Stefan-Boltzmann constant sigma",
+      "sigma_definition = (2*sp.pi**5*k**4)/(15*h**3*c**2)",
+      "",
+      "# Derivation Step 10: Final Stefan-Boltzmann law j_star = sigma*T^4",
+      "j_star_from_sigma_T4 = sigma_definition*T**4",
+      "assert sp.simplify(j_star_from_u_T - j_star_from_sigma_T4) == 0, f'Verification of Stefan-Boltzmann law j_star = sigma*T^4 failed. Calculated from u(T): {j_star_from_u_T}, Expected from sigma*T^4: {j_star_from_sigma_T4}'"
+    ]
+  },
+  "domain": "astro-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Boltzmann, L. (1884). *Ableitung des Stefan'schen Gesetzes…* Annalen der Physik, 22, 291–294."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

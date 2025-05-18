@@ -281,11 +281,17 @@ select option {
 .derivation-section {
   position: relative;
   overflow: hidden;
-  min-height: 200px; /* Ensure there's space for the watermark */
+  min-height: 150px; /* Reduced minimum height for smaller sections */
   padding: 1rem;
   margin: 1rem 0;
   border: 1px solid var(--shade-light);
   border-radius: 4px;
+}
+
+/* Special handling for sections that need more space */
+#programmaticVerification.derivation-section,
+#derivationSteps.derivation-section {
+  min-height: 200px;
 }
 
 .derivation-section.draft {
