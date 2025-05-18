@@ -205,6 +205,25 @@ function render(data) {
   $("meta-created").textContent = data.created_by;
   $("meta-status").textContent = data.review_status;
 
+  // Show/hide draft watermark based on review status
+  const isDraft = data.review_status === "draft";
+  console.log("Review status:", data.review_status, "Is draft:", isDraft); // Debug log
+
+  const draftWatermarks = document.querySelectorAll(".draft-watermark");
+  draftWatermarks.forEach((watermark) => {
+    watermark.style.display = isDraft ? "block" : "none";
+  });
+
+  // Add draft class to derivation sections if in draft status
+  const derivationSections = document.querySelectorAll(".derivation-section");
+  derivationSections.forEach((section) => {
+    if (isDraft) {
+      section.classList.add("draft");
+    } else {
+      section.classList.remove("draft");
+    }
+  });
+
   // Ensure metadata section is visible
   const metaSection = qs(".metadata");
   if (metaSection) metaSection.style.display = "";

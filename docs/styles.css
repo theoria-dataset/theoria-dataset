@@ -249,3 +249,48 @@ select option {
     padding: 0.5rem 0.7rem;
   }
 }
+
+/* Draft watermark styles */
+.draft-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--primary);
+  opacity: 0.2;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.draft-watermark a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto; /* Enable clicking on the link */
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.draft-watermark a:hover {
+  opacity: 0.4;
+}
+
+.derivation-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px; /* Ensure there's space for the watermark */
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--shade-light);
+  border-radius: 4px;
+}
+
+.derivation-section.draft {
+  background-color: rgba(
+    var(--primary-rgb),
+    0.03
+  ); /* Very subtle background tint */
+}

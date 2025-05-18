@@ -1,6 +1,6 @@
-# Contributing to THEORIA Dataset
+# Contributing to TheorIA Dataset
 
-Welcome to THEORIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.
+Welcome to TheorIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.
 
 To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.
 
