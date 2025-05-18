@@ -1,0 +1,131 @@
+{
+  "result_name": "First Law of Thermodynamics",
+  "result_equations": [{ "id": "eq1", "equation": "Delta U = Q - W" }],
+  "explanation": "The first law states that for any closed system the change in internal energy `Delta U` equals heat supplied `Q` minus work done `W`. It enforces macroscopic energy conservation without specifying microscopic details, underpinning calorimetry, engine-cycle analysis and phase-transition studies. Engineers apply it to compute energy balances, determine heating requirements and set upper limits on process efficiency.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "System mass remains constant; no matter crosses the boundary."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "Delta U",
+      "definition": "Change in internal energy between two equilibrium states."
+    },
+    {
+      "symbol": "Q",
+      "definition": "Net heat added to the system during the process."
+    },
+    {
+      "symbol": "W",
+      "definition": "Net work done by the system during the process."
+    },
+    { "symbol": "U", "definition": "Internal energy of the system." },
+    {
+      "symbol": "E_kin",
+      "definition": "Macroscopic kinetic energy of the system."
+    },
+    {
+      "symbol": "E_pot",
+      "definition": "Macroscopic potential energy of the system."
+    }
+  ],
+  "derivation": [
+    { "step": 1, "equation": "dE = dQ - dW" },
+    { "step": 2, "equation": "E = U + E_kin + E_pot" },
+    { "step": 3, "equation": "dE = dU + dE_kin + dE_pot" },
+    { "step": 4, "equation": "dE_kin = 0" },
+    { "step": 5, "equation": "dE_pot = 0" },
+    { "step": 6, "equation": "dU = dQ - dW" },
+    { "step": 7, "equation": "Delta U = Q - W" }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "Closed system: no mass crosses the boundary during the process."
+    },
+    {
+      "id": "ass2",
+      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`."
+    },
+    {
+      "id": "ass3",
+      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`."
+    },
+    {
+      "id": "ass4",
+      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Apply conservation of energy to a closed system: any change in total energy equals energy added as heat minus energy lost as work."
+    },
+    {
+      "step": 2,
+      "text": "Resolve total energy into internal, kinetic and potential contributions."
+    },
+    {
+      "step": 3,
+      "text": "Differentiate to relate infinitesimal changes of the individual energy modes."
+    },
+    {
+      "step": 4,
+      "text": "Assume the centre-of-mass velocity is constant, eliminating kinetic energy changes."
+    },
+    {
+      "step": 5,
+      "text": "Assume the system's elevation in a gravitational field is unchanged, eliminating potential energy changes."
+    },
+    {
+      "step": 6,
+      "text": "Substitute the previous two results into the energy balance to isolate the differential change in internal energy."
+    },
+    {
+      "step": 7,
+      "text": "Integrate the differential relation between two equilibrium states to obtain the finite difference form."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols for initial and final internal energy and path quantities (Step 7)",
+      "U1, U2, Q12, W12 = sp.symbols('U1 U2 Q12 W12')",
+      "",
+      "# Integrated first-law expression (Step 7)",
+      "expr = sp.Eq(U2 - U1, Q12 - W12)",
+      "",
+      "# Provide a consistent numerical example to validate the equality",
+      "vals = {U1: 50, Q12: 40, W12: 10}",
+      "vals[U2] = vals[U1] + vals[Q12] - vals[W12]",
+      "",
+      "assert expr.subs(vals).lhs == expr.subs(vals).rhs"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fermi, E. (1937). *Thermodynamics*. Prentice-Hall."
+    },
+    {
+      "id": "R2",
+      "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

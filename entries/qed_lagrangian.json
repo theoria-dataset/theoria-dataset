@@ -1,0 +1,221 @@
+{
+  "result_name": "QED Lagrangian Density",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "L = -1/4*F_(mu nu)*F^(mu nu) + psiBar*(i*gamma^mu*D_mu - m)*psi"
+    },
+    {
+      "id": "eq2",
+      "equation": "F_(mu nu) = partial_mu*A_nu - partial_nu*A_mu"
+    },
+    {
+      "id": "eq3",
+      "equation": "D_mu = partial_mu + i*e*A_mu"
+    }
+  ],
+  "explanation": "The quantum electrodynamics (QED) Lagrangian density combines the free electromagnetic field term with the Dirac field minimally coupled through a covariant derivative. It encapsulates the dynamics of photons and charged spin-1/2 fermions while preserving local U(1) gauge invariance. From this compact expression arise both Maxwell's equations with a conserved current and the Dirac equation in the presence of an electromagnetic field.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Natural units are used, setting `c = hbar = 1`."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The space-time metric is Minkowskian with signature (+,−,−,−)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu*alpha(x)`."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "L",
+      "definition": "QED Lagrangian density."
+    },
+    {
+      "symbol": "psi",
+      "definition": "Dirac spinor field describing a charged spin-1/2 particle (e.g., an electron)."
+    },
+    {
+      "symbol": "psiBar",
+      "definition": "Dirac adjoint, defined as `psi^dagger*gamma^0`."
+    },
+    {
+      "symbol": "A_mu",
+      "definition": "Four-potential of the electromagnetic field."
+    },
+    {
+      "symbol": "F_(mu nu)",
+      "definition": "Electromagnetic field-strength tensor, `partial_mu*A_nu - partial_nu*A_mu`."
+    },
+    {
+      "symbol": "gamma^mu",
+      "definition": "Dirac gamma matrices satisfying the Clifford algebra `{gamma^mu, gamma^nu} = 2*g^(mu nu)`."
+    },
+    {
+      "symbol": "D_mu",
+      "definition": "Covariant derivative `partial_mu + i*e*A_mu`."
+    },
+    {
+      "symbol": "e",
+      "definition": "Electric charge of the fermion (magnitude)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the fermion."
+    },
+    {
+      "symbol": "partial_mu",
+      "definition": "Partial derivative with respect to the coordinate `x^mu`."
+    }
+  ],
+
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "L_free = psiBar*(i*gamma^mu*partial_mu - m)*psi"
+    },
+    {
+      "step": 2,
+      "equation": "psi -> exp(-i*alpha)*psi (global U(1) symmetry)"
+    },
+    {
+      "step": 3,
+      "equation": "Promote alpha -> alpha(x) (local symmetry)"
+    },
+    {
+      "step": 4,
+      "equation": "Introduce A_mu and define D_mu = partial_mu + i*e*A_mu"
+    },
+    {
+      "step": 5,
+      "equation": "L_Dirac = psiBar*(i*gamma^mu*D_mu - m)*psi"
+    },
+    {
+      "step": 6,
+      "equation": "F_(mu nu) = partial_mu*A_nu - partial_nu*A_mu"
+    },
+    {
+      "step": 7,
+      "equation": "L_EM = -1/4*F_(mu nu)*F^(mu nu)"
+    },
+    {
+      "step": 8,
+      "equation": "L = L_EM + L_Dirac"
+    },
+    {
+      "step": 9,
+      "equation": "delta_L/delta_psiBar => (i*gamma^mu*D_mu - m)*psi = 0"
+    },
+    {
+      "step": 10,
+      "equation": "delta_L/delta_A_nu => partial_mu*F^(mu nu) = e*psiBar*gamma^nu*psi"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Local U(1) gauge invariance dictates the interaction structure."
+    },
+    {
+      "id": "assumption2",
+      "text": "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions."
+    },
+    {
+      "id": "assumption3",
+      "text": "Flat Minkowski space-time with metric `g_(mu nu)`."
+    },
+    {
+      "id": "assumption4",
+      "text": "Natural units `c = hbar = 1` are employed."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Begin with the free Dirac Lagrangian for a spin-1/2 field."
+    },
+    {
+      "step": 2,
+      "text": "Identify its global phase symmetry, revealing a conserved electric current by Noether's theorem."
+    },
+    {
+      "step": 3,
+      "text": "Demanding invariance under a space-time dependent phase requires compensating gauge fields."
+    },
+    {
+      "step": 4,
+      "text": "Introduce the electromagnetic four-potential via the covariant derivative to restore local invariance."
+    },
+    {
+      "step": 5,
+      "text": "Rewrite the kinetic term using `D_mu`, which now includes interaction `e*psiBar*gamma^mu*A_mu*psi`."
+    },
+    {
+      "step": 6,
+      "text": "Construct the gauge-invariant field strength tensor from `A_mu`."
+    },
+    {
+      "step": 7,
+      "text": "Add the Maxwell term for the free photon field."
+    },
+    {
+      "step": 8,
+      "text": "Combine both sectors to obtain the full QED Lagrangian."
+    },
+    {
+      "step": 9,
+      "text": "Varying with respect to `psiBar` yields the interacting Dirac equation."
+    },
+    {
+      "step": 10,
+      "text": "Varying with respect to `A_mu` gives Maxwell's equations with the conserved Dirac current as source."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Coordinates",
+      "t, x, y, z = sp.symbols('t x y z')",
+      "# Gauge parameter alpha(x)",
+      "alpha = sp.Function('alpha')(t, x, y, z)",
+      "# Gauge potential components A_mu(x)",
+      "A0 = sp.Function('A0')(t, x, y, z)",
+      "A1 = sp.Function('A1')(t, x, y, z)",
+      "A2 = sp.Function('A2')(t, x, y, z)",
+      "A3 = sp.Function('A3')(t, x, y, z)",
+      "coords = [t, x, y, z]",
+      "A = [A0, A1, A2, A3]",
+      "# Field-strength tensor component",
+      "def F(mu, nu, field):\n    return sp.diff(field[nu], coords[mu]) - sp.diff(field[mu], coords[nu])",
+      "# Gauge-transformed vector potential",
+      "A_prime = [A[i] + sp.diff(alpha, coords[i]) for i in range(4)]",
+      "# Verify gauge invariance for a representative component F_{0 1}",
+      "F01 = F(0, 1, A)",
+      "F01_p = F(0, 1, A_prime)",
+      "assert sp.simplify(F01_p - F01) == 0",
+      "print('Gauge invariance of F_{01} verified.')"
+    ]
+  },
+  "domain": "hep-th",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). *The Quantum Theory of Fields, Vol. I: Foundations*. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

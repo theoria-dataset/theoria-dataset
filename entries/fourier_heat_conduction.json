@@ -1,0 +1,97 @@
+{
+  "result_name": "Fourier's Law of Heat Conduction",
+  "result_equations": [{ "id": "eq1", "equation": "`vec{q} = -k*nabla T`" }],
+  "explanation": "Fourier's conduction law states that heat-flux density `vec{q}` is proportional to the negative temperature gradient, `vec{q} = -k*nabla T`. It defines thermal conductivity, leads directly to the heat-diffusion equation and quantifies how rapidly solids or stationary fluids conduct heat. Engineers apply it to rate insulation, design heat exchangers and simulate geothermal or electronic cooling problems.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Heat moves only by conduction; convection and radiation are absent."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Thermal conductivity `k` is constant and isotropic."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The system is in steady state (no time dependence)."
+    }
+  ],
+  "definitions": [
+    { "symbol": "vec{q}", "definition": "Heat-flux vector (`W*m^-2`)." },
+    { "symbol": "k", "definition": "Thermal conductivity (`W*m^-1*K^-1`)." },
+    { "symbol": "T", "definition": "Temperature field (`K`)." },
+    { "symbol": "A", "definition": "Cross-sectional area (`m^2`)." },
+    { "symbol": "Delta x", "definition": "Small distance interval (`m`)." },
+    { "symbol": "Delta T", "definition": "Temperature difference (`K`)." },
+    { "symbol": "Qdot", "definition": "Rate of heat transfer (`W`)." },
+    { "symbol": "q_x", "definition": "Heat flux in x-direction (`W*m^-2`)." },
+    { "symbol": "x", "definition": "Spatial coordinate (`m`)." },
+    { "symbol": "L", "definition": "Length of the material (`m`)." },
+    { "symbol": "T1", "definition": "Temperature at x=0 (`K`)." },
+    { "symbol": "T2", "definition": "Temperature at x=L (`K`)." }
+  ],
+  "derivation": [
+    { "step": 1, "equation": "`Qdot = -k*A*(Delta T/Delta x)`" },
+    { "step": 2, "equation": "`q_x = Qdot/A`" },
+    { "step": 3, "equation": "`q_x = -k*partial T/partial x`" },
+    { "step": 4, "equation": "`vec{q} = -k*nabla T`" }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "Temperature varies linearly over small `Delta x`."
+    },
+    {
+      "id": "ass2",
+      "text": "Material properties are uniform and isotropic."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Empirical observation: rate of heat transfer ∝ area and `Delta T`."
+    },
+    { "step": 2, "text": "Define flux by dividing by cross-section area." },
+    { "step": 3, "text": "Take limit `Delta x -> 0` to obtain gradient form." },
+    {
+      "step": 4,
+      "text": "Generalise to three dimensions using vector gradient, assuming isotropic thermal conductivity."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols for verification",
+      "x, L, k, T1, T2 = sp.symbols('x L k T1 T2', positive=True)",
+      "",
+      "# Step 1: Define linear temperature profile (T1 at x=0, T2 at x=L)",
+      "T = T1 + (T2 - T1)*x/L",
+      "",
+      "# Step 2: Calculate heat flux using Fourier's law",
+      "q = -k*sp.diff(T, x)",
+      "",
+      "# Step 3: Verify that the heat flux matches the expected form",
+      "# For linear T profile, q should be constant: q = k*(T1-T2)/L",
+      "assert sp.simplify(q - k*(T1 - T2)/L) == 0"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fourier, J. (1822). *Théorie analytique de la chaleur*. Paris."
+    },
+    {
+      "id": "R2",
+      "citation": "Incropera, F. P., & DeWitt, D. P. (2022). *Fundamentals of Heat and Mass Transfer* (8th ed.). Wiley."
+    },
+    {
+      "id": "R3",
+      "citation": "Bergman, T. L., Lavine, A. S., Incropera, F. P., & DeWitt, D. P. (2011). *Introduction to Heat Transfer* (6th ed.). Wiley."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

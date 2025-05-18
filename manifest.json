@@ -58,8 +58,14 @@
         "Removed dataset version from entries",
         "Added footer to each entry with licence in entries.html",
         "index.html shows version from manifest.json",
-        "Fixing link to contribute in readme.mds"
+        "Fixing link to contribute in readme.mds",
+        "Added draft watermark to entries.html"
       ]
+    },
+    {
+      "version": "0.3",
+      "date": "2025-05-18",
+      "changes": ["Adding 14 new entries in draft mode"]
     }
   ]
 }

@@ -1,0 +1,211 @@
+{
+  "result_name": "Klein-Gordon Equation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0"
+    },
+    {
+      "id": "eq2",
+      "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
+    }
+  ],
+  "explanation": "The Klein-Gordon equation is a relativistic wave equation that describes spinless particles. It was the first attempt to merge quantum mechanics with special relativity, predating the Dirac equation. The equation naturally arises when applying quantum mechanics' energy-momentum relation to relativistic particles, and it correctly predicts both positive and negative energy solutions.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The equation describes a free spinless particle in flat spacetime."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The wave function `phi` represents a scalar field."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "partial^2_t",
+      "definition": "Second-order partial derivative with respect to time."
+    },
+    {
+      "symbol": "nabla^2",
+      "definition": "Laplacian operator (sum of second spatial derivatives)."
+    },
+    {
+      "symbol": "Box",
+      "definition": "D'Alembertian operator, defined as `(1/c^2)partial^2_t - nabla^2`."
+    },
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the particle."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant, `h/(2pi)`."
+    },
+    {
+      "symbol": "phi",
+      "definition": "Scalar field representing the wave function of the particle."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "E^2 = p^2 c^2 + m^2 c^4"
+    },
+    {
+      "step": 2,
+      "equation": "E -> i hbar partial_t"
+    },
+    {
+      "step": 3,
+      "equation": "p -> -i hbar nabla"
+    },
+    {
+      "step": 4,
+      "equation": "(i hbar partial_t)^2 phi = (-i hbar nabla)^2 c^2 phi + m^2 c^4 phi"
+    },
+    {
+      "step": 5,
+      "equation": "-hbar^2 partial^2_t phi = -hbar^2 c^2 nabla^2 phi + m^2 c^4 phi"
+    },
+    {
+      "step": 6,
+      "equation": "(1/c^2) partial^2_t phi = nabla^2 phi - (m^2 c^2 / hbar^2) phi"
+    },
+    {
+      "step": 7,
+      "equation": "( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0"
+    },
+    {
+      "step": 8,
+      "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity."
+    },
+    {
+      "id": "assumption2",
+      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`."
+    },
+    {
+      "id": "assumption3",
+      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Einstein's relativistic energy-momentum relation."
+    },
+    {
+      "step": 2,
+      "text": "Apply the quantum mechanical energy operator."
+    },
+    {
+      "step": 3,
+      "text": "Apply the quantum mechanical momentum operator."
+    },
+    {
+      "step": 4,
+      "text": "Substitute the operators into the energy-momentum relation, ensuring the `c^2` factor is correctly placed with the momentum term, and apply to the wave function `phi`."
+    },
+    {
+      "step": 5,
+      "text": "Expand the squared operators."
+    },
+    {
+      "step": 6,
+      "text": "Divide the entire equation by `-hbar^2 c^2` and rearrange to group terms."
+    },
+    {
+      "step": 7,
+      "text": "Rearrange terms to the standard form of the Klein-Gordon equation."
+    },
+    {
+      "step": 8,
+      "text": "Express using the D'Alembertian operator `Box = (1/c^2)partial^2_t - nabla^2` for compactness."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols and operators",
+      "t, x, y, z = sp.symbols('t x y z', real=True)",
+      "m, c, hbar = sp.symbols('m c hbar', positive=True)",
+      "phi = sp.Function('phi')(t, x, y, z)",
+      "",
+      "# Step 1: Start with relativistic energy-momentum relation E^2 = p^2 c^2 + m^2 c^4",
+      "# Step 2 & 3: Quantum operators E -> i*hbar*partial_t, p -> -i*hbar*nabla",
+      "",
+      "# Step 4-7: Derivation of the Klein-Gordon equation",
+      "# ( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0",
+      "",
+      "# Define terms of the Klein-Gordon operator",
+      "term1 = (1/c**2) * sp.diff(phi, t, t)  # (1/c^2) * Second time derivative",
+      "term2 = sp.diff(phi, x, x) + sp.diff(phi, y, y) + sp.diff(phi, z, z)  # Laplacian",
+      "term3 = (m**2 * c**2 / hbar**2) * phi  # Mass term",
+      "",
+      "# Define Klein-Gordon operator applied to phi",
+      "kg_operator_phi = term1 - term2 + term3",
+      "",
+      "# Create a sample plane wave solution",
+      "# phi = exp(i * (-E*t + px*x + py*y + pz*z) / hbar)",
+      "E, px, py, pz = sp.symbols('E px py pz', real=True)",
+      "wave_exponent = sp.I * (-E*t + px*x + py*y + pz*z) / hbar",
+      "wave = sp.exp(wave_exponent)",
+      "",
+      "# Apply KG operator to the plane wave solution by substituting phi with wave",
+      "kg_wave = kg_operator_phi.subs(phi, wave)",
+      "",
+      "# Simplify the result of KG operator on the wave. We expect kg_wave / wave to be an algebraic expression.",
+      "kg_simplified_algebraic = sp.simplify(sp.expand(kg_wave / wave))",
+      "",
+      "# This algebraic expression should be zero if the energy-momentum relation holds.",
+      "# The expression obtained from kg_simplified_algebraic is effectively:",
+      "# -E**2/(hbar**2 * c**2) + (px**2 + py**2 + pz**2)/hbar**2 + m**2*c**2/hbar**2",
+      "# We need to show this is zero when E**2 = (px**2 + py**2 + pz**2)*c**2 + m**2*c**4",
+      "",
+      "# Define the expected algebraic relation from the Klein-Gordon equation applied to the plane wave",
+      "P_squared = px**2 + py**2 + pz**2",
+      "expected_relation = -E**2/(hbar**2 * c**2) + P_squared/hbar**2 + (m**2 * c**2)/hbar**2",
+      "",
+      "# Verify that kg_simplified_algebraic is indeed equal to expected_relation",
+      "assert sp.simplify(kg_simplified_algebraic - expected_relation) == 0",
+      "",
+      "# Now, substitute the relativistic energy-momentum relation into the expected_relation",
+      "energy_momentum_lhs = E**2",
+      "energy_momentum_rhs = P_squared * c**2 + m**2 * c**4",
+      "verification = sp.simplify(expected_relation.subs(energy_momentum_lhs, energy_momentum_rhs))",
+      "",
+      "# Check that verification equals zero, confirming the Klein-Gordon equation is consistent with E^2=p^2c^2+m^2c^4",
+      "assert verification == 0"
+    ]
+  },
+  "domain": "quant-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Klein, O. (1926). 'Quantentheorie und fünfdimensionale Relativitätstheorie'. *Zeitschrift für Physik*, 37(12), 895-906."
+    },
+    {
+      "id": "R2",
+      "citation": "Gordon, W. (1926). 'Der Comptoneffekt nach der Schrödingerschen Theorie'. *Zeitschrift für Physik*, 40(1-2), 117-133."
+    },
+    {
+      "id": "R3",
+      "citation": "Greiner, W. (2000). *Relativistic Quantum Mechanics: Wave Equations*. Springer-Verlag."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

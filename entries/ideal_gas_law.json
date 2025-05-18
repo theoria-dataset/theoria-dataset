@@ -1,0 +1,210 @@
+{
+  "result_name": "Ideal Gas Law",
+  "result_equations": [{ "id": "eq1", "equation": "P*V = n*R*T" }],
+  "explanation": "The ideal-gas equation `P*V = n*R*T` links pressure, volume, mole number and temperature for a dilute gas of non-interacting point molecules. It bridges kinetic theory with classical thermodynamics, predicts gas behaviour in most laboratory conditions and anchors temperature scales. Scientists and engineers use it to size vessels, estimate densities and establish baselines before applying real-gas corrections in extreme regimes.",
+  "equations_assumptions": [
+    { "id": "eq_assump1", "text": "Molecules occupy negligible volume." },
+    {
+      "id": "eq_assump2",
+      "text": "Intermolecular forces are absent except during elastic collisions."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Collisions with container walls are perfectly elastic."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Maxwell-Boltzmann statistics applies to the molecular velocity distribution."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "P",
+      "definition": "Pressure (force per unit area on container walls)."
+    },
+    { "symbol": "V", "definition": "Volume of the container." },
+    { "symbol": "n", "definition": "Amount of substance (`mol`)." },
+    {
+      "symbol": "R",
+      "definition": "Universal gas constant (`8.314 J*mol^-1*K^-1`)."
+    },
+    { "symbol": "T", "definition": "Absolute temperature (`K`)." }
+  ],
+  "derivation": [
+    { "step": 1, "equation": "F = dp/dt" },
+    { "step": 2, "equation": "p = m*v" },
+    { "step": 3, "equation": "F_wall = 2*m*v_x/Delta t" },
+    { "step": 4, "equation": "Delta t = 2*L/v_x" },
+    { "step": 5, "equation": "F_wall = m*v_x^2/L" },
+    { "step": 6, "equation": "P = F/A = m*n_x*<v_x^2>" },
+    { "step": 7, "equation": "n_x = N/V" },
+    { "step": 8, "equation": "P = (N*m*<v_x^2>)/V" },
+    { "step": 9, "equation": "<v_x^2> = <v_y^2> = <v_z^2> = <v^2>/3" },
+    { "step": 10, "equation": "P = (1/3)*(N*m*<v^2>)/V" },
+    { "step": 11, "equation": "(1/2)*m*<v^2> = (3/2)*k*T" },
+    { "step": 12, "equation": "<v^2> = 3*k*T/m" },
+    { "step": 13, "equation": "P = (1/3)*(N*m*3*k*T/m)/V" },
+    { "step": 14, "equation": "P = N*k*T/V" },
+    { "step": 15, "equation": "P*V = N*k*T" },
+    { "step": 16, "equation": "N = n*N_A" },
+    { "step": 17, "equation": "P*V = n*N_A*k*T" },
+    { "step": 18, "equation": "N_A*k = R" },
+    { "step": 19, "equation": "P*V = n*R*T" }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "ass1",
+      "text": "Equipartition theorem gives `k*T/2` energy per translational degree of freedom."
+    },
+    {
+      "id": "ass2",
+      "text": "Molecular motion is isotropic (`<v_x^2> = <v_y^2> = <v_z^2>`)."
+    },
+    {
+      "id": "ass3",
+      "text": "Gas molecules move with random velocities."
+    },
+    {
+      "id": "ass4",
+      "text": "The container is a cube with side length `L`."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Newton's Second Law: force equals rate of change of momentum. Here `F` is force and `p` is momentum."
+    },
+    {
+      "step": 2,
+      "text": "Define momentum for a single particle where `m` is the mass of a molecule and `v` is velocity."
+    },
+    {
+      "step": 3,
+      "text": "Calculate force on wall from a single collision, where velocity in x-direction changes from `v_x` to `-v_x`. `F_wall` is the force on the wall and `Delta t` is the time between collisions."
+    },
+    {
+      "step": 4,
+      "text": "Determine time between collisions for a single molecule with wall, where `L` is the length of the container side."
+    },
+    {
+      "step": 5,
+      "text": "Substitute time between collisions to get force from a single molecule."
+    },
+    {
+      "step": 6,
+      "text": "Define pressure as force per unit area, considering number density `n_x` of molecules. Here `<v_x^2>` is the average squared velocity in the x-direction."
+    },
+    {
+      "step": 7,
+      "text": "Express number density in terms of total molecules and volume, where `N` is the total number of molecules."
+    },
+    {
+      "step": 8,
+      "text": "Substitute to express pressure in terms of molecule count, mass, mean squared velocity and volume."
+    },
+    {
+      "step": 9,
+      "text": "Apply isotropy assumption: mean squared velocity is equally distributed in all directions. Here `<v^2>` is the total mean squared velocity."
+    },
+    {
+      "step": 10,
+      "text": "Express pressure using the mean squared velocity in all directions."
+    },
+    {
+      "step": 11,
+      "text": "Apply equipartition theorem: average kinetic energy equals `(3/2)*k*T` for a 3D gas, where `k` is the Boltzmann constant (`1.381 × 10^-23 J*K^-1`)."
+    },
+    {
+      "step": 12,
+      "text": "Solve for mean squared velocity in terms of temperature."
+    },
+    {
+      "step": 13,
+      "text": "Substitute mean squared velocity into the pressure equation."
+    },
+    {
+      "step": 14,
+      "text": "Simplify the expression by canceling terms."
+    },
+    {
+      "step": 15,
+      "text": "Rearrange to get the microscopic form of the ideal gas law."
+    },
+    {
+      "step": 16,
+      "text": "Convert from number of molecules to number of moles using Avogadro's number, where `N_A` is Avogadro's number (`6.022 × 10^23 mol^-1`)."
+    },
+    {
+      "step": 17,
+      "text": "Substitute into the equation."
+    },
+    {
+      "step": 18,
+      "text": "Identify that the product of Boltzmann constant and Avogadro's number equals the gas constant."
+    },
+    {
+      "step": 19,
+      "text": "Arrive at the macroscopic form of the ideal gas law."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "N, m, V, k, T, v_x, v_y, v_z, L, A = sp.symbols('N m V k T v_x v_y v_z L A', positive=True)",
+      "N_A, R, n = sp.symbols('N_A R n', positive=True)",
+      "",
+      "# Step 9-10: Mean squared velocities in each direction",
+      "v_squared = v_x**2 + v_y**2 + v_z**2",
+      "v_x_squared_avg = v_squared/3  # due to isotropy",
+      "",
+      "# Step 10: Pressure from kinetic theory",
+      "P_kinetic = (1/3)*(N*m*v_squared)/V",
+      "",
+      "# Step 11-12: From equipartition theorem",
+      "av_KE = (1/2)*m*v_squared",
+      "temperature_relation = av_KE - (3/2)*k*T",
+      "",
+      "# Solve for v_squared in terms of temperature",
+      "v_squared_solution = sp.solve(temperature_relation, v_squared)[0]",
+      "",
+      "# Step 13-15: Substitute back into pressure equation",
+      "P_temperature = (1/3)*(N*m*v_squared_solution)/V",
+      "",
+      "# Verify microscopic form",
+      "ideal_gas_micro = P_temperature*V - N*k*T",
+      "assert sp.simplify(ideal_gas_micro) == 0",
+      "",
+      "# Step 16-19: Convert to macroscopic form",
+      "N_to_n = N - n*N_A",
+      "R_relation = R - k*N_A",
+      "",
+      "# Verify final equation",
+      "P = N*k*T/V",
+      "N_subst = n*N_A",
+      "P_macro = P.subs(N, N_subst).subs(k*N_A, R)",
+      "ideal_gas_macro = P_macro*V - n*R*T",
+      "assert sp.simplify(ideal_gas_macro) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Clausius, R. (1857). *Über die bewegende Kraft der Wärme.* Annalen der Physik, 100, 353–379."
+    },
+    {
+      "id": "R2",
+      "citation": "Maxwell, J.C. (1867). *On the Dynamical Theory of Gases.* Philosophical Transactions of the Royal Society of London, 157, 49-88."
+    },
+    {
+      "id": "R3",
+      "citation": "Atkins, P.W. & de Paula, J. (2010). *Physical Chemistry*, 9th edition. Oxford University Press."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}

@@ -1,6 +1,6 @@
-# Contributing to THEORIA Dataset
+# Contributing to TheorIA Dataset
 
-Welcome to THEORIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.
+Welcome to TheorIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.
 
 To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.
 
@@ -55,7 +55,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 
 - **`definitions`:**
 
-  - Define every symbol used in the equations, to ensure the entry is self-contained.
+  - Define every symbol used in the `result_equations` field, to ensure the entry is self-contained.
   - Each definition should include a `symbol` field, with the symbol represented in AsciiMath format and a `definition` field.
   - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.
   - For example:
@@ -117,6 +117,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 - **`derivation_explanation`:**
 
   - Add textual explanations for each step. Not all steps need explanations, as some may be self-evident.
+  - If new symbols appear, define them.
   - Each explanation object consists of:
     - "step": An integer that must coincide with the corresponding one in the `derivation`.
     - "text": A concise and clear description of the rationale behind certain steps in the derivation process.

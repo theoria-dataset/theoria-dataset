@@ -1,0 +1,190 @@
+{
+  "result_name": "Dirac Equation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "(i*hbar*gamma^mu*partial_mu - m*c) psi = 0"
+    },
+    {
+      "id": "eq2",
+      "equation": "i*hbar*partial_t psi = (-i*hbar*c*alpha cdot grad + beta*m*c^2) psi"
+    }
+  ],
+  "explanation": "The Dirac equation is a first-order relativistic wave equation that consistently describes spin-1/2 particles such as electrons. By linearly combining space-time derivatives with the Dirac gamma matrices, it reconciles quantum mechanics with special relativity while predicting intrinsic spin and the existence of antiparticles. It underpins relativistic quantum mechanics and is a cornerstone of quantum field theory for fermions.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particle is free (no external electromagnetic or gravitational fields)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "psi",
+      "definition": "Four-component Dirac spinor field representing the quantum state of a spin-1/2 particle."
+    },
+    {
+      "symbol": "gamma^mu",
+      "definition": "4×4 Dirac gamma matrices that satisfy the anticommutation relation `{gamma^mu, gamma^nu} = 2 eta^(mu nu)` with `eta^(mu nu)` the Minkowski metric."
+    },
+    {
+      "symbol": "alpha",
+      "definition": "Vector of 4×4 matrices `alpha_i = gamma^0 gamma^i` appearing in the Hamiltonian form of the equation."
+    },
+    {
+      "symbol": "beta",
+      "definition": "Matrix `beta = gamma^0` in the Dirac representation."
+    },
+    {
+      "symbol": "partial_mu",
+      "definition": "Four-gradient operator `(partial/partial x_mu)`; components are `partial_t = partial/partial t` and `grad = (partial_x, partial_y, partial_z)`."
+    },
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the particle."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant `h/(2*pi)`."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "E^2 = p^2*c^2 + m^2*c^4"
+    },
+    {
+      "step": 2,
+      "equation": "(E - c*alpha cdot p - beta*m*c^2)(E + c*alpha cdot p + beta*m*c^2) = 0"
+    },
+    {
+      "step": 3,
+      "equation": "Expand ⇒ E^2 - c^2*(alpha cdot p)^2 - m^2*c^4*beta^2 - c*E{alpha cdot p,} - m*c^2{E,beta} - m*c^3{alpha cdot p,beta} = 0"
+    },
+    {
+      "step": 4,
+      "equation": "Require anticommutation relations: alpha_i*alpha_j + alpha_j*alpha_i = 2 delta_(ij); alpha_i*beta + beta*alpha_i = 0; beta^2 = 1"
+    },
+    {
+      "step": 5,
+      "equation": "Under these conditions the cross terms vanish and we recover E^2 = p^2*c^2 + m^2*c^4"
+    },
+    {
+      "step": 6,
+      "equation": "Promote E -> i*hbar*partial_t and p -> -i*hbar*grad"
+    },
+    {
+      "step": 7,
+      "equation": "(i*hbar*partial_t - (-i*hbar*c*alpha cdot grad) - beta*m*c^2) psi = 0"
+    },
+    {
+      "step": 8,
+      "equation": "Define gamma^0 = beta, gamma^i = beta*alpha_i and write covariant form: (i*hbar*gamma^mu*partial_mu - m*c) psi = 0"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`."
+    },
+    {
+      "id": "assumption2",
+      "text": "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density."
+    },
+    {
+      "id": "assumption3",
+      "text": "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Begin with the relativistic dispersion relation for a free particle, valid in any inertial frame."
+    },
+    {
+      "step": 2,
+      "text": "Propose a linear factorization of the quadratic form, introducing unknown constant matrices `alpha_i` and `beta`."
+    },
+    {
+      "step": 3,
+      "text": "Expand the product to identify conditions these matrices must satisfy so that all cross terms cancel."
+    },
+    {
+      "step": 4,
+      "text": "Impose anticommutation rules ensuring that the expansion reproduces the dispersion relation, thereby determining the algebra of the matrices."
+    },
+    {
+      "step": 5,
+      "text": "With the algebra fixed, the factorization squares to the desired energy-momentum relation."
+    },
+    {
+      "step": 6,
+      "text": "Quantize by substituting energy and momentum operators for their classical counterparts."
+    },
+    {
+      "step": 7,
+      "text": "Write the resulting first-order differential equation in Hamiltonian form."
+    },
+    {
+      "step": 8,
+      "text": "Re-express using gamma matrices to obtain the manifestly Lorentz-covariant Dirac equation."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 4.1.2",
+    "code": [
+      "import sympy as sp",
+      "I = sp.I",
+      "# Pauli matrices",
+      "sigma_x = sp.Matrix([[0, 1],[1, 0]])",
+      "sigma_y = sp.Matrix([[0, -I],[I, 0]])",
+      "sigma_z = sp.Matrix([[1, 0],[0, -1]])",
+      "# Dirac gamma matrices in the Dirac representation",
+      "gamma0 = sp.Matrix([[1,0,0,0],[0,1,0,0],[0,0,-1,0],[0,0,0,-1]])",
+      "gamma1 = sp.Matrix([[0,0,0,1],[0,0,1,0],[0,-1,0,0],[-1,0,0,0]])",
+      "gamma2 = sp.Matrix([[0,0,0,-I],[0,0,I,0],[0,I,0,0],[-I,0,0,0]])",
+      "gamma3 = sp.Matrix([[0,0,1,0],[0,0,0,-1],[-1,0,0,0],[0,1,0,0]])",
+      "# Symbols for four-momentum components and constants",
+      "E, px, py, pz, m, c = sp.symbols('E px py pz m c', real=True)",
+      "p0 = E/c",
+      "# Slash notation gamma^mu p_mu with metric signature (+,-,-,-)",
+      "slash_p = gamma0*p0 - gamma1*px - gamma2*py - gamma3*pz",
+      "# Construct operators (slash_p \u2212 m c) and (slash_p + m c)",
+      "op_minus = slash_p - m*c",
+      "op_plus  = slash_p + m*c",
+      "product = sp.simplify(op_minus * op_plus)",
+      "expected = (p0**2 - px**2 - py**2 - pz**2 - m**2*c**2) * sp.eye(4)",
+      "# The difference should vanish if gamma matrices satisfy the Clifford algebra",
+      "assert sp.simplify(product - expected) == sp.zeros(4)"
+    ]
+  },
+  "domain": "hep-th",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Dirac, P. A. M. (1928). 'The Quantum Theory of the Electron'. *Proceedings of the Royal Society A*, 117(778), 610-624."
+    },
+    {
+      "id": "R2",
+      "citation": "Bjorken, J. D., & Drell, S. D. (1964). *Relativistic Quantum Mechanics*. McGraw-Hill."
+    },
+    {
+      "id": "R3",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    }
+  ],
+  "created_by": "Looking for contributors to review all fields of this entry",
+  "review_status": "draft"
+}
