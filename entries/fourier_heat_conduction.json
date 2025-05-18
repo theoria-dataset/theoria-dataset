@@ -59,8 +59,8 @@
     }
   ],
   "programmatic_verification": {
-    "language": "python 3.11",
-    "library": "sympy 1.12",
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "# Define symbols for verification",

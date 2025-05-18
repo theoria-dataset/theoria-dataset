@@ -97,26 +97,6 @@
     {
       "id": "assumption3",
       "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
-    },
-    {
-      "step": 4,
-      "text": "Substitute the operators into the energy-momentum relation, ensuring the `c^2` factor is correctly placed with the momentum term, and apply to the wave function `phi`."
-    },
-    {
-      "step": 5,
-      "text": "Expand the squared operators."
-    },
-    {
-      "step": 6,
-      "text": "Divide the entire equation by `-hbar^2 c^2` and rearrange to group terms."
-    },
-    {
-      "step": 7,
-      "text": "Rearrange terms to the standard form of the Klein-Gordon equation."
-    },
-    {
-      "step": 8,
-      "text": "Express using the D'Alembertian operator `Box = (1/c^2)partial^2_t - nabla^2` for compactness."
     }
   ],
   "derivation_explanation": [
@@ -154,8 +134,8 @@
     }
   ],
   "programmatic_verification": {
-    "language": "python 3.11.5",
-    "library": "sympy 1.12",
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "",
