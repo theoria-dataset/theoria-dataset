@@ -56,7 +56,10 @@
       "date": "2025-05-11",
       "changes": [
         "Removed dataset version from entries",
-        "Added footer to each entry with licence in entries.html"
-        "index.html shows version from manifest.json"]
+        "Added footer to each entry with licence in entries.html",
+        "index.html shows version from manifest.json",
+        "Fixing link to contribute in readme.mds"
+      ]
+    }
   ]
 }
