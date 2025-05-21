@@ -3,6 +3,15 @@
 const $ = (id) => document.getElementById(id);
 const qs = (sel) => document.querySelector(sel);
 
+// Normalize apostrophes for proper AsciiMath rendering
+function fixAsciiApostrophes(str) {
+  if (!str) return str;
+  // Convert curly quotes to straight ones then map to prime
+  return str
+    .replace(/[’‘]/g, "'")
+    .replace(/'/g, "\u2032");
+}
+
 // View toggling
 const homeView = $("homeView");
 const entryView = $("entryView");
@@ -138,7 +147,7 @@ function render(data) {
   // Render equations as <p> blocks, not as a list
   const eqDiv = $("equations-content");
   eqDiv.innerHTML = (data.result_equations || [])
-    .map((eq) => `<p>\`${eq.equation}\`</p>`)
+    .map((eq) => `<p>\`${fixAsciiApostrophes(eq.equation)}\`</p>`)
     .join("");
   MathJax.typesetPromise([eqDiv]);
   renderList("#assumptions ul", data.equations_assumptions, (a) => a.text);
@@ -170,7 +179,7 @@ function render(data) {
       html += `<div class='step-expl'>${explanationMap[step.step]}</div>`;
     }
     if (step.equation) {
-      html += `<div class='step-eq'>\`${step.equation}\`</div>`;
+      html += `<div class='step-eq'>\`${fixAsciiApostrophes(step.equation)}\`</div>`;
     } else if (step.text) {
       html += `<div class='step-text'>${step.text}</div>`;
     }
@@ -182,7 +191,10 @@ function render(data) {
   tbody.innerHTML = "";
   data.definitions.forEach((d) => {
     // Ensure symbol is wrapped in backticks if it's not already
-    const symbol = d.symbol.startsWith("`") ? d.symbol : `\`${d.symbol}\``;
+    const cleanSymbol = fixAsciiApostrophes(d.symbol);
+    const symbol = cleanSymbol.startsWith("`")
+      ? cleanSymbol
+      : `\`${cleanSymbol}\``;
     tbody.insertAdjacentHTML(
       "beforeend",
       `<tr><td>${symbol}</td><td>${d.definition}</td></tr>`
