@@ -3,7 +3,7 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "L = -1/4*F_(mu nu)*F^(mu nu) + psiBar*(i*gamma^mu*D_mu - m)*psi"
+      "equation": "L = bar psi*(i*gamma^mu*D_mu - m)*psi - 1/4*F_(mu nu)*F^(mu nu)"
     },
     {
       "id": "eq2",
@@ -14,7 +14,7 @@
       "equation": "D_mu = partial_mu + i*e*A_mu"
     }
   ],
-  "explanation": "The quantum electrodynamics (QED) Lagrangian density combines the free electromagnetic field term with the Dirac field minimally coupled through a covariant derivative. It encapsulates the dynamics of photons and charged spin-1/2 fermions while preserving local U(1) gauge invariance. From this compact expression arise both Maxwell's equations with a conserved current and the Dirac equation in the presence of an electromagnetic field.",
+  "explanation": "The QED Lagrangian density merges the standalone photon field contribution and the free spin-½ fermion action by using the simplest gauge-invariant prescription: replacing ordinary derivatives with a covariant derivative. It therefore fully specifies how light and charged matter propagate and interact under a local U(1) symmetry, and its variation directly yields Maxwell’s laws sourced by the fermion current and the Dirac equation in an electromagnetic field.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
@@ -36,15 +36,15 @@
     },
     {
       "symbol": "psi",
-      "definition": "Dirac spinor field describing a charged spin-1/2 particle (e.g., an electron)."
+      "definition": "Dirac spinor field describing a charged spin-1/2 fermion (such as an electron)."
     },
     {
-      "symbol": "psiBar",
-      "definition": "Dirac adjoint, defined as `psi^dagger*gamma^0`."
+      "symbol": "bar psi",
+      "definition": "Dirac adjoint, defined as `barpsi(x) = psi^+(x) gamma^0`."
     },
     {
       "symbol": "A_mu",
-      "definition": "Four-potential of the electromagnetic field."
+      "definition": "Four-potential of the electromagnetic field. `A_mu(x) = (phi(x), vec A(x))`, where `phi(x)` is the scalar potential and `vec A(x)` is the vector potential."
     },
     {
       "symbol": "F_(mu nu)",
