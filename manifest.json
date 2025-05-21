@@ -65,7 +65,10 @@
     {
       "version": "0.3",
       "date": "2025-05-18",
-      "changes": ["Adding 14 new entries in draft mode"]
+      "changes": [
+        "Adding 14 new entries in draft mode",
+        "Added .gitignore file with common patterns for development"
+      ]
     }
   ]
 }
