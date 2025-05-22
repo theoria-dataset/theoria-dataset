@@ -236,7 +236,20 @@ function renderList(sel, arr, fn) {
   const el = qs(sel);
   if (!el) return;
   el.innerHTML = "";
-  arr.forEach((item) =>
-    el.insertAdjacentHTML("beforeend", `<li>${fn(item)}</li>`)
-  );
+  arr.forEach((item) => {
+    const text = fn(item);
+    const wrappedText = text.replace(/`([^`]+)`/g, (match, expr) => {
+      // Replace hbar token with unicode ℏ for correct rendering
+      const exprFixed = expr.replace(/\bhbar\b/g, "ℏ");
+      // If the expression contains an equals sign, split and wrap
+      if (exprFixed.includes("=")) {
+        return exprFixed
+          .split("=")
+          .map((part) => `\`${part.trim()}\``)
+          .join(" = ");
+      }
+      return `\`${exprFixed}\``;
+    });
+    el.insertAdjacentHTML("beforeend", `<li>${wrappedText}</li>`);
+  });
 }
