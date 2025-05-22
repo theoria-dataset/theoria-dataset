@@ -214,6 +214,11 @@
       "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
     }
   ],
+  "dependencies": [
+    "dirac_equation_em.json",
+    "maxwell_equations.json",
+    "noethers_theorem.json"
+  ],
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }
