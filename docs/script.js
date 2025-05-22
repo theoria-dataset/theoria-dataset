@@ -51,6 +51,12 @@ if (window.location.pathname.includes("entries.html")) {
         o1.textContent = fn.replace(".json", "");
         $("entrySelector").appendChild(o1);
       });
+      const params = new URLSearchParams(window.location.search);
+      const initial = params.get("entry");
+      if (initial) {
+        $("entrySelector").value = initial;
+        $("entrySelector").dispatchEvent(new Event("change"));
+      }
     });
 
   // Handler for entry selector in entry view
@@ -64,6 +70,7 @@ if (window.location.pathname.includes("entries.html")) {
       "derivation",
       "programmaticVerification",
       "references",
+      "dependencies",
       "meta-domain",
       "meta-created",
       "meta-status",
@@ -121,6 +128,7 @@ function render(data) {
     "derivation",
     "programmaticVerification",
     "references",
+    "dependencies",
     "meta-domain",
     "meta-created",
     "meta-status",
@@ -201,6 +209,14 @@ function render(data) {
   renderList("#references ul", data.references, (r) => r.citation);
   MathJax.typesetPromise([qs("#references")]);
 
+  renderList(
+    "#dependencies ul",
+    data.dependencies || [],
+    (d) => `<a href="entries.html?entry=${d}">${d.replace(/\.json$/, "")}</a>`,
+    true
+  );
+  MathJax.typesetPromise([qs("#dependencies")]);
+
   $("meta-domain").textContent = data.domain;
   $("meta-created").textContent = data.created_by;
   $("meta-status").textContent = data.review_status;
@@ -232,12 +248,16 @@ function render(data) {
   MathJax.typesetPromise([qs("#entryView")]);
 }
 
-function renderList(sel, arr, fn) {
+function renderList(sel, arr, fn, rawHtml = false) {
   const el = qs(sel);
   if (!el) return;
   el.innerHTML = "";
   arr.forEach((item) => {
     const text = fn(item);
+    if (rawHtml) {
+      el.insertAdjacentHTML("beforeend", `<li>${text}</li>`);
+      return;
+    }
     const wrappedText = text.replace(/`([^`]+)`/g, (match, expr) => {
       // Replace hbar token with unicode ℏ for correct rendering
       const exprFixed = expr.replace(/\bhbar\b/g, "ℏ");

@@ -106,6 +106,7 @@
       "citation": "Bernoulli, D. (1738). *Hydrodynamica*. Basel."
     }
   ],
+  "dependencies": ["navier_stokes_incompressible.json"],
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

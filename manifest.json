@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.2.5",
+  "dataset_version": "0.3.1",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -68,6 +68,15 @@
       "changes": [
         "Adding 14 new entries in draft mode",
         "Added .gitignore file with common patterns for development"
+      ]
+    },
+    {
+      "version": "0.3.1",
+      "date": "2025-05-20",
+      "changes": [
+        "Introduced optional dependencies field to entries",
+        "Added Planck's radiation law entry",
+        "Updated docs and schema to display entry dependencies"
       ]
     }
   ]
