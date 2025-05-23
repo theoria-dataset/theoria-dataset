@@ -200,6 +200,18 @@ The following fields are required in each entry JSON file. Ensure that all entri
 ]
 ```
 
+- **`dependencies`:**
+  - Optional list of other entry filenames that this result relies on.
+  - Use the `.json` filenames exactly as listed in `docs/index.json`.
+  - Example:
+
+  ```json
+  "dependencies": [
+    "dirac_equation_free.json",
+    "maxwell_equations.json"
+  ]
+  ```
+
 - **`created_ by`:** Full name or ORCID of author of the entry.
 
 - **`review_status`:** Use "draft" for initial submissions. Final datasets published in main must be marked as "reviewed".

@@ -185,6 +185,7 @@
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
   ],
-  "created_by": "Looking for contributors to review all fields of this entry",
+  "dependencies": ["klein_gordon_equation.json"],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

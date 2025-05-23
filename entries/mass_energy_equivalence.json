@@ -192,6 +192,7 @@
       "citation": "Kleppner, D., & Kolenkow, R. J. (2014). *An Introduction to Mechanics* (2nd ed.). Cambridge University Press. (Chapter 13 provides a derivation of relativistic energy)."
     }
   ],
-  "created_by": "Looking for contributors to review all fields of this entry",
+  "dependencies": ["lorentz_transformations.json"],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

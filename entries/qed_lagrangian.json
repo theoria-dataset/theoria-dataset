@@ -3,7 +3,7 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "L = -1/4*F_(mu nu)*F^(mu nu) + psiBar*(i*gamma^mu*D_mu - m)*psi"
+      "equation": "L = bar psi*(i*gamma^mu*D_mu - m)*psi - 1/4*F_(mu nu)*F^(mu nu)"
     },
     {
       "id": "eq2",
@@ -14,7 +14,7 @@
       "equation": "D_mu = partial_mu + i*e*A_mu"
     }
   ],
-  "explanation": "The quantum electrodynamics (QED) Lagrangian density combines the free electromagnetic field term with the Dirac field minimally coupled through a covariant derivative. It encapsulates the dynamics of photons and charged spin-1/2 fermions while preserving local U(1) gauge invariance. From this compact expression arise both Maxwell's equations with a conserved current and the Dirac equation in the presence of an electromagnetic field.",
+  "explanation": "The QED Lagrangian density merges the standalone photon field contribution and the free spin-½ fermion action by using the simplest gauge-invariant prescription: replacing ordinary derivatives with a covariant derivative. It therefore fully specifies how light and charged matter propagate and interact under a local U(1) symmetry, and its variation directly yields Maxwell's laws sourced by the fermion current and the Dirac equation in an electromagnetic field.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
@@ -26,7 +26,7 @@
     },
     {
       "id": "eq_assump3",
-      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu*alpha(x)`."
+      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`."
     }
   ],
   "definitions": [
@@ -36,15 +36,15 @@
     },
     {
       "symbol": "psi",
-      "definition": "Dirac spinor field describing a charged spin-1/2 particle (e.g., an electron)."
+      "definition": "Dirac spinor field describing a charged spin-1/2 fermion (such as an electron)."
     },
     {
-      "symbol": "psiBar",
-      "definition": "Dirac adjoint, defined as `psi^dagger*gamma^0`."
+      "symbol": "bar psi",
+      "definition": "Dirac adjoint, defined as `barpsi(x) = psi^+(x) gamma^0`."
     },
     {
       "symbol": "A_mu",
-      "definition": "Four-potential of the electromagnetic field."
+      "definition": "Four-potential of the electromagnetic field. `A_mu(x) = (phi(x), vec A(x))`, where `phi(x)` is the scalar potential and `vec A(x)` is the vector potential."
     },
     {
       "symbol": "F_(mu nu)",
@@ -75,23 +75,23 @@
   "derivation": [
     {
       "step": 1,
-      "equation": "L_free = psiBar*(i*gamma^mu*partial_mu - m)*psi"
+      "equation": "L_(text(free)) = bar psi*(i*gamma^mu*partial_mu - m)*psi"
     },
     {
       "step": 2,
-      "equation": "psi -> exp(-i*alpha)*psi (global U(1) symmetry)"
+      "equation": "psi -> exp(-i*alpha)*psi"
     },
     {
       "step": 3,
-      "equation": "Promote alpha -> alpha(x) (local symmetry)"
+      "equation": "alpha -> alpha(x)"
     },
     {
       "step": 4,
-      "equation": "Introduce A_mu and define D_mu = partial_mu + i*e*A_mu"
+      "equation": "D_mu = partial_mu + i*e*A_mu"
     },
     {
       "step": 5,
-      "equation": "L_Dirac = psiBar*(i*gamma^mu*D_mu - m)*psi"
+      "equation": "L_(Dirac) = bar psi*(i*gamma^mu*D_mu - m)*psi"
     },
     {
       "step": 6,
@@ -99,19 +99,19 @@
     },
     {
       "step": 7,
-      "equation": "L_EM = -1/4*F_(mu nu)*F^(mu nu)"
+      "equation": "L_(EM) = -1/4*F_(mu nu)*F^(mu nu)"
     },
     {
       "step": 8,
-      "equation": "L = L_EM + L_Dirac"
+      "equation": "L = L_(EM) + L_(Dirac)"
     },
     {
       "step": 9,
-      "equation": "delta_L/delta_psiBar => (i*gamma^mu*D_mu - m)*psi = 0"
+      "equation": "delta_L/delta_bar psi => (i*gamma^mu*D_mu - m)*psi = 0"
     },
     {
       "step": 10,
-      "equation": "delta_L/delta_A_nu => partial_mu*F^(mu nu) = e*psiBar*gamma^nu*psi"
+      "equation": "delta_L/delta_(A_nu) => partial_mu F^(mu nu) = e*bar psi*gamma^nu*psi"
     }
   ],
   "derivation_assumptions": [
@@ -135,70 +135,68 @@
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Begin with the free Dirac Lagrangian for a spin-1/2 field."
+      "text": "The free Dirac Lagrangian is chosen as it's the simplest Lorentz-invariant, first-order relativistic wave equation for spin-1/2 fields, yielding the Dirac equation."
     },
     {
       "step": 2,
-      "text": "Identify its global phase symmetry, revealing a conserved electric current by Noether's theorem."
+      "text": "This Lagrangian has a global U(1) symmetry (`psi -> exp(-i*alpha)*psi`), implying a conserved electric current via Noether's theorem."
     },
     {
       "step": 3,
-      "text": "Demanding invariance under a space-time dependent phase requires compensating gauge fields."
+      "text": "Promoting the phase `alpha` to a local function `alpha(x)` breaks the Lagrangian's invariance due to the derivative term. A compensating gauge field is thus required."
     },
     {
       "step": 4,
-      "text": "Introduce the electromagnetic four-potential via the covariant derivative to restore local invariance."
+      "text": "The electromagnetic four-potential `A_mu(x)` is introduced as the gauge field. The covariant derivative `D_mu = partial_mu + i*e*A_mu` is defined to ensure `D_mu psi` transforms like `psi` under local `U(1)` gauge transformations (`psi -> exp(-i*e*alpha(x))*psi`, `A_mu -> A_mu + partial_mu alpha(x)`), restoring invariance."
     },
     {
       "step": 5,
-      "text": "Rewrite the kinetic term using `D_mu`, which now includes interaction `e*psiBar*gamma^mu*A_mu*psi`."
+      "text": "Replacing `partial_mu` with `D_mu` in the Dirac Lagrangian (minimal coupling) introduces the interaction term `e*bar psi*gamma^mu*A_mu*psi`, describing fermion-photon interaction while maintaining local `U(1)` gauge invariance."
     },
     {
       "step": 6,
-      "text": "Construct the gauge-invariant field strength tensor from `A_mu`."
+      "text": "A gauge-invariant kinetic term for `A_mu` is needed. This is built from the electromagnetic field strength tensor `F_(mu nu)`, defined by derivatives of `A_mu` as per the step's equation."
     },
     {
       "step": 7,
-      "text": "Add the Maxwell term for the free photon field."
+      "text": "The Maxwell Lagrangian, `L_(EM) = -1/4*F_(mu nu)*F^(mu nu)`, is a Lorentz scalar and gauge-invariant kinetic term for `A_mu`, describing free photon propagation."
     },
     {
       "step": 8,
-      "text": "Combine both sectors to obtain the full QED Lagrangian."
+      "text": "The full QED Lagrangian is the sum of the interacting Dirac Lagrangian (`L_(Dirac)`) and the Maxwell Lagrangian (`L_(EM)`), describing fermions interacting with photons under local `U(1)` symmetry."
     },
     {
       "step": 9,
-      "text": "Varying with respect to `psiBar` yields the interacting Dirac equation."
+      "text": "Varying the QED Lagrangian with respect to `bar psi` (Euler-Lagrange) yields the interacting Dirac equation, governing fermion dynamics in an electromagnetic field."
     },
     {
       "step": 10,
-      "text": "Varying with respect to `A_mu` gives Maxwell's equations with the conserved Dirac current as source."
+      "text": "Varying the QED Lagrangian with respect to `A_mu` yields Maxwell's equations, with the fermion current `e*bar psi*gamma^nu*psi` as the source of the electromagnetic field."
     }
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
     "library": "sympy 1.12.0",
     "code": [
-      "import sympy as sp",
-      "# Coordinates",
-      "t, x, y, z = sp.symbols('t x y z')",
-      "# Gauge parameter alpha(x)",
-      "alpha = sp.Function('alpha')(t, x, y, z)",
-      "# Gauge potential components A_mu(x)",
-      "A0 = sp.Function('A0')(t, x, y, z)",
-      "A1 = sp.Function('A1')(t, x, y, z)",
-      "A2 = sp.Function('A2')(t, x, y, z)",
-      "A3 = sp.Function('A3')(t, x, y, z)",
-      "coords = [t, x, y, z]",
-      "A = [A0, A1, A2, A3]",
-      "# Field-strength tensor component",
-      "def F(mu, nu, field):\n    return sp.diff(field[nu], coords[mu]) - sp.diff(field[mu], coords[nu])",
-      "# Gauge-transformed vector potential",
-      "A_prime = [A[i] + sp.diff(alpha, coords[i]) for i in range(4)]",
-      "# Verify gauge invariance for a representative component F_{0 1}",
-      "F01 = F(0, 1, A)",
-      "F01_p = F(0, 1, A_prime)",
-      "assert sp.simplify(F01_p - F01) == 0",
-      "print('Gauge invariance of F_{01} verified.')"
+      "import sympy as sp\n",
+      "t,x,y,z=sp.symbols('t x y z'); coords=[t,x,y,z]\n",
+      "alpha=sp.Function('a')(t,x,y,z); e=sp.symbols('e')\n",
+      "A=[sp.Function(f'A{i}')(t,x,y,z) for i in range(4)]\n",
+      "psi=sp.Function('psi')(t,x,y,z)\n",
+      "# helpers\n",
+      "D=lambda mu,ps,AA: sp.diff(ps,coords[mu])+sp.I*e*AA[mu]*ps\n",
+      "F=lambda mu,nu,AA: sp.diff(AA[nu],coords[mu])-sp.diff(AA[mu],coords[nu])\n",
+      "# gauge transform\n",
+      "psi_p=sp.exp(-sp.I*e*alpha)*psi\n",
+      "A_p=[A[i]+sp.diff(alpha,coords[i]) for i in range(4)]\n",
+      "# Step4: D transforms covariantly\n",
+      "assert sp.simplify(sp.exp(sp.I*e*alpha)*D(0,psi_p,A_p)-D(0,psi,A))==0\n",
+      "# Step6: F is gauge invariant (check 0,1)\n",
+      "assert sp.simplify(F(0,1,A_p)-F(0,1,A))==0\n",
+      "# Step7: sample Maxwell term invariant\n",
+      "L1=-sp.Rational(1,4)*F(0,1,A)**2; L1p=-sp.Rational(1,4)*F(0,1,A_p)**2\n",
+      "assert sp.simplify(L1p-L1)==0\n",
+      "print('Steps 4–7 verified')"
     ]
   },
   "domain": "hep-th",
@@ -216,6 +214,11 @@
       "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
     }
   ],
-  "created_by": "Looking for contributors to review all fields of this entry",
+  "dependencies": [
+    "dirac_equation_em.json",
+    "maxwell_equations.json",
+    "noethers_theorem.json"
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

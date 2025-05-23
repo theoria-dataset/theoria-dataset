@@ -12,6 +12,7 @@
   "maxwell_lorenz_gauge.json",
   "navier_stokes_incompressible.json",
   "noethers_theorem.json",
+  "planck_radiation_law.json",
   "qed_lagrangian.json",
   "schroedingen_equation.json",
   "stefan_boltzmann_law.json"
