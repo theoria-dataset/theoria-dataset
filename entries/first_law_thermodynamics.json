@@ -112,7 +112,8 @@
       "vals = {U1: 50, Q12: 40, W12: 10}",
       "vals[U2] = vals[U1] + vals[Q12] - vals[W12]",
       "",
-      "assert expr.subs(vals).lhs == expr.subs(vals).rhs"
+      "eq_result = expr.subs(vals)",
+      "assert eq_result == sp.S.true"
     ]
   },
   "domain": "physics.class-ph",

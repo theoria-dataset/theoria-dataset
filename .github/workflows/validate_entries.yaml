@@ -23,3 +23,14 @@ jobs:
             echo "Validating $file"
             ajv validate -s schemas/entry.schema.json -d "$file" || exit 1
           done
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.12'
+
+      - name: Install Python dependencies
+        run: pip install sympy==1.12.0
+
+      - name: Run programmatic verifications
+        run: python scripts/verify_programmatic.py

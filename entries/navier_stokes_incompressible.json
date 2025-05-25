@@ -92,7 +92,7 @@
       "# Verification corresponding to derivation step 6 (final equation) via planar Poiseuille flow",
       "y, H, mu, dpdx = sp.symbols('y H mu dpdx', positive=True)",
       "# Candidate steady-state solution to incompressible NSE between two infinite plates",
-      "vx = dpdx*y*(H - y)/(2*mu)",
+      "vx = -dpdx*y*(H - y)/(2*mu)",
       "# Laplacian term minus imposed pressure gradient must cancel",
       "expr = mu*sp.diff(vx, y, 2) - dpdx",
       "assert sp.simplify(expr) == 0"
