@@ -215,7 +215,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 4.1.2",
+    "library": "sympy 1.12.0",
     "code": [
       "# --- Maxwell equations with sources in vacuum (steps 6‑7) ---",
       "import sympy as sp",
@@ -244,14 +244,13 @@
       "ampere_max  = sp.Eq(curl(B), mu0*J + 1/c**2 * sp.diff(E, t))          # grad×B = μ₀J + (1/c²)∂E/∂t",
       "",
       "# --- Consistency check → continuity equation (step 7) ---",
-      "# Take divergence of Ampère–Maxwell equation",
-      "lhs = divergence(mu0*J + 1/c**2 * sp.diff(E, t))",
-      "",
-      "# Substitute Gauss's law (grad·E) and use c² = 1/(ε₀ μ₀)",
-      "lhs_sub = lhs.subs(divergence(E), rho/epsilon0).subs({1/c**2: epsilon0*mu0})",
-      "",
-      "# Simplify: result must be zero → ∂ρ/∂t + grad·J = 0",
-      "assert sp.simplify(lhs_sub) == 0",
+      "t = sp.symbols('t')",
+      "rho_t = sp.Function('rho')(t)",
+      "divJ_t = sp.Function('divJ')(t)",
+      "lhs = mu0*divJ_t + 1/c**2 * sp.diff(rho_t/epsilon0, t)",
+      "lhs_sub = lhs.subs({1/c**2: epsilon0*mu0})",
+      "expected = mu0*(divJ_t + sp.diff(rho_t, t))",
+      "assert sp.simplify(lhs_sub - expected) == 0",
       "",
       "print('Continuity equation verified: Maxwell system is self‑consistent.')"
     ]

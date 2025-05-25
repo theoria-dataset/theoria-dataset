@@ -143,7 +143,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 4.1.2",
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "I = sp.I",
@@ -162,8 +162,9 @@
       "# Slash notation gamma^mu p_mu with metric signature (+,-,-,-)",
       "slash_p = gamma0*p0 - gamma1*px - gamma2*py - gamma3*pz",
       "# Construct operators (slash_p \u2212 m c) and (slash_p + m c)",
-      "op_minus = slash_p - m*c",
-      "op_plus  = slash_p + m*c",
+      "I4 = sp.eye(4)",
+      "op_minus = slash_p - m*c*I4",
+      "op_plus  = slash_p + m*c*I4",
       "product = sp.simplify(op_minus * op_plus)",
       "expected = (p0**2 - px**2 - py**2 - pz**2 - m**2*c**2) * sp.eye(4)",
       "# The difference should vanish if gamma matrices satisfy the Clifford algebra",
