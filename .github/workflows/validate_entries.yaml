@@ -1,6 +1,20 @@
 name: Validate Dataset Entries
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'entries/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/validate_entries.yaml'
+      - 'schemas/**'
+  pull_request:
+    paths:
+      - 'entries/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/validate_entries.yaml'
+      - 'schemas/**'
 
 jobs:
   validate:
@@ -23,3 +37,17 @@ jobs:
             echo "Validating $file"
             ajv validate -s schemas/entry.schema.json -d "$file" || exit 1
           done
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.12'
+
+      - name: Install Python dependencies
+        run: pip install sympy==1.12.0 pytest
+
+      - name: Run programmatic verifications
+        run: python scripts/verify_programmatic.py
+
+      - name: Run unit tests
+        run: pytest -q

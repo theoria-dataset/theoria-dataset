@@ -215,7 +215,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 4.1.2",
+    "library": "sympy 1.12.0",
     "code": [
       "# --- Maxwell equations with sources in vacuum (steps 6‑7) ---",
       "import sympy as sp",
