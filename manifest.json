@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.3.1",
+  "dataset_version": "0.3.2",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -77,6 +77,13 @@
         "Introduced optional dependencies field to entries",
         "Added Planck's radiation law entry",
         "Updated docs and schema to display entry dependencies"
+      ]
+    },
+    {
+      "version": "0.3.2",
+      "date": "2025-05-27",
+      "changes": [
+        "Added entries for Euler-Lagrange equation, Hamilton's equations, Hamilton-Jacobi equation, Liouville's theorem, Coriolis force, Foucault pendulum and the continuity equation"
       ]
     }
   ]

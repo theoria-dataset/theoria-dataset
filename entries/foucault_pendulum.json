@@ -1,0 +1,49 @@
+{
+  "result_name": "Foucault Pendulum",
+  "result_equations": [
+    {"id": "eq1", "equation": "Omega_precession = Omega_E sin phi"}
+  ],
+  "explanation": "A Foucault pendulum demonstrates Earth's rotation by the precession of its swing plane. The rate of precession at latitude `phi` is `Omega_E sin phi`, where `Omega_E` is Earth's rotation rate. Thus, at the poles (`sin phi = 1`) the plane completes a 360-degree rotation in one sidereal day, while at the equator (`sin phi = 0`) there is no precession.",
+  "equations_assumptions": [
+    {"id": "eq_assump1", "text": "The pendulum is long and freely swinging, and Earth's rotation (angular speed `Omega_E`) provides a slow Coriolis deflection."},
+    {"id": "eq_assump2", "text": "Latitude `phi` is measured from the equator (so `phi = 90 deg` at the pole)."}
+  ],
+  "definitions": [
+    {"symbol": "Omega_E", "definition": "Angular speed of Earth's rotation (15 deg per hour)."},
+    {"symbol": "phi", "definition": "Latitude of the pendulum's location on Earth."},
+    {"symbol": "Omega_precession", "definition": "Angular speed of the pendulum's swing plane precession relative to Earth."}
+  ],
+  "derivation": [
+    {"step": 1, "equation": "Coriolis deflection frequency in horizontal plane = Omega_E sin phi"},
+    {"step": 2, "equation": "T_precession = 2*pi/(Omega_E sin phi)"}
+  ],
+  "derivation_assumptions": [
+    {"id": "assump1", "text": "Only the Coriolis component of Earth's rotation affects the pendulum's plane (no restoring torque in azimuth)."},
+    {"id": "assump2", "text": "Small-angle oscillations are assumed so the motion is planar and we can superpose the effect of Earth's rotation."}
+  ],
+  "derivation_explanation": [
+    {"step": 1, "text": "Due to Coriolis force, the pendulum's plane rotates at an angular rate equal to the vertical component of Earth's rotation: `Omega_E sin phi`."},
+    {"step": 2, "text": "Compute the period of precession as `T = 2*pi/(Omega_E sin phi)`. For example, at `phi = 30 deg`, `T` is about 48 hours."}
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.11.1",
+    "code": [
+      "import math",
+      "# Step 1: compute precession frequency at the pole",
+      "Omega_E = 2*math.pi/86164",
+      "phi = math.radians(90)",
+      "omega_prec = Omega_E*math.sin(phi)",
+      "# Step 2: compute the precession period",
+      "T_prec = 2*math.pi/omega_prec",
+      "assert abs(T_prec/86400 - 1) < 0.01"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "references": [
+    {"id": "R1", "citation": "Foucault, L. (1851). Demonstration d'un mouvement de rotation de la Terre. *Comptes Rendus*, 32, 135-138."},
+    {"id": "R2", "citation": "Marion, J., & Thornton, S. (1988). *Classical Dynamics* (3rd ed.). HBJ."}
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}
