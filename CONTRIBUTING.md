@@ -151,7 +151,6 @@ The following fields are required in each entry JSON file. Ensure that all entri
     - `language`: The programming language used for the verification and its version (e.g. `python 3.11.12`). Note that you can obtain the version using `python --version` in the terminal or `import sys; print(sys.version)` in the runtime.
     - `library`: The library used for the verification and its version (e.g. `sympy 1.31.1`). You can obtain the version using `pip show sympy` in the terminal or `import sympy; print(sympy.__version__)` in the runtime.
   - Comment the code to explain the logic of the verification, mentioning the steps of the `derivation_explanation`.
-  - Include short comments before each part of the code referencing the relevant derivation step (e.g. `# Step 2: integrate by parts`).
   - Include an `assert` or equivalent statement in the end to verify the correctness of the derivation.
   - See a full example in the [lorentz transformation](entries/lorentz_transformations.json) entry.
   - Note that in the json each line is a string with quotes and a comma. To make it easier to run, you can use a code like this, where you can copy and paste the lines of code directly from the JSON to the `lines` variable:
