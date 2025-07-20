@@ -81,8 +81,9 @@
     },
     {
       "version": "0.3.2",
-      "date": "2025-05-25",
+      "date": "2025-05-27",
       "changes": [
+        "Added entries for Euler-Lagrange equation, Hamilton's equations, Hamilton-Jacobi equation, Liouville's theorem, Coriolis force, Foucault pendulum and the continuity equation",
         "Added run_verifications() helper and version normalization logic",
         "Patched programmatic checks in several entries",
         "Ensured Maxwell equations and Noether theorem proofs execute cleanly",
