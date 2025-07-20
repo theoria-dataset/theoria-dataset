@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  theoria-tests:
+    build: .
+    container_name: theoria-dev
+    volumes:
+      - .:/app
+    working_dir: /app
+    # Override default command to allow interactive usage
+    command: run-tests
+
+  # Interactive development shell
+  theoria-dev:
+    build: .
+    container_name: theoria-dev-shell
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: /bin/bash
+    stdin_open: true
+    tty: true

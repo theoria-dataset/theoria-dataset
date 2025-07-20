@@ -1,32 +1,56 @@
 {
   "result_name": "Continuity Equation (Fluid Flow)",
   "result_equations": [
-    {"id": "eq1", "equation": "del rho/del t + grad dot (rho vec v) = 0"}
+    { "id": "eq1", "equation": "del rho/del t + grad dot (rho vec v) = 0" }
   ],
   "explanation": "The continuity equation expresses conservation of mass in fluid dynamics. It states that the rate of increase of density in a volume plus the net outflow of mass through the volume's boundary is zero. In incompressible flow, this reduces to `grad dot vec v = 0`. The continuity equation is fundamental for any fluid (liquid or gas).",
   "equations_assumptions": [
-    {"id": "eq_assump1", "text": "No mass is created or destroyed within the flow (mass conservation)."},
-    {"id": "eq_assump2", "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis)."}
+    {
+      "id": "eq_assump1",
+      "text": "No mass is created or destroyed within the flow (mass conservation)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis)."
+    }
   ],
   "definitions": [
-    {"symbol": "rho(vec r,t)", "definition": "Fluid mass density at position `vec r` and time `t`."},
-    {"symbol": "vec v(vec r,t)", "definition": "Fluid velocity field."}
+    {
+      "symbol": "rho(vec r,t)",
+      "definition": "Fluid mass density at position `vec r` and time `t`."
+    },
+    { "symbol": "vec v(vec r,t)", "definition": "Fluid velocity field." }
   ],
   "derivation": [
-    {"step": 1, "equation": "d/dt int_V rho dV = - int_{partial V} rho vec v dot d vec A"},
-    {"step": 2, "equation": "del rho/del t + grad dot (rho vec v) = 0"}
+    {
+      "step": 1,
+      "equation": "d/dt int_V rho dV = - int_{partial V} rho vec v dot d vec A"
+    },
+    { "step": 2, "equation": "del rho/del t + grad dot (rho vec v) = 0" }
   ],
   "derivation_assumptions": [
-    {"id": "assump1", "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary."},
-    {"id": "assump2", "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."}
+    {
+      "id": "assump1",
+      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary."
+    },
+    {
+      "id": "assump2",
+      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."
+    }
   ],
   "derivation_explanation": [
-    {"step": 1, "text": "Mass conservation in integral form: the time rate of change of mass in volume V equals the negative of mass flux leaving through the surface `partial V`."},
-    {"step": 2, "text": "Convert to a local statement by shrinking V to a point. This yields the continuity equation `del_t rho + grad dot (rho vec v) = 0`."}
+    {
+      "step": 1,
+      "text": "Mass conservation in integral form: the time rate of change of mass in volume V equals the negative of mass flux leaving through the surface `partial V`."
+    },
+    {
+      "step": 2,
+      "text": "Convert to a local statement by shrinking V to a point. This yields the continuity equation `del_t rho + grad dot (rho vec v) = 0`."
+    }
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.11.1",
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "# Step 1: verify integral form for a constant-density flow",
@@ -50,8 +74,14 @@
   },
   "domain": "physics.flu-dyn",
   "references": [
-    {"id": "R1", "citation": "Landau, L. D., & Lifshitz, E. M. (1987). *Fluid Mechanics* (2nd ed.). Pergamon."},
-    {"id": "R2", "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."}
+    {
+      "id": "R1",
+      "citation": "Landau, L. D., & Lifshitz, E. M. (1987). *Fluid Mechanics* (2nd ed.). Pergamon."
+    },
+    {
+      "id": "R2",
+      "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."
+    }
   ],
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
