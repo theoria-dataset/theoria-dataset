@@ -84,12 +84,12 @@
       "date": "2025-05-27",
       "changes": [
         "Added entries for Euler-Lagrange equation, Hamilton's equations, Hamilton-Jacobi equation, Liouville's theorem, Coriolis force, Foucault pendulum and the continuity equation",
+        "Added programmatic verification for all entries",
+        "Adding development environment based on docker, to allow local testing",
         "Added run_verifications() helper and version normalization logic",
-        "Patched programmatic checks in several entries",
         "Ensured Maxwell equations and Noether theorem proofs execute cleanly",
         "Fixed Stefan–Boltzmann integral evaluation",
-        "Added unit tests for verification logic",
-        "Testing"
+        "Added unit tests for verification logic"
       ]
     }
   ]
