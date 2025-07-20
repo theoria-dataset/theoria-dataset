@@ -1,38 +1,80 @@
 {
   "result_name": "Coriolis Force",
   "result_equations": [
-    {"id": "eq1", "equation": "vec F_c = 2 m (vec v cross vec Omega)"}
+    { "id": "eq1", "equation": "vec F_c = 2 m (vec v cross vec Omega)" }
   ],
   "explanation": "The Coriolis force is a fictitious force that appears in a rotating reference frame. It causes moving objects to be deflected relative to the Earth's surface or any rotating frame. The Coriolis acceleration is `2(vec v cross vec Omega)`, acting perpendicular to the velocity. This effect explains phenomena like the rotation of cyclones and the deflection of projectiles in latitude.",
   "equations_assumptions": [
-    {"id": "eq_assump1", "text": "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth)."},
-    {"id": "eq_assump2", "text": "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale)."}
+    {
+      "id": "eq_assump1",
+      "text": "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale)."
+    }
   ],
   "definitions": [
-    {"symbol": "vec Omega", "definition": "Angular velocity vector of the rotating frame (e.g., Earth, oriented along rotation axis)."},
-    {"symbol": "m", "definition": "Mass of the moving object."},
-    {"symbol": "vec v", "definition": "Velocity of the object relative to the rotating frame."},
-    {"symbol": "vec F_c", "definition": "Coriolis force on the object (in the rotating frame)."}
+    {
+      "symbol": "vec Omega",
+      "definition": "Angular velocity vector of the rotating frame (e.g., Earth, oriented along rotation axis)."
+    },
+    { "symbol": "m", "definition": "Mass of the moving object." },
+    {
+      "symbol": "vec v",
+      "definition": "Velocity of the object relative to the rotating frame."
+    },
+    {
+      "symbol": "vec F_c",
+      "definition": "Coriolis force on the object (in the rotating frame)."
+    }
   ],
   "derivation": [
-    {"step": 1, "equation": "vec a_inertial = vec a_rot + 2 vec Omega cross vec v + vec Omega cross (vec Omega cross vec r)"},
-    {"step": 2, "equation": "m vec a_inertial = vec F_real"},
-    {"step": 3, "equation": "m vec a_rot = vec F_real - 2 m(vec Omega cross vec v) - m vec Omega cross (vec Omega cross vec r)"},
-    {"step": 4, "equation": "Identify vec F_c = 2 m(vec v cross vec Omega) and centrifugal vec F_cf = m vec Omega cross (vec Omega cross vec r)."}
+    {
+      "step": 1,
+      "equation": "vec a_inertial = vec a_rot + 2 vec Omega cross vec v + vec Omega cross (vec Omega cross vec r)"
+    },
+    { "step": 2, "equation": "m vec a_inertial = vec F_real" },
+    {
+      "step": 3,
+      "equation": "m vec a_rot = vec F_real - 2 m(vec Omega cross vec v) - m vec Omega cross (vec Omega cross vec r)"
+    },
+    {
+      "step": 4,
+      "equation": "Identify vec F_c = 2 m(vec v cross vec Omega) and centrifugal vec F_cf = m vec Omega cross (vec Omega cross vec r)."
+    }
   ],
   "derivation_assumptions": [
-    {"id": "assump1", "text": "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear."},
-    {"id": "assump2", "text": "No actual force corresponds to these terms; they are apparent forces due to frame rotation."}
+    {
+      "id": "assump1",
+      "text": "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear."
+    },
+    {
+      "id": "assump2",
+      "text": "No actual force corresponds to these terms; they are apparent forces due to frame rotation."
+    }
   ],
   "derivation_explanation": [
-    {"step": 1, "text": "Write the relation between accelerations in inertial vs rotating frame (including Coriolis and centrifugal terms)."},
-    {"step": 2, "text": "Newton's second law in the inertial frame relates real forces to inertial acceleration."},
-    {"step": 3, "text": "Re-arrange in the rotating frame: fictitious force terms (Coriolis and centrifugal) are moved to the right-hand side."},
-    {"step": 4, "text": "Identify the Coriolis force `2 m(vec v cross vec Omega)` and centrifugal force in the rotating frame's equation of motion."}
+    {
+      "step": 1,
+      "text": "Write the relation between accelerations in inertial vs rotating frame (including Coriolis and centrifugal terms)."
+    },
+    {
+      "step": 2,
+      "text": "Newton's second law in the inertial frame relates real forces to inertial acceleration."
+    },
+    {
+      "step": 3,
+      "text": "Re-arrange in the rotating frame: fictitious force terms (Coriolis and centrifugal) are moved to the right-hand side."
+    },
+    {
+      "step": 4,
+      "text": "Identify the Coriolis force `2 m(vec v cross vec Omega)` and centrifugal force in the rotating frame's equation of motion."
+    }
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.11.1",
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "# Step 1: verify acceleration transformation for linear motion",
@@ -58,8 +100,14 @@
   },
   "domain": "physics.class-ph",
   "references": [
-    {"id": "R1", "citation": "Coriolis, G. (1835). *Sur les équations du mouvement relatif des systèmes de corps*."},
-    {"id": "R2", "citation": "Vallis, G. K. (2017). *Atmospheric and Oceanic Fluid Dynamics* (2nd ed.). Cambridge University Press."}
+    {
+      "id": "R1",
+      "citation": "Coriolis, G. (1835). *Sur les équations du mouvement relatif des systèmes de corps*."
+    },
+    {
+      "id": "R2",
+      "citation": "Vallis, G. K. (2017). *Atmospheric and Oceanic Fluid Dynamics* (2nd ed.). Cambridge University Press."
+    }
   ],
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
