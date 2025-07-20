@@ -95,7 +95,9 @@
       "# Step 4: test Coriolis force direction for eastward motion",
       "v_sample = sp.Matrix([10, 0, 0])",
       "F_c = 2*m*v_sample.cross(Omega)",
-      "assert F_c[1] < 0"
+      "# For positive mass and eastward velocity, Coriolis force points south (negative y)",
+      "F_c_numeric = F_c.subs(m, 1)",
+      "assert F_c_numeric[1] < 0"
     ]
   },
   "domain": "physics.class-ph",
