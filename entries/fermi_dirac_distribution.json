@@ -1,0 +1,206 @@
+{
+  "result_name": "Fermi-Dirac Distribution",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "f(E) = 1/(exp((E - mu)/(k_B T)) + 1)"
+    },
+    {
+      "id": "eq2",
+      "equation": "N = int_0^oo g(E) f(E) dE"
+    }
+  ],
+  "explanation": "The Fermi-Dirac distribution describes the statistical distribution of fermions (particles with half-integer spin) in thermal equilibrium. Unlike classical particles, fermions obey the Pauli exclusion principle, limiting occupancy to one particle per quantum state. This distribution is fundamental for understanding electrons in metals, semiconductors, and degenerate matter.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Particles are non-interacting (ideal Fermi gas)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "f(E)",
+      "definition": "Probability of occupancy of a state with energy E."
+    },
+    {
+      "symbol": "E",
+      "definition": "Energy of a quantum state."
+    },
+    {
+      "symbol": "mu",
+      "definition": "Chemical potential (Fermi energy at T = 0)."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature."
+    },
+    {
+      "symbol": "N",
+      "definition": "Total number of particles."
+    },
+    {
+      "symbol": "g(E)",
+      "definition": "Density of states (number of states per unit energy)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Omega = prod_i (1 + n_i)!"
+    },
+    {
+      "step": 2,
+      "equation": "S = k_B ln(Omega)"
+    },
+    {
+      "step": 3,
+      "equation": "delta(S - alpha N - beta U) = 0"
+    },
+    {
+      "step": 4,
+      "equation": "sum_i delta n_i [k_B ln(1 + n_i) - k_B ln(n_i) - alpha - beta E_i] = 0"
+    },
+    {
+      "step": 5,
+      "equation": "ln(1 + n_i) - ln(n_i) = alpha + beta E_i"
+    },
+    {
+      "step": 6,
+      "equation": "n_i = 1/(exp(alpha + beta E_i) - 1)"
+    },
+    {
+      "step": 7,
+      "equation": "alpha = -mu/(k_B T), beta = 1/(k_B T)"
+    },
+    {
+      "step": 8,
+      "equation": "f(E) = 1/(exp((E - mu)/(k_B T)) + 1)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Maximum entropy principle applies at thermal equilibrium."
+    },
+    {
+      "id": "assumption2",
+      "text": "Particle number and energy are conserved (grand canonical ensemble)."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define the number of microstates for fermions (each state can be occupied by 0 or 1 particle)."
+    },
+    {
+      "step": 2,
+      "text": "Use Boltzmann's entropy formula with the microstate count."
+    },
+    {
+      "step": 3,
+      "text": "Maximize entropy subject to constraints on particle number and energy."
+    },
+    {
+      "step": 4,
+      "text": "Apply Lagrange multipliers and take variations with respect to occupation numbers."
+    },
+    {
+      "step": 5,
+      "text": "Set each variation to zero to find the equilibrium condition."
+    },
+    {
+      "step": 6,
+      "text": "Solve for the occupation number of each state."
+    },
+    {
+      "step": 7,
+      "text": "Identify the Lagrange multipliers with temperature and chemical potential."
+    },
+    {
+      "step": 8,
+      "text": "Obtain the Fermi-Dirac distribution function."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "E, mu, k_B, T = sp.symbols('E mu k_B T', positive=True)",
+      "# Fermi-Dirac distribution",
+      "f_FD = 1/(sp.exp((E - mu)/(k_B*T)) + 1)",
+      "# Verify limiting cases",
+      "# Classical limit (E >> mu + k_B*T): should reduce to Maxwell-Boltzmann",
+      "f_classical = sp.limit(f_FD, E, sp.oo)",
+      "f_MB_limit = sp.exp(-(E - mu)/(k_B*T))",
+      "# In the classical limit, the +1 becomes negligible",
+      "f_classical_approx = sp.series(f_FD, E, sp.oo, n=2).removeO()",
+      "# Zero temperature limit",
+      "f_T0_below = sp.limit(f_FD.subs(E, mu - sp.Abs(k_B*T)), T, 0)",
+      "f_T0_above = sp.limit(f_FD.subs(E, mu + sp.Abs(k_B*T)), T, 0)",
+      "assert f_T0_below == 1  # All states below mu are filled",
+      "assert f_T0_above == 0  # All states above mu are empty",
+      "# Verify normalization property for free electron gas",
+      "# At T=0, integral from 0 to mu should give total number of electrons",
+      "# This requires integration with density of states",
+      "# Verify derivative gives Fermi function shape",
+      "df_dE = sp.diff(f_FD, E)",
+      "# At E = mu, the derivative should be maximum (steepest slope)",
+      "df_at_mu = df_dE.subs(E, mu)",
+      "expected_max = -1/(4*k_B*T)",
+      "assert sp.simplify(df_at_mu - expected_max) == 0"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum statistical mechanics",
+      "Fermions (half-integer spin particles)",
+      "Non-interacting or weakly interacting particles",
+      "Thermal equilibrium"
+    ],
+    "limitations": [
+      "Limited to non-interacting fermions",
+      "Requires quantum mechanical treatment",
+      "May need corrections for strong correlations",
+      "Assumes well-defined chemical potential"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of solid state physics, explains electronic properties of metals and semiconductors",
+    "development_period": "1926-1927",
+    "key_insights": [
+      "Quantum statistics",
+      "Pauli exclusion principle",
+      "Degenerate electron gas",
+      "Electronic band theory foundation"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fermi, E. (1926). Zur Quantelung des idealen einatomigen Gases. *Zeitschrift für Physik*, 36(11-12), 902-912."
+    },
+    {
+      "id": "R2",
+      "citation": "Dirac, P. A. M. (1926). On the theory of quantum mechanics. *Proceedings of the Royal Society of London*, 112(762), 661-677."
+    }
+  ],
+  "dependencies": ["pauli_exclusion_principle.json", "partition_function.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

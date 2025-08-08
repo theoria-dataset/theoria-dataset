@@ -1,0 +1,307 @@
+{
+  "result_name": "Boltzmann Distribution",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "P(E) = (1/Z) * e^(-E/(k_B*T))"
+    },
+    {
+      "id": "eq2",
+      "equation": "Z = sum_i e^(-E_i/(k_B*T))"
+    }
+  ],
+  "explanation": "The Boltzmann distribution describes the probability of finding a system in a particular energy state when in thermal equilibrium at temperature T. This fundamental statistical law governs how energy is distributed among particles in thermal systems and forms the cornerstone of statistical mechanics, explaining phenomena from gas kinetics to chemical equilibrium and phase transitions.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The system is in thermal equilibrium at constant temperature."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system can exchange energy with a thermal reservoir but particle number is fixed."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Quantum states are discrete and non-degenerate (or degeneracies are included in the sum)."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The system follows classical or quantum statistical mechanics."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "P(E)",
+      "definition": "Probability of finding the system in a state with energy `E`."
+    },
+    {
+      "symbol": "Z",
+      "definition": "Partition function, a normalization constant that ensures probabilities sum to unity."
+    },
+    {
+      "symbol": "E",
+      "definition": "Energy of a particular state."
+    },
+    {
+      "symbol": "E_i",
+      "definition": "Energy of the ith state."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant (`1.381 × 10^-23 J/K`)."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature of the thermal reservoir."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "S = k_B * ln(Omega)"
+    },
+    {
+      "step": 2,
+      "equation": "dS = (1/T) * dE"
+    },
+    {
+      "step": 3,
+      "equation": "d(k_B * ln(Omega)) = (1/T) * dE"
+    },
+    {
+      "step": 4,
+      "equation": "k_B * (d ln(Omega))/(dE) = 1/T"
+    },
+    {
+      "step": 5,
+      "equation": "(d ln(Omega))/(dE) = 1/(k_B*T)"
+    },
+    {
+      "step": 6,
+      "equation": "ln(Omega) = E/(k_B*T) + C"
+    },
+    {
+      "step": 7,
+      "equation": "Omega = A * e^(E/(k_B*T))"
+    },
+    {
+      "step": 8,
+      "equation": "P(E) prop Omega(E_total - E)"
+    },
+    {
+      "step": 9,
+      "equation": "P(E) prop e^((E_total - E)/(k_B*T))"
+    },
+    {
+      "step": 10,
+      "equation": "P(E) prop e^(E_total/(k_B*T)) * e^(-E/(k_B*T))"
+    },
+    {
+      "step": 11,
+      "equation": "P(E) prop e^(-E/(k_B*T))"
+    },
+    {
+      "step": 12,
+      "equation": "P(E) = (1/Z) * e^(-E/(k_B*T))"
+    },
+    {
+      "step": 13,
+      "equation": "sum_i P(E_i) = 1"
+    },
+    {
+      "step": 14,
+      "equation": "sum_i (1/Z) * e^(-E_i/(k_B*T)) = 1"
+    },
+    {
+      "step": 15,
+      "equation": "(1/Z) * sum_i e^(-E_i/(k_B*T)) = 1"
+    },
+    {
+      "step": 16,
+      "equation": "Z = sum_i e^(-E_i/(k_B*T))"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The fundamental thermodynamic relation `dS = dE/T` applies to the system."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system is weakly coupled to a much larger thermal reservoir."
+    },
+    {
+      "id": "assumption3",
+      "text": "The number of microstates is proportional to probability in thermal equilibrium."
+    },
+    {
+      "id": "assumption4",
+      "text": "Energy levels are well-defined and the system can be described by statistical mechanics."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Boltzmann's fundamental relation between entropy and number of microstates."
+    },
+    {
+      "step": 2,
+      "text": "Apply the thermodynamic definition of temperature from the first law."
+    },
+    {
+      "step": 3,
+      "text": "Combine the entropy and temperature relationships."
+    },
+    {
+      "step": 4,
+      "text": "Differentiate and rearrange to isolate the derivative of ln(Omega)."
+    },
+    {
+      "step": 5,
+      "text": "Simplify to get the relationship between microstates and energy."
+    },
+    {
+      "step": 6,
+      "text": "Integrate to find ln(Omega) as a function of energy."
+    },
+    {
+      "step": 7,
+      "text": "Exponentiate to get the number of microstates as a function of energy."
+    },
+    {
+      "step": 8,
+      "text": "For a system in contact with a reservoir, probability is proportional to reservoir microstates."
+    },
+    {
+      "step": 9,
+      "text": "The reservoir has energy (E_total - E), so apply the microstate formula."
+    },
+    {
+      "step": 10,
+      "text": "Factor the exponential into reservoir and system terms."
+    },
+    {
+      "step": 11,
+      "text": "The reservoir term is constant, leaving only the system energy dependence."
+    },
+    {
+      "step": 12,
+      "text": "Introduce the normalization constant Z to make it a proper probability."
+    },
+    {
+      "step": 13,
+      "text": "Apply the normalization condition that all probabilities sum to unity."
+    },
+    {
+      "step": 14,
+      "text": "Substitute the Boltzmann probability expression."
+    },
+    {
+      "step": 15,
+      "text": "Factor out the constant 1/Z from the sum."
+    },
+    {
+      "step": 16,
+      "text": "Solve for the partition function Z."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "import math",
+      "",
+      "# Define symbols",
+      "E1, E2, E3, k_B, T, Z = sp.symbols('E1 E2 E3 k_B T Z', positive=True, real=True)",
+      "beta = sp.symbols('beta', positive=True, real=True)",
+      "",
+      "# Define beta = 1/(k_B*T) for convenience",
+      "beta_def = 1/(k_B*T)",
+      "",
+      "# Example: 3-level system with energies E1, E2, E3",
+      "P1 = sp.exp(-E1*beta) / Z",
+      "P2 = sp.exp(-E2*beta) / Z",
+      "P3 = sp.exp(-E3*beta) / Z",
+      "",
+      "# Normalization condition",
+      "normalization = P1 + P2 + P3",
+      "normalization_expanded = (sp.exp(-E1*beta) + sp.exp(-E2*beta) + sp.exp(-E3*beta)) / Z",
+      "",
+      "# For proper normalization, this must equal 1",
+      "Z_formula = sp.exp(-E1*beta) + sp.exp(-E2*beta) + sp.exp(-E3*beta)",
+      "",
+      "# Verify normalization",
+      "normalized_sum = normalization_expanded.subs(Z, Z_formula)",
+      "assert sp.simplify(normalized_sum - 1) == 0",
+      "",
+      "# Test classical limit: high temperature (low beta)",
+      "# At high T, all states become equally probable",
+      "# Set E1 = 0, E2 = ε, E3 = 2ε for simplicity",
+      "epsilon = sp.symbols('epsilon', positive=True)",
+      "E1_val = 0",
+      "E2_val = epsilon",
+      "E3_val = 2*epsilon",
+      "",
+      "Z_example = sp.exp(-E1_val*beta) + sp.exp(-E2_val*beta) + sp.exp(-E3_val*beta)",
+      "Z_simplified = 1 + sp.exp(-epsilon*beta) + sp.exp(-2*epsilon*beta)",
+      "",
+      "P1_example = 1 / Z_simplified",
+      "P2_example = sp.exp(-epsilon*beta) / Z_simplified",
+      "P3_example = sp.exp(-2*epsilon*beta) / Z_simplified",
+      "",
+      "# In the high temperature limit (β → 0), all probabilities → 1/3",
+      "high_T_limit = sp.limit(P1_example, beta, 0)",
+      "assert high_T_limit == sp.Rational(1,3)",
+      "",
+      "# Test average energy calculation",
+      "# <E> = Σ E_i * P(E_i)",
+      "avg_energy = E1_val*P1_example + E2_val*P2_example + E3_val*P3_example",
+      "avg_energy_simplified = sp.simplify(avg_energy)",
+      "",
+      "# Alternative calculation: <E> = -d(ln Z)/dβ",
+      "ln_Z = sp.log(Z_simplified)",
+      "avg_energy_alt = -sp.diff(ln_Z, beta)",
+      "",
+      "# Verify both methods give the same result",
+      "difference = sp.simplify(avg_energy_simplified - avg_energy_alt)",
+      "assert difference == 0",
+      "",
+      "# Numerical test with specific values",
+      "# Room temperature: T = 300K, k_B = 1.381e-23 J/K",
+      "# Energy scale: ε = k_B*T (thermal energy)",
+      "beta_val = 1.0  # When ε = k_B*T, then ε*β = 1",
+      "",
+      "# Calculate probabilities numerically",
+      "Z_num = 1 + math.exp(-1.0) + math.exp(-2.0)",
+      "P1_num = 1.0 / Z_num",
+      "P2_num = math.exp(-1.0) / Z_num",
+      "P3_num = math.exp(-2.0) / Z_num",
+      "",
+      "# Verify probabilities sum to 1",
+      "prob_sum = P1_num + P2_num + P3_num",
+      "assert abs(prob_sum - 1.0) < 1e-10",
+      "",
+      "# Verify expected relationships: P1 > P2 > P3 (ground state most probable)",
+      "assert P1_num > P2_num > P3_num",
+      "",
+      "print('Boltzmann distribution verification passed!')",
+      "print(f'Numerical probabilities: P1={P1_num:.3f}, P2={P2_num:.3f}, P3={P3_num:.3f}')",
+      "print(f'Sum: {prob_sum:.6f}')"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Boltzmann, L. (1877). 'Über die Beziehung zwischen dem zweiten Hauptsatze der mechanischen Wärmetheorie und der Wahrscheinlichkeitsrechnung.' Wiener Berichte, 76, 373-435."
+    },
+    {
+      "id": "R2",
+      "citation": "Reif, F. (1965). Fundamentals of Statistical and Thermal Physics. McGraw-Hill."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

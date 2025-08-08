@@ -186,6 +186,32 @@
     }
   ],
   "dependencies": ["klein_gordon_equation.json"],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Relativistic quantum mechanics",
+      "Single particle approximation",
+      "Spin-1/2 fermions",
+      "Free particles (no interactions)"
+    ],
+    "limitations": [
+      "Single particle theory (no field quantization)",
+      "Does not describe particle creation/annihilation",
+      "Limited to free particles without interactions",
+      "Superseded by quantum field theory for multi-particle systems"
+    ]
+  },
+  "superseded_by": ["qed_lagrangian.json"],
+  "historical_context": {
+    "importance": "First successful relativistic quantum equation for fermions, predicted antimatter",
+    "development_period": "1928",
+    "key_insights": [
+      "Relativistic quantum mechanics",
+      "Spinor fields",
+      "Antimatter prediction",
+      "Electron magnetic moment"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

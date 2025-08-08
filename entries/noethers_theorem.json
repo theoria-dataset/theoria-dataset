@@ -194,6 +194,31 @@
       "print('Verification successful if the last line is 0 and assert passes.')"
     ]
   },
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Systems with well-defined Lagrangian formulation",
+      "Continuous symmetry transformations",
+      "Classical field theory or mechanics",
+      "Differentiable symmetry groups"
+    ],
+    "limitations": [
+      "Requires existence of Lagrangian description",
+      "Limited to continuous symmetries",
+      "Classical framework (quantum generalizations exist)",
+      "May be complex for gauge theories"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental theorem connecting symmetries to conservation laws, foundation of modern physics",
+    "development_period": "1915-1918",
+    "key_insights": [
+      "Symmetry-conservation connection",
+      "Mathematical foundation for conservation laws",
+      "Deep principle underlying physics",
+      "Guide for constructing physical theories"
+    ]
+  },
   "domain": "math-ph",
   "references": [
     {

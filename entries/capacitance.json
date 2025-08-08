@@ -1,0 +1,248 @@
+{
+  "result_name": "Capacitance",
+  "result_equations": [
+    {
+      "id": "capacitance_definition",
+      "equation": "C = \\frac{Q}{V}"
+    },
+    {
+      "id": "parallel_plate_capacitor",
+      "equation": "C = \\epsilon_0 \\frac{A}{d}"
+    },
+    {
+      "id": "energy_stored",
+      "equation": "U = \\frac{1}{2}CV^2 = \\frac{1}{2}QV = \\frac{Q^2}{2C}"
+    },
+    {
+      "id": "capacitors_series",
+      "equation": "\\frac{1}{C_{total}} = \\frac{1}{C_1} + \\frac{1}{C_2} + \\cdots"
+    },
+    {
+      "id": "capacitors_parallel",
+      "equation": "C_{total} = C_1 + C_2 + \\cdots"
+    }
+  ],
+  "explanation": "Capacitance is the ability of a system to store electric charge per unit voltage. Capacitors store electrical energy in the electric field between conducting plates and are fundamental components in electronic circuits for energy storage, filtering, and timing applications.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Linear dielectric materials"
+    },
+    {
+      "id": "assump2",
+      "text": "Static electric fields"
+    },
+    {
+      "id": "assump3",
+      "text": "Ideal conductors (infinite conductivity)"
+    },
+    {
+      "id": "assump4",
+      "text": "Neglect edge effects (for parallel plate)"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "C",
+      "definition": "Capacitance"
+    },
+    {
+      "symbol": "Q",
+      "definition": "Electric charge stored"
+    },
+    {
+      "symbol": "V",
+      "definition": "Voltage (potential difference)"
+    },
+    {
+      "symbol": "ε₀",
+      "definition": "Permittivity of free space"
+    },
+    {
+      "symbol": "A",
+      "definition": "Plate area"
+    },
+    {
+      "symbol": "d",
+      "definition": "Distance between plates"
+    },
+    {
+      "symbol": "U",
+      "definition": "Energy stored in capacitor"
+    },
+    {
+      "symbol": "C_total",
+      "definition": "Total capacitance"
+    },
+    {
+      "symbol": "C₁, C₂",
+      "definition": "Individual capacitances"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{E} = \\frac{\\sigma}{\\epsilon_0}"
+    },
+    {
+      "step": 2,
+      "equation": "\\sigma = \\frac{Q}{A}"
+    },
+    {
+      "step": 3,
+      "equation": "\\vec{E} = \\frac{Q}{\\epsilon_0 A}"
+    },
+    {
+      "step": 4,
+      "equation": "V = \\int_0^d \\vec{E} \\cdot d\\vec{l} = Ed"
+    },
+    {
+      "step": 5,
+      "equation": "V = \\frac{Q}{\\epsilon_0 A} \\cdot d = \\frac{Qd}{\\epsilon_0 A}"
+    },
+    {
+      "step": 6,
+      "equation": "C = \\frac{Q}{V} = \\frac{Q}{\\frac{Qd}{\\epsilon_0 A}} = \\frac{\\epsilon_0 A}{d}"
+    },
+    {
+      "step": 7,
+      "equation": "U = \\int_0^Q V dq = \\int_0^Q \\frac{q}{C} dq"
+    },
+    {
+      "step": 8,
+      "equation": "U = \\frac{1}{C} \\int_0^Q q dq = \\frac{1}{C} \\cdot \\frac{Q^2}{2} = \\frac{Q^2}{2C}"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Uniform electric field between plates"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Negligible fringing fields"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Plates are large compared to separation"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Linear relationship between charge and voltage"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "For a parallel plate capacitor, we start with the electric field from a charged plate, calculate the voltage by integrating the field, then use the definition of capacitance. Energy storage is derived by integrating the work done to charge the capacitor."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "",
+      "# Constants",
+      "epsilon_0 = 8.854e-12  # F/m",
+      "",
+      "print('Capacitance Verification\\n')",
+      "print('=' * 40)",
+      "",
+      "def parallel_plate_capacitance(A, d, epsilon_r=1):",
+      "    \"\"\"Calculate capacitance of parallel plate capacitor\"\"\"",
+      "    return epsilon_0 * epsilon_r * A / d",
+      "",
+      "def energy_stored(C, V):",
+      "    \"\"\"Calculate energy stored in capacitor\"\"\"",
+      "    return 0.5 * C * V**2",
+      "",
+      "# Test 1: Basic capacitor",
+      "print('Test 1: Parallel plate capacitor')",
+      "A = 0.01  # plate area in m² (10 cm²)",
+      "d = 1e-3  # separation in m (1 mm)",
+      "V = 12.0  # voltage in V",
+      "",
+      "C = parallel_plate_capacitance(A, d)",
+      "Q = C * V",
+      "U = energy_stored(C, V)",
+      "",
+      "print(f'  Capacitance: {C*1e12:.1f} pF')",
+      "print(f'  Charge stored: {Q*1e9:.1f} nC')",
+      "print(f'  Energy stored: {U*1e6:.1f} μJ')",
+      "",
+      "# Test 2: Energy formula equivalence",
+      "print('\\nTest 2: Energy formula verification')",
+      "U1 = 0.5 * C * V**2  # U = ½CV²",
+      "U2 = 0.5 * Q * V    # U = ½QV",
+      "U3 = Q**2 / (2 * C) # U = Q²/(2C)",
+      "",
+      "print(f'  U = ½CV²: {U1*1e6:.3f} μJ')",
+      "print(f'  U = ½QV:  {U2*1e6:.3f} μJ')",
+      "print(f'  U = Q²/2C: {U3*1e6:.3f} μJ')",
+      "print(f'  All formulas agree: {math.isclose(U1, U2) and math.isclose(U2, U3)}')",
+      "",
+      "# Test 3: Series and parallel combinations",
+      "def capacitors_series(*capacitances):",
+      "    \"\"\"Calculate total capacitance for series connection\"\"\"",
+      "    return 1 / sum(1/C for C in capacitances)",
+      "",
+      "def capacitors_parallel(*capacitances):",
+      "    \"\"\"Calculate total capacitance for parallel connection\"\"\"",
+      "    return sum(capacitances)",
+      "",
+      "print('\\nTest 3: Capacitor combinations')",
+      "C1, C2, C3 = 10e-6, 22e-6, 47e-6  # capacitances in F",
+      "",
+      "C_series = capacitors_series(C1, C2, C3)",
+      "C_parallel = capacitors_parallel(C1, C2, C3)",
+      "",
+      "print(f'  Series total: {C_series*1e6:.1f} μF')",
+      "print(f'  Parallel total: {C_parallel*1e6:.0f} μF')",
+      "",
+      "# Verify series formula",
+      "C_series_manual = 1 / (1/C1 + 1/C2 + 1/C3)",
+      "print(f'  Series verification: {math.isclose(C_series, C_series_manual)}')",
+      "",
+      "print('\\nAll capacitance relationships verified!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Linear dielectric materials",
+      "Static or slowly varying fields",
+      "Classical electromagnetism",
+      "Ideal conductors"
+    ],
+    "limitations": [
+      "Breakdown at high voltages",
+      "Frequency-dependent behavior at high frequencies",
+      "Nonlinear effects in some dielectrics",
+      "Parasitic effects in real capacitors"
+    ]
+  },
+  "historical_context": {
+    "development_period": "18th-19th century",
+    "importance": "Fundamental for understanding energy storage in electric fields; essential component in electronics and power systems",
+    "key_insights": [
+      "Ewald Georg von Kleist and Pieter van Musschenbroek independently invented the Leyden jar",
+      "Michael Faraday introduced the concept of capacitance and studied dielectric materials",
+      "Development led to understanding of electric field energy storage"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
+    },
+    {
+      "id": "ref2",
+      "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
+    }
+  ],
+  "dependencies": ["electric_field.json", "electric_potential.json"],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

@@ -1,0 +1,180 @@
+{
+  "result_name": "Simple Harmonic Oscillator",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "x(t) = A cos(omega t + phi)"
+    },
+    {
+      "id": "eq2",
+      "equation": "omega = sqrt(k/m)"
+    }
+  ],
+  "explanation": "The simple harmonic oscillator describes motion under a restoring force proportional to displacement. The solution is sinusoidal motion with angular frequency determined by the system's stiffness and inertia. This model applies to pendulums, springs, and many quantum systems, making it fundamental to physics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The restoring force is proportional to displacement: `F = -k x`."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "No damping or external driving forces are present."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "x(t)",
+      "definition": "Position as a function of time."
+    },
+    {
+      "symbol": "A",
+      "definition": "Amplitude of oscillation."
+    },
+    {
+      "symbol": "omega",
+      "definition": "Angular frequency of oscillation."
+    },
+    {
+      "symbol": "phi",
+      "definition": "Phase constant determined by initial conditions."
+    },
+    {
+      "symbol": "k",
+      "definition": "Spring constant (force per unit displacement)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the oscillating object."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "F = -k x"
+    },
+    {
+      "step": 2,
+      "equation": "m (d^2 x)/(dt^2) = -k x"
+    },
+    {
+      "step": 3,
+      "equation": "(d^2 x)/(dt^2) + (k/m) x = 0"
+    },
+    {
+      "step": 4,
+      "equation": "(d^2 x)/(dt^2) + omega^2 x = 0"
+    },
+    {
+      "step": 5,
+      "equation": "x(t) = A cos(omega t + phi)"
+    },
+    {
+      "step": 6,
+      "equation": "omega = sqrt(k/m)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Mass is constant and motion is one-dimensional."
+    },
+    {
+      "id": "assumption2",
+      "text": "The solution assumes underdamped motion (oscillatory solution)."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Hooke's law: the restoring force is proportional to displacement."
+    },
+    {
+      "step": 2,
+      "text": "Apply Newton's second law to relate force to acceleration."
+    },
+    {
+      "step": 3,
+      "text": "Rearrange to get the standard form of the harmonic oscillator differential equation."
+    },
+    {
+      "step": 4,
+      "text": "Define the angular frequency `omega^2 = k/m` to simplify notation."
+    },
+    {
+      "step": 5,
+      "text": "The general solution is sinusoidal motion with amplitude A and phase φ."
+    },
+    {
+      "step": 6,
+      "text": "The angular frequency is determined by the ratio of stiffness to mass."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, A, omega, phi, k, m = sp.symbols('t A omega phi k m', real=True, positive=True)",
+      "# Proposed solution",
+      "x = A * sp.cos(omega * t + phi)",
+      "# Calculate first and second derivatives",
+      "dx_dt = sp.diff(x, t)",
+      "d2x_dt2 = sp.diff(x, t, 2)",
+      "# Verify the solution satisfies the differential equation",
+      "diff_eq_lhs = d2x_dt2 + omega**2 * x",
+      "assert sp.simplify(diff_eq_lhs) == 0",
+      "# Verify the relationship omega = sqrt(k/m)",
+      "omega_def = sp.sqrt(k/m)",
+      "diff_eq_with_km = d2x_dt2 + (k/m) * x",
+      "diff_eq_substituted = diff_eq_with_km.subs(omega**2, k/m)",
+      "assert sp.simplify(diff_eq_substituted) == 0",
+      "# Test energy conservation",
+      "KE = m * dx_dt**2 / 2",
+      "PE = k * x**2 / 2",
+      "E_total = KE + PE",
+      "E_simplified = sp.simplify(E_total.subs(omega, sp.sqrt(k/m)))",
+      "dE_dt = sp.diff(E_simplified, t)",
+      "assert sp.simplify(dE_dt) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Small displacement approximation (linear restoring force)",
+      "No damping or external forces",
+      "Classical mechanics applies",
+      "Well-defined mass and spring constant"
+    ],
+    "limitations": [
+      "Linear approximation breaks down for large displacements",
+      "Ignores damping and nonlinear effects",
+      "Classical treatment only",
+      "Assumes ideal spring behavior"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental model in physics, basis for understanding oscillatory motion and waves",
+    "development_period": "1600s-1700s",
+    "key_insights": [
+      "Oscillatory motion",
+      "Energy conservation",
+      "Frequency dependence on system parameters",
+      "Foundation for wave mechanics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Taylor, J. R. (2005). *Classical Mechanics*. University Science Books."
+    },
+    {
+      "id": "R2",
+      "citation": "French, A. P. (1971). *Vibrations and Waves*. W. W. Norton."
+    }
+  ],
+  "dependencies": ["hookes_law.json", "newtons_second_law.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

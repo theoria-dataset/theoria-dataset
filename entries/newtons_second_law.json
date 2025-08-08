@@ -1,0 +1,196 @@
+{
+  "result_name": "Newton's Second Law of Motion",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec F = m * vec a"
+    },
+    {
+      "id": "eq2",
+      "equation": "vec F = (d vec p)/(dt)"
+    }
+  ],
+  "explanation": "Newton's second law establishes the fundamental relationship between force, mass, and acceleration in classical mechanics. It states that the net force acting on an object equals the rate of change of its momentum, or equivalently, mass times acceleration for constant mass. This law enables the prediction of motion given forces and is essential for all classical mechanical analysis, from planetary orbits to engineering design.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The reference frame is inertial (non-accelerating)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Classical mechanics applies (non-relativistic velocities)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "For equation `eq1`, the mass `m` is constant."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec F",
+      "definition": "Net force vector acting on the object."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the object (assumed constant for `eq1`)."
+    },
+    {
+      "symbol": "vec a",
+      "definition": "Acceleration vector of the object."
+    },
+    {
+      "symbol": "vec p",
+      "definition": "Momentum vector of the object (`vec p = m * vec v`)."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time coordinate."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec F = (d vec p)/(dt)"
+    },
+    {
+      "step": 2,
+      "equation": "vec p = m * vec v"
+    },
+    {
+      "step": 3,
+      "equation": "vec F = (d(m * vec v))/(dt)"
+    },
+    {
+      "step": 4,
+      "equation": "vec F = m * (d vec v)/(dt) + vec v * (dm)/(dt)"
+    },
+    {
+      "step": 5,
+      "equation": "(dm)/(dt) = 0"
+    },
+    {
+      "step": 6,
+      "equation": "vec F = m * (d vec v)/(dt)"
+    },
+    {
+      "step": 7,
+      "equation": "vec a = (d vec v)/(dt)"
+    },
+    {
+      "step": 8,
+      "equation": "vec F = m * vec a"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The fundamental postulate that force equals the rate of change of momentum applies."
+    },
+    {
+      "id": "assumption2",
+      "text": "The mass of the object remains constant during the motion."
+    },
+    {
+      "id": "assumption3",
+      "text": "The product rule of differentiation applies to vector quantities."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the most general form of Newton's second law relating force to the rate of change of momentum."
+    },
+    {
+      "step": 2,
+      "text": "Express momentum in terms of mass and velocity."
+    },
+    {
+      "step": 3,
+      "text": "Substitute the momentum expression into the force equation."
+    },
+    {
+      "step": 4,
+      "text": "Apply the product rule for differentiation to the mass-velocity product."
+    },
+    {
+      "step": 5,
+      "text": "Impose the condition that mass is constant, so its time derivative is zero."
+    },
+    {
+      "step": 6,
+      "text": "Simplify the force expression with constant mass."
+    },
+    {
+      "step": 7,
+      "text": "Define acceleration as the time derivative of velocity."
+    },
+    {
+      "step": 8,
+      "text": "Obtain the familiar form of Newton's second law."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "t, m = sp.symbols('t m', real=True, positive=True)",
+      "F_x, F_y, F_z = sp.symbols('F_x F_y F_z', real=True)",
+      "v_x, v_y, v_z = sp.symbols('v_x v_y v_z', real=True)",
+      "a_x, a_y, a_z = sp.symbols('a_x a_y a_z', real=True)",
+      "",
+      "# Define velocity components as functions of time",
+      "v_x_t = sp.Function('v_x')(t)",
+      "v_y_t = sp.Function('v_y')(t)",
+      "v_z_t = sp.Function('v_z')(t)",
+      "",
+      "# Step 1: Force equals rate of change of momentum",
+      "# Step 2 & 3: Momentum components",
+      "p_x = m * v_x_t",
+      "p_y = m * v_y_t",
+      "p_z = m * v_z_t",
+      "",
+      "# Step 4: Apply product rule (with constant mass)",
+      "F_x_derived = sp.diff(p_x, t)",
+      "F_y_derived = sp.diff(p_y, t)",
+      "F_z_derived = sp.diff(p_z, t)",
+      "",
+      "# Step 5: Mass is constant, so dm/dt = 0",
+      "# Step 6: Simplify",
+      "F_x_simplified = m * sp.diff(v_x_t, t)",
+      "F_y_simplified = m * sp.diff(v_y_t, t)",
+      "F_z_simplified = m * sp.diff(v_z_t, t)",
+      "",
+      "# Step 7: Define acceleration",
+      "a_x_def = sp.diff(v_x_t, t)",
+      "a_y_def = sp.diff(v_y_t, t)",
+      "a_z_def = sp.diff(v_z_t, t)",
+      "",
+      "# Step 8: Verify F = ma",
+      "F_ma_x = m * a_x_def",
+      "F_ma_y = m * a_y_def",
+      "F_ma_z = m * a_z_def",
+      "",
+      "# Verify that dp/dt = m*a when mass is constant",
+      "assert sp.simplify(F_x_derived - F_ma_x) == 0",
+      "assert sp.simplify(F_y_derived - F_ma_y) == 0",
+      "assert sp.simplify(F_z_derived - F_ma_z) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). Classical Mechanics (3rd ed.). Addison Wesley."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

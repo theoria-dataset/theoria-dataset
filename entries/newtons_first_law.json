@@ -1,0 +1,147 @@
+{
+  "result_name": "Newton's First Law (Law of Inertia)",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "sum vec F = 0 => vec v = const"
+    }
+  ],
+  "explanation": "Newton's first law states that an object at rest stays at rest, and an object in motion stays in motion with constant velocity, unless acted upon by a net external force. This law defines inertial reference frames and establishes the concept of inertia as a fundamental property of matter.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The observation is made from an inertial reference frame."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "No net external force acts on the object (`sum vec F = 0`)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec F",
+      "definition": "Force vector acting on the object."
+    },
+    {
+      "symbol": "vec v",
+      "definition": "Velocity vector of the object."
+    },
+    {
+      "symbol": "const",
+      "definition": "Constant value (independent of time)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "sum vec F = 0"
+    },
+    {
+      "step": 2,
+      "equation": "vec F = m vec a = m (d vec v)/(dt)"
+    },
+    {
+      "step": 3,
+      "equation": "m (d vec v)/(dt) = 0"
+    },
+    {
+      "step": 4,
+      "equation": "(d vec v)/(dt) = 0"
+    },
+    {
+      "step": 5,
+      "equation": "vec v = const"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Mass `m` is constant and non-zero."
+    },
+    {
+      "id": "assumption2",
+      "text": "We are in an inertial reference frame where Newton's laws apply."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the condition that no net force acts on the object."
+    },
+    {
+      "step": 2,
+      "text": "Express force using Newton's second law as `F = ma`, where acceleration is the time derivative of velocity."
+    },
+    {
+      "step": 3,
+      "text": "Substitute the force expression into the zero net force condition."
+    },
+    {
+      "step": 4,
+      "text": "Since mass is non-zero, divide both sides by mass to get zero acceleration."
+    },
+    {
+      "step": 5,
+      "text": "Zero acceleration means velocity is constant over time."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, m, v0 = sp.symbols('t m v0', real=True)",
+      "# Step 1-4: If net force is zero, acceleration is zero",
+      "a = 0",
+      "# Step 5: Integrate to get velocity as a function of time",
+      "v = sp.integrate(a, t) + v0",
+      "# Verify that velocity is constant (independent of time)",
+      "assert sp.diff(v, t) == 0",
+      "assert v == v0",
+      "# Verify that if velocity is constant, acceleration is zero",
+      "v_const = sp.Function('v')",
+      "v_func = v0  # constant velocity",
+      "acceleration = sp.diff(v_func, t)",
+      "assert acceleration == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Inertial reference frames",
+      "Classical mechanics (non-relativistic speeds)",
+      "Macroscopic objects",
+      "Well-defined mass and forces"
+    ],
+    "limitations": [
+      "Fails at relativistic speeds",
+      "Not applicable in non-inertial frames without fictitious forces",
+      "Classical limit only",
+      "Requires precise definition of inertial frames"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of classical mechanics, defines inertial frames and concept of inertia",
+    "development_period": "1687",
+    "key_insights": [
+      "Concept of inertia",
+      "Inertial reference frames",
+      "State of rest vs. uniform motion equivalence"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). *Philosophiæ Naturalis Principia Mathematica*. Royal Society."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley."
+    }
+  ],
+  "dependencies": ["newtons_second_law.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

@@ -88,6 +88,31 @@
     ]
   },
   "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Well-defined Lagrangian exists",
+      "System describable by generalized coordinates",
+      "Smooth functions and classical mechanics",
+      "Variational principle applies"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum effects)",
+      "Requires existence of Lagrangian formulation",
+      "May become complex for constrained systems",
+      "Does not apply to dissipative systems without modification"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of analytical mechanics and field theory, connects symmetries to conservation laws",
+    "development_period": "1750-1788",
+    "key_insights": [
+      "Variational principle",
+      "Generalized coordinates",
+      "Principle of least action",
+      "Foundation for Hamiltonian mechanics"
+    ]
+  },
   "references": [
     {
       "id": "R1",

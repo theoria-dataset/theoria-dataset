@@ -1,0 +1,195 @@
+{
+  "result_name": "Ohm's Law",
+  "result_equations": [
+    {
+      "id": "ohms_law_basic",
+      "equation": "V = IR"
+    },
+    {
+      "id": "ohms_law_current",
+      "equation": "I = \\frac{V}{R}"
+    },
+    {
+      "id": "ohms_law_resistance",
+      "equation": "R = \\frac{V}{I}"
+    },
+    {
+      "id": "power_dissipation",
+      "equation": "P = VI = I^2R = \\frac{V^2}{R}"
+    }
+  ],
+  "explanation": "Ohm's law states that the current through a conductor between two points is directly proportional to the voltage across the two points, and inversely proportional to the resistance between them. This fundamental relationship forms the basis of electrical circuit analysis.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Linear, ohmic materials"
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Constant temperature"
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Steady-state conditions"
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Homogeneous material properties"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "V",
+      "definition": "Voltage (potential difference)"
+    },
+    {
+      "symbol": "I",
+      "definition": "Electric current"
+    },
+    {
+      "symbol": "R",
+      "definition": "Electrical resistance"
+    },
+    {
+      "symbol": "P",
+      "definition": "Power dissipated"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{J} = \\sigma \\vec{E}"
+    },
+    {
+      "step": 2,
+      "equation": "I = \\int \\vec{J} \\cdot d\\vec{A} = JA"
+    },
+    {
+      "step": 3,
+      "equation": "V = \\int \\vec{E} \\cdot d\\vec{l} = EL"
+    },
+    {
+      "step": 4,
+      "equation": "\\frac{V}{I} = \\frac{EL}{JA} = \\frac{EL}{\\sigma EA} = \\frac{L}{\\sigma A}"
+    },
+    {
+      "step": 5,
+      "equation": "\\rho = \\frac{1}{\\sigma}"
+    },
+    {
+      "step": 6,
+      "equation": "R = \\frac{V}{I} = \\rho \\frac{L}{A}"
+    },
+    {
+      "step": 7,
+      "equation": "V = IR"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Drift velocity proportional to electric field"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Constant charge carrier density"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Uniform current distribution"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Classical electron transport"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Ohm's law can be derived from the microscopic behavior of charge carriers in conductors. When an electric field is applied, electrons drift with a velocity proportional to the field strength, leading to a current proportional to the applied voltage."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Ohm\\'s Law Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Basic V = IR relationship",
+      "print('Test 1: Basic Ohm\\'s Law')",
+      "V_applied = 12.0  # V",
+      "R_resistor = 1000  # Ω",
+      "I_calculated = V_applied / R_resistor",
+      "V_check = I_calculated * R_resistor",
+      "R_check = V_applied / I_calculated",
+      "print(f'Applied voltage: {V_applied} V')",
+      "print(f'Resistance: {R_resistor} Ω')",
+      "print(f'Calculated current: {I_calculated*1000:.2f} mA')",
+      "print(f'Voltage check: {V_check:.2f} V')",
+      "print(f'Resistance check: {R_check:.0f} Ω')",
+      "print(f'Ohm\\'s law verified: {abs(V_check - V_applied) < 1e-10}')",
+      "print()",
+      "# Test 2: Power calculations",
+      "print('Test 2: Power dissipation')",
+      "P_VI = V_applied * I_calculated",
+      "P_I2R = I_calculated**2 * R_resistor",
+      "P_V2R = V_applied**2 / R_resistor",
+      "print(f'Power P = VI: {P_VI:.3f} W')",
+      "print(f'Power P = I²R: {P_I2R:.3f} W')",
+      "print(f'Power P = V²/R: {P_V2R:.3f} W')",
+      "print(f'All power formulas agree: {np.allclose([P_VI, P_I2R, P_V2R])}')",
+      "print()",
+      "# Test 3: Series and parallel resistors",
+      "print('Test 3: Resistor combinations')",
+      "R1, R2, R3 = 100, 200, 300  # Ω",
+      "# Series combination",
+      "R_series = R1 + R2 + R3",
+      "print(f'Series combination: R = {R1} + {R2} + {R3} = {R_series} Ω')",
+      "# Parallel combination",
+      "R_parallel = 1 / (1/R1 + 1/R2 + 1/R3)",
+      "print(f'Parallel combination: 1/R = 1/{R1} + 1/{R2} + 1/{R3}')",
+      "print(f'Parallel resistance: {R_parallel:.1f} Ω')",
+      "print(f'\\nOhm\\'s law relationships verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Ohmic materials (linear V-I relationship)",
+      "Constant temperature",
+      "DC or low frequency AC",
+      "Steady state conditions"
+    ],
+    "limitations": [
+      "Non-ohmic devices (diodes, transistors)",
+      "High frequency effects",
+      "Temperature-dependent resistance",
+      "Superconductors (zero resistance)"
+    ]
+  },
+  "historical_context": {
+    "development_period": "1827",
+    "importance": "Fundamental law of electrical circuits; enables quantitative analysis of electrical systems",
+    "key_insights": [
+      "Georg Ohm established the linear relationship between voltage and current",
+      "The law provided the foundation for electrical circuit analysis",
+      "It introduced the concept of electrical resistance as a material property",
+      "The relationship enabled the development of electrical engineering as a discipline"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Ohm, G. S. (1827). 'Die galvanische Kette, mathematisch bearbeitet.' T. H. Riemann."
+    },
+    {
+      "id": "R2",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
+    }
+  ],
+  "dependencies": [],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

@@ -107,6 +107,31 @@
     }
   ],
   "dependencies": ["navier_stokes_incompressible.json"],
+  "theory_status": "approximation",
+  "validity_regime": {
+    "conditions": [
+      "Steady flow (no time dependence)",
+      "Incompressible fluid (constant density)",
+      "Inviscid flow (negligible viscosity)",
+      "Irrotational flow or along streamlines"
+    ],
+    "limitations": [
+      "Fails in viscous flows with significant friction",
+      "Invalid for unsteady flows",
+      "Breaks down in compressible flows",
+      "Does not apply in turbulent mixing regions"
+    ]
+  },
+  "approximation_of": "navier_stokes_incompressible.json",
+  "historical_context": {
+    "importance": "Fundamental principle in fluid mechanics, widely used in engineering applications",
+    "development_period": "1738",
+    "key_insights": [
+      "Energy conservation in fluid flow",
+      "Pressure-velocity relationship",
+      "Foundation for flow measurement devices"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

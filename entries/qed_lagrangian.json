@@ -219,6 +219,32 @@
     "maxwell_equations.json",
     "noethers_theorem.json"
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum field theory regime",
+      "Electromagnetic interactions",
+      "Relativistic energies",
+      "Perturbative regime (weak coupling)"
+    ],
+    "limitations": [
+      "Perturbative approach may fail at strong coupling",
+      "Does not include weak or strong nuclear forces",
+      "Renormalization required for loop calculations",
+      "Classical gravity not included"
+    ]
+  },
+  "historical_context": {
+    "importance": "Most precisely tested theory in physics, foundation of quantum field theory",
+    "development_period": "1940-1950",
+    "key_insights": [
+      "Quantum field theory",
+      "Gauge invariance",
+      "Renormalization",
+      "Virtual particles",
+      "Quantum corrections"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

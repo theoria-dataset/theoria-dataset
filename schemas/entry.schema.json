@@ -17,6 +17,7 @@
     "derivation_explanation",
     "programmatic_verification",
     "domain",
+    "theory_status",
     "references",
     "created_by",
     "review_status"
@@ -157,6 +158,78 @@
       "type": "string",
       "description": "arXiv category identifier",
       "pattern": "^[a-z][a-z\\-\\.]+$"
+    },
+
+    "theory_status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "historical",
+        "approximation",
+        "limiting_case",
+        "superseded"
+      ],
+      "description": "Current scientific status of the theory"
+    },
+
+    "validity_regime": {
+      "type": "object",
+      "description": "Describes where the theory applies and its limitations",
+      "additionalProperties": false,
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Physical regimes where the theory is valid"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Where the theory breaks down or fails"
+        }
+      }
+    },
+
+    "superseded_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+\\.json$"
+      },
+      "description": "Array of filenames for theories that supersede or generalize this result"
+    },
+
+    "approximation_of": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+\\.json$",
+      "description": "Filename of the more general theory this approximates"
+    },
+
+    "historical_context": {
+      "type": "object",
+      "description": "Educational context about the theory's development and significance",
+      "additionalProperties": false,
+      "properties": {
+        "importance": {
+          "type": "string",
+          "description": "Brief description of the theory's significance"
+        },
+        "development_period": {
+          "type": "string",
+          "description": "Time period when theory was developed"
+        },
+        "key_insights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of major conceptual breakthroughs introduced"
+        }
+      }
     },
 
     "references": {

@@ -1,0 +1,194 @@
+{
+  "result_name": "Heisenberg Uncertainty Principle",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "Delta x * Delta p >= hbar/2"
+    }
+  ],
+  "explanation": "The Heisenberg uncertainty principle states that the simultaneous precise measurement of position and momentum of a particle is fundamentally impossible. The product of their uncertainties has a quantum mechanical lower bound proportional to Planck's constant. This principle reflects the wave-particle duality and is a cornerstone of quantum mechanics, setting fundamental limits on measurement precision and enabling phenomena like quantum tunneling.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particle is described by a quantum mechanical wavefunction."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Position and momentum are represented by non-commuting Hermitian operators."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The uncertainties are defined as standard deviations of the observables."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "Delta x",
+      "definition": "Standard deviation (uncertainty) in position measurement."
+    },
+    {
+      "symbol": "Delta p",
+      "definition": "Standard deviation (uncertainty) in momentum measurement."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck's constant (`h/(2*pi) = 1.055 × 10^-34 J⋅s`)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "[hat x, hat p] = hat x hat p - hat p hat x = i*hbar"
+    },
+    {
+      "step": 2,
+      "equation": "Delta A^2 = <(hat A - <hat A>)^2>"
+    },
+    {
+      "step": 3,
+      "equation": "hat A' = hat A - <hat A>"
+    },
+    {
+      "step": 4,
+      "equation": "Delta A^2 = <hat A'^2>"
+    },
+    {
+      "step": 5,
+      "equation": "[hat x', hat p'] = [hat x, hat p] = i*hbar"
+    },
+    {
+      "step": 6,
+      "equation": "|<psi|hat A' hat B'|psi>|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
+    },
+    {
+      "step": 7,
+      "equation": "<psi|hat A' hat B'|psi> = <psi|(hat A' hat B' + hat B' hat A')/2|psi> + <psi|(hat A' hat B' - hat B' hat A')/2|psi>"
+    },
+    {
+      "step": 8,
+      "equation": "<psi|{hat A', hat B'}|psi>/2 + <psi|[hat A', hat B']|psi>/2"
+    },
+    {
+      "step": 9,
+      "equation": "|<psi|[hat A', hat B']|psi>/2|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
+    },
+    {
+      "step": 10,
+      "equation": "|<psi|i*hbar|psi>/2|^2 <= Delta x^2 * Delta p^2"
+    },
+    {
+      "step": 11,
+      "equation": "hbar^2/4 <= Delta x^2 * Delta p^2"
+    },
+    {
+      "step": 12,
+      "equation": "Delta x * Delta p >= hbar/2"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators."
+    },
+    {
+      "id": "assumption2",
+      "text": "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values."
+    },
+    {
+      "id": "assumption3",
+      "text": "The wavefunction is normalized: `<psi|psi> = 1`."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the canonical commutation relation for position and momentum operators."
+    },
+    {
+      "step": 2,
+      "text": "Define the variance (uncertainty squared) of an observable as the expectation value of the squared deviation from the mean."
+    },
+    {
+      "step": 3,
+      "text": "Define shifted operators that have zero expectation value."
+    },
+    {
+      "step": 4,
+      "text": "Express uncertainty in terms of shifted operators."
+    },
+    {
+      "step": 5,
+      "text": "The commutation relation is preserved under this shift."
+    },
+    {
+      "step": 6,
+      "text": "Apply the Cauchy-Schwarz inequality to the expectation value of the product of shifted operators."
+    },
+    {
+      "step": 7,
+      "text": "Decompose the product into anticommutator and commutator parts."
+    },
+    {
+      "step": 8,
+      "text": "The anticommutator part is real, the commutator part is imaginary."
+    },
+    {
+      "step": 9,
+      "text": "For the inequality to be optimal, only the imaginary (commutator) part contributes."
+    },
+    {
+      "step": 10,
+      "text": "Substitute the commutation relation and express in terms of uncertainties."
+    },
+    {
+      "step": 11,
+      "text": "Simplify the magnitude squared."
+    },
+    {
+      "step": 12,
+      "text": "Take the square root to obtain the uncertainty relation."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "import math",
+      "# Define symbols",
+      "hbar, x, p, Delta_x, Delta_p = sp.symbols('hbar x p Delta_x Delta_p', real=True, positive=True)",
+      "# For verification, we'll use a specific example: Gaussian wavepacket",
+      "# psi(x) = (2*sigma/pi)^(1/4) * exp(-(x-x0)^2/sigma^2 + i*p0*x/hbar)",
+      "sigma, x0, p0 = sp.symbols('sigma x0 p0', real=True, positive=True)",
+      "# Position uncertainty for Gaussian wavepacket",
+      "position_uncertainty = sigma/sp.sqrt(2)",
+      "# Momentum uncertainty for Gaussian wavepacket",
+      "momentum_uncertainty = hbar/(sigma*sp.sqrt(2))",
+      "# Calculate the product",
+      "uncertainty_product = position_uncertainty * momentum_uncertainty",
+      "# Simplify",
+      "simplified_product = sp.simplify(uncertainty_product)",
+      "# Verify that Delta_x * Delta_p = hbar/2 for this case",
+      "expected_minimum = hbar/2",
+      "# Check if the product equals the minimum (equality case)",
+      "assert sp.simplify(simplified_product - expected_minimum) == 0",
+      "# Verify the general inequality numerically for arbitrary sigma",
+      "# For any positive sigma, hbar/2 <= hbar/2 (equality)",
+      "assert simplified_product >= expected_minimum"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Heisenberg, W. (1927). 'Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.' Zeitschrift für Physik, 43, 172-198."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

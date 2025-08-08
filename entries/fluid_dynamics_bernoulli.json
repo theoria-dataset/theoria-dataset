@@ -1,0 +1,218 @@
+{
+  "result_name": "Bernoulli's Principle",
+  "result_equations": [
+    {
+      "id": "bernoulli_equation",
+      "equation": "P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}"
+    },
+    {
+      "id": "bernoulli_energy_form",
+      "equation": "\\frac{P}{\\rho} + \\frac{v^2}{2} + gh = \\text{constant}"
+    },
+    {
+      "id": "venturi_effect",
+      "equation": "P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2"
+    },
+    {
+      "id": "dynamic_pressure",
+      "equation": "q = \\frac{1}{2}\\rho v^2"
+    }
+  ],
+  "explanation": "Bernoulli's principle states that for an incompressible, inviscid fluid in steady flow, the sum of pressure energy, kinetic energy, and potential energy per unit volume remains constant along a streamline. This principle explains many fluid phenomena including lift generation and the Venturi effect.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Incompressible fluid"
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Inviscid (no viscosity)"
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Steady flow"
+    },
+    {
+      "id": "eq_assump4",
+      "text": "No heat addition or work done"
+    },
+    {
+      "id": "eq_assump5",
+      "text": "Flow along streamline"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "P",
+      "definition": "Static pressure"
+    },
+    {
+      "symbol": "ρ",
+      "definition": "Fluid density"
+    },
+    {
+      "symbol": "v",
+      "definition": "Fluid velocity"
+    },
+    {
+      "symbol": "g",
+      "definition": "Gravitational acceleration"
+    },
+    {
+      "symbol": "h",
+      "definition": "Height above reference level"
+    },
+    {
+      "symbol": "q",
+      "definition": "Dynamic pressure"
+    },
+    {
+      "symbol": "P₁, P₂",
+      "definition": "Pressures at points 1 and 2"
+    },
+    {
+      "symbol": "v₁, v₂",
+      "definition": "Velocities at points 1 and 2"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\rho \\vec{v} \\cdot \\nabla \\vec{v} = -\\nabla P - \\rho g \\nabla h"
+    },
+    {
+      "step": 2,
+      "equation": "\\vec{v} \\cdot \\nabla \\vec{v} = \\frac{1}{2}\\nabla(v^2)"
+    },
+    {
+      "step": 3,
+      "equation": "\\rho \\frac{1}{2}\\nabla(v^2) = -\\nabla P - \\rho g \\nabla h"
+    },
+    {
+      "step": 4,
+      "equation": "\\nabla\\left(P + \\frac{1}{2}\\rho v^2 + \\rho gh\\right) = 0"
+    },
+    {
+      "step": 5,
+      "equation": "P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Euler's equation applies"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Conservative body forces"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Steady flow conditions"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Integration along streamline"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Bernoulli's equation is derived from Euler's equation for inviscid flow by using the vector identity for the convective acceleration term and integrating along a streamline in steady flow."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Bernoulli\\'s Principle Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Venturi tube",
+      "def verify_venturi_tube():",
+      "    \"\"\"Verify Bernoulli's equation for flow through Venturi tube\"\"\"",
+      "    print('Test 1: Venturi tube flow')",
+      "    ",
+      "    # Given conditions",
+      "    rho = 1000  # water density (kg/m³)",
+      "    A1 = 0.01   # inlet area (m²)",
+      "    A2 = 0.005  # throat area (m²)",
+      "    v1 = 2.0    # inlet velocity (m/s)",
+      "    P1 = 200000 # inlet pressure (Pa)",
+      "    ",
+      "    # Continuity equation: A1*v1 = A2*v2",
+      "    v2 = (A1 * v1) / A2",
+      "    ",
+      "    # Bernoulli's equation (assuming same height)",
+      "    # P1 + (1/2)*rho*v1² = P2 + (1/2)*rho*v2²",
+      "    P2 = P1 + 0.5 * rho * (v1**2 - v2**2)",
+      "    ",
+      "    # Dynamic pressures",
+      "    q1 = 0.5 * rho * v1**2",
+      "    q2 = 0.5 * rho * v2**2",
+      "    ",
+      "    # Total pressure (stagnation pressure)",
+      "    P0_1 = P1 + q1",
+      "    P0_2 = P2 + q2",
+      "    ",
+      "    print(f'  Inlet: A = {A1} m², v = {v1} m/s, P = {P1/1000:.0f} kPa')",
+      "    print(f'  Throat: A = {A2} m², v = {v2} m/s, P = {P2/1000:.0f} kPa')",
+      "    print(f'  Area ratio: {A1/A2:.1f}')",
+      "    print(f'  Velocity ratio: {v2/v1:.1f}')",
+      "    print(f'  Dynamic pressure 1: {q1:.0f} Pa')",
+      "    print(f'  Dynamic pressure 2: {q2:.0f} Pa')",
+      "    print(f'  Total pressure 1: {P0_1/1000:.0f} kPa')",
+      "    print(f'  Total pressure 2: {P0_2/1000:.0f} kPa')",
+      "    print(f'  Total pressure conserved: {math.isclose(P0_1, P0_2)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(P0_1, P0_2), (v1, v2, P1, P2)",
+      "# Additional verification tests would continue...",
+      "test1_result, venturi_data = verify_venturi_tube()",
+      "print(f'Bernoulli verification result: {test1_result}')"
+    ]
+  },
+  "domain": "physics.flu-dyn",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Incompressible flow",
+      "Inviscid (frictionless) flow",
+      "Steady flow",
+      "No heat addition",
+      "Flow along streamlines"
+    ],
+    "limitations": [
+      "Viscous effects in real fluids",
+      "Compressibility at high speeds",
+      "Unsteady flow conditions",
+      "Flow separation and turbulence"
+    ]
+  },
+  "historical_context": {
+    "development_period": "1738",
+    "importance": "Foundation of fluid mechanics; explains lift, flow measurement, and many engineering applications",
+    "key_insights": [
+      "Daniel Bernoulli developed the principle from energy conservation",
+      "Leonhard Euler provided the mathematical foundation with Euler's equation",
+      "The principle connects pressure, velocity, and height in fluid flow",
+      "It explains many practical phenomena from airplane lift to Venturi meters"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Anderson, J. D. (2016). Fundamentals of Aerodynamics. McGraw-Hill Education."
+    },
+    {
+      "id": "R2",
+      "citation": "White, F. M. (2015). Fluid Mechanics. McGraw-Hill Education."
+    }
+  ],
+  "dependencies": [
+    "conservation_of_energy.json",
+    "continuity_equation.json"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

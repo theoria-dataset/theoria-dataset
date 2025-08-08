@@ -1,11 +1,12 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.3.2",
+  "dataset_version": "0.5.0",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
   "domains": [
     "astro-ph",
+    "cond-mat.stat-mech",
     "cond-mat",
     "gr-qc",
     "hep-ex",
@@ -14,6 +15,8 @@
     "hep-ph",
     "math-ph",
     "nucl-th",
+    "physics.class-ph",
+    "physics.flu-dyn",
     "physics",
     "quant-ph"
   ],
@@ -90,6 +93,26 @@
         "Ensured Maxwell equations and Noether theorem proofs execute cleanly",
         "Fixed Stefan–Boltzmann integral evaluation",
         "Added unit tests for verification logic"
+      ]
+    },
+    {
+      "version": "0.4",
+      "date": "2025-01-03",
+      "changes": [
+        "Updated index.json to include all entries from the entries folder and sorted them alphabetically",
+        "Added 10 fundamental physics entries: Conservation of Energy, Conservation of Momentum, Hooke's Law, Planck's Quantum Hypothesis, Boltzmann Distribution, Ohm's Law, Archimedes' Principle, Kepler's Laws, Pauli Exclusion Principle, and Equipartition Theorem",
+        "Created Special Theory of Relativity entry as comprehensive superseding theory",
+        "Implemented theory status and historical context framework across the dataset",
+        "Added new theory classification system: current, historical, approximation, limiting_case, superseded",
+        "Enhanced CONTRIBUTING.md with theory status guidelines, validity regimes, and cross-reference requirements",
+        "Added validity_regime field describing physical conditions and limitations for each theory",
+        "Implemented superseded_by and approximation_of fields for theory relationships",
+        "Added historical_context field with importance, development period, and key insights",
+        "Updated multiple existing entries with theory status classifications",
+        "Enhanced domains to include specific physics subfields (physics.class-ph, cond-mat.stat-mech, physics.flu-dyn)",
+        "Added alphabetical ordering requirement for new entries in CONTRIBUTING.md",
+        "Updated index.json with all new entries in alphabetical order",
+        "Total dataset now contains 35 comprehensive physics entries with full derivations and programmatic verification"
       ]
     }
   ]

@@ -1,0 +1,216 @@
+{
+  "result_name": "Spin Angular Momentum",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "S^2 |s, m_s> = hbar^2 s(s + 1) |s, m_s>"
+    },
+    {
+      "id": "eq2",
+      "equation": "S_z |s, m_s> = hbar m_s |s, m_s>"
+    }
+  ],
+  "explanation": "Spin angular momentum is an intrinsic quantum mechanical property of particles that has no classical analog. Unlike orbital angular momentum arising from spatial motion, spin is an inherent characteristic like mass or charge. Particles can have integer spin (bosons) or half-integer spin (fermions), which determines their statistical behavior and fundamental interactions.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Spin is an intrinsic property independent of particle motion."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The quantum numbers s and m_s take discrete values."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "S^2",
+      "definition": "Total spin angular momentum squared operator."
+    },
+    {
+      "symbol": "S_z",
+      "definition": "z-component of spin angular momentum operator."
+    },
+    {
+      "symbol": "|s, m_s>",
+      "definition": "Eigenstate with total spin s and z-component m_s."
+    },
+    {
+      "symbol": "s",
+      "definition": "Spin quantum number (0, 1/2, 1, 3/2, 2, ...)."
+    },
+    {
+      "symbol": "m_s",
+      "definition": "Magnetic quantum number (-s, -s+1, ..., s-1, s)."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "[S_i, S_j] = i hbar epsilon_{ijk} S_k"
+    },
+    {
+      "step": 2,
+      "equation": "[S^2, S_i] = 0 for all i"
+    },
+    {
+      "step": 3,
+      "equation": "S^2 = S_x^2 + S_y^2 + S_z^2"
+    },
+    {
+      "step": 4,
+      "equation": "S_± = S_x ± i S_y (raising and lowering operators)"
+    },
+    {
+      "step": 5,
+      "equation": "S_± |s, m_s> = hbar sqrt(s(s+1) - m_s(m_s ± 1)) |s, m_s ± 1>"
+    },
+    {
+      "step": 6,
+      "equation": "Eigenvalue condition: S^2 |s, m_s> = lambda |s, m_s>"
+    },
+    {
+      "step": 7,
+      "equation": "From ladder operators: lambda = hbar^2 s(s + 1)"
+    },
+    {
+      "step": 8,
+      "equation": "Magnetic quantum numbers: m_s = -s, -s+1, ..., s-1, s"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Angular momentum operators form a Lie algebra SU(2)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The Hilbert space is finite-dimensional for each spin value."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the fundamental commutation relations for angular momentum operators."
+    },
+    {
+      "step": 2,
+      "text": "Total angular momentum commutes with all components (conserved quantity)."
+    },
+    {
+      "step": 3,
+      "text": "Define total spin as sum of squared components."
+    },
+    {
+      "step": 4,
+      "text": "Introduce ladder operators that change magnetic quantum number by ±1."
+    },
+    {
+      "step": 5,
+      "text": "Derive action of ladder operators on spin states."
+    },
+    {
+      "step": 6,
+      "text": "Assume S² has discrete eigenvalues with corresponding eigenstates."
+    },
+    {
+      "step": 7,
+      "text": "Use ladder operator algebra to determine eigenvalues."
+    },
+    {
+      "step": 8,
+      "text": "Constraint from finite ladder: magnetic quantum numbers are bounded."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "s, m_s, hbar = sp.symbols('s m_s hbar', real=True)",
+      "# Eigenvalue of S²",
+      "S_squared_eigenvalue = hbar**2 * s * (s + 1)",
+      "# Eigenvalue of S_z",
+      "S_z_eigenvalue = hbar * m_s",
+      "# Verify quantum number constraints",
+      "# For spin-1/2: s = 1/2, m_s = -1/2, +1/2",
+      "s_half = sp.Rational(1, 2)",
+      "S_sq_half = S_squared_eigenvalue.subs(s, s_half)",
+      "expected_half = hbar**2 * sp.Rational(3, 4)",
+      "assert S_sq_half == expected_half",
+      "# Magnetic quantum numbers for spin-1/2",
+      "m_s_values_half = [-sp.Rational(1,2), sp.Rational(1,2)]",
+      "S_z_up = S_z_eigenvalue.subs(m_s, sp.Rational(1,2))",
+      "S_z_down = S_z_eigenvalue.subs(m_s, -sp.Rational(1,2))",
+      "assert S_z_up == hbar/2",
+      "assert S_z_down == -hbar/2",
+      "# For spin-1: s = 1, m_s = -1, 0, +1",
+      "s_one = 1",
+      "S_sq_one = S_squared_eigenvalue.subs(s, s_one)",
+      "expected_one = 2 * hbar**2",
+      "assert S_sq_one == expected_one",
+      "# Verify number of magnetic substates = 2s + 1",
+      "num_states_half = 2 * s_half + 1",
+      "num_states_one = 2 * s_one + 1",
+      "assert num_states_half == 2  # spin-1/2 has 2 states",
+      "assert num_states_one == 3   # spin-1 has 3 states",
+      "# Ladder operator matrix elements",
+      "# <s,m_s±1|S_±|s,m_s> = ℏ√[s(s+1) - m_s(m_s±1)]",
+      "ladder_element = hbar * sp.sqrt(s*(s+1) - m_s*(m_s + 1))",
+      "# For spin-1/2, |↓⟩ to |↑⟩ transition",
+      "transition_half = ladder_element.subs([(s, s_half), (m_s, -s_half)])",
+      "expected_transition = hbar",
+      "assert transition_half == expected_transition"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum mechanical systems",
+      "Well-defined particle states",
+      "Non-relativistic or relativistic quantum mechanics",
+      "Discrete quantum number spectrum"
+    ],
+    "limitations": [
+      "Classical analog does not exist",
+      "Requires quantum mechanical framework",
+      "May need relativistic treatment for high-energy particles",
+      "Composite particle spin involves coupling rules"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental quantum property, explains Pauli exclusion principle and particle statistics",
+    "development_period": "1925-1928",
+    "key_insights": [
+      "Intrinsic quantum property",
+      "No classical analog",
+      "Particle statistics",
+      "Foundation of quantum field theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Pauli, W. (1927). Zur Quantenmechanik des magnetischen Elektrons. *Zeitschrift für Physik*, 43(9-10), 601-623."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": [
+    "quantum_angular_momentum.json",
+    "pauli_exclusion_principle.json"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

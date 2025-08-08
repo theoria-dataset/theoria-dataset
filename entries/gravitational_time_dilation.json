@@ -1,0 +1,293 @@
+{
+  "result_name": "Gravitational Time Dilation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "dt_obs = dt_proper * sqrt(1 - (2*G*M)/(c^2*r))"
+    },
+    {
+      "id": "eq2",
+      "equation": "f_obs = f_proper * sqrt(1 - (2*G*M)/(c^2*r))"
+    }
+  ],
+  "explanation": "Gravitational time dilation describes how time passes more slowly in stronger gravitational fields according to general relativity. Clocks closer to massive objects run slower when observed from weaker gravitational fields, with the effect proportional to the gravitational potential difference. This phenomenon is crucial for GPS satellite accuracy, explains redshift of light escaping gravitational wells, and provides direct evidence for the equivalence principle.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The gravitational field is weak (`GM/(c²r) << 1`)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The mass distribution is spherically symmetric (Schwarzschild metric)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The observer is at a much larger distance from the gravitational source than the emitter."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Special relativistic effects from relative motion are negligible."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "dt_obs",
+      "definition": "Time interval observed by distant observer (in weak gravitational field)."
+    },
+    {
+      "symbol": "dt_proper",
+      "definition": "Proper time interval measured by clock in gravitational field."
+    },
+    {
+      "symbol": "f_obs",
+      "definition": "Frequency observed by distant observer."
+    },
+    {
+      "symbol": "f_proper",
+      "definition": "Frequency emitted in the gravitational field."
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant (`6.674 × 10^-11 m³/(kg⋅s²)`)."
+    },
+    {
+      "symbol": "M",
+      "definition": "Mass of the gravitating body."
+    },
+    {
+      "symbol": "r",
+      "definition": "Distance from the center of the gravitating body to the clock/emitter."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "ds^2 = -(1 - (2*G*M)/(c^2*r))*c^2*dt^2 + dr^2 + r^2*d Omega^2"
+    },
+    {
+      "step": 2,
+      "equation": "g_00 = -(1 - (2*G*M)/(c^2*r))"
+    },
+    {
+      "step": 3,
+      "equation": "ds^2 = g_00*c^2*dt^2"
+    },
+    {
+      "step": 4,
+      "equation": "d tau^2 = -ds^2/c^2"
+    },
+    {
+      "step": 5,
+      "equation": "d tau^2 = -g_00*dt^2"
+    },
+    {
+      "step": 6,
+      "equation": "d tau^2 = (1 - (2*G*M)/(c^2*r))*dt^2"
+    },
+    {
+      "step": 7,
+      "equation": "d tau = sqrt(1 - (2*G*M)/(c^2*r)) * dt"
+    },
+    {
+      "step": 8,
+      "equation": "dt_proper = d tau"
+    },
+    {
+      "step": 9,
+      "equation": "dt_coord = dt"
+    },
+    {
+      "step": 10,
+      "equation": "dt_proper = sqrt(1 - (2*G*M)/(c^2*r)) * dt_coord"
+    },
+    {
+      "step": 11,
+      "equation": "dt_obs = dt_coord"
+    },
+    {
+      "step": 12,
+      "equation": "dt_obs = dt_proper / sqrt(1 - (2*G*M)/(c^2*r))"
+    },
+    {
+      "step": 13,
+      "equation": "f = 1/dt"
+    },
+    {
+      "step": 14,
+      "equation": "f_obs = 1/dt_obs = sqrt(1 - (2*G*M)/(c^2*r)) / dt_proper"
+    },
+    {
+      "step": 15,
+      "equation": "f_proper = 1/dt_proper"
+    },
+    {
+      "step": 16,
+      "equation": "f_obs = f_proper * sqrt(1 - (2*G*M)/(c^2*r))"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The Schwarzschild metric accurately describes spacetime around a spherically symmetric mass."
+    },
+    {
+      "id": "assumption2",
+      "text": "The weak field approximation applies (`GM/(c²r) << 1`)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Proper time corresponds to the time measured by a local clock at rest."
+    },
+    {
+      "id": "assumption4",
+      "text": "Coordinate time corresponds to time measured by an observer at spatial infinity."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the Schwarzschild metric in spherical coordinates for spacetime around a massive object."
+    },
+    {
+      "step": 2,
+      "text": "Identify the time-time component of the metric tensor."
+    },
+    {
+      "step": 3,
+      "text": "For a stationary observer (dr = dΩ = 0), only the time component contributes to the line element."
+    },
+    {
+      "step": 4,
+      "text": "Define proper time through the invariant spacetime interval."
+    },
+    {
+      "step": 5,
+      "text": "Substitute the metric component into the proper time expression."
+    },
+    {
+      "step": 6,
+      "text": "Simplify using the sign convention for timelike intervals."
+    },
+    {
+      "step": 7,
+      "text": "Take the square root to get the relationship between proper time and coordinate time."
+    },
+    {
+      "step": 8,
+      "text": "Identify proper time with the time measured by the local clock."
+    },
+    {
+      "step": 9,
+      "text": "Identify coordinate time with the time measured by a distant observer."
+    },
+    {
+      "step": 10,
+      "text": "Express the fundamental time dilation relationship."
+    },
+    {
+      "step": 11,
+      "text": "The distant observer measures coordinate time as their proper time."
+    },
+    {
+      "step": 12,
+      "text": "Solve for observed time in terms of proper time in the gravitational field."
+    },
+    {
+      "step": 13,
+      "text": "Define frequency as the inverse of time period."
+    },
+    {
+      "step": 14,
+      "text": "Calculate observed frequency using the time dilation relationship."
+    },
+    {
+      "step": 15,
+      "text": "Define the proper frequency emitted in the gravitational field."
+    },
+    {
+      "step": 16,
+      "text": "Obtain the gravitational frequency shift (redshift) formula."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "G, M, c, r, dt_proper, dt_obs, f_proper, f_obs = sp.symbols('G M c r dt_proper dt_obs f_proper f_obs', positive=True, real=True)",
+      "",
+      "# Define the gravitational potential parameter",
+      "phi = G*M/(c**2*r)",
+      "",
+      "# Step 7: Time dilation factor",
+      "gamma_grav = sp.sqrt(1 - 2*phi)",
+      "",
+      "# Step 10: Proper time to coordinate time relation",
+      "dt_proper_expr = gamma_grav * dt_obs",
+      "",
+      "# Step 12: Observed time in terms of proper time",
+      "dt_obs_expr = dt_proper / gamma_grav",
+      "",
+      "# Verify reciprocal relationship",
+      "identity = sp.simplify(dt_proper_expr.subs(dt_obs, dt_obs_expr) - dt_proper)",
+      "assert identity == 0",
+      "",
+      "# Step 16: Frequency relationship",
+      "f_obs_expr = f_proper * gamma_grav",
+      "",
+      "# Verify frequency-time relationship: f = 1/dt",
+      "f_from_time = 1/dt_obs_expr",
+      "f_substituted = f_from_time.subs(dt_proper, 1/f_proper)",
+      "frequency_check = sp.simplify(f_substituted - f_obs_expr)",
+      "assert frequency_check == 0",
+      "",
+      "# Test weak field limit: GM/(c²r) << 1",
+      "# Expand sqrt(1 - 2φ) ≈ 1 - φ for small φ",
+      "weak_field_expansion = gamma_grav.series(phi, 0, 2).removeO()",
+      "expected_weak_field = 1 - phi",
+      "assert sp.simplify(weak_field_expansion - expected_weak_field) == 0",
+      "",
+      "# Numerical verification with Earth's surface",
+      "# Physical constants",
+      "G_val = 6.674e-11      # m³/(kg⋅s²)",
+      "M_earth = 5.972e24     # kg",
+      "R_earth = 6.371e6      # m",
+      "c_val = 2.998e8        # m/s",
+      "",
+      "# Calculate gravitational parameter at Earth's surface",
+      "phi_earth = G_val * M_earth / (c_val**2 * R_earth)",
+      "gamma_earth = (1 - 2*phi_earth)**0.5",
+      "",
+      "# Fractional time dilation",
+      "time_dilation_factor = 1 - gamma_earth",
+      "",
+      "# This should be approximately 6.95 × 10^-10",
+      "expected_factor = 6.95e-10",
+      "relative_error = abs(time_dilation_factor - expected_factor) / expected_factor",
+      "",
+      "assert relative_error < 0.1  # Within 10% (order of magnitude check)",
+      "",
+      "print(f\"Earth surface gravitational time dilation: {time_dilation_factor:.2e}\")"
+    ]
+  },
+  "domain": "gr-qc",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Einstein, A. (1916). 'Die Grundlage der allgemeinen Relativitätstheorie.' Annalen der Physik, 49, 769-822."
+    },
+    {
+      "id": "R2",
+      "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). Gravitation. W. H. Freeman and Company."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

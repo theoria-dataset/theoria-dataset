@@ -82,6 +82,30 @@
       "assert sp.simplify(2*T_avg + rF_avg) == 0"
     ]
   },
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Hamiltonian systems",
+      "Classical statistical mechanics",
+      "Phase space with canonical coordinates",
+      "Conservative systems"
+    ],
+    "limitations": [
+      "Classical mechanics only",
+      "Requires Hamiltonian formulation",
+      "Limited to conservative systems",
+      "Quantum generalizations needed for microscopic systems"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of statistical mechanics, connects microscopic dynamics to thermodynamics",
+    "development_period": "1838",
+    "key_insights": [
+      "Phase space conservation",
+      "Statistical mechanics foundation",
+      "Connection between dynamics and statistics"
+    ]
+  },
   "domain": "physics.class-ph",
   "references": [
     {

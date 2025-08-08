@@ -1,0 +1,159 @@
+{
+  "result_name": "Faraday's Law of Electromagnetic Induction",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "EMF = -d/dt int vec B cdot d vec A = -d Phi_B/dt"
+    }
+  ],
+  "explanation": "Faraday's law describes how a changing magnetic flux through a closed loop induces an electromotive force (EMF) in that loop. The induced EMF is proportional to the negative rate of change of magnetic flux, which explains electromagnetic induction phenomena including electric generators, transformers, and inductors.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The magnetic field `vec B` and loop area can vary with time."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The loop forms a closed path for current flow."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "EMF",
+      "definition": "Electromotive force (voltage) induced in the loop."
+    },
+    {
+      "symbol": "vec B",
+      "definition": "Magnetic field vector."
+    },
+    {
+      "symbol": "d vec A",
+      "definition": "Differential area element of the loop."
+    },
+    {
+      "symbol": "Phi_B",
+      "definition": "Magnetic flux through the loop (`int vec B cdot d vec A`)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Phi_B = int vec B cdot d vec A"
+    },
+    {
+      "step": 2,
+      "equation": "EMF = oint vec E cdot d vec l"
+    },
+    {
+      "step": 3,
+      "equation": "nabla times vec E = -partial vec B/partial t"
+    },
+    {
+      "step": 4,
+      "equation": "oint vec E cdot d vec l = int (nabla times vec E) cdot d vec A"
+    },
+    {
+      "step": 5,
+      "equation": "EMF = -int (partial vec B/partial t) cdot d vec A"
+    },
+    {
+      "step": 6,
+      "equation": "EMF = -d/dt int vec B cdot d vec A = -d Phi_B/dt"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Maxwell's equations apply, specifically Faraday's law in differential form."
+    },
+    {
+      "id": "assumption2",
+      "text": "The surface is simply connected and the loop bounds a well-defined surface."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define magnetic flux as the surface integral of magnetic field through the loop."
+    },
+    {
+      "step": 2,
+      "text": "Express EMF as the line integral of electric field around the closed loop."
+    },
+    {
+      "step": 3,
+      "text": "Use Faraday's law in differential form from Maxwell's equations."
+    },
+    {
+      "step": 4,
+      "text": "Apply Stokes' theorem to convert the line integral to a surface integral."
+    },
+    {
+      "step": 5,
+      "text": "Substitute Faraday's law in differential form into the surface integral."
+    },
+    {
+      "step": 6,
+      "text": "Recognize that this equals the negative time derivative of magnetic flux."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, B0, omega, A = sp.symbols('t B0 omega A', real=True, positive=True)",
+      "# Example: sinusoidally varying magnetic field",
+      "B = B0 * sp.sin(omega * t)",
+      "# Magnetic flux through a loop of area A",
+      "Phi_B = B * A",
+      "# Calculate EMF using Faraday's law",
+      "EMF = -sp.diff(Phi_B, t)",
+      "# Expected result",
+      "EMF_expected = -A * B0 * omega * sp.cos(omega * t)",
+      "assert sp.simplify(EMF - EMF_expected) == 0",
+      "# Verify that rate of change of flux gives EMF",
+      "dPhi_dt = sp.diff(Phi_B, t)",
+      "assert sp.simplify(EMF + dPhi_dt) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism",
+      "Maxwell's equations apply",
+      "Well-defined magnetic fields and conducting loops",
+      "Non-relativistic or relativistically consistent treatment"
+    ],
+    "limitations": [
+      "Classical electromagnetic theory only",
+      "Requires well-defined conducting paths",
+      "May need quantum corrections for microscopic systems",
+      "Assumes continuous fields and currents"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of electromagnetic induction, basis for electric generators and motors",
+    "development_period": "1831",
+    "key_insights": [
+      "Electromagnetic induction",
+      "Connection between electricity and magnetism",
+      "Energy conversion principles"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Faraday, M. (1831). On the induction of electric currents. *Philosophical Transactions of the Royal Society*, 121, 1-62."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": ["maxwell_equations.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

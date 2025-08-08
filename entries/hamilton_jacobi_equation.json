@@ -80,6 +80,31 @@
       "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann. (Section on Hamilton-Jacobi Equation)"
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanical systems",
+      "Hamiltonian formulation exists",
+      "Smooth phase space",
+      "Well-defined action function"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum effects)",
+      "Requires Hamiltonian formulation",
+      "May be difficult to solve analytically",
+      "Limited to systems with well-defined action"
+    ]
+  },
+  "historical_context": {
+    "importance": "Bridge between classical and quantum mechanics, foundation for canonical transformations",
+    "development_period": "1834-1837",
+    "key_insights": [
+      "Action as fundamental quantity",
+      "Wave-like aspects of classical mechanics",
+      "Connection to quantum mechanics",
+      "Canonical transformation theory"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

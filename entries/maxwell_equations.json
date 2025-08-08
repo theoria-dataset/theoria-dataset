@@ -270,6 +270,28 @@
       "citation": "Griffiths, D. J. (2013). *Introduction to Electrodynamics* (4th ed.). Pearson."
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism (non-quantum regime)",
+      "Length scales much larger than atomic dimensions",
+      "Field strengths below quantum electrodynamic effects"
+    ],
+    "limitations": [
+      "Does not account for quantum effects",
+      "Breaks down at very high field strengths",
+      "Does not include weak and strong nuclear forces"
+    ]
+  },
+  "historical_context": {
+    "importance": "Unification of electricity, magnetism, and light; foundation of electromagnetic theory",
+    "development_period": "1860-1873",
+    "key_insights": [
+      "Electromagnetic field unity",
+      "Light as electromagnetic wave",
+      "Displacement current concept"
+    ]
+  },
   "created_by": "Manuel Sánchez Hernández",
   "review_status": "draft"
 }

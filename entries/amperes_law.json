@@ -1,0 +1,154 @@
+{
+  "result_name": "Ampère's Circuital Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "oint vec B cdot d vec l = mu_0 I_enc"
+    }
+  ],
+  "explanation": "Ampère's law relates the circulation of magnetic field around a closed loop to the electric current passing through the loop. It provides a powerful method for calculating magnetic fields in cases with high symmetry and is one of Maxwell's fundamental equations of electromagnetism.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The current distribution has sufficient symmetry to apply Ampère's law directly."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "We are in the static or quasi-static regime (no rapidly changing electric fields)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec B",
+      "definition": "Magnetic field vector."
+    },
+    {
+      "symbol": "d vec l",
+      "definition": "Differential length element along the closed loop."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Permeability of free space (`4pi times 10^-7 H/m`)."
+    },
+    {
+      "symbol": "I_enc",
+      "definition": "Total electric current enclosed by the loop."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "nabla times vec B = mu_0 vec J"
+    },
+    {
+      "step": 2,
+      "equation": "int (nabla times vec B) cdot d vec A = int mu_0 vec J cdot d vec A"
+    },
+    {
+      "step": 3,
+      "equation": "oint vec B cdot d vec l = mu_0 int vec J cdot d vec A"
+    },
+    {
+      "step": 4,
+      "equation": "I_enc = int vec J cdot d vec A"
+    },
+    {
+      "step": 5,
+      "equation": "oint vec B cdot d vec l = mu_0 I_enc"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Ampère's law in differential form (one of Maxwell's equations) applies."
+    },
+    {
+      "id": "assumption2",
+      "text": "The surface bounded by the loop is simply connected."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Ampère's law in differential form from Maxwell's equations."
+    },
+    {
+      "step": 2,
+      "text": "Integrate both sides over a surface bounded by the closed loop."
+    },
+    {
+      "step": 3,
+      "text": "Apply Stokes' theorem to convert the left side to a line integral."
+    },
+    {
+      "step": 4,
+      "text": "Recognize that the surface integral of current density gives the enclosed current."
+    },
+    {
+      "step": 5,
+      "text": "Obtain Ampère's law in integral form relating circulation of B to enclosed current."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Example: magnetic field around an infinite straight wire",
+      "mu0, I, r = sp.symbols('mu0 I r', positive=True)",
+      "# For an infinite straight wire, B = (mu0 * I) / (2 * pi * r)",
+      "B_wire = (mu0 * I) / (2 * sp.pi * r)",
+      "# Apply Ampère's law to a circular loop of radius r",
+      "# The circulation integral: B * circumference",
+      "circulation = B_wire * 2 * sp.pi * r",
+      "# Simplify",
+      "circulation_simplified = sp.simplify(circulation)",
+      "# This should equal mu0 * I_enclosed",
+      "expected = mu0 * I",
+      "assert circulation_simplified == expected",
+      "# Test with specific values",
+      "test_vals = {mu0: 1, I: 2, r: 3}",
+      "circulation_val = circulation_simplified.subs(test_vals)",
+      "expected_val = expected.subs(test_vals)",
+      "assert circulation_val == expected_val"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism",
+      "Static or quasi-static fields",
+      "Well-defined current distributions",
+      "Sufficient symmetry for application"
+    ],
+    "limitations": [
+      "Requires high symmetry for direct application",
+      "Limited to static or slowly varying fields",
+      "Classical electromagnetic theory only",
+      "May need displacement current for time-varying fields"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental law of electromagnetism, key tool for calculating magnetic fields",
+    "development_period": "1826",
+    "key_insights": [
+      "Relationship between current and magnetic field",
+      "Circulation theorem for magnetism",
+      "Foundation for electromagnetic theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Ampère, A. M. (1826). *Théorie mathématique des phénomènes électro-dynamiques*. Chez Firmin Didot."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": ["maxwell_equations.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

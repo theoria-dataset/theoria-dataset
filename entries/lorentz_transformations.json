@@ -230,6 +230,29 @@
       "citation": "Taylor, E. F., & Wheeler, J. A. (1992). Spacetime Physics. W. H. Freeman and Company."
     }
   ],
+  "theory_status": "historical",
+  "validity_regime": {
+    "conditions": [
+      "Constant relative velocity between reference frames",
+      "Flat spacetime (no gravity)",
+      "Special relativity regime"
+    ],
+    "limitations": [
+      "Does not account for acceleration",
+      "Invalid in curved spacetime with gravity",
+      "Part of the broader special relativity framework"
+    ]
+  },
+  "superseded_by": ["special_relativity.json"],
+  "historical_context": {
+    "importance": "Foundation of special relativity, revealed spacetime structure",
+    "development_period": "1905-1915",
+    "key_insights": [
+      "Space and time are unified",
+      "Simultaneity is relative",
+      "Length contraction and time dilation"
+    ]
+  },
   "created_by": "Manuel Sánchez Hernández",
   "review_status": "reviewed"
 }

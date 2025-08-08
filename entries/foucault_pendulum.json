@@ -80,6 +80,31 @@
       "citation": "Marion, J., & Thornton, S. (1988). *Classical Dynamics* (3rd ed.). HBJ."
     }
   ],
+  "theory_status": "limiting_case",
+  "validity_regime": {
+    "conditions": [
+      "Earth-bound rotating reference frame",
+      "Small oscillations (linear pendulum approximation)",
+      "Long time scales compared to pendulum period",
+      "Classical mechanics at Earth's surface"
+    ],
+    "limitations": [
+      "Limited to small angle approximations",
+      "Classical mechanics only",
+      "Requires isolation from external disturbances",
+      "Earth-specific demonstration of rotation effects"
+    ]
+  },
+  "approximation_of": "coriolis_force.json",
+  "historical_context": {
+    "importance": "First direct demonstration of Earth's rotation, important for understanding rotating reference frames",
+    "development_period": "1851",
+    "key_insights": [
+      "Direct proof of Earth's rotation",
+      "Rotating reference frame effects",
+      "Precession due to Coriolis force"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

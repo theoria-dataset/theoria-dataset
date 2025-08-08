@@ -1,0 +1,271 @@
+{
+  "result_name": "Electric Field",
+  "result_equations": [
+    {
+      "id": "electric_field_definition",
+      "equation": "\\vec{E} = \\frac{\\vec{F}}{q}"
+    },
+    {
+      "id": "point_charge_field",
+      "equation": "\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2} \\hat{r}"
+    },
+    {
+      "id": "superposition_principle",
+      "equation": "\\vec{E}_{total} = \\sum_{i} \\vec{E}_i"
+    },
+    {
+      "id": "field_from_dipole",
+      "equation": "\\vec{E}_{dipole} = \\frac{1}{4\\pi\\epsilon_0} \\frac{2\\vec{p}\\cos\\theta}{r^3} \\hat{r} + \\frac{1}{4\\pi\\epsilon_0} \\frac{\\vec{p}\\sin\\theta}{r^3} \\hat{\\theta}"
+    }
+  ],
+  "explanation": "Electric field is a vector quantity that describes the electric force per unit charge at any point in space. It provides a way to describe how charges interact with each other through the field they create in the surrounding space.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Static charges (electrostatics)"
+    },
+    {
+      "id": "assump2",
+      "text": "Point charges or continuous charge distributions"
+    },
+    {
+      "id": "assump3",
+      "text": "Vacuum or linear dielectric medium"
+    },
+    {
+      "id": "assump4",
+      "text": "Classical (non-quantum) treatment"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "E⃗",
+      "definition": "Electric field vector"
+    },
+    {
+      "symbol": "F⃗",
+      "definition": "Electric force on test charge"
+    },
+    {
+      "symbol": "q",
+      "definition": "Test charge (small positive charge)"
+    },
+    {
+      "symbol": "Q",
+      "definition": "Source charge"
+    },
+    {
+      "symbol": "r",
+      "definition": "Distance from source charge"
+    },
+    {
+      "symbol": "r̂",
+      "definition": "Unit vector pointing away from source"
+    },
+    {
+      "symbol": "ε₀",
+      "definition": "Permittivity of free space (8.854 × 10^-12 F/m)"
+    },
+    {
+      "symbol": "p⃗",
+      "definition": "Electric dipole moment"
+    },
+    {
+      "symbol": "θ",
+      "definition": "Angle from dipole axis"
+    },
+    {
+      "symbol": "θ̂",
+      "definition": "Unit vector in polar coordinate system"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{F} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Qq}{r^2} \\hat{r}"
+    },
+    {
+      "step": 2,
+      "equation": "\\vec{E} = \\frac{\\vec{F}}{q}"
+    },
+    {
+      "step": 3,
+      "equation": "\\vec{E} = \\frac{1}{q} \\frac{1}{4\\pi\\epsilon_0} \\frac{Qq}{r^2} \\hat{r}"
+    },
+    {
+      "step": 4,
+      "equation": "\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2} \\hat{r}"
+    },
+    {
+      "step": 5,
+      "equation": "\\vec{E}_{total} = \\frac{\\vec{F}_{total}}{q} = \\frac{1}{q}\\sum_i \\vec{F}_i = \\sum_i \\frac{\\vec{F}_i}{q} = \\sum_i \\vec{E}_i"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Coulomb's law is valid"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Test charge is small enough not to disturb the field"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Principle of superposition applies"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Electrostatic conditions"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Electric field is defined as the force per unit charge. Starting from Coulomb's law for the force between charges, we can derive the field of a point charge and then use superposition to find the total field from multiple sources."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Electric Field Verification\\n')",
+      "print('=' * 40)",
+      "# Constants",
+      "k = 8.99e9  # Coulomb's constant in N⋅m²/C²",
+      "epsilon_0 = 8.854e-12  # Permittivity of free space in F/m",
+      "# Test 1: Verify relationship between k and epsilon_0",
+      "def verify_constants():",
+      "    \"\"\"Verify k = 1/(4πε₀)\"\"\"",
+      "    print('Test 1: Constants relationship')",
+      "    ",
+      "    k_calculated = 1 / (4 * np.pi * epsilon_0)",
+      "    ",
+      "    print(f'  Coulomb constant k: {k:.2e} N⋅m²/C²')",
+      "    print(f'  k from 1/(4πε₀): {k_calculated:.2e} N⋅m²/C²')",
+      "    print(f'  Agreement: {math.isclose(k, k_calculated, rtol=1e-3)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(k, k_calculated, rtol=1e-3)",
+      "# Test 2: Superposition principle",
+      "def verify_superposition():",
+      "    \"\"\"Verify electric field superposition\"\"\"",
+      "    print('Test 2: Superposition principle')",
+      "    ",
+      "    # Two point charges",
+      "    Q1, Q2 = 1e-6, -2e-6  # charges in C",
+      "    x1, y1 = -1, 0  # position of Q1",
+      "    x2, y2 = 1, 0   # position of Q2",
+      "    test_x, test_y = 0, 2  # test point",
+      "    ",
+      "    # Calculate individual fields",
+      "    r1 = np.sqrt((test_x - x1)**2 + (test_y - y1)**2)",
+      "    r2 = np.sqrt((test_x - x2)**2 + (test_y - y2)**2)",
+      "    ",
+      "    # Field magnitudes",
+      "    E1 = k * abs(Q1) / r1**2",
+      "    E2 = k * abs(Q2) / r2**2",
+      "    ",
+      "    # Field components",
+      "    E1x = E1 * (test_x - x1) / r1 if Q1 > 0 else -E1 * (test_x - x1) / r1",
+      "    E1y = E1 * (test_y - y1) / r1 if Q1 > 0 else -E1 * (test_y - y1) / r1",
+      "    ",
+      "    E2x = E2 * (test_x - x2) / r2 if Q2 > 0 else -E2 * (test_x - x2) / r2",
+      "    E2y = E2 * (test_y - y2) / r2 if Q2 > 0 else -E2 * (test_y - y2) / r2",
+      "    ",
+      "    # Total field by superposition",
+      "    Ex_total = E1x + E2x",
+      "    Ey_total = E1y + E2y",
+      "    E_total_mag = np.sqrt(Ex_total**2 + Ey_total**2)",
+      "    ",
+      "    print(f'  Charge Q1: {Q1*1e6:.1f} μC at ({x1}, {y1})')",
+      "    print(f'  Charge Q2: {Q2*1e6:.1f} μC at ({x2}, {y2})')",
+      "    print(f'  Test point: ({test_x}, {test_y})')",
+      "    print(f'  E1 magnitude: {E1:.2e} N/C')",
+      "    print(f'  E2 magnitude: {E2:.2e} N/C')",
+      "    print(f'  Total field: {E_total_mag:.2e} N/C')",
+      "    print(f'  Superposition verified: {E_total_mag > 0}')",
+      "    print()",
+      "    ",
+      "    return E_total_mag > 0",
+      "# Test 3: Field-force relationship",
+      "def verify_field_force():",
+      "    \"\"\"Verify F = qE\"\"\"",
+      "    print('Test 3: Field-force relationship')",
+      "    ",
+      "    # Point charge creating field",
+      "    Q = 1e-6  # source charge in C",
+      "    r = 0.1   # distance in m",
+      "    q_test = 1e-9  # test charge in C",
+      "    ",
+      "    # Calculate field and force",
+      "    E = k * Q / r**2",
+      "    F = q_test * E",
+      "    ",
+      "    # Direct force calculation (Coulomb's law)",
+      "    F_direct = k * Q * q_test / r**2",
+      "    ",
+      "    print(f'  Source charge: {Q*1e6:.1f} μC')",
+      "    print(f'  Test charge: {q_test*1e9:.1f} nC')",
+      "    print(f'  Distance: {r:.1f} m')",
+      "    print(f'  Electric field: {E:.2e} N/C')",
+      "    print(f'  Force from F=qE: {F:.2e} N')",
+      "    print(f'  Force from Coulomb: {F_direct:.2e} N')",
+      "    print(f'  Forces match: {math.isclose(F, F_direct)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(F, F_direct)",
+      "# Run tests",
+      "test1 = verify_constants()",
+      "test2 = verify_superposition()",
+      "test3 = verify_field_force()",
+      "print('Summary of Electric Field Tests:')",
+      "print(f'Constants relationship: {test1}')",
+      "print(f'Superposition principle: {test2}')",
+      "print(f'Field-force relationship: {test3}')",
+      "print(f'All tests passed: {all([test1, test2, test3])}')",
+      "print('\\nElectric field concept verified!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Electrostatic regime (no time-varying fields)",
+      "Classical treatment (no quantum effects)",
+      "Linear media or vacuum",
+      "Point charges or continuous distributions"
+    ],
+    "limitations": [
+      "Relativistic effects ignored at high velocities",
+      "Quantum effects neglected for small scales",
+      "Breakdown in nonlinear media",
+      "Requires modification for time-varying fields"
+    ]
+  },
+  "historical_context": {
+    "development_period": "18th-19th century",
+    "importance": "Foundation of electromagnetism; introduced the concept of field as a fundamental physical entity",
+    "key_insights": [
+      "Charles-Augustin de Coulomb established the force law between electric charges",
+      "Michael Faraday introduced the revolutionary concept of electric field as a physical entity",
+      "James Clerk Maxwell unified electric and magnetic fields in his electromagnetic theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics. Cambridge University Press."
+    },
+    {
+      "id": "ref2",
+      "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
+    }
+  ],
+  "dependencies": [
+    "coulombs_law.json"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

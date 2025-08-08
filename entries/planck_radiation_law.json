@@ -1,36 +1,66 @@
 {
   "result_name": "Planck's Radiation Law",
   "result_equations": [
-    {"id": "eq1", "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"}
+    {
+      "id": "eq1",
+      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"
+    }
   ],
   "explanation": "Planck's law describes the spectral energy density of black-body radiation as a function of frequency and temperature. By quantizing electromagnetic modes with energy quanta `h*nu`, it resolves the ultraviolet catastrophe of classical physics and underpins modern quantum theory and thermal emission models.",
   "equations_assumptions": [
-    {"id": "eq_assump1", "text": "Emitter is an ideal black body in thermal equilibrium."},
-    {"id": "eq_assump2", "text": "Radiation is isotropic and contained in a cavity of volume V."}
+    {
+      "id": "eq_assump1",
+      "text": "Emitter is an ideal black body in thermal equilibrium."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Radiation is isotropic and contained in a cavity of volume V."
+    }
   ],
   "definitions": [
-    {"symbol": "u(nu,T)", "definition": "Spectral energy density per unit frequency."},
-    {"symbol": "nu", "definition": "Radiation frequency."},
-    {"symbol": "T", "definition": "Absolute temperature."},
-    {"symbol": "h", "definition": "Planck constant."},
-    {"symbol": "c", "definition": "Speed of light in vacuum."},
-    {"symbol": "k", "definition": "Boltzmann constant."}
+    {
+      "symbol": "u(nu,T)",
+      "definition": "Spectral energy density per unit frequency."
+    },
+    { "symbol": "nu", "definition": "Radiation frequency." },
+    { "symbol": "T", "definition": "Absolute temperature." },
+    { "symbol": "h", "definition": "Planck constant." },
+    { "symbol": "c", "definition": "Speed of light in vacuum." },
+    { "symbol": "k", "definition": "Boltzmann constant." }
   ],
   "derivation": [
-    {"step": 1, "equation": "rho(nu) = (8*pi*nu^2)/(c^3)"},
-    {"step": 2, "equation": "E_n = n*h*nu"},
-    {"step": 3, "equation": "<E> = (h*nu)/(exp(h*nu/(k*T)) - 1)"},
-    {"step": 4, "equation": "u(nu,T) = rho(nu)*<E>"}
+    { "step": 1, "equation": "rho(nu) = (8*pi*nu^2)/(c^3)" },
+    { "step": 2, "equation": "E_n = n*h*nu" },
+    { "step": 3, "equation": "<E> = (h*nu)/(exp(h*nu/(k*T)) - 1)" },
+    { "step": 4, "equation": "u(nu,T) = rho(nu)*<E>" }
   ],
   "derivation_assumptions": [
-    {"id": "ass1", "text": "Photon occupation numbers follow the Bose-Einstein distribution."},
-    {"id": "ass2", "text": "Energy levels of each mode are integer multiples of `h*nu`."}
+    {
+      "id": "ass1",
+      "text": "Photon occupation numbers follow the Bose-Einstein distribution."
+    },
+    {
+      "id": "ass2",
+      "text": "Energy levels of each mode are integer multiples of `h*nu`."
+    }
   ],
   "derivation_explanation": [
-    {"step": 1, "text": "Count electromagnetic modes in a cavity between `nu` and `nu+dnu`."},
-    {"step": 2, "text": "Assume quantized energies with spacing `h*nu` for each mode."},
-    {"step": 3, "text": "Compute the thermal average energy per mode using Bose statistics."},
-    {"step": 4, "text": "Multiply density of states by average energy to obtain the spectral energy density."}
+    {
+      "step": 1,
+      "text": "Count electromagnetic modes in a cavity between `nu` and `nu+dnu`."
+    },
+    {
+      "step": 2,
+      "text": "Assume quantized energies with spacing `h*nu` for each mode."
+    },
+    {
+      "step": 3,
+      "text": "Compute the thermal average energy per mode using Bose statistics."
+    },
+    {
+      "step": 4,
+      "text": "Multiply density of states by average energy to obtain the spectral energy density."
+    }
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
@@ -46,8 +76,36 @@
   },
   "domain": "astro-ph",
   "references": [
-    {"id": "R1", "citation": "Planck, M. (1901). *On the Law of Distribution of Energy in the Normal Spectrum*. Annalen der Physik, 309(3), 553-563."}
+    {
+      "id": "R1",
+      "citation": "Planck, M. (1901). *On the Law of Distribution of Energy in the Normal Spectrum*. Annalen der Physik, 309(3), 553-563."
+    }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Thermal equilibrium",
+      "Black body radiation",
+      "Quantum statistical mechanics regime",
+      "Well-defined temperature and frequency"
+    ],
+    "limitations": [
+      "Limited to ideal black bodies",
+      "Assumes thermal equilibrium",
+      "Classical electromagnetic field treatment",
+      "May need corrections for very high frequencies"
+    ]
+  },
+  "historical_context": {
+    "importance": "Founded quantum theory, resolved ultraviolet catastrophe, basis of thermal radiation",
+    "development_period": "1900-1901",
+    "key_insights": [
+      "Energy quantization",
+      "Birth of quantum mechanics",
+      "Solution to ultraviolet catastrophe",
+      "Photon concept foundation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

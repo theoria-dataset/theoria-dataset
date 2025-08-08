@@ -193,6 +193,30 @@
     }
   ],
   "dependencies": ["lorentz_transformations.json"],
+  "theory_status": "historical",
+  "validity_regime": {
+    "conditions": [
+      "Special relativity applies",
+      "Objects with well-defined rest mass",
+      "Non-accelerating reference frames"
+    ],
+    "limitations": [
+      "Part of the broader special relativity framework",
+      "Does not include general relativistic effects",
+      "Isolated formula rather than complete theory"
+    ]
+  },
+  "superseded_by": ["special_relativity.json"],
+  "approximation_of": "special_relativity.json",
+  "historical_context": {
+    "importance": "Revolutionary insight linking mass and energy, foundation of nuclear physics",
+    "development_period": "1905",
+    "key_insights": [
+      "Mass and energy are equivalent",
+      "Energy can be extracted from mass",
+      "Nuclear binding energy explanation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

@@ -1,0 +1,280 @@
+{
+  "result_name": "Archimedes' Principle",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec F_buoyant = rho_fluid * V_displaced * vec g"
+    },
+    {
+      "id": "eq2",
+      "equation": "vec F_buoyant = -vec F_fluid_weight"
+    }
+  ],
+  "explanation": "Archimedes' principle states that the buoyant force on an object immersed in a fluid equals the weight of the fluid displaced by the object. This fundamental law explains why objects float or sink and forms the foundation of fluid statics, ship design, and density measurements. The principle applies to any fluid in a gravitational field.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The fluid is in hydrostatic equilibrium (no fluid motion)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The gravitational field is uniform over the object's dimensions."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The fluid density is constant (incompressible fluid)."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The object is completely or partially submerged in the fluid."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec F_buoyant",
+      "definition": "Buoyant force exerted by the fluid on the object (upward)."
+    },
+    {
+      "symbol": "rho_fluid",
+      "definition": "Density of the fluid."
+    },
+    {
+      "symbol": "V_displaced",
+      "definition": "Volume of fluid displaced by the submerged portion of the object."
+    },
+    {
+      "symbol": "vec g",
+      "definition": "Gravitational acceleration vector (downward)."
+    },
+    {
+      "symbol": "vec F_fluid_weight",
+      "definition": "Weight of the displaced fluid (downward)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "P = P_0 + rho_fluid * g * h"
+    },
+    {
+      "step": 2,
+      "equation": "vec F = -oint P * d vec A"
+    },
+    {
+      "step": 3,
+      "equation": "vec F = -oint (P_0 + rho_fluid * g * h) * d vec A"
+    },
+    {
+      "step": 4,
+      "equation": "vec F = -P_0 * oint d vec A - rho_fluid * g * oint h * d vec A"
+    },
+    {
+      "step": 5,
+      "equation": "oint d vec A = 0"
+    },
+    {
+      "step": 6,
+      "equation": "vec F = -rho_fluid * g * oint h * d vec A"
+    },
+    {
+      "step": 7,
+      "equation": "oint h * d vec A = V_displaced * hat k"
+    },
+    {
+      "step": 8,
+      "equation": "vec F = -rho_fluid * g * V_displaced * hat k"
+    },
+    {
+      "step": 9,
+      "equation": "vec F_buoyant = rho_fluid * g * V_displaced * hat k"
+    },
+    {
+      "step": 10,
+      "equation": "vec F_buoyant = rho_fluid * V_displaced * vec g"
+    },
+    {
+      "step": 11,
+      "equation": "m_fluid = rho_fluid * V_displaced"
+    },
+    {
+      "step": 12,
+      "equation": "vec F_fluid_weight = m_fluid * vec g"
+    },
+    {
+      "step": 13,
+      "equation": "vec F_fluid_weight = rho_fluid * V_displaced * vec g"
+    },
+    {
+      "step": 14,
+      "equation": "vec F_buoyant = -vec F_fluid_weight"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Hydrostatic pressure varies linearly with depth in a uniform gravitational field."
+    },
+    {
+      "id": "assumption2",
+      "text": "The net force on the object equals the integral of pressure over its surface."
+    },
+    {
+      "id": "assumption3",
+      "text": "The mathematical identity for surface integrals of closed surfaces applies."
+    },
+    {
+      "id": "assumption4",
+      "text": "The buoyant force direction is opposite to the weight of displaced fluid."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the hydrostatic pressure equation in a gravitational field."
+    },
+    {
+      "step": 2,
+      "text": "The net force on the object is the integral of pressure over its surface."
+    },
+    {
+      "step": 3,
+      "text": "Substitute the hydrostatic pressure expression."
+    },
+    {
+      "step": 4,
+      "text": "Separate the atmospheric pressure and depth-dependent terms."
+    },
+    {
+      "step": 5,
+      "text": "The integral of the area element over a closed surface is zero (Gauss's theorem)."
+    },
+    {
+      "step": 6,
+      "text": "Only the depth-dependent term contributes to the net force."
+    },
+    {
+      "step": 7,
+      "text": "The integral of depth times area element equals the displaced volume times the unit vector."
+    },
+    {
+      "step": 8,
+      "text": "Substitute to get the force in terms of displaced volume."
+    },
+    {
+      "step": 9,
+      "text": "The buoyant force acts upward (opposite to the pressure force)."
+    },
+    {
+      "step": 10,
+      "text": "Express in vector form with gravitational acceleration."
+    },
+    {
+      "step": 11,
+      "text": "Define the mass of displaced fluid in terms of density and volume."
+    },
+    {
+      "step": 12,
+      "text": "Calculate the weight of the displaced fluid."
+    },
+    {
+      "step": 13,
+      "text": "Express the fluid weight in terms of density, volume, and gravity."
+    },
+    {
+      "step": 14,
+      "text": "Establish that buoyant force equals the weight of displaced fluid (but opposite direction)."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "rho_fluid, rho_object, V_object, V_displaced, g = sp.symbols('rho_fluid rho_object V_object V_displaced g', positive=True, real=True)",
+      "F_buoyant, F_weight, F_net = sp.symbols('F_buoyant F_weight F_net', real=True)",
+      "",
+      "# Step 10: Buoyant force",
+      "F_buoyant_formula = rho_fluid * V_displaced * g",
+      "",
+      "# Weight of object",
+      "F_weight_object = rho_object * V_object * g",
+      "",
+      "# Test floating condition: F_buoyant = F_weight",
+      "# For floating: V_displaced < V_object",
+      "floating_condition = sp.Eq(F_buoyant_formula, F_weight_object)",
+      "",
+      "# Solve for displaced volume when floating",
+      "V_displaced_floating = sp.solve(floating_condition, V_displaced)[0]",
+      "expected_floating = (rho_object * V_object) / rho_fluid",
+      "assert sp.simplify(V_displaced_floating - expected_floating) == 0",
+      "",
+      "# Test completely submerged case",
+      "# When completely submerged: V_displaced = V_object",
+      "V_displaced_submerged = V_object",
+      "F_buoyant_submerged = F_buoyant_formula.subs(V_displaced, V_displaced_submerged)",
+      "",
+      "# Net force when submerged",
+      "F_net_submerged = F_buoyant_submerged - F_weight_object",
+      "F_net_simplified = sp.simplify(F_net_submerged)",
+      "",
+      "# Expected: F_net = (ρ_fluid - ρ_object) * V_object * g",
+      "expected_net = (rho_fluid - rho_object) * V_object * g",
+      "assert sp.simplify(F_net_simplified - expected_net) == 0",
+      "",
+      "# Test sinking condition: ρ_object > ρ_fluid",
+      "# When ρ_object > ρ_fluid, F_net < 0 (downward)",
+      "",
+      "# Test rising condition: ρ_object < ρ_fluid",
+      "# When ρ_object < ρ_fluid, F_net > 0 (upward)",
+      "",
+      "# Specific examples",
+      "# Example 1: Ice in water (ρ_ice ≈ 0.92 ρ_water)",
+      "rho_ratio_ice = sp.Rational(92, 100)  # 0.92",
+      "fraction_submerged_ice = rho_ratio_ice",
+      "fraction_above_water = 1 - fraction_submerged_ice",
+      "",
+      "# About 8% of ice should be above water",
+      "expected_above = sp.Rational(8, 100)",
+      "assert sp.simplify(fraction_above_water - expected_above) == 0",
+      "",
+      "# Example 2: Helium balloon (ρ_helium << ρ_air)",
+      "# Net upward force per unit volume",
+      "rho_helium = sp.symbols('rho_helium', positive=True)",
+      "rho_air = sp.symbols('rho_air', positive=True)",
+      "",
+      "# Assume ρ_helium << ρ_air, so buoyant force ≈ ρ_air * V * g",
+      "F_buoyant_balloon = rho_air * V_object * g",
+      "F_weight_balloon = rho_helium * V_object * g  # neglect balloon material",
+      "F_net_balloon = F_buoyant_balloon - F_weight_balloon",
+      "",
+      "# This should be positive (upward) when ρ_air > ρ_helium",
+      "expected_balloon_force = (rho_air - rho_helium) * V_object * g",
+      "assert sp.simplify(F_net_balloon - expected_balloon_force) == 0",
+      "",
+      "# Test apparent weight in fluid",
+      "# Apparent weight = True weight - Buoyant force",
+      "W_apparent = F_weight_object - F_buoyant_formula.subs(V_displaced, V_object)",
+      "W_apparent_simplified = sp.simplify(W_apparent)",
+      "",
+      "# Expected: W_apparent = ρ_object * V_object * g - ρ_fluid * V_object * g",
+      "expected_apparent = (rho_object - rho_fluid) * V_object * g",
+      "assert sp.simplify(W_apparent_simplified - expected_apparent) == 0"
+    ]
+  },
+  "domain": "physics.flu-dyn",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Archimedes (c. 250 BCE). On Floating Bodies. Ancient Greek manuscript."
+    },
+    {
+      "id": "R2",
+      "citation": "Munson, B. R., Young, D. F., & Okiishi, T. H. (2009). Fundamentals of Fluid Mechanics (6th ed.). John Wiley & Sons."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

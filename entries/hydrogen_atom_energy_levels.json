@@ -1,0 +1,212 @@
+{
+  "result_name": "Hydrogen Atom Energy Levels",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E_n = -13.6 eV/n^2 = -(m_e e^4)/(2 (4 pi epsilon_0)^2 hbar^2 n^2)"
+    },
+    {
+      "id": "eq2",
+      "equation": "r_n = (4 pi epsilon_0 hbar^2 n^2)/(m_e e^2) = a_0 n^2"
+    }
+  ],
+  "explanation": "The hydrogen atom energy levels describe the quantized energy states of an electron bound to a proton. The energy depends only on the principal quantum number n, with the ground state at -13.6 eV. These energy levels explain the hydrogen spectrum and demonstrate key principles of quantum mechanics including energy quantization and wave-particle duality.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Only Coulomb interaction between electron and proton is considered."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Relativistic effects and spin-orbit coupling are neglected."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "E_n",
+      "definition": "Energy of the nth level (n = 1, 2, 3, ...)."
+    },
+    {
+      "symbol": "n",
+      "definition": "Principal quantum number."
+    },
+    {
+      "symbol": "r_n",
+      "definition": "Bohr radius for the nth orbital."
+    },
+    {
+      "symbol": "a_0",
+      "definition": "Bohr radius (≈ 0.529 Å)."
+    },
+    {
+      "symbol": "m_e",
+      "definition": "Electron mass."
+    },
+    {
+      "symbol": "e",
+      "definition": "Elementary charge magnitude."
+    },
+    {
+      "symbol": "epsilon_0",
+      "definition": "Permittivity of free space."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "-(hbar^2)/(2 m_e) nabla^2 psi - (e^2)/(4 pi epsilon_0 r) psi = E psi"
+    },
+    {
+      "step": 2,
+      "equation": "psi(r, theta, phi) = R_{nl}(r) Y_l^m(theta, phi)"
+    },
+    {
+      "step": 3,
+      "equation": "-(hbar^2)/(2 m_e) (d^2 R)/(dr^2) + [-(e^2)/(4 pi epsilon_0 r) + (l(l+1) hbar^2)/(2 m_e r^2)] R = E R"
+    },
+    {
+      "step": 4,
+      "equation": "rho = sqrt((-8 m_e E)/hbar^2) r"
+    },
+    {
+      "step": 5,
+      "equation": "lambda = (m_e e^2)/(4 pi epsilon_0 hbar^2 sqrt(-2 m_e E))"
+    },
+    {
+      "step": 6,
+      "equation": "lambda = n (n = 1, 2, 3, ...)"
+    },
+    {
+      "step": 7,
+      "equation": "E_n = -(m_e e^4)/(2 (4 pi epsilon_0)^2 hbar^2 n^2)"
+    },
+    {
+      "step": 8,
+      "equation": "a_0 = (4 pi epsilon_0 hbar^2)/(m_e e^2)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The Schrödinger equation applies with Coulomb potential."
+    },
+    {
+      "id": "assumption2",
+      "text": "Separation of variables in spherical coordinates is possible."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the time-independent Schrödinger equation for hydrogen with Coulomb potential."
+    },
+    {
+      "step": 2,
+      "text": "Separate variables into radial and angular parts using spherical coordinates."
+    },
+    {
+      "step": 3,
+      "text": "Focus on the radial equation with effective potential including centrifugal term."
+    },
+    {
+      "step": 4,
+      "text": "Introduce dimensionless variable ρ related to the radius."
+    },
+    {
+      "step": 5,
+      "text": "Define parameter λ that determines the bound state condition."
+    },
+    {
+      "step": 6,
+      "text": "Quantization condition: λ must be a positive integer n for normalizable solutions."
+    },
+    {
+      "step": 7,
+      "text": "Solve for energy levels in terms of fundamental constants and quantum number n."
+    },
+    {
+      "step": 8,
+      "text": "Define the Bohr radius as the characteristic length scale."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define fundamental constants (in SI units)",
+      "m_e = sp.symbols('m_e', positive=True)  # electron mass",
+      "e = sp.symbols('e', positive=True)      # elementary charge",
+      "hbar = sp.symbols('hbar', positive=True) # reduced Planck constant",
+      "epsilon_0 = sp.symbols('epsilon_0', positive=True) # permittivity",
+      "n = sp.symbols('n', positive=True, integer=True) # principal quantum number",
+      "# Bohr radius",
+      "a_0 = (4*sp.pi*epsilon_0*hbar**2)/(m_e*e**2)",
+      "# Energy levels",
+      "E_n = -(m_e*e**4)/(2*(4*sp.pi*epsilon_0)**2*hbar**2*n**2)",
+      "# Verify ground state properties",
+      "E_1 = E_n.subs(n, 1)",
+      "r_1 = a_0",
+      "# Energy level spacing",
+      "E_2 = E_n.subs(n, 2)",
+      "E_3 = E_n.subs(n, 3)",
+      "# Verify that energies scale as 1/n²",
+      "ratio_21 = E_2 / E_1",
+      "ratio_31 = E_3 / E_1",
+      "assert sp.simplify(ratio_21) == sp.Rational(1, 4)",
+      "assert sp.simplify(ratio_31) == sp.Rational(1, 9)",
+      "# Verify Rydberg constant relationship",
+      "R_inf = m_e*e**4/(8*(4*sp.pi*epsilon_0)**2*hbar**3*sp.pi) # Rydberg constant",
+      "E_n_rydberg = -R_inf*hbar*sp.pi*2/n**2",
+      "# The energy should be proportional to Rydberg constant",
+      "assert sp.simplify(E_n/E_n_rydberg).is_constant()"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Non-relativistic quantum mechanics",
+      "Pure Coulomb potential",
+      "Single electron system",
+      "Fixed nucleus approximation"
+    ],
+    "limitations": [
+      "Non-relativistic treatment (ignores fine structure)",
+      "Neglects spin-orbit coupling",
+      "Fixed nucleus approximation",
+      "Does not include quantum field theory corrections"
+    ]
+  },
+  "historical_context": {
+    "importance": "First successful quantum mechanical solution, foundation of atomic physics",
+    "development_period": "1913-1926",
+    "key_insights": [
+      "Energy quantization",
+      "Wave function solutions",
+      "Quantum numbers",
+      "Spectroscopic predictions"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bohr, N. (1913). On the constitution of atoms and molecules. *Philosophical Magazine*, 26(153), 1-25."
+    },
+    {
+      "id": "R2",
+      "citation": "Bethe, H. A., & Salpeter, E. E. (1957). *Quantum Mechanics of One- and Two-Electron Atoms*. Academic Press."
+    }
+  ],
+  "dependencies": ["schroedingen_equation.json", "coulombs_law.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

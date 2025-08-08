@@ -83,6 +83,30 @@
       "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Continuum approximation (fluid larger than molecular scale)",
+      "Well-defined fluid density and velocity fields",
+      "Conservation of mass applies",
+      "Macroscopic fluid flow"
+    ],
+    "limitations": [
+      "Continuum assumption breaks down at molecular scales",
+      "May need modifications for relativistic flows",
+      "Requires careful treatment at interfaces",
+      "Limited to systems where mass is conserved"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental conservation law in fluid mechanics, basis for flow analysis",
+    "development_period": "1757-1760",
+    "key_insights": [
+      "Mass conservation in fluids",
+      "Relationship between density and velocity changes",
+      "Foundation for fluid dynamics"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

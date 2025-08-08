@@ -1,0 +1,217 @@
+{
+  "result_name": "Bose-Einstein Distribution",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "n(E) = 1/(exp((E - mu)/(k_B T)) - 1)"
+    },
+    {
+      "id": "eq2",
+      "equation": "N = int_0^oo g(E) n(E) dE"
+    }
+  ],
+  "explanation": "The Bose-Einstein distribution describes the statistical distribution of bosons (particles with integer spin) in thermal equilibrium. Unlike fermions, bosons can occupy the same quantum state with no restriction, leading to phenomena like Bose-Einstein condensation and stimulated emission. This distribution is fundamental for understanding photons, phonons, and superfluid behavior.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particles are bosons (integer spin) with no restriction on state occupancy."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Particles are non-interacting (ideal Bose gas)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "n(E)",
+      "definition": "Average occupation number of a state with energy E."
+    },
+    {
+      "symbol": "E",
+      "definition": "Energy of a quantum state."
+    },
+    {
+      "symbol": "mu",
+      "definition": "Chemical potential (must be ≤ ground state energy)."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature."
+    },
+    {
+      "symbol": "N",
+      "definition": "Total number of particles."
+    },
+    {
+      "symbol": "g(E)",
+      "definition": "Density of states (number of states per unit energy)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Omega = prod_i (N_i + g_i - 1)!/(N_i! (g_i - 1)!)"
+    },
+    {
+      "step": 2,
+      "equation": "S = k_B ln(Omega)"
+    },
+    {
+      "step": 3,
+      "equation": "delta(S - alpha N - beta U) = 0"
+    },
+    {
+      "step": 4,
+      "equation": "sum_i delta N_i [k_B ln(N_i + g_i) - k_B ln(N_i) - alpha - beta E_i] = 0"
+    },
+    {
+      "step": 5,
+      "equation": "ln(N_i + g_i) - ln(N_i) = alpha + beta E_i"
+    },
+    {
+      "step": 6,
+      "equation": "N_i = g_i/(exp(alpha + beta E_i) - 1)"
+    },
+    {
+      "step": 7,
+      "equation": "alpha = -mu/(k_B T), beta = 1/(k_B T)"
+    },
+    {
+      "step": 8,
+      "equation": "n(E) = 1/(exp((E - mu)/(k_B T)) - 1)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Maximum entropy principle applies at thermal equilibrium."
+    },
+    {
+      "id": "assumption2",
+      "text": "Bosons can occupy the same quantum state without restriction."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define the number of ways to distribute N bosons among g states (allowing multiple occupancy)."
+    },
+    {
+      "step": 2,
+      "text": "Use Boltzmann's entropy formula with the microstate count."
+    },
+    {
+      "step": 3,
+      "text": "Maximize entropy subject to constraints on particle number and energy."
+    },
+    {
+      "step": 4,
+      "text": "Apply Lagrange multipliers and take variations with respect to occupation numbers."
+    },
+    {
+      "step": 5,
+      "text": "Set each variation to zero to find the equilibrium condition."
+    },
+    {
+      "step": 6,
+      "text": "Solve for the occupation number of each state."
+    },
+    {
+      "step": 7,
+      "text": "Identify the Lagrange multipliers with temperature and chemical potential."
+    },
+    {
+      "step": 8,
+      "text": "Obtain the Bose-Einstein distribution function."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "E, mu, k_B, T = sp.symbols('E mu k_B T', positive=True)",
+      "# Bose-Einstein distribution",
+      "n_BE = 1/(sp.exp((E - mu)/(k_B*T)) - 1)",
+      "",
+      "# Verify photon gas limit (mu = 0)",
+      "n_photon = n_BE.subs(mu, 0)",
+      "expected_photon = 1/(sp.exp(E/(k_B*T)) - 1)",
+      "assert sp.simplify(n_photon - expected_photon) == 0",
+      "",
+      "# Verify that chemical potential must be less than ground state energy",
+      "# For mu approaching the ground state energy E_0, occupation diverges",
+      "E_0 = sp.symbols('E_0', positive=True)",
+      "n_ground = n_BE.subs(E, E_0)",
+      "# As mu approaches E_0 from below, occupation increases dramatically",
+      "limit_cond = sp.limit(n_ground, mu, E_0, '-')",
+      "assert limit_cond == sp.oo",
+      "",
+      "# Verify occupation numbers are always positive for E > mu",
+      "# Test with specific numerical values",
+      "n_test = n_BE.subs([(E, 2), (mu, 1), (k_B, 1), (T, 1)])",
+      "assert n_test > 0",
+      "",
+      "# Classical limit test: For E - mu >> k_B*T, n_BE ≈ exp(-(E-mu)/(k_B*T))",
+      "# Test with large energy difference",
+      "n_classical_test = n_BE.subs([(E, 10), (mu, 1), (k_B, 1), (T, 1)])",
+      "n_MB_test = sp.exp(-(10-1)/(1*1))",
+      "# Should be approximately equal (within small error due to -1 term)",
+      "difference = abs(n_classical_test - n_MB_test)",
+      "assert difference < 0.01",
+      "",
+      "print('Bose-Einstein distribution verification passed!')",
+      "print(f'Photon gas test: mu=0 case verified')",
+      "print(f'Classical limit test: large E-mu case verified')",
+      "print(f'Condensation condition: occupation diverges as mu→E verified')"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum statistical mechanics",
+      "Bosons (integer spin particles)",
+      "Non-interacting or weakly interacting particles",
+      "Thermal equilibrium"
+    ],
+    "limitations": [
+      "Limited to non-interacting bosons",
+      "Requires quantum mechanical treatment",
+      "Chemical potential must be less than ground state energy",
+      "May need corrections for strong interactions"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of quantum statistics, explains lasers, superfluidity, and Bose-Einstein condensation",
+    "development_period": "1924-1925",
+    "key_insights": [
+      "Quantum statistics for bosons",
+      "Stimulated emission",
+      "Macroscopic quantum phenomena",
+      "Foundation for laser theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bose, S. N. (1924). Plancks Gesetz und Lichtquantenhypothese. *Zeitschrift für Physik*, 26(1), 178-181."
+    },
+    {
+      "id": "R2",
+      "citation": "Einstein, A. (1925). Zur Quantentheorie des idealen Gases. *Sitzungsberichte der Preußischen Akademie der Wissenschaften*, 1, 3-14."
+    }
+  ],
+  "dependencies": ["partition_function.json", "planck_radiation_law.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

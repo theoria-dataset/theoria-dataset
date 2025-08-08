@@ -111,6 +111,31 @@
       "citation": "Vallis, G. K. (2017). *Atmospheric and Oceanic Fluid Dynamics* (2nd ed.). Cambridge University Press."
     }
   ],
+  "theory_status": "limiting_case",
+  "validity_regime": {
+    "conditions": [
+      "Rotating reference frame (e.g., Earth's surface)",
+      "Moderate velocities (v << Ω × R for planetary scale)",
+      "Classical mechanics applies",
+      "Uniform rotation rate"
+    ],
+    "limitations": [
+      "Fictitious force only appearing in rotating frames",
+      "Requires velocities much smaller than planetary surface speed",
+      "Classical mechanics only (no relativistic effects)",
+      "Assumes uniform rotation rate"
+    ]
+  },
+  "approximation_of": "general_relativity.json",
+  "historical_context": {
+    "importance": "Explains atmospheric and oceanic circulation patterns, important for meteorology and ballistics",
+    "development_period": "1835",
+    "key_insights": [
+      "Fictitious forces in rotating frames",
+      "Explanation of cyclone rotation",
+      "Deflection of moving objects on Earth"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

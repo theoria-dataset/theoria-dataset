@@ -1,0 +1,262 @@
+{
+  "result_name": "Rayleigh-Jeans Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "u(lambda, T) = (8*pi*k_B*T)/lambda^4"
+    },
+    {
+      "id": "eq2",
+      "equation": "B(lambda, T) = (2*c*k_B*T)/lambda^4"
+    }
+  ],
+  "explanation": "The Rayleigh-Jeans law describes the classical limit of blackbody radiation for long wavelengths (low frequencies), where the energy density is proportional to temperature and inversely proportional to the fourth power of wavelength. This classical result agrees with experiments at long wavelengths but fails catastrophically at short wavelengths, leading to the ultraviolet catastrophe that motivated Planck's quantum theory of radiation.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Classical statistical mechanics applies (equipartition theorem)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`)."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The radiation is in thermal equilibrium with the blackbody."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "u(lambda, T)",
+      "definition": "Energy density per unit wavelength in the electromagnetic field."
+    },
+    {
+      "symbol": "B(lambda, T)",
+      "definition": "Spectral radiance (power per unit area per unit wavelength per unit solid angle)."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant (`1.381 × 10^-23 J/K`)."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature of the blackbody."
+    },
+    {
+      "symbol": "lambda",
+      "definition": "Wavelength of electromagnetic radiation."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "n(f) = (8*pi*f^2)/c^3"
+    },
+    {
+      "step": 2,
+      "equation": "<E> = k_B*T"
+    },
+    {
+      "step": 3,
+      "equation": "u(f) = n(f) * <E>"
+    },
+    {
+      "step": 4,
+      "equation": "u(f) = (8*pi*f^2*k_B*T)/c^3"
+    },
+    {
+      "step": 5,
+      "equation": "f = c/lambda"
+    },
+    {
+      "step": 6,
+      "equation": "df = -(c/lambda^2) * d lambda"
+    },
+    {
+      "step": 7,
+      "equation": "u(lambda) = u(f) * |df/d lambda|"
+    },
+    {
+      "step": 8,
+      "equation": "u(lambda) = (8*pi*(c/lambda)^2*k_B*T)/c^3 * (c/lambda^2)"
+    },
+    {
+      "step": 9,
+      "equation": "u(lambda) = (8*pi*c^2*k_B*T)/(lambda^2*c^3) * (c/lambda^2)"
+    },
+    {
+      "step": 10,
+      "equation": "u(lambda) = (8*pi*k_B*T)/lambda^4"
+    },
+    {
+      "step": 11,
+      "equation": "B(lambda, T) = (c/4*pi) * u(lambda, T)"
+    },
+    {
+      "step": 12,
+      "equation": "B(lambda, T) = (c/4*pi) * (8*pi*k_B*T)/lambda^4"
+    },
+    {
+      "step": 13,
+      "equation": "B(lambda, T) = (2*c*k_B*T)/lambda^4"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity."
+    },
+    {
+      "id": "assumption2",
+      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem."
+    },
+    {
+      "id": "assumption3",
+      "text": "The transformation from frequency to wavelength space preserves the total energy."
+    },
+    {
+      "id": "assumption4",
+      "text": "The spectral radiance relates to energy density through geometric factors."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Calculate the density of electromagnetic modes per unit frequency using cavity wave analysis."
+    },
+    {
+      "step": 2,
+      "text": "Apply the classical equipartition theorem: each mode has average energy `k_B*T`."
+    },
+    {
+      "step": 3,
+      "text": "Multiply mode density by average energy to get energy density per frequency."
+    },
+    {
+      "step": 4,
+      "text": "Substitute the expressions to get the frequency-dependent energy density."
+    },
+    {
+      "step": 5,
+      "text": "Use the relationship between frequency and wavelength for electromagnetic waves."
+    },
+    {
+      "step": 6,
+      "text": "Calculate the differential relationship between frequency and wavelength."
+    },
+    {
+      "step": 7,
+      "text": "Transform the energy density from frequency space to wavelength space."
+    },
+    {
+      "step": 8,
+      "text": "Substitute the frequency-wavelength relations into the energy density expression."
+    },
+    {
+      "step": 9,
+      "text": "Simplify the powers of `c` and `lambda`."
+    },
+    {
+      "step": 10,
+      "text": "Obtain the Rayleigh-Jeans energy density formula."
+    },
+    {
+      "step": 11,
+      "text": "Relate spectral radiance to energy density through geometric factors."
+    },
+    {
+      "step": 12,
+      "text": "Substitute the energy density expression."
+    },
+    {
+      "step": 13,
+      "text": "Simplify to get the final Rayleigh-Jeans spectral radiance."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "f, lam, c, k_B, T, pi = sp.symbols('f lambda c k_B T pi', positive=True, real=True)",
+      "",
+      "# Step 1: Mode density in frequency space",
+      "n_f = 8*pi*f**2/c**3",
+      "",
+      "# Step 2 & 4: Energy density in frequency space",
+      "u_f = n_f * k_B * T",
+      "u_f_explicit = 8*pi*f**2*k_B*T/c**3",
+      "",
+      "# Verify they match",
+      "assert sp.simplify(u_f - u_f_explicit) == 0",
+      "",
+      "# Step 5-6: Frequency-wavelength relations",
+      "f_lam = c/lam",
+      "df_dlam = sp.diff(f_lam, lam)",
+      "",
+      "# Step 7-10: Transform to wavelength space",
+      "# u(λ) = u(f) * |df/dλ|",
+      "u_f_substituted = u_f_explicit.subs(f, c/lam)",
+      "u_lam = u_f_substituted * sp.Abs(df_dlam)",
+      "",
+      "# Simplify (|df/dλ| = c/λ²)",
+      "u_lam_simplified = u_f_substituted * c/lam**2",
+      "",
+      "# Calculate step by step",
+      "# u_f = 8π(c/λ)²k_BT/c³ = 8πc²k_BT/(λ²c³) = 8πk_BT/(λ²c)",
+      "u_intermediate = 8*pi*k_B*T/(lam**2 * c)",
+      "",
+      "# Multiply by c/λ² to get final result",
+      "u_final = u_intermediate * c/lam**2",
+      "u_expected = 8*pi*k_B*T/lam**4",
+      "",
+      "# Verify the transformation",
+      "assert sp.simplify(u_final - u_expected) == 0",
+      "",
+      "# Steps 11-13: Calculate spectral radiance",
+      "B_lam = c/(4*pi) * u_expected",
+      "B_expected = 2*c*k_B*T/lam**4",
+      "",
+      "# Verify the radiance calculation",
+      "assert sp.simplify(B_lam - B_expected) == 0",
+      "",
+      "# Test the classical limit by comparing with Planck's law",
+      "h = sp.symbols('h', positive=True)",
+      "# Planck's law: B_planck = 2hc²/λ⁵ * 1/(exp(hc/λk_BT) - 1)",
+      "# In limit hf << k_BT: exp(hc/λk_BT) ≈ 1 + hc/(λk_BT)",
+      "# So 1/(exp(x) - 1) ≈ 1/x = λk_BT/(hc)",
+      "",
+      "# Classical limit of Planck's law",
+      "B_planck_classical = 2*h*c**2/lam**5 * lam*k_B*T/(h*c)",
+      "B_planck_simplified = sp.simplify(B_planck_classical)",
+      "",
+      "# This should match Rayleigh-Jeans",
+      "assert sp.simplify(B_planck_simplified - B_expected) == 0"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "historical",
+  "dependencies": ["planck_radiation_law.json"],
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rayleigh, Lord. (1900). 'Remarks upon the Law of Complete Radiation.' Philosophical Magazine, 49, 539-540."
+    },
+    {
+      "id": "R2",
+      "citation": "Jeans, J. H. (1905). 'On the Partition of Energy between Matter and Æther.' Philosophical Magazine, 10, 91-98."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

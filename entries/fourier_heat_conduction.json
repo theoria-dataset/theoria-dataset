@@ -77,6 +77,30 @@
       "assert sp.simplify(q - k*(T1 - T2)/L) == 0"
     ]
   },
+  "theory_status": "approximation",
+  "validity_regime": {
+    "conditions": [
+      "Classical heat conduction (macroscopic scale)",
+      "Continuum approximation",
+      "Local thermal equilibrium",
+      "Fourier's law applies (linear heat flux)"
+    ],
+    "limitations": [
+      "Breaks down at very small length scales",
+      "Assumes local thermal equilibrium",
+      "Classical treatment (no quantum effects)",
+      "May fail in extreme temperature gradients"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of heat transfer theory, widely used in engineering and physics",
+    "development_period": "1822",
+    "key_insights": [
+      "Mathematical description of heat flow",
+      "Diffusion equation for temperature",
+      "Thermal conductivity concept"
+    ]
+  },
   "domain": "cond-mat.stat-mech",
   "references": [
     {

@@ -1,0 +1,217 @@
+{
+  "result_name": "Quantum Tunneling",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "T = |t|^2 = 1/(1 + (V_0^2 sin^2(k_2 a))/(4 E (V_0 - E)))"
+    },
+    {
+      "id": "eq2",
+      "equation": "T approx exp(-2 kappa a) for E << V_0"
+    }
+  ],
+  "explanation": "Quantum tunneling is the quantum mechanical phenomenon where particles can pass through potential barriers even when their kinetic energy is less than the barrier height. The transmission probability depends exponentially on the barrier width and height, and is strictly forbidden in classical mechanics. This effect is crucial in nuclear fusion, semiconductor devices, and scanning tunneling microscopes.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particle is described by a wavefunction satisfying the Schrödinger equation."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The potential barrier has a well-defined shape and finite extent."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The particle energy E is less than the barrier height V_0."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "T",
+      "definition": "Transmission probability (probability of tunneling through the barrier)."
+    },
+    {
+      "symbol": "t",
+      "definition": "Transmission amplitude (complex amplitude)."
+    },
+    {
+      "symbol": "V_0",
+      "definition": "Height of the potential barrier."
+    },
+    {
+      "symbol": "E",
+      "definition": "Total energy of the particle."
+    },
+    {
+      "symbol": "a",
+      "definition": "Width of the potential barrier."
+    },
+    {
+      "symbol": "k_2",
+      "definition": "Wave number inside the barrier region."
+    },
+    {
+      "symbol": "kappa",
+      "definition": "Decay constant in the barrier (`kappa = sqrt(2m(V_0 - E))/hbar`)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "-(hbar^2)/(2m) (d^2 psi)/(dx^2) + V(x) psi = E psi"
+    },
+    {
+      "step": 2,
+      "equation": "Region I (x < 0): psi_I = A e^(i k_1 x) + B e^(-i k_1 x)"
+    },
+    {
+      "step": 3,
+      "equation": "Region II (0 < x < a): psi_II = C e^(kappa x) + D e^(-kappa x)"
+    },
+    {
+      "step": 4,
+      "equation": "Region III (x > a): psi_III = F e^(i k_1 x)"
+    },
+    {
+      "step": 5,
+      "equation": "k_1 = sqrt(2mE)/hbar, kappa = sqrt(2m(V_0 - E))/hbar"
+    },
+    {
+      "step": 6,
+      "equation": "Boundary conditions: psi and dpsi/dx continuous at x = 0, a"
+    },
+    {
+      "step": 7,
+      "equation": "T = |F/A|^2"
+    },
+    {
+      "step": 8,
+      "equation": "T = 1/(1 + (V_0^2 sinh^2(kappa a))/(4 E (V_0 - E)))"
+    },
+    {
+      "step": 9,
+      "equation": "For kappa a >> 1: T approx exp(-2 kappa a)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The barrier is rectangular with constant potential V_0 in the barrier region."
+    },
+    {
+      "id": "assumption2",
+      "text": "The particle approaches from the left with no reflection from the right."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the time-independent Schrödinger equation."
+    },
+    {
+      "step": 2,
+      "text": "In region I (before barrier), the wavefunction consists of incident and reflected waves."
+    },
+    {
+      "step": 3,
+      "text": "In region II (inside barrier), the wavefunction has exponentially growing and decaying terms."
+    },
+    {
+      "step": 4,
+      "text": "In region III (after barrier), only the transmitted wave remains."
+    },
+    {
+      "step": 5,
+      "text": "Define wave numbers for the kinetic energy regions and decay constant for the barrier."
+    },
+    {
+      "step": 6,
+      "text": "Apply continuity conditions for the wavefunction and its derivative at boundaries."
+    },
+    {
+      "step": 7,
+      "text": "Define transmission probability as the ratio of transmitted to incident flux."
+    },
+    {
+      "step": 8,
+      "text": "Solve the boundary value problem to find the exact transmission probability."
+    },
+    {
+      "step": 9,
+      "text": "For thick barriers, the transmission becomes exponentially suppressed."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "m, hbar, E, V0, a, kappa = sp.symbols('m hbar E V0 a kappa', positive=True)",
+      "# Wave numbers",
+      "k1 = sp.sqrt(2*m*E)/hbar",
+      "kappa_def = sp.sqrt(2*m*(V0 - E))/hbar",
+      "# Verify exponential approximation for thick barriers",
+      "T_exact = 1/(1 + (V0**2 * sp.sinh(kappa*a)**2)/(4*E*(V0 - E)))",
+      "# For large kappa*a, sinh(kappa*a) ≈ exp(kappa*a)/2",
+      "T_approx = sp.exp(-2*kappa*a)",
+      "# Verify limiting cases",
+      "# As V0 approaches E, transmission should approach 1",
+      "T_limit_energy = sp.limit(T_exact.subs(kappa, kappa_def), V0, E, '+')",
+      "assert T_limit_energy == 1",
+      "# As barrier width approaches 0, transmission should approach 1",
+      "T_limit_width = sp.limit(T_exact, a, 0)",
+      "assert T_limit_width == 1",
+      "# Verify that transmission is always between 0 and 1",
+      "# For physical parameters: 0 < E < V0, a > 0",
+      "test_vals = {E: 1, V0: 2, m: 1, hbar: 1, a: 1}",
+      "kappa_val = kappa_def.subs(test_vals)",
+      "T_val = T_exact.subs(test_vals).subs(kappa, kappa_val)",
+      "assert 0 < float(T_val) < 1",
+      "# Verify exponential suppression for thick barriers",
+      "thick_barrier_vals = test_vals.copy()",
+      "thick_barrier_vals[a] = 10  # thick barrier",
+      "T_thick = T_exact.subs(thick_barrier_vals).subs(kappa, kappa_val)",
+      "assert float(T_thick) < 1e-5  # very small transmission"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum mechanical systems",
+      "Well-defined potential barriers",
+      "Non-relativistic particles",
+      "One-dimensional treatment (can be extended to 3D)"
+    ],
+    "limitations": [
+      "Non-relativistic quantum mechanics only",
+      "May need many-body corrections for dense systems",
+      "Classical barriers (not quantum field barriers)",
+      "Assumes coherent quantum states"
+    ]
+  },
+  "historical_context": {
+    "importance": "Demonstrates pure quantum effect with no classical analog, enables modern electronics",
+    "development_period": "1926-1928",
+    "key_insights": [
+      "Wave nature of matter",
+      "Barrier penetration",
+      "Exponential suppression",
+      "Foundation for tunnel devices"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Gamow, G. (1928). Zur Quantentheorie des Atomkernes. *Zeitschrift für Physik*, 51(3-4), 204-212."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": ["schroedingen_equation.json", "particle_in_a_box.json"],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

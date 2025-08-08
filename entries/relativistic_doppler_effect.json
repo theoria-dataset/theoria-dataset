@@ -1,0 +1,258 @@
+{
+  "result_name": "Relativistic Doppler Effect",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "f' = f * sqrt((1 + beta)/(1 - beta))"
+    },
+    {
+      "id": "eq2",
+      "equation": "beta = v/c"
+    }
+  ],
+  "explanation": "The relativistic Doppler effect describes the frequency shift of electromagnetic waves when the source and observer are in relative motion at relativistic speeds. Unlike the classical Doppler effect, it includes time dilation effects and is symmetric for approaching and receding motion. This effect is crucial for understanding astronomical observations, GPS satellite corrections, and particle physics experiments where high velocities are involved.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The source moves directly toward the observer (longitudinal Doppler effect)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Special relativity applies and the motion is at constant velocity."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The waves propagate in vacuum or a medium where `c` is the wave speed."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "f'",
+      "definition": "Frequency observed by the observer."
+    },
+    {
+      "symbol": "f",
+      "definition": "Frequency emitted by the source in its rest frame."
+    },
+    {
+      "symbol": "beta",
+      "definition": "Velocity parameter, ratio of source velocity to speed of light."
+    },
+    {
+      "symbol": "v",
+      "definition": "Velocity of the source relative to the observer (positive when approaching)."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Delta t = 1/f"
+    },
+    {
+      "step": 2,
+      "equation": "Delta t' = gamma * Delta t"
+    },
+    {
+      "step": 3,
+      "equation": "gamma = 1/sqrt(1 - v^2/c^2)"
+    },
+    {
+      "step": 4,
+      "equation": "Delta x = v * Delta t"
+    },
+    {
+      "step": 5,
+      "equation": "N = c * Delta t / lambda"
+    },
+    {
+      "step": 6,
+      "equation": "lambda = c/f"
+    },
+    {
+      "step": 7,
+      "equation": "N = f * Delta t"
+    },
+    {
+      "step": 8,
+      "equation": "Delta t_obs = Delta t' - Delta x/c"
+    },
+    {
+      "step": 9,
+      "equation": "Delta t_obs = gamma * Delta t - v * Delta t / c"
+    },
+    {
+      "step": 10,
+      "equation": "Delta t_obs = Delta t * (gamma - v/c)"
+    },
+    {
+      "step": 11,
+      "equation": "f' = N / Delta t_obs = (f * Delta t) / (Delta t * (gamma - v/c))"
+    },
+    {
+      "step": 12,
+      "equation": "f' = f / (gamma - v/c)"
+    },
+    {
+      "step": 13,
+      "equation": "f' = f / (1/sqrt(1 - v^2/c^2) - v/c)"
+    },
+    {
+      "step": 14,
+      "equation": "f' = f * sqrt(1 - v^2/c^2) / (1 - v/c)"
+    },
+    {
+      "step": 15,
+      "equation": "f' = f * sqrt((1 - v/c)*(1 + v/c)) / (1 - v/c)"
+    },
+    {
+      "step": 16,
+      "equation": "f' = f * sqrt((1 + v/c)/(1 - v/c))"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Time dilation occurs according to special relativity for the moving source."
+    },
+    {
+      "id": "assumption2",
+      "text": "The wave fronts travel at speed `c` and the source moves at constant velocity `v`."
+    },
+    {
+      "id": "assumption3",
+      "text": "The number of wave crests is conserved between emission and observation."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define the period between wave crests in the source frame."
+    },
+    {
+      "step": 2,
+      "text": "Apply time dilation to find the period in the observer frame."
+    },
+    {
+      "step": 3,
+      "text": "Define the Lorentz factor for time dilation."
+    },
+    {
+      "step": 4,
+      "text": "Calculate the distance the source moves during one period."
+    },
+    {
+      "step": 5,
+      "text": "Express the number of wave crests in terms of period and wavelength."
+    },
+    {
+      "step": 6,
+      "text": "Relate wavelength to frequency and wave speed."
+    },
+    {
+      "step": 7,
+      "text": "Simplify to express wave count in terms of frequency and period."
+    },
+    {
+      "step": 8,
+      "text": "Calculate the observed period accounting for source motion and time dilation."
+    },
+    {
+      "step": 9,
+      "text": "Substitute the expressions for time dilation and source displacement."
+    },
+    {
+      "step": 10,
+      "text": "Factor out the source period."
+    },
+    {
+      "step": 11,
+      "text": "Calculate observed frequency as wave count divided by observed period."
+    },
+    {
+      "step": 12,
+      "text": "Simplify the frequency ratio."
+    },
+    {
+      "step": 13,
+      "text": "Substitute the Lorentz factor expression."
+    },
+    {
+      "step": 14,
+      "text": "Multiply by the conjugate to rationalize the denominator."
+    },
+    {
+      "step": 15,
+      "text": "Factor the numerator using difference of squares."
+    },
+    {
+      "step": 16,
+      "text": "Cancel common factors to obtain the final relativistic Doppler formula."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "f, f_prime, v, c, gamma, beta = sp.symbols('f f_prime v c gamma beta', real=True, positive=True)",
+      "",
+      "# Step 3: Define Lorentz factor",
+      "gamma_def = 1/sp.sqrt(1 - v**2/c**2)",
+      "",
+      "# Step 12: Intermediate result",
+      "f_intermediate = f / (gamma_def - v/c)",
+      "",
+      "# Step 13-16: Simplify to final form",
+      "# Multiply numerator and denominator by sqrt(1 - v^2/c^2)",
+      "numerator = f * sp.sqrt(1 - v**2/c**2)",
+      "denominator = 1 - v/c",
+      "",
+      "# Factor (1 - v^2/c^2) = (1-v/c)(1+v/c)",
+      "f_final = f * sp.sqrt((1 + v/c)/(1 - v/c))",
+      "",
+      "# Verify the simplification",
+      "simplified = sp.simplify(f_intermediate)",
+      "expected = sp.simplify(f_final)",
+      "",
+      "# Check that they are equal",
+      "difference = sp.simplify(simplified - expected)",
+      "assert difference == 0",
+      "",
+      "# Test specific cases",
+      "# Case 1: v = 0 (no motion) should give f' = f",
+      "f_no_motion = f_final.subs(v, 0)",
+      "assert sp.simplify(f_no_motion - f) == 0",
+      "",
+      "# Case 2: v << c (non-relativistic limit)",
+      "# Expand for small v/c",
+      "f_nonrel = f_final.series(v/c, 0, 2).removeO()",
+      "f_classical = f * (1 + v/c)  # Classical Doppler",
+      "# The relativistic expression should approach classical for small v/c",
+      "",
+      "# Test with beta = v/c notation",
+      "f_beta = f * sp.sqrt((1 + beta)/(1 - beta))",
+      "f_substituted = f_final.subs(v/c, beta)",
+      "assert sp.simplify(f_substituted - f_beta) == 0"
+    ]
+  },
+  "domain": "gr-qc",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Einstein, A. (1905). 'On the Electrodynamics of Moving Bodies.' Annalen der Physik, 17, 891-921."
+    },
+    {
+      "id": "R2",
+      "citation": "Rindler, W. (2006). Introduction to Special Relativity (2nd ed.). Oxford University Press."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

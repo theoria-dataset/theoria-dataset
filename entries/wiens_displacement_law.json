@@ -1,0 +1,254 @@
+{
+  "result_name": "Wien's Displacement Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "lambda_max * T = b"
+    },
+    {
+      "id": "eq2",
+      "equation": "b = 2.898 × 10^(-3) text( m⋅K)"
+    }
+  ],
+  "explanation": "Wien's displacement law describes the relationship between the temperature of a blackbody and the wavelength at which it emits the maximum intensity of electromagnetic radiation. As temperature increases, the peak wavelength shifts toward shorter wavelengths (higher frequencies), explaining why hot objects glow red, then white, then blue. This law is crucial for temperature measurements of stars, thermal imaging, and understanding blackbody radiation.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The object behaves as an ideal blackbody (perfect absorber and emitter)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The object is in thermodynamic equilibrium."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The emission spectrum follows Planck's blackbody radiation law."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "lambda_max",
+      "definition": "Wavelength at which the blackbody spectral radiance reaches its maximum value."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature of the blackbody (in Kelvin)."
+    },
+    {
+      "symbol": "b",
+      "definition": "Wien's displacement constant (`2.898 × 10^-3 m⋅K`)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "B(lambda, T) = (2*h*c^2)/lambda^5 * 1/(e^(h*c/(lambda*k_B*T)) - 1)"
+    },
+    {
+      "step": 2,
+      "equation": "(d B(lambda, T))/(d lambda) = 0"
+    },
+    {
+      "step": 3,
+      "equation": "x = h*c/(lambda*k_B*T)"
+    },
+    {
+      "step": 4,
+      "equation": "B(x) = (2*h*c^2)/lambda^5 * 1/(e^x - 1)"
+    },
+    {
+      "step": 5,
+      "equation": "(d B)/(d lambda) = (d B)/(d x) * (d x)/(d lambda) = 0"
+    },
+    {
+      "step": 6,
+      "equation": "(d x)/(d lambda) = -h*c/(lambda^2*k_B*T)"
+    },
+    {
+      "step": 7,
+      "equation": "(d B)/(d x) = 0"
+    },
+    {
+      "step": 8,
+      "equation": "d/dx [x^5/(e^x - 1)] = 0"
+    },
+    {
+      "step": 9,
+      "equation": "5*x^4*(e^x - 1) - x^5*e^x = 0"
+    },
+    {
+      "step": 10,
+      "equation": "5*(e^x - 1) - x*e^x = 0"
+    },
+    {
+      "step": 11,
+      "equation": "5*e^x - 5 - x*e^x = 0"
+    },
+    {
+      "step": 12,
+      "equation": "e^x*(5 - x) = 5"
+    },
+    {
+      "step": 13,
+      "equation": "x = 4.965"
+    },
+    {
+      "step": 14,
+      "equation": "h*c/(lambda_max*k_B*T) = 4.965"
+    },
+    {
+      "step": 15,
+      "equation": "lambda_max = h*c/(4.965*k_B*T)"
+    },
+    {
+      "step": 16,
+      "equation": "lambda_max*T = h*c/(4.965*k_B) = b"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Planck's law for blackbody radiation accurately describes the spectral energy distribution."
+    },
+    {
+      "id": "assumption2",
+      "text": "The maximum of the spectral radiance occurs where the derivative with respect to wavelength equals zero."
+    },
+    {
+      "id": "assumption3",
+      "text": "The transcendental equation `e^x*(5 - x) = 5` has a solution at `x ≈ 4.965`."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Planck's law for the spectral radiance of blackbody radiation."
+    },
+    {
+      "step": 2,
+      "text": "To find the maximum, set the derivative of spectral radiance with respect to wavelength equal to zero."
+    },
+    {
+      "step": 3,
+      "text": "Introduce the dimensionless variable `x` to simplify the differentiation."
+    },
+    {
+      "step": 4,
+      "text": "Express the spectral radiance in terms of the new variable `x`."
+    },
+    {
+      "step": 5,
+      "text": "Apply the chain rule to express the condition for maximum."
+    },
+    {
+      "step": 6,
+      "text": "Calculate the derivative of `x` with respect to wavelength."
+    },
+    {
+      "step": 7,
+      "text": "Since the derivative factor is non-zero, the condition reduces to setting the x-derivative to zero."
+    },
+    {
+      "step": 8,
+      "text": "The condition becomes finding where the derivative of the dimensionless function equals zero."
+    },
+    {
+      "step": 9,
+      "text": "Apply the quotient rule to differentiate the function."
+    },
+    {
+      "step": 10,
+      "text": "Divide through by `x^4` to simplify."
+    },
+    {
+      "step": 11,
+      "text": "Expand and rearrange the equation."
+    },
+    {
+      "step": 12,
+      "text": "Factor and rearrange to isolate the exponential term."
+    },
+    {
+      "step": 13,
+      "text": "Solve the transcendental equation numerically to find `x ≈ 4.965`."
+    },
+    {
+      "step": 14,
+      "text": "Substitute back the definition of `x` to relate to physical quantities."
+    },
+    {
+      "step": 15,
+      "text": "Solve for the wavelength at maximum intensity."
+    },
+    {
+      "step": 16,
+      "text": "Recognize that the product `lambda_max * T` is constant, defining Wien's displacement constant."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "from sympy import exp, log, solve",
+      "",
+      "# Define symbols",
+      "x = sp.Symbol('x', real=True, positive=True)",
+      "h, c, k_B, T, lam = sp.symbols('h c k_B T lambda', positive=True, real=True)",
+      "",
+      "# Step 8: Define the function whose derivative we need to find",
+      "f = x**5 / (exp(x) - 1)",
+      "",
+      "# Step 9: Take derivative and set equal to zero",
+      "f_prime = sp.diff(f, x)",
+      "",
+      "# Simplify the derivative equation",
+      "# df/dx = [5*x^4*(e^x - 1) - x^5*e^x] / (e^x - 1)^2",
+      "numerator = 5*x**4*(exp(x) - 1) - x**5*exp(x)",
+      "",
+      "# Step 10: Set numerator to zero (since denominator is never zero)",
+      "equation = sp.Eq(numerator, 0)",
+      "",
+      "# Step 11-12: Rearrange to get e^x*(5-x) = 5",
+      "# Divide by x^4 first",
+      "simplified_eq = sp.Eq(5*(exp(x) - 1) - x*exp(x), 0)",
+      "final_form = sp.Eq(exp(x)*(5 - x), 5)",
+      "",
+      "# Step 13: Solve numerically (Wien's solution)",
+      "x_solution = 4.96511423174427  # Known solution",
+      "",
+      "# Verify the solution satisfies the equation",
+      "lhs_value = exp(x_solution) * (5 - x_solution)",
+      "rhs_value = 5",
+      "error = abs(float(lhs_value - rhs_value))",
+      "",
+      "# Step 14-16: Calculate Wien's constant",
+      "h_val = 6.62607015e-34  # Planck constant (J⋅s)",
+      "c_val = 299792458        # Speed of light (m/s)",
+      "k_B_val = 1.380649e-23   # Boltzmann constant (J/K)",
+      "",
+      "b_calculated = h_val * c_val / (x_solution * k_B_val)",
+      "b_known = 2.897771955e-3  # Known Wien displacement constant",
+      "",
+      "# Verify our calculation matches the known value",
+      "relative_error = abs(b_calculated - b_known) / b_known",
+      "",
+      "assert error < 1e-10  # Verify transcendental equation solution",
+      "assert relative_error < 1e-6  # Verify Wien's constant calculation"
+    ]
+  },
+  "domain": "physics.atom-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Wien, W. (1893). 'Über die Energieverteilung im Emissionsspektrum eines schwarzen Körpers.' Annalen der Physik, 58, 662-669."
+    },
+    {
+      "id": "R2",
+      "citation": "Planck, M. (1900). 'Über das Gesetz der Energieverteilung im Normalspektrum.' Annalen der Physik, 4, 553-563."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

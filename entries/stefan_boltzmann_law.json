@@ -141,6 +141,31 @@
     }
   ],
   "dependencies": ["planck_radiation_law.json"],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Black body radiation (perfect absorber and emitter)",
+      "Thermal equilibrium",
+      "Macroscopic objects with well-defined temperature",
+      "Classical electromagnetic radiation"
+    ],
+    "limitations": [
+      "Limited to ideal black bodies (real objects have emissivity < 1)",
+      "Assumes thermal equilibrium",
+      "Classical treatment of electromagnetic radiation",
+      "May need quantum corrections for very low temperatures"
+    ]
+  },
+  "approximation_of": "planck_radiation_law.json",
+  "historical_context": {
+    "importance": "Fundamental law of thermal radiation, crucial for stellar physics and thermal engineering",
+    "development_period": "1879-1884",
+    "key_insights": [
+      "T⁴ temperature dependence",
+      "Universal radiation law",
+      "Connection between thermodynamics and electromagnetic radiation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

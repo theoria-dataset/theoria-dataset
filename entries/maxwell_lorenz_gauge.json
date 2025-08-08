@@ -161,6 +161,31 @@
     }
   ],
   "dependencies": ["maxwell_equations.json"],
+  "theory_status": "limiting_case",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism",
+      "Maxwell's equations apply",
+      "Specific gauge choice (Lorentz gauge)",
+      "Vector and scalar potential formulation"
+    ],
+    "limitations": [
+      "Specific gauge choice (other gauges equally valid)",
+      "Classical electromagnetic theory",
+      "May not be optimal for all calculations",
+      "Gauge-dependent formulation"
+    ]
+  },
+  "approximation_of": "maxwell_equations.json",
+  "historical_context": {
+    "importance": "Useful gauge choice for electromagnetic calculations, simplifies wave equations",
+    "development_period": "1895-1900",
+    "key_insights": [
+      "Gauge freedom in electromagnetism",
+      "Simplified wave equations",
+      "Lorentz covariant formulation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

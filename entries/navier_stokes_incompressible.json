@@ -105,6 +105,30 @@
       "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Incompressible Newtonian fluids",
+      "Continuum approximation (fluid much larger than molecular scale)",
+      "Viscous flow regime",
+      "Well-defined boundary conditions"
+    ],
+    "limitations": [
+      "Limited to incompressible flows (constant density)",
+      "Newtonian fluid assumption may fail for complex fluids",
+      "Continuum assumption breaks down at molecular scales",
+      "Difficult to solve analytically except in simple geometries"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental equation of fluid mechanics, governs most fluid flows in engineering and nature",
+    "development_period": "1822-1845",
+    "key_insights": [
+      "Viscous effects in fluid flow",
+      "Momentum conservation in fluids",
+      "Foundation of modern fluid dynamics"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }
