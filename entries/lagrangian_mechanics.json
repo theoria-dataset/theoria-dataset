@@ -1,0 +1,231 @@
+{
+  "result_name": "Lagrangian Mechanics",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "L = T - V"
+    },
+    {
+      "id": "eq2", 
+      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
+    },
+    {
+      "id": "eq3",
+      "equation": "delta S = 0"
+    }
+  ],
+  "explanation": "Lagrangian mechanics reformulates classical mechanics using the Lagrangian function L = T - V, where T is kinetic energy and V is potential energy. The principle of stationary action states that physical systems evolve along paths that make the action S stationary. This formulation provides a powerful alternative to Newtonian mechanics, particularly useful for complex coordinate systems and constrained motion.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
+    },
+    {
+      "id": "eq_assump2", 
+      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "L",
+      "definition": "Lagrangian function, defined as the difference between kinetic and potential energy."
+    },
+    {
+      "symbol": "T", 
+      "definition": "Total kinetic energy of the system."
+    },
+    {
+      "symbol": "V",
+      "definition": "Total potential energy of the system."
+    },
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinates describing the configuration of the system."
+    },
+    {
+      "symbol": "dot q_i", 
+      "definition": "Generalized velocities, time derivatives of generalized coordinates."
+    },
+    {
+      "symbol": "S",
+      "definition": "Action functional, the time integral of the Lagrangian."
+    },
+    {
+      "symbol": "t_1, t_2",
+      "definition": "Initial and final times for the integration path."
+    },
+    {
+      "symbol": "delta S",
+      "definition": "Variation of the action under small changes in the path."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "T = (1/2) sum_i m_i dot r_i^2"
+    },
+    {
+      "step": 2, 
+      "equation": "V = V(r_1, r_2, ..., r_N, t)"
+    },
+    {
+      "step": 3,
+      "equation": "L(q_i, dot q_i, t) = T(dot q_i) - V(q_i, t)"
+    },
+    {
+      "step": 4,
+      "equation": "S[q] = int_(t_1)^(t_2) L(q_i(t), dot q_i(t), t) dt"
+    },
+    {
+      "step": 5,
+      "equation": "delta S = int_(t_1)^(t_2) [del L/del q_i delta q_i + del L/del dot q_i delta dot q_i] dt"
+    },
+    {
+      "step": 6,
+      "equation": "delta S = int_(t_1)^(t_2) [del L/del q_i - d/dt(del L/del dot q_i)] delta q_i dt + [del L/del dot q_i delta q_i]_(t_1)^(t_2)"
+    },
+    {
+      "step": 7,
+      "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
+    },
+    {
+      "id": "deriv_assump2", 
+      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`."
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Express the total kinetic energy as a sum over all particles with masses `m_i` and velocities `dot r_i`."
+    },
+    {
+      "step": 2,
+      "text": "Define the potential energy as a function of particle positions and possibly time."
+    },
+    {
+      "step": 3,
+      "text": "Construct the Lagrangian by transforming to generalized coordinates and taking L = T - V."
+    },
+    {
+      "step": 4,
+      "text": "Define the action as the time integral of the Lagrangian along a path `q(t)`."
+    },
+    {
+      "step": 5,
+      "text": "Calculate the first variation of the action using the chain rule for functional derivatives."
+    },
+    {
+      "step": 6,
+      "text": "Integrate the second term by parts. The boundary term vanishes due to fixed endpoints."
+    },
+    {
+      "step": 7,
+      "text": "For the action to be stationary (`delta S = 0`), the integrand must vanish, yielding the Euler-Lagrange equations."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0", 
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols for a simple pendulum example",
+      "t, m, g, l, theta = sp.symbols('t m g l theta', real=True)",
+      "theta_t = sp.Function('theta')(t)",
+      "theta_dot = sp.diff(theta_t, t)",
+      "",
+      "# Step 1-3: Construct Lagrangian for simple pendulum",
+      "# T = (1/2) * m * l^2 * theta_dot^2 (kinetic energy)",
+      "T = sp.Rational(1, 2) * m * l**2 * theta_dot**2",
+      "# V = m * g * l * (1 - cos(theta)) (gravitational potential energy)",
+      "V = m * g * l * (1 - sp.cos(theta_t))",
+      "L = T - V",
+      "",
+      "# Step 4-7: Verify Euler-Lagrange equation gives correct equation of motion",
+      "# Calculate partial derivatives",
+      "dL_dtheta = sp.diff(L, theta_t)",
+      "dL_dtheta_dot = sp.diff(L, theta_dot)",
+      "ddt_dL_dtheta_dot = sp.diff(dL_dtheta_dot, t)",
+      "",
+      "# Euler-Lagrange equation: d/dt(dL/dtheta_dot) - dL/dtheta = 0",
+      "euler_lagrange = ddt_dL_dtheta_dot - dL_dtheta",
+      "euler_lagrange_simplified = sp.simplify(euler_lagrange)",
+      "",
+      "# Expected equation of motion for simple pendulum: m*l^2*theta_ddot + m*g*l*sin(theta) = 0",
+      "# or theta_ddot + (g/l)*sin(theta) = 0", 
+      "expected_eom = sp.diff(theta_t, t, 2) + (g/l) * sp.sin(theta_t)",
+      "",
+      "# Verify they are equivalent (divide by m*l^2)",
+      "normalized_el = sp.simplify(euler_lagrange_simplified / (m * l**2))",
+      "assert sp.simplify(normalized_el - expected_eom) == 0",
+      "",
+      "print(f'Lagrangian: L = {L}')",
+      "print(f'Euler-Lagrange equation: {euler_lagrange_simplified} = 0')",
+      "print(f'Expected equation of motion: {m * l**2 * expected_eom} = 0')",
+      "print('Verification successful: Lagrangian mechanics gives correct pendulum equation!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanical systems",
+      "Well-defined kinetic and potential energies",
+      "Holonomic constraints (if any)",
+      "Differentiable coordinate transformations"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum effects)",
+      "Requires conservative forces or generalized forces from constraints",
+      "May be complex for non-holonomic systems",
+      "Does not naturally handle dissipative forces"
+    ]
+  },
+  "historical_context": {
+    "importance": "Reformulation of classical mechanics providing deeper insights into symmetries and conservation laws",
+    "development_period": "1788-1834",
+    "key_insights": [
+      "Principle of least action",
+      "Coordinate-independent formulation",
+      "Connection to field theory",
+      "Foundation for modern physics"
+    ]
+  },
+  "dependencies": [
+    "euler_lagrange_equation.json"
+  ],
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Lagrange, J. L. (1788). *Mécanique analytique*. Chez la Veuve Desaint."
+    },
+    {
+      "id": "R2", 
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). *Classical Mechanics* (3rd ed.). Addison Wesley."
+    },
+    {
+      "id": "R3",
+      "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann."
+    }
+  ],
+  "created_by": "Claude AI Assistant",
+  "review_status": "draft"
+}

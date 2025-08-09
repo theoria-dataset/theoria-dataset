@@ -285,6 +285,19 @@ Example:
 - **File Naming**: Use lowercase with underscores, descriptive of the physics concept.
 - **Cross-Validation**: Ensure all referenced filenames in `superseded_by`, `approximation_of`, and `dependencies` exist in the dataset.
 
+## Testing
+
+To ensure the quality and correctness of entries, we recommend running tests locally before submitting contributions. The project includes a Docker container for consistent testing:
+
+```bash
+# Run all tests
+docker-compose run --rm theoria-tests
+
+# Run programmatic verification tests specifically
+docker-compose run --rm theoria-tests python scripts/verify_programmatic.py
+
+```
+
 ## Version Control & Collaboration
 
 - We will use Git and GitHub for versioning.
