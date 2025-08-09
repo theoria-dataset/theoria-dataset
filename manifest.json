@@ -108,7 +108,7 @@
         "Implemented superseded_by and approximation_of fields for theory relationships",
         "Added historical_context field with importance, development period, and key insights",
         "Updated multiple existing entries with theory status classifications",
-        "Enhanced domains to include specific physics subfields (physics.class-ph, cond-mat.stat-mech, physics.flu-dyn)",
+        "Enhanced domains to include specific physics subfields (physics.class-ph, cond-mat.stat-mech, physics.flu-dyn)"
       ]
     },
     {
