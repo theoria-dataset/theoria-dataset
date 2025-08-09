@@ -1,0 +1,193 @@
+{
+  "result_id": "nuclear_binding_energy",
+  "result_name": "Nuclear Binding Energy",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "BE = (Z m_H + N m_n - M_nucleus) c^2"
+    },
+    {
+      "id": "eq2",
+      "equation": "BE/A = f(A, Z)"
+    }
+  ],
+  "explanation": "Nuclear binding energy is the energy required to completely separate a nucleus into its constituent protons and neutrons. It represents the mass defect converted to energy when nucleons bind together. The binding energy per nucleon peaks around iron-56, explaining why fusion releases energy for light nuclei and fission for heavy nuclei.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The nucleus can be separated into individual protons and neutrons."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Mass-energy equivalence (E = mc²) applies."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "BE",
+      "definition": "Nuclear binding energy."
+    },
+    {
+      "symbol": "Z",
+      "definition": "Number of protons (atomic number)."
+    },
+    {
+      "symbol": "N",
+      "definition": "Number of neutrons."
+    },
+    {
+      "symbol": "A",
+      "definition": "Mass number (A = Z + N)."
+    },
+    {
+      "symbol": "m_H",
+      "definition": "Mass of hydrogen atom (proton + electron)."
+    },
+    {
+      "symbol": "m_n",
+      "definition": "Mass of neutron."
+    },
+    {
+      "symbol": "M_nucleus",
+      "definition": "Mass of the nucleus."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "M_separated = Z m_p + N m_n"
+    },
+    {
+      "step": 2,
+      "equation": "Delta m = M_separated - M_nucleus"
+    },
+    {
+      "step": 3,
+      "equation": "BE = Delta m c^2"
+    },
+    {
+      "step": 4,
+      "equation": "BE = (Z m_p + N m_n - M_nucleus) c^2"
+    },
+    {
+      "step": 5,
+      "equation": "BE = (Z m_H + N m_n - M_atom) c^2"
+    },
+    {
+      "step": 6,
+      "equation": "BE/A = (Z m_H + N m_n - M_atom) c^2 / A"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The mass of separated nucleons is greater than the bound nucleus mass."
+    },
+    {
+      "id": "assumption2",
+      "text": "Electron binding energies are negligible compared to nuclear binding energy."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Calculate the total mass of separated nucleons (protons and neutrons)."
+    },
+    {
+      "step": 2,
+      "text": "Find the mass defect as the difference between separated and bound masses."
+    },
+    {
+      "step": 3,
+      "text": "Apply Einstein's mass-energy relation to convert mass defect to binding energy."
+    },
+    {
+      "step": 4,
+      "text": "Express binding energy in terms of constituent masses and nuclear mass."
+    },
+    {
+      "step": 5,
+      "text": "Use atomic masses (including electrons) for practical calculations."
+    },
+    {
+      "step": 6,
+      "text": "Calculate binding energy per nucleon to compare different nuclei."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols (using atomic mass units)",
+      "Z, N, A, m_H, m_n, M_atom, c = sp.symbols('Z N A m_H m_n M_atom c', positive=True)",
+      "# Binding energy formula",
+      "BE = (Z * m_H + N * m_n - M_atom) * c**2",
+      "# Note: A = Z + N by definition (mass number = protons + neutrons)",
+      "# We can verify this constraint with numerical values later",
+      "# Binding energy per nucleon",
+      "BE_per_A = BE / A",
+      "# Test with deuterium (Z=1, N=1, A=2)",
+      "# Using approximate values in atomic mass units",
+      "Z_d, N_d, A_d = 1, 1, 2",
+      "m_H_val = 1.007825  # u",
+      "m_n_val = 1.008665  # u",
+      "M_d_val = 2.014102  # u (deuterium atomic mass)",
+      "c_val = 1  # Set c=1 for energy units in mass units",
+      "# Calculate deuterium binding energy",
+      "BE_d = (Z_d * m_H_val + N_d * m_n_val - M_d_val) * c_val**2",
+      "# Verify positive binding energy (bound state)",
+      "assert BE_d > 0",
+      "# Verify A = Z + N constraint numerically",
+      "assert A_d == Z_d + N_d",
+      "# Binding energy per nucleon for deuterium",
+      "BE_per_A_d = BE_d / A_d",
+      "assert BE_per_A_d > 0"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Nuclear physics regime",
+      "Well-defined nuclear masses",
+      "Relativistic mass-energy relation applies",
+      "Collective nuclear properties"
+    ],
+    "limitations": [
+      "Semi-empirical models for complex nuclei",
+      "Does not explain detailed nuclear structure",
+      "Classical treatment of nuclear binding",
+      "May need quantum corrections for light nuclei"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of nuclear physics, explains nuclear stability and energy release",
+    "development_period": "1920-1935",
+    "key_insights": [
+      "Mass-energy conversion",
+      "Nuclear stability",
+      "Basis for nuclear power",
+      "Origin of stellar energy"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Weizsäcker, C. F. (1935). Zur Theorie der Kernmassen. *Zeitschrift für Physik*, 96(7-8), 431-458."
+    },
+    {
+      "id": "R2",
+      "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
+    }
+  ],
+  "dependencies": [
+    "mass_energy_equivalence"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

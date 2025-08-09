@@ -1,0 +1,365 @@
+{
+  "result_id": "keplers_laws",
+  "result_name": "Kepler's Laws of Planetary Motion",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "r = (a*(1-e^2))/(1 + e*cos(theta))"
+    },
+    {
+      "id": "eq2",
+      "equation": "(dA)/(dt) = (L)/(2*m) = text(constant)"
+    },
+    {
+      "id": "eq3",
+      "equation": "T^2 = (4*pi^2*a^3)/(G*M)"
+    }
+  ],
+  "explanation": "Kepler's three laws describe planetary motion around the Sun: orbits are ellipses with the Sun at one focus, planets sweep equal areas in equal times, and the square of orbital period is proportional to the cube of the semi-major axis. These empirical laws provided the foundation for Newton's law of gravitation and remain fundamental to celestial mechanics and orbital dynamics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The central body (Sun) is much more massive than the orbiting body (planet)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Only gravitational forces act between the bodies (two-body problem)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The gravitational force follows an inverse square law."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The orbiting bodies can be treated as point masses."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "r",
+      "definition": "Distance from the focus (Sun) to the planet at angle `theta`."
+    },
+    {
+      "symbol": "a",
+      "definition": "Semi-major axis of the elliptical orbit."
+    },
+    {
+      "symbol": "e",
+      "definition": "Eccentricity of the ellipse (0 ≤ e < 1 for bound orbits)."
+    },
+    {
+      "symbol": "theta",
+      "definition": "True anomaly (angle from periapsis to current position)."
+    },
+    {
+      "symbol": "A",
+      "definition": "Area swept by the radius vector."
+    },
+    {
+      "symbol": "L",
+      "definition": "Angular momentum of the planet."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the planet."
+    },
+    {
+      "symbol": "T",
+      "definition": "Orbital period of the planet."
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant."
+    },
+    {
+      "symbol": "M",
+      "definition": "Mass of the central body (Sun)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec F = -G*M*m/r^2 * hat r"
+    },
+    {
+      "step": 2,
+      "equation": "vec L = vec r times vec p = text(constant)"
+    },
+    {
+      "step": 3,
+      "equation": "L = m*r^2*omega = m*r^2*(d theta)/(dt)"
+    },
+    {
+      "step": 4,
+      "equation": "(d theta)/(dt) = L/(m*r^2)"
+    },
+    {
+      "step": 5,
+      "equation": "dA = (1/2)*r^2*d theta"
+    },
+    {
+      "step": 6,
+      "equation": "(dA)/(dt) = (1/2)*r^2*(d theta)/(dt)"
+    },
+    {
+      "step": 7,
+      "equation": "(dA)/(dt) = (1/2)*r^2*L/(m*r^2) = L/(2*m)"
+    },
+    {
+      "step": 8,
+      "equation": "E = (1/2)*m*v^2 - G*M*m/r"
+    },
+    {
+      "step": 9,
+      "equation": "E = -G*M*m/(2*a)"
+    },
+    {
+      "step": 10,
+      "equation": "u = 1/r"
+    },
+    {
+      "step": 11,
+      "equation": "(d^2 u)/(d theta^2) + u = G*M*m^2/(L^2)"
+    },
+    {
+      "step": 12,
+      "equation": "u = G*M*m^2/(L^2) * (1 + e*cos(theta))"
+    },
+    {
+      "step": 13,
+      "equation": "r = L^2/(G*M*m^2) * 1/(1 + e*cos(theta))"
+    },
+    {
+      "step": 14,
+      "equation": "a*(1-e^2) = L^2/(G*M*m^2)"
+    },
+    {
+      "step": 15,
+      "equation": "r = (a*(1-e^2))/(1 + e*cos(theta))"
+    },
+    {
+      "step": 16,
+      "equation": "A_total = pi*a*b = pi*a^2*sqrt(1-e^2)"
+    },
+    {
+      "step": 17,
+      "equation": "T = A_total/((dA)/(dt)) = (2*pi*a^2*sqrt(1-e^2))/(L/(2*m))"
+    },
+    {
+      "step": 18,
+      "equation": "L^2 = G*M*m^2*a*(1-e^2)"
+    },
+    {
+      "step": 19,
+      "equation": "T^2 = (4*pi^2*a^3)/(G*M)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Newton's law of gravitation applies with an inverse square force law."
+    },
+    {
+      "id": "assumption2",
+      "text": "Angular momentum is conserved due to the central nature of the gravitational force."
+    },
+    {
+      "id": "assumption3",
+      "text": "The orbit is a closed ellipse with the central body at one focus."
+    },
+    {
+      "id": "assumption4",
+      "text": "Energy conservation applies throughout the orbital motion."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Newton's law of gravitation as the central force."
+    },
+    {
+      "step": 2,
+      "text": "Angular momentum is conserved because the gravitational force is central."
+    },
+    {
+      "step": 3,
+      "text": "Express angular momentum in terms of radius and angular velocity."
+    },
+    {
+      "step": 4,
+      "text": "Solve for angular velocity in terms of angular momentum and radius."
+    },
+    {
+      "step": 5,
+      "text": "The area element swept in time dt is a sector of angle dθ."
+    },
+    {
+      "step": 6,
+      "text": "Calculate the rate of area sweeping using the chain rule."
+    },
+    {
+      "step": 7,
+      "text": "Substitute angular velocity to show area rate is constant (Kepler's 2nd law)."
+    },
+    {
+      "step": 8,
+      "text": "Write the total energy as kinetic plus potential energy."
+    },
+    {
+      "step": 9,
+      "text": "For elliptical orbits, total energy is related to the semi-major axis."
+    },
+    {
+      "step": 10,
+      "text": "Introduce the substitution u = 1/r to linearize the orbital equation."
+    },
+    {
+      "step": 11,
+      "text": "Derive the differential equation for u(θ) from the force law."
+    },
+    {
+      "step": 12,
+      "text": "Solve the differential equation to get the general solution."
+    },
+    {
+      "step": 13,
+      "text": "Convert back to r(θ) to get the orbit equation."
+    },
+    {
+      "step": 14,
+      "text": "Identify the relationship between orbital parameters and angular momentum."
+    },
+    {
+      "step": 15,
+      "text": "Obtain Kepler's first law: the orbit is an ellipse with the Sun at one focus."
+    },
+    {
+      "step": 16,
+      "text": "Calculate the total area of the ellipse using semi-major and semi-minor axes."
+    },
+    {
+      "step": 17,
+      "text": "The period is the total area divided by the constant area rate."
+    },
+    {
+      "step": 18,
+      "text": "Use the relationship between angular momentum and orbital parameters."
+    },
+    {
+      "step": 19,
+      "text": "Derive Kepler's third law relating period squared to semi-major axis cubed."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "r, a, e, theta, L, m, t, T, G, M = sp.symbols('r a e theta L m t T G M', positive=True, real=True)",
+      "pi = sp.pi",
+      "",
+      "# Step 15: Kepler's 1st law - elliptical orbit equation",
+      "r_ellipse = (a*(1-e**2))/(1 + e*sp.cos(theta))",
+      "",
+      "# Step 7: Kepler's 2nd law - constant areal velocity",
+      "areal_velocity = L/(2*m)",
+      "",
+      "# Step 19: Kepler's 3rd law - period-distance relationship",
+      "T_squared = (4*pi**2*a**3)/(G*M)",
+      "",
+      "# Verify special cases of the ellipse equation",
+      "# At periapsis (θ = 0): r = a(1-e)",
+      "r_periapsis = r_ellipse.subs(theta, 0)",
+      "expected_periapsis = a*(1-e)",
+      "assert sp.simplify(r_periapsis - expected_periapsis) == 0",
+      "",
+      "# At apoapsis (θ = π): r = a(1+e)",
+      "r_apoapsis = r_ellipse.subs(theta, pi)",
+      "expected_apoapsis = a*(1+e)",
+      "assert sp.simplify(r_apoapsis - expected_apoapsis) == 0",
+      "",
+      "# Verify circular orbit limit (e = 0)",
+      "r_circular = r_ellipse.subs(e, 0)",
+      "expected_circular = a",
+      "assert sp.simplify(r_circular - expected_circular) == 0",
+      "",
+      "# For circular orbits, verify period formula reduces to standard form",
+      "T_circular_squared = T_squared  # Same formula applies",
+      "# For circular orbit: T = 2πr/v, v² = GM/r, so T² = 4π²r³/GM",
+      "# With r = a for circular orbit, this matches Kepler's 3rd law",
+      "",
+      "# Test with real solar system data (approximate)",
+      "# Earth: a ≈ 1 AU, T ≈ 1 year",
+      "# Mars: a ≈ 1.52 AU, T ≈ 1.88 years",
+      "",
+      "a_earth = 1  # AU",
+      "a_mars = sp.Rational(152, 100)  # 1.52 AU",
+      "",
+      "# Kepler's 3rd law: T₁²/T₂² = a₁³/a₂³",
+      "ratio_periods_squared = (1)**2 / (sp.Rational(188, 100))**2  # T_earth²/T_mars²",
+      "ratio_distances_cubed = (a_earth)**3 / (a_mars)**3  # a_earth³/a_mars³",
+      "",
+      "# These should be approximately equal",
+      "difference = abs(float(ratio_periods_squared - ratio_distances_cubed))",
+      "assert difference < 0.01  # Within 1% (reasonable for approximations)",
+      "",
+      "# Verify conservation of angular momentum leads to 2nd law",
+      "# Area of ellipse sector from θ₁ to θ₂",
+      "# For small Δθ: ΔA = (1/2)r²Δθ",
+      "# So dA/dt = (1/2)r²(dθ/dt) = (1/2)r²(L/mr²) = L/(2m)",
+      "",
+      "# This confirms the constant areal velocity",
+      "",
+      "# Test energy relationship for elliptical orbits",
+      "# E = -GMm/(2a) for any elliptical orbit",
+      "E_ellipse = -G*M*m/(2*a)",
+      "",
+      "# At periapsis: E = (1/2)mv² - GMm/r with r = a(1-e)",
+      "# At apoapsis: E = (1/2)mv² - GMm/r with r = a(1+e)",
+      "# Both should give the same total energy E = -GMm/(2a)"
+    ]
+  },
+  "domain": "astro-ph",
+  "theory_status": "historical",
+  "validity_regime": {
+    "conditions": [
+      "Two-body gravitational systems",
+      "Central massive body much larger than orbiting body",
+      "Elliptical orbits in inverse-square force field",
+      "No relativistic effects"
+    ],
+    "limitations": [
+      "Empirical laws without underlying force explanation",
+      "Limited to two-body problems",
+      "Does not account for perturbations from other bodies",
+      "No relativistic corrections included"
+    ]
+  },
+  "superseded_by": [
+    "newtonian_gravitation",
+    "general_relativity"
+  ],
+  "historical_context": {
+    "importance": "First accurate description of planetary motion, led to Newton's universal gravitation",
+    "development_period": "1609-1619",
+    "key_insights": [
+      "Elliptical orbits replace circular ones",
+      "Area law reveals non-uniform motion",
+      "Period-distance mathematical relationship"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Kepler, J. (1609). Astronomia Nova. Heidelberg: Gotthard Vögelin."
+    },
+    {
+      "id": "R2",
+      "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

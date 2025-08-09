@@ -1,4 +1,5 @@
 {
+  "result_id": "dirac_equation_free",
   "result_name": "Dirac Equation",
   "result_equations": [
     {
@@ -161,7 +162,7 @@
       "p0 = E/c",
       "# Slash notation gamma^mu p_mu with metric signature (+,-,-,-)",
       "slash_p = gamma0*p0 - gamma1*px - gamma2*py - gamma3*pz",
-      "# Construct operators (slash_p \u2212 m c) and (slash_p + m c)",
+      "# Construct operators (slash_p − m c) and (slash_p + m c)",
       "op_minus = slash_p - m*c*sp.eye(4)",
       "op_plus  = slash_p + m*c*sp.eye(4)",
       "product = sp.simplify(op_minus * op_plus)",
@@ -185,7 +186,37 @@
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
   ],
-  "dependencies": ["klein_gordon_equation.json"],
+  "dependencies": [
+    "klein_gordon_equation"
+  ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Relativistic quantum mechanics",
+      "Single particle approximation",
+      "Spin-1/2 fermions",
+      "Free particles (no interactions)"
+    ],
+    "limitations": [
+      "Single particle theory (no field quantization)",
+      "Does not describe particle creation/annihilation",
+      "Limited to free particles without interactions",
+      "Superseded by quantum field theory for multi-particle systems"
+    ]
+  },
+  "superseded_by": [
+    "qed_lagrangian"
+  ],
+  "historical_context": {
+    "importance": "First successful relativistic quantum equation for fermions, predicted antimatter",
+    "development_period": "1928",
+    "key_insights": [
+      "Relativistic quantum mechanics",
+      "Spinor fields",
+      "Antimatter prediction",
+      "Electron magnetic moment"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

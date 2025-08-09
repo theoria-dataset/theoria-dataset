@@ -1,0 +1,194 @@
+{
+  "result_id": "centripetal_force",
+  "result_name": "Centripetal Force",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "F_c = m v^2/r = m omega^2 r"
+    },
+    {
+      "id": "eq2",
+      "equation": "a_c = v^2/r = omega^2 r"
+    }
+  ],
+  "explanation": "Centripetal force is the net force directed toward the center of curvature that causes an object to follow a curved path. For uniform circular motion, this force is constant in magnitude but continuously changes direction, providing the centripetal acceleration needed to maintain circular motion.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The motion is circular with constant radius r."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "For uniform circular motion, the speed is constant."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "F_c",
+      "definition": "Centripetal force (directed toward center)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the object in circular motion."
+    },
+    {
+      "symbol": "v",
+      "definition": "Tangential speed of the object."
+    },
+    {
+      "symbol": "r",
+      "definition": "Radius of the circular path."
+    },
+    {
+      "symbol": "omega",
+      "definition": "Angular velocity of the circular motion."
+    },
+    {
+      "symbol": "a_c",
+      "definition": "Centripetal acceleration (directed toward center)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec r(t) = r (cos(omega t) hat i + sin(omega t) hat j)"
+    },
+    {
+      "step": 2,
+      "equation": "vec v(t) = d vec r/dt = r omega (-sin(omega t) hat i + cos(omega t) hat j)"
+    },
+    {
+      "step": 3,
+      "equation": "|vec v| = r omega = v"
+    },
+    {
+      "step": 4,
+      "equation": "vec a(t) = d vec v/dt = -r omega^2 (cos(omega t) hat i + sin(omega t) hat j)"
+    },
+    {
+      "step": 5,
+      "equation": "vec a(t) = -omega^2 vec r(t)"
+    },
+    {
+      "step": 6,
+      "equation": "a_c = |vec a| = omega^2 r = v^2/r"
+    },
+    {
+      "step": 7,
+      "equation": "F_c = m a_c = m v^2/r = m omega^2 r"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The circular motion occurs in a plane with constant radius."
+    },
+    {
+      "id": "assumption2",
+      "text": "Newton's second law applies in the radial direction."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Express position vector for uniform circular motion in Cartesian coordinates."
+    },
+    {
+      "step": 2,
+      "text": "Find velocity by taking the time derivative of position."
+    },
+    {
+      "step": 3,
+      "text": "The magnitude of velocity is constant and equals rω."
+    },
+    {
+      "step": 4,
+      "text": "Find acceleration by taking the time derivative of velocity."
+    },
+    {
+      "step": 5,
+      "text": "The acceleration vector points radially inward, opposite to position."
+    },
+    {
+      "step": 6,
+      "text": "The magnitude of centripetal acceleration in terms of v and ω."
+    },
+    {
+      "step": 7,
+      "text": "Apply Newton's second law to find the required centripetal force."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, r, omega, m, v = sp.symbols('t r omega m v', positive=True)",
+      "# Position vector for circular motion",
+      "x = r * sp.cos(omega * t)",
+      "y = r * sp.sin(omega * t)",
+      "# Velocity components",
+      "vx = sp.diff(x, t)",
+      "vy = sp.diff(y, t)",
+      "# Speed (magnitude of velocity)",
+      "speed = sp.sqrt(vx**2 + vy**2)",
+      "assert sp.simplify(speed) == r * omega",
+      "# Acceleration components",
+      "ax = sp.diff(vx, t)",
+      "ay = sp.diff(vy, t)",
+      "# Centripetal acceleration magnitude",
+      "a_centripetal = sp.sqrt(ax**2 + ay**2)",
+      "assert sp.simplify(a_centripetal) == omega**2 * r",
+      "# Verify relationship v = r*omega",
+      "v_from_omega = r * omega",
+      "a_from_v = v_from_omega**2 / r",
+      "assert sp.simplify(a_from_v) == omega**2 * r",
+      "# Verify force relationship",
+      "F_c = m * omega**2 * r",
+      "F_c_from_v = m * v_from_omega**2 / r",
+      "assert sp.simplify(F_c - F_c_from_v) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanics",
+      "Circular or curved motion",
+      "Well-defined radius of curvature",
+      "Non-relativistic speeds"
+    ],
+    "limitations": [
+      "Classical mechanics only (no relativistic effects)",
+      "Requires well-defined circular path",
+      "May need modifications for variable radius",
+      "Does not account for tangential forces"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental concept in circular motion, crucial for orbital mechanics and rotating systems",
+    "development_period": "1600s-1700s",
+    "key_insights": [
+      "Center-seeking force",
+      "Acceleration in curved motion",
+      "Circular motion dynamics",
+      "Foundation for orbital mechanics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). *Philosophiæ Naturalis Principia Mathematica*. Royal Society."
+    },
+    {
+      "id": "R2",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). *Fundamentals of Physics* (10th ed.). Wiley."
+    }
+  ],
+  "dependencies": [
+    "newtons_second_law"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

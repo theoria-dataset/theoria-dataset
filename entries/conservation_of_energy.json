@@ -1,0 +1,260 @@
+{
+  "result_id": "conservation_of_energy",
+  "result_name": "Conservation of Energy",
+  "result_equations": [
+    {
+      "id": "energy_conservation",
+      "equation": "E_{total} = \\text{constant}"
+    },
+    {
+      "id": "mechanical_energy",
+      "equation": "E = K + U = \\frac{1}{2}mv^2 + U(\\vec{r})"
+    },
+    {
+      "id": "work_energy_theorem",
+      "equation": "W_{nc} = \\Delta E = E_f - E_i"
+    },
+    {
+      "id": "first_law_thermodynamics",
+      "equation": "\\Delta U = Q - W"
+    }
+  ],
+  "explanation": "Conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another. In a closed system, the total energy remains constant, though it may change between kinetic, potential, thermal, and other forms.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Closed system"
+    },
+    {
+      "id": "assump2",
+      "text": "Conservative forces only (for mechanical energy)"
+    },
+    {
+      "id": "assump3",
+      "text": "No non-conservative work (for mechanical energy conservation)"
+    },
+    {
+      "id": "assump4",
+      "text": "Classical mechanics regime"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "E_total",
+      "definition": "Total energy of the system"
+    },
+    {
+      "symbol": "K",
+      "definition": "Kinetic energy"
+    },
+    {
+      "symbol": "U",
+      "definition": "Potential energy"
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass"
+    },
+    {
+      "symbol": "v",
+      "definition": "Speed"
+    },
+    {
+      "symbol": "r⃗",
+      "definition": "Position vector"
+    },
+    {
+      "symbol": "W_nc",
+      "definition": "Work done by non-conservative forces"
+    },
+    {
+      "symbol": "ΔE",
+      "definition": "Change in mechanical energy"
+    },
+    {
+      "symbol": "ΔU",
+      "definition": "Change in internal energy"
+    },
+    {
+      "symbol": "Q",
+      "definition": "Heat added to system"
+    },
+    {
+      "symbol": "W",
+      "definition": "Work done by system"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{F} = -\\nabla U"
+    },
+    {
+      "step": 2,
+      "equation": "W = \\int \\vec{F} \\cdot d\\vec{r} = \\int (-\\nabla U) \\cdot d\\vec{r}"
+    },
+    {
+      "step": 3,
+      "equation": "W = -\\int dU = -(U_f - U_i) = U_i - U_f"
+    },
+    {
+      "step": 4,
+      "equation": "W = \\Delta K = K_f - K_i"
+    },
+    {
+      "step": 5,
+      "equation": "K_f - K_i = U_i - U_f"
+    },
+    {
+      "step": 6,
+      "equation": "K_f + U_f = K_i + U_i = E"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Conservative forces"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Work-energy theorem applies"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Potential energy is well-defined"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Classical mechanics"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "For conservative forces, the work done equals the negative change in potential energy. By the work-energy theorem, this work also equals the change in kinetic energy, leading to conservation of mechanical energy."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Conservation of Energy Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Simple pendulum energy conservation",
+      "def verify_pendulum_energy():",
+      "    \"\"\"Verify energy conservation for a pendulum\"\"\"",
+      "    print('Test 1: Pendulum energy conservation')",
+      "    ",
+      "    # Parameters",
+      "    L = 1.0  # length in meters",
+      "    g = 9.81  # gravity in m/s^2",
+      "    m = 1.0  # mass in kg",
+      "    theta_0 = 0.5  # initial angle (rad)",
+      "    ",
+      "    def pendulum_energy(theta, theta_dot):",
+      "        \"\"\"Calculate total energy of pendulum\"\"\"",
+      "        K = 0.5 * m * (L * theta_dot)**2  # kinetic energy",
+      "        U = m * g * L * (1 - math.cos(theta))  # potential energy",
+      "        return K + U",
+      "    ",
+      "    # At maximum displacement (theta = theta_0, theta_dot = 0)",
+      "    E_max = pendulum_energy(theta_0, 0)",
+      "    ",
+      "    # At bottom (theta = 0, theta_dot = maximum)",
+      "    # Energy conservation: E_max = 0.5 * m * (L * omega_max)^2",
+      "    omega_max = math.sqrt(2 * g * (1 - math.cos(theta_0)) / L)",
+      "    E_bottom = pendulum_energy(0, omega_max)",
+      "    ",
+      "    print(f'  Initial angle: {theta_0:.3f} rad')",
+      "    print(f'  Energy at max displacement: {E_max:.6f} J')",
+      "    print(f'  Energy at bottom: {E_bottom:.6f} J')",
+      "    print(f'  Energy conserved: {math.isclose(E_max, E_bottom)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(E_max, E_bottom)",
+      "# Test 2: Projectile motion energy conservation",
+      "def verify_projectile_energy():",
+      "    \"\"\"Verify energy conservation for projectile motion\"\"\"",
+      "    print('Test 2: Projectile motion energy conservation')",
+      "    ",
+      "    # Parameters",
+      "    m = 1.0  # mass in kg",
+      "    v0 = 20.0  # initial velocity in m/s",
+      "    angle = math.pi/4  # launch angle",
+      "    g = 9.81  # gravity",
+      "    ",
+      "    # Initial conditions",
+      "    v0x = v0 * math.cos(angle)",
+      "    v0y = v0 * math.sin(angle)",
+      "    ",
+      "    # Energy at launch",
+      "    E_initial = 0.5 * m * v0**2  # all kinetic",
+      "    ",
+      "    # Energy at maximum height",
+      "    h_max = v0y**2 / (2 * g)",
+      "    v_at_max = v0x  # only horizontal component remains",
+      "    E_at_max = 0.5 * m * v_at_max**2 + m * g * h_max",
+      "    ",
+      "    print(f'  Launch speed: {v0:.1f} m/s')",
+      "    print(f'  Launch angle: {math.degrees(angle):.1f}°')",
+      "    print(f'  Maximum height: {h_max:.2f} m')",
+      "    print(f'  Energy at launch: {E_initial:.2f} J')",
+      "    print(f'  Energy at max height: {E_at_max:.2f} J')",
+      "    print(f'  Energy conserved: {math.isclose(E_initial, E_at_max)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(E_initial, E_at_max)",
+      "# Run tests",
+      "test1 = verify_pendulum_energy()",
+      "test2 = verify_projectile_energy()",
+      "print('Summary of Energy Conservation Tests:')",
+      "print(f'Pendulum energy conservation: {test1}')",
+      "print(f'Projectile energy conservation: {test2}')",
+      "print(f'All tests passed: {all([test1, test2])}')",
+      "print('\\nEnergy conservation verified!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Closed system",
+      "Classical mechanics regime",
+      "Well-defined energy forms",
+      "Time-independent Hamiltonian"
+    ],
+    "limitations": [
+      "Open systems require energy accounting",
+      "Relativistic corrections needed at high speeds",
+      "Quantum mechanics may show energy-time uncertainty",
+      "Non-conservative forces cause mechanical energy loss"
+    ]
+  },
+  "historical_context": {
+    "development_period": "19th century",
+    "importance": "Fundamental principle underlying thermodynamics, mechanics, and all of physics; led to understanding of heat as energy",
+    "key_insights": [
+      "Julius Robert von Mayer proposed the mechanical equivalent of heat",
+      "James Prescott Joule experimentally determined the mechanical equivalent of heat",
+      "Hermann von Helmholtz formulated the mathematical principle of energy conservation",
+      "Rudolf Clausius extended the principle to thermodynamics"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
+    },
+    {
+      "id": "ref2",
+      "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (2013). The Feynman Lectures on Physics. Basic Books."
+    }
+  ],
+  "dependencies": [
+    "newtons_laws",
+    "work_energy_theorem"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

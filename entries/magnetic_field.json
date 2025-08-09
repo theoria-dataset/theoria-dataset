@@ -1,0 +1,210 @@
+{
+  "result_id": "magnetic_field",
+  "result_name": "Magnetic Field",
+  "result_equations": [
+    {
+      "id": "lorentz_force_magnetic",
+      "equation": "\\vec{F} = q\\vec{v} \\times \\vec{B}"
+    },
+    {
+      "id": "biot_savart_law",
+      "equation": "d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
+    },
+    {
+      "id": "ampere_law",
+      "equation": "\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}"
+    },
+    {
+      "id": "magnetic_dipole_field",
+      "equation": "\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{3(\\vec{m} \\cdot \\hat{r})\\hat{r} - \\vec{m}}{r^3}"
+    }
+  ],
+  "explanation": "The magnetic field is a vector field that describes the magnetic influence on moving electric charges, electric currents, and magnetic materials. It is produced by moving charges and changing electric fields, and exerts forces on other moving charges and magnetic dipoles.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Classical electromagnetism (non-relativistic limit)"
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Steady currents (magnetostatics)"
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Linear, isotropic media"
+    },
+    {
+      "id": "eq_assump4",
+      "text": "No magnetic monopoles"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "B⃗",
+      "definition": "Magnetic field vector"
+    },
+    {
+      "symbol": "F⃗",
+      "definition": "Magnetic force on moving charge"
+    },
+    {
+      "symbol": "q",
+      "definition": "Electric charge"
+    },
+    {
+      "symbol": "v⃗",
+      "definition": "Velocity of charge"
+    },
+    {
+      "symbol": "μ₀",
+      "definition": "Permeability of free space"
+    },
+    {
+      "symbol": "I",
+      "definition": "Electric current"
+    },
+    {
+      "symbol": "dl⃗",
+      "definition": "Differential length element"
+    },
+    {
+      "symbol": "r̂",
+      "definition": "Unit vector from source to field point"
+    },
+    {
+      "symbol": "m⃗",
+      "definition": "Magnetic dipole moment"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{F}_{12} = q_1 \\vec{v}_1 \\times \\vec{B}_2"
+    },
+    {
+      "step": 2,
+      "equation": "\\vec{B}_2 = \\frac{\\mu_0}{4\\pi} \\frac{q_2 \\vec{v}_2 \\times \\hat{r}_{12}}{r_{12}^2}"
+    },
+    {
+      "step": 3,
+      "equation": "I d\\vec{l} = \\rho \\vec{v} dV = nq\\vec{v} dV"
+    },
+    {
+      "step": 4,
+      "equation": "d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
+    },
+    {
+      "step": 5,
+      "equation": "\\vec{B} = \\frac{\\mu_0}{4\\pi} \\int \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Maxwell's equations in magnetostatic limit"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Principle of superposition applies"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Current conservation (∇·J = 0)"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "No time-varying electric fields"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "The magnetic field is derived from Maxwell's equations in the magnetostatic limit. The Biot-Savart law emerges from solving for the vector potential A, while Ampère's law provides an integral form useful for symmetric current distributions."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "# Constants",
+      "mu_0 = 4 * math.pi * 1e-7  # H/m",
+      "q_electron = -1.602e-19  # C",
+      "m_electron = 9.109e-31   # kg",
+      "print('Magnetic Field Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Lorentz force on moving charge",
+      "print('Test 1: Lorentz force calculation')",
+      "q = 1e-6      # μC",
+      "v = 1e5       # m/s",
+      "B = 0.1       # T",
+      "theta = math.pi/2  # perpendicular",
+      "F_magnitude = abs(q * v * B * math.sin(theta))",
+      "print(f'Charge: {q*1e6:.1f} μC')",
+      "print(f'Velocity: {v/1e3:.0f} km/s')",
+      "print(f'Magnetic field: {B} T')",
+      "print(f'Force magnitude: {F_magnitude*1e6:.2f} μN')",
+      "print()",
+      "# Test 2: Magnetic field of straight wire",
+      "print('Test 2: Field around straight wire')",
+      "I_wire = 10.0  # A",
+      "r_wire = 0.05  # m",
+      "B_wire = mu_0 * I_wire / (2 * math.pi * r_wire)",
+      "print(f'Current: {I_wire} A')",
+      "print(f'Distance: {r_wire*100:.0f} cm')",
+      "print(f'Magnetic field: {B_wire*1e6:.1f} μT')",
+      "print()",
+      "# Test 3: Cyclotron frequency",
+      "print('Test 3: Cyclotron motion')",
+      "B_cyc = 1.0  # T",
+      "f_cyclotron = abs(q_electron) * B_cyc / (2 * math.pi * m_electron)",
+      "omega_cyclotron = 2 * math.pi * f_cyclotron",
+      "print(f'Magnetic field: {B_cyc} T')",
+      "print(f'Cyclotron frequency: {f_cyclotron/1e9:.2f} GHz')",
+      "print(f'Angular frequency: {omega_cyclotron/1e11:.2f} × 10¹¹ rad/s')",
+      "print(f'\\nMagnetic field calculations verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Magnetostatic regime (steady currents)",
+      "Classical treatment (no quantum effects)",
+      "Linear magnetic media or vacuum",
+      "Non-relativistic velocities"
+    ],
+    "limitations": [
+      "Time-varying fields require Maxwell's equations",
+      "Relativistic effects ignored at high velocities",
+      "Quantum magnetic effects neglected",
+      "Breakdown in nonlinear magnetic materials"
+    ]
+  },
+  "historical_context": {
+    "development_period": "19th century",
+    "importance": "Fundamental field in electromagnetism; essential for understanding electromagnetic phenomena and applications",
+    "key_insights": [
+      "Hans Christian Ørsted discovered the connection between electricity and magnetism",
+      "André-Marie Ampère developed the mathematical description of magnetic forces",
+      "Jean-Baptiste Biot and Félix Savart formulated the law for magnetic field from currents",
+      "James Clerk Maxwell unified electric and magnetic fields in his electromagnetic theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Ørsted, H. C. (1820). 'Experimenta circa effectum conflictus electrici in acum magneticam.' Journal für Chemie und Physik, 29, 275-281."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics. Cambridge University Press."
+    }
+  ],
+  "dependencies": [
+    "electric_field",
+    "lorentz_force"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

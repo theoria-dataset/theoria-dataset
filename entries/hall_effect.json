@@ -1,0 +1,208 @@
+{
+  "result_id": "hall_effect",
+  "result_name": "Hall Effect",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "V_H = (I B)/(n q t) = R_H (I B)/t"
+    },
+    {
+      "id": "eq2",
+      "equation": "R_H = 1/(n q)"
+    }
+  ],
+  "explanation": "The Hall effect occurs when a current-carrying conductor is placed in a magnetic field perpendicular to the current direction, resulting in a voltage difference across the conductor. This effect allows determination of charge carrier density, mobility, and type (positive or negative) in materials, making it fundamental for semiconductor characterization and magnetic field sensing.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The magnetic field is uniform and perpendicular to the current direction."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The conductor has a single type of charge carrier with well-defined mobility."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "V_H",
+      "definition": "Hall voltage (voltage across the width of the conductor)."
+    },
+    {
+      "symbol": "I",
+      "definition": "Current through the conductor."
+    },
+    {
+      "symbol": "B",
+      "definition": "Magnetic field strength perpendicular to current."
+    },
+    {
+      "symbol": "n",
+      "definition": "Charge carrier density (number per unit volume)."
+    },
+    {
+      "symbol": "q",
+      "definition": "Charge of the carrier (±e for electrons/holes)."
+    },
+    {
+      "symbol": "t",
+      "definition": "Thickness of the conductor in the direction of the Hall voltage."
+    },
+    {
+      "symbol": "R_H",
+      "definition": "Hall coefficient."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec F_magnetic = q vec v times vec B"
+    },
+    {
+      "step": 2,
+      "equation": "vec F_electric = q vec E_H"
+    },
+    {
+      "step": 3,
+      "equation": "At equilibrium: vec F_magnetic + vec F_electric = 0"
+    },
+    {
+      "step": 4,
+      "equation": "q v B = q E_H => E_H = v B"
+    },
+    {
+      "step": 5,
+      "equation": "V_H = E_H * w = v B w"
+    },
+    {
+      "step": 6,
+      "equation": "I = n q v A = n q v w t"
+    },
+    {
+      "step": 7,
+      "equation": "v = I/(n q w t)"
+    },
+    {
+      "step": 8,
+      "equation": "V_H = (I B w)/(n q w t) = (I B)/(n q t)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers."
+    },
+    {
+      "id": "assumption2",
+      "text": "The conductor geometry is well-defined with uniform current distribution."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Moving charges in a magnetic field experience a Lorentz force perpendicular to both velocity and field."
+    },
+    {
+      "step": 2,
+      "text": "Charge accumulation creates an electric field that exerts a force on the carriers."
+    },
+    {
+      "step": 3,
+      "text": "At steady state, the magnetic and electric forces balance each other."
+    },
+    {
+      "step": 4,
+      "text": "Solve for the Hall electric field from the force balance condition."
+    },
+    {
+      "step": 5,
+      "text": "The Hall voltage is the electric field times the width of the conductor."
+    },
+    {
+      "step": 6,
+      "text": "Express current in terms of carrier density, charge, velocity, and cross-sectional area."
+    },
+    {
+      "step": 7,
+      "text": "Solve for the drift velocity in terms of current and material parameters."
+    },
+    {
+      "step": 8,
+      "text": "Substitute to get the Hall voltage in terms of measurable quantities."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "I, B, n, q, t, w, v, V_H = sp.symbols('I B n q t w v V_H', positive=True)",
+      "# Hall voltage formula",
+      "V_H_formula = (I * B) / (n * q * t)",
+      "# Hall coefficient",
+      "R_H = 1 / (n * q)",
+      "# Verify alternative expression",
+      "V_H_alt = R_H * I * B / t",
+      "assert sp.simplify(V_H_formula - V_H_alt) == 0",
+      "# Current density and drift velocity relationship",
+      "J = I / (w * t)  # current density",
+      "J_carriers = n * q * v  # current density from carrier motion",
+      "# These should be equal",
+      "v_drift = I / (n * q * w * t)",
+      "# Verify Hall field",
+      "E_H = v_drift * B",
+      "V_H_from_field = E_H * w",
+      "assert sp.simplify(V_H_from_field - V_H_formula) == 0",
+      "# Sign of Hall voltage depends on charge carrier type",
+      "# For electrons (q = -e): V_H is opposite to positive charges",
+      "# For holes (q = +e): V_H has same direction as positive charges",
+      "e = sp.symbols('e', positive=True)",
+      "R_H_electrons = -1/(n * e)  # negative for electrons",
+      "R_H_holes = 1/(n * e)       # positive for holes",
+      "assert R_H_electrons < 0",
+      "assert R_H_holes > 0"
+    ]
+  },
+  "domain": "cond-mat.mes-hall",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical charge transport",
+      "Uniform magnetic field perpendicular to current",
+      "Single carrier type dominates",
+      "Ohmic conduction regime"
+    ],
+    "limitations": [
+      "Quantum Hall effects at very high fields/low temperatures",
+      "Multiple carrier types complicate interpretation",
+      "Non-uniform fields may cause deviations",
+      "Very high frequency effects not included"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental for semiconductor characterization, magnetic sensing, and understanding charge transport",
+    "development_period": "1879",
+    "key_insights": [
+      "Charge carrier properties",
+      "Magnetic field sensing",
+      "Semiconductor physics foundation",
+      "Electronic device applications"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Hall, E. H. (1879). On a new action of the magnet on electric currents. *American Journal of Mathematics*, 2(3), 287-292."
+    },
+    {
+      "id": "R2",
+      "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
+    }
+  ],
+  "dependencies": [
+    "ohms_law",
+    "lorentz_force"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

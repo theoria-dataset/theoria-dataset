@@ -1,0 +1,224 @@
+{
+  "result_id": "alpha_decay",
+  "result_name": "Alpha Decay",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "^A X_Z -> ^{A-4} Y_{Z-2} + ^4 He_2"
+    },
+    {
+      "id": "eq2",
+      "equation": "Q_alpha = (M_parent - M_daughter - M_alpha) c^2"
+    }
+  ],
+  "explanation": "Alpha decay is a type of radioactive decay where an atomic nucleus emits an alpha particle (helium-4 nucleus) consisting of two protons and two neutrons. This process occurs in heavy nuclei to reduce their mass and achieve greater stability. The decay energy Q determines the kinetic energies of the products and governs the decay probability through quantum tunneling.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The alpha particle exists as a bound unit within the parent nucleus."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The decay products separate to infinite distance (complete separation)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Conservation of energy and momentum apply to the decay process."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "A",
+      "definition": "Mass number of the parent nucleus."
+    },
+    {
+      "symbol": "Z",
+      "definition": "Atomic number (number of protons) of the parent nucleus."
+    },
+    {
+      "symbol": "X",
+      "definition": "Chemical symbol of the parent nucleus."
+    },
+    {
+      "symbol": "Y",
+      "definition": "Chemical symbol of the daughter nucleus."
+    },
+    {
+      "symbol": "Q_alpha",
+      "definition": "Q-value (energy released) in the alpha decay."
+    },
+    {
+      "symbol": "M_parent",
+      "definition": "Rest mass of the parent nucleus."
+    },
+    {
+      "symbol": "M_daughter",
+      "definition": "Rest mass of the daughter nucleus."
+    },
+    {
+      "symbol": "M_alpha",
+      "definition": "Rest mass of the alpha particle."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Conservation of energy: M_parent c^2 = M_daughter c^2 + M_alpha c^2 + T_daughter + T_alpha"
+    },
+    {
+      "step": 2,
+      "equation": "Q_alpha = T_daughter + T_alpha = (M_parent - M_daughter - M_alpha) c^2"
+    },
+    {
+      "step": 3,
+      "equation": "Conservation of momentum: vec p_daughter + vec p_alpha = 0"
+    },
+    {
+      "step": 4,
+      "equation": "|vec p_daughter| = |vec p_alpha| = p"
+    },
+    {
+      "step": 5,
+      "equation": "T_daughter = p^2/(2 M_daughter), T_alpha = p^2/(2 M_alpha)"
+    },
+    {
+      "step": 6,
+      "equation": "Q_alpha = p^2/(2 M_daughter) + p^2/(2 M_alpha) = p^2/2 (1/M_daughter + 1/M_alpha)"
+    },
+    {
+      "step": 7,
+      "equation": "T_alpha = Q_alpha * M_daughter/(M_daughter + M_alpha)"
+    },
+    {
+      "step": 8,
+      "equation": "lambda_alpha prop exp(-2 G) where G = Gamow factor"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The parent nucleus is initially at rest in the laboratory frame."
+    },
+    {
+      "id": "assumption2",
+      "text": "Nuclear recoil energy is much smaller than the Q-value for heavy nuclei."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Apply conservation of energy to the decay process, including rest masses and kinetic energies."
+    },
+    {
+      "step": 2,
+      "text": "Define the Q-value as the energy available for kinetic energy of the products."
+    },
+    {
+      "step": 3,
+      "text": "Apply conservation of momentum: the products must have equal and opposite momenta."
+    },
+    {
+      "step": 4,
+      "text": "Since momentum is conserved and initial momentum is zero, final momenta are equal in magnitude."
+    },
+    {
+      "step": 5,
+      "text": "Express kinetic energies in terms of momentum for non-relativistic particles."
+    },
+    {
+      "step": 6,
+      "text": "Relate the total kinetic energy to the momentum using reduced mass concepts."
+    },
+    {
+      "step": 7,
+      "text": "Determine the alpha particle kinetic energy from momentum conservation."
+    },
+    {
+      "step": 8,
+      "text": "The decay rate depends exponentially on quantum tunneling through the Coulomb barrier."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Example: Alpha decay of Uranium-238",
+      "# 238U -> 234Th + 4He + Q",
+      "# Atomic masses in atomic mass units (u)",
+      "M_U238 = sp.Rational(238050788, 1000000)  # u (approximate)",
+      "M_Th234 = sp.Rational(234043601, 1000000)  # u (approximate)",
+      "M_He4 = sp.Rational(4002603, 1000000)    # u (approximate)",
+      "c_squared = sp.symbols('c_squared', positive=True)  # c^2 factor",
+      "# Q-value calculation",
+      "Q_alpha = (M_U238 - M_Th234 - M_He4) * c_squared",
+      "# Verify positive Q-value (energetically favorable)",
+      "mass_diff = M_U238 - M_Th234 - M_He4",
+      "assert mass_diff > 0  # Decay is energetically allowed",
+      "# Momentum conservation and energy sharing",
+      "M_daughter = M_Th234",
+      "M_alpha = M_He4",
+      "# Kinetic energy of alpha particle",
+      "T_alpha_fraction = M_daughter / (M_daughter + M_alpha)",
+      "T_alpha = Q_alpha * T_alpha_fraction",
+      "# Kinetic energy of daughter nucleus (recoil)",
+      "T_daughter_fraction = M_alpha / (M_daughter + M_alpha)",
+      "T_daughter = Q_alpha * T_daughter_fraction",
+      "# Verify energy conservation",
+      "total_KE = T_alpha + T_daughter",
+      "assert sp.simplify(total_KE - Q_alpha) == 0",
+      "# Check that alpha gets most of the energy (since M_daughter >> M_alpha)",
+      "assert T_alpha_fraction > T_daughter_fraction",
+      "# Approximate values: alpha particle gets ~97% of kinetic energy",
+      "alpha_fraction_approx = float(T_alpha_fraction.evalf())",
+      "assert alpha_fraction_approx > 0.95"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Heavy nuclei (typically A > 200)",
+      "Q-value is positive (energetically favorable)",
+      "Quantum tunneling regime",
+      "Non-relativistic decay products"
+    ],
+    "limitations": [
+      "Limited to nuclei where alpha decay is energetically favorable",
+      "Tunneling probability calculations require detailed nuclear models",
+      "May compete with other decay modes",
+      "Non-relativistic treatment for most cases"
+    ]
+  },
+  "historical_context": {
+    "importance": "First type of radioactivity discovered, led to understanding of nuclear structure and quantum tunneling",
+    "development_period": "1896-1930",
+    "key_insights": [
+      "Nuclear transmutation",
+      "Quantum tunneling in nuclei",
+      "Mass-energy equivalence",
+      "Nuclear stability"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rutherford, E. (1899). Uranium radiation and the electrical conduction produced by it. *Philosophical Magazine*, 47(284), 109-163."
+    },
+    {
+      "id": "R2",
+      "citation": "Gamow, G. (1928). Zur Quantentheorie des Atomkernes. *Zeitschrift für Physik*, 51(3-4), 204-212."
+    }
+  ],
+  "dependencies": [
+    "radioactive_decay_law",
+    "nuclear_binding_energy",
+    "quantum_tunneling"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

@@ -1,0 +1,203 @@
+{
+  "result_id": "quantum_harmonic_oscillator",
+  "result_name": "Quantum Harmonic Oscillator",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E_n = hbar omega (n + 1/2)"
+    },
+    {
+      "id": "eq2",
+      "equation": "psi_n(x) = (m omega/(pi hbar))^(1/4) (1/sqrt(2^n n!)) H_n(sqrt(m omega/hbar) x) exp(-m omega x^2/(2 hbar))"
+    }
+  ],
+  "explanation": "The quantum harmonic oscillator describes a quantum particle in a parabolic potential. Unlike the classical oscillator, energy levels are discrete and equally spaced, with a zero-point energy of ℏω/2. This model is fundamental in quantum mechanics, appearing in molecular vibrations, phonons, and quantum field theory.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The particle is confined to one dimension and non-relativistic."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "E_n",
+      "definition": "Energy of the nth quantum state."
+    },
+    {
+      "symbol": "n",
+      "definition": "Quantum number (n = 0, 1, 2, ...)."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant."
+    },
+    {
+      "symbol": "omega",
+      "definition": "Classical angular frequency of the oscillator."
+    },
+    {
+      "symbol": "psi_n(x)",
+      "definition": "Normalized wavefunction of the nth state."
+    },
+    {
+      "symbol": "H_n",
+      "definition": "Hermite polynomial of order n."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the particle."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "H psi = E psi"
+    },
+    {
+      "step": 2,
+      "equation": "H = -(hbar^2/(2m)) d^2/dx^2 + (1/2) m omega^2 x^2"
+    },
+    {
+      "step": 3,
+      "equation": "a = sqrt(m omega/(2 hbar)) (x + i p/(m omega))"
+    },
+    {
+      "step": 4,
+      "equation": "a^dagger = sqrt(m omega/(2 hbar)) (x - i p/(m omega))"
+    },
+    {
+      "step": 5,
+      "equation": "H = hbar omega (a^dagger a + 1/2)"
+    },
+    {
+      "step": 6,
+      "equation": "N = a^dagger a"
+    },
+    {
+      "step": 7,
+      "equation": "N |n> = n |n>"
+    },
+    {
+      "step": 8,
+      "equation": "E_n = hbar omega (n + 1/2)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The Schrödinger equation applies with the harmonic oscillator potential."
+    },
+    {
+      "id": "assumption2",
+      "text": "Ladder operator algebra applies to find eigenvalues."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the time-independent Schrödinger equation."
+    },
+    {
+      "step": 2,
+      "text": "Write the Hamiltonian for the harmonic oscillator with kinetic and potential energy terms."
+    },
+    {
+      "step": 3,
+      "text": "Define the lowering (annihilation) operator using position and momentum."
+    },
+    {
+      "step": 4,
+      "text": "Define the raising (creation) operator as the Hermitian conjugate of the lowering operator."
+    },
+    {
+      "step": 5,
+      "text": "Express the Hamiltonian in terms of ladder operators."
+    },
+    {
+      "step": 6,
+      "text": "Define the number operator as the product of creation and annihilation operators."
+    },
+    {
+      "step": 7,
+      "text": "The number operator has eigenvalues n = 0, 1, 2, ... corresponding to energy eigenstates."
+    },
+    {
+      "step": 8,
+      "text": "The energy eigenvalues are equally spaced with zero-point energy ℏω/2."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "n, hbar, omega, m, x, E = sp.symbols('n hbar omega m x E', real=True, positive=True)",
+      "# Energy levels formula",
+      "E_n = hbar * omega * (n + sp.Rational(1, 2))",
+      "# Verify energy spacing",
+      "delta_E = E_n.subs(n, n+1) - E_n",
+      "assert sp.simplify(delta_E) == hbar * omega",
+      "# Verify zero-point energy (ground state n=0)",
+      "E_0 = E_n.subs(n, 0)",
+      "assert E_0 == hbar * omega / 2",
+      "# Verify that energy is always positive",
+      "assert E_n > 0",
+      "# Test specific energy levels",
+      "E_1 = E_n.subs(n, 1)",
+      "E_2 = E_n.subs(n, 2)",
+      "assert E_1 == 3 * hbar * omega / 2",
+      "assert E_2 == 5 * hbar * omega / 2",
+      "# Verify the classical limit (large n)",
+      "# Average energy is approximately ℏω*n for large n",
+      "E_classical_avg = E_n",
+      "assert sp.limit(E_n/n, n, sp.oo) == hbar * omega"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum mechanics regime",
+      "Harmonic potential (small oscillations)",
+      "Non-relativistic particles",
+      "Well-defined quantum states"
+    ],
+    "limitations": [
+      "Limited to harmonic potentials (small oscillation approximation)",
+      "Non-relativistic quantum mechanics only",
+      "Single particle treatment",
+      "May need field quantization for many-body systems"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of quantum mechanics, model for molecular vibrations and phonons",
+    "development_period": "1925-1926",
+    "key_insights": [
+      "Quantized energy levels",
+      "Zero-point energy",
+      "Ladder operators",
+      "Foundation for quantum field theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
+    },
+    {
+      "id": "R2",
+      "citation": "Shankar, R. (1994). *Principles of Quantum Mechanics* (2nd ed.). Springer."
+    }
+  ],
+  "dependencies": [
+    "schroedingen_equation",
+    "simple_harmonic_oscillator"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

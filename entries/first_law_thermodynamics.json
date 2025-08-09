@@ -1,6 +1,12 @@
 {
+  "result_id": "first_law_thermodynamics",
   "result_name": "First Law of Thermodynamics",
-  "result_equations": [{ "id": "eq1", "equation": "Delta U = Q - W" }],
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "Delta U = Q - W"
+    }
+  ],
   "explanation": "The first law states that for any closed system the change in internal energy `Delta U` equals heat supplied `Q` minus work done `W`. It enforces macroscopic energy conservation without specifying microscopic details, underpinning calorimetry, engine-cycle analysis and phase-transition studies. Engineers apply it to compute energy balances, determine heating requirements and set upper limits on process efficiency.",
   "equations_assumptions": [
     {
@@ -29,7 +35,10 @@
       "symbol": "W",
       "definition": "Net work done by the system during the process."
     },
-    { "symbol": "U", "definition": "Internal energy of the system." },
+    {
+      "symbol": "U",
+      "definition": "Internal energy of the system."
+    },
     {
       "symbol": "E_kin",
       "definition": "Macroscopic kinetic energy of the system."
@@ -40,13 +49,34 @@
     }
   ],
   "derivation": [
-    { "step": 1, "equation": "dE = dQ - dW" },
-    { "step": 2, "equation": "E = U + E_kin + E_pot" },
-    { "step": 3, "equation": "dE = dU + dE_kin + dE_pot" },
-    { "step": 4, "equation": "dE_kin = 0" },
-    { "step": 5, "equation": "dE_pot = 0" },
-    { "step": 6, "equation": "dU = dQ - dW" },
-    { "step": 7, "equation": "Delta U = Q - W" }
+    {
+      "step": 1,
+      "equation": "dE = dQ - dW"
+    },
+    {
+      "step": 2,
+      "equation": "E = U + E_kin + E_pot"
+    },
+    {
+      "step": 3,
+      "equation": "dE = dU + dE_kin + dE_pot"
+    },
+    {
+      "step": 4,
+      "equation": "dE_kin = 0"
+    },
+    {
+      "step": 5,
+      "equation": "dE_pot = 0"
+    },
+    {
+      "step": 6,
+      "equation": "dU = dQ - dW"
+    },
+    {
+      "step": 7,
+      "equation": "Delta U = Q - W"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -128,6 +158,30 @@
       "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Thermodynamic systems with well-defined energy",
+      "Classical thermodynamics regime",
+      "Closed or open systems with clear boundaries",
+      "Macroscopic scale phenomena"
+    ],
+    "limitations": [
+      "Does not specify direction of processes (needs second law)",
+      "Classical framework (quantum corrections needed at low temperatures)",
+      "Requires careful definition of system boundaries",
+      "May need relativistic corrections at high energies"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental law of energy conservation in thermodynamics, foundation of energy analysis",
+    "development_period": "1842-1850",
+    "key_insights": [
+      "Energy conservation principle",
+      "Equivalence of heat and work",
+      "Internal energy concept"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

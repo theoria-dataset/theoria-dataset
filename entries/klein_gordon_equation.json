@@ -1,4 +1,5 @@
 {
+  "result_id": "klein_gordon_equation",
   "result_name": "Klein-Gordon Equation",
   "result_equations": [
     {
@@ -192,6 +193,33 @@
     ]
   },
   "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Relativistic quantum mechanics",
+      "Spin-0 particles",
+      "Free particles or in external fields",
+      "Single particle approximation"
+    ],
+    "limitations": [
+      "Does not account for particle creation/annihilation",
+      "Single particle interpretation problematic",
+      "Negative energy solutions require field quantization",
+      "Superseded by quantum field theory for multi-particle systems"
+    ]
+  },
+  "superseded_by": [
+    "qed_lagrangian"
+  ],
+  "historical_context": {
+    "importance": "First relativistic quantum wave equation, foundation for scalar field theory",
+    "development_period": "1926-1927",
+    "key_insights": [
+      "Relativistic quantum mechanics",
+      "Scalar field equations",
+      "Energy-momentum relation in quantum theory"
+    ]
+  },
   "references": [
     {
       "id": "R1",

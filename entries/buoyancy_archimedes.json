@@ -1,0 +1,264 @@
+{
+  "result_id": "buoyancy_archimedes",
+  "result_name": "Archimedes' Principle (Buoyancy)",
+  "result_equations": [
+    {
+      "id": "archimedes_principle",
+      "equation": "F_b = \\rho_{fluid} V_{submerged} g"
+    },
+    {
+      "id": "buoyancy_force",
+      "equation": "F_b = W_{displaced} = m_{displaced} g"
+    },
+    {
+      "id": "floating_condition",
+      "equation": "\\rho_{object} V_{object} = \\rho_{fluid} V_{submerged}"
+    },
+    {
+      "id": "apparent_weight",
+      "equation": "W_{apparent} = W_{actual} - F_b"
+    }
+  ],
+  "explanation": "Archimedes' principle states that any object immersed in a fluid experiences an upward buoyant force equal to the weight of the fluid displaced by the object. This principle explains why objects float or sink and is fundamental to understanding fluid statics.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Fluid in hydrostatic equilibrium"
+    },
+    {
+      "id": "assump2",
+      "text": "Uniform gravitational field"
+    },
+    {
+      "id": "assump3",
+      "text": "Incompressible fluid"
+    },
+    {
+      "id": "assump4",
+      "text": "Object fully or partially submerged"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "F_b",
+      "definition": "Buoyant force (upward)"
+    },
+    {
+      "symbol": "ρ_fluid",
+      "definition": "Density of fluid"
+    },
+    {
+      "symbol": "V_submerged",
+      "definition": "Volume of object submerged in fluid"
+    },
+    {
+      "symbol": "g",
+      "definition": "Gravitational acceleration"
+    },
+    {
+      "symbol": "W_displaced",
+      "definition": "Weight of displaced fluid"
+    },
+    {
+      "symbol": "m_displaced",
+      "definition": "Mass of displaced fluid"
+    },
+    {
+      "symbol": "ρ_object",
+      "definition": "Density of object"
+    },
+    {
+      "symbol": "V_object",
+      "definition": "Total volume of object"
+    },
+    {
+      "symbol": "W_apparent",
+      "definition": "Apparent weight in fluid"
+    },
+    {
+      "symbol": "W_actual",
+      "definition": "Actual weight in air"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "P = P_0 + \\rho g h"
+    },
+    {
+      "step": 2,
+      "equation": "F_{top} = P_{top} A = (P_0 + \\rho g h_{top}) A"
+    },
+    {
+      "step": 3,
+      "equation": "F_{bottom} = P_{bottom} A = (P_0 + \\rho g h_{bottom}) A"
+    },
+    {
+      "step": 4,
+      "equation": "F_b = F_{bottom} - F_{top} = \\rho g A (h_{bottom} - h_{top})"
+    },
+    {
+      "step": 5,
+      "equation": "V_{submerged} = A (h_{bottom} - h_{top})"
+    },
+    {
+      "step": 6,
+      "equation": "F_b = \\rho_{fluid} g V_{submerged}"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Hydrostatic pressure distribution"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Rectangular object (for simplicity)"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Uniform fluid density"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Gravitational field is uniform"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Archimedes' principle is derived by considering the pressure difference between the top and bottom surfaces of a submerged object. The net upward force equals the weight of fluid that would occupy the submerged volume."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "",
+      "print('Archimedes Principle Verification\\n')",
+      "print('=' * 40)",
+      "",
+      "# Test 1: Floating object equilibrium",
+      "def verify_floating_object():",
+      "    \"\"\"Verify conditions for floating objects\"\"\"",
+      "    print('Test 1: Floating object equilibrium')",
+      "    ",
+      "    # Wood block in water",
+      "    rho_water = 1000  # kg/m³",
+      "    rho_wood = 600    # kg/m³ (typical for pine)",
+      "    g = 9.81          # m/s²",
+      "    ",
+      "    # Block dimensions",
+      "    length = 2.0   # m",
+      "    width = 1.0    # m",
+      "    height = 0.5   # m",
+      "    V_total = length * width * height",
+      "    ",
+      "    # Weight of block",
+      "    m_block = rho_wood * V_total",
+      "    W_block = m_block * g",
+      "    ",
+      "    # For floating equilibrium: buoyant force = weight",
+      "    # F_b = rho_water * V_submerged * g = W_block",
+      "    V_submerged = W_block / (rho_water * g)",
+      "    h_submerged = V_submerged / (length * width)",
+      "    ",
+      "    # Fraction submerged",
+      "    fraction_submerged = V_submerged / V_total",
+      "    ",
+      "    # Theoretical fraction: rho_object / rho_fluid",
+      "    fraction_theory = rho_wood / rho_water",
+      "    ",
+      "    print(f'  Block dimensions: {length}×{width}×{height} m³')",
+      "    print(f'  Block density: {rho_wood} kg/m³')",
+      "    print(f'  Water density: {rho_water} kg/m³')",
+      "    print(f'  Volume submerged: {V_submerged:.3f} m³')",
+      "    print(f'  Height submerged: {h_submerged:.3f} m')",
+      "    print(f'  Fraction submerged: {fraction_submerged:.3f}')",
+      "    print(f'  Theoretical fraction: {fraction_theory:.3f}')",
+      "    print(f'  Agreement: {math.isclose(fraction_submerged, fraction_theory)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(fraction_submerged, fraction_theory)",
+      "",
+      "# Test 2: Density measurement using buoyancy",
+      "def verify_density_measurement():",
+      "    \"\"\"Demonstrate density measurement using Archimedes principle\"\"\"",
+      "    print('Test 2: Density measurement using buoyancy')",
+      "    ",
+      "    # Unknown object (aluminum)",
+      "    rho_aluminum = 2700  # kg/m³ (actual value)",
+      "    V_object = 0.001     # m³ (1 liter)",
+      "    rho_water = 1000     # kg/m³",
+      "    g = 9.81",
+      "    ",
+      "    # Measured quantities",
+      "    W_air = rho_aluminum * V_object * g  # weight in air",
+      "    F_buoyant = rho_water * V_object * g # buoyant force in water",
+      "    W_water = W_air - F_buoyant          # apparent weight in water",
+      "    ",
+      "    # Calculate density from measurements",
+      "    # rho_object = rho_water * W_air / (W_air - W_water)",
+      "    rho_measured = rho_water * W_air / (W_air - W_water)",
+      "    ",
+      "    print(f'  Actual density (aluminum): {rho_aluminum} kg/m³')",
+      "    print(f'  Measured density: {rho_measured:.0f} kg/m³')",
+      "    print(f'  Measurement accuracy: {math.isclose(rho_measured, rho_aluminum)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(rho_measured, rho_aluminum)",
+      "",
+      "# Run tests",
+      "test1 = verify_floating_object()",
+      "test2 = verify_density_measurement()",
+      "",
+      "print('Summary of Archimedes Principle Verifications:')",
+      "print(f'Floating object equilibrium: {test1}')",
+      "print(f'Density measurement: {test2}')",
+      "print(f'All tests passed: {all([test1, test2])}')",
+      "",
+      "print('\\nArchimedes principle verified!')"
+    ]
+  },
+  "domain": "physics.flu-dyn",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Hydrostatic equilibrium",
+      "Incompressible fluid",
+      "Uniform gravitational field",
+      "Static or quasi-static conditions"
+    ],
+    "limitations": [
+      "Dynamic fluid effects ignored",
+      "Viscosity effects not included",
+      "Surface tension neglected",
+      "Non-uniform density distributions"
+    ]
+  },
+  "historical_context": {
+    "development_period": "3rd century BCE",
+    "importance": "First quantitative principle of fluid statics; fundamental to naval architecture, density measurement, and understanding of floating and submerged objects",
+    "key_insights": [
+      "Archimedes discovered the principle while investigating the purity of a golden crown",
+      "First mathematical formulation relating buoyant force to displaced fluid volume",
+      "Established the foundation for hydrostatics and naval engineering"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "White, F. M. (2015). Fluid Mechanics. McGraw-Hill Education."
+    },
+    {
+      "id": "ref2",
+      "citation": "Munson, B. R., et al. (2012). Fundamentals of Fluid Mechanics. Wiley."
+    }
+  ],
+  "dependencies": [
+    "gravitational_force"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

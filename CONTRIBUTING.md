@@ -8,6 +8,10 @@ To facilitate your contributions, please follow the guidelines below, that expla
 
 The following fields are required in each entry JSON file. Ensure that all entries are valid according to the schema defined in `schemas/entry.schema.json`.
 
+- **`result_id`:** A unique identifier that **must exactly match the filename** (without the `.json` extension). This field makes entry content independent of filesystem paths and enables cleaner cross-references.
+  - Example: For file `lagrangian_mechanics.json`, the `result_id` must be `"lagrangian_mechanics"`
+  - Pattern: lowercase letters, numbers, and underscores only (`^[a-z0-9_]+$`)
+
 - **`result_name`:** A brief title (max 100 characters) to identify the entry.
 
 - **`result_equations`:**
@@ -147,6 +151,7 @@ The following fields are required in each entry JSON file. Ensure that all entri
 - **`programmatic_verification`:**
 
   - Includes a programmatic verification of the derivation, ensuring correctness and verifiability.
+  - **Use minimal dependencies**: Programmatic verification should be as simple as possible with the fewest dependencies. Only use external libraries like `numpy` if absolutely necessary for the verification. Prefer pure Python or `sympy` when possible.
   - Should be a JSON object that includes:
     - `language`: The programming language used for the verification and its version (e.g. `python 3.11.12`). Note that you can obtain the version using `python --version` in the terminal or `import sys; print(sys.version)` in the runtime.
     - `library`: The library used for the verification and its version (e.g. `sympy 1.31.1`). You can obtain the version using `pip show sympy` in the terminal or `import sympy; print(sympy.__version__)` in the runtime.
@@ -202,20 +207,101 @@ The following fields are required in each entry JSON file. Ensure that all entri
 ```
 
 - **`dependencies`:**
-  - Optional list of other entry filenames that this result relies on.
-  - Use the `.json` filenames exactly as listed in `docs/index.json`.
+
+  - Optional list of other entry `result_id`s that this result relies on.
+  - Use the `result_id` values (without `.json` extension) exactly as they appear in the referenced entries.
   - Example:
 
   ```json
   "dependencies": [
-    "dirac_equation_free.json",
-    "maxwell_equations.json"
+    "dirac_equation_free",
+    "maxwell_equations"
   ]
   ```
 
 - **`created_ by`:** Full name or ORCID of author of the entry.
 
 - **`review_status`:** Use "draft" for initial submissions. Final datasets published in main must be marked as "reviewed".
+
+## Theory Status and Historical Context
+
+The dataset includes physics theories across different historical periods and validity regimes. Each entry should include appropriate status classification to help users understand the theory's current scientific standing and applicability.
+
+### Theory Status Classification
+
+- **`theory_status`:** Required field indicating the current scientific status:
+  - **"current"**: Modern theories widely accepted by the scientific community
+  - **"historical"**: Important for physics development but now superseded by better theories
+  - **"approximation"**: Valid simplifications or limiting cases of more general theories
+  - **"limiting_case"**: Special cases with restricted applicability
+  - **"superseded"**: Completely replaced by more accurate theories
+
+### Validity Regime Guidelines
+
+- **`validity_regime`:** Object describing where the theory applies:
+  - **`conditions`**: Array listing physical regimes where the theory is valid
+    - Example: `["Non-relativistic velocities (v << c)", "Macroscopic scales"]`
+  - **`limitations`**: Array specifying where the theory breaks down
+    - Example: `["Fails at high velocities approaching speed of light", "Invalid for quantum systems"]`
+
+### Cross-References Between Theories
+
+- **`superseded_by`:** Array of `result_id`s for theories that supersede or generalize this result
+
+  - Use exact `result_id` values (without `.json` extension) as they appear in the referenced entries
+  - Example: `["special_relativity", "quantum_mechanics"]`
+
+- **`approximation_of`:** Result ID of the more general theory this approximates
+  - Example: `"general_relativity"` for Newtonian gravity
+
+### Historical Context
+
+- **`historical_context`:** Object providing educational context:
+  - **`importance`**: Brief description of the theory's significance
+  - **`development_period`**: Time period when theory was developed
+  - **`key_insights`**: Array of major conceptual breakthroughs introduced
+
+Example:
+
+```json
+"theory_status": "approximation",
+"validity_regime": {
+  "conditions": [
+    "Non-relativistic velocities (v << c)",
+    "Weak gravitational fields"
+  ],
+  "limitations": [
+    "Fails at high velocities approaching speed of light",
+    "Invalid in strong gravitational fields"
+  ]
+},
+"superseded_by": ["special_relativity", "general_relativity"],
+"historical_context": {
+  "importance": "Foundation of classical physics and engineering",
+  "development_period": "1687-1900",
+  "key_insights": ["Universal laws of motion", "Mathematical description of forces"]
+}
+```
+
+## Entry Management
+
+- **Adding New Entries**: All new entries must be added to `docs/index.json` in alphabetical order.
+- **File Naming**: Use lowercase with underscores, descriptive of the physics concept.
+- **Cross-Validation**: Ensure all referenced `result_id`s in `superseded_by`, `approximation_of`, and `dependencies` correspond to existing entries in the dataset.
+- **ID Consistency**: The `result_id` field must always match the filename (without `.json` extension). This is automatically validated by tests.
+
+## Testing
+
+To ensure the quality and correctness of entries, we recommend running tests locally before submitting contributions. The project includes a Docker container for consistent testing:
+
+```bash
+# Run all tests
+docker-compose run --rm theoria-tests
+
+# Run programmatic verification tests specifically
+docker-compose run --rm theoria-tests python scripts/verify_programmatic.py
+
+```
 
 ## Version Control & Collaboration
 

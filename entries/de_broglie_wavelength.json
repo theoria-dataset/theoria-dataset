@@ -1,0 +1,178 @@
+{
+  "result_id": "de_broglie_wavelength",
+  "result_name": "de Broglie Wavelength",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "lambda = h/p"
+    }
+  ],
+  "explanation": "The de Broglie wavelength expresses the wave-particle duality by relating the momentum of any particle to its associated wavelength. This fundamental quantum mechanical relation shows that all matter exhibits wave properties, with the wavelength inversely proportional to momentum. It enables the description of particles as waves in quantum mechanics and is essential for understanding electron diffraction, atomic orbitals, and the wave function formalism.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particle follows the principles of quantum mechanics and exhibits wave-particle duality."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The relation applies to both relativistic and non-relativistic particles when the correct momentum expression is used."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "lambda",
+      "definition": "de Broglie wavelength associated with the particle."
+    },
+    {
+      "symbol": "h",
+      "definition": "Planck's constant (`6.626 × 10^-34 J⋅s`)."
+    },
+    {
+      "symbol": "p",
+      "definition": "Momentum of the particle."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "E = hf"
+    },
+    {
+      "step": 2,
+      "equation": "E = pc"
+    },
+    {
+      "step": 3,
+      "equation": "hf = pc"
+    },
+    {
+      "step": 4,
+      "equation": "f = pc/h"
+    },
+    {
+      "step": 5,
+      "equation": "c = lambda*f"
+    },
+    {
+      "step": 6,
+      "equation": "f = c/lambda"
+    },
+    {
+      "step": 7,
+      "equation": "c/lambda = pc/h"
+    },
+    {
+      "step": 8,
+      "equation": "1/lambda = p/h"
+    },
+    {
+      "step": 9,
+      "equation": "lambda = h/p"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Planck's relation `E = hf` applies to all particles with wave character."
+    },
+    {
+      "id": "assumption2",
+      "text": "For photons, the energy-momentum relation `E = pc` holds."
+    },
+    {
+      "id": "assumption3",
+      "text": "The wave relation `c = lambda*f` applies to electromagnetic waves."
+    },
+    {
+      "id": "assumption4",
+      "text": "The symmetry principle suggests that if photons have particle properties, then matter particles should have wave properties."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Planck's quantum relation for photons relating energy to frequency."
+    },
+    {
+      "step": 2,
+      "text": "Use the energy-momentum relation for photons (massless particles)."
+    },
+    {
+      "step": 3,
+      "text": "Equate the two expressions for energy."
+    },
+    {
+      "step": 4,
+      "text": "Solve for frequency in terms of momentum."
+    },
+    {
+      "step": 5,
+      "text": "Apply the fundamental wave relation connecting speed, wavelength, and frequency."
+    },
+    {
+      "step": 6,
+      "text": "Express frequency in terms of wavelength."
+    },
+    {
+      "step": 7,
+      "text": "Substitute this expression into the momentum equation."
+    },
+    {
+      "step": 8,
+      "text": "Cancel the speed of light and rearrange."
+    },
+    {
+      "step": 9,
+      "text": "Solve for the de Broglie wavelength."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "h, p, c, E, f, lam = sp.symbols('h p c E f lambda', positive=True, real=True)",
+      "",
+      "# Step 1: Planck relation",
+      "planck_relation = sp.Eq(E, h*f)",
+      "",
+      "# Step 2: Energy-momentum relation for photons",
+      "energy_momentum = sp.Eq(E, p*c)",
+      "",
+      "# Step 3: Equate energies",
+      "combined = sp.Eq(h*f, p*c)",
+      "",
+      "# Step 4: Solve for frequency",
+      "f_solution = sp.solve(combined, f)[0]",
+      "",
+      "# Step 5 & 6: Wave relation c = lambda*f => f = c/lambda",
+      "wave_relation = sp.Eq(f, c/lam)",
+      "",
+      "# Step 7: Substitute wave relation into momentum equation",
+      "substituted = sp.Eq(c/lam, p*c/h)",
+      "",
+      "# Step 8 & 9: Solve for lambda",
+      "lambda_solution = sp.solve(substituted, lam)[0]",
+      "",
+      "# Verify that lambda = h/p",
+      "expected = h/p",
+      "assert sp.simplify(lambda_solution - expected) == 0"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "de Broglie, L. (1924). 'Recherches sur la théorie des quanta.' Annales de Physique, 3, 22-128."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

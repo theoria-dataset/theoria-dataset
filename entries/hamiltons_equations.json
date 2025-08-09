@@ -1,8 +1,15 @@
 {
+  "result_id": "hamiltons_equations",
   "result_name": "Hamilton's Equations",
   "result_equations": [
-    { "id": "eq1", "equation": "dot q_i = del H/del p_i" },
-    { "id": "eq2", "equation": "dot p_i = - del H/del q_i" }
+    {
+      "id": "eq1",
+      "equation": "dot q_i = del H/del p_i"
+    },
+    {
+      "id": "eq2",
+      "equation": "dot p_i = - del H/del q_i"
+    }
   ],
   "explanation": "Hamilton's equations are a set of first-order differential equations governing the evolution of generalized coordinates (`q_i`) and conjugate momenta (`p_i`). They provide a symmetric phase-space formulation equivalent to the Euler-Lagrange equation, often simplifying analysis of conserved quantities and facilitating the transition to quantum mechanics.",
   "equations_assumptions": [
@@ -16,7 +23,10 @@
     }
   ],
   "definitions": [
-    { "symbol": "q_i", "definition": "Generalized coordinate i." },
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinate i."
+    },
     {
       "symbol": "p_i",
       "definition": "Generalized momentum conjugate to `q_i` (`p_i = del L/del dot q_i`)."
@@ -31,12 +41,18 @@
     }
   ],
   "derivation": [
-    { "step": 1, "equation": "p_i = del L/del dot q_i" },
+    {
+      "step": 1,
+      "equation": "p_i = del L/del dot q_i"
+    },
     {
       "step": 2,
       "equation": "H(q_i, p_i, t) = sum_i p_i dot q_i - L(q_i, dot q_i, t)"
     },
-    { "step": 3, "equation": "del H/del p_i = dot q_i" },
+    {
+      "step": 3,
+      "equation": "del H/del p_i = dot q_i"
+    },
     {
       "step": 4,
       "equation": "del H/del q_i = - del L/del q_i = - d/dt(del L/del dot q_i) = - dot p_i"
@@ -112,6 +128,31 @@
       "citation": "Arnold, V. I. (1989). *Mathematical Methods of Classical Mechanics* (2nd ed.). Springer."
     }
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanical systems",
+      "Well-defined Hamiltonian exists",
+      "Canonical coordinates and momenta",
+      "Conservative or time-dependent systems"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum effects)",
+      "Requires Hamiltonian formulation",
+      "May be complex for constrained systems",
+      "Does not include dissipative effects without modification"
+    ]
+  },
+  "historical_context": {
+    "importance": "Alternative formulation of mechanics, foundation for statistical mechanics and quantum mechanics",
+    "development_period": "1833-1835",
+    "key_insights": [
+      "Phase space dynamics",
+      "Canonical transformations",
+      "Symplectic structure",
+      "Bridge to statistical mechanics"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

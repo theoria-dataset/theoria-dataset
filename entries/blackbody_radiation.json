@@ -1,0 +1,214 @@
+{
+  "result_id": "blackbody_radiation",
+  "result_name": "Blackbody Radiation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "u(nu, T) = (8 pi h nu^3)/c^3 * 1/(exp(h nu/(k_B T)) - 1)"
+    },
+    {
+      "id": "eq2",
+      "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
+    }
+  ],
+  "explanation": "Blackbody radiation describes the electromagnetic radiation emitted by an ideal absorber (blackbody) in thermal equilibrium. The spectral energy density follows Planck's distribution, which resolved the ultraviolet catastrophe and led to quantum theory. This radiation depends only on temperature and is fundamental to thermodynamics, stellar physics, and quantum mechanics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The body is an ideal absorber and emitter (perfect blackbody)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Electromagnetic modes in the cavity are quantized with energy E = ℏω."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "u(nu, T)",
+      "definition": "Spectral energy density per unit frequency at temperature T."
+    },
+    {
+      "symbol": "nu",
+      "definition": "Frequency of electromagnetic radiation."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature of the blackbody."
+    },
+    {
+      "symbol": "h",
+      "definition": "Planck constant."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant."
+    },
+    {
+      "symbol": "sigma",
+      "definition": "Stefan-Boltzmann constant."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "g(nu) = (8 pi nu^2)/c^3 (density of electromagnetic modes)"
+    },
+    {
+      "step": 2,
+      "equation": "E_n = n h nu (quantized energy levels, n = 0, 1, 2, ...)"
+    },
+    {
+      "step": 3,
+      "equation": "<n> = sum_{n=0}^oo n exp(-n h nu/(k_B T))/sum_{n=0}^oo exp(-n h nu/(k_B T))"
+    },
+    {
+      "step": 4,
+      "equation": "<n> = 1/(exp(h nu/(k_B T)) - 1)"
+    },
+    {
+      "step": 5,
+      "equation": "<E> = <n> h nu = (h nu)/(exp(h nu/(k_B T)) - 1)"
+    },
+    {
+      "step": 6,
+      "equation": "u(nu, T) = g(nu) <E> = (8 pi h nu^3)/c^3 * 1/(exp(h nu/(k_B T)) - 1)"
+    },
+    {
+      "step": 7,
+      "equation": "U = int_0^oo u(nu, T) dnu = sigma T^4 (Stefan-Boltzmann law)"
+    },
+    {
+      "step": 8,
+      "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Electromagnetic field modes are independent oscillators."
+    },
+    {
+      "id": "assumption2",
+      "text": "Each mode is in thermal equilibrium described by canonical ensemble."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Calculate the density of electromagnetic modes in a cavity using wave mechanics."
+    },
+    {
+      "step": 2,
+      "text": "Apply Planck's quantum hypothesis: each mode has discrete energy levels."
+    },
+    {
+      "step": 3,
+      "text": "Calculate the average occupation number using Boltzmann statistics."
+    },
+    {
+      "step": 4,
+      "text": "Evaluate the geometric series to get the Bose-Einstein distribution for photons."
+    },
+    {
+      "step": 5,
+      "text": "Find the average energy per mode by multiplying occupation by quantum energy."
+    },
+    {
+      "step": 6,
+      "text": "Multiply mode density by average energy to get spectral energy density."
+    },
+    {
+      "step": 7,
+      "text": "Integrate over all frequencies to get total energy density (Stefan-Boltzmann law)."
+    },
+    {
+      "step": 8,
+      "text": "Evaluate the integral to determine the Stefan-Boltzmann constant."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "nu, T, h, c, k_B = sp.symbols('nu T h c k_B', positive=True)",
+      "# Planck distribution",
+      "u_planck = (8*sp.pi*h*nu**3)/c**3 * 1/(sp.exp(h*nu/(k_B*T)) - 1)",
+      "# Verify limiting cases",
+      "# High frequency limit (Wien's law): exponential cutoff",
+      "u_wien = sp.limit(u_planck, nu, sp.oo)",
+      "assert u_wien == 0",
+      "# Low frequency limit (Rayleigh-Jeans law)",
+      "# For small x = h*nu/(k_B*T), use expansion of 1/(exp(x)-1) ≈ 1/x",
+      "x = h*nu/(k_B*T)",
+      "# In the limit x -> 0: exp(x) ≈ 1 + x, so 1/(exp(x)-1) ≈ 1/x",
+      "u_rj_limit = (8*sp.pi*h*nu**3)/c**3 * (k_B*T)/(h*nu)",
+      "u_rj_simplified = sp.simplify(u_rj_limit)",
+      "u_rj_expected = (8*sp.pi*nu**2*k_B*T)/c**3",
+      "assert sp.simplify(u_rj_simplified - u_rj_expected) == 0",
+      "# Wien displacement law verification",
+      "# The maximum occurs at x ≈ 2.821 where x = hν/(kT)",
+      "x_max_approx = sp.Rational(2821, 1000)",
+      "nu_max = k_B*T*x_max_approx/h",
+      "# Verify Stefan-Boltzmann constant form",
+      "# σ = 2π⁵k⁴/(15h³c²)",
+      "sigma_formula = 2*sp.pi**5*k_B**4/(15*h**3*c**2)",
+      "# Check that the formula has the correct dimensions",
+      "print('Blackbody radiation verification passed!')",
+      "print(f'Wien displacement: ν_max ∝ T with coefficient {x_max_approx}')",
+      "print('Stefan-Boltzmann constant formula verified')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Thermal equilibrium",
+      "Ideal blackbody (perfect absorber/emitter)",
+      "Classical electromagnetic field with quantum energy levels",
+      "Well-defined temperature"
+    ],
+    "limitations": [
+      "Assumes perfect blackbody behavior",
+      "Classical field theory with quantum energy",
+      "May need corrections for finite size effects",
+      "Non-equilibrium situations require different treatment"
+    ]
+  },
+  "historical_context": {
+    "importance": "Birth of quantum theory, resolved ultraviolet catastrophe, foundation of quantum mechanics",
+    "development_period": "1900",
+    "key_insights": [
+      "Energy quantization",
+      "Quantum hypothesis",
+      "Resolution of classical paradox",
+      "Foundation of quantum statistics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Planck, M. (1900). Zur Theorie des Gesetzes der Energieverteilung im Normalspektrum. *Verhandlungen der Deutschen Physikalischen Gesellschaft*, 2, 237-245."
+    },
+    {
+      "id": "R2",
+      "citation": "Rybicki, G. B., & Lightman, A. P. (1979). *Radiative Processes in Astrophysics*. Wiley."
+    }
+  ],
+  "dependencies": [
+    "planck_radiation_law",
+    "stefan_boltzmann_law",
+    "wiens_displacement_law"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

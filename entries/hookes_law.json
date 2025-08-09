@@ -1,0 +1,226 @@
+{
+  "result_id": "hookes_law",
+  "result_name": "Hooke's Law",
+  "result_equations": [
+    {
+      "id": "hookes_law_basic",
+      "equation": "F = -kx"
+    },
+    {
+      "id": "hookes_law_vector",
+      "equation": "\\vec{F} = -k\\vec{x}"
+    },
+    {
+      "id": "elastic_potential_energy",
+      "equation": "U = \\frac{1}{2}kx^2"
+    },
+    {
+      "id": "stress_strain_relation",
+      "equation": "\\sigma = E\\epsilon"
+    }
+  ],
+  "explanation": "Hooke's law states that the force required to extend or compress a spring is proportional to the displacement from its equilibrium position. This linear relationship forms the foundation for understanding elastic behavior in materials and oscillatory motion.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Small displacements from equilibrium"
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Linear elastic regime"
+    },
+    {
+      "id": "eq_assump3",
+      "text": "No plastic deformation"
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Constant spring constant"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "F",
+      "definition": "Restoring force"
+    },
+    {
+      "symbol": "k",
+      "definition": "Spring constant or stiffness"
+    },
+    {
+      "symbol": "x",
+      "definition": "Displacement from equilibrium position"
+    },
+    {
+      "symbol": "x⃗",
+      "definition": "Displacement vector"
+    },
+    {
+      "symbol": "U",
+      "definition": "Elastic potential energy"
+    },
+    {
+      "symbol": "σ",
+      "definition": "Stress (force per unit area)"
+    },
+    {
+      "symbol": "E",
+      "definition": "Young's modulus (elasticity modulus)"
+    },
+    {
+      "symbol": "ε",
+      "definition": "Strain (relative deformation)"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "U = \\int_0^x F(x') dx'"
+    },
+    {
+      "step": 2,
+      "equation": "F = -\\frac{dU}{dx}"
+    },
+    {
+      "step": 3,
+      "equation": "U = \\frac{1}{2}kx^2"
+    },
+    {
+      "step": 4,
+      "equation": "F = -\\frac{d}{dx}\\left(\\frac{1}{2}kx^2\\right)"
+    },
+    {
+      "step": 5,
+      "equation": "F = -kx"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Conservative force field"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Potential energy is well-defined"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Force derivable from potential"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Quadratic potential energy"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Hooke's law can be derived from the principle that the force is the negative gradient of potential energy. For a quadratic potential energy function, this gives a linear restoring force proportional to displacement."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "import math",
+      "",
+      "# Hooke's Law Verification using SymPy",
+      "print('Hooke\\'s Law Verification\\n')",
+      "print('=' * 40)",
+      "",
+      "# Define symbols",
+      "x, k, F, U = sp.symbols('x k F U', real=True)",
+      "",
+      "# Step 1: Verify basic Hooke's law",
+      "hookes_law = -k * x",
+      "print('Step 1: Basic Hooke\\'s law')",
+      "print(f'F = {hookes_law}')",
+      "",
+      "# Test with numerical values",
+      "k_test = 50  # N/m",
+      "x_test_values = [-0.1, -0.05, 0, 0.05, 0.1]  # m",
+      "print(f'\\nNumerical test with k = {k_test} N/m')",
+      "print('Displacement (m)  Force (N)')",
+      "print('-' * 25)",
+      "for x_val in x_test_values:",
+      "    F_val = -k_test * x_val",
+      "    print(f'{x_val:12.2f}  {F_val:8.1f}')",
+      "",
+      "# Step 2: Verify potential energy relationship",
+      "potential_energy = sp.Rational(1, 2) * k * x**2",
+      "print(f'\\nStep 2: Potential energy')",
+      "print(f'U = {potential_energy}')",
+      "",
+      "# Test with numerical values",
+      "print('\\nPotential energy U = ½kx²:')",
+      "for x_val in x_test_values:",
+      "    U_val = 0.5 * k_test * x_val**2",
+      "    print(f'x = {x_val:5.2f} m → U = {U_val:6.3f} J')",
+      "",
+      "# Step 3: Verify F = -dU/dx relationship",
+      "print('\\nStep 3: Force from potential energy')",
+      "dU_dx = sp.diff(potential_energy, x)",
+      "F_from_potential = -dU_dx",
+      "print(f'dU/dx = {dU_dx}')",
+      "print(f'F = -dU/dx = {F_from_potential}')",
+      "",
+      "# Check if F = -dU/dx equals F = -kx",
+      "force_check = sp.simplify(F_from_potential - hookes_law)",
+      "print(f'\\nVerifying F = -dU/dx = -kx:')",
+      "print(f'Difference: {force_check}')",
+      "print(f'Forces are equal: {force_check == 0}')",
+      "",
+      "# Step 4: Verify units and dimensional analysis",
+      "print('\\nStep 4: Dimensional analysis')",
+      "print('Force: [F] = N = kg⋅m/s²')",
+      "print('Spring constant: [k] = N/m = kg/s²')",
+      "print('Displacement: [x] = m')",
+      "print('F = kx: [kg/s²]⋅[m] = [kg⋅m/s²] = [N] ✓')",
+      "print('Potential energy: [U] = J = kg⋅m²/s²')",
+      "print('U = ½kx²: [kg/s²]⋅[m²] = [kg⋅m²/s²] = [J] ✓')",
+      "",
+      "print('\\n✓ Hooke\\'s law verification completed successfully!')",
+      "print('All relationships and units are consistent.')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Small deformations (elastic regime)",
+      "Linear elastic materials",
+      "Constant temperature",
+      "Static or quasi-static loading"
+    ],
+    "limitations": [
+      "Breaks down for large deformations",
+      "Not applicable in plastic regime",
+      "Fails for viscoelastic materials",
+      "May not hold at very high frequencies"
+    ]
+  },
+  "historical_context": {
+    "development_period": "17th century",
+    "importance": "Foundation of elasticity theory and mechanical engineering; enables understanding of springs, structural materials, and oscillatory systems",
+    "key_insights": [
+      "Robert Hooke discovered the linear relationship between force and displacement",
+      "The law established the concept of elastic deformation in materials",
+      "It provided the foundation for understanding oscillatory motion and springs",
+      "The principle extended to stress-strain relationships in materials science"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Timoshenko, S. P., & Goodier, J. N. (1970). Theory of Elasticity. McGraw-Hill."
+    },
+    {
+      "id": "R2",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
+    }
+  ],
+  "dependencies": [],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

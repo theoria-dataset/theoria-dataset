@@ -1,4 +1,5 @@
 {
+  "result_id": "dirac_equation_em",
   "result_name": "Dirac Equation in an Electromagnetic Field",
   "result_equations": [
     {
@@ -58,7 +59,10 @@
       "symbol": "A",
       "definition": "Spatial vector potential `A = (A_x, A_y, A_z)`."
     },
-    { "symbol": "phi", "definition": "Scalar electric potential." },
+    {
+      "symbol": "phi",
+      "definition": "Scalar electric potential."
+    },
     {
       "symbol": "p",
       "definition": "Canonical momentum operator `-i*hbar*grad`."
@@ -67,12 +71,24 @@
       "symbol": "q",
       "definition": "Electric charge of the particle (e.g., `q = -e` for the electron)."
     },
-    { "symbol": "m", "definition": "Rest mass of the particle." },
-    { "symbol": "hbar", "definition": "Reduced Planck constant `h/(2*pi)`." },
-    { "symbol": "c", "definition": "Speed of light in vacuum." }
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the particle."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant `h/(2*pi)`."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "(E - q*phi)^2 = c^2*(p - (q/c)*A)^2 + m^2*c^4" },
+    {
+      "step": 1,
+      "equation": "(E - q*phi)^2 = c^2*(p - (q/c)*A)^2 + m^2*c^4"
+    },
     {
       "step": 2,
       "equation": "(E - q*phi - c*alpha cdot (p - (q/c)*A) - beta*m*c^2)(E - q*phi + c*alpha cdot (p - (q/c)*A) + beta*m*c^2) = 0"
@@ -199,7 +215,37 @@
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
   ],
-  "dependencies": ["dirac_equation_free.json", "maxwell_equations.json"],
+  "dependencies": [
+    "dirac_equation_free",
+    "maxwell_equations"
+  ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Relativistic quantum mechanics with electromagnetic interactions",
+      "Single particle approximation",
+      "Classical electromagnetic fields",
+      "Spin-1/2 charged particles"
+    ],
+    "limitations": [
+      "Single particle theory (no field quantization)",
+      "Classical treatment of electromagnetic field",
+      "Does not include quantum field fluctuations",
+      "Superseded by full QED for quantum electromagnetic effects"
+    ]
+  },
+  "superseded_by": [
+    "qed_lagrangian"
+  ],
+  "historical_context": {
+    "importance": "Foundation of relativistic quantum mechanics with electromagnetic interactions",
+    "development_period": "1928-1930",
+    "key_insights": [
+      "Minimal coupling principle",
+      "Gauge invariance",
+      "Relativistic electromagnetic interactions"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

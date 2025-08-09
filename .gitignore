@@ -24,6 +24,8 @@ yarn.lock
 # IDE and Editor files
 .idea/
 .vscode/
+.claude
+CLAUDE.md
 *.swp
 *.swo
 .DS_Store

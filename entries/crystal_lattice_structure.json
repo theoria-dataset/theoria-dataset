@@ -1,0 +1,214 @@
+{
+  "result_id": "crystal_lattice_structure",
+  "result_name": "Crystal Lattice Structure",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec R = n_1 vec a_1 + n_2 vec a_2 + n_3 vec a_3"
+    },
+    {
+      "id": "eq2",
+      "equation": "rho(vec r) = rho(vec r + vec R)"
+    }
+  ],
+  "explanation": "Crystal lattice structure describes the periodic arrangement of atoms in crystalline solids. The structure is characterized by a unit cell with basis vectors that, when repeated, generates the entire crystal through translational symmetry. This periodicity determines fundamental properties like mechanical strength, electrical conductivity, and optical behavior of materials.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The crystal has perfect translational periodicity (ideal crystal)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Atomic positions are well-defined and static (neglecting thermal motion)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The crystal extends infinitely in all directions."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec R",
+      "definition": "Lattice vector pointing to equivalent lattice points."
+    },
+    {
+      "symbol": "n_1, n_2, n_3",
+      "definition": "Integer coefficients defining lattice translation."
+    },
+    {
+      "symbol": "vec a_1, vec a_2, vec a_3",
+      "definition": "Primitive lattice vectors (basis vectors)."
+    },
+    {
+      "symbol": "rho(vec r)",
+      "definition": "Electron density or mass density at position r."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Unit cell: smallest repeating unit with vectors vec a_1, vec a_2, vec a_3"
+    },
+    {
+      "step": 2,
+      "equation": "Lattice points: vec R_n = n_1 vec a_1 + n_2 vec a_2 + n_3 vec a_3"
+    },
+    {
+      "step": 3,
+      "equation": "Translation operation: T_R f(vec r) = f(vec r - vec R)"
+    },
+    {
+      "step": 4,
+      "equation": "Periodicity condition: T_R rho(vec r) = rho(vec r)"
+    },
+    {
+      "step": 5,
+      "equation": "Bravais lattices: 14 unique 3D lattice types"
+    },
+    {
+      "step": 6,
+      "equation": "Point group symmetries: rotation, reflection, inversion"
+    },
+    {
+      "step": 7,
+      "equation": "Space group: lattice translations + point group operations"
+    },
+    {
+      "step": 8,
+      "equation": "Crystal systems: 7 unique systems based on lattice parameters"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The crystal structure can be described by discrete translational symmetry."
+    },
+    {
+      "id": "assumption2",
+      "text": "Basis vectors are linearly independent and span 3D space."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Define the fundamental unit cell with three primitive vectors."
+    },
+    {
+      "step": 2,
+      "text": "Generate all lattice points by integer linear combinations of basis vectors."
+    },
+    {
+      "step": 3,
+      "text": "Define translation operators that shift the crystal by lattice vectors."
+    },
+    {
+      "step": 4,
+      "text": "Impose periodicity: physical properties repeat at equivalent lattice points."
+    },
+    {
+      "step": 5,
+      "text": "Classify all possible 3D lattice types (14 Bravais lattices)."
+    },
+    {
+      "step": 6,
+      "text": "Include rotational and reflection symmetries at each lattice point."
+    },
+    {
+      "step": 7,
+      "text": "Combine translational and point symmetries to form space groups."
+    },
+    {
+      "step": 8,
+      "text": "Group lattices by symmetry into seven crystal systems."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbolic lattice vectors",
+      "a1_x, a1_y, a1_z = sp.symbols('a1_x a1_y a1_z', real=True)",
+      "a2_x, a2_y, a2_z = sp.symbols('a2_x a2_y a2_z', real=True)",
+      "a3_x, a3_y, a3_z = sp.symbols('a3_x a3_y a3_z', real=True)",
+      "n1, n2, n3 = sp.symbols('n1 n2 n3', integer=True)",
+      "# Lattice vectors",
+      "a1 = sp.Matrix([a1_x, a1_y, a1_z])",
+      "a2 = sp.Matrix([a2_x, a2_y, a2_z])",
+      "a3 = sp.Matrix([a3_x, a3_y, a3_z])",
+      "# General lattice vector",
+      "R = n1*a1 + n2*a2 + n3*a3",
+      "# Unit cell volume",
+      "V_cell = a1.dot(a2.cross(a3))",
+      "# Verify specific lattice types",
+      "# Simple cubic: a1 = (a,0,0), a2 = (0,a,0), a3 = (0,0,a)",
+      "a = sp.symbols('a', positive=True)",
+      "a1_cubic = sp.Matrix([a, 0, 0])",
+      "a2_cubic = sp.Matrix([0, a, 0])",
+      "a3_cubic = sp.Matrix([0, 0, a])",
+      "V_cubic = a1_cubic.dot(a2_cubic.cross(a3_cubic))",
+      "assert V_cubic == a**3",
+      "# Face-centered cubic (FCC)",
+      "a1_fcc = sp.Matrix([a/2, a/2, 0])",
+      "a2_fcc = sp.Matrix([0, a/2, a/2])",
+      "a3_fcc = sp.Matrix([a/2, 0, a/2])",
+      "V_fcc = a1_fcc.dot(a2_fcc.cross(a3_fcc))",
+      "assert sp.simplify(V_fcc) == a**3/4",
+      "# Body-centered cubic (BCC)",
+      "a1_bcc = sp.Matrix([-a/2, a/2, a/2])",
+      "a2_bcc = sp.Matrix([a/2, -a/2, a/2])",
+      "a3_bcc = sp.Matrix([a/2, a/2, -a/2])",
+      "V_bcc = a1_bcc.dot(a2_bcc.cross(a3_bcc))",
+      "assert sp.simplify(V_bcc) == a**3/2",
+      "# Hexagonal lattice",
+      "c = sp.symbols('c', positive=True)",
+      "a1_hex = sp.Matrix([a, 0, 0])",
+      "a2_hex = sp.Matrix([-a/2, a*sp.sqrt(3)/2, 0])",
+      "a3_hex = sp.Matrix([0, 0, c])",
+      "V_hex = a1_hex.dot(a2_hex.cross(a3_hex))",
+      "assert sp.simplify(V_hex) == a**2*c*sp.sqrt(3)/2"
+    ]
+  },
+  "domain": "cond-mat.mtrl-sci",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Crystalline materials",
+      "Long-range periodic order",
+      "Well-defined atomic positions",
+      "Solid state systems"
+    ],
+    "limitations": [
+      "Does not apply to amorphous materials",
+      "Neglects defects and disorder",
+      "Static lattice approximation",
+      "May need modifications for quasicrystals"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of solid state physics, materials science, and crystallography",
+    "development_period": "1912-1920",
+    "key_insights": [
+      "Periodic atomic arrangements",
+      "Symmetry in solids",
+      "Structure-property relationships",
+      "X-ray diffraction patterns"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bragg, W. L. (1913). The diffraction of short electromagnetic waves by a crystal. *Proceedings of the Cambridge Philosophical Society*, 17, 43-57."
+    },
+    {
+      "id": "R2",
+      "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
+    }
+  ],
+  "dependencies": [
+    "x_ray_diffraction",
+    "crystal_symmetry"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

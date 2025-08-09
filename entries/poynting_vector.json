@@ -1,0 +1,206 @@
+{
+  "result_id": "poynting_vector",
+  "result_name": "Poynting Vector",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec S = (1/mu_0) (vec E times vec B)"
+    },
+    {
+      "id": "eq2",
+      "equation": "I = |<vec S>| = (1/(2 mu_0 c)) |vec E_0|^2"
+    }
+  ],
+  "explanation": "The Poynting vector describes the directional energy flux density of electromagnetic fields, representing the rate of energy flow per unit area. It points in the direction of electromagnetic wave propagation and its magnitude gives the intensity. This vector is fundamental for understanding electromagnetic energy transport, radiation pressure, and power flow in electromagnetic systems.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Maxwell's equations apply and the fields are well-defined."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec S",
+      "definition": "Poynting vector (energy flux density)."
+    },
+    {
+      "symbol": "vec E",
+      "definition": "Electric field vector."
+    },
+    {
+      "symbol": "vec B",
+      "definition": "Magnetic field vector."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Permeability of free space."
+    },
+    {
+      "symbol": "I",
+      "definition": "Time-averaged intensity of electromagnetic radiation."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "vec E_0",
+      "definition": "Electric field amplitude."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "partial u/partial t + nabla cdot vec S = -vec J cdot vec E"
+    },
+    {
+      "step": 2,
+      "equation": "u = (1/2) (epsilon_0 |vec E|^2 + (1/mu_0) |vec B|^2)"
+    },
+    {
+      "step": 3,
+      "equation": "partial u/partial t = epsilon_0 vec E cdot partial vec E/partial t + (1/mu_0) vec B cdot partial vec B/partial t"
+    },
+    {
+      "step": 4,
+      "equation": "nabla times vec E = -partial vec B/partial t, nabla times vec B = mu_0 vec J + mu_0 epsilon_0 partial vec E/partial t"
+    },
+    {
+      "step": 5,
+      "equation": "partial u/partial t = -epsilon_0 vec E cdot (nabla times vec E) + (1/mu_0) vec B cdot (nabla times vec B - mu_0 vec J)"
+    },
+    {
+      "step": 6,
+      "equation": "nabla cdot (vec E times vec B) = vec B cdot (nabla times vec E) - vec E cdot (nabla times vec B)"
+    },
+    {
+      "step": 7,
+      "equation": "partial u/partial t + (1/mu_0) nabla cdot (vec E times vec B) = -vec J cdot vec E"
+    },
+    {
+      "step": 8,
+      "equation": "vec S = (1/mu_0) (vec E times vec B)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Maxwell's equations hold throughout the region of interest."
+    },
+    {
+      "id": "assumption2",
+      "text": "Energy conservation applies to the electromagnetic field."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the electromagnetic energy conservation equation (Poynting theorem)."
+    },
+    {
+      "step": 2,
+      "text": "Define electromagnetic energy density in terms of electric and magnetic fields."
+    },
+    {
+      "step": 3,
+      "text": "Calculate the time derivative of energy density using field derivatives."
+    },
+    {
+      "step": 4,
+      "text": "Use Faraday's law and Ampère's law from Maxwell's equations."
+    },
+    {
+      "step": 5,
+      "text": "Substitute Maxwell's equations into the energy density time derivative."
+    },
+    {
+      "step": 6,
+      "text": "Apply the vector identity for the divergence of a cross product."
+    },
+    {
+      "step": 7,
+      "text": "Rearrange to identify the energy flux term in the conservation equation."
+    },
+    {
+      "step": 8,
+      "text": "Identify the Poynting vector as the electromagnetic energy flux density."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "mu0, eps0, c, E0, B0, omega, t, x = sp.symbols('mu0 eps0 c E0 B0 omega t x', real=True, positive=True)",
+      "# Plane wave example: E = E0*cos(kx - ωt), B = B0*cos(kx - ωt)",
+      "k = omega/c",
+      "E_y = E0 * sp.cos(k*x - omega*t)",
+      "B_z = B0 * sp.cos(k*x - omega*t)",
+      "# For electromagnetic waves: B0 = E0/c",
+      "B_z_em = E0/c * sp.cos(k*x - omega*t)",
+      "# Poynting vector S = (1/μ₀) E × B",
+      "# For this configuration: S_x = (1/μ₀) * E_y * B_z",
+      "S_x = (1/mu0) * E_y * B_z_em",
+      "S_x_simplified = sp.simplify(S_x)",
+      "# Time-averaged intensity",
+      "S_x_time_avg = sp.integrate(S_x_simplified, (t, 0, 2*sp.pi/omega)) / (2*sp.pi/omega)",
+      "I_expected = E0**2/(2*mu0*c)",
+      "assert sp.simplify(S_x_time_avg - I_expected) == 0",
+      "# Verify relationship c = 1/sqrt(μ₀ε₀)",
+      "c_relation = 1/sp.sqrt(mu0*eps0)",
+      "# Verify energy flux for plane wave",
+      "u_em = (eps0*E_y**2 + B_z_em**2/mu0)/2",
+      "energy_velocity = S_x_simplified / u_em",
+      "# For electromagnetic waves, energy travels at speed c",
+      "energy_velocity_simplified = sp.simplify(energy_velocity.subs(c, c_relation))",
+      "# This should equal c for electromagnetic waves"
+    ]
+  },
+  "domain": "physics.optics",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism",
+      "Maxwell's equations apply",
+      "Well-defined electric and magnetic fields",
+      "Macroscopic electromagnetic phenomena"
+    ],
+    "limitations": [
+      "Classical electromagnetic theory only",
+      "May need quantum corrections for single photons",
+      "Assumes well-defined local fields",
+      "Limited to continuous media approximation"
+    ]
+  },
+  "historical_context": {
+    "importance": "Describes electromagnetic energy flow, fundamental for understanding radiation and power transmission",
+    "development_period": "1884",
+    "key_insights": [
+      "Energy flux in EM fields",
+      "Direction of energy flow",
+      "Intensity of electromagnetic radiation",
+      "Foundation for antenna theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Poynting, J. H. (1884). On the transfer of energy in the electromagnetic field. *Philosophical Transactions of the Royal Society*, 175, 343-361."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": [
+    "maxwell_equations",
+    "electromagnetic_waves"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

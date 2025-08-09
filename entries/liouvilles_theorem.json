@@ -1,7 +1,11 @@
 {
+  "result_id": "liouvilles_theorem",
   "result_name": "Liouville's Theorem",
   "result_equations": [
-    { "id": "eq1", "equation": "<2 T> = - <sum_i r_i dot F_i>" }
+    {
+      "id": "eq1",
+      "equation": "<2 T> = - <sum_i r_i dot F_i>"
+    }
   ],
   "explanation": "Liouville's theorem relates the time-averaged kinetic energy `T` and potential energy of a bound system. For particles with positions `r_i` and forces `F_i`, it states `<2T> = -<sum r_i dot F_i>`. For power-law forces, this yields simple ratios: for Newton's gravity (1/r), `<T> = -1/2 <V>`. The theorem is useful in astrophysics and molecular physics for deducing properties of equilibrated systems.",
   "equations_assumptions": [
@@ -15,13 +19,28 @@
     }
   ],
   "definitions": [
-    { "symbol": "T", "definition": "Total kinetic energy of the system." },
-    { "symbol": "F_i", "definition": "Force on particle i." },
-    { "symbol": "V", "definition": "Total potential energy of the system." },
-    { "symbol": "<...>", "definition": "Time average over a long duration." }
+    {
+      "symbol": "T",
+      "definition": "Total kinetic energy of the system."
+    },
+    {
+      "symbol": "F_i",
+      "definition": "Force on particle i."
+    },
+    {
+      "symbol": "V",
+      "definition": "Total potential energy of the system."
+    },
+    {
+      "symbol": "<...>",
+      "definition": "Time average over a long duration."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "I = sum_i m_i r_i^2" },
+    {
+      "step": 1,
+      "equation": "I = sum_i m_i r_i^2"
+    },
     {
       "step": 2,
       "equation": "d^2 I/dt^2 = 2 sum_i m_i (v_i^2 + r_i dot a_i) = 2 T + 2 sum_i r_i dot F_i"
@@ -30,7 +49,10 @@
       "step": 3,
       "equation": "<d^2 I/dt^2> = 0 => 2<T> + 2<sum_i r_i dot F_i> = 0"
     },
-    { "step": 4, "equation": "<2 T> = - <sum_i r_i dot F_i>" }
+    {
+      "step": 4,
+      "equation": "<2 T> = - <sum_i r_i dot F_i>"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -80,6 +102,30 @@
       "rF_avg = sp.integrate(rF_t, (t, 0, period))/period",
       "# Step 4: verify the virial relation 2<T> + <r·F> = 0",
       "assert sp.simplify(2*T_avg + rF_avg) == 0"
+    ]
+  },
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Hamiltonian systems",
+      "Classical statistical mechanics",
+      "Phase space with canonical coordinates",
+      "Conservative systems"
+    ],
+    "limitations": [
+      "Classical mechanics only",
+      "Requires Hamiltonian formulation",
+      "Limited to conservative systems",
+      "Quantum generalizations needed for microscopic systems"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of statistical mechanics, connects microscopic dynamics to thermodynamics",
+    "development_period": "1838",
+    "key_insights": [
+      "Phase space conservation",
+      "Statistical mechanics foundation",
+      "Connection between dynamics and statistics"
     ]
   },
   "domain": "physics.class-ph",

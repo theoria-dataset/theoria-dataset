@@ -1,6 +1,12 @@
 {
+  "result_id": "stefan_boltzmann_law",
   "result_name": "Stefan–Boltzmann Law",
-  "result_equations": [{ "id": "eq1", "equation": "j^* = sigma*T^4" }],
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "j^* = sigma*T^4"
+    }
+  ],
   "explanation": "The Stefan–Boltzmann law gives the radiant energy flux emitted by an ideal black body as the fourth power of its absolute temperature, `j^* = sigma*T^4`. By linking thermodynamic temperature to measurable luminosity, the law is fundamental to stellar astrophysics, climate modelling and furnace engineering. It enables surface temperatures to be inferred from radiative output and sets theoretical efficiency limits for thermal devices.",
   "equations_assumptions": [
     {
@@ -9,19 +15,28 @@
     }
   ],
   "definitions": [
-    { "symbol": "j^*", "definition": "Radiant exitance (`W*m^-2`)." },
+    {
+      "symbol": "j^*",
+      "definition": "Radiant exitance (`W*m^-2`)."
+    },
     {
       "symbol": "sigma",
       "definition": "Stefan–Boltzmann constant (`5.670374*10^-8 W*m^-2*K^-4`)."
     },
-    { "symbol": "T", "definition": "Absolute temperature (`K`)." }
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature (`K`)."
+    }
   ],
   "derivation": [
     {
       "step": 1,
       "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"
     },
-    { "step": 2, "equation": "u(T) = int_0^oo u(nu,T) dnu" },
+    {
+      "step": 2,
+      "equation": "u(T) = int_0^oo u(nu,T) dnu"
+    },
     {
       "step": 3,
       "equation": "x = h*nu/(k*T) => nu = (x*k*T)/h, dnu = (k*T/h)*dx"
@@ -30,18 +45,30 @@
       "step": 4,
       "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * int_0^oo (x^3)/(exp(x)-1) dx"
     },
-    { "step": 5, "equation": "int_0^oo (x^3)/(exp(x)-1) dx = pi^4/15" },
+    {
+      "step": 5,
+      "equation": "int_0^oo (x^3)/(exp(x)-1) dx = pi^4/15"
+    },
     {
       "step": 6,
       "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * (pi^4/15) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)"
     },
-    { "step": 7, "equation": "j^* = (c/4)*u(T)" },
+    {
+      "step": 7,
+      "equation": "j^* = (c/4)*u(T)"
+    },
     {
       "step": 8,
       "equation": "j^* = (c/4) * (8*pi^5*k^4*T^4)/(15*h^3*c^3) = (2*pi^5*k^4*T^4)/(15*h^3*c^2)"
     },
-    { "step": 9, "equation": "sigma = (2*pi^5*k^4)/(15*h^3*c^2)" },
-    { "step": 10, "equation": "j^* = sigma*T^4" }
+    {
+      "step": 9,
+      "equation": "sigma = (2*pi^5*k^4)/(15*h^3*c^2)"
+    },
+    {
+      "step": 10,
+      "equation": "j^* = sigma*T^4"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -140,7 +167,34 @@
       "citation": "Boltzmann, L. (1884). *Ableitung des Stefan'schen Gesetzes…* Annalen der Physik, 22, 291–294."
     }
   ],
-  "dependencies": ["planck_radiation_law.json"],
+  "dependencies": [
+    "planck_radiation_law"
+  ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Black body radiation (perfect absorber and emitter)",
+      "Thermal equilibrium",
+      "Macroscopic objects with well-defined temperature",
+      "Classical electromagnetic radiation"
+    ],
+    "limitations": [
+      "Limited to ideal black bodies (real objects have emissivity < 1)",
+      "Assumes thermal equilibrium",
+      "Classical treatment of electromagnetic radiation",
+      "May need quantum corrections for very low temperatures"
+    ]
+  },
+  "approximation_of": "planck_radiation_law",
+  "historical_context": {
+    "importance": "Fundamental law of thermal radiation, crucial for stellar physics and thermal engineering",
+    "development_period": "1879-1884",
+    "key_insights": [
+      "T⁴ temperature dependence",
+      "Universal radiation law",
+      "Connection between thermodynamics and electromagnetic radiation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

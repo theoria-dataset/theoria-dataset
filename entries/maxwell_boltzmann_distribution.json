@@ -1,0 +1,199 @@
+{
+  "result_id": "maxwell_boltzmann_distribution",
+  "result_name": "Maxwell-Boltzmann Distribution",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "f(v) = 4 pi (m/(2 pi k_B T))^(3/2) v^2 exp(-m v^2/(2 k_B T))"
+    },
+    {
+      "id": "eq2",
+      "equation": "<v> = sqrt(8 k_B T/(pi m))"
+    }
+  ],
+  "explanation": "The Maxwell-Boltzmann distribution describes the probability distribution of particle speeds in a classical ideal gas at thermal equilibrium. It shows that most particles have intermediate speeds, with exponentially fewer particles at very high speeds. This distribution is fundamental to kinetic theory and statistical mechanics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The gas is ideal with no intermolecular interactions."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Classical mechanics applies (non-relativistic and non-quantum)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "f(v)",
+      "definition": "Probability density function for speed v."
+    },
+    {
+      "symbol": "v",
+      "definition": "Speed of a particle."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of a particle."
+    },
+    {
+      "symbol": "k_B",
+      "definition": "Boltzmann constant."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature."
+    },
+    {
+      "symbol": "<v>",
+      "definition": "Mean speed of particles."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "P(vec v) = C exp(-E/(k_B T))"
+    },
+    {
+      "step": 2,
+      "equation": "E = (1/2) m (v_x^2 + v_y^2 + v_z^2)"
+    },
+    {
+      "step": 3,
+      "equation": "P(vec v) = C exp(-m (v_x^2 + v_y^2 + v_z^2)/(2 k_B T))"
+    },
+    {
+      "step": 4,
+      "equation": "P(vec v) = C exp(-m v_x^2/(2 k_B T)) exp(-m v_y^2/(2 k_B T)) exp(-m v_z^2/(2 k_B T))"
+    },
+    {
+      "step": 5,
+      "equation": "int_{-oo}^{oo} exp(-alpha x^2) dx = sqrt(pi/alpha)"
+    },
+    {
+      "step": 6,
+      "equation": "C = (m/(2 pi k_B T))^(3/2)"
+    },
+    {
+      "step": 7,
+      "equation": "f(v) = int_0^{2pi} int_0^pi P(v, theta, phi) v^2 sin(theta) d theta d phi"
+    },
+    {
+      "step": 8,
+      "equation": "f(v) = 4 pi (m/(2 pi k_B T))^(3/2) v^2 exp(-m v^2/(2 k_B T))"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The probability follows Boltzmann distribution with kinetic energy."
+    },
+    {
+      "id": "assumption2",
+      "text": "Velocity components are independent and isotropic."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Boltzmann distribution for velocity probability based on energy."
+    },
+    {
+      "step": 2,
+      "text": "Express kinetic energy in terms of velocity components."
+    },
+    {
+      "step": 3,
+      "text": "Substitute kinetic energy into the Boltzmann factor."
+    },
+    {
+      "step": 4,
+      "text": "Factor the exponential into independent components for each velocity direction."
+    },
+    {
+      "step": 5,
+      "text": "Use the standard Gaussian integral result for normalization."
+    },
+    {
+      "step": 6,
+      "text": "Determine the normalization constant C from the requirement that total probability equals 1."
+    },
+    {
+      "step": 7,
+      "text": "Convert from velocity components to speed by integrating over spherical coordinates."
+    },
+    {
+      "step": 8,
+      "text": "Obtain the final speed distribution including the v² factor from spherical volume element."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "v, m, k_B, T = sp.symbols('v m k_B T', positive=True)",
+      "# Maxwell-Boltzmann distribution",
+      "f_v = 4*sp.pi*(m/(2*sp.pi*k_B*T))**(sp.Rational(3,2)) * v**2 * sp.exp(-m*v**2/(2*k_B*T))",
+      "# Verify normalization (integral from 0 to infinity should equal 1)",
+      "normalization = sp.integrate(f_v, (v, 0, sp.oo))",
+      "assert sp.simplify(normalization) == 1",
+      "# Calculate mean speed",
+      "mean_speed = sp.integrate(v * f_v, (v, 0, sp.oo))",
+      "expected_mean = sp.sqrt(8*k_B*T/(sp.pi*m))",
+      "assert sp.simplify(mean_speed - expected_mean) == 0",
+      "# Verify that distribution peaks at most probable speed",
+      "df_dv = sp.diff(f_v, v)",
+      "# Set derivative to zero and solve for v_mp (most probable speed)",
+      "v_mp_eq = sp.solve(df_dv, v)",
+      "v_mp = sp.sqrt(2*k_B*T/m)",
+      "# The most probable speed should be sqrt(2kT/m)",
+      "assert any(sp.simplify(sol - v_mp) == 0 for sol in v_mp_eq if sol > 0)"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical ideal gas",
+      "Thermal equilibrium",
+      "Non-relativistic particles",
+      "No quantum effects (high temperature limit)"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum statistics)",
+      "Ideal gas approximation (no interactions)",
+      "Non-relativistic speeds only",
+      "Breaks down at very low temperatures"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of kinetic theory and statistical mechanics, explains gas properties",
+    "development_period": "1860-1879",
+    "key_insights": [
+      "Statistical nature of temperature",
+      "Molecular speed distributions",
+      "Connection between microscopic and macroscopic properties"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Maxwell, J. C. (1860). Illustrations of the dynamical theory of gases. *Philosophical Magazine*, 19, 19-32."
+    },
+    {
+      "id": "R2",
+      "citation": "Boltzmann, L. (1872). Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen. *Wiener Berichte*, 66, 275-370."
+    }
+  ],
+  "dependencies": [
+    "boltzmann_distribution",
+    "ideal_gas_law"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

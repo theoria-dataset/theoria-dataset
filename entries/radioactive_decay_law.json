@@ -1,0 +1,186 @@
+{
+  "result_id": "radioactive_decay_law",
+  "result_name": "Radioactive Decay Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "N(t) = N_0 e^(-lambda t)"
+    },
+    {
+      "id": "eq2",
+      "equation": "t_(1/2) = ln(2)/lambda"
+    }
+  ],
+  "explanation": "The radioactive decay law describes the exponential decrease of unstable nuclei over time. The number of undecayed nuclei decreases exponentially with a characteristic decay constant λ. The half-life represents the time for half the nuclei to decay, independent of the initial amount.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The decay probability per unit time is constant for each nucleus."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Decay events are independent and random."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "N(t)",
+      "definition": "Number of undecayed nuclei at time t."
+    },
+    {
+      "symbol": "N_0",
+      "definition": "Initial number of nuclei at t = 0."
+    },
+    {
+      "symbol": "lambda",
+      "definition": "Decay constant (probability of decay per unit time)."
+    },
+    {
+      "symbol": "t_(1/2)",
+      "definition": "Half-life of the radioactive isotope."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "dN/dt = -lambda N"
+    },
+    {
+      "step": 2,
+      "equation": "dN/N = -lambda dt"
+    },
+    {
+      "step": 3,
+      "equation": "int_(N_0)^N (dN'/N') = -lambda int_0^t dt'"
+    },
+    {
+      "step": 4,
+      "equation": "ln(N) - ln(N_0) = -lambda t"
+    },
+    {
+      "step": 5,
+      "equation": "N(t) = N_0 e^(-lambda t)"
+    },
+    {
+      "step": 6,
+      "equation": "N(t_(1/2)) = N_0/2 = N_0 e^(-lambda t_(1/2))"
+    },
+    {
+      "step": 7,
+      "equation": "1/2 = e^(-lambda t_(1/2))"
+    },
+    {
+      "step": 8,
+      "equation": "t_(1/2) = ln(2)/lambda"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Each nucleus has the same probability λdt of decaying in time interval dt."
+    },
+    {
+      "id": "assumption2",
+      "text": "The large number limit applies (statistical behavior)."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "The rate of decay is proportional to the number of undecayed nuclei present."
+    },
+    {
+      "step": 2,
+      "text": "Separate variables to integrate the differential equation."
+    },
+    {
+      "step": 3,
+      "text": "Integrate both sides from initial conditions to time t."
+    },
+    {
+      "step": 4,
+      "text": "Apply properties of logarithms to simplify the integral."
+    },
+    {
+      "step": 5,
+      "text": "Exponentiate both sides to get the exponential decay law."
+    },
+    {
+      "step": 6,
+      "text": "Define half-life as the time when N(t) = N₀/2."
+    },
+    {
+      "step": 7,
+      "text": "Simplify the exponential equation for half-life."
+    },
+    {
+      "step": 8,
+      "text": "Take the natural logarithm to solve for half-life."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, N0, lam, t_half = sp.symbols('t N0 lambda t_half', positive=True)",
+      "# Decay law",
+      "N = N0 * sp.exp(-lam * t)",
+      "# Verify the differential equation is satisfied",
+      "dN_dt = sp.diff(N, t)",
+      "assert sp.simplify(dN_dt + lam * N) == 0",
+      "# Verify half-life formula",
+      "t_half_formula = sp.log(2) / lam",
+      "N_at_half_life = N.subs(t, t_half_formula)",
+      "assert sp.simplify(N_at_half_life - N0/2) == 0",
+      "# Test with specific values",
+      "test_vals = {N0: 1000, lam: 0.1}",
+      "N_test = N.subs(test_vals)",
+      "# At t = 0, N should equal N0",
+      "assert N_test.subs(t, 0) == 1000",
+      "# At t = ln(2)/λ, N should be N0/2",
+      "t_half_val = sp.log(2) / 0.1",
+      "N_half = N_test.subs(t, t_half_val)",
+      "assert abs(float(N_half) - 500) < 1e-10"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Large number of nuclei (statistical regime)",
+      "Isolated system (no external influences)",
+      "Single decay mode dominates",
+      "Classical nuclear physics"
+    ],
+    "limitations": [
+      "Requires large numbers for statistical validity",
+      "May not apply to very small samples",
+      "Classical treatment (no quantum decoherence effects)",
+      "Assumes single decay pathway"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of nuclear physics and radiometric dating, medical applications",
+    "development_period": "1896-1910",
+    "key_insights": [
+      "Exponential decay",
+      "Statistical nature of radioactivity",
+      "Nuclear timescales",
+      "Atomic nuclear structure"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rutherford, E., & Soddy, F. (1903). Radioactive Change. *Philosophical Magazine*, 5(29), 576-591."
+    },
+    {
+      "id": "R2",
+      "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
+    }
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

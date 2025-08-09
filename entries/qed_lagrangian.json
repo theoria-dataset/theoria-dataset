@@ -1,4 +1,5 @@
 {
+  "result_id": "qed_lagrangian",
   "result_name": "QED Lagrangian Density",
   "result_equations": [
     {
@@ -71,7 +72,6 @@
       "definition": "Partial derivative with respect to the coordinate `x^mu`."
     }
   ],
-
   "derivation": [
     {
       "step": 1,
@@ -215,10 +215,36 @@
     }
   ],
   "dependencies": [
-    "dirac_equation_em.json",
-    "maxwell_equations.json",
-    "noethers_theorem.json"
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
   ],
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Quantum field theory regime",
+      "Electromagnetic interactions",
+      "Relativistic energies",
+      "Perturbative regime (weak coupling)"
+    ],
+    "limitations": [
+      "Perturbative approach may fail at strong coupling",
+      "Does not include weak or strong nuclear forces",
+      "Renormalization required for loop calculations",
+      "Classical gravity not included"
+    ]
+  },
+  "historical_context": {
+    "importance": "Most precisely tested theory in physics, foundation of quantum field theory",
+    "development_period": "1940-1950",
+    "key_insights": [
+      "Quantum field theory",
+      "Gauge invariance",
+      "Renormalization",
+      "Virtual particles",
+      "Quantum corrections"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

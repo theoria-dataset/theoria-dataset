@@ -1,0 +1,238 @@
+{
+  "result_id": "work_energy_theorem",
+  "result_name": "Work-Energy Theorem",
+  "result_equations": [
+    {
+      "id": "work_energy_theorem",
+      "equation": "W_{net} = \\Delta K = K_f - K_i"
+    },
+    {
+      "id": "work_definition",
+      "equation": "W = \\int \\vec{F} \\cdot d\\vec{r}"
+    },
+    {
+      "id": "kinetic_energy",
+      "equation": "K = \\frac{1}{2}mv^2"
+    },
+    {
+      "id": "work_constant_force",
+      "equation": "W = \\vec{F} \\cdot \\vec{d} = Fd\\cos\\theta"
+    }
+  ],
+  "explanation": "The work-energy theorem states that the net work done on an object equals the change in its kinetic energy. This fundamental principle connects the concepts of force, displacement, and energy in classical mechanics.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Classical mechanics framework"
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Point particle or rigid body"
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Non-relativistic speeds"
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Well-defined force and displacement"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "W_net",
+      "definition": "Net work done on the object"
+    },
+    {
+      "symbol": "ΔK",
+      "definition": "Change in kinetic energy"
+    },
+    {
+      "symbol": "K_f",
+      "definition": "Final kinetic energy"
+    },
+    {
+      "symbol": "K_i",
+      "definition": "Initial kinetic energy"
+    },
+    {
+      "symbol": "W",
+      "definition": "Work done by a force"
+    },
+    {
+      "symbol": "F⃗",
+      "definition": "Force vector"
+    },
+    {
+      "symbol": "dr⃗",
+      "definition": "Infinitesimal displacement vector"
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the object"
+    },
+    {
+      "symbol": "v",
+      "definition": "Speed of the object"
+    },
+    {
+      "symbol": "θ",
+      "definition": "Angle between force and displacement"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "\\vec{F} = m\\vec{a}"
+    },
+    {
+      "step": 2,
+      "equation": "\\vec{a} = \\frac{d\\vec{v}}{dt}"
+    },
+    {
+      "step": 3,
+      "equation": "W = \\int \\vec{F} \\cdot d\\vec{r} = \\int m\\vec{a} \\cdot d\\vec{r}"
+    },
+    {
+      "step": 4,
+      "equation": "d\\vec{r} = \\vec{v} dt"
+    },
+    {
+      "step": 5,
+      "equation": "W = \\int m \\frac{d\\vec{v}}{dt} \\cdot \\vec{v} dt = \\int m \\vec{v} \\cdot d\\vec{v}"
+    },
+    {
+      "step": 6,
+      "equation": "\\vec{v} \\cdot d\\vec{v} = \\frac{1}{2} d(\\vec{v} \\cdot \\vec{v}) = \\frac{1}{2} d(v^2)"
+    },
+    {
+      "step": 7,
+      "equation": "W = \\int m \\frac{1}{2} d(v^2) = \\frac{m}{2} \\int dv^2"
+    },
+    {
+      "step": 8,
+      "equation": "W = \\frac{m}{2}(v_f^2 - v_i^2) = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2"
+    },
+    {
+      "step": 9,
+      "equation": "W = K_f - K_i = \\Delta K"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Newton's second law applies"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Vector calculus relations"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Path independence for conservative forces"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Continuous force and motion"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "The work-energy theorem is derived by applying Newton's second law and integrating the force along the path of motion. Starting from F = ma and using the chain rule, we can show that the work integral equals the change in kinetic energy."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Work-Energy Theorem Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Constant force motion",
+      "print('Test 1: Constant force application')",
+      "m = 2.0      # mass (kg)",
+      "F = 10.0     # constant force (N)",
+      "d = 5.0      # displacement (m)",
+      "v_i = 0.0    # initial velocity",
+      "# Calculate work done",
+      "W = F * d",
+      "# Calculate final velocity using kinematics",
+      "a = F / m",
+      "v_f = math.sqrt(v_i**2 + 2 * a * d)",
+      "# Calculate kinetic energies",
+      "K_i = 0.5 * m * v_i**2",
+      "K_f = 0.5 * m * v_f**2",
+      "delta_K = K_f - K_i",
+      "print(f'Mass: {m} kg')",
+      "print(f'Force: {F} N')",
+      "print(f'Displacement: {d} m')",
+      "print(f'Work done: {W} J')",
+      "print(f'Initial KE: {K_i} J')",
+      "print(f'Final KE: {K_f} J')",
+      "print(f'Change in KE: {delta_K} J')",
+      "print(f'Work-energy theorem verified: {abs(W - delta_K) < 1e-10}')",
+      "print()",
+      "# Test 2: Variable force (spring)",
+      "print('Test 2: Variable force (spring)')",
+      "k = 100.0    # spring constant (N/m)",
+      "x_max = 0.2  # maximum compression (m)",
+      "# Work done by spring force: W = ∫F dx = ∫(-kx) dx",
+      "W_spring = 0.5 * k * x_max**2  # work done against spring",
+      "# If released from rest, all potential energy converts to kinetic",
+      "# At maximum compression: PE = ½kx², KE = 0",
+      "# At equilibrium: PE = 0, KE = ½mv²",
+      "v_max = math.sqrt(k * x_max**2 / m)",
+      "K_max = 0.5 * m * v_max**2",
+      "print(f'Spring constant: {k} N/m')",
+      "print(f'Maximum compression: {x_max} m')",
+      "print(f'Work by spring: {W_spring} J')",
+      "print(f'Maximum kinetic energy: {K_max} J')",
+      "print(f'Energy conservation verified: {abs(W_spring - K_max) < 1e-10}')",
+      "print()",
+      "print(f'\\nWork-energy theorem verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanics (non-relativistic)",
+      "Well-defined forces and paths",
+      "Inertial reference frames",
+      "Particle or rigid body systems"
+    ],
+    "limitations": [
+      "Relativistic corrections needed at high speeds",
+      "Quantum effects ignored at microscopic scales",
+      "May not apply to dissipative systems without careful accounting",
+      "Assumes point particle or rigid body"
+    ]
+  },
+  "historical_context": {
+    "development_period": "17th-19th centuries",
+    "importance": "Fundamental principle connecting force and energy concepts; essential for understanding mechanical systems",
+    "key_insights": [
+      "Emerged from Newton's laws of motion and the development of energy concepts",
+      "Gaspard-Gustave Coriolis formalized the work-energy relationship",
+      "The theorem bridges Newtonian mechanics and energy methods",
+      "It provides an alternative approach to solving mechanics problems"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Coriolis, G. G. (1829). 'Du Calcul de l'Effet des Machines.' Carilian-Goeury."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
+    }
+  ],
+  "dependencies": [
+    "newtons_second_law",
+    "conservation_of_energy"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

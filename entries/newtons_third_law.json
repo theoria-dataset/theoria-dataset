@@ -1,0 +1,153 @@
+{
+  "result_id": "newtons_third_law",
+  "result_name": "Newton's Third Law (Action-Reaction)",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec F_(AB) = -vec F_(BA)"
+    }
+  ],
+  "explanation": "Newton's third law states that for every action, there is an equal and opposite reaction. When object A exerts a force on object B, object B simultaneously exerts an equal force in the opposite direction on object A. This law ensures conservation of momentum and is fundamental to understanding interactions between objects.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The forces act along the line connecting the centers of the interacting objects."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The interaction is instantaneous (no propagation delay considered)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec F_(AB)",
+      "definition": "Force exerted by object A on object B."
+    },
+    {
+      "symbol": "vec F_(BA)",
+      "definition": "Force exerted by object B on object A."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "d/dt(vec p_A + vec p_B) = 0"
+    },
+    {
+      "step": 2,
+      "equation": "d/dt vec p_A + d/dt vec p_B = 0"
+    },
+    {
+      "step": 3,
+      "equation": "vec F_A + vec F_B = 0"
+    },
+    {
+      "step": 4,
+      "equation": "vec F_(BA) + vec F_(AB) = 0"
+    },
+    {
+      "step": 5,
+      "equation": "vec F_(AB) = -vec F_(BA)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system of two objects is isolated (no external forces)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Momentum is conserved for the isolated system."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "For an isolated system of two objects, total momentum is conserved, so its time derivative is zero."
+    },
+    {
+      "step": 2,
+      "text": "The time derivative of total momentum equals the sum of individual momentum derivatives."
+    },
+    {
+      "step": 3,
+      "text": "By Newton's second law, the time derivative of momentum equals the net force on each object."
+    },
+    {
+      "step": 4,
+      "text": "In a two-object system, the only forces are the interaction forces between the objects."
+    },
+    {
+      "step": 5,
+      "text": "Therefore, the forces must be equal in magnitude and opposite in direction."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Define force components",
+      "Fx_AB, Fy_AB, Fz_AB = sp.symbols('Fx_AB Fy_AB Fz_AB', real=True)",
+      "Fx_BA, Fy_BA, Fz_BA = sp.symbols('Fx_BA Fy_BA Fz_BA', real=True)",
+      "# Define force vectors",
+      "F_AB = sp.Matrix([Fx_AB, Fy_AB, Fz_AB])",
+      "F_BA = sp.Matrix([Fx_BA, Fy_BA, Fz_BA])",
+      "# Newton's third law: F_AB = -F_BA",
+      "third_law = sp.Eq(F_AB, -F_BA)",
+      "# Verify conservation of momentum consequence",
+      "total_force = F_AB + F_BA",
+      "# If third law holds, total force should be zero",
+      "# Substitute components individually according to third law",
+      "substitutions = {Fx_BA: -Fx_AB, Fy_BA: -Fy_AB, Fz_BA: -Fz_AB}",
+      "total_force_substituted = total_force.subs(substitutions)",
+      "assert total_force_substituted == sp.Matrix([0, 0, 0])",
+      "# Test with specific values",
+      "F_AB_test = sp.Matrix([10, -5, 3])",
+      "F_BA_test = -F_AB_test",
+      "assert F_AB_test + F_BA_test == sp.Matrix([0, 0, 0])"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanics",
+      "Instantaneous interactions",
+      "Well-defined contact or field forces",
+      "Non-relativistic speeds"
+    ],
+    "limitations": [
+      "Modified in relativistic mechanics due to finite propagation speed",
+      "May need careful interpretation for electromagnetic forces",
+      "Classical framework only",
+      "Assumes well-defined force concept"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental principle ensuring momentum conservation and explaining mutual interactions",
+    "development_period": "1687",
+    "key_insights": [
+      "Action-reaction pairs",
+      "Momentum conservation",
+      "Mutual nature of forces",
+      "Foundation for understanding collisions"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). *Philosophiæ Naturalis Principia Mathematica*. Royal Society."
+    },
+    {
+      "id": "R2",
+      "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1963). *The Feynman Lectures on Physics* (Vol. 1). Addison-Wesley."
+    }
+  ],
+  "dependencies": [
+    "newtons_second_law",
+    "conservation_of_momentum"
+  ],
+  "created_by": "TheorIA Dataset Expansion",
+  "review_status": "draft"
+}

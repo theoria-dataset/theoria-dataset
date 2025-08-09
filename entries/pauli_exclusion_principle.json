@@ -1,0 +1,277 @@
+{
+  "result_id": "pauli_exclusion_principle",
+  "result_name": "Pauli Exclusion Principle",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "psi(vec r_1, s_1; vec r_2, s_2) = -psi(vec r_2, s_2; vec r_1, s_1)"
+    },
+    {
+      "id": "eq2",
+      "equation": "N_max = 2*(2*l + 1)"
+    }
+  ],
+  "explanation": "The Pauli exclusion principle states that no two identical fermions can occupy the same quantum state simultaneously. This fundamental quantum mechanical rule explains the structure of atoms, the periodic table, stellar stability, and the behavior of matter at high densities. It arises from the antisymmetric nature of fermionic wavefunctions under particle exchange.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The particles are identical fermions (half-integer spin)."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The system can be described by quantum mechanics."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "Particle interactions can be neglected in the independent particle approximation."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The particles are non-relativistic (for atomic physics applications)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "psi(vec r_1, s_1; vec r_2, s_2)",
+      "definition": "Two-particle wavefunction with positions `vec r_1, vec r_2` and spins `s_1, s_2`."
+    },
+    {
+      "symbol": "N_max",
+      "definition": "Maximum number of electrons that can occupy a subshell with orbital angular momentum `l`."
+    },
+    {
+      "symbol": "l",
+      "definition": "Orbital angular momentum quantum number (0, 1, 2, ...)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "Psi = psi_1(vec r_1) * psi_2(vec r_2)"
+    },
+    {
+      "step": 2,
+      "equation": "Psi_+ = (1/sqrt(2)) * [psi_1(vec r_1) * psi_2(vec r_2) + psi_2(vec r_1) * psi_1(vec r_2)]"
+    },
+    {
+      "step": 3,
+      "equation": "Psi_- = (1/sqrt(2)) * [psi_1(vec r_1) * psi_2(vec r_2) - psi_2(vec r_1) * psi_1(vec r_2)]"
+    },
+    {
+      "step": 4,
+      "equation": "hat P_{12} Psi_+ = +Psi_+"
+    },
+    {
+      "step": 5,
+      "equation": "hat P_{12} Psi_- = -Psi_-"
+    },
+    {
+      "step": 6,
+      "equation": "Psi_fermion = Psi_-"
+    },
+    {
+      "step": 7,
+      "equation": "psi_1 = psi_2 Rightarrow Psi_- = 0"
+    },
+    {
+      "step": 8,
+      "equation": "n, l, m_l, m_s"
+    },
+    {
+      "step": 9,
+      "equation": "m_s = +1/2 text( or ) -1/2"
+    },
+    {
+      "step": 10,
+      "equation": "m_l = -l, -l+1, ..., l-1, l"
+    },
+    {
+      "step": 11,
+      "equation": "text(Number of ) m_l text( values) = 2*l + 1"
+    },
+    {
+      "step": 12,
+      "equation": "text(Number of spin states) = 2"
+    },
+    {
+      "step": 13,
+      "equation": "N_max = (2*l + 1) * 2 = 2*(2*l + 1)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Identical particles are truly indistinguishable in quantum mechanics."
+    },
+    {
+      "id": "assumption2",
+      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange."
+    },
+    {
+      "id": "assumption3",
+      "text": "Fermions have half-integer spin and antisymmetric wavefunctions."
+    },
+    {
+      "id": "assumption4",
+      "text": "Each quantum state is characterized by a complete set of quantum numbers."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with a simple product wavefunction for two particles in different states."
+    },
+    {
+      "step": 2,
+      "text": "Construct the symmetric combination under particle exchange."
+    },
+    {
+      "step": 3,
+      "text": "Construct the antisymmetric combination under particle exchange."
+    },
+    {
+      "step": 4,
+      "text": "The permutation operator leaves the symmetric state unchanged."
+    },
+    {
+      "step": 5,
+      "text": "The permutation operator changes the sign of the antisymmetric state."
+    },
+    {
+      "step": 6,
+      "text": "Fermions must have antisymmetric wavefunctions by the spin-statistics theorem."
+    },
+    {
+      "step": 7,
+      "text": "When both particles are in the same state, the antisymmetric wavefunction vanishes."
+    },
+    {
+      "step": 8,
+      "text": "List the quantum numbers that specify an electron state in an atom."
+    },
+    {
+      "step": 9,
+      "text": "The spin magnetic quantum number can take two values for spin-1/2 particles."
+    },
+    {
+      "step": 10,
+      "text": "The orbital magnetic quantum number ranges from -l to +l."
+    },
+    {
+      "step": 11,
+      "text": "Count the number of possible orbital magnetic quantum numbers."
+    },
+    {
+      "step": 12,
+      "text": "Each orbital state can accommodate two electrons with opposite spins."
+    },
+    {
+      "step": 13,
+      "text": "Calculate the maximum occupancy by multiplying orbital and spin degeneracies."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "n, l, m_l, m_s = sp.symbols('n l m_l m_s', integer=True)",
+      "N_max = sp.symbols('N_max', integer=True, positive=True)",
+      "",
+      "# Step 13: Maximum occupancy formula",
+      "N_max_formula = 2*(2*l + 1)",
+      "",
+      "# Test for specific subshells",
+      "# s subshell: l = 0",
+      "N_s = N_max_formula.subs(l, 0)",
+      "assert N_s == 2  # s² maximum",
+      "",
+      "# p subshell: l = 1",
+      "N_p = N_max_formula.subs(l, 1)",
+      "assert N_p == 6  # p⁶ maximum",
+      "",
+      "# d subshell: l = 2",
+      "N_d = N_max_formula.subs(l, 2)",
+      "assert N_d == 10  # d¹⁰ maximum",
+      "",
+      "# f subshell: l = 3",
+      "N_f = N_max_formula.subs(l, 3)",
+      "assert N_f == 14  # f¹⁴ maximum",
+      "",
+      "# Verify electron configuration patterns",
+      "# 1s²: n=1, l=0, max=2 electrons",
+      "# 2s²: n=2, l=0, max=2 electrons",
+      "# 2p⁶: n=2, l=1, max=6 electrons",
+      "# Total for n=2 shell: 2+6=8 electrons",
+      "",
+      "# Test shell capacity: 2n² rule",
+      "# This comes from summing over all subshells in a shell",
+      "def shell_capacity(n_val):",
+      "    total = 0",
+      "    for l_val in range(n_val):  # l goes from 0 to n-1",
+      "        total += 2*(2*l_val + 1)",
+      "    return total",
+      "",
+      "# Verify for first few shells",
+      "assert shell_capacity(1) == 2   # K shell: 1s²",
+      "assert shell_capacity(2) == 8   # L shell: 2s² 2p⁶",
+      "assert shell_capacity(3) == 18  # M shell: 3s² 3p⁶ 3d¹⁰",
+      "assert shell_capacity(4) == 32  # N shell: 4s² 4p⁶ 4d¹⁰ 4f¹⁴",
+      "",
+      "# Verify that this gives 2n²",
+      "def verify_2n_squared(n_val):",
+      "    calculated = shell_capacity(n_val)",
+      "    expected = 2 * n_val**2",
+      "    return calculated == expected",
+      "",
+      "assert verify_2n_squared(1)",
+      "assert verify_2n_squared(2)",
+      "assert verify_2n_squared(3)",
+      "assert verify_2n_squared(4)",
+      "",
+      "# Symbolic verification of 2n² rule",
+      "n_sym = sp.symbols('n', integer=True, positive=True)",
+      "shell_sum = sp.Sum(2*(2*l + 1), (l, 0, n_sym-1))",
+      "shell_sum_evaluated = shell_sum.doit()",
+      "",
+      "# Simplify the sum",
+      "shell_sum_simplified = sp.simplify(shell_sum_evaluated)",
+      "expected_2n_squared = 2*n_sym**2",
+      "",
+      "# Verify they are equal",
+      "difference = sp.simplify(shell_sum_simplified - expected_2n_squared)",
+      "assert difference == 0",
+      "",
+      "# Test antisymmetry condition symbolically",
+      "# For identical particles in same state: ψ(1,2) = -ψ(2,1)",
+      "# If state 1 = state 2, then ψ(1,2) = ψ(2,1)",
+      "# Combined with antisymmetry: ψ(1,2) = -ψ(1,2)",
+      "# This implies: 2*ψ(1,2) = 0, so ψ(1,2) = 0",
+      "",
+      "psi = sp.symbols('psi')",
+      "antisymmetry_condition = sp.Eq(psi, -psi)  # When particles in same state",
+      "solution = sp.solve(antisymmetry_condition, psi)",
+      "assert solution == [0]  # Only solution is ψ = 0",
+      "",
+      "# Test white dwarf electron degeneracy pressure",
+      "# At high density, Pauli pressure prevents gravitational collapse",
+      "# This is a consequence of the exclusion principle"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Pauli, W. (1925). 'Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren.' Zeitschrift für Physik, 31, 765-783."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

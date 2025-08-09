@@ -1,6 +1,12 @@
 {
+  "result_id": "fourier_heat_conduction",
   "result_name": "Fourier's Law of Heat Conduction",
-  "result_equations": [{ "id": "eq1", "equation": "`vec{q} = -k*nabla T`" }],
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "`vec{q} = -k*nabla T`"
+    }
+  ],
   "explanation": "Fourier's conduction law states that heat-flux density `vec{q}` is proportional to the negative temperature gradient, `vec{q} = -k*nabla T`. It defines thermal conductivity, leads directly to the heat-diffusion equation and quantifies how rapidly solids or stationary fluids conduct heat. Engineers apply it to rate insulation, design heat exchangers and simulate geothermal or electronic cooling problems.",
   "equations_assumptions": [
     {
@@ -17,24 +23,72 @@
     }
   ],
   "definitions": [
-    { "symbol": "vec{q}", "definition": "Heat-flux vector (`W*m^-2`)." },
-    { "symbol": "k", "definition": "Thermal conductivity (`W*m^-1*K^-1`)." },
-    { "symbol": "T", "definition": "Temperature field (`K`)." },
-    { "symbol": "A", "definition": "Cross-sectional area (`m^2`)." },
-    { "symbol": "Delta x", "definition": "Small distance interval (`m`)." },
-    { "symbol": "Delta T", "definition": "Temperature difference (`K`)." },
-    { "symbol": "Qdot", "definition": "Rate of heat transfer (`W`)." },
-    { "symbol": "q_x", "definition": "Heat flux in x-direction (`W*m^-2`)." },
-    { "symbol": "x", "definition": "Spatial coordinate (`m`)." },
-    { "symbol": "L", "definition": "Length of the material (`m`)." },
-    { "symbol": "T1", "definition": "Temperature at x=0 (`K`)." },
-    { "symbol": "T2", "definition": "Temperature at x=L (`K`)." }
+    {
+      "symbol": "vec{q}",
+      "definition": "Heat-flux vector (`W*m^-2`)."
+    },
+    {
+      "symbol": "k",
+      "definition": "Thermal conductivity (`W*m^-1*K^-1`)."
+    },
+    {
+      "symbol": "T",
+      "definition": "Temperature field (`K`)."
+    },
+    {
+      "symbol": "A",
+      "definition": "Cross-sectional area (`m^2`)."
+    },
+    {
+      "symbol": "Delta x",
+      "definition": "Small distance interval (`m`)."
+    },
+    {
+      "symbol": "Delta T",
+      "definition": "Temperature difference (`K`)."
+    },
+    {
+      "symbol": "Qdot",
+      "definition": "Rate of heat transfer (`W`)."
+    },
+    {
+      "symbol": "q_x",
+      "definition": "Heat flux in x-direction (`W*m^-2`)."
+    },
+    {
+      "symbol": "x",
+      "definition": "Spatial coordinate (`m`)."
+    },
+    {
+      "symbol": "L",
+      "definition": "Length of the material (`m`)."
+    },
+    {
+      "symbol": "T1",
+      "definition": "Temperature at x=0 (`K`)."
+    },
+    {
+      "symbol": "T2",
+      "definition": "Temperature at x=L (`K`)."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "`Qdot = -k*A*(Delta T/Delta x)`" },
-    { "step": 2, "equation": "`q_x = Qdot/A`" },
-    { "step": 3, "equation": "`q_x = -k*partial T/partial x`" },
-    { "step": 4, "equation": "`vec{q} = -k*nabla T`" }
+    {
+      "step": 1,
+      "equation": "`Qdot = -k*A*(Delta T/Delta x)`"
+    },
+    {
+      "step": 2,
+      "equation": "`q_x = Qdot/A`"
+    },
+    {
+      "step": 3,
+      "equation": "`q_x = -k*partial T/partial x`"
+    },
+    {
+      "step": 4,
+      "equation": "`vec{q} = -k*nabla T`"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -51,8 +105,14 @@
       "step": 1,
       "text": "Empirical observation: rate of heat transfer ∝ area and `Delta T`."
     },
-    { "step": 2, "text": "Define flux by dividing by cross-section area." },
-    { "step": 3, "text": "Take limit `Delta x -> 0` to obtain gradient form." },
+    {
+      "step": 2,
+      "text": "Define flux by dividing by cross-section area."
+    },
+    {
+      "step": 3,
+      "text": "Take limit `Delta x -> 0` to obtain gradient form."
+    },
     {
       "step": 4,
       "text": "Generalise to three dimensions using vector gradient, assuming isotropic thermal conductivity."
@@ -77,6 +137,30 @@
       "assert sp.simplify(q - k*(T1 - T2)/L) == 0"
     ]
   },
+  "theory_status": "approximation",
+  "validity_regime": {
+    "conditions": [
+      "Classical heat conduction (macroscopic scale)",
+      "Continuum approximation",
+      "Local thermal equilibrium",
+      "Fourier's law applies (linear heat flux)"
+    ],
+    "limitations": [
+      "Breaks down at very small length scales",
+      "Assumes local thermal equilibrium",
+      "Classical treatment (no quantum effects)",
+      "May fail in extreme temperature gradients"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of heat transfer theory, widely used in engineering and physics",
+    "development_period": "1822",
+    "key_insights": [
+      "Mathematical description of heat flow",
+      "Diffusion equation for temperature",
+      "Thermal conductivity concept"
+    ]
+  },
   "domain": "cond-mat.stat-mech",
   "references": [
     {
@@ -92,7 +176,9 @@
       "citation": "Bergman, T. L., Lavine, A. S., Incropera, F. P., & DeWitt, D. P. (2011). *Introduction to Heat Transfer* (6th ed.). Wiley."
     }
   ],
-  "dependencies": ["first_law_thermodynamics.json"],
+  "dependencies": [
+    "first_law_thermodynamics"
+  ],
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }

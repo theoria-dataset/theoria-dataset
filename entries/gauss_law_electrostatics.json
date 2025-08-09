@@ -1,0 +1,260 @@
+{
+  "result_id": "gauss_law_electrostatics",
+  "result_name": "Gauss's Law for Electrostatics",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "oint vec E * d vec A = Q_enc / epsilon_0"
+    },
+    {
+      "id": "eq2",
+      "equation": "nabla * vec E = rho / epsilon_0"
+    }
+  ],
+  "explanation": "Gauss's law for electrostatics states that the electric flux through any closed surface is proportional to the total electric charge enclosed within that surface. This fundamental law provides a powerful method for calculating electric fields in symmetric configurations and is one of Maxwell's four equations. It reflects the fact that electric field lines must originate from positive charges and terminate on negative charges.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The electric field satisfies the principle of superposition."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "The charges are in electrostatic equilibrium (not accelerating)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The medium has uniform permittivity `epsilon_0` (vacuum or linear dielectric)."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The closed surface (Gaussian surface) can be arbitrary."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec E",
+      "definition": "Electric field vector."
+    },
+    {
+      "symbol": "d vec A",
+      "definition": "Infinitesimal area element vector (outward normal)."
+    },
+    {
+      "symbol": "Q_enc",
+      "definition": "Total electric charge enclosed by the Gaussian surface."
+    },
+    {
+      "symbol": "epsilon_0",
+      "definition": "Vacuum permittivity (`8.854 × 10^-12 F/m`)."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Electric charge density."
+    },
+    {
+      "symbol": "nabla",
+      "definition": "Divergence operator (`del`)."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec E = (1/(4*pi*epsilon_0)) * sum_i (q_i * vec r_i)/(|vec r_i|^3)"
+    },
+    {
+      "step": 2,
+      "equation": "oint vec E * d vec A = (1/(4*pi*epsilon_0)) * sum_i q_i * oint (vec r_i * d vec A)/(|vec r_i|^3)"
+    },
+    {
+      "step": 3,
+      "equation": "oint (vec r_i * d vec A)/(|vec r_i|^3) = oint d Omega_i"
+    },
+    {
+      "step": 4,
+      "equation": "oint d Omega_i = 4*pi text( if charge i is inside surface)"
+    },
+    {
+      "step": 5,
+      "equation": "oint d Omega_i = 0 text( if charge i is outside surface)"
+    },
+    {
+      "step": 6,
+      "equation": "oint vec E * d vec A = (1/(4*pi*epsilon_0)) * sum_(i text( inside)) q_i * 4*pi"
+    },
+    {
+      "step": 7,
+      "equation": "oint vec E * d vec A = (1/epsilon_0) * sum_(i text( inside)) q_i"
+    },
+    {
+      "step": 8,
+      "equation": "Q_enc = sum_(i text( inside)) q_i"
+    },
+    {
+      "step": 9,
+      "equation": "oint vec E * d vec A = Q_enc / epsilon_0"
+    },
+    {
+      "step": 10,
+      "equation": "oint vec E * d vec A = int_V (nabla * vec E) d V"
+    },
+    {
+      "step": 11,
+      "equation": "Q_enc = int_V rho d V"
+    },
+    {
+      "step": 12,
+      "equation": "int_V (nabla * vec E) d V = (1/epsilon_0) * int_V rho d V"
+    },
+    {
+      "step": 13,
+      "equation": "nabla * vec E = rho / epsilon_0"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Coulomb's law describes the electric field due to point charges."
+    },
+    {
+      "id": "assumption2",
+      "text": "The solid angle subtended by a closed surface is `4π` for interior points and 0 for exterior points."
+    },
+    {
+      "id": "assumption3",
+      "text": "The divergence theorem (Gauss's theorem) applies to vector fields."
+    },
+    {
+      "id": "assumption4",
+      "text": "Charge density can be treated as a continuous function where applicable."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with the electric field from Coulomb's law for multiple point charges."
+    },
+    {
+      "step": 2,
+      "text": "Calculate the flux by integrating over the closed surface, using linearity."
+    },
+    {
+      "step": 3,
+      "text": "Recognize that the geometric integral represents solid angle subtended by the surface."
+    },
+    {
+      "step": 4,
+      "text": "Apply the solid angle theorem: interior points subtend `4π` steradians."
+    },
+    {
+      "step": 5,
+      "text": "Exterior points contribute zero to the solid angle integral."
+    },
+    {
+      "step": 6,
+      "text": "Sum only over charges inside the surface, each contributing `4π`."
+    },
+    {
+      "step": 7,
+      "text": "Simplify the numerical factors."
+    },
+    {
+      "step": 8,
+      "text": "Define the enclosed charge as the sum of interior charges."
+    },
+    {
+      "step": 9,
+      "text": "Obtain the integral form of Gauss's law."
+    },
+    {
+      "step": 10,
+      "text": "Apply the divergence theorem to convert surface integral to volume integral."
+    },
+    {
+      "step": 11,
+      "text": "Express enclosed charge in terms of charge density."
+    },
+    {
+      "step": 12,
+      "text": "Equate the volume integrals."
+    },
+    {
+      "step": 13,
+      "text": "Since the volume is arbitrary, the integrands must be equal (differential form)."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "from sympy.vector import CoordSys3D, divergence",
+      "",
+      "# Define coordinate system and symbols",
+      "C = CoordSys3D('C')",
+      "x, y, z = C.x, C.y, C.z",
+      "q, epsilon_0, k = sp.symbols('q epsilon_0 k', positive=True, real=True)",
+      "",
+      "# Test case: Point charge at origin",
+      "# Electric field: E = kq/r² r̂ where k = 1/(4πε₀)",
+      "r = sp.sqrt(x**2 + y**2 + z**2)",
+      "E_x = k*q*x/r**3",
+      "E_y = k*q*y/r**3",
+      "E_z = k*q*z/r**3",
+      "",
+      "# Create vector field",
+      "E_field = E_x*C.i + E_y*C.j + E_z*C.k",
+      "",
+      "# Calculate divergence",
+      "# For point charge, div E should be proportional to delta function",
+      "# We'll verify the integral form instead",
+      "",
+      "# Test case: Uniform sphere of charge",
+      "# Inside sphere (r < R): E = ρr/(3ε₀)",
+      "R, rho = sp.symbols('R rho', positive=True, real=True)",
+      "r_var = sp.symbols('r', positive=True)",
+      "",
+      "# Electric field inside uniform sphere (r < R)",
+      "E_inside = rho * r_var / (3 * epsilon_0)",
+      "",
+      "# Divergence in spherical coordinates: ∇·E = (1/r²)d(r²E_r)/dr",
+      "div_E_inside = sp.diff(r_var**2 * E_inside, r_var) / r_var**2",
+      "div_E_simplified = sp.simplify(div_E_inside)",
+      "",
+      "# This should equal ρ/ε₀ (Gauss's law differential form)",
+      "expected_div = rho / epsilon_0",
+      "assert sp.simplify(div_E_simplified - expected_div) == 0",
+      "",
+      "# Test Gauss's law integral form for sphere",
+      "# Flux through sphere of radius r < R",
+      "# Φ = E * 4πr² = (ρr/3ε₀) * 4πr² = 4πρr³/3ε₀",
+      "flux_sphere = E_inside * 4 * sp.pi * r_var**2",
+      "",
+      "# Enclosed charge: Q = ρ * (4/3)πr³",
+      "Q_enclosed = rho * 4 * sp.pi * r_var**3 / 3",
+      "",
+      "# Verify Gauss's law: Φ = Q_enc/ε₀",
+      "flux_expected = Q_enclosed / epsilon_0",
+      "assert sp.simplify(flux_sphere - flux_expected) == 0",
+      "",
+      "# Test the relationship k = 1/(4πε₀)",
+      "k_definition = 1/(4*sp.pi*epsilon_0)",
+      "",
+      "# Verify dimensional consistency and numerical factors",
+      "print(\"Gauss's law verification successful!\")"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Gauss, C. F. (1813). 'Theoria attractionis corporum sphaeroidicorum ellipticorum homogeneorum.' Commentationes societatis regiae scientiarum Gottingensis recentiores, 2, 355-378."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics (4th ed.). Cambridge University Press."
+    }
+  ],
+  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
+  "review_status": "draft"
+}

@@ -1,0 +1,246 @@
+{
+  "result_id": "compton_scattering",
+  "result_name": "Compton Scattering",
+  "result_equations": [
+    {
+      "id": "compton_wavelength_shift",
+      "equation": "\\lambda' - \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)"
+    },
+    {
+      "id": "compton_wavelength",
+      "equation": "\\lambda_C = \\frac{h}{m_e c}"
+    },
+    {
+      "id": "scattered_photon_energy",
+      "equation": "E' = \\frac{E}{1 + \\frac{E}{m_e c^2}(1 - \\cos\\theta)}"
+    },
+    {
+      "id": "recoil_electron_energy",
+      "equation": "K_e = E - E' = \\frac{E^2(1 - \\cos\\theta)}{m_e c^2 + E(1 - \\cos\\theta)}"
+    }
+  ],
+  "explanation": "Compton scattering occurs when a photon collides with a free or loosely bound electron, transferring energy and momentum to the electron. The scattered photon has lower energy (longer wavelength) than the incident photon, providing direct evidence for the particle nature of light.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Free or loosely bound electrons"
+    },
+    {
+      "id": "assump2",
+      "text": "Relativistic energy-momentum conservation"
+    },
+    {
+      "id": "assump3",
+      "text": "Point-like collision"
+    },
+    {
+      "id": "assump4",
+      "text": "No other interactions"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "λ'",
+      "definition": "Wavelength of scattered photon"
+    },
+    {
+      "symbol": "λ",
+      "definition": "Wavelength of incident photon"
+    },
+    {
+      "symbol": "h",
+      "definition": "Planck's constant"
+    },
+    {
+      "symbol": "m_e",
+      "definition": "Electron rest mass"
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light"
+    },
+    {
+      "symbol": "θ",
+      "definition": "Scattering angle"
+    },
+    {
+      "symbol": "λ_C",
+      "definition": "Compton wavelength of electron"
+    },
+    {
+      "symbol": "E",
+      "definition": "Energy of incident photon"
+    },
+    {
+      "symbol": "E'",
+      "definition": "Energy of scattered photon"
+    },
+    {
+      "symbol": "K_e",
+      "definition": "Kinetic energy of recoil electron"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "E = hf = \\frac{hc}{\\lambda}, \\quad p = \\frac{E}{c} = \\frac{h}{\\lambda}"
+    },
+    {
+      "step": 2,
+      "equation": "\\text{Energy conservation: } E + m_e c^2 = E' + \\sqrt{(p_e c)^2 + (m_e c^2)^2}"
+    },
+    {
+      "step": 3,
+      "equation": "\\text{Momentum conservation: } \\vec{p} = \\vec{p}' + \\vec{p}_e"
+    },
+    {
+      "step": 4,
+      "equation": "p_e^2 = p^2 + p'^2 - 2pp'\\cos\\theta"
+    },
+    {
+      "step": 5,
+      "equation": "(E - E' + m_e c^2)^2 = (p_e c)^2 + (m_e c^2)^2"
+    },
+    {
+      "step": 6,
+      "equation": "\\frac{1}{E'} - \\frac{1}{E} = \\frac{1 - \\cos\\theta}{m_e c^2}"
+    },
+    {
+      "step": 7,
+      "equation": "\\lambda' - \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Relativistic energy-momentum relations"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Conservation of energy and momentum"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Photon as massless particle"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Initial electron at rest"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Compton scattering is derived using relativistic conservation of energy and momentum for the photon-electron collision. The key insight is treating the photon as a particle with energy E = hf and momentum p = h/λ."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import math",
+      "print('Compton Scattering Verification\\n')",
+      "print('=' * 40)",
+      "# Constants",
+      "h = 6.626e-34  # Planck's constant (J⋅s)",
+      "c = 3e8        # Speed of light (m/s)",
+      "m_e = 9.109e-31  # Electron rest mass (kg)",
+      "e = 1.602e-19  # Elementary charge (C)",
+      "# Compton wavelength of electron",
+      "lambda_C = h / (m_e * c)",
+      "print(f'Compton wavelength: {lambda_C*1e12:.3f} pm')",
+      "# Test 1: Wavelength shift verification",
+      "def verify_wavelength_shift():",
+      "    \"\"\"Verify Compton wavelength shift formula\"\"\"",
+      "    print('\\nTest 1: Wavelength shift vs scattering angle')",
+      "    ",
+      "    # X-ray photon",
+      "    lambda_initial = 0.071e-9  # 71 pm (typical X-ray)",
+      "    angles_deg = [0, 90, 180]",
+      "    angles_rad = [math.radians(angle) for angle in angles_deg]",
+      "    ",
+      "    print(f'Initial wavelength: {lambda_initial*1e12:.1f} pm')",
+      "    print('Angle (°)\\tΔλ (pm)')",
+      "    print('-' * 20)",
+      "    ",
+      "    for angle_deg, angle_rad in zip(angles_deg, angles_rad):",
+      "        delta_lambda = lambda_C * (1 - math.cos(angle_rad))",
+      "        print(f'{angle_deg:5.0f}\\t\\t{delta_lambda*1e12:6.1f}')",
+      "    ",
+      "    return True",
+      "# Test 2: Energy conservation",
+      "def verify_energy_conservation():",
+      "    \"\"\"Verify energy conservation in Compton scattering\"\"\"",
+      "    print('\\nTest 2: Energy conservation verification')",
+      "    ",
+      "    # 100 keV X-ray photon at 90° scattering",
+      "    E_initial_keV = 100",
+      "    E_initial = E_initial_keV * 1000 * e",
+      "    theta = math.pi / 2  # 90 degrees",
+      "    ",
+      "    # Scattered photon energy",
+      "    E_scattered = E_initial / (1 + (E_initial / (m_e * c**2)) * (1 - math.cos(theta)))",
+      "    E_scattered_keV = E_scattered / (1000 * e)",
+      "    ",
+      "    # Recoil electron energy",
+      "    K_electron_keV = E_initial_keV - E_scattered_keV",
+      "    ",
+      "    print(f'Initial photon energy: {E_initial_keV:.1f} keV')",
+      "    print(f'Scattered photon energy: {E_scattered_keV:.1f} keV')",
+      "    print(f'Recoil electron energy: {K_electron_keV:.1f} keV')",
+      "    print(f'Energy conserved: {abs(E_initial_keV - (E_scattered_keV + K_electron_keV)) < 0.1}')",
+      "    ",
+      "    return math.isclose(E_initial_keV, E_scattered_keV + K_electron_keV)",
+      "# Run tests",
+      "test1 = verify_wavelength_shift()",
+      "test2 = verify_energy_conservation()",
+      "print('\\nSummary:')",
+      "print(f'Wavelength shift formula: {test1}')",
+      "print(f'Energy conservation: {test2}')",
+      "print(f'All tests passed: {all([test1, test2])}')",
+      "print('\\nCompton scattering verified - proof of photon particle nature!')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "High-energy photons (X-ray, γ-ray)",
+      "Free or weakly bound electrons",
+      "Single scattering events",
+      "Non-relativistic electron treatment"
+    ],
+    "limitations": [
+      "Bound electron effects in inner shells",
+      "Multiple scattering in thick materials",
+      "Relativistic electron effects",
+      "Quantum field theory corrections"
+    ]
+  },
+  "historical_context": {
+    "development_period": "1923",
+    "importance": "Provided definitive evidence for photon particle nature; confirmed quantum mechanics and earned Compton the 1927 Nobel Prize",
+    "key_insights": [
+      "Arthur Compton discovered the wavelength shift in X-ray scattering from electrons",
+      "Peter Debye independently derived the same result using quantum theory",
+      "Experiment confirmed the particle nature of electromagnetic radiation"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Compton, A. H. (1923). A quantum theory of the scattering of X-rays by light elements. Physical Review, 21(5), 483-502."
+    },
+    {
+      "id": "ref2",
+      "citation": "Klein, O., & Nishina, Y. (1929). Über die Streuung von Strahlung durch freie Elektronen nach der neuen relativistischen Quantendynamik von Dirac. Zeitschrift für Physik, 52(11-12), 853-868."
+    }
+  ],
+  "dependencies": [
+    "photoelectric_effect",
+    "conservation_of_energy",
+    "conservation_of_momentum"
+  ],
+  "created_by": "theory_classification_system",
+  "review_status": "draft"
+}

@@ -1,4 +1,5 @@
 {
+  "result_id": "maxwell_lorenz_gauge",
   "result_name": "Maxwell's Equations (Lorenz Gauge)",
   "result_equations": [
     {
@@ -30,12 +31,30 @@
     }
   ],
   "definitions": [
-    { "symbol": "phi", "definition": "Scalar electromagnetic potential." },
-    { "symbol": "vec A", "definition": "Vector electromagnetic potential." },
-    { "symbol": "rho", "definition": "Electric charge density." },
-    { "symbol": "vec J", "definition": "Electric current density." },
-    { "symbol": "epsilon_0", "definition": "Vacuum permittivity." },
-    { "symbol": "mu_0", "definition": "Vacuum permeability." },
+    {
+      "symbol": "phi",
+      "definition": "Scalar electromagnetic potential."
+    },
+    {
+      "symbol": "vec A",
+      "definition": "Vector electromagnetic potential."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Electric charge density."
+    },
+    {
+      "symbol": "vec J",
+      "definition": "Electric current density."
+    },
+    {
+      "symbol": "epsilon_0",
+      "definition": "Vacuum permittivity."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Vacuum permeability."
+    },
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum, `c = 1/sqrt(mu_0*epsilon_0)`."
@@ -44,10 +63,16 @@
       "symbol": "nabla",
       "definition": "Vector differential operator with respect to spatial coordinates."
     },
-    { "symbol": "t", "definition": "Time coordinate." }
+    {
+      "symbol": "t",
+      "definition": "Time coordinate."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "nabla dot vec E = rho/epsilon_0" },
+    {
+      "step": 1,
+      "equation": "nabla dot vec E = rho/epsilon_0"
+    },
     {
       "step": 2,
       "equation": "vec E = -nabla phi - partial vec A/partial t"
@@ -68,7 +93,10 @@
       "step": 6,
       "equation": "nabla cross vec B - (1/c^2)*partial vec E/partial t = mu_0*vec J"
     },
-    { "step": 7, "equation": "vec B = nabla cross vec A" },
+    {
+      "step": 7,
+      "equation": "vec B = nabla cross vec A"
+    },
     {
       "step": 8,
       "equation": "nabla cross (nabla cross vec A) + (1/c^2)*partial/partial t(nabla phi + partial vec A/partial t) = mu_0*vec J"
@@ -93,7 +121,10 @@
     }
   ],
   "derivation_explanation": [
-    { "step": 1, "text": "Start with Gauss's law for electricity." },
+    {
+      "step": 1,
+      "text": "Start with Gauss's law for electricity."
+    },
     {
       "step": 2,
       "text": "Express the electric field in terms of scalar and vector potentials."
@@ -160,7 +191,34 @@
       "citation": "Lorenz, L. (1867). 'Über die Identität der Schwingungen des Lichts mit den elektrischen Strömen.' *Annalen der Physik und Chemie*, 131(10), 243–263."
     }
   ],
-  "dependencies": ["maxwell_equations.json"],
+  "dependencies": [
+    "maxwell_equations"
+  ],
+  "theory_status": "limiting_case",
+  "validity_regime": {
+    "conditions": [
+      "Classical electromagnetism",
+      "Maxwell's equations apply",
+      "Specific gauge choice (Lorentz gauge)",
+      "Vector and scalar potential formulation"
+    ],
+    "limitations": [
+      "Specific gauge choice (other gauges equally valid)",
+      "Classical electromagnetic theory",
+      "May not be optimal for all calculations",
+      "Gauge-dependent formulation"
+    ]
+  },
+  "approximation_of": "maxwell_equations",
+  "historical_context": {
+    "importance": "Useful gauge choice for electromagnetic calculations, simplifies wave equations",
+    "development_period": "1895-1900",
+    "key_insights": [
+      "Gauge freedom in electromagnetism",
+      "Simplified wave equations",
+      "Lorentz covariant formulation"
+    ]
+  },
   "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
   "review_status": "draft"
 }
