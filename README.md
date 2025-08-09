@@ -56,6 +56,36 @@ We are _tiny_ right now, every new entry counts! To contribute:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
+## Testing Your Entries
+
+Before submitting, test your entries with our scientist-friendly tools:
+
+### Quick Testing (Recommended)
+```bash
+# Test a specific entry
+make test-entry FILE=your_entry_name
+
+# Validate schema only  
+make validate FILE=your_entry_name
+
+# Test all entries
+make test
+```
+
+### Manual Testing
+```bash
+# Test single entry with detailed feedback
+python scripts/test_entry.py your_entry.json
+
+# Schema validation only
+python scripts/validate_schema.py your_entry.json
+
+# All programmatic verifications
+python scripts/verify_programmatic.py
+```
+
+These tools provide **clear error messages** that point to specific issues and suggest fixes, making it easier for scientists to get their contributions ready.
+
 ## Using THEORIA to train Machine Learning models
 
 You can either use the individual JSON files or automatically generate a single merged file using a script (e.g., with `jq`):
