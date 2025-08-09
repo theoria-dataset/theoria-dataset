@@ -1,4 +1,5 @@
 {
+  "result_id": "conservation_of_momentum",
   "result_name": "Conservation of Momentum",
   "result_equations": [
     {
@@ -217,7 +218,7 @@
     }
   ],
   "dependencies": [
-    "newtons_laws.json"
+    "newtons_laws"
   ],
   "created_by": "theory_classification_system",
   "review_status": "draft"

@@ -1,4 +1,5 @@
 {
+  "result_id": "newtons_first_law",
   "result_name": "Newton's First Law (Law of Inertia)",
   "result_equations": [
     {
@@ -141,7 +142,9 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley."
     }
   ],
-  "dependencies": ["newtons_second_law.json"],
+  "dependencies": [
+    "newtons_second_law"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

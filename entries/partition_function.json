@@ -1,4 +1,5 @@
 {
+  "result_id": "partition_function",
   "result_name": "Partition Function (Canonical Ensemble)",
   "result_equations": [
     {
@@ -190,8 +191,8 @@
     }
   ],
   "dependencies": [
-    "boltzmann_distribution.json",
-    "first_law_thermodynamics.json"
+    "boltzmann_distribution",
+    "first_law_thermodynamics"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

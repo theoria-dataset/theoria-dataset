@@ -1,4 +1,5 @@
 {
+  "result_id": "buoyancy_archimedes",
   "result_name": "Archimedes' Principle (Buoyancy)",
   "result_equations": [
     {
@@ -255,7 +256,9 @@
       "citation": "Munson, B. R., et al. (2012). Fundamentals of Fluid Mechanics. Wiley."
     }
   ],
-  "dependencies": ["gravitational_force.json"],
+  "dependencies": [
+    "gravitational_force"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

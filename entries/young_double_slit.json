@@ -1,4 +1,5 @@
 {
+  "result_id": "young_double_slit",
   "result_name": "Young's Double Slit Experiment",
   "result_equations": [
     {
@@ -214,7 +215,10 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1965). *The Feynman Lectures on Physics, Volume III: Quantum Mechanics*. Addison-Wesley."
     }
   ],
-  "dependencies": ["wave_interference.json", "de_broglie_wavelength.json"],
+  "dependencies": [
+    "wave_interference",
+    "de_broglie_wavelength"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

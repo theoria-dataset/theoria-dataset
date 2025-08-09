@@ -1,4 +1,5 @@
 {
+  "result_id": "biot_savart_law",
   "result_name": "Biot-Savart Law",
   "result_equations": [
     {
@@ -184,7 +185,10 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["amperes_law.json", "maxwell_equations.json"],
+  "dependencies": [
+    "amperes_law",
+    "maxwell_equations"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

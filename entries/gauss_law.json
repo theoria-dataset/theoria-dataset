@@ -1,4 +1,5 @@
 {
+  "result_id": "gauss_law",
   "result_name": "Gauss's Law",
   "result_equations": [
     {
@@ -196,7 +197,10 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": ["electric_field.json", "coulombs_law.json"],
+  "dependencies": [
+    "electric_field",
+    "coulombs_law"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

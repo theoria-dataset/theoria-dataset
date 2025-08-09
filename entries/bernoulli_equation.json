@@ -1,11 +1,18 @@
 {
+  "result_id": "bernoulli_equation",
   "result_name": "Bernoulli's Equation (Inviscid Flow)",
   "result_equations": [
-    { "id": "eq1", "equation": "P + (1/2)*rho*v^2 + rho*g*h = const" }
+    {
+      "id": "eq1",
+      "equation": "P + (1/2)*rho*v^2 + rho*g*h = const"
+    }
   ],
   "explanation": "Bernoulli's equation asserts that along a streamline in steady, incompressible, inviscid flow the sum of static pressure, kinetic head and gravitational head remains constant. It translates fluid-energy conservation into a simple algebraic relation, connecting pressure differences with velocity changes. The equation governs Venturi meters, airfoil lift estimation and cardiovascular diagnostics, providing quick estimates of flow speed and pressure drop.",
   "equations_assumptions": [
-    { "id": "eq_assump1", "text": "Flow is steady (`partial/partial t = 0`)." },
+    {
+      "id": "eq_assump1",
+      "text": "Flow is steady (`partial/partial t = 0`)."
+    },
     {
       "id": "eq_assump2",
       "text": "Fluid is incompressible and inviscid (`mu = 0`)."
@@ -16,11 +23,26 @@
     }
   ],
   "definitions": [
-    { "symbol": "P", "definition": "Static pressure." },
-    { "symbol": "rho", "definition": "Fluid density." },
-    { "symbol": "v", "definition": "Speed along the streamline." },
-    { "symbol": "g", "definition": "Gravitational acceleration." },
-    { "symbol": "h", "definition": "Elevation above datum." }
+    {
+      "symbol": "P",
+      "definition": "Static pressure."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Fluid density."
+    },
+    {
+      "symbol": "v",
+      "definition": "Speed along the streamline."
+    },
+    {
+      "symbol": "g",
+      "definition": "Gravitational acceleration."
+    },
+    {
+      "symbol": "h",
+      "definition": "Elevation above datum."
+    }
   ],
   "derivation": [
     {
@@ -106,7 +128,9 @@
       "citation": "Bernoulli, D. (1738). *Hydrodynamica*. Basel."
     }
   ],
-  "dependencies": ["navier_stokes_incompressible.json"],
+  "dependencies": [
+    "navier_stokes_incompressible"
+  ],
   "theory_status": "approximation",
   "validity_regime": {
     "conditions": [
@@ -122,7 +146,7 @@
       "Does not apply in turbulent mixing regions"
     ]
   },
-  "approximation_of": "navier_stokes_incompressible.json",
+  "approximation_of": "navier_stokes_incompressible",
   "historical_context": {
     "importance": "Fundamental principle in fluid mechanics, widely used in engineering applications",
     "development_period": "1738",

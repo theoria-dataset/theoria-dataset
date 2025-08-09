@@ -1,4 +1,5 @@
 {
+  "result_id": "newtons_third_law",
   "result_name": "Newton's Third Law (Action-Reaction)",
   "result_equations": [
     {
@@ -143,7 +144,10 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1963). *The Feynman Lectures on Physics* (Vol. 1). Addison-Wesley."
     }
   ],
-  "dependencies": ["newtons_second_law.json", "conservation_of_momentum.json"],
+  "dependencies": [
+    "newtons_second_law",
+    "conservation_of_momentum"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

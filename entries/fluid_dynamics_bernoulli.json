@@ -1,4 +1,5 @@
 {
+  "result_id": "fluid_dynamics_bernoulli",
   "result_name": "Bernoulli's Principle",
   "result_equations": [
     {
@@ -210,8 +211,8 @@
     }
   ],
   "dependencies": [
-    "conservation_of_energy.json",
-    "continuity_equation.json"
+    "conservation_of_energy",
+    "continuity_equation"
   ],
   "created_by": "theory_classification_system",
   "review_status": "draft"

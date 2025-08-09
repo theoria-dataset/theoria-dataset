@@ -1,4 +1,5 @@
 {
+  "result_id": "heat_equation",
   "result_name": "Heat Equation",
   "result_equations": [
     {
@@ -220,7 +221,7 @@
     }
   ],
   "dependencies": [
-    "conservation_of_energy.json"
+    "conservation_of_energy"
   ],
   "created_by": "theory_classification_system",
   "review_status": "draft"

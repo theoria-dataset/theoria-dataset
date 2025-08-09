@@ -1,4 +1,5 @@
 {
+  "result_id": "planck_radiation_law",
   "result_name": "Planck's Radiation Law",
   "result_equations": [
     {
@@ -22,17 +23,44 @@
       "symbol": "u(nu,T)",
       "definition": "Spectral energy density per unit frequency."
     },
-    { "symbol": "nu", "definition": "Radiation frequency." },
-    { "symbol": "T", "definition": "Absolute temperature." },
-    { "symbol": "h", "definition": "Planck constant." },
-    { "symbol": "c", "definition": "Speed of light in vacuum." },
-    { "symbol": "k", "definition": "Boltzmann constant." }
+    {
+      "symbol": "nu",
+      "definition": "Radiation frequency."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature."
+    },
+    {
+      "symbol": "h",
+      "definition": "Planck constant."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "k",
+      "definition": "Boltzmann constant."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "rho(nu) = (8*pi*nu^2)/(c^3)" },
-    { "step": 2, "equation": "E_n = n*h*nu" },
-    { "step": 3, "equation": "<E> = (h*nu)/(exp(h*nu/(k*T)) - 1)" },
-    { "step": 4, "equation": "u(nu,T) = rho(nu)*<E>" }
+    {
+      "step": 1,
+      "equation": "rho(nu) = (8*pi*nu^2)/(c^3)"
+    },
+    {
+      "step": 2,
+      "equation": "E_n = n*h*nu"
+    },
+    {
+      "step": 3,
+      "equation": "<E> = (h*nu)/(exp(h*nu/(k*T)) - 1)"
+    },
+    {
+      "step": 4,
+      "equation": "u(nu,T) = rho(nu)*<E>"
+    }
   ],
   "derivation_assumptions": [
     {

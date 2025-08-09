@@ -1,4 +1,5 @@
 {
+  "result_id": "lenzs_law",
   "result_name": "Lenz's Law",
   "result_equations": [
     {
@@ -176,7 +177,10 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["faradays_law.json", "conservation_of_energy.json"],
+  "dependencies": [
+    "faradays_law",
+    "conservation_of_energy"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

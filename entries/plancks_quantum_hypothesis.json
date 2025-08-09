@@ -1,4 +1,5 @@
 {
+  "result_id": "plancks_quantum_hypothesis",
   "result_name": "Planck's Quantum Hypothesis",
   "result_equations": [
     {
@@ -263,7 +264,9 @@
   },
   "domain": "quant-ph",
   "theory_status": "historical",
-  "dependencies": ["planck_radiation_law.json"],
+  "dependencies": [
+    "planck_radiation_law"
+  ],
   "references": [
     {
       "id": "R1",

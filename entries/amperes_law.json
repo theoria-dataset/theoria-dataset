@@ -1,4 +1,5 @@
 {
+  "result_id": "amperes_law",
   "result_name": "Ampère's Circuital Law",
   "result_equations": [
     {
@@ -148,7 +149,9 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["maxwell_equations.json"],
+  "dependencies": [
+    "maxwell_equations"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

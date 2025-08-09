@@ -1,7 +1,11 @@
 {
+  "result_id": "foucault_pendulum",
   "result_name": "Foucault Pendulum",
   "result_equations": [
-    { "id": "eq1", "equation": "Omega_precession = Omega_E sin phi" }
+    {
+      "id": "eq1",
+      "equation": "Omega_precession = Omega_E sin phi"
+    }
   ],
   "explanation": "A Foucault pendulum demonstrates Earth's rotation by the precession of its swing plane. The rate of precession at latitude `phi` is `Omega_E sin phi`, where `Omega_E` is Earth's rotation rate. Thus, at the poles (`sin phi = 1`) the plane completes a 360-degree rotation in one sidereal day, while at the equator (`sin phi = 0`) there is no precession.",
   "equations_assumptions": [
@@ -33,7 +37,10 @@
       "step": 1,
       "equation": "Coriolis deflection frequency in horizontal plane = Omega_E sin phi"
     },
-    { "step": 2, "equation": "T_precession = 2*pi/(Omega_E sin phi)" }
+    {
+      "step": 2,
+      "equation": "T_precession = 2*pi/(Omega_E sin phi)"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -95,7 +102,7 @@
       "Earth-specific demonstration of rotation effects"
     ]
   },
-  "approximation_of": "coriolis_force.json",
+  "approximation_of": "coriolis_force",
   "historical_context": {
     "importance": "First direct demonstration of Earth's rotation, important for understanding rotating reference frames",
     "development_period": "1851",

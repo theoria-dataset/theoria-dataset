@@ -1,4 +1,5 @@
 {
+  "result_id": "centripetal_force",
   "result_name": "Centripetal Force",
   "result_equations": [
     {
@@ -185,7 +186,9 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). *Fundamentals of Physics* (10th ed.). Wiley."
     }
   ],
-  "dependencies": ["newtons_second_law.json"],
+  "dependencies": [
+    "newtons_second_law"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

@@ -1,4 +1,5 @@
 {
+  "result_id": "alpha_decay",
   "result_name": "Alpha Decay",
   "result_equations": [
     {
@@ -214,9 +215,9 @@
     }
   ],
   "dependencies": [
-    "radioactive_decay_law.json",
-    "nuclear_binding_energy.json",
-    "quantum_tunneling.json"
+    "radioactive_decay_law",
+    "nuclear_binding_energy",
+    "quantum_tunneling"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

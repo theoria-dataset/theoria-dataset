@@ -1,4 +1,5 @@
 {
+  "result_id": "carnot_efficiency",
   "result_name": "Carnot Efficiency",
   "result_equations": [
     {
@@ -203,8 +204,8 @@
     }
   ],
   "dependencies": [
-    "second_law_thermodynamics_clausius.json",
-    "first_law_thermodynamics.json"
+    "second_law_thermodynamics_clausius",
+    "first_law_thermodynamics"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

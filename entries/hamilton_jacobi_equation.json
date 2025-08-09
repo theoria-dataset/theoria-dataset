@@ -1,7 +1,11 @@
 {
+  "result_id": "hamilton_jacobi_equation",
   "result_name": "Hamilton-Jacobi Equation",
   "result_equations": [
-    { "id": "eq1", "equation": "H(q_i, del S/del q_i, t) + del S/del t = 0" }
+    {
+      "id": "eq1",
+      "equation": "H(q_i, del S/del q_i, t) + del S/del t = 0"
+    }
   ],
   "explanation": "The Hamilton-Jacobi equation is a reformulation of classical mechanics as a first-order partial differential equation for the action `S(q_i, t)`. It describes the evolution of Hamilton's principal function `S` such that its spatial gradients equal the momenta. Solving the H-J equation yields `S` from which the equations of motion can be obtained, providing a bridge to wave mechanics and ultimately to Schrödinger's equation.",
   "equations_assumptions": [
@@ -19,17 +23,32 @@
       "symbol": "S",
       "definition": "Hamilton's principal function (action) depending on coordinates `q_i` and time."
     },
-    { "symbol": "q_i", "definition": "Generalized coordinate i." },
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinate i."
+    },
     {
       "symbol": "p_i",
       "definition": "Conjugate momentum, given by `p_i = del S/del q_i`."
     },
-    { "symbol": "H", "definition": "Hamiltonian of the system." }
+    {
+      "symbol": "H",
+      "definition": "Hamiltonian of the system."
+    }
   ],
   "derivation": [
-    { "step": 1, "equation": "p_i = del S/del q_i" },
-    { "step": 2, "equation": "H(q_i, p_i, t) + del S/del t = 0" },
-    { "step": 3, "equation": "H(q_i, del S/del q_i, t) + del S/del t = 0" }
+    {
+      "step": 1,
+      "equation": "p_i = del S/del q_i"
+    },
+    {
+      "step": 2,
+      "equation": "H(q_i, p_i, t) + del S/del t = 0"
+    },
+    {
+      "step": 3,
+      "equation": "H(q_i, del S/del q_i, t) + del S/del t = 0"
+    }
   ],
   "derivation_assumptions": [
     {

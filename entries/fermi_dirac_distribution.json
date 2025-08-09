@@ -1,4 +1,5 @@
 {
+  "result_id": "fermi_dirac_distribution",
   "result_name": "Fermi-Dirac Distribution",
   "result_equations": [
     {
@@ -210,7 +211,10 @@
       "citation": "Dirac, P. A. M. (1926). On the theory of quantum mechanics. *Proceedings of the Royal Society of London*, 112(762), 661-677."
     }
   ],
-  "dependencies": ["pauli_exclusion_principle.json", "partition_function.json"],
+  "dependencies": [
+    "pauli_exclusion_principle",
+    "partition_function"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

@@ -1,7 +1,11 @@
 {
+  "result_id": "euler_lagrange_equation",
   "result_name": "Euler-Lagrange Equation",
   "result_equations": [
-    { "id": "eq1", "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0" }
+    {
+      "id": "eq1",
+      "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
+    }
   ],
   "explanation": "The Euler-Lagrange equation provides the equations of motion for a system from its Lagrangian. It states that the physical trajectory makes the action stationary, generalizing Newton's laws to generalized coordinates. This equation is fundamental in analytical mechanics and the calculus of variations.",
   "equations_assumptions": [
@@ -29,7 +33,10 @@
     }
   ],
   "derivation": [
-    { "step": 1, "equation": "S = int_(t1)^(t2) L(q_i, dot q_i, t) dt" },
+    {
+      "step": 1,
+      "equation": "S = int_(t1)^(t2) L(q_i, dot q_i, t) dt"
+    },
     {
       "step": 2,
       "equation": "delta S = int_(t1)^(t2) [del L/del q_i delta q_i + del L/del dot q_i delta dot q_i] dt"
@@ -38,7 +45,10 @@
       "step": 3,
       "equation": "delta S = [del L/del dot q_i delta q_i]_(t1)^(t2) + int_(t1)^(t2) [del L/del q_i - d/dt(del L/del dot q_i)] delta q_i dt"
     },
-    { "step": 4, "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0" }
+    {
+      "step": 4,
+      "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
+    }
   ],
   "derivation_assumptions": [
     {

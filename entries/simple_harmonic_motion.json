@@ -1,4 +1,5 @@
 {
+  "result_id": "simple_harmonic_motion",
   "result_name": "Simple Harmonic Motion",
   "result_equations": [
     {
@@ -173,7 +174,7 @@
       "# Test 2: Energy conservation",
       "print('Test 2: Energy conservation')",
       "KE = [0.5 * m * v_val**2 for v_val in v]  # kinetic energy",
-      "PE = [0.5 * k * x_val**2 for x_val in x]  # potential energy", 
+      "PE = [0.5 * k * x_val**2 for x_val in x]  # potential energy",
       "E_total = [ke + pe for ke, pe in zip(KE, PE)]  # total energy",
       "E_expected = 0.5 * k * A**2  # theoretical total energy",
       "energy_variation = [abs(E_val - E_expected) for E_val in E_total]",
@@ -219,7 +220,10 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": ["hookes_law.json", "newtons_second_law.json"],
+  "dependencies": [
+    "hookes_law",
+    "newtons_second_law"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

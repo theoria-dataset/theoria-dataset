@@ -1,4 +1,5 @@
 {
+  "result_id": "poynting_vector",
   "result_name": "Poynting Vector",
   "result_equations": [
     {
@@ -196,7 +197,10 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["maxwell_equations.json", "electromagnetic_waves.json"],
+  "dependencies": [
+    "maxwell_equations",
+    "electromagnetic_waves"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

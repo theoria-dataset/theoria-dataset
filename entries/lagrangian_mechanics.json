@@ -1,4 +1,5 @@
 {
+  "result_id": "lagrangian_mechanics",
   "result_name": "Lagrangian Mechanics",
   "result_equations": [
     {
@@ -6,7 +7,7 @@
       "equation": "L = T - V"
     },
     {
-      "id": "eq2", 
+      "id": "eq2",
       "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
     },
     {
@@ -21,7 +22,7 @@
       "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
     },
     {
-      "id": "eq_assump2", 
+      "id": "eq_assump2",
       "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
     },
     {
@@ -35,7 +36,7 @@
       "definition": "Lagrangian function, defined as the difference between kinetic and potential energy."
     },
     {
-      "symbol": "T", 
+      "symbol": "T",
       "definition": "Total kinetic energy of the system."
     },
     {
@@ -47,7 +48,7 @@
       "definition": "Generalized coordinates describing the configuration of the system."
     },
     {
-      "symbol": "dot q_i", 
+      "symbol": "dot q_i",
       "definition": "Generalized velocities, time derivatives of generalized coordinates."
     },
     {
@@ -69,7 +70,7 @@
       "equation": "T = (1/2) sum_i m_i dot r_i^2"
     },
     {
-      "step": 2, 
+      "step": 2,
       "equation": "V = V(r_1, r_2, ..., r_N, t)"
     },
     {
@@ -99,7 +100,7 @@
       "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
     },
     {
-      "id": "deriv_assump2", 
+      "id": "deriv_assump2",
       "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
     },
     {
@@ -143,7 +144,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.12.0", 
+    "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
       "",
@@ -170,7 +171,7 @@
       "euler_lagrange_simplified = sp.simplify(euler_lagrange)",
       "",
       "# Expected equation of motion for simple pendulum: m*l^2*theta_ddot + m*g*l*sin(theta) = 0",
-      "# or theta_ddot + (g/l)*sin(theta) = 0", 
+      "# or theta_ddot + (g/l)*sin(theta) = 0",
       "expected_eom = sp.diff(theta_t, t, 2) + (g/l) * sp.sin(theta_t)",
       "",
       "# Verify they are equivalent (divide by m*l^2)",
@@ -210,7 +211,7 @@
     ]
   },
   "dependencies": [
-    "euler_lagrange_equation.json"
+    "euler_lagrange_equation"
   ],
   "references": [
     {
@@ -218,7 +219,7 @@
       "citation": "Lagrange, J. L. (1788). *Mécanique analytique*. Chez la Veuve Desaint."
     },
     {
-      "id": "R2", 
+      "id": "R2",
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). *Classical Mechanics* (3rd ed.). Addison Wesley."
     },
     {

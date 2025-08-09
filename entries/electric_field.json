@@ -1,4 +1,5 @@
 {
+  "result_id": "electric_field",
   "result_name": "Electric Field",
   "result_equations": [
     {
@@ -263,7 +264,9 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": ["coulombs_law.json"],
+  "dependencies": [
+    "coulombs_law"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

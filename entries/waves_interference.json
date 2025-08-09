@@ -1,4 +1,5 @@
 {
+  "result_id": "waves_interference",
   "result_name": "Wave Interference",
   "result_equations": [
     {
@@ -202,7 +203,10 @@
       "citation": "Born, M., & Wolf, E. (1999). Principles of Optics. Cambridge University Press."
     }
   ],
-  "dependencies": ["wave_equation.json", "superposition_principle.json"],
+  "dependencies": [
+    "wave_equation",
+    "superposition_principle"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

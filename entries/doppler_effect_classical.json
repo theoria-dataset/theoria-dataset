@@ -1,4 +1,5 @@
 {
+  "result_id": "doppler_effect_classical",
   "result_name": "Classical Doppler Effect",
   "result_equations": [
     {
@@ -209,7 +210,9 @@
       "citation": "Resnick, R., Halliday, D., & Krane, K. S. (2001). *Physics* (5th ed.). Wiley."
     }
   ],
-  "dependencies": ["wave_equation.json"],
+  "dependencies": [
+    "wave_equation"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

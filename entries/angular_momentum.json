@@ -1,4 +1,5 @@
 {
+  "result_id": "angular_momentum",
   "result_name": "Angular Momentum",
   "result_equations": [
     {
@@ -245,7 +246,10 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": ["newtons_laws.json", "conservation_of_momentum.json"],
+  "dependencies": [
+    "newtons_laws",
+    "conservation_of_momentum"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

@@ -1,4 +1,5 @@
 {
+  "result_id": "rayleigh_jeans_law",
   "result_name": "Rayleigh-Jeans Law",
   "result_equations": [
     {
@@ -246,7 +247,9 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "historical",
-  "dependencies": ["planck_radiation_law.json"],
+  "dependencies": [
+    "planck_radiation_law"
+  ],
   "references": [
     {
       "id": "R1",

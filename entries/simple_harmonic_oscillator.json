@@ -1,4 +1,5 @@
 {
+  "result_id": "simple_harmonic_oscillator",
   "result_name": "Simple Harmonic Oscillator",
   "result_equations": [
     {
@@ -174,7 +175,10 @@
       "citation": "French, A. P. (1971). *Vibrations and Waves*. W. W. Norton."
     }
   ],
-  "dependencies": ["hookes_law.json", "newtons_second_law.json"],
+  "dependencies": [
+    "hookes_law",
+    "newtons_second_law"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

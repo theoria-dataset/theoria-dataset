@@ -1,4 +1,5 @@
 {
+  "result_id": "qed_lagrangian",
   "result_name": "QED Lagrangian Density",
   "result_equations": [
     {
@@ -71,7 +72,6 @@
       "definition": "Partial derivative with respect to the coordinate `x^mu`."
     }
   ],
-
   "derivation": [
     {
       "step": 1,
@@ -215,9 +215,9 @@
     }
   ],
   "dependencies": [
-    "dirac_equation_em.json",
-    "maxwell_equations.json",
-    "noethers_theorem.json"
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
   ],
   "theory_status": "current",
   "validity_regime": {

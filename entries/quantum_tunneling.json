@@ -1,4 +1,5 @@
 {
+  "result_id": "quantum_tunneling",
   "result_name": "Quantum Tunneling",
   "result_equations": [
     {
@@ -216,7 +217,10 @@
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["schroedingen_equation.json", "particle_in_a_box.json"],
+  "dependencies": [
+    "schroedingen_equation",
+    "particle_in_a_box"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

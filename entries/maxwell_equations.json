@@ -1,6 +1,6 @@
 {
+  "result_id": "maxwell_equations",
   "result_name": "Maxwell Equations",
-
   "result_equations": [
     {
       "id": "eq1",
@@ -37,9 +37,7 @@
       "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
     }
   ],
-
   "explanation": "Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents. These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light. They are essential for understanding electromagnetic phenomena from radio waves to optics, and form the basis for electrical engineering and modern communications technology.",
-
   "definitions": [
     {
       "symbol": "E",
@@ -101,9 +99,18 @@
     }
   ],
   "derivation": [
-    { "step": 1, "equation": "bbE(r) = q/(4*pi*epsilon_0*r^2)*bbhat(r)" },
-    { "step": 2, "equation": "oint_S bbE cdot dA = bbE*4*pi*r^2" },
-    { "step": 3, "equation": "bbE*4*pi*r^2 = q/epsilon_0" },
+    {
+      "step": 1,
+      "equation": "bbE(r) = q/(4*pi*epsilon_0*r^2)*bbhat(r)"
+    },
+    {
+      "step": 2,
+      "equation": "oint_S bbE cdot dA = bbE*4*pi*r^2"
+    },
+    {
+      "step": 3,
+      "equation": "bbE*4*pi*r^2 = q/epsilon_0"
+    },
     {
       "step": 4,
       "equation": "oint(S) bbE cdot dA = (1/epsilon_0) int(V) rho dV"
@@ -112,12 +119,22 @@
       "step": 5,
       "equation": "int(V) div(bbE) dV = (1/epsilon_0) int(V) rho dV"
     },
-    { "step": 6, "equation": "div(bbE) = rho/epsilon_0" },
-
-    { "step": 7, "equation": "oint(S) bbB cdot dA = 0" },
-    { "step": 8, "equation": "int(V) div(bbB) dV = 0" },
-    { "step": 9, "equation": "div(bbB) = 0" },
-
+    {
+      "step": 6,
+      "equation": "div(bbE) = rho/epsilon_0"
+    },
+    {
+      "step": 7,
+      "equation": "oint(S) bbB cdot dA = 0"
+    },
+    {
+      "step": 8,
+      "equation": "int(V) div(bbB) dV = 0"
+    },
+    {
+      "step": 9,
+      "equation": "div(bbB) = 0"
+    },
     {
       "step": 10,
       "equation": "oint(C) bbE cdot dl = -d/dt int(S) bbB cdot dA"
@@ -126,9 +143,14 @@
       "step": 11,
       "equation": "int(S) curl(bbE) cdot dA = -d/dt int(S) bbB cdot dA"
     },
-    { "step": 12, "equation": "curl(bbE) = -partial(bbB)/partial(t)" },
-
-    { "step": 13, "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA" },
+    {
+      "step": 12,
+      "equation": "curl(bbE) = -partial(bbB)/partial(t)"
+    },
+    {
+      "step": 13,
+      "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA"
+    },
     {
       "step": 14,
       "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA + mu_0*epsilon_0*d/dt int(S) bbE cdot dA"
@@ -141,10 +163,11 @@
       "step": 16,
       "equation": "curl(bbB) = mu_0*bbJ + (1/c^2)*partial(bbE)/partial(t)"
     },
-
-    { "step": 17, "equation": "(partial rho)/(partial t ) + grad bbJ = 0" }
+    {
+      "step": 17,
+      "equation": "(partial rho)/(partial t ) + grad bbJ = 0"
+    }
   ],
-
   "derivation_explanation": [
     {
       "step": 1,
@@ -170,7 +193,6 @@
       "step": 6,
       "text": "Equate integrands to obtain `grad·bbE = rho/epsilon_0`."
     },
-
     {
       "step": 7,
       "text": "Invoke the empirical absence of magnetic monopoles."
@@ -179,8 +201,10 @@
       "step": 8,
       "text": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`"
     },
-    { "step": 9, "text": "Conclude `grad·bbB = 0`." },
-
+    {
+      "step": 9,
+      "text": "Conclude `grad·bbB = 0`."
+    },
     {
       "step": 10,
       "text": "Begin with Faraday’s law relating emf to changing magnetic flux."
@@ -193,8 +217,10 @@
       "step": 12,
       "text": "Equate integrands to derive `grad xx bbE = - (partial bbB)/(partial t)`."
     },
-
-    { "step": 13, "text": "State Ampère’s law for steady currents." },
+    {
+      "step": 13,
+      "text": "State Ampère’s law for steady currents."
+    },
     {
       "step": 14,
       "text": "Include Maxwell’s displacement‑current term for time‑varying fields."
@@ -207,7 +233,6 @@
       "step": 16,
       "text": "Equate integrands to derive `grad xx bbB = mu_0 bbJ + (1/c^2)(partial bbE)/(partial t)`."
     },
-
     {
       "step": 17,
       "text": "Take divergence of the Ampère–Maxwell law and use `grad · bbE = rho / epsilon_0` to recover charge conservation."
@@ -259,7 +284,6 @@
     ]
   },
   "domain": "physics.class-ph",
-
   "references": [
     {
       "id": "R1",

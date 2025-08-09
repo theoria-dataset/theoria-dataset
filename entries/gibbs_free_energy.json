@@ -1,4 +1,5 @@
 {
+  "result_id": "gibbs_free_energy",
   "result_name": "Gibbs Free Energy",
   "result_equations": [
     {
@@ -207,8 +208,8 @@
     }
   ],
   "dependencies": [
-    "first_law_thermodynamics.json",
-    "second_law_thermodynamics_clausius.json"
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

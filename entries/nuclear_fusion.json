@@ -1,4 +1,5 @@
 {
+  "result_id": "nuclear_fusion",
   "result_name": "Nuclear Fusion",
   "result_equations": [
     {
@@ -213,9 +214,9 @@
     }
   ],
   "dependencies": [
-    "nuclear_binding_energy.json",
-    "quantum_tunneling.json",
-    "mass_energy_equivalence.json"
+    "nuclear_binding_energy",
+    "quantum_tunneling",
+    "mass_energy_equivalence"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

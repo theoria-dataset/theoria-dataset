@@ -1,4 +1,5 @@
 {
+  "result_id": "hall_effect",
   "result_name": "Hall Effect",
   "result_equations": [
     {
@@ -198,7 +199,10 @@
       "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
     }
   ],
-  "dependencies": ["ohms_law.json", "lorentz_force.json"],
+  "dependencies": [
+    "ohms_law",
+    "lorentz_force"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

@@ -1,4 +1,5 @@
 {
+  "result_id": "capacitance",
   "result_name": "Capacitance",
   "result_equations": [
     {
@@ -242,7 +243,10 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": ["electric_field.json", "electric_potential.json"],
+  "dependencies": [
+    "electric_field",
+    "electric_potential"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

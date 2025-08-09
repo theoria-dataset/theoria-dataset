@@ -1,4 +1,5 @@
 {
+  "result_id": "lorentz_transformations",
   "result_name": "Lorentz Transformations",
   "result_equations": [
     {
@@ -63,7 +64,6 @@
       "definition": "Lorentz factor, defined as `1/sqrt(1-(v^2/c^2))`."
     }
   ],
-
   "derivation": [
     {
       "step": 1,
@@ -218,7 +218,6 @@
       "assert dt_diff == 0 and dx_diff == 0"
     ]
   },
-
   "domain": "gr-qc",
   "references": [
     {
@@ -243,7 +242,9 @@
       "Part of the broader special relativity framework"
     ]
   },
-  "superseded_by": ["special_relativity.json"],
+  "superseded_by": [
+    "special_relativity"
+  ],
   "historical_context": {
     "importance": "Foundation of special relativity, revealed spacetime structure",
     "development_period": "1905-1915",

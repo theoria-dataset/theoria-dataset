@@ -1,4 +1,5 @@
 {
+  "result_id": "nuclear_binding_energy",
   "result_name": "Nuclear Binding Energy",
   "result_equations": [
     {
@@ -143,7 +144,7 @@
       "assert BE_d > 0",
       "# Verify A = Z + N constraint numerically",
       "assert A_d == Z_d + N_d",
-      "# Binding energy per nucleon for deuterium", 
+      "# Binding energy per nucleon for deuterium",
       "BE_per_A_d = BE_d / A_d",
       "assert BE_per_A_d > 0"
     ]
@@ -184,7 +185,9 @@
       "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
     }
   ],
-  "dependencies": ["mass_energy_equivalence.json"],
+  "dependencies": [
+    "mass_energy_equivalence"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

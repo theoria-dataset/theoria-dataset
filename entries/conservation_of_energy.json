@@ -1,4 +1,5 @@
 {
+  "result_id": "conservation_of_energy",
   "result_name": "Conservation of Energy",
   "result_equations": [
     {
@@ -250,7 +251,10 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (2013). The Feynman Lectures on Physics. Basic Books."
     }
   ],
-  "dependencies": ["newtons_laws.json", "work_energy_theorem.json"],
+  "dependencies": [
+    "newtons_laws",
+    "work_energy_theorem"
+  ],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

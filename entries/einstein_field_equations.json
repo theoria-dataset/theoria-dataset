@@ -1,4 +1,5 @@
 {
+  "result_id": "einstein_field_equations",
   "result_name": "Einstein Field Equations",
   "result_equations": [
     {
@@ -179,7 +180,9 @@
       "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
     }
   ],
-  "dependencies": ["special_relativity.json"],
+  "dependencies": [
+    "special_relativity"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

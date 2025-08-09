@@ -1,4 +1,5 @@
 {
+  "result_id": "photoelectric_effect",
   "result_name": "Photoelectric Effect",
   "result_equations": [
     {
@@ -201,7 +202,7 @@
     }
   ],
   "dependencies": [
-    "plancks_quantum_hypothesis.json"
+    "plancks_quantum_hypothesis"
   ],
   "created_by": "theory_classification_system",
   "review_status": "draft"

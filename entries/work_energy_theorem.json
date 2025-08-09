@@ -1,4 +1,5 @@
 {
+  "result_id": "work_energy_theorem",
   "result_name": "Work-Energy Theorem",
   "result_equations": [
     {
@@ -229,8 +230,8 @@
     }
   ],
   "dependencies": [
-    "newtons_second_law.json",
-    "conservation_of_energy.json"
+    "newtons_second_law",
+    "conservation_of_energy"
   ],
   "created_by": "theory_classification_system",
   "review_status": "draft"

@@ -1,6 +1,12 @@
 {
+  "result_id": "mass_energy_equivalence",
   "result_name": "Mass–Energy Equivalence",
-  "result_equations": [{ "id": "eq1", "equation": "E = m*c^2" }],
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E = m*c^2"
+    }
+  ],
   "explanation": "Einstein's relation `E = m*c^2` states that the rest energy of a body equals its invariant mass times the square of the speed of light. The formula unifies mass and energy, showing that mass can be converted to other energy forms and vice-versa. It underlies nuclear fission, fusion, particle–antiparticle creation and stellar power generation. Physicists use it whenever reaction thresholds, binding energies or annihilation yields must be balanced.",
   "equations_assumptions": [
     {
@@ -13,33 +19,84 @@
       "symbol": "E",
       "definition": "Rest energy, or energy of a body at rest."
     },
-    { "symbol": "m", "definition": "Invariant rest mass." },
+    {
+      "symbol": "m",
+      "definition": "Invariant rest mass."
+    },
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum (`3*10^8 m*s^-1`)."
     }
   ],
   "derivation": [
-    { "step": 1, "equation": "gamma = 1/sqrt(1 - v^2/c^2)" },
-    { "step": 2, "equation": "vec p = gamma*m*vec v" },
-    { "step": 3, "equation": "vec F = (d vec p)/(dt)" },
-    { "step": 4, "equation": "dK = vec F * d vec r" },
-    { "step": 5, "equation": "dK = vec v * d vec p" },
-    { "step": 6, "equation": "dK = vec v * d(gamma*m*vec v)" },
-    { "step": 7, "equation": "dK = v * d(gamma*m*v)" },
-    { "step": 8, "equation": "d(gamma*m*v) = m * d(gamma*v)" },
-    { "step": 9, "equation": "d(gamma*v) = gamma^3 dv" },
-    { "step": 10, "equation": "d(gamma*m*v) = m*gamma^3 dv" },
-    { "step": 11, "equation": "dK = m*gamma^3*v dv" },
-    { "step": 12, "equation": "K = int_0^v m*gamma'^3*v' dv'" },
-    { "step": 13, "equation": "int m*gamma'^3*v' dv' = gamma'*m*c^2" },
+    {
+      "step": 1,
+      "equation": "gamma = 1/sqrt(1 - v^2/c^2)"
+    },
+    {
+      "step": 2,
+      "equation": "vec p = gamma*m*vec v"
+    },
+    {
+      "step": 3,
+      "equation": "vec F = (d vec p)/(dt)"
+    },
+    {
+      "step": 4,
+      "equation": "dK = vec F * d vec r"
+    },
+    {
+      "step": 5,
+      "equation": "dK = vec v * d vec p"
+    },
+    {
+      "step": 6,
+      "equation": "dK = vec v * d(gamma*m*vec v)"
+    },
+    {
+      "step": 7,
+      "equation": "dK = v * d(gamma*m*v)"
+    },
+    {
+      "step": 8,
+      "equation": "d(gamma*m*v) = m * d(gamma*v)"
+    },
+    {
+      "step": 9,
+      "equation": "d(gamma*v) = gamma^3 dv"
+    },
+    {
+      "step": 10,
+      "equation": "d(gamma*m*v) = m*gamma^3 dv"
+    },
+    {
+      "step": 11,
+      "equation": "dK = m*gamma^3*v dv"
+    },
+    {
+      "step": 12,
+      "equation": "K = int_0^v m*gamma'^3*v' dv'"
+    },
+    {
+      "step": 13,
+      "equation": "int m*gamma'^3*v' dv' = gamma'*m*c^2"
+    },
     {
       "step": 14,
       "equation": "K = [gamma'*m*c^2]_text(v'=0)^(v'=v) = (gamma*m*c^2 - m*c^2)"
     },
-    { "step": 15, "equation": "E = K + E_0" },
-    { "step": 16, "equation": "E = gamma*m*c^2" },
-    { "step": 17, "equation": "E_0 = m*c^2" }
+    {
+      "step": 15,
+      "equation": "E = K + E_0"
+    },
+    {
+      "step": 16,
+      "equation": "E = gamma*m*c^2"
+    },
+    {
+      "step": 17,
+      "equation": "E_0 = m*c^2"
+    }
   ],
   "derivation_assumptions": [
     {
@@ -192,7 +249,9 @@
       "citation": "Kleppner, D., & Kolenkow, R. J. (2014). *An Introduction to Mechanics* (2nd ed.). Cambridge University Press. (Chapter 13 provides a derivation of relativistic energy)."
     }
   ],
-  "dependencies": ["lorentz_transformations.json"],
+  "dependencies": [
+    "lorentz_transformations"
+  ],
   "theory_status": "historical",
   "validity_regime": {
     "conditions": [
@@ -206,8 +265,10 @@
       "Isolated formula rather than complete theory"
     ]
   },
-  "superseded_by": ["special_relativity.json"],
-  "approximation_of": "special_relativity.json",
+  "superseded_by": [
+    "special_relativity"
+  ],
+  "approximation_of": "special_relativity",
   "historical_context": {
     "importance": "Revolutionary insight linking mass and energy, foundation of nuclear physics",
     "development_period": "1905",

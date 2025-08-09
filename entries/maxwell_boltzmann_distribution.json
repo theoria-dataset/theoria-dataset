@@ -1,4 +1,5 @@
 {
+  "result_id": "maxwell_boltzmann_distribution",
   "result_name": "Maxwell-Boltzmann Distribution",
   "result_equations": [
     {
@@ -189,7 +190,10 @@
       "citation": "Boltzmann, L. (1872). Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen. *Wiener Berichte*, 66, 275-370."
     }
   ],
-  "dependencies": ["boltzmann_distribution.json", "ideal_gas_law.json"],
+  "dependencies": [
+    "boltzmann_distribution",
+    "ideal_gas_law"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

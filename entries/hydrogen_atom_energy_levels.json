@@ -1,4 +1,5 @@
 {
+  "result_id": "hydrogen_atom_energy_levels",
   "result_name": "Hydrogen Atom Energy Levels",
   "result_equations": [
     {
@@ -206,7 +207,10 @@
       "citation": "Bethe, H. A., & Salpeter, E. E. (1957). *Quantum Mechanics of One- and Two-Electron Atoms*. Academic Press."
     }
   ],
-  "dependencies": ["schroedingen_equation.json", "coulombs_law.json"],
+  "dependencies": [
+    "schroedingen_equation",
+    "coulombs_law"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

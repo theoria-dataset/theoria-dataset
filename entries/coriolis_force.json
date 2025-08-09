@@ -1,7 +1,11 @@
 {
+  "result_id": "coriolis_force",
   "result_name": "Coriolis Force",
   "result_equations": [
-    { "id": "eq1", "equation": "vec F_c = 2 m (vec v cross vec Omega)" }
+    {
+      "id": "eq1",
+      "equation": "vec F_c = 2 m (vec v cross vec Omega)"
+    }
   ],
   "explanation": "The Coriolis force is a fictitious force that appears in a rotating reference frame. It causes moving objects to be deflected relative to the Earth's surface or any rotating frame. The Coriolis acceleration is `2(vec v cross vec Omega)`, acting perpendicular to the velocity. This effect explains phenomena like the rotation of cyclones and the deflection of projectiles in latitude.",
   "equations_assumptions": [
@@ -19,7 +23,10 @@
       "symbol": "vec Omega",
       "definition": "Angular velocity vector of the rotating frame (e.g., Earth, oriented along rotation axis)."
     },
-    { "symbol": "m", "definition": "Mass of the moving object." },
+    {
+      "symbol": "m",
+      "definition": "Mass of the moving object."
+    },
     {
       "symbol": "vec v",
       "definition": "Velocity of the object relative to the rotating frame."
@@ -34,7 +41,10 @@
       "step": 1,
       "equation": "vec a_inertial = vec a_rot + 2 vec Omega cross vec v + vec Omega cross (vec Omega cross vec r)"
     },
-    { "step": 2, "equation": "m vec a_inertial = vec F_real" },
+    {
+      "step": 2,
+      "equation": "m vec a_inertial = vec F_real"
+    },
     {
       "step": 3,
       "equation": "m vec a_rot = vec F_real - 2 m(vec Omega cross vec v) - m vec Omega cross (vec Omega cross vec r)"
@@ -126,7 +136,7 @@
       "Assumes uniform rotation rate"
     ]
   },
-  "approximation_of": "general_relativity.json",
+  "approximation_of": "general_relativity",
   "historical_context": {
     "importance": "Explains atmospheric and oceanic circulation patterns, important for meteorology and ballistics",
     "development_period": "1835",

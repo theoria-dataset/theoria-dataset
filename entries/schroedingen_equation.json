@@ -1,4 +1,5 @@
 {
+  "result_id": "schroedingen_equation",
   "result_name": "Schrödinger Equation",
   "result_equations": [
     {
@@ -149,7 +150,10 @@
       "Superseded by quantum field theory at high energies"
     ]
   },
-  "superseded_by": ["dirac_equation_free.json", "qed_lagrangian.json"],
+  "superseded_by": [
+    "dirac_equation_free",
+    "qed_lagrangian"
+  ],
   "historical_context": {
     "importance": "Foundation of quantum mechanics, describes microscopic world dynamics",
     "development_period": "1925-1926",

@@ -1,4 +1,5 @@
 {
+  "result_id": "electromagnetic_waves",
   "result_name": "Electromagnetic Waves",
   "result_equations": [
     {
@@ -198,7 +199,9 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["maxwell_equations.json"],
+  "dependencies": [
+    "maxwell_equations"
+  ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"
 }

@@ -1,4 +1,5 @@
 {
+  "result_id": "quantum_harmonic_oscillator",
   "result_name": "Quantum Harmonic Oscillator",
   "result_equations": [
     {
@@ -194,8 +195,8 @@
     }
   ],
   "dependencies": [
-    "schroedingen_equation.json",
-    "simple_harmonic_oscillator.json"
+    "schroedingen_equation",
+    "simple_harmonic_oscillator"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

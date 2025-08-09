@@ -1,4 +1,5 @@
 {
+  "result_id": "spin_angular_momentum",
   "result_name": "Spin Angular Momentum",
   "result_equations": [
     {
@@ -208,8 +209,8 @@
     }
   ],
   "dependencies": [
-    "quantum_angular_momentum.json",
-    "pauli_exclusion_principle.json"
+    "quantum_angular_momentum",
+    "pauli_exclusion_principle"
   ],
   "created_by": "TheorIA Dataset Expansion",
   "review_status": "draft"

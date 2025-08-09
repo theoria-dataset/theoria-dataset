@@ -1,4 +1,5 @@
 {
+  "result_id": "keplers_laws",
   "result_name": "Kepler's Laws of Planetary Motion",
   "result_equations": [
     {
@@ -336,7 +337,10 @@
       "No relativistic corrections included"
     ]
   },
-  "superseded_by": ["newtonian_gravitation.json", "general_relativity.json"],
+  "superseded_by": [
+    "newtonian_gravitation",
+    "general_relativity"
+  ],
   "historical_context": {
     "importance": "First accurate description of planetary motion, led to Newton's universal gravitation",
     "development_period": "1609-1619",
