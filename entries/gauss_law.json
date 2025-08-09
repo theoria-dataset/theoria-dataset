@@ -124,7 +124,7 @@
       "import math",
       "# Constants",
       "epsilon_0 = 8.854e-12  # F/m",
-      "k = 1 / (4 * np.pi * epsilon_0)  # Coulomb's constant",
+      "k = 1 / (4 * math.pi * epsilon_0)  # Coulomb's constant",
       "print('Gauss\\'s Law Verification\\n')",
       "print('=' * 40)",
       "# Test 1: Point charge in spherical Gaussian surface",
@@ -139,7 +139,7 @@
       "    E_coulomb = k * Q / r**2",
       "    ",
       "    # Calculate flux using Gauss's law",
-      "    surface_area = 4 * np.pi * r**2",
+      "    surface_area = 4 * math.pi * r**2",
       "    flux_calculated = E_coulomb * surface_area",
       "    ",
       "    # Flux from Gauss's law",
@@ -196,10 +196,7 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "electric_field.json",
-    "coulombs_law.json"
-  ],
+  "dependencies": ["electric_field.json", "coulombs_law.json"],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

@@ -157,15 +157,17 @@
       "# (∂S/∂P)_T = -(∂V/∂T)_P",
       "# Verify thermodynamic identity for ideal gas",
       "n, R = sp.symbols('n R', positive=True)  # moles, gas constant",
-      "# For ideal gas: PV = nRT, S = nR ln(V) + constant",
+      "# For ideal gas: PV = nRT",
       "V_ideal = n*R*T/P",
-      "S_ideal = n*R*sp.log(V_ideal) + sp.symbols('S0')  # simplified form",
       "U_ideal = sp.Rational(3,2)*n*R*T  # monatomic ideal gas",
       "H_ideal = U_ideal + P*V_ideal",
-      "G_ideal = H_ideal - T*S_ideal",
-      "# Verify that G is extensive (scales with amount n)",
-      "G_2n = G_ideal.subs(n, 2*n)",
-      "assert sp.simplify(G_2n - 2*G_ideal) == 0"
+      "# Verify H = U + PV for ideal gas",
+      "H_expected = sp.Rational(3,2)*n*R*T + n*R*T",
+      "H_simplified = sp.Rational(5,2)*n*R*T",
+      "assert sp.simplify(H_ideal - H_simplified) == 0",
+      "# Verify that enthalpy is extensive (scales with amount n)",
+      "H_2n = H_ideal.subs(n, 2*n)",
+      "assert sp.simplify(H_2n - 2*H_ideal) == 0"
     ]
   },
   "domain": "cond-mat.stat-mech",

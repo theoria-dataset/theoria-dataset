@@ -138,7 +138,7 @@
       "print(f'Power P = VI: {P_VI:.3f} W')",
       "print(f'Power P = I²R: {P_I2R:.3f} W')",
       "print(f'Power P = V²/R: {P_V2R:.3f} W')",
-      "print(f'All power formulas agree: {np.allclose([P_VI, P_I2R, P_V2R])}')",
+      "print(f'All power formulas agree: {abs(P_VI - P_I2R) < 1e-10 and abs(P_VI - P_V2R) < 1e-10}')",
       "print()",
       "# Test 3: Series and parallel resistors",
       "print('Test 3: Resistor combinations')",

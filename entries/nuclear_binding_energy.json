@@ -126,8 +126,8 @@
       "Z, N, A, m_H, m_n, M_atom, c = sp.symbols('Z N A m_H m_n M_atom c', positive=True)",
       "# Binding energy formula",
       "BE = (Z * m_H + N * m_n - M_atom) * c**2",
-      "# Verify that A = Z + N",
-      "assert A == Z + N",
+      "# Note: A = Z + N by definition (mass number = protons + neutrons)",
+      "# We can verify this constraint with numerical values later",
       "# Binding energy per nucleon",
       "BE_per_A = BE / A",
       "# Test with deuterium (Z=1, N=1, A=2)",
@@ -141,7 +141,9 @@
       "BE_d = (Z_d * m_H_val + N_d * m_n_val - M_d_val) * c_val**2",
       "# Verify positive binding energy (bound state)",
       "assert BE_d > 0",
-      "# Binding energy per nucleon for deuterium",
+      "# Verify A = Z + N constraint numerically",
+      "assert A_d == Z_d + N_d",
+      "# Binding energy per nucleon for deuterium", 
       "BE_per_A_d = BE_d / A_d",
       "assert BE_per_A_d > 0"
     ]

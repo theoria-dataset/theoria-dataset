@@ -153,7 +153,7 @@
       "print()",
       "# Test 3: Frequency threshold",
       "print('Test 3: Threshold behavior')",
-      "frequencies = np.array([0.5e15, 1.0e15, 1.5e15, 2.0e15])  # Hz",
+      "frequencies = [0.5e15, 1.0e15, 1.5e15, 2.0e15]  # Hz",
       "for f in frequencies:",
       "    E_ph = h * f",
       "    if E_ph > W_material:",

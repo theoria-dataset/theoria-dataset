@@ -154,7 +154,7 @@
       "    def pendulum_energy(theta, theta_dot):",
       "        \"\"\"Calculate total energy of pendulum\"\"\"",
       "        K = 0.5 * m * (L * theta_dot)**2  # kinetic energy",
-      "        U = m * g * L * (1 - np.cos(theta))  # potential energy",
+      "        U = m * g * L * (1 - math.cos(theta))  # potential energy",
       "        return K + U",
       "    ",
       "    # At maximum displacement (theta = theta_0, theta_dot = 0)",
@@ -162,7 +162,7 @@
       "    ",
       "    # At bottom (theta = 0, theta_dot = maximum)",
       "    # Energy conservation: E_max = 0.5 * m * (L * omega_max)^2",
-      "    omega_max = np.sqrt(2 * g * (1 - np.cos(theta_0)) / L)",
+      "    omega_max = math.sqrt(2 * g * (1 - math.cos(theta_0)) / L)",
       "    E_bottom = pendulum_energy(0, omega_max)",
       "    ",
       "    print(f'  Initial angle: {theta_0:.3f} rad')",
@@ -180,12 +180,12 @@
       "    # Parameters",
       "    m = 1.0  # mass in kg",
       "    v0 = 20.0  # initial velocity in m/s",
-      "    angle = np.pi/4  # launch angle",
+      "    angle = math.pi/4  # launch angle",
       "    g = 9.81  # gravity",
       "    ",
       "    # Initial conditions",
-      "    v0x = v0 * np.cos(angle)",
-      "    v0y = v0 * np.sin(angle)",
+      "    v0x = v0 * math.cos(angle)",
+      "    v0y = v0 * math.sin(angle)",
       "    ",
       "    # Energy at launch",
       "    E_initial = 0.5 * m * v0**2  # all kinetic",
@@ -196,7 +196,7 @@
       "    E_at_max = 0.5 * m * v_at_max**2 + m * g * h_max",
       "    ",
       "    print(f'  Launch speed: {v0:.1f} m/s')",
-      "    print(f'  Launch angle: {np.degrees(angle):.1f}°')",
+      "    print(f'  Launch angle: {math.degrees(angle):.1f}°')",
       "    print(f'  Maximum height: {h_max:.2f} m')",
       "    print(f'  Energy at launch: {E_initial:.2f} J')",
       "    print(f'  Energy at max height: {E_at_max:.2f} J')",
@@ -250,10 +250,7 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (2013). The Feynman Lectures on Physics. Basic Books."
     }
   ],
-  "dependencies": [
-    "newtons_laws.json",
-    "work_energy_theorem.json"
-  ],
+  "dependencies": ["newtons_laws.json", "work_energy_theorem.json"],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }

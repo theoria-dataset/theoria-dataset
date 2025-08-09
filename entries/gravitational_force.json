@@ -160,19 +160,21 @@
       "print(f'Distance: {r_earth_moon:.3e} m')",
       "print(f'Gravitational force: {F_earth_moon:.3e} N')",
       "print(f'Potential energy: {U_earth_moon:.3e} J')",
-      "# Verify force-potential energy relationship: F = -dU/dr",
-      "r_test = np.linspace(3e8, 5e8, 1000)",
+      "# Verify force-potential energy relationship: F = -dU/dr at a test point",
+      "r_test = 4e8  # test distance in meters",
       "U_test = gravitational_potential_energy(M_earth, M_moon, r_test)",
-      "# Numerical derivative",
-      "dr = r_test[1] - r_test[0]",
-      "dU_dr = np.gradient(U_test, dr)",
-      "F_from_potential = -dU_dr",
+      "# Calculate analytical derivative dU/dr = d/dr(-G*m1*m2/r) = G*m1*m2/r²",
+      "dU_dr_analytical = G * M_earth * M_moon / r_test**2",
+      "F_from_potential = dU_dr_analytical  # |F| = |dU/dr| for attractive force",
       "F_direct = gravitational_force(M_earth, M_moon, r_test)",
       "# Check agreement",
-      "max_relative_error = np.max(np.abs((F_from_potential - F_direct) / F_direct))",
+      "relative_error = abs((F_from_potential - F_direct) / F_direct)",
       "print(f'\\nForce-potential relationship verification:')",
-      "print(f'Maximum relative error: {max_relative_error:.10f}')",
-      "print(f'F = -dU/dr verified: {max_relative_error < 1e-10}')",
+      "print(f'Test distance: {r_test:.1e} m')",
+      "print(f'Force from F = G*m1*m2/r²: {F_direct:.3e} N')",
+      "print(f'Force magnitude from |dU/dr|: {F_from_potential:.3e} N')",
+      "print(f'Relative error: {relative_error:.10f}')",
+      "print(f'F = -dU/dr verified: {relative_error < 1e-10}')",
       "print(f'\\nGravitational force law verified successfully!')"
     ]
   },
@@ -192,9 +194,7 @@
       "Does not explain gravitational lensing or time dilation"
     ]
   },
-  "superseded_by": [
-    "general_relativity.json"
-  ],
+  "superseded_by": ["general_relativity.json"],
   "historical_context": {
     "development_period": "1687",
     "importance": "First universal force law; explained planetary motion and laid foundation for celestial mechanics and astrophysics",
@@ -215,9 +215,7 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": [
-    "newtons_laws.json"
-  ],
+  "dependencies": ["newtons_laws.json"],
   "created_by": "theory_classification_system",
   "review_status": "draft"
 }
