@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.4.1",
+  "dataset_version": "0.4.2",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -123,6 +123,14 @@
         "Consolidated redundant entries: merged lorentz_transformations into special_relativity, combined Newton's three law entries into unified newtons_laws_of_motion, consolidated doppler_effect variants, merged duplicate Archimedes and Bernoulli entries",
         "Standardized created_by field across all entries: replaced generic identifiers (TheorIA Dataset Expansion, theory_classification_system, etc.) with either proper author names or standard AI-created entry message",
         "Entries HTML now displays validity regime, historical context, and limitations fields"
+      ]
+    },
+    {
+      "version": "0.4.2",
+      "date": "2025-08-10", 
+      "changes": [
+        "Created comprehensive front-end contribution system to modify and add new entries in a user-friendly way",
+        "Developed structured web forms for both new entry creation and existing entry modification with all dataset fields"
       ]
     }
   ]

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Contributing Guidelines
+    url: https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md
+    about: Read the full guidelines for contributing to TheorIA dataset
+  - name: 🌐 Dataset Website
+    url: https://theoria-dataset.github.io/theoria-dataset/
+    about: Browse existing entries and learn more about the dataset
+  - name: 💬 Discussion Forum
+    url: https://github.com/theoria-dataset/theoria-dataset/discussions
+    about: Ask questions and discuss ideas with the community

@@ -1,0 +1,217 @@
+name: 🧮 New Physics Entry
+description: Submit a new theoretical physics entry to the dataset
+title: "[NEW ENTRY] "
+labels: ["contribution", "new-entry"]
+
+body:
+  - type: input
+    id: entry_name
+    attributes:
+      label: Entry Name
+      description: Brief title for the physics concept (max 100 characters)
+      placeholder: "e.g., Schrödinger Equation"
+    validations:
+      required: true
+
+  - type: input
+    id: result_id
+    attributes:
+      label: Entry ID
+      description: Unique identifier (lowercase, underscores only)
+      placeholder: "e.g., schrodinger_equation"
+    validations:
+      required: true
+
+  - type: textarea
+    id: main_equations
+    attributes:
+      label: Main Equation(s)
+      description: Write the key equation(s) in AsciiMath format, one per line
+      placeholder: |
+        eq1: i*hbar*(partial psi)/(partial t) = H*psi
+        eq2: H = -hbar^2/(2m)*nabla^2 + V
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation
+      description: Brief conceptual summary (2-5 sentences, max 100 words)
+      placeholder: "The Schrödinger equation describes the time evolution of quantum mechanical systems..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: symbol_definitions
+    attributes:
+      label: Symbol Definitions
+      description: Define all symbols used in your equations
+      placeholder: |
+        psi: wavefunction
+        hbar: reduced Planck constant
+        H: Hamiltonian operator
+        t: time
+        m: particle mass
+        V: potential energy
+    validations:
+      required: true
+
+  - type: textarea
+    id: equations_assumptions
+    attributes:
+      label: Equations Assumptions (Optional)
+      description: List assumptions directly related to the equations
+      placeholder: |
+        assumption1: The system is isolated from external influences
+        assumption2: The potential is time-independent
+    validations:
+      required: false
+
+  - type: textarea
+    id: derivation_steps
+    attributes:
+      label: Derivation Steps (Optional)
+      description: Key steps in the derivation, if applicable
+      placeholder: |
+        Step 1: Start with the time-dependent Schrödinger equation
+        Step 2: Apply separation of variables
+        Step 3: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: derivation_assumptions
+    attributes:
+      label: Derivation Assumptions (Optional)
+      description: Assumptions behind the derivation process
+      placeholder: |
+        assumption1: Wave function is normalizable
+        assumption2: Hamiltonian is Hermitian
+    validations:
+      required: false
+
+  - type: textarea
+    id: derivation_explanation
+    attributes:
+      label: Derivation Explanation (Optional)
+      description: Textual explanations for derivation steps
+      placeholder: |
+        Step 1: We start with the fundamental postulate of quantum mechanics
+        Step 2: Separation assumes the solution can be factored into spatial and temporal parts
+    validations:
+      required: false
+
+  - type: textarea
+    id: programmatic_verification
+    attributes:
+      label: Programmatic Verification (Optional)
+      description: Python code to verify the derivation (preferably using SymPy)
+      placeholder: |
+        import sympy as sp
+        # Define symbols
+        t, x, hbar, m = sp.symbols('t x hbar m', real=True)
+        psi = sp.Function('psi')(x, t)
+        # Verify Schrödinger equation
+        # ... (verification code)
+      render: python
+    validations:
+      required: false
+
+  - type: textarea
+    id: validity_regime
+    attributes:
+      label: Validity Regime (Optional)
+      description: Describe where this theory applies and its limitations
+      placeholder: |
+        Conditions:
+        - Non-relativistic particles (v << c)
+        - Macroscopic systems where quantum effects are negligible
+        
+        Limitations:
+        - Breaks down at relativistic speeds
+        - Invalid for systems with strong gravitational fields
+    validations:
+      required: false
+
+  - type: textarea
+    id: theory_relations
+    attributes:
+      label: Theory Relations (Optional)
+      description: Relationships to other theories in the dataset
+      placeholder: |
+        Superseded by: (result_id of more general theories)
+        Approximation of: (result_id if this is an approximation)
+        Dependencies: (result_ids this theory relies on)
+    validations:
+      required: false
+
+  - type: textarea
+    id: historical_context
+    attributes:
+      label: Historical Context (Optional)
+      description: Historical significance and development context
+      placeholder: |
+        Importance: Foundation of quantum mechanics and modern physics
+        Development Period: 1925-1926
+        Key Insights:
+        - Wave-particle duality can be described mathematically
+        - Probability interpretation of quantum states
+    validations:
+      required: false
+
+  - type: input
+    id: arxiv_domain
+    attributes:
+      label: ArXiv Domain
+      description: Physics domain (e.g., quant-ph, gr-qc, hep-th)
+      placeholder: "quant-ph"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theory_status
+    attributes:
+      label: Theory Status
+      description: Current scientific status of this theory
+      options:
+        - current
+        - historical
+        - approximation
+        - limiting_case
+        - superseded
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: 1-3 citations in APA format
+      placeholder: |
+        Schrödinger, E. (1926). An undulatory theory of the mechanics of atoms and molecules. Physical Review, 28(6), 1049-1070.
+    validations:
+      required: true
+
+  - type: input
+    id: created_by
+    attributes:
+      label: Your Name/ORCID
+      description: Full name or ORCID identifier
+      placeholder: "Jane Doe or 0000-0000-0000-0000"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contributor_agreement
+    attributes:
+      label: Contributor Agreement
+      description: Please confirm the following
+      options:
+        - label: I have read the CONTRIBUTING.md guidelines
+          required: true
+        - label: This entry follows the CC-BY 4.0 license
+          required: true
+        - label: I am knowledgeable about this physics topic
+          required: true

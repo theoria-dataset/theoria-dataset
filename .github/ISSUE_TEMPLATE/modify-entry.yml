@@ -1,0 +1,181 @@
+name: ✏️ Suggest Entry Modification
+description: Suggest changes to an existing entry
+title: "[MODIFY] "
+labels: ["contribution", "modification"]
+
+body:
+  - type: dropdown
+    id: entry_to_modify
+    attributes:
+      label: Entry to Modify
+      description: Which entry would you like to suggest changes for?
+      options:
+        - alpha_decay
+        - amperes_law
+        - angular_momentum
+        - archimedes_principle
+        - bernoulli_equation
+        - biot_savart_law
+        - blackbody_radiation
+        - bohr_model_energy_levels
+        - boltzmann_distribution
+        - bose_einstein_distribution
+        - braggs_law
+        - capacitance
+        - carnot_efficiency
+        - centripetal_force
+        - clausius_clapeyron_equation
+        - compton_scattering
+        - conservation_of_angular_momentum
+        - conservation_of_energy
+        - conservation_of_momentum
+        - continuity_equation
+        - coriolis_force
+        - coulombs_law
+        - crystal_lattice_structure
+        - de_broglie_wavelength
+        - diffraction_grating
+        - dirac_equation_em
+        - dirac_equation_free
+        - doppler_effect
+        - einstein_field_equations
+        - electric_field
+        - electric_potential
+        - electromagnetic_waves
+        - equipartition_theorem
+        - euler_lagrange_equation
+        - faradays_law
+        - fermi_dirac_distribution
+        - first_law_thermodynamics
+        - foucault_pendulum
+        - fourier_heat_conduction
+        - gauss_law
+        - gauss_law_gravity
+        - gibbs_free_energy
+        - gravitational_force
+        - gravitational_time_dilation
+        - hall_effect
+        - hamilton_jacobi_equation
+        - hamiltons_equations
+        - heat_equation
+        - heisenberg_uncertainty_principle
+        - hookes_law
+        - hydrogen_atom_energy_levels
+        - ideal_gas_law
+        - keplers_laws
+        - kirchhoffs_laws
+        - klein_gordon_equation
+        - lagrangian_mechanics
+        - larmor_formula
+        - lens_equation
+        - lenzs_law
+        - liouvilles_theorem
+        - magnetic_dipole_moment
+        - magnetic_field
+        - maxwell_boltzmann_distribution
+        - maxwell_equations
+        - maxwell_lorenz_gauge
+        - navier_stokes_incompressible
+        - newtons_laws_of_motion
+        - noethers_theorem
+        - nuclear_binding_energy
+        - nuclear_fusion
+        - ohms_law
+        - partition_function
+        - pauli_exclusion_principle
+        - photoelectric_effect
+        - planck_radiation_law
+        - plancks_quantum_hypothesis
+        - poynting_vector
+        - qed_lagrangian
+        - quantum_harmonic_oscillator
+        - quantum_tunneling
+        - radioactive_decay_law
+        - rayleigh_jeans_law
+        - reynolds_number
+        - rotational_mechanics
+        - rydberg_formula
+        - schroedingen_equation
+        - schwarzschild_radius
+        - second_law_thermodynamics_clausius
+        - simple_harmonic_motion
+        - snells_law
+        - special_relativity
+        - spin_angular_momentum
+        - stefan_boltzmann_law
+        - third_law_thermodynamics
+        - virial_theorem
+        - wave_equation
+        - waves_interference
+        - wiens_displacement_law
+        - work_energy_theorem
+        - young_double_slit
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: modification_type
+    attributes:
+      label: Type of Modification
+      description: What kind of change are you suggesting?
+      options:
+        - Correct mathematical error
+        - Improve explanation
+        - Add missing derivation steps
+        - Update references
+        - Fix symbol definitions
+        - Improve programmatic verification
+        - Add missing assumptions
+        - Other correction/improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_issue
+    attributes:
+      label: Current Issue
+      description: Describe what is currently incorrect or could be improved
+      placeholder: "The current derivation is missing step 3 where..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested Change
+      description: Provide the specific correction or improvement
+      placeholder: "The missing step should be: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification
+      description: Explain why this change is needed (include references if applicable)
+      placeholder: "This is needed because... (Reference: Smith et al., 2020)"
+    validations:
+      required: true
+
+  - type: input
+    id: your_expertise
+    attributes:
+      label: Your Expertise
+      description: Briefly describe your background with this topic
+      placeholder: "PhD in Theoretical Physics, specialization in Quantum Mechanics"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: modification_checklist
+    attributes:
+      label: Modification Checklist
+      description: Please confirm
+      options:
+        - label: I have checked the current entry thoroughly
+          required: true
+        - label: My suggestion is based on established physics knowledge
+          required: true
+        - label: I can provide references to support this change if needed
+          required: true

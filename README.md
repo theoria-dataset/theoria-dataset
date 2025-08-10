@@ -86,6 +86,12 @@ python scripts/verify_programmatic.py
 
 These tools provide **clear error messages** that point to specific issues and suggest fixes, making it easier for scientists to get their contributions ready.
 
+## ⚠️ Guidelines Maintenance
+
+**Important for maintainers**: The contribution forms at `docs/contribute/edit-entry.html` contain hardcoded guideline messages. If you update field requirements in `CONTRIBUTING.md`, you **must manually update** the corresponding guideline text in the HTML forms to keep them synchronized.
+
+This manual synchronization ensures users see accurate guidance when contributing through the web interface.
+
 ## Using THEORIA to train Machine Learning models
 
 You can either use the individual JSON files or automatically generate a single merged file using a script (e.g., with `jq`):

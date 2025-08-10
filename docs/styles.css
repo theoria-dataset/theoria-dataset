@@ -1,3 +1,38 @@
+/* CSS Custom Properties for consistent theming */
+:root {
+  --primary: #007acc;
+  --primary-dark: #005a99;
+  --primary-rgb: 0, 122, 204;
+  --accent-color: #007acc;
+  --accent-hover: #005a99;
+  --heading-color: #333;
+  --text-color: #333;
+  --text-secondary: #666;
+  --border-color: #ddd;
+  --shade-light: #e5e5e5;
+  --shade-lightest: #f8f9fa;
+  --card-background: #fafafa;
+  --background-color: #fff;
+  --code-background: #f0f0f0;
+}
+
+.latex-dark {
+  --primary: #6495ed;
+  --primary-dark: #4169e1;
+  --primary-rgb: 100, 149, 237;
+  --accent-color: #6495ed;
+  --accent-hover: #4169e1;
+  --heading-color: #e5e5e5;
+  --text-color: #d0d0d0;
+  --text-secondary: #b0b0b0;
+  --border-color: #404040;
+  --shade-light: #404040;
+  --shade-lightest: #3d3d3d;
+  --card-background: #2d2d2d;
+  --background-color: #2d2d2d;
+  --code-background: #3d3d3d;
+}
+
 #themeToggle {
   position: fixed;
   top: 1rem;
@@ -5,7 +40,7 @@
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: var(--color);
+  color: var(--text-color);
   cursor: pointer;
   z-index: 1000;
 }
@@ -47,6 +82,250 @@ blockquote strong {
   padding: 1rem 0;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+/* Contribution methods styling */
+.contribution-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.method-card {
+  position: relative;
+  border: 2px solid var(--shade-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--shade-lightest);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.method-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.method-card.recommended {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(0,123,255,0.05), var(--shade-lightest));
+}
+
+.latex-dark .method-card.recommended {
+  background: linear-gradient(135deg, rgba(100,149,237,0.1), var(--shade-dark));
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.method-card h3 {
+  color: var(--color);
+  margin-bottom: 0.5rem;
+}
+
+.method-card ul {
+  margin: 1rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.method-card li {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.method-card li::before {
+  content: '';
+  position: absolute;
+  margin-left: -1rem;
+  margin-top: 0.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--primary);
+  color: white !important;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s;
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.advanced-method {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--shade-light);
+}
+
+details {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--shade-light);
+  border-radius: 4px;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: -1rem;
+  margin-bottom: 0;
+  background: var(--shade-lightest);
+  border-radius: 4px 4px 0 0;
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--shade-light);
+  margin-bottom: 1rem;
+}
+
+/* Navigation and button styling fixes */
+.nav-link {
+  display: inline-block;
+  background: var(--primary);
+  color: white !important;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 0.25rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.nav-link:hover {
+  background: var(--primary-dark);
+  color: white !important;
+}
+
+/* Ensure all buttons have proper contrast */
+.cta-button,
+.btn {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.cta-button:hover,
+.btn:hover {
+  background: var(--primary-dark) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--shade-light) !important;
+  color: var(--text-color) !important;
+}
+
+.btn-secondary:hover {
+  background: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Header actions styling */
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.header-actions .cta-button {
+  margin: 0;
+}
+
+.navigation-header {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--card-background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.navigation-header .cta-button {
+  margin: 0;
+}
+
+/* Domain navigation improvements */
+.domain-navigation {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--card-background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.domain-navigation h2 {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .header-actions,
+  .navigation-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-links {
+    justify-content: center;
+  }
+  
+  .cta-button,
+  .btn {
+    min-width: 200px;
+    text-align: center;
+  }
+}
+
+/* Edit Entry Button */
+.edit-entry-btn {
+    margin: 1rem 0 2rem 0;
+    background: #28a745 !important;
+    border: none;
+    display: block;
+    text-align: center;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-entry-btn:hover {
+    background: #218838 !important;
 }
 
 .hero h1 {

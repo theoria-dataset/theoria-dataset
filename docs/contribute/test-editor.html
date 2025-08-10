@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test Entry Editor</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="form.css">
+    <style>
+        .debug-section {
+            background: #e8f4fd;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .test-status {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .test-error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Entry Editor Test Page</h1>
+        
+        <div class="debug-section">
+            <h3>System Check</h3>
+            <div id="system-status">Testing...</div>
+        </div>
+        
+        <div class="debug-section">
+            <h3>Mock Entry Editor</h3>
+            
+            <div class="editor-tabs">
+                <button class="tab-button active" onclick="showTab('visual')">📝 Visual Editor</button>
+                <button class="tab-button" onclick="showTab('json')">🔧 JSON Editor</button>
+            </div>
+
+            <!-- Visual Editor Tab -->
+            <div id="visual-tab" class="tab-content active">
+                <div class="form-section">
+                    <h3>Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="test-name">Entry Name*</label>
+                        <input type="text" id="test-name" value="Test Entry">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="test-explanation">Explanation*</label>
+                        <textarea id="test-explanation" rows="4">This is a test explanation for debugging the entry editor.</textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Equations</h3>
+                    <div id="test-equations-editor">
+                        <div class="equation-editor-item">
+                            <div class="editor-item-header">
+                                <h4>Equation 1</h4>
+                                <button type="button" class="btn-remove">×</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Equation ID:</label>
+                                <input type="text" class="eq-id" value="eq1">
+                            </div>
+                            <div class="form-group">
+                                <label>Equation (AsciiMath):</label>
+                                <textarea class="eq-equation" rows="2">E = m*c^2</textarea>
+                                <div class="math-preview">`E = m*c^2`</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary">+ Add Equation</button>
+                </div>
+            </div>
+
+            <!-- JSON Editor Tab -->
+            <div id="json-tab" class="tab-content">
+                <div class="form-group">
+                    <label for="test-json-editor">JSON Content*</label>
+                    <textarea id="test-json-editor" rows="10" style="font-family: monospace;">{
+  "result_id": "test_entry",
+  "result_name": "Test Entry",
+  "explanation": "This is a test explanation.",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E = m*c^2"
+    }
+  ]
+}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn btn-primary">📝 Test Submit</button>
+            <button type="button" class="btn btn-secondary">👁️ Test Preview</button>
+            <button type="button" class="btn btn-secondary">🔄 Test Reset</button>
+        </div>
+    </div>
+
+    <script>
+        // Simple tab switching for testing
+        function showTab(tabName) {
+            console.log('Switching to tab:', tabName);
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            const targetButton = Array.from(document.querySelectorAll('.tab-button')).find(btn => 
+                btn.textContent.includes(tabName === 'visual' ? 'Visual' : 'JSON')
+            );
+            if (targetButton) {
+                targetButton.classList.add('active');
+            }
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            const targetTab = document.getElementById(`${tabName}-tab`);
+            if (targetTab) {
+                targetTab.classList.add('active');
+                console.log('Activated tab:', targetTab.id);
+            }
+        }
+
+        // System check
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusDiv = document.getElementById('system-status');
+            const checks = [];
+
+            // Check CSS variables
+            const testElement = document.createElement('div');
+            testElement.style.background = 'var(--primary, red)';
+            document.body.appendChild(testElement);
+            const computedStyle = window.getComputedStyle(testElement);
+            const primaryColor = computedStyle.backgroundColor;
+            document.body.removeChild(testElement);
+            
+            if (primaryColor && primaryColor !== 'red') {
+                checks.push('<div class="test-status">✓ CSS variables loaded</div>');
+            } else {
+                checks.push('<div class="test-error">✗ CSS variables not loaded</div>');
+            }
+
+            // Check form sections
+            const formSections = document.querySelectorAll('.form-section');
+            if (formSections.length > 0) {
+                checks.push(`<div class="test-status">✓ Found ${formSections.length} form sections</div>`);
+            } else {
+                checks.push('<div class="test-error">✗ No form sections found</div>');
+            }
+
+            // Check equation editor
+            const equationEditor = document.getElementById('test-equations-editor');
+            if (equationEditor && equationEditor.children.length > 0) {
+                checks.push('<div class="test-status">✓ Equation editor rendering</div>');
+            } else {
+                checks.push('<div class="test-error">✗ Equation editor not rendering</div>');
+            }
+
+            statusDiv.innerHTML = checks.join('');
+        });
+    </script>
+</body>
+</html>

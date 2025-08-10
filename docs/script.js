@@ -135,6 +135,27 @@ function safeTypesetMathJax(elements) {
 function render(data) {
   $("title").style.display = "";
   $("title").textContent = data.result_name;
+  
+  // Add edit button after title
+  const editButton = document.createElement('button');
+  editButton.className = 'cta-button edit-entry-btn';
+  editButton.innerHTML = '✏️ Edit This Entry';
+  editButton.onclick = () => {
+    const params = new URLSearchParams(window.location.search);
+    const entryFile = params.get("entry");
+    if (entryFile) {
+      const entryId = entryFile.replace('.json', '');
+      window.open(`contribute/edit-entry.html?entry=${entryId}`, '_blank');
+    }
+  };
+  
+  // Insert edit button after title
+  const titleElement = $("title");
+  if (titleElement.nextElementSibling && titleElement.nextElementSibling.classList.contains('edit-entry-btn')) {
+    titleElement.nextElementSibling.remove(); // Remove existing button
+  }
+  titleElement.insertAdjacentElement('afterend', editButton);
+  
   $("explanation").innerHTML = data.explanation;
   // Show all sections and their headings
   [
