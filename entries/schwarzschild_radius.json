@@ -1,0 +1,274 @@
+{
+  "result_id": "schwarzschild_radius",
+  "result_name": "Schwarzschild Radius",
+  "result_equations": [
+    {
+      "id": "schwarzschild_radius",
+      "equation": "r_s = 2*G*M/c^2"
+    },
+    {
+      "id": "escape_velocity_condition",
+      "equation": "v_escape = sqrt(2*G*M/r) = c text( at ) r = r_s"
+    },
+    {
+      "id": "event_horizon",
+      "equation": "r = r_s text( defines the event horizon)"
+    }
+  ],
+  "explanation": "The Schwarzschild radius defines the event horizon of a black hole - the critical radius where the escape velocity equals the speed of light. Named after Karl Schwarzschild, who found the first exact solution to Einstein's field equations, it represents the boundary beyond which nothing, not even light, can escape the gravitational pull. This fundamental length scale determines when an object becomes a black hole and governs the most extreme gravitational environments in the universe.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "Spherically symmetric, non-rotating black hole."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "General relativity is the correct theory of gravity."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "The mass M is concentrated within the Schwarzschild radius."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "r_s",
+      "definition": "Schwarzschild radius (event horizon radius)."
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant (6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻²)."
+    },
+    {
+      "symbol": "M",
+      "definition": "Mass of the black hole."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "v_escape",
+      "definition": "Escape velocity from radius r."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "text(Classical escape velocity condition)"
+    },
+    {
+      "step": 2,
+      "equation": "(1/2)*m*v_escape^2 = G*M*m/r"
+    },
+    {
+      "step": 3,
+      "equation": "v_escape = sqrt(2*G*M/r)"
+    },
+    {
+      "step": 4,
+      "equation": "text(Set escape velocity equal to speed of light)"
+    },
+    {
+      "step": 5,
+      "equation": "c = sqrt(2*G*M/r_s)"
+    },
+    {
+      "step": 6,
+      "equation": "c^2 = 2*G*M/r_s"
+    },
+    {
+      "step": 7,
+      "equation": "r_s = 2*G*M/c^2"
+    },
+    {
+      "step": 8,
+      "equation": "text(General relativistic derivation from Schwarzschild metric)"
+    },
+    {
+      "step": 9,
+      "equation": "ds^2 = -(1-2*G*M/(r*c^2))*c^2*dt^2 + (1-2*G*M/(r*c^2))^(-1)*dr^2 + r^2*domega^2"
+    },
+    {
+      "step": 10,
+      "equation": "text(Singularity at ) 1-2*G*M/(r*c^2) = 0"
+    },
+    {
+      "step": 11,
+      "equation": "r_s = 2*G*M/c^2"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Energy conservation applies in the classical derivation."
+    },
+    {
+      "id": "assumption2",
+      "text": "The speed of light is the maximum possible velocity."
+    },
+    {
+      "id": "assumption3",
+      "text": "General relativity provides the correct spacetime geometry."
+    },
+    {
+      "id": "assumption4",
+      "text": "The Schwarzschild solution is the appropriate metric."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Begin with the classical concept of escape velocity."
+    },
+    {
+      "step": 2,
+      "text": "Set kinetic energy equal to gravitational potential energy."
+    },
+    {
+      "step": 3,
+      "text": "Solve for the escape velocity as a function of radius."
+    },
+    {
+      "step": 4,
+      "text": "Impose the condition that escape velocity equals the speed of light."
+    },
+    {
+      "step": 5,
+      "text": "Set up the equation with escape velocity equal to c."
+    },
+    {
+      "step": 6,
+      "text": "Square both sides to eliminate the square root."
+    },
+    {
+      "step": 7,
+      "text": "Solve for the critical radius (Schwarzschild radius)."
+    },
+    {
+      "step": 8,
+      "text": "The rigorous derivation comes from the Schwarzschild metric in general relativity."
+    },
+    {
+      "step": 9,
+      "text": "Write the Schwarzschild metric in standard coordinates."
+    },
+    {
+      "step": 10,
+      "text": "Identify where the metric coefficient becomes singular."
+    },
+    {
+      "step": 11,
+      "text": "This coordinate singularity defines the event horizon radius."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "import math",
+      "",
+      "# Define symbols",
+      "G, M, c, r_s, r = sp.symbols('G M c r_s r', positive=True, real=True)",
+      "",
+      "# Schwarzschild radius formula",
+      "r_s_formula = 2*G*M/c**2",
+      "",
+      "# Verify escape velocity condition",
+      "v_escape = sp.sqrt(2*G*M/r)",
+      "# At r = r_s, v_escape should equal c",
+      "v_at_rs = v_escape.subs(r, r_s_formula)",
+      "v_simplified = sp.simplify(v_at_rs)",
+      "assert v_simplified == c",
+      "",
+      "# Test with realistic values",
+      "# Physical constants",
+      "G_val = 6.674e-11    # m³ kg⁻¹ s⁻²",
+      "c_val = 2.998e8      # m/s",
+      "",
+      "# Solar mass black hole",
+      "M_sun = 1.989e30     # kg",
+      "r_s_sun = 2 * G_val * M_sun / c_val**2",
+      "# Should be approximately 2.95 km",
+      "expected_r_s_sun = 2950  # meters",
+      "relative_error = abs(r_s_sun - expected_r_s_sun) / expected_r_s_sun",
+      "assert relative_error < 0.1, f'Solar mass Schwarzschild radius error: {relative_error}'",
+      "",
+      "# Earth mass black hole (hypothetical)",
+      "M_earth = 5.972e24   # kg",
+      "r_s_earth = 2 * G_val * M_earth / c_val**2",
+      "# Should be approximately 8.87 mm",
+      "expected_r_s_earth = 0.00887  # meters",
+      "earth_error = abs(r_s_earth - expected_r_s_earth) / expected_r_s_earth",
+      "assert earth_error < 0.1, f'Earth mass Schwarzschild radius error: {earth_error}'",
+      "",
+      "# Supermassive black hole (Sagittarius A*)",
+      "M_sgr_a = 4.1e6 * M_sun  # solar masses",
+      "r_s_sgr_a = 2 * G_val * M_sgr_a / c_val**2",
+      "# Should be approximately 12 million km",
+      "expected_r_s_sgr_a = 1.2e10  # meters",
+      "sgr_a_error = abs(r_s_sgr_a - expected_r_s_sgr_a) / expected_r_s_sgr_a",
+      "assert sgr_a_error < 0.5, f'Sgr A* Schwarzschild radius error: {sgr_a_error}'",
+      "",
+      "# Verify scaling relationship: r_s ∝ M",
+      "M1, M2 = 1.0, 2.0  # arbitrary units",
+      "r_s1 = 2*G_val*M1/c_val**2",
+      "r_s2 = 2*G_val*M2/c_val**2",
+      "ratio = r_s2 / r_s1",
+      "expected_ratio = M2 / M1",
+      "assert abs(ratio - expected_ratio) < 1e-10, 'Linear scaling with mass failed'",
+      "",
+      "# Test dimensional analysis",
+      "# [r_s] = [G][M]/[c]² should have dimensions of length",
+      "# [G] = L³M⁻¹T⁻², [M] = M, [c] = LT⁻¹",
+      "# [G][M]/[c]² = (L³M⁻¹T⁻²)(M)/(LT⁻¹)² = L³T⁻²/L²T⁻² = L ✓"
+    ]
+  },
+  "domain": "gr-qc",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "General relativity is correct",
+      "Spherically symmetric mass distribution",
+      "Non-rotating black hole (Schwarzschild case)",
+      "No electric charge"
+    ],
+    "limitations": [
+      "Rotating black holes require Kerr metric",
+      "Charged black holes need Reissner-Nordström metric",
+      "Quantum effects ignored near the horizon",
+      "Classical general relativity may break down at singularity"
+    ]
+  },
+  "historical_context": {
+    "importance": "Defines black hole event horizons, crucial for understanding gravitational collapse, Hawking radiation, and modern astrophysics",
+    "development_period": "1916",
+    "key_insights": [
+      "Karl Schwarzschild found exact solution to Einstein field equations",
+      "Discovered shortly after Einstein published general relativity",
+      "Schwarzschild died in WWI shortly after his discovery",
+      "Event horizon concept developed much later (1950s-1960s)"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Schwarzschild, K. (1916). 'Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie.' Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften, 189-196."
+    },
+    {
+      "id": "R2",
+      "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
+    }
+  ],
+  "dependencies": [
+    "einstein_field_equations",
+    "gravitational_force"
+  ],
+  "created_by": "Synthetic entry, AI created. May have mistakes, looking for contributors to this entry.",
+  "review_status": "draft"
+}
