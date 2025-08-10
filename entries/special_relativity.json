@@ -3,27 +3,43 @@
   "result_name": "Special Theory of Relativity",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "t' = gamma*(t - (v*x)/c^2)"
+      "id": "lorentz_time",
+      "equation": "t' = gamma*(t - (v/c^2)*x)"
     },
     {
-      "id": "eq2",
+      "id": "lorentz_space",
       "equation": "x' = gamma*(x - v*t)"
     },
     {
-      "id": "eq3",
+      "id": "lorentz_y",
+      "equation": "y' = y"
+    },
+    {
+      "id": "lorentz_z",
+      "equation": "z' = z"
+    },
+    {
+      "id": "lorentz_factor",
+      "equation": "gamma = 1/sqrt(1 - (v^2/c^2))"
+    },
+    {
+      "id": "relativistic_energy",
       "equation": "E = gamma*m*c^2"
     },
     {
-      "id": "eq4",
+      "id": "relativistic_momentum",
       "equation": "vec p = gamma*m*vec v"
     },
     {
-      "id": "eq5",
+      "id": "energy_momentum_relation",
       "equation": "E^2 = (p*c)^2 + (m*c^2)^2"
+    },
+    {
+      "id": "rest_energy",
+      "equation": "E_0 = m*c^2"
     }
   ],
-  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. It establishes that the laws of physics are identical in all inertial reference frames, and the speed of light in vacuum is constant for all observers. The theory unifies space and time into spacetime, introduces length contraction and time dilation, and reveals the equivalence of mass and energy.",
+  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence E = mc². These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
@@ -44,24 +60,40 @@
   ],
   "definitions": [
     {
-      "symbol": "gamma",
-      "definition": "Lorentz factor, `gamma = 1/sqrt(1 - v^2/c^2)`."
+      "symbol": "t",
+      "definition": "Time coordinate in the stationary frame (S)."
     },
     {
-      "symbol": "t', x'",
-      "definition": "Time and position coordinates in the moving reference frame S'."
+      "symbol": "t'",
+      "definition": "Time coordinate in the moving frame (S')."
     },
     {
-      "symbol": "t, x",
-      "definition": "Time and position coordinates in the stationary reference frame S."
+      "symbol": "x",
+      "definition": "Spatial coordinate in the stationary frame (S) along the x-axis."
+    },
+    {
+      "symbol": "x'",
+      "definition": "Spatial coordinate in the moving frame (S') along the x-axis."
+    },
+    {
+      "symbol": "y",
+      "definition": "Spatial coordinate perpendicular to relative motion (unchanged)."
+    },
+    {
+      "symbol": "z",
+      "definition": "Spatial coordinate perpendicular to relative motion (unchanged)."
     },
     {
       "symbol": "v",
-      "definition": "Relative velocity between reference frames S and S'."
+      "definition": "Relative velocity between the two frames (along the x-axis)."
     },
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "gamma",
+      "definition": "Lorentz factor, defined as 1/sqrt(1-(v^2/c^2))."
     },
     {
       "symbol": "E",
@@ -74,139 +106,195 @@
     {
       "symbol": "m",
       "definition": "Rest mass (invariant mass) of the particle."
+    },
+    {
+      "symbol": "E_0",
+      "definition": "Rest energy of the particle (E_0 = mc^2)."
     }
   ],
   "derivation": [
     {
       "step": 1,
-      "equation": "c = text(constant for all observers)"
+      "equation": "x' = A*x + B*t; t' = D*x + E*t"
     },
     {
       "step": 2,
-      "equation": "x^2 + y^2 + z^2 - c^2*t^2 = text(invariant)"
+      "equation": "0 = A*v*t + B*t"
     },
     {
       "step": 3,
-      "equation": "x'^2 + y'^2 + z'^2 - c^2*t'^2 = x^2 + y^2 + z^2 - c^2*t^2"
+      "equation": "B = -A*v"
     },
     {
       "step": 4,
-      "equation": "x' = gamma*(x - v*t)"
+      "equation": "(c - v)*A = (D*c + E)*c"
     },
     {
       "step": 5,
-      "equation": "t' = gamma*(t - (v*x)/c^2)"
+      "equation": "(-c - v)*A = (D*c - E)*c"
     },
     {
       "step": 6,
-      "equation": "gamma = 1/sqrt(1 - v^2/c^2)"
+      "equation": "E = A"
     },
     {
       "step": 7,
-      "equation": "Delta t' = gamma*Delta t"
+      "equation": "D = -A*v/c^2"
     },
     {
       "step": 8,
-      "equation": "Delta x' = Delta x/gamma"
+      "equation": "x' = A*(x - v*t); t' = A*(t - v/c^2*x)"
     },
     {
       "step": 9,
-      "equation": "vec F = (d vec p)/(dt)"
+      "equation": "x'^2 - c^2*t'^2 = A^2*(x-v*t)^2-c^2*A^2*(t-v/c^2*x)^2 = A^2*(x^2 - 2*v*t*x + v^2*t^2 - c^2*t^2 + 2*v*x*t - v^2/c^2*x^2) = A^2*(1 - v^2/c^2)*(x^2 - c^2*t^2)"
     },
     {
       "step": 10,
-      "equation": "vec p = gamma*m*vec v"
+      "equation": "A^2*(1 - v^2/c^2) = 1"
     },
     {
       "step": 11,
-      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
+      "equation": "A = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 12,
-      "equation": "E = gamma*m*c^2"
+      "equation": "x' = gamma*(x - v*t); t' = gamma*(t - v/c^2*x); gamma = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 13,
-      "equation": "E_0 = m*c^2"
+      "equation": "Delta t' = gamma*Delta t"
     },
     {
       "step": 14,
+      "equation": "Delta x' = Delta x/gamma"
+    },
+    {
+      "step": 15,
+      "equation": "vec F = (d vec p)/(dt)"
+    },
+    {
+      "step": 16,
+      "equation": "vec p = gamma*m*vec v"
+    },
+    {
+      "step": 17,
+      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
+    },
+    {
+      "step": 18,
+      "equation": "E = gamma*m*c^2"
+    },
+    {
+      "step": 19,
+      "equation": "E_0 = m*c^2"
+    },
+    {
+      "step": 20,
       "equation": "E^2 - (p*c)^2 = (m*c^2)^2"
     }
   ],
   "derivation_assumptions": [
     {
       "id": "assumption1",
-      "text": "The postulates of special relativity are fundamental and cannot be derived from other principles."
+      "text": "Linearity: the transformation (x,t) → (x',t') is linear owing to homogeneity of space‑time."
     },
     {
       "id": "assumption2",
-      "text": "Linear transformations preserve the principle of relativity."
+      "text": "Light‑speed invariance: a ray with x = ±c·t in S satisfies x' = ±c·t' in S'."
     },
     {
       "id": "assumption3",
-      "text": "The spacetime interval is invariant under Lorentz transformations."
+      "text": "Frame setup: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0."
     },
     {
       "id": "assumption4",
+      "text": "The spacetime interval is invariant under coordinate transformations."
+    },
+    {
+      "id": "assumption5",
       "text": "Energy and momentum conservation hold in relativistic mechanics."
     }
   ],
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Postulate that the speed of light is constant in all inertial reference frames."
+      "text": "Postulate the most general linear transformation between coordinates in two inertial frames."
     },
     {
       "step": 2,
-      "text": "The spacetime interval is an invariant quantity under coordinate transformations."
+      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
     },
     {
       "step": 3,
-      "text": "Require that the spacetime interval is preserved between different reference frames."
+      "text": "Get the relationship between coefficients A and B."
     },
     {
       "step": 4,
-      "text": "Derive the Lorentz transformation for spatial coordinates."
+      "text": "Demand that any right light x=+c*t in S also satisfies x'=+c*t' in S' substituting in equations from step1. Use step3."
     },
     {
       "step": 5,
-      "text": "Derive the Lorentz transformation for time coordinates."
+      "text": "Repeat for a left-moving pulse (x=-c*t in S and x'=-c*t' in S') to get a second constraint."
     },
     {
       "step": 6,
-      "text": "Define the Lorentz factor that appears in the transformations."
+      "text": "Subtracting equation in step 4 from the one in step 5 gives a relationship between A and E."
     },
     {
       "step": 7,
-      "text": "Time dilation: time intervals are longer in the moving frame."
+      "text": "Adding equations in step 4 and step 5 gives a relationship between A and D."
     },
     {
       "step": 8,
-      "text": "Length contraction: spatial intervals are shorter in the moving frame."
+      "text": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1."
     },
     {
       "step": 9,
-      "text": "Redefine force as the rate of change of relativistic momentum."
+      "text": "Demand invariance of the spacetime interval: x'^2 - c^2*t'^2 = x^2 - c^2*t^2."
     },
     {
       "step": 10,
-      "text": "Define relativistic momentum to preserve conservation laws."
+      "text": "Collect terms to obtain A²(1 - v²/c²) = 1."
     },
     {
       "step": 11,
-      "text": "Calculate work done to accelerate a particle, leading to relativistic energy."
+      "text": "Solve for A."
     },
     {
       "step": 12,
-      "text": "Obtain the relativistic energy-momentum relation."
+      "text": "Substitute γ back into the equations to obtain the Lorentz tranformation."
     },
     {
       "step": 13,
-      "text": "Identify rest energy when velocity is zero."
+      "text": "Time dilation: time intervals are longer in the moving frame."
     },
     {
       "step": 14,
+      "text": "Length contraction: spatial intervals are shorter in the moving frame."
+    },
+    {
+      "step": 15,
+      "text": "Redefine force as the rate of change of relativistic momentum."
+    },
+    {
+      "step": 16,
+      "text": "Define relativistic momentum to preserve conservation laws."
+    },
+    {
+      "step": 17,
+      "text": "Calculate work done to accelerate a particle, leading to relativistic energy."
+    },
+    {
+      "step": 18,
+      "text": "Obtain the relativistic energy-momentum relation."
+    },
+    {
+      "step": 19,
+      "text": "Identify rest energy when velocity is zero."
+    },
+    {
+      "step": 20,
       "text": "Derive the fundamental energy-momentum-mass relation."
     }
   ],
@@ -215,46 +303,45 @@
     "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
+      "# step1: define symbols and general linear map",
+      "A, B, D, E, v, c, x, t = sp.symbols('A B D E v c x t', real=True)",
+      "x_p = A*x + B*t",
+      "t_p = D*x + E*t",
+      "# step2 & step3: origin world-line x = v*t ⇒ x' = 0 ⇒ solve for B",
+      "eq_origin = sp.Eq(x_p.subs(x, v*t), 0)",
+      "B_sol = sp.solve(eq_origin, B)[0]",
+      "# step4 & step5: light-speed invariance for x = ±c*t ⇒ x' = ±c*t'",
+      "eq_plus  = sp.Eq(x_p.subs({x: c*t, B: B_sol}),  c * t_p.subs({x: c*t, B: B_sol}))",
+      "eq_minus = sp.Eq(x_p.subs({x: -c*t, B: B_sol}), -c * t_p.subs({x: -c*t, B: B_sol}))",
+      "sol_DE = sp.solve([eq_plus, eq_minus], (D, E))",
+      "D_sol, E_sol = sol_DE[D], sol_DE[E]",
+      "# step8: substitute B, D, E back into x', t'",
+      "x_p2 = x_p.subs({B: B_sol, D: D_sol, E: E_sol})",
+      "t_p2 = t_p.subs({B: B_sol, D: D_sol, E: E_sol})",
+      "# step9: compute spacetime interval",
+      "interval_expr = x_p2**2 - c**2*t_p2**2",
+      "# factor out (x**2 - c**2*t**2)",
+      "factorized = sp.factor(interval_expr / (x**2 - c**2*t**2))",
+      "# step10 & step11: enforce invariance ⇒ factorized = 1 ⇒ solve for A",
+      "A_solutions = sp.solve(sp.Eq(factorized, 1), A)",
+      "A_sol = A_solutions[0]  # choose the positive root",
+      "# step12: define γ and final transforms",
+      "gamma = A_sol",
+      "x_final = sp.simplify(x_p2.subs(A, A_sol))",
+      "t_final = sp.simplify(t_p2.subs(A, A_sol))",
+      "# Verification: compare with expected form",
+      "x_expected = gamma*(x - v*t)",
+      "t_expected = gamma*(t - v*x/c**2)",
+      "dx_diff = sp.simplify(x_final - x_expected)",
+      "dt_diff = sp.simplify(t_final - t_expected)",
+      "# Ensure it gives 0",
+      "assert dt_diff == 0 and dx_diff == 0",
       "",
-      "# Define symbols",
-      "x, t, x_prime, t_prime, v, c, gamma = sp.symbols('x t x_prime t_prime v c gamma', real=True)",
+      "# Additional verification: Energy-momentum relations",
       "m, E, p = sp.symbols('m E p', positive=True, real=True)",
-      "",
-      "# Step 6: Lorentz factor",
       "gamma_def = 1/sp.sqrt(1 - v**2/c**2)",
       "",
-      "# Steps 4-5: Lorentz transformations",
-      "x_transform = gamma_def*(x - v*t)",
-      "t_transform = gamma_def*(t - v*x/c**2)",
-      "",
-      "# Verify inverse transformations",
-      "# x = γ(x' + vt'), t = γ(t' + vx'/c²)",
-      "x_inverse = gamma_def*(x_prime + v*t_prime)",
-      "t_inverse = gamma_def*(t_prime + v*x_prime/c**2)",
-      "",
-      "# Substitute forward into inverse to get identity",
-      "x_identity = x_inverse.subs([(x_prime, x_transform), (t_prime, t_transform)])",
-      "t_identity = t_inverse.subs([(x_prime, x_transform), (t_prime, t_transform)])",
-      "",
-      "# These should simplify to x and t respectively",
-      "x_simplified = sp.simplify(x_identity)",
-      "t_simplified = sp.simplify(t_identity)",
-      "",
-      "# The verification might be complex due to γ² terms, but key relationships should hold",
-      "",
-      "# Step 3: Verify spacetime interval invariance",
-      "# s² = x² - c²t² should equal s'² = x'² - c²t'²",
-      "interval_original = x**2 - c**2*t**2",
-      "interval_transformed = x_transform**2 - c**2*t_transform**2",
-      "",
-      "# Expand and simplify the transformed interval",
-      "interval_diff = sp.expand(interval_transformed - interval_original)",
-      "interval_simplified = sp.simplify(interval_diff)",
-      "",
-      "# Should be zero (invariant)",
-      "# Note: Full algebraic verification may be complex, but this tests the structure",
-      "",
-      "# Step 14: Energy-momentum relation",
+      "# Energy-momentum relation",
       "E_rel = gamma_def*m*c**2",
       "p_rel = gamma_def*m*v",
       "",
@@ -323,6 +410,6 @@
       "citation": "Rindler, W. (1991). Introduction to Special Relativity (2nd ed.). Oxford University Press."
     }
   ],
-  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
-  "review_status": "draft"
+  "created_by": "Consolidated entry incorporating reviewed content from lorentz_transformations.json and mass_energy_equivalence.json",
+  "review_status": "reviewed"
 }

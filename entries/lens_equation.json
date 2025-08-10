@@ -1,0 +1,288 @@
+{
+  "result_id": "lens_equation",
+  "result_name": "Thin Lens Equation",
+  "result_equations": [
+    {
+      "id": "thin_lens",
+      "equation": "1/f = 1/d_o + 1/d_i"
+    },
+    {
+      "id": "magnification",
+      "equation": "M = -d_i/d_o = h_i/h_o"
+    },
+    {
+      "id": "lensmaker_equation",
+      "equation": "1/f = (n-1)*(1/R_1 - 1/R_2)"
+    }
+  ],
+  "explanation": "The thin lens equation relates the focal length of a lens to the object and image distances, forming the foundation of geometric optics. It describes how lenses form images by refraction, enabling the design of optical instruments from eyeglasses to telescopes. The equation applies to both converging and diverging lenses, with sign conventions determining whether images are real or virtual, upright or inverted.",
+  "equations_assumptions": [
+    {
+      "id": "eq_assump1",
+      "text": "The lens is thin compared to object and image distances."
+    },
+    {
+      "id": "eq_assump2",
+      "text": "Light rays make small angles with the optical axis (paraxial approximation)."
+    },
+    {
+      "id": "eq_assump3",
+      "text": "The lens has uniform refractive index and spherical surfaces."
+    },
+    {
+      "id": "eq_assump4",
+      "text": "Monochromatic light (no chromatic aberration considered)."
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "f",
+      "definition": "Focal length of the lens (positive for converging, negative for diverging)."
+    },
+    {
+      "symbol": "d_o",
+      "definition": "Object distance (distance from object to lens center)."
+    },
+    {
+      "symbol": "d_i",
+      "definition": "Image distance (distance from lens center to image)."
+    },
+    {
+      "symbol": "M",
+      "definition": "Linear magnification (ratio of image height to object height)."
+    },
+    {
+      "symbol": "h_o",
+      "definition": "Object height."
+    },
+    {
+      "symbol": "h_i",
+      "definition": "Image height."
+    },
+    {
+      "symbol": "n",
+      "definition": "Refractive index of lens material."
+    },
+    {
+      "symbol": "R_1",
+      "definition": "Radius of curvature of first lens surface."
+    },
+    {
+      "symbol": "R_2",
+      "definition": "Radius of curvature of second lens surface."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "text(Apply Snell's law at both lens surfaces)"
+    },
+    {
+      "step": 2,
+      "equation": "n_1*sin(theta_1) = n_2*sin(theta_2)"
+    },
+    {
+      "step": 3,
+      "equation": "text(Paraxial approximation: sin(theta) ≈ theta)"
+    },
+    {
+      "step": 4,
+      "equation": "n_1*theta_1 = n_2*theta_2"
+    },
+    {
+      "step": 5,
+      "equation": "text(Apply refraction at first surface)"
+    },
+    {
+      "step": 6,
+      "equation": "n/s + n'/s' = (n'-n)/R"
+    },
+    {
+      "step": 7,
+      "equation": "text(Apply refraction at second surface)"
+    },
+    {
+      "step": 8,
+      "equation": "text(Combine effects of both surfaces)"
+    },
+    {
+      "step": 9,
+      "equation": "1/s_o + 1/s_i = (n-1)*(1/R_1 - 1/R_2)"
+    },
+    {
+      "step": 10,
+      "equation": "text(Define focal length: f = 1/((n-1)*(1/R_1 - 1/R_2)))"
+    },
+    {
+      "step": 11,
+      "equation": "1/f = 1/d_o + 1/d_i"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Paraxial rays (small angle approximation)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Thin lens approximation (lens thickness negligible)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Spherical lens surfaces."
+    },
+    {
+      "id": "assumption4",
+      "text": "Homogeneous lens material."
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Snell's law of refraction at each lens surface."
+    },
+    {
+      "step": 2,
+      "text": "Express Snell's law for refraction between two media."
+    },
+    {
+      "step": 3,
+      "text": "Apply the paraxial approximation for small angles."
+    },
+    {
+      "step": 4,
+      "text": "Simplify Snell's law under paraxial conditions."
+    },
+    {
+      "step": 5,
+      "text": "Apply refraction formula to the first lens surface."
+    },
+    {
+      "step": 6,
+      "text": "Use the general refraction formula relating object, image, and surface curvature."
+    },
+    {
+      "step": 7,
+      "text": "Apply the same refraction formula to the second lens surface."
+    },
+    {
+      "step": 8,
+      "text": "Combine the effects of both surfaces assuming thin lens."
+    },
+    {
+      "step": 9,
+      "text": "Derive the general form relating object distance, image distance, and lens properties."
+    },
+    {
+      "step": 10,
+      "text": "Define the focal length in terms of lens material and curvature."
+    },
+    {
+      "step": 11,
+      "text": "Obtain the thin lens equation in its standard form."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "f, d_o, d_i, M, h_o, h_i = sp.symbols('f d_o d_i M h_o h_i', real=True)",
+      "n, R1, R2 = sp.symbols('n R1 R2', real=True)",
+      "",
+      "# Thin lens equation",
+      "lens_eq = sp.Eq(1/f, 1/d_o + 1/d_i)",
+      "",
+      "# Solve for image distance",
+      "d_i_solved = sp.solve(lens_eq, d_i)[0]",
+      "d_i_expected = (f * d_o) / (d_o - f)",
+      "assert sp.simplify(d_i_solved - d_i_expected) == 0",
+      "",
+      "# Magnification equation",
+      "mag_eq = sp.Eq(M, -d_i/d_o)",
+      "",
+      "# Test with specific examples",
+      "# Example 1: Converging lens, object beyond focal point",
+      "f_val = 10.0  # cm (converging lens)",
+      "d_o_val = 30.0  # cm (object distance)",
+      "",
+      "# Calculate image distance",
+      "d_i_val = (f_val * d_o_val) / (d_o_val - f_val)",
+      "expected_d_i = 15.0  # cm",
+      "assert abs(d_i_val - expected_d_i) < 0.1",
+      "",
+      "# Calculate magnification",
+      "M_val = -d_i_val / d_o_val",
+      "expected_M = -0.5  # inverted, reduced image",
+      "assert abs(M_val - expected_M) < 0.01",
+      "",
+      "# Example 2: Object at focal point (d_o = f)",
+      "# Image should be at infinity",
+      "d_o_focal = f_val",
+      "# d_i approaches infinity as d_o approaches f",
+      "",
+      "# Example 3: Diverging lens",
+      "f_div = -10.0  # cm (diverging lens)",
+      "d_o_div = 20.0  # cm",
+      "d_i_div = (f_div * d_o_div) / (d_o_div - f_div)",
+      "# Should be negative (virtual image)",
+      "assert d_i_div < 0, 'Diverging lens should produce virtual image'",
+      "",
+      "# Magnification for diverging lens",
+      "M_div = -d_i_div / d_o_div",
+      "# Should be positive (upright) and less than 1 (reduced)",
+      "assert M_div > 0 and M_div < 1, 'Diverging lens should produce upright, reduced image'",
+      "",
+      "# Test lensmaker's equation consistency",
+      "# For a symmetric biconvex lens: R1 = R, R2 = -R",
+      "R = sp.symbols('R', positive=True)",
+      "f_lensmaker = 1 / ((n-1) * (1/R - 1/(-R)))",
+      "f_simplified = R / (2*(n-1))",
+      "assert sp.simplify(f_lensmaker - f_simplified) == 0"
+    ]
+  },
+  "domain": "physics.optics",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Paraxial approximation (small angles)",
+      "Thin lens (thickness << object/image distances)",
+      "Monochromatic light",
+      "Homogeneous lens material"
+    ],
+    "limitations": [
+      "Spherical aberration for large apertures",
+      "Chromatic aberration for white light",
+      "Thick lens effects for large thickness",
+      "Non-paraxial rays show aberrations"
+    ]
+  },
+  "historical_context": {
+    "importance": "Foundation of geometric optics, enabling design of optical instruments and understanding of human vision",
+    "development_period": "17th century",
+    "key_insights": [
+      "Developed from Snell's law and geometric principles",
+      "Enabled systematic lens design for telescopes and microscopes",
+      "Foundation for understanding eye corrections (eyeglasses)",
+      "Basis for camera and projector design"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Hecht, E. (2016). *Optics* (5th ed.). Pearson."
+    },
+    {
+      "id": "R2",
+      "citation": "Born, M., & Wolf, E. (1999). *Principles of Optics* (7th ed.). Cambridge University Press."
+    }
+  ],
+  "dependencies": [
+    "snells_law",
+    "electromagnetic_waves"
+  ],
+  "created_by": "Synthetic entry, AI created. May have mistakes, looking for contributors to this entry.",
+  "review_status": "draft"
+}
