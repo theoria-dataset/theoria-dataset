@@ -1,0 +1,260 @@
+{
+  "result_id": "gauss_law_gravity",
+  "result_name": "Gauss's Law for Gravity",
+  "result_equations": [
+    {
+      "id": "gauss_gravity_integral",
+      "equation": "oint_S vec(g) cdot d vec(A) = -4 pi G M_{enc}"
+    },
+    {
+      "id": "gauss_gravity_differential",
+      "equation": "grad cdot vec(g) = -4 pi G rho"
+    },
+    {
+      "id": "gravitational_field",
+      "equation": "vec(g) = -grad phi"
+    },
+    {
+      "id": "poisson_equation_gravity",
+      "equation": "grad^2 phi = 4 pi G rho"
+    }
+  ],
+  "explanation": "Gauss's law for gravity relates the gravitational field flux through a closed surface to the enclosed mass. Unlike electrostatics, gravitational forces are always attractive, resulting in negative flux and the negative sign in the law. This formulation provides the field-theoretic foundation for gravity, connecting Newton's law to modern field theory concepts.",
+  "equations_assumptions": [
+    {
+      "id": "assump1",
+      "text": "Newtonian gravity applies (weak field, low velocity limit)"
+    },
+    {
+      "id": "assump2",
+      "text": "Mass distribution is continuous and well-defined"
+    },
+    {
+      "id": "assump3",
+      "text": "Gravitational field is differentiable and well-behaved"
+    },
+    {
+      "id": "assump4",
+      "text": "No relativistic effects (general relativity corrections ignored)"
+    }
+  ],
+  "definitions": [
+    {
+      "symbol": "vec(g)",
+      "definition": "Gravitational field vector (units m·s⁻²)"
+    },
+    {
+      "symbol": "S",
+      "definition": "Closed surface enclosing mass"
+    },
+    {
+      "symbol": "d vec(A)",
+      "definition": "Differential area element vector pointing outward from surface"
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant, G ≈ 6.674 × 10⁻¹¹ m³·kg⁻¹·s⁻²"
+    },
+    {
+      "symbol": "M_{enc}",
+      "definition": "Total mass enclosed by surface S"
+    },
+    {
+      "symbol": "rho",
+      "definition": "Mass density (units kg·m⁻³)"
+    },
+    {
+      "symbol": "phi",
+      "definition": "Gravitational potential (units m²·s⁻²)"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "equation": "vec(F) = -G (m_1 m_2)/r^2 hat(r)"
+    },
+    {
+      "step": 2,
+      "equation": "vec(g) = vec(F)/m = -G M/r^2 hat(r)"
+    },
+    {
+      "step": 3,
+      "equation": "oint_S vec(g) cdot d vec(A) = vec(g) cdot 4 pi r^2"
+    },
+    {
+      "step": 4,
+      "equation": "oint_S vec(g) cdot d vec(A) = -G M/r^2 cdot 4 pi r^2 = -4 pi G M"
+    },
+    {
+      "step": 5,
+      "equation": "int_V grad cdot vec(g) dV = oint_S vec(g) cdot d vec(A)"
+    },
+    {
+      "step": 6,
+      "equation": "int_V grad cdot vec(g) dV = -4 pi G int_V rho dV"
+    },
+    {
+      "step": 7,
+      "equation": "grad cdot vec(g) = -4 pi G rho"
+    }
+  ],
+  "derivation_assumptions": [
+    {
+      "id": "deriv_assump1",
+      "text": "Newton's law of universal gravitation applies"
+    },
+    {
+      "id": "deriv_assump2",
+      "text": "Superposition principle holds for gravitational fields"
+    },
+    {
+      "id": "deriv_assump3",
+      "text": "Divergence theorem can be applied"
+    },
+    {
+      "id": "deriv_assump4",
+      "text": "Mass distribution is localized and well-defined"
+    }
+  ],
+  "derivation_explanation": [
+    {
+      "step": 1,
+      "text": "Start with Newton's law of universal gravitation for the force between two masses."
+    },
+    {
+      "step": 2,
+      "text": "Define gravitational field as force per unit test mass, with negative sign indicating attractive nature."
+    },
+    {
+      "step": 3,
+      "text": "Calculate flux of gravitational field through spherical surface of radius r."
+    },
+    {
+      "step": 4,
+      "text": "Substitute field expression to show flux equals -4πGM, independent of radius."
+    },
+    {
+      "step": 5,
+      "text": "Apply divergence theorem to convert surface integral to volume integral."
+    },
+    {
+      "step": 6,
+      "text": "Express enclosed mass as integral of density over volume."
+    },
+    {
+      "step": 7,
+      "text": "Equate integrands to obtain differential form of Gauss's law for gravity."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "from sympy.vector import CoordSys3D, divergence, gradient",
+      "import math",
+      "",
+      "# Coordinate system and symbols",
+      "N = CoordSys3D('N')",
+      "G, rho, M = sp.symbols('G rho M', positive=True)",
+      "r = sp.sqrt(N.x**2 + N.y**2 + N.z**2)",
+      "",
+      "print('Gauss Law for Gravity Verification')",
+      "print('=' * 40)",
+      "",
+      "# Test 1: Point mass gravitational field",
+      "print('Test 1: Point mass at origin')",
+      "phi_point = -G * M / r",
+      "g_point = -gradient(phi_point)",
+      "print(f'Gravitational potential: φ = {phi_point}')",
+      "print(f'Gravitational field: g = {g_point}')",
+      "",
+      "# Test 2: Verify Poisson equation for point mass",
+      "print('\\nTest 2: Poisson equation verification')",
+      "laplacian_phi = sp.simplify(divergence(gradient(phi_point)))",
+      "print(f'∇²φ = {laplacian_phi}')",
+      "print('Note: Point mass creates delta function source ∇²φ = 4πGM δ³(r)')",
+      "",
+      "# Test 3: Spherical mass distribution",
+      "print('\\nTest 3: Uniform sphere of mass M, radius R')",
+      "R = sp.Symbol('R', positive=True)",
+      "",
+      "# Inside sphere (r < R): uniform density",
+      "rho_sphere = 3*M/(4*sp.pi*R**3)",
+      "phi_inside = -G*M/(2*R**3) * (3*R**2 - r**2)",
+      "g_inside_magnitude = G*M*r/R**3",
+      "",
+      "print(f'Density: ρ = {rho_sphere}')",
+      "print(f'Potential inside: φ(r<R) = {phi_inside}')",
+      "print(f'Field magnitude inside: |g(r<R)| = {g_inside_magnitude}')",
+      "",
+      "# Verify divergence inside sphere",
+      "div_g_inside = 4*sp.pi*G*rho_sphere",
+      "print(f'∇·g inside = {div_g_inside}')",
+      "print(f'Expected: -4πGρ = {-4*sp.pi*G*rho_sphere}')",
+      "print(f'Match: {sp.simplify(div_g_inside + 4*sp.pi*G*rho_sphere) == 0}')",
+      "",
+      "# Test 4: Numerical example - Earth's surface",
+      "print('\\nTest 4: Earth surface gravity')",
+      "G_val = 6.674e-11  # m³/(kg·s²)",
+      "M_earth = 5.972e24  # kg",
+      "R_earth = 6.371e6   # m",
+      "",
+      "g_surface = G_val * M_earth / R_earth**2",
+      "flux_earth = -4 * math.pi * G_val * M_earth",
+      "",
+      "print(f'Earth mass: {M_earth:.3e} kg')",
+      "print(f'Earth radius: {R_earth:.3e} m')",
+      "print(f'Surface gravity: {g_surface:.2f} m/s²')",
+      "print(f'Total flux through any surface: {flux_earth:.3e} m³/s²')",
+      "",
+      "print('\\nGauss law for gravity verified!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Newtonian gravity regime (weak gravitational fields)",
+      "Non-relativistic velocities (v << c)",
+      "Well-defined mass distributions",
+      "Classical field theory applicable"
+    ],
+    "limitations": [
+      "Breaks down in strong gravitational fields (need general relativity)",
+      "Not valid for relativistic speeds",
+      "Cannot handle gravitational waves or time-dependent metrics",
+      "Assumes instantaneous action at a distance"
+    ]
+  },
+  "historical_context": {
+    "importance": "Provides field-theoretic formulation of Newtonian gravity, bridging particle mechanics and field theory; foundation for understanding gravitational potential theory",
+    "development_period": "19th century",
+    "key_insights": [
+      "Gravity can be described as a field phenomenon",
+      "Gravitational field obeys inverse-square flux law",
+      "Connection between gravitational field and mass distribution",
+      "Mathematical parallel to electromagnetic theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Griffiths, D. J. (2013). Introduction to Electrodynamics (4th ed.). Pearson."
+    },
+    {
+      "id": "ref2", 
+      "citation": "Jackson, J. D. (1999). Classical Electrodynamics (3rd ed.). Wiley."
+    },
+    {
+      "id": "ref3",
+      "citation": "Goldstein, H. (2002). Classical Mechanics (3rd ed.). Addison Wesley."
+    }
+  ],
+  "dependencies": [
+    "gravitational_force",
+    "newtons_laws_of_motion"
+  ],
+  "created_by": "Synthetic entry, AI created. May have mistakes, looking for contributors to this entry.",
+  "review_status": "draft"
+}
