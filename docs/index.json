@@ -36,6 +36,7 @@
   "foucault_pendulum.json",
   "fourier_heat_conduction.json",
   "gauss_law.json",
+  "gauss_law_gravity.json",
   "gibbs_free_energy.json",
   "gravitational_force.json",
   "gravitational_time_dilation.json",
