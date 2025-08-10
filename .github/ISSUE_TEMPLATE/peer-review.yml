@@ -1,0 +1,125 @@
+name: 🔬 Peer Review
+description: Review and validate an existing entry
+title: "[REVIEW] "
+labels: ["review", "validation"]
+
+body:
+  - type: input
+    id: entry_to_review
+    attributes:
+      label: Entry Being Reviewed
+      description: Which entry are you reviewing? (filename without .json)
+      placeholder: "e.g., schrodinger_equation"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: review_type
+    attributes:
+      label: Review Type
+      description: What type of review are you conducting?
+      options:
+        - Complete validation review
+        - Mathematical accuracy check
+        - Physics concept verification
+        - Derivation step verification
+        - Reference validation
+        - Programmatic verification check
+    validations:
+      required: true
+
+  - type: dropdown
+    id: overall_assessment
+    attributes:
+      label: Overall Assessment
+      description: What is your overall evaluation?
+      options:
+        - Approved - Entry is accurate and complete
+        - Approved with minor suggestions
+        - Needs revision - Issues identified
+        - Needs major revision - Significant problems
+        - Reject - Fundamentally flawed
+    validations:
+      required: true
+
+  - type: textarea
+    id: mathematical_accuracy
+    attributes:
+      label: Mathematical Accuracy
+      description: Comments on the mathematical correctness of equations and derivations
+      placeholder: "The equations are correct. However, in step 5..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: physics_concepts
+    attributes:
+      label: Physics Concepts
+      description: Evaluation of the physics explanation and concepts
+      placeholder: "The explanation correctly describes the physical meaning..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: derivation_review
+    attributes:
+      label: Derivation Review
+      description: Assessment of the derivation steps and explanations
+      placeholder: "The derivation is complete and well-explained..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions for Improvement
+      description: Specific recommendations for enhancing the entry
+      placeholder: "Consider adding a note about the approximations used..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: references_check
+    attributes:
+      label: References Validation
+      description: Comments on the accuracy and completeness of references
+      placeholder: "References are appropriate and properly formatted..."
+    validations:
+      required: false
+
+  - type: input
+    id: reviewer_credentials
+    attributes:
+      label: Reviewer Credentials
+      description: Your qualifications for reviewing this entry
+      placeholder: "PhD in Physics, 10 years research experience in quantum mechanics"
+    validations:
+      required: true
+
+  - type: input
+    id: reviewer_name
+    attributes:
+      label: Reviewer Name/ORCID
+      description: Your name or ORCID for attribution
+      placeholder: "Dr. Jane Smith or 0000-0000-0000-0000"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: review_checklist
+    attributes:
+      label: Review Checklist
+      description: Please confirm you have checked the following
+      options:
+        - label: Mathematical equations are correct
+          required: true
+        - label: Physics concepts are accurately explained
+          required: true
+        - label: Symbol definitions are complete and accurate
+          required: true
+        - label: References are appropriate and properly cited
+          required: true
+        - label: Entry follows the dataset schema requirements
+          required: true
+        - label: I have expertise in this area of physics
+          required: true

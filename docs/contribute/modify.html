@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+<head>
+    <meta charset="utf-8">
+    <title>Modify Entry - TheorIA Dataset</title>
+    
+    <!-- LaTeX.css dark theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css">
+    
+    <!-- MathJax for AsciiMath -->
+    <script>
+        window.MathJax = {
+            loader: { load: ['input/asciimath', 'output/chtml'] },
+            asciimath: { delimiters: [['`', '`']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+    
+    <div class="form-container">
+        <header>
+            <h1>Suggest Entry Modification</h1>
+            <p>Propose changes to improve existing dataset entries</p>
+            <a href="index.html">← Back to contribution options</a>
+        </header>
+
+        <div class="modification-options">
+            <div class="method-card">
+                <h3>🔍 Browse & Modify</h3>
+                <p>Search existing entries and suggest specific changes</p>
+                <div class="entry-browser">
+                    <label for="entry-search">Search for entry to modify:</label>
+                    <input type="text" id="entry-search" placeholder="Search by name or topic..." onkeyup="filterEntries()">
+                    
+                    <div id="entry-list" class="entry-list">
+                        <!-- Entries will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="method-card">
+                <h3>📝 Quick Suggestion</h3>
+                <p>Submit a modification via GitHub issue form</p>
+                <a href="https://github.com/theoria-dataset/theoria-dataset/issues/new?template=modify-entry.yml" 
+                   class="cta-button" target="_blank">Open Modification Form</a>
+            </div>
+        </div>
+
+        <!-- Modification Form -->
+        <div id="modification-form" class="modification-form" style="display: none;">
+            <h2>Suggest Changes to: <span id="selected-entry-name"></span></h2>
+            
+            <form id="modifyForm">
+                <div class="form-group">
+                    <label for="modification-type">Type of Change*</label>
+                    <select id="modification-type" required>
+                        <option value="">Select modification type...</option>
+                        <option value="correct-math">Correct mathematical error</option>
+                        <option value="improve-explanation">Improve explanation</option>
+                        <option value="add-derivation">Add missing derivation steps</option>
+                        <option value="update-references">Update references</option>
+                        <option value="fix-definitions">Fix symbol definitions</option>
+                        <option value="improve-verification">Improve programmatic verification</option>
+                        <option value="add-assumptions">Add missing assumptions</option>
+                        <option value="other">Other correction/improvement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="current-issue">What needs to be changed?*</label>
+                    <textarea id="current-issue" required placeholder="Describe what is currently incorrect or could be improved..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="suggested-change">Your suggested change*</label>
+                    <textarea id="suggested-change" required placeholder="Provide the specific correction or improvement..."></textarea>
+                    <div class="preview-section">
+                        <div class="preview-title">Math Preview:</div>
+                        <div id="change-preview" class="math-preview"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="justification">Why is this change needed?*</label>
+                    <textarea id="justification" required placeholder="Explain the reasoning behind this change (include references if applicable)..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="your-expertise">Your background with this topic*</label>
+                    <input type="text" id="your-expertise" required placeholder="e.g., PhD in Theoretical Physics, specializing in Quantum Mechanics">
+                </div>
+
+                <div class="form-group">
+                    <label for="contributor-name">Your Name/ORCID*</label>
+                    <input type="text" id="contributor-name" required placeholder="Full name or ORCID identifier">
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="reviewed-entry" required>
+                            I have reviewed the current entry thoroughly
+                        </label>
+                        <label>
+                            <input type="checkbox" id="established-knowledge" required>
+                            My suggestion is based on established physics knowledge
+                        </label>
+                        <label>
+                            <input type="checkbox" id="can-provide-refs" required>
+                            I can provide references to support this change if needed
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" onclick="cancelModification()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitModification()">Submit Suggestion</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Current Entry Display -->
+        <div id="current-entry-display" class="current-entry-display" style="display: none;">
+            <h3>Current Entry Content</h3>
+            <div id="entry-content"></div>
+        </div>
+    </div>
+
+    <script src="../script.js" defer></script>
+    <script src="modify.js" defer></script>
+</body>
+</html>

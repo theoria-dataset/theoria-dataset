@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+<head>
+    <meta charset="utf-8">
+    <title>Contribute to TheorIA Dataset</title>
+    
+    <!-- LaTeX.css dark theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css">
+    
+    <!-- MathJax for AsciiMath -->
+    <script>
+        window.MathJax = {
+            loader: { load: ['input/asciimath', 'output/chtml'] },
+            asciimath: { delimiters: [['`', '`']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+    
+    <header>
+        <h1>Contribute to TheorIA Dataset</h1>
+        <p>Help expand the theoretical physics knowledge base through open source collaboration</p>
+    </header>
+
+    <main>
+        <section class="contribution-options">
+            <h2>Choose Your Contribution Method</h2>
+            
+            <div class="method-grid">
+                <div class="method-card recommended">
+                    <div class="badge">Recommended</div>
+                    <h3>📝 New Entry Form</h3>
+                    <p>User-friendly form with real-time validation and math preview</p>
+                    <ul>
+                        <li>✓ Step-by-step guidance</li>
+                        <li>✓ Live AsciiMath preview</li>
+                        <li>✓ Automatic validation</li>
+                        <li>✓ Export to JSON or GitHub issue</li>
+                    </ul>
+                    <a href="form.html" class="cta-button">Create New Entry</a>
+                </div>
+
+                <div class="method-card">
+                    <h3>✏️ Modify Existing Entry</h3>
+                    <p>Edit entries directly with live preview and validation</p>
+                    <ul>
+                        <li>✓ Browse and select entries</li>
+                        <li>✓ Live editing interface</li>
+                        <li>✓ Visual + JSON editors</li>
+                        <li>✓ Real-time math preview</li>
+                    </ul>
+                    <a href="../entries_index.html" class="cta-button">Browse & Edit Entries</a>
+                </div>
+
+                <div class="method-card">
+                    <h3>🐙 GitHub Issues</h3>
+                    <p>Submit entries or suggestions through GitHub issue forms</p>
+                    <ul>
+                        <li>✓ No additional tools needed</li>
+                        <li>✓ Integrated with repository</li>
+                        <li>✓ Community discussion</li>
+                        <li>✓ Automatic labeling</li>
+                    </ul>
+                    <a href="https://github.com/theoria-dataset/theoria-dataset/issues/new/choose" 
+                       class="cta-button" target="_blank">Open GitHub Issues</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="quick-guide">
+            <h2>Quick Start Guide</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Physics Topic</h3>
+                        <p>Select an equation, theorem, or derivation you'd like to contribute</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Fill Out the Form</h3>
+                        <p>Use our guided form to enter equations, explanations, and derivations</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Review & Submit</h3>
+                        <p>Preview your entry and submit via GitHub issue or direct JSON</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>Need Help?</h2>
+            
+            <div class="help-grid">
+                <div class="help-card">
+                    <h3>📖 Documentation</h3>
+                    <ul>
+                        <li><a href="../../CONTRIBUTING.md">Contributing Guidelines</a></li>
+                        <li><a href="../../schemas/entry.schema.json">Entry Schema</a></li>
+                        <li><a href="https://asciimath.org/">AsciiMath Reference</a></li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h3>💡 Examples</h3>
+                    <ul>
+                        <li><a href="../../entries/lorentz_transformations.json" target="_blank">Complete Entry Example</a></li>
+                        <li><a href="../entries_index.html">Browse Existing Entries</a></li>
+                        <li><a href="#math-examples">AsciiMath Examples</a></li>
+                    </ul>
+                </div>
+                
+                <div class="help-card">
+                    <h3>🤝 Community</h3>
+                    <ul>
+                        <li><a href="https://github.com/theoria-dataset/theoria-dataset/discussions">Discussions</a></li>
+                        <li><a href="https://github.com/theoria-dataset/theoria-dataset/issues">Report Issues</a></li>
+                        <li><a href="mailto:contact@theoria-dataset.org">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="math-examples" class="math-examples">
+            <h2>AsciiMath Examples</h2>
+            <div class="example-grid">
+                <div class="example">
+                    <strong>Schrödinger Equation:</strong><br>
+                    <code>i*hbar*(partial psi)/(partial t) = H*psi</code><br>
+                    Preview: `i*hbar*(partial psi)/(partial t) = H*psi`
+                </div>
+                
+                <div class="example">
+                    <strong>Einstein's Mass-Energy:</strong><br>
+                    <code>E = m*c^2</code><br>
+                    Preview: `E = m*c^2`
+                </div>
+                
+                <div class="example">
+                    <strong>Maxwell's Equation:</strong><br>
+                    <code>nabla xx E = -(partial B)/(partial t)</code><br>
+                    Preview: `nabla xx E = -(partial B)/(partial t)`
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="../">← Back to TheorIA Dataset</a></p>
+    </footer>
+
+    <script src="../script.js" defer></script>
+</body>
+</html>

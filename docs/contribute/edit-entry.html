@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Entry - TheorIA Dataset</title>
+    
+    <!-- LaTeX.css dark theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css">
+    
+    <!-- MathJax for AsciiMath -->
+    <script>
+        window.MathJax = {
+            loader: { load: ['input/asciimath', 'output/chtml'] },
+            asciimath: { delimiters: [['`', '`']] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="form.css">
+    <style>
+    .entry-editor-hidden {
+        display: none !important;
+    }
+    .entry-editor-visible {
+        display: block !important;
+    }
+    .submission-instructions {
+        background: #e8f4fd;
+        border: 1px solid #bee5eb;
+        border-radius: 4px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        color: #0c5460;
+    }
+    .dark .submission-instructions {
+        background: #1a3b42;
+        border-color: #2d5a63;
+        color: #b3d9e0;
+    }
+    </style>
+</head>
+
+<body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+    
+    <div class="form-container">
+        <header>
+            <h1>Edit Entry: <span id="entry-title">Loading...</span></h1>
+            <p>Suggest changes to this physics entry. Once you finish, submit changes.</p>
+            <div id="loading-message">
+                <p>Loading entry data...</p>
+            </div>
+        </header>
+
+        <!-- Entry Editor Form -->
+        <div id="entry-editor" class="entry-editor-hidden">
+            <form id="entry-form">
+                
+                <!-- Basic Information Section -->
+                <div class="form-section">
+                    <h3>📝 Basic Information</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> A unique identifier that must exactly match the filename (without the .json extension). Use lowercase letters, numbers, and underscores only.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="result_id">Result ID*</label>
+                        <input type="text" id="result_id" pattern="^[a-z0-9_]+$" required readonly>
+                        <div class="help-text">Unique identifier that must exactly match the filename (without .json extension). Pattern: lowercase letters, numbers, and underscores only.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="result_name">Result Name*</label>
+                        <input type="text" id="result_name" maxlength="100" required>
+                        <div class="help-text">Brief title to identify the entry (max 100 characters).</div>
+                    </div>
+                </div>
+
+                <!-- Equations Section -->
+                <div class="form-section">
+                    <h3>🧮 Main Equations</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Provide each equation in AsciiMath format. Include an equation ID for each equation (e.g., "eq1", "eq2").
+                    </div>
+                    
+                    <div id="equations_container">
+                        <!-- Equations will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addEquation()">+ Add Equation</button>
+                </div>
+
+                <!-- Explanation Section -->
+                <div class="form-section">
+                    <h3>💡 Explanation</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Provide a brief 2-5 sentence conceptual summary (max 100 words). Assume graduate-level physics understanding. Explain significance, usage, and context.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="explanation">Explanation*</label>
+                        <textarea id="explanation" rows="4" maxlength="800" required></textarea>
+                        <div class="help-text">2-5 sentence conceptual summary (≤100 words, max 800 characters)</div>
+                    </div>
+                </div>
+
+                <!-- Equations Assumptions Section -->
+                <div class="form-section">
+                    <h3>📋 Equations Assumptions</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> List any assumptions directly related to the equations. Use backticks for math symbols in AsciiMath format.
+                    </div>
+                    
+                    <div id="equations_assumptions_container">
+                        <!-- Assumptions will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addEquationAssumption()">+ Add Assumption</button>
+                </div>
+
+                <!-- Definitions Section -->
+                <div class="form-section">
+                    <h3>📖 Symbol Definitions</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Define every symbol used in the equations. Each definition should include a symbol field (in AsciiMath) and a definition field.
+                    </div>
+                    
+                    <div id="definitions_container">
+                        <!-- Definitions will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addDefinition()">+ Add Definition</button>
+                </div>
+
+                <!-- Derivation Section -->
+                <div class="form-section">
+                    <h3>🔬 Derivation</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Provide formal derivation steps with equations in AsciiMath format. Include step numbers and ensure explicit detail level.
+                    </div>
+                    
+                    <div id="derivation_container">
+                        <!-- Derivation steps will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addDerivationStep()">+ Add Derivation Step</button>
+                </div>
+
+                <!-- Derivation Assumptions Section -->
+                <div class="form-section">
+                    <h3>📝 Derivation Assumptions</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Specify assumptions behind the derivation. Each assumption should have a unique ID and text description.
+                    </div>
+                    
+                    <div id="derivation_assumptions_container">
+                        <!-- Derivation assumptions will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addDerivationAssumption()">+ Add Assumption</button>
+                </div>
+
+                <!-- Derivation Explanation Section -->
+                <div class="form-section">
+                    <h3>📚 Derivation Explanation</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Add textual explanations for derivation steps. Include step numbers that match the derivation. Define any new symbols.
+                    </div>
+                    
+                    <div id="derivation_explanation_container">
+                        <!-- Derivation explanations will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addDerivationExplanation()">+ Add Explanation</button>
+                </div>
+
+                <!-- Programmatic Verification Section -->
+                <div class="form-section">
+                    <h3>💻 Programmatic Verification</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Include programmatic verification using Python/SymPy. Specify language and library versions. Include comments and assert statements.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prog_language">Language*</label>
+                        <input type="text" id="prog_language" pattern="^[A-Za-z]+\\s\\d+\\.\\d+\\.\\d+$" required>
+                        <div class="help-text">e.g. 'python 3.11.12'</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prog_library">Library*</label>
+                        <input type="text" id="prog_library" pattern="^[A-Za-z0-9_]+\\s\\d+\\.\\d+\\.\\d+$" required>
+                        <div class="help-text">e.g. 'sympy 1.13.0'</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prog_code">Code*</label>
+                        <textarea id="prog_code" rows="10" style="font-family: monospace;" required></textarea>
+                        <div class="help-text">Enter each line of code separated by newlines. Include comments and assert statements.</div>
+                    </div>
+                </div>
+
+                <!-- Metadata Section -->
+                <div class="form-section">
+                    <h3>🏷️ Metadata & Classification</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Select the appropriate ArXiv category identifier that best matches the physics domain of this entry.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="domain">ArXiv Domain*</label>
+                        <select id="domain" required>
+                            <option value="">Select domain...</option>
+                            <option value="quant-ph">Quantum Physics (quant-ph)</option>
+                            <option value="gr-qc">General Relativity and Quantum Cosmology (gr-qc)</option>
+                            <option value="hep-th">High Energy Physics - Theory (hep-th)</option>
+                            <option value="hep-ph">High Energy Physics - Phenomenology (hep-ph)</option>
+                            <option value="cond-mat">Condensed Matter (cond-mat)</option>
+                            <option value="astro-ph">Astrophysics (astro-ph)</option>
+                            <option value="nucl-th">Nuclear Theory (nucl-th)</option>
+                            <option value="physics.class-ph">Classical Physics (physics.class-ph)</option>
+                            <option value="physics.optics">Optics (physics.optics)</option>
+                            <option value="physics.plasm-ph">Plasma Physics (physics.plasm-ph)</option>
+                            <option value="math-ph">Mathematical Physics (math-ph)</option>
+                        </select>
+                        <div class="help-text">ArXiv category identifier</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="theory_status">Theory Status*</label>
+                        <select id="theory_status" required>
+                            <option value="">Select status...</option>
+                            <option value="current">Current - Modern theory widely accepted</option>
+                            <option value="historical">Historical - Important but superseded</option>
+                            <option value="approximation">Approximation - Valid simplification</option>
+                            <option value="limiting_case">Limiting Case - Restricted applicability</option>
+                            <option value="superseded">Superseded - Completely replaced</option>
+                        </select>
+                        <div class="help-text">Current scientific status of the theory</div>
+                    </div>
+                </div>
+
+                <!-- Validity Regime Section -->
+                <div class="form-section">
+                    <h3>⚖️ Validity Regime</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Describe physical conditions where the theory applies and limitations where it breaks down.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Conditions</label>
+                        <div class="help-text">Physical conditions where this theory applies</div>
+                        <div id="validity_conditions_container">
+                            <!-- Validity conditions will be populated here -->
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addValidityCondition()">+ Add Condition</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Limitations</label>
+                        <div class="help-text">Limitations or boundaries of this theory</div>
+                        <div id="validity_limitations_container">
+                            <!-- Validity limitations will be populated here -->
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addValidityLimitation()">+ Add Limitation</button>
+                    </div>
+                </div>
+
+                <!-- Dependencies Section -->
+                <div class="form-section">
+                    <h3>🔗 Dependencies</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> List other entry result_ids that this result relies on. Use exact result_id values without .json extension.
+                    </div>
+                    
+                    <div id="dependencies_container">
+                        <!-- Dependencies will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addDependency()">+ Add Dependency</button>
+                </div>
+
+                <!-- Superseded By Section -->
+                <div class="form-section">
+                    <h3>🔄 Superseded By</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> List theories that supersede or generalize this result. Use exact result_id values from the dataset.
+                    </div>
+                    
+                    <div id="superseded_by_container">
+                        <!-- Superseded by entries will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addSupersededBy()">+ Add Entry</button>
+                </div>
+
+                <!-- Historical Context Section -->
+                <div class="form-section">
+                    <h3>📜 Historical Context</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Provide educational context including importance, development period, and key insights introduced by this theory.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="historical_importance">Importance</label>
+                        <textarea id="historical_importance" rows="3" placeholder="Describe the historical significance and impact..."></textarea>
+                        <div class="help-text">Historical significance and impact of this theory</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="development_period">Development Period</label>
+                        <input type="text" id="development_period" placeholder="e.g., 1925-1926">
+                        <div class="help-text">Time period when this theory was developed</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Key Insights</label>
+                        <div class="help-text">Key scientific insights or breakthroughs</div>
+                        <div id="key_insights_container">
+                            <!-- Key insights will be populated here -->
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addKeyInsight()">+ Add Insight</button>
+                    </div>
+                </div>
+
+                <!-- References Section -->
+                <div class="form-section">
+                    <h3>📚 References</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Include 1-3 full citations in APA style. Format as: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages.
+                    </div>
+                    
+                    <div id="references_container">
+                        <!-- References will be populated here -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addReference()">+ Add Reference</button>
+                </div>
+
+                <!-- Attribution Section -->
+                <div class="form-section">
+                    <h3>👤 Attribution</h3>
+                    <div class="guidelines">
+                        <strong>Guidelines:</strong> Provide the full name or ORCID of the entry author. Use "draft" status for initial submissions.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="created_by">Created By*</label>
+                        <input type="text" id="created_by" required>
+                        <div class="help-text">Full name or ORCID of author of the entry</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review_status">Review Status*</label>
+                        <select id="review_status" required>
+                            <option value="draft">Draft - Initial submission</option>
+                            <option value="reviewed">Reviewed - Final dataset entry</option>
+                        </select>
+                        <div class="help-text">Use "draft" for initial submissions</div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Change Summary -->
+            <div class="form-section">
+                <h3>Change Summary</h3>
+                <div class="form-group">
+                    <label for="change-summary">What did you change?*</label>
+                    <textarea id="change-summary" rows="3" required placeholder="Briefly describe your modifications..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="change-reason">Why is this change needed?*</label>
+                    <textarea id="change-reason" rows="3" required placeholder="Explain the reasoning behind your changes..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contributor-info">Your Name/ORCID*</label>
+                    <input type="text" id="contributor-info" required placeholder="Full name or ORCID identifier">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contributor-email">Your Email (optional)</label>
+                    <input type="email" id="contributor-email" placeholder="your.email@example.com">
+                    <div class="help-text">If provided, you'll be CC'd on the submission email</div>
+                </div>
+            </div>
+
+            <!-- Submission Instructions -->
+            <div class="form-section">
+                <div class="submission-instructions">
+                    <h4 style="margin-top: 0;">📧 Manual Submission Process</h4>
+                    <p style="margin-bottom: 0;">As this is a starting project, modifications must be submitted manually via email or GitHub issue. The form will open your email client with pre-filled details including the JSON content. Simply review and send the email. We plan to improve this submission process in the future!</p>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="submitChanges()">📧 Submit Changes</button>
+                <button type="button" class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+                <button type="button" class="btn btn-secondary" onclick="previewChanges()">👁️ Preview</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 Reset</button>
+            </div>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="preview-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Preview Changes</h2>
+                    <button class="modal-close" onclick="closePreview()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="preview-content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="submitChanges()">📧 Submit Changes</button>
+                    <button class="btn btn-secondary" onclick="closePreview()">Close Preview</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js" defer></script>
+    <script src="edit-entry-structured.js" defer></script>
+</body>
+</html>

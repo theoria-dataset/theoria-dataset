@@ -1,0 +1,147 @@
+name: Process Contribution
+
+on:
+  issues:
+    types: [labeled, opened]
+
+jobs:
+  process-new-entry:
+    if: contains(github.event.label.name, 'new-entry') || contains(github.event.issue.labels.*.name, 'new-entry')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema sympy
+          
+      - name: Parse issue content
+        id: parse
+        run: |
+          python scripts/parse_github_issue.py "${{ github.event.issue.body }}" > parsed_entry.json
+          
+      - name: Validate entry
+        run: |
+          python scripts/validate_schema.py parsed_entry.json
+          
+      - name: Create pull request
+        if: success()
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add new entry from issue #${{ github.event.issue.number }}"
+          title: "New Entry: ${{ steps.parse.outputs.entry_name }}"
+          body: |
+            This PR adds a new entry submitted via GitHub issue #${{ github.event.issue.number }}.
+            
+            **Entry Details:**
+            - ID: ${{ steps.parse.outputs.entry_id }}
+            - Name: ${{ steps.parse.outputs.entry_name }}
+            - Domain: ${{ steps.parse.outputs.domain }}
+            - Contributor: ${{ steps.parse.outputs.created_by }}
+            
+            **Validation Status:**
+            - [x] Schema validation passed
+            - [ ] Manual review pending
+            - [ ] Programmatic verification pending
+            
+            Closes #${{ github.event.issue.number }}
+          branch: entry/${{ steps.parse.outputs.entry_id }}
+          delete-branch: true
+          
+      - name: Comment on issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🎉 Thank you for your contribution! A pull request has been automatically created from your submission. Our team will review it shortly.\n\n📝 **Next steps:**\n1. Automated validation has passed\n2. Manual review in progress\n3. You will be notified when merged\n\n🔗 **Pull Request:** [View PR](../pulls)'
+            })
+
+  process-modification:
+    if: contains(github.event.label.name, 'modification') || contains(github.event.issue.labels.*.name, 'modification')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Label for manual review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['needs-review', 'manual-process']
+            })
+            
+      - name: Comment on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '📝 Thank you for suggesting modifications to our dataset!\n\n**Next steps:**\n1. Our team will review your suggestions\n2. If approved, we will implement the changes\n3. You will be credited in the commit\n\n⏱️ **Expected timeline:** 3-7 days for review'
+            })
+
+  process-review:
+    if: contains(github.event.label.name, 'review') || contains(github.event.issue.labels.*.name, 'review')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Add review labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['peer-review', 'needs-maintainer-attention']
+            })
+            
+      - name: Comment on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🔬 Thank you for providing a peer review!\n\n**Your review will help us:**\n1. Ensure scientific accuracy\n2. Improve entry quality\n3. Maintain dataset standards\n\n🏷️ This issue has been tagged for maintainer attention. We will incorporate your feedback and credit your contribution.'
+            })
+
+  auto-close-invalid:
+    if: contains(github.event.issue.title, '[NEW ENTRY]') && !contains(github.event.issue.labels.*.name, 'new-entry')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Close invalid entry
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ This issue appears to be a new entry submission but is missing the required label or format.\n\n**To submit a new entry:**\n1. Use the [New Entry template](../issues/new?template=new-entry.yml)\n2. Fill out all required fields\n3. The issue will be automatically processed\n\n**Need help?** Check our [Contributing Guidelines](../blob/main/CONTRIBUTING.md)'
+            })
+            
+            github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: ['invalid', 'auto-closed']
+            })

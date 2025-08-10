@@ -140,34 +140,59 @@
       <section>
         <h2>How to Contribute</h2>
         <p>
-          We are <em>tiny</em> right now, every new entry counts! To contribute:
+          We are <em>tiny</em> right now, every new entry counts! Multiple ways to contribute:
         </p>
 
-        <div class="feature-card">
-          <h3><span class="step-number">1</span>Fork and Clone</h3>
-          <p>
-            Fork the repository on GitHub and clone it to your local machine.
-          </p>
+        <div class="contribution-methods">
+          <div class="method-card recommended">
+            <div class="badge">Recommended</div>
+            <h3>🌐 Easy Web Form</h3>
+            <p>User-friendly contribution system designed for scientists and researchers</p>
+            <ul>
+              <li>✓ Step-by-step guidance</li>
+              <li>✓ Real-time math preview</li>
+              <li>✓ No technical setup required</li>
+            </ul>
+            <a href="contribute/" class="cta-button">Start Contributing</a>
+          </div>
+
+          <div class="method-card">
+            <h3>🐙 GitHub Issues</h3>
+            <p>Submit entries through structured issue forms</p>
+            <ul>
+              <li>✓ Direct integration</li>
+              <li>✓ Community discussion</li>
+              <li>✓ Automatic processing</li>
+            </ul>
+            <a href="https://github.com/theoria-dataset/theoria-dataset/issues/new/choose" class="cta-button">Submit via GitHub</a>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <h3><span class="step-number">2</span>Create a JSON Entry</h3>
-          <p>
-            Create a JSON file in the
-            <code class="inline">entries/</code> folder following the
-            instructions in the <code class="inline">CONTRIBUTING.md</code> file
-            and the schema in
-            <code class="inline">schemas/entry.schema.json</code>.
-          </p>
-        </div>
+        <details>
+          <summary><strong>Advanced: Direct Development</strong></summary>
+          <div class="advanced-method">
+            <div class="feature-card">
+              <h3><span class="step-number">1</span>Fork and Clone</h3>
+              <p>Fork the repository on GitHub and clone it to your local machine.</p>
+            </div>
 
-        <div class="feature-card">
-          <h3><span class="step-number">3</span>Submit a Pull Request</h3>
-          <p>
-            CI will automatically validate your JSON against the schema. If it
-            passes, we will review and merge it.
-          </p>
-        </div>
+            <div class="feature-card">
+              <h3><span class="step-number">2</span>Create a JSON Entry</h3>
+              <p>
+                Create a JSON file in the <code class="inline">entries/</code> folder following the
+                instructions in the <code class="inline">CONTRIBUTING.md</code> file
+                and the schema in <code class="inline">schemas/entry.schema.json</code>.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h3><span class="step-number">3</span>Submit a Pull Request</h3>
+              <p>
+                CI will automatically validate your JSON against the schema. If it passes, we will review and merge it.
+              </p>
+            </div>
+          </div>
+        </details>
       </section>
 
       <section>
