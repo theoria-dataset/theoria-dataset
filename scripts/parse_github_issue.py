@@ -2,6 +2,13 @@
 """
 Parse GitHub issue content and convert to JSON entry format.
 This script processes structured issue submissions and creates valid dataset entries.
+
+This script is part of the automated contribution workflow:
+1. Contributors submit new entries via GitHub issues using a template
+2. GitHub Actions workflow triggers on issues labeled 'new-entry'
+3. This script parses the issue content into proper JSON format
+4. After validation, a pull request is automatically created
+5. The original issue is closed and linked to the PR
 """
 
 import sys
