@@ -35,16 +35,15 @@
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
     <div id="entryView" class="entry-view">
-      <button onclick="window.location.href='index.html'" class="cta-button">
-        ← Back to Home
-      </button>
-      <div class="controls">
-        <label for="entrySelector"><strong>Select Entry:</strong></label>
-        <select id="entrySelector">
-          <option value="">— choose one —</option>
-        </select>
+      <div class="navigation-header">
+        <button onclick="window.location.href='index.html'" class="cta-button">
+          ← Back to Home
+        </button>
+        <button onclick="window.location.href='entries_index.html'" class="cta-button">
+          Browse All Entries
+        </button>
       </div>
-      <h1 id="title" style="display: none">Select an entry</h1>
+      <h1 id="title" style="display: none">Select an entry from the URL or Browse All Entries</h1>
       <p id="explanation"></p>
       <section id="equations" style="display: none" class="derivation-section">
         <div class="draft-watermark">
@@ -149,6 +148,48 @@
         <p><strong>Language:</strong> <span id="pv-language"></span></p>
         <p><strong>Library:</strong> <span id="pv-library"></span></p>
         <pre><code id="pv-code" class="language-python"></code></pre>
+      </section>
+      <section id="validityRegime" style="display: none" class="derivation-section">
+        <div class="draft-watermark">
+          <a
+            href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener"
+            >DRAFT</a
+          >
+        </div>
+        <h2>Validity Regime</h2>
+        <div id="validity-conditions">
+          <h3>Valid Conditions</h3>
+          <ul></ul>
+        </div>
+        <div id="validity-limitations">
+          <h3>Limitations</h3>
+          <ul></ul>
+        </div>
+      </section>
+      <section id="historicalContext" style="display: none" class="derivation-section">
+        <div class="draft-watermark">
+          <a
+            href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener"
+            >DRAFT</a
+          >
+        </div>
+        <h2>Historical Context</h2>
+        <div id="historical-importance">
+          <h3>Importance</h3>
+          <p></p>
+        </div>
+        <div id="historical-period">
+          <h3>Development Period</h3>
+          <p></p>
+        </div>
+        <div id="historical-insights">
+          <h3>Key Insights</h3>
+          <ul></ul>
+        </div>
       </section>
       <section id="references" style="display: none">
         <h2>References</h2>

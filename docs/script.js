@@ -40,78 +40,95 @@ const baseUrl = isGitHubPages
   ? "https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/main"
   : "..";
 
-// Populate entries for the selector in entries.html only
-if (window.location.pathname.includes("entries.html")) {
-  fetch("index.json")
-    .then((r) => r.json())
-    .then((list) => {
-      list.forEach((fn) => {
-        const o1 = document.createElement("option");
-        o1.value = fn;
-        o1.textContent = fn.replace(".json", "");
-        $("entrySelector").appendChild(o1);
-      });
-      const params = new URLSearchParams(window.location.search);
-      const initial = params.get("entry");
-      if (initial) {
-        $("entrySelector").value = initial;
-        $("entrySelector").dispatchEvent(new Event("change"));
-      }
-    });
+console.log("Base URL:", baseUrl, "GitHub Pages:", isGitHubPages);
 
-  // Handler for entry selector in entry view
-  $("entrySelector").addEventListener("change", () => {
-    const file = $("entrySelector").value;
-    const sections = [
-      "equations",
-      "assumptions",
-      "derivationAssumptions",
-      "definitions",
-      "derivation",
-      "programmaticVerification",
-      "references",
-      "dependencies",
-      "meta-domain",
-      "meta-created",
-      "meta-status",
-      "metadata",
-    ];
-    // Also hide all section titles (h2, h1, etc) when no entry is selected
-    if (!file) {
-      $("title").style.display = "none";
-      $("explanation").textContent = "Select any entry to show it.";
-      // Hide all sections and their headings
-      sections.forEach((id) => {
-        const el = $(id) || qs(`.${id}`);
-        if (el) el.style.display = "none";
-        // Hide section headings (h2) inside each section
-        if (el && el.querySelector && el.querySelector("h2")) {
-          el.querySelector("h2").style.display = "none";
-        }
-      });
-      // Hide all h2s globally (for metadata section)
-      document
-        .querySelectorAll("#entryView h2")
-        .forEach((h) => (h.style.display = "none"));
-      return;
-    }
+// Handle direct entry loading via URL parameter in entries.html only
+function initializeEntryPage() {
+  if (!window.location.pathname.includes("entries.html")) return;
+  
+  const params = new URLSearchParams(window.location.search);
+  const initial = params.get("entry");
+  
+  if (initial) {
+    console.log("Loading entry:", initial);
+    loadEntry(initial);
+  } else {
+    // Show default message when no entry is specified
     $("title").style.display = "";
-    sections.forEach((id) => {
-      const el = $(id) || qs(`.${id}`);
-      if (el) el.style.display = "";
-      if (el && el.querySelector && el.querySelector("h2")) {
-        el.querySelector("h2").style.display = "";
-      }
-    });
-    document
-      .querySelectorAll("#entryView h2")
-      .forEach((h) => (h.style.display = ""));
-    // Load the entry using the appropriate base URL
-    fetch(`${baseUrl}/entries/${file}`)
-      .then((r) => r.json())
-      .then(render)
-      .catch(console.error);
+    $("title").textContent = "Select an entry from the URL or Browse All Entries";
+    $("explanation").innerHTML = 'Visit <a href="entries_index.html">Browse All Entries</a> to explore the dataset, or use the URL parameter <code>?entry=filename.json</code> to load a specific entry.';
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeEntryPage);
+} else {
+  initializeEntryPage();
+}
+
+function loadEntry(filename) {
+  const sections = [
+    "equations",
+    "assumptions",
+    "derivationAssumptions",
+    "definitions",
+    "derivation",
+    "programmaticVerification",
+    "validityRegime",
+    "historicalContext",
+    "references",
+    "dependencies",
+    "meta-domain",
+    "meta-created",
+    "meta-status",
+    "metadata",
+  ];
+  
+  $("title").style.display = "";
+  sections.forEach((id) => {
+    const el = $(id) || qs(`.${id}`);
+    if (el) el.style.display = "";
+    if (el && el.querySelector && el.querySelector("h2")) {
+      el.querySelector("h2").style.display = "";
+    }
   });
+  document
+    .querySelectorAll("#entryView h2")
+    .forEach((h) => (h.style.display = ""));
+  
+  // Load the entry using the appropriate base URL
+  const entryUrl = `${baseUrl}/entries/${filename}`;
+  console.log("Fetching entry from:", entryUrl);
+  
+  fetch(entryUrl)
+    .then((r) => {
+      console.log("Fetch response status:", r.status);
+      if (!r.ok) {
+        throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+      }
+      return r.json();
+    })
+    .then((data) => {
+      console.log("Entry data loaded successfully:", data.result_name);
+      render(data);
+    })
+    .catch((error) => {
+      console.error('Error loading entry:', error);
+      console.error('Failed URL:', entryUrl);
+      $("title").textContent = "Entry not found";
+      $("explanation").innerHTML = `Could not load entry "${filename}". <a href="entries_index.html">Browse All Entries</a> to find the correct entry.<br><small>Error: ${error.message}</small>`;
+    });
+}
+
+// Helper function to safely call MathJax
+function safeTypesetMathJax(elements) {
+  if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+    return MathJax.typesetPromise(elements);
+  } else {
+    console.warn('MathJax not available for typesetting');
+    return Promise.resolve();
+  }
 }
 
 // Render function
@@ -127,6 +144,8 @@ function render(data) {
     "definitions",
     "derivation",
     "programmaticVerification",
+    "validityRegime",
+    "historicalContext",
     "references",
     "dependencies",
     "meta-domain",
@@ -148,9 +167,9 @@ function render(data) {
   eqDiv.innerHTML = (data.result_equations || [])
     .map((eq) => `<p>\`${eq.equation}\`</p>`)
     .join("");
-  MathJax.typesetPromise([eqDiv]);
+  safeTypesetMathJax([eqDiv]);
   renderList("#assumptions ul", data.equations_assumptions, (a) => a.text);
-  MathJax.typesetPromise([qs("#assumptions")]);
+  safeTypesetMathJax([qs("#assumptions")]);
 
   // Ensure derivation sections are visible
   $("derivation").style.display = "";
@@ -163,7 +182,7 @@ function render(data) {
     data.derivation_assumptions,
     (a) => a.text
   );
-  MathJax.typesetPromise([qs("#derivationAssumptions")]);
+  safeTypesetMathJax([qs("#derivationAssumptions")]);
 
   // Render derivation steps into #derivationSteps ol
   const ol = qs("#derivationSteps ol");
@@ -184,7 +203,7 @@ function render(data) {
     }
     ol.insertAdjacentHTML("beforeend", `<li>${html}</li>`);
   });
-  MathJax.typesetPromise([qs("#derivationSteps")]);
+  safeTypesetMathJax([qs("#derivationSteps")]);
 
   const tbody = qs("#definitions tbody");
   tbody.innerHTML = "";
@@ -196,7 +215,7 @@ function render(data) {
       `<tr><td>${symbol}</td><td>${d.definition}</td></tr>`
     );
   });
-  MathJax.typesetPromise([qs("#definitions")]);
+  safeTypesetMathJax([qs("#definitions")]);
 
   // Programmatic verification
   $("pv-language").textContent = data.programmatic_verification.language;
@@ -204,18 +223,53 @@ function render(data) {
   const codeEl = $("pv-code");
   codeEl.textContent = data.programmatic_verification.code.join("\n");
   hljs.highlightElement(codeEl);
-  MathJax.typesetPromise([qs("#programmaticVerification")]);
+  safeTypesetMathJax([qs("#programmaticVerification")]);
 
   renderList("#references ul", data.references, (r) => r.citation);
-  MathJax.typesetPromise([qs("#references")]);
+  safeTypesetMathJax([qs("#references")]);
+
+  // Render validity regime
+  if (data.validity_regime) {
+    renderList(
+      "#validity-conditions ul",
+      data.validity_regime.conditions || [],
+      (c) => c
+    );
+    renderList(
+      "#validity-limitations ul",
+      data.validity_regime.limitations || [],
+      (l) => l
+    );
+    safeTypesetMathJax([qs("#validityRegime")]);
+  }
+
+  // Render historical context
+  if (data.historical_context) {
+    const importanceEl = qs("#historical-importance p");
+    if (importanceEl) {
+      importanceEl.textContent = data.historical_context.importance || "";
+    }
+    
+    const periodEl = qs("#historical-period p");
+    if (periodEl) {
+      periodEl.textContent = data.historical_context.development_period || "";
+    }
+    
+    renderList(
+      "#historical-insights ul",
+      data.historical_context.key_insights || [],
+      (i) => i
+    );
+    safeTypesetMathJax([qs("#historicalContext")]);
+  }
 
   renderList(
     "#dependencies ul",
     data.dependencies || [],
-    (d) => `<a href="entries.html?entry=${d}">${d.replace(/\.json$/, "")}</a>`,
+    (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
     true
   );
-  MathJax.typesetPromise([qs("#dependencies")]);
+  safeTypesetMathJax([qs("#dependencies")]);
 
   $("meta-domain").textContent = data.domain;
   $("meta-created").textContent = data.created_by;
@@ -245,7 +299,7 @@ function render(data) {
   if (metaSection) metaSection.style.display = "";
 
   // Typeset math for the whole entry view as a fallback
-  MathJax.typesetPromise([qs("#entryView")]);
+  safeTypesetMathJax([qs("#entryView")]);
 }
 
 function renderList(sel, arr, fn, rawHtml = false) {
