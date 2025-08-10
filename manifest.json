@@ -121,7 +121,8 @@
       "date": "2025-08-10",
       "changes": [
         "Consolidated redundant entries: merged lorentz_transformations into special_relativity, combined Newton's three law entries into unified newtons_laws_of_motion, consolidated doppler_effect variants, merged duplicate Archimedes and Bernoulli entries",
-        "Standardized created_by field across all entries: replaced generic identifiers (TheorIA Dataset Expansion, theory_classification_system, etc.) with either proper author names or standard AI-created entry message"
+        "Standardized created_by field across all entries: replaced generic identifiers (TheorIA Dataset Expansion, theory_classification_system, etc.) with either proper author names or standard AI-created entry message",
+        "Entries HTML now displays validity regime, historical context, and limitations fields"
       ]
     }
   ]

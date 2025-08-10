@@ -69,6 +69,8 @@ if (window.location.pathname.includes("entries.html")) {
       "definitions",
       "derivation",
       "programmaticVerification",
+      "validityRegime",
+      "historicalContext",
       "references",
       "dependencies",
       "meta-domain",
@@ -127,6 +129,8 @@ function render(data) {
     "definitions",
     "derivation",
     "programmaticVerification",
+    "validityRegime",
+    "historicalContext",
     "references",
     "dependencies",
     "meta-domain",
@@ -209,10 +213,45 @@ function render(data) {
   renderList("#references ul", data.references, (r) => r.citation);
   MathJax.typesetPromise([qs("#references")]);
 
+  // Render validity regime
+  if (data.validity_regime) {
+    renderList(
+      "#validity-conditions ul",
+      data.validity_regime.conditions || [],
+      (c) => c
+    );
+    renderList(
+      "#validity-limitations ul",
+      data.validity_regime.limitations || [],
+      (l) => l
+    );
+    MathJax.typesetPromise([qs("#validityRegime")]);
+  }
+
+  // Render historical context
+  if (data.historical_context) {
+    const importanceEl = qs("#historical-importance p");
+    if (importanceEl) {
+      importanceEl.textContent = data.historical_context.importance || "";
+    }
+    
+    const periodEl = qs("#historical-period p");
+    if (periodEl) {
+      periodEl.textContent = data.historical_context.development_period || "";
+    }
+    
+    renderList(
+      "#historical-insights ul",
+      data.historical_context.key_insights || [],
+      (i) => i
+    );
+    MathJax.typesetPromise([qs("#historicalContext")]);
+  }
+
   renderList(
     "#dependencies ul",
     data.dependencies || [],
-    (d) => `<a href="entries.html?entry=${d}">${d.replace(/\.json$/, "")}</a>`,
+    (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
     true
   );
   MathJax.typesetPromise([qs("#dependencies")]);
