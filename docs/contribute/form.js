@@ -38,35 +38,18 @@ class NewEntryForm {
 
     async loadExistingEntry(entryId) {
         try {
-            // Try multiple paths to handle different deployment scenarios
-            const possiblePaths = [
-                window.location.hostname === 'theoria-dataset.github.io' 
-                    ? '/theoria-dataset/entries/'
-                    : '../../entries/',
-                // Fallback: try relative path from docs/contribute/
-                '../../entries/',
-                // Fallback: try absolute path without repo name
-                '/entries/',
-                // Fallback: try from root
-                `${window.location.protocol}//${window.location.host}/theoria-dataset/entries/`
-            ];
+            // Use the same approach as the main entry display in script.js
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            const baseUrl = isGitHubPages
+                ? 'https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/main'
+                : '../..';
             
-            let response;
-            let lastError;
+            const entryUrl = `${baseUrl}/entries/${entryId}.json`;
+            console.log('Fetching entry from:', entryUrl);
             
-            for (const basePath of possiblePaths) {
-                try {
-                    response = await fetch(`${basePath}${entryId}.json`);
-                    if (response.ok) break;
-                    lastError = new Error(`HTTP ${response.status} from ${basePath}${entryId}.json`);
-                } catch (error) {
-                    lastError = error;
-                    continue;
-                }
-            }
-            
-            if (!response || !response.ok) {
-                throw lastError || new Error('Entry not found in any location');
+            const response = await fetch(entryUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             
             const entry = await response.json();
