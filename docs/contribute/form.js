@@ -38,12 +38,36 @@ class NewEntryForm {
 
     async loadExistingEntry(entryId) {
         try {
-            // Construct the correct path for both local and GitHub Pages
-            const basePath = window.location.hostname === 'theoria-dataset.github.io' 
-                ? '/theoria-dataset/entries/'
-                : '../../entries/';
-            const response = await fetch(`${basePath}${entryId}.json`);
-            if (!response.ok) throw new Error('Entry not found');
+            // Try multiple paths to handle different deployment scenarios
+            const possiblePaths = [
+                window.location.hostname === 'theoria-dataset.github.io' 
+                    ? '/theoria-dataset/entries/'
+                    : '../../entries/',
+                // Fallback: try relative path from docs/contribute/
+                '../../entries/',
+                // Fallback: try absolute path without repo name
+                '/entries/',
+                // Fallback: try from root
+                `${window.location.protocol}//${window.location.host}/theoria-dataset/entries/`
+            ];
+            
+            let response;
+            let lastError;
+            
+            for (const basePath of possiblePaths) {
+                try {
+                    response = await fetch(`${basePath}${entryId}.json`);
+                    if (response.ok) break;
+                    lastError = new Error(`HTTP ${response.status} from ${basePath}${entryId}.json`);
+                } catch (error) {
+                    lastError = error;
+                    continue;
+                }
+            }
+            
+            if (!response || !response.ok) {
+                throw lastError || new Error('Entry not found in any location');
+            }
             
             const entry = await response.json();
             
