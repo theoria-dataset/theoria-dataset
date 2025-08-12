@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.4.2",
+  "dataset_version": "0.4.3",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -127,13 +127,20 @@
     },
     {
       "version": "0.4.2",
-      "date": "2025-08-12", 
+      "date": "2025-08-12",
       "changes": [
         "Created comprehensive front-end contribution system to modify and add new entries in a user-friendly way",
         "Developed structured web forms for both new entry creation and existing entry modification with all dataset fields",
         "Updated main landing page messaging to better reflect project aspirations, current status, and community needs",
         "Implemented automated email submission system using EmailJS for seamless contribution workflow",
         "Fixed broken links in contribute site and updated contact email to theoriadataset@gmail.com"
+      ]
+    },
+    {
+      "version": "0.4.3",
+      "date": "2025-08-12",
+      "changes": [
+        "Fixed GitHub Pages deployment issue where entry modification URLs failed to load existing entries"
       ]
     }
   ]
