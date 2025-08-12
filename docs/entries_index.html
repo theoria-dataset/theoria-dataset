@@ -13,10 +13,8 @@
     <!-- MathJax for AsciiMath -->
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
         loader: { load: ["input/asciimath", "output/chtml"] },
         asciimath: { delimiters: [["`", "`"]] },
-        startup: { pageReady: () => MathJax.startup.defaultPageReady() }
       };
     </script>
     <script 
