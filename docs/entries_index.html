@@ -10,6 +10,17 @@
     />
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css" />
+    <!-- MathJax for AsciiMath -->
+    <script>
+      window.MathJax = {
+        loader: { load: ["input/asciimath", "output/chtml"] },
+        asciimath: { delimiters: [["`", "`"]] },
+      };
+    </script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" 
+      async>
+    </script>
     <!-- Google tag (gtag.js) -->
     <script>
       // Only load Google Analytics on hosted sites (not localhost)
