@@ -85,60 +85,30 @@ class NewEntryForm {
         document.getElementById('created_by').value = entry.created_by || '';
         
         // Populate equations
-        if (entry.result_equations) {
-            entry.result_equations.forEach((eq, index) => {
-                if (index === 0) {
-                    // Use first equation slot
-                    const container = document.getElementById('equations_container');
-                    const firstEq = container.querySelector('.dynamic-item');
-                    if (firstEq) {
-                        firstEq.querySelector('input[placeholder*="ID"]').value = eq.id || '';
-                        firstEq.querySelector('textarea').value = eq.equation || '';
-                    }
-                } else {
-                    // Add additional equations
-                    this.addEquation(eq.id || '', eq.equation || '');
-                }
+        if (entry.result_equations && entry.result_equations.length > 0) {
+            // Add all equations from the entry
+            entry.result_equations.forEach((eq) => {
+                this.addEquation(eq.id || '', eq.equation || '');
             });
         } else {
             this.addEquation(); // Add one empty equation if none exist
         }
         
         // Populate definitions
-        if (entry.definitions) {
-            entry.definitions.forEach((def, index) => {
-                if (index === 0) {
-                    // Use first definition slot
-                    const container = document.getElementById('definitions_container');
-                    const firstDef = container.querySelector('.dynamic-item');
-                    if (firstDef) {
-                        firstDef.querySelector('input[placeholder*="symbol"]').value = def.symbol || '';
-                        firstDef.querySelector('textarea').value = def.definition || '';
-                    }
-                } else {
-                    // Add additional definitions
-                    this.addDefinition(def.symbol || '', def.definition || '');
-                }
+        if (entry.definitions && entry.definitions.length > 0) {
+            // Add all definitions from the entry
+            entry.definitions.forEach((def) => {
+                this.addDefinition(def.symbol || '', def.definition || '');
             });
         } else {
             this.addDefinition(); // Add one empty definition if none exist
         }
         
         // Populate references
-        if (entry.references) {
-            entry.references.forEach((ref, index) => {
-                if (index === 0) {
-                    // Use first reference slot
-                    const container = document.getElementById('references_container');
-                    const firstRef = container.querySelector('.dynamic-item');
-                    if (firstRef) {
-                        firstRef.querySelector('input[placeholder*="ID"]').value = ref.id || '';
-                        firstRef.querySelector('textarea').value = ref.citation || '';
-                    }
-                } else {
-                    // Add additional references
-                    this.addReference(ref.id || '', ref.citation || '');
-                }
+        if (entry.references && entry.references.length > 0) {
+            // Add all references from the entry
+            entry.references.forEach((ref) => {
+                this.addReference(ref.id || '', ref.citation || '');
             });
         } else {
             this.addReference(); // Add one empty reference if none exist
