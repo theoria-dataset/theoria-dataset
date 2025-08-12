@@ -38,7 +38,11 @@ class NewEntryForm {
 
     async loadExistingEntry(entryId) {
         try {
-            const response = await fetch(`../../entries/${entryId}.json`);
+            // Construct the correct path for both local and GitHub Pages
+            const basePath = window.location.hostname === 'theoria-dataset.github.io' 
+                ? '/theoria-dataset/entries/'
+                : '../../entries/';
+            const response = await fetch(`${basePath}${entryId}.json`);
             if (!response.ok) throw new Error('Entry not found');
             
             const entry = await response.json();
