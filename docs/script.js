@@ -145,7 +145,7 @@ function render(data) {
     const entryFile = params.get("entry");
     if (entryFile) {
       const entryId = entryFile.replace('.json', '');
-      window.open(`contribute/edit-entry.html?entry=${entryId}`, '_blank');
+      window.open(`contribute/form.html?entry=${entryId}`, '_blank');
     }
   };
   

@@ -6,7 +6,7 @@ To facilitate your contributions, please follow the guidelines below, that expla
 
 ## Fields Guidelines
 
-> **⚠️ Important for maintainers**: If you modify field guidelines below, you must also manually update the corresponding guideline text in the web contribution forms at `docs/contribute/edit-entry.html` to keep them synchronized.
+> **⚠️ Important for maintainers**: If you modify field guidelines below, you must also manually update the corresponding guideline text in the web contribution form at `docs/contribute/form.html` to keep them synchronized.
 
 The following fields are required in each entry JSON file. Ensure that all entries are valid according to the schema defined in `schemas/entry.schema.json`.
 
