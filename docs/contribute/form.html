@@ -16,6 +16,9 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
     
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="form.css">
@@ -50,7 +53,51 @@
         border-color: #2d5a63;
         color: #b3d9e0;
     }
+    .reassuring-message {
+        background: #f0f8ff;
+        border: 2px solid #4a90e2;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        color: #2c5282;
+        text-align: center;
+    }
+    .dark .reassuring-message {
+        background: #1a202c;
+        border-color: #4299e1;
+        color: #90cdf4;
+    }
+    .success-message {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+        padding: 1rem;
+        border-radius: 4px;
+        margin: 1rem 0;
+    }
+    .dark .success-message {
+        background: #2d5a2d;
+        border-color: #4a7c4a;
+        color: #a8d4a8;
+    }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script>
+      // Only load Google Analytics on hosted sites (not localhost)
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        (function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HYLF3HZJXE';
+          document.head.appendChild(script);
+        })();
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HYLF3HZJXE');
+      }
+    </script>
 </head>
 
 <body>
@@ -58,10 +105,15 @@
     
     <div class="form-container">
         <header>
-            <h1>Contribute New Entry</h1>
-            <p>Create a new theoretical physics entry for the dataset</p>
+            <h1 id="page-title">Contribute New Entry</h1>
+            <p id="page-description">Create a new theoretical physics entry for the dataset</p>
             <a href="index.html">← Back to contribution options</a>
         </header>
+
+        <div class="reassuring-message">
+            <h3>💡 Don't worry about completing every field!</h3>
+            <p>This form may look comprehensive, but you only need to fill the essential fields that are relevant to your contribution. Many sections are optional and can help improve your entry's quality, but they're not required for submission. Start with the basics and add more details as you feel comfortable.</p>
+        </div>
 
         <form id="contributionForm">
             
@@ -337,6 +389,26 @@
                 <button type="button" class="btn btn-secondary" onclick="addReference()">+ Add Reference</button>
             </div>
 
+            <!-- Change Summary Section (only visible when editing) -->
+            <div class="form-section" id="change-summary-section" style="display: none;">
+                <h3>📝 Change Summary</h3>
+                <div class="guidelines">
+                    <strong>Required for modifications:</strong> Please describe what you changed and why. This helps reviewers understand your improvements.
+                </div>
+                
+                <div class="form-group">
+                    <label for="change-summary">What did you change? *</label>
+                    <textarea id="change-summary" rows="3" placeholder="e.g., Fixed typo in equation 2, Added missing derivation step, Corrected reference format..." required></textarea>
+                    <div class="help-text">Brief summary of your modifications</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="change-reason">Why was this change needed? *</label>
+                    <textarea id="change-reason" rows="3" placeholder="e.g., Original equation had incorrect sign, Derivation was missing crucial step, Reference was incomplete..." required></textarea>
+                    <div class="help-text">Explain the reasoning behind your changes</div>
+                </div>
+            </div>
+
             <!-- Attribution Section -->
             <div class="form-section">
                 <h3>👤 Attribution</h3>
@@ -353,7 +425,7 @@
                 <div class="form-group">
                     <label for="contributor-email">Your Email (optional)</label>
                     <input type="email" id="contributor-email" placeholder="your.email@example.com">
-                    <div class="help-text">If provided, you'll be CC'd on the submission email</div>
+                    <div class="help-text">If provided, you'll receive a confirmation email with next steps</div>
                 </div>
 
                 <div class="form-group">
@@ -370,16 +442,15 @@
             <div class="form-section">
                 <h3>📋 Review & Export</h3>
                 
-                <!-- Submission Instructions -->
-                <div class="submission-instructions">
-                    <h4 style="margin-top: 0;">📧 Manual Submission Process</h4>
-                    <p style="margin-bottom: 0;">As this is a starting project, entries must be submitted manually via email or GitHub issue. The form will open your email client with pre-filled details including the JSON content. Simply review and send the email. We plan to improve this submission process in the future!</p>
+                <div class="form-group">
+                    <h4>Submit Your Entry</h4>
+                    <button type="button" class="btn btn-primary" onclick="createEmailSubmission()" style="background: #4a90e2; font-size: 1.1em; padding: 12px 24px;">📧 Submit Entry</button>
+                    <div class="help-text" style="margin-top: 0.5rem;">This will automatically send your entry to the TheorIA team for review</div>
                 </div>
 
-                <div class="form-group">
-                    <h4>Export Options</h4>
-                    <button type="button" class="btn btn-primary" onclick="exportToJSON()">📄 Download JSON</button>
-                    <button type="button" class="btn btn-primary" onclick="createEmailSubmission()">📧 Submit Entry</button>
+                <div class="form-group" style="margin-top: 2rem;">
+                    <h4>Additional Options</h4>
+                    <button type="button" class="btn btn-secondary" onclick="exportToJSON()">📄 Download JSON</button>
                     <button type="button" class="btn btn-secondary" onclick="togglePreview()">👁️ Preview Entry</button>
                     <button type="button" class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
                 </div>

@@ -88,7 +88,7 @@ These tools provide **clear error messages** that point to specific issues and s
 
 ## ⚠️ Guidelines Maintenance
 
-**Important for maintainers**: The contribution forms at `docs/contribute/edit-entry.html` contain hardcoded guideline messages. If you update field requirements in `CONTRIBUTING.md`, you **must manually update** the corresponding guideline text in the HTML forms to keep them synchronized.
+**Important for maintainers**: The contribution form at `docs/contribute/form.html` contains hardcoded guideline messages. If you update field requirements in `CONTRIBUTING.md`, you **must manually update** the corresponding guideline text in the HTML form to keep them synchronized.
 
 This manual synchronization ensures users see accurate guidance when contributing through the web interface.
 

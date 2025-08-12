@@ -1,3 +1,8 @@
+/* Override LaTeX.css base font size */
+html {
+  font-size: 1.15rem;
+}
+
 /* CSS Custom Properties for consistent theming */
 :root {
   --primary: #007acc;
@@ -103,16 +108,24 @@ blockquote strong {
 
 .method-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .method-card.recommended {
   border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(0,123,255,0.05), var(--shade-lightest));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.05),
+    var(--shade-lightest)
+  );
 }
 
 .latex-dark .method-card.recommended {
-  background: linear-gradient(135deg, rgba(100,149,237,0.1), var(--shade-dark));
+  background: linear-gradient(
+    135deg,
+    rgba(100, 149, 237, 0.1),
+    var(--shade-dark)
+  );
 }
 
 .badge {
@@ -144,7 +157,7 @@ blockquote strong {
 }
 
 .method-card li::before {
-  content: '';
+  content: "";
   position: absolute;
   margin-left: -1rem;
   margin-top: 0.5rem;
@@ -300,11 +313,11 @@ details[open] summary {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .nav-links {
     justify-content: center;
   }
-  
+
   .cta-button,
   .btn {
     min-width: 200px;
@@ -314,18 +327,18 @@ details[open] summary {
 
 /* Edit Entry Button */
 .edit-entry-btn {
-    margin: 1rem 0 2rem 0;
-    background: #28a745 !important;
-    border: none;
-    display: block;
-    text-align: center;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+  margin: 1rem 0 2rem 0;
+  background: #28a745 !important;
+  border: none;
+  display: block;
+  text-align: center;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edit-entry-btn:hover {
-    background: #218838 !important;
+  background: #218838 !important;
 }
 
 .hero h1 {
@@ -386,7 +399,7 @@ html:not(.latex-dark) .cta-button {
 
 .feature-card h3 {
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 0.3rem;
   border-bottom: none;
   padding-bottom: 0;
@@ -394,7 +407,7 @@ html:not(.latex-dark) .cta-button {
 
 .feature-card p {
   margin-top: 0.3rem;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   line-height: 1.3;
 }
 
@@ -450,7 +463,7 @@ code.inline {
   border: 1px solid var(--shade-light);
   background-color: var(--bg);
   color: var(--color);
-  font-size: 1rem;
+  font-size: 1.1rem;
   min-width: 200px;
 }
 
@@ -594,7 +607,7 @@ select option {
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--shade);
   margin-bottom: 1rem;
   text-align: center;
@@ -697,7 +710,7 @@ select option {
 .entry-description {
   margin: 0.75rem 0 1rem 0;
   color: var(--shade);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -759,20 +772,20 @@ select option {
   .main-header h1 {
     font-size: 2.2rem;
   }
-  
+
   .entry-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .nav-links {
     justify-content: center;
   }
-  
+
   .domain-navigation {
     padding: 1rem;
   }
-  
+
   .entries-browser {
     padding: 0 0.5rem;
   }
@@ -782,19 +795,19 @@ select option {
   .main-header {
     padding: 1rem 0 0.5rem;
   }
-  
+
   .main-header h1 {
     font-size: 1.8rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .entry-card {
     padding: 1rem;
   }
-  
+
   .domain-title {
     font-size: 1.5rem;
   }
