@@ -39,10 +39,13 @@ theoretical-physics-dataset/
 │       └── validate_entries.yaml      # CI workflow for JSON Schema validation of entries
 ├── entries/                           # Folder for individual dataset entries (one JSON file per entry)
 ├── schemas/
-│   └── entry.schema.json              # JSON Schema defining required fields and rules for each entry
+│   └── entry.schema.json              # JSON Schema with embedded field guidelines (source of truth)
+├── scripts/                           # Build and maintenance scripts
+│   ├── generate_contributing.py       # Generates CONTRIBUTING.md from schema
+│   └── generate_form_requirements.py  # Generates form requirements JavaScript
 ├── docs/                              # Web interface for viewing the dataset
 ├── manifest.json                      # Global metadata, dataset version, changelog, and entry list
-├── CONTRIBUTING.md                    # Detailed guidelines for contributors
+├── CONTRIBUTING.md                    # Detailed guidelines for contributors (auto-generated)
 └── README.md                          # Project overview and usage instructions (this file)
 ```
 
@@ -86,11 +89,22 @@ python scripts/verify_programmatic.py
 
 These tools provide **clear error messages** that point to specific issues and suggest fixes, making it easier for scientists to get their contributions ready.
 
-## ⚠️ Guidelines Maintenance
+## 🏗️ Requirements Management System
 
-**Important for maintainers**: The contribution form at `docs/contribute/form.html` contains hardcoded guideline messages. If you update field requirements in `CONTRIBUTING.md`, you **must manually update** the corresponding guideline text in the HTML form to keep them synchronized.
+TheorIA uses the JSON Schema file as the single source of truth for both validation and contributor guidelines:
 
-This manual synchronization ensures users see accurate guidance when contributing through the web interface.
+### Structure
+- **`schemas/entry.schema.json`**: JSON Schema with embedded field guidelines
+- **`scripts/generate_contributing.py`**: Generates `CONTRIBUTING.md` from the schema
+- **`scripts/generate_form_requirements.py`**: Generates JavaScript for the web form
+
+### For Maintainers
+When updating field requirements:
+1. **Edit only `schemas/entry.schema.json`** - contains both validation rules and contributor guidelines
+2. **Run build**: `make build-requirements`
+3. **Commit all changes** - CONTRIBUTING.md and form stay synchronized
+
+This approach uses one file for both JSON Schema validation and contributor documentation.
 
 ## Using THEORIA to train Machine Learning models
 

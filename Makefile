@@ -6,7 +6,7 @@
 #   make validate FILE=name      - Validate entry schema only
 #   make help                    - Show this help
 
-.PHONY: help test test-entry validate
+.PHONY: help test test-entry validate build-requirements
 
 help:
 	@echo "🧬 TheorIA Dataset - Helper Commands"
@@ -14,8 +14,9 @@ help:
 	@echo ""
 	@echo "Available commands:"
 	@echo "  make test                     - Test all entries (schema + verification)"
-	@echo "  make test-entry FILE=<name>   - Test specific entry (e.g., FILE=carnot_efficiency)"
-	@echo "  make validate FILE=<name>     - Validate entry schema only"
+	@echo "  make test-entry FILE=<name>      - Test specific entry (e.g., FILE=carnot_efficiency)"
+	@echo "  make validate FILE=<name>        - Validate entry schema only"
+	@echo "  make build-requirements       - Rebuild CONTRIBUTING.md and form requirements from JSON"
 	@echo "  make help                     - Show this help"
 	@echo ""
 	@echo "Examples:"
@@ -47,6 +48,10 @@ validate:
 	fi
 	@echo "📋 Validating schema: $(FILE)"
 	docker-compose run --rm theoria-tests python scripts/validate_schema.py $(FILE)
+
+build-requirements:
+	@echo "🏗️ Rebuilding requirement-dependent files..."
+	python scripts/build_requirements.py
 
 # Legacy support for original verification
 verify:

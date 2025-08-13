@@ -4,305 +4,189 @@ Welcome to TheorIA dataset! This dataset is being built, and it is designed to p
 
 To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.
 
-## Fields Guidelines
+IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry.
+## Dataset Entry structure
 
-> **⚠️ Important for maintainers**: If you modify field guidelines below, you must also manually update the corresponding guideline text in the web contribution form at `docs/contribute/form.html` to keep them synchronized.
+Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.
 
-The following fields are required in each entry JSON file. Ensure that all entries are valid according to the schema defined in `schemas/entry.schema.json`.
+- **`result_id`:**
+  - Unique identifier that must exactly match the filename (without .json extension)
+  - Use lowercase letters, numbers, and underscores only
+  - Choose descriptive names that clearly identify the physics concept
+  - Example:
+    `lagrangian_mechanics`
 
-- **`result_id`:** A unique identifier that **must exactly match the filename** (without the `.json` extension). This field makes entry content independent of filesystem paths and enables cleaner cross-references.
-  - Example: For file `lagrangian_mechanics.json`, the `result_id` must be `"lagrangian_mechanics"`
-  - Pattern: lowercase letters, numbers, and underscores only (`^[a-z0-9_]+$`)
-
-- **`result_name`:** A brief title (max 100 characters) to identify the entry.
+- **`result_name`:**
+  - Brief title to identify the entry
+  - Keep concise (max 100 characters) and descriptive
+  - Should clearly identify the physics concept
 
 - **`result_equations`:**
-  - Provide each equation as a list with representations in [AsciiMath](https://asciimath.org/).
-  - Include an `equation_id` for each equation (e.g., "eq1", "eq2" or a short tag that identifies the equation).
-  - The equation should be added under the `equation` field.
-  - For example:
+  - List of equations in AsciiMath format
+  - Provide each equation with a unique ID (e.g., 'eq1', 'eq2')
+  - Use AsciiMath format for all equations
+  - Example:
     ```json
-    "result_equations": [
-        {
-            "id": "eq1",
-            "equation": "t' = gamma*(t - (v/c^2)*x)"
-        }
+    [
+      {
+        "id": "eq1",
+        "equation": "t' = gamma*(t - (v/c^2)*x)"
+      }
     ]
     ```
+
 - **`explanation`:**
-
-  - Provide a brief (2–5 sentences, max 100 words) conceptual summary of the theoretical result or equation.
-  - Assume the reader has a graduate-level understanding of physics.
-  - Use clear and concise language to explain the significance, usage, and context of the theoretical result.
-  - Content should include:
-    - Definition or main concept.
-    - Why it matters in physics.
-    - How it's used or where it appears.
-  - Avoid derivation steps (covered in the `derivation_explanation` section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon.
-  - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
-  - For example:
-
-  ```json
-  "explanation": "Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction."
-  ```
+  - Provide a brief (2–5 sentences, max 100 words) conceptual summary of the theoretical result or equation
+  - Assume the reader has a graduate-level understanding of physics
+  - Use clear and concise language to explain the significance, usage, and context of the theoretical result
+  - Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears
+  - Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon
+  - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
+  - Example:
+    `Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction.`
 
 - **`equations_assumptions`:**
-
-  - List any assumptions directly related to the equations.
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
-  - For example:
-
-  ```json
+  - Assumptions directly related to the equations
+  - Focus on assumptions specific to the equations themselves
+  - Use backticks for math symbols in AsciiMath format
+  - Example:
+    ```json
+    [
       {
-      "id": "eq_assump1",
-      "text": "The transformation is performed only along the x-axis, meaning that the `y` and `z` coordinates remain unchanged."
-    },
-  ```
+        "id": "eq_assump1",
+        "text": "The transformation is performed only along the x-axis, meaning that the `y` and `z` coordinates remain unchanged."
+      }
+    ]
+    ```
 
 - **`definitions`:**
-
-  - Define every symbol used in the `result_equations` field, to ensure the entry is self-contained.
-  - Each definition should include a `symbol` field, with the symbol represented in AsciiMath format and a `definition` field.
+  - Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols
+  - Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.
   - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.
-  - For example:
-
-  ```json
-  "definitions": [
+  - Example:
+    ```json
+    [
       {
-          "symbol": "c",
-          "definition": "Speed of light in vacuum."
+        "symbol": "c",
+        "definition": "Speed of light in vacuum."
       }
-  ]
+    ]
+    ```
 
-  ```
-
-  - **`derivation`:**
-  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format. If the equation cannot be derived from other first principles, the
-  - Each step should contain the `id` and `equation` fields.
-  - The `step` field should be an integer, following the sequential order of the reasoning process.
-  - The `equation` field should contain the equation in AsciiMath format, without any additional text such as explanations or assumptions.
-  - Ensure a very explicit detail level that makes it trivial to follow the derivation.
-
-  - For example:
-
-  ```json
-   "derivation": [
-    {
-      "step": 1,
-      "equation": "x' = A*x + B*t; t' = D*x + E*t"
-    },
-    {
-      "step": 2,
-      "equation": "0 = A*v*t + B*t"
-    },
-    {
-      "step": 3,
-      "equation": "B = -A*v"
-    }
-    ... ]
-  ```
-
-  - Refer to the [lorentz transformation](entries\lorentz_transformations.json) entry for a full example.
+- **`derivation`:**
+  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format.
+  - Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field
+  - Each step should contaon the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields
+  - Include all steps for complete derivation
+  - Use very explicit detail level for easy following
+  - Equations only - use 'derivation_explanation' field for rationale
+  - Example:
+    ```json
+    [
+      {
+        "step": 1,
+        "equation": "x' = A*x + B*t; t' = D*x + E*t"
+      },
+      {
+        "step": 2,
+        "equation": "0 = A*v*t + B*t"
+      }
+    ]
+    ```
 
 - **`derivation_assumptions`:**
-
-  - Specify the assumptions behind the derivation.
-  - Each assumption should have a unique "id" ("assumption1", "assumption2",...) and a "text" description.
+  - Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'
+  - List all assumptions required for the derivation
+  - Use sequential IDs like 'assumption1', 'assumption2'
   - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
-  - For example:
-
-  ```json
-  "derivation_assumptions": [
-      {
-          "id": "assumption1",
-          "text": "The speed of light is constant in all inertial frames."
-      }
-  ]
-  ```
 
 - **`derivation_explanation`:**
-
-  - Add textual explanations for each step. Not all steps need explanations, as some may be self-evident.
-  - If new symbols appear, define them.
-  - Each explanation object consists of:
-    - "step": An integer that must coincide with the corresponding one in the `derivation`.
-    - "text": A concise and clear description of the rationale behind certain steps in the derivation process.
-  - If there are math symbols or equations included in the `text`, they must be enclosed in backticks (``) and written in AsciiMath format.
-  - For example:
-
-  ```json
-    "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Postulate the most general linear transformation between coordinates in two inertial frames."
-    },
-    {
-      "step": 2,<>
-      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
-    },
-    {
-      "step": 3,
-      "text": "Get the relationship between coefficients A and B."
-    },
-    ...
-    ]
-  ```
-
-  - Refer to the [lorentz transformation](entries\lorentz_transformations.json) entry for a full example.
+  - Textual explanations for each derivation step
+  - Not all steps need explanations, as some may be self-evident.
+  - Define new symbols that appear
+  - Provide concise and clear rationale
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
 
 - **`programmatic_verification`:**
+  - Code that verifies the derivation correctness
+  - Use minimal dependencies (pure Python or sympy)
+  - Should follow the steps of the derivation, explicitly in the comments
+  - Include assert statements to verify correctness
 
-  - Includes a programmatic verification of the derivation, ensuring correctness and verifiability.
-  - **Use minimal dependencies**: Programmatic verification should be as simple as possible with the fewest dependencies. Only use external libraries like `numpy` if absolutely necessary for the verification. Prefer pure Python or `sympy` when possible.
-  - Should be a JSON object that includes:
-    - `language`: The programming language used for the verification and its version (e.g. `python 3.11.12`). Note that you can obtain the version using `python --version` in the terminal or `import sys; print(sys.version)` in the runtime.
-    - `library`: The library used for the verification and its version (e.g. `sympy 1.31.1`). You can obtain the version using `pip show sympy` in the terminal or `import sympy; print(sympy.__version__)` in the runtime.
-  - Comment the code to explain the logic of the verification, mentioning the steps of the `derivation_explanation`.
-  - Include short comments before each part of the code referencing the relevant derivation step (e.g. `# Step 2: integrate by parts`).
-  - Include an `assert` or equivalent statement in the end to verify the correctness of the derivation.
-  - See a full example in the [lorentz transformation](entries/lorentz_transformations.json) entry.
-  - Note that in the json each line is a string with quotes and a comma. To make it easier to run, you can use a code like this, where you can copy and paste the lines of code directly from the JSON to the `lines` variable:
+- **`domain`:**
+  - ArXiv category identifier (e.g., 'gr-qc', 'hep-th') from https://arxiv.org/category_taxonomy
+  - Use official arXiv taxonomy identifiers
 
-  ```python
-  # List of code lines as strings
-  lines = [
-      "import sympy as sp",
-      "",
-      "# symbols and function",
-      "k, hbar, m, V = sp.symbols('k hbar m V', real=True)",
-      "x, t = sp.symbols('x t')",
-      "psi = sp.exp(sp.I*(k*x - (k**2*hbar/(2*m) + V/hbar)*t))",
-      "",
-      "# define Schrödinger LHS and RHS",
-      "lhs = sp.I*hbar*sp.diff(psi, t)",
-      "rhs = -hbar**2/(2*m)*sp.diff(psi, x, 2) + V*psi",
-      "",
-      "# verify that LHS - RHS simplifies to zero",
-      "assert sp.simplify(lhs - rhs) == 0"
-  ]
+- **`theory_status`:**
+  - Current scientific status of the theory
+  - current: Modern theories widely accepted by scientific community
+  - historical: Important for development but superseded by better theories
+  - approximation: Valid simplifications of more general theories
+  - limiting_case: Special cases with restricted applicability
+  - superseded: Completely replaced by more accurate theories
 
-  # Join the lines into a single code block and execute
-  code = "\n".join(lines)
-  exec(code)
+- `validity_regime`:
+  - Physical conditions where theory applies and limitations
+  - Use for theories with specific applicability ranges
+  - Include both conditions where valid and limitations
 
-  # If no assertion error, we know it passed
-  print("Verification successful!")
-  ```
+- `superseded_by`:
+  - Theories that supersede or generalize this result
+  - Use exact result_id values (without .json extension)
+  - Must reference existing entries in the dataset
 
-- **`domain`:** Identifier coming from the [arXiv category taxonomy](https://arxiv.org/category_taxonomy) (e.g., "gr-qc") .
+- `approximation_of`:
+  - The more general theory this approximates
+  - Use exact result_id value (without .json extension)
+
+- `historical_context`:
+  - Educational context about theory's development
+  - Provide importance, development period, and key insights
 
 - **`references`:**
-  - Include 1–3 full citations, using APA style where possible. Should be formatted as: `Author(s). (Year). *Title*. Publisher / Journal, volume(issue), pages. DOI/URL` unless is not possible.
-- For example:
-
-```json
-"references": [
-{
-  "id": "R1",
-  "citation": "Einstein, A. (1905). 'On the Electrodynamics of Moving Bodies.' *Annalen der Physik*, 17, 891–921."
-},
-{
-  "id": "R2",
-  "citation": "Taylor, E. F., & Wheeler, J. A. (1992). *Spacetime Physics*. W. H. Freeman and Company."
-}
-]
-```
-
-- **`dependencies`:**
-
-  - Optional list of other entry `result_id`s that this result relies on.
-  - Use the `result_id` values (without `.json` extension) exactly as they appear in the referenced entries.
+  - Academic citations (1-3 references in APA style)
+  - Use APA format: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages. DOI/URL
   - Example:
+    ```json
+    [
+      {
+        "id": "R1",
+        "citation": "Einstein, A. (1905). 'On the Electrodynamics of Moving Bodies.' *Annalen der Physik*, 17, 891\u2013921."
+      }
+    ]
+    ```
 
-  ```json
-  "dependencies": [
-    "dirac_equation_free",
-    "maxwell_equations"
-  ]
-  ```
+- `dependencies`:
+  - Other entries this result relies on
+  - Use exact result_id values (without .json extension)
+  - Only include direct dependencies
 
-- **`created_ by`:** Full name or ORCID of author of the entry.
+- **`created_by`:**
+  - Full name or ORCID of the entry author
+  - Provides attribution and accountability
 
-- **`review_status`:** Use "draft" for initial submissions. Final datasets published in main must be marked as "reviewed".
+- **`review_status`:**
+  - Review status of the entry
+  - Use 'draft' for initial submissions
+  - Use 'reviewed' for entries approved for main dataset
 
-## Theory Status and Historical Context
+## Theory Status Options
 
-The dataset includes physics theories across different historical periods and validity regimes. Each entry should include appropriate status classification to help users understand the theory's current scientific standing and applicability.
-
-### Theory Status Classification
-
-- **`theory_status`:** Required field indicating the current scientific status:
-  - **"current"**: Modern theories widely accepted by the scientific community
-  - **"historical"**: Important for physics development but now superseded by better theories
-  - **"approximation"**: Valid simplifications or limiting cases of more general theories
-  - **"limiting_case"**: Special cases with restricted applicability
-  - **"superseded"**: Completely replaced by more accurate theories
-
-### Validity Regime Guidelines
-
-- **`validity_regime`:** Object describing where the theory applies:
-  - **`conditions`**: Array listing physical regimes where the theory is valid
-    - Example: `["Non-relativistic velocities (v << c)", "Macroscopic scales"]`
-  - **`limitations`**: Array specifying where the theory breaks down
-    - Example: `["Fails at high velocities approaching speed of light", "Invalid for quantum systems"]`
-
-### Cross-References Between Theories
-
-- **`superseded_by`:** Array of `result_id`s for theories that supersede or generalize this result
-
-  - Use exact `result_id` values (without `.json` extension) as they appear in the referenced entries
-  - Example: `["special_relativity", "quantum_mechanics"]`
-
-- **`approximation_of`:** Result ID of the more general theory this approximates
-  - Example: `"general_relativity"` for Newtonian gravity
-
-### Historical Context
-
-- **`historical_context`:** Object providing educational context:
-  - **`importance`**: Brief description of the theory's significance
-  - **`development_period`**: Time period when theory was developed
-  - **`key_insights`**: Array of major conceptual breakthroughs introduced
-
-Example:
-
-```json
-"theory_status": "approximation",
-"validity_regime": {
-  "conditions": [
-    "Non-relativistic velocities (v << c)",
-    "Weak gravitational fields"
-  ],
-  "limitations": [
-    "Fails at high velocities approaching speed of light",
-    "Invalid in strong gravitational fields"
-  ]
-},
-"superseded_by": ["special_relativity", "general_relativity"],
-"historical_context": {
-  "importance": "Foundation of classical physics and engineering",
-  "development_period": "1687-1900",
-  "key_insights": ["Universal laws of motion", "Mathematical description of forces"]
-}
-```
-
-## Entry Management
-
-- **Adding New Entries**: All new entries must be added to `docs/index.json` in alphabetical order.
-- **File Naming**: Use lowercase with underscores, descriptive of the physics concept.
-- **Cross-Validation**: Ensure all referenced `result_id`s in `superseded_by`, `approximation_of`, and `dependencies` correspond to existing entries in the dataset.
-- **ID Consistency**: The `result_id` field must always match the filename (without `.json` extension). This is automatically validated by tests.
+- current: Modern theories widely accepted by scientific community
+- historical: Important for development but superseded by better theories
+- approximation: Valid simplifications of more general theories
+- limiting_case: Special cases with restricted applicability
+- superseded: Completely replaced by more accurate theories
 
 ## Testing
 
-To ensure the quality and correctness of entries, we recommend running tests locally before submitting contributions. The project includes a Docker container for consistent testing:
+To ensure the quality and correctness of entries, run these commands:
 
 ```bash
-# Run all tests
+make test
+make test-entry FILE=name
+make validate FILE=name
 docker-compose run --rm theoria-tests
-
-# Run programmatic verification tests specifically
-docker-compose run --rm theoria-tests python scripts/verify_programmatic.py
-
 ```
 
 ## Version Control & Collaboration
