@@ -394,16 +394,5 @@
         "Use 'reviewed' for entries approved for main dataset"
       ]
     }
-  },
-
-  "x-examples": {
-    "complete_entry": "entries/special_relativity.json"
-  },
-
-  "testing_commands": [
-    "make test",
-    "make test-entry FILE=name",
-    "make validate FILE=name",
-    "docker-compose run --rm theoria-tests"
-  ]
+  }
 }

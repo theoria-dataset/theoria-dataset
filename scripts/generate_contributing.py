@@ -114,23 +114,20 @@ def generate_contributing_md(requirements_file, output_file):
 
         lines.append("")
 
-    # Testing section
-    if 'testing_commands' in requirements:
-        lines.extend([
-            "## Testing",
-            "",
-            "To ensure the quality and correctness of entries, run these commands:",
-            "",
-            "```bash"
-        ])
-
-        for cmd in requirements['testing_commands']:
-            lines.append(cmd)
-
-        lines.extend([
-            "```",
-            ""
-        ])
+    # Testing section - hardcoded since we removed testing_commands from schema for strict mode compatibility
+    lines.extend([
+        "## Testing",
+        "",
+        "To ensure the quality and correctness of entries, run these commands:",
+        "",
+        "```bash",
+        "make test",
+        "make test-entry FILE=name",
+        "make validate FILE=name",
+        "docker-compose run --rm theoria-tests",
+        "```",
+        ""
+    ])
 
     # Footer
     lines.extend([
@@ -144,9 +141,8 @@ def generate_contributing_md(requirements_file, output_file):
         ""
     ])
 
-    if 'x-examples' in requirements and 'complete_entry' in requirements['x-examples']:
-        lines.append(
-            f"See `{requirements['x-examples']['complete_entry']}` for a complete, compliant example.")
+    # Add hardcoded example reference since we removed x-examples from schema for strict mode compatibility
+    lines.append("See `entries/special_relativity.json` for a complete, compliant example.")
 
     lines.extend([
         "",
