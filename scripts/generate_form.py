@@ -40,17 +40,11 @@ def format_example_html(example):
 
 def get_field_guideline_text(field_data):
     """Get the guideline text for a field"""
-    guidelines = field_data.get('guidelines', [])
+    # Now guidelines are merged into description
     description = field_data.get('description', '')
     
-    if guidelines:
-        # Join guidelines and escape backticks for HTML
-        text = ". ".join(guidelines)
+    if description:
         # Replace backticks with code tags to preserve them
-        text = text.replace('``', '<code>``</code>')
-        return text
-    elif description:
-        # Escape backticks in description too
         return description.replace('``', '<code>``</code>')
     else:
         return "No guidelines available"

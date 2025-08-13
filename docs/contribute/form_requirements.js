@@ -29,30 +29,18 @@ const FIELD_REQUIREMENTS = {
     "result_id": {
       "type": "string",
       "pattern": "^[a-z0-9_]+$",
-      "description": "Unique identifier that must exactly match the filename (without .json extension)",
-      "guidelines": [
-        "Use lowercase letters, numbers, and underscores only",
-        "Choose descriptive names that clearly identify the physics concept"
-      ],
+      "description": "Unique identifier that must exactly match the filename (without .json extension). Use lowercase letters, numbers, and underscores only. Choose descriptive names that clearly identify the physics concept.",
       "example": "lagrangian_mechanics"
     },
     "result_name": {
       "type": "string",
       "maxLength": 100,
-      "description": "Brief title to identify the entry",
-      "guidelines": [
-        "Keep concise (max 100 characters) and descriptive",
-        "Should clearly identify the physics concept"
-      ]
+      "description": "Brief title to identify the entry. Keep concise (max 100 characters) and descriptive. Should clearly identify the physics concept."
     },
     "result_equations": {
       "type": "array",
       "minItems": 1,
-      "description": "List of equations in AsciiMath format",
-      "guidelines": [
-        "Provide each equation with a unique ID (e.g., 'eq1', 'eq2')",
-        "Use AsciiMath format for all equations"
-      ],
+      "description": "List of equations in AsciiMath format. Provide each equation with a unique ID (e.g., 'eq1', 'eq2'). Use AsciiMath format for all equations.",
       "example": [
         {
           "id": "eq1",
@@ -81,23 +69,12 @@ const FIELD_REQUIREMENTS = {
     "explanation": {
       "type": "string",
       "maxLength": 800,
-      "description": "Provide a brief (2\u20135 sentences, max 100 words) conceptual summary of the theoretical result or equation",
-      "guidelines": [
-        "Assume the reader has a graduate-level understanding of physics",
-        "Use clear and concise language to explain the significance, usage, and context of the theoretical result",
-        "Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears",
-        "Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., \"This is important in physics\"), or overly technical jargon",
-        "If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format"
-      ],
+      "description": "Provide a brief (2\u20135 sentences, max 100 words) conceptual summary of the theoretical result or equation. Assume the reader has a graduate-level understanding of physics. Use clear and concise language to explain the significance, usage, and context of the theoretical result. Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears. Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., \"This is important in physics\"), or overly technical jargon. If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "example": "Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction."
     },
     "equations_assumptions": {
       "type": "array",
-      "description": "Assumptions directly related to the equations",
-      "guidelines": [
-        "Focus on assumptions specific to the equations themselves",
-        "Use backticks for math symbols in AsciiMath format"
-      ],
+      "description": "Assumptions directly related to the equations. Focus on assumptions specific to the equations themselves. Use backticks for math symbols in AsciiMath format.",
       "example": [
         {
           "id": "eq_assump1",
@@ -124,11 +101,7 @@ const FIELD_REQUIREMENTS = {
     "definitions": {
       "type": "array",
       "minItems": 1,
-      "description": "Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols",
-      "guidelines": [
-        "Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.",
-        "If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format."
-      ],
+      "description": "Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols. Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field. If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "example": [
         {
           "symbol": "c",
@@ -155,14 +128,7 @@ const FIELD_REQUIREMENTS = {
     "derivation": {
       "type": "array",
       "minItems": 1,
-      "description": "Provide a formal derivation of the result, including all steps and equations in AsciiMath format.",
-      "guidelines": [
-        "Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field",
-        "Each step should contaon the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields",
-        "Include all steps for complete derivation",
-        "Use very explicit detail level for easy following",
-        "Equations only - use 'derivation_explanation' field for rationale"
-      ],
+      "description": "Provide a formal derivation of the result, including all steps and equations in AsciiMath format. Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contain the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following. Equations only - use 'derivation_explanation' field for rationale.",
       "example": [
         {
           "step": 1,
@@ -193,12 +159,7 @@ const FIELD_REQUIREMENTS = {
     },
     "derivation_assumptions": {
       "type": "array",
-      "description": "Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'",
-      "guidelines": [
-        "List all assumptions required for the derivation",
-        "Use sequential IDs like 'assumption1', 'assumption2'",
-        "If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
-      ],
+      "description": "Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'. List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "items": {
         "type": "object",
         "required": [
@@ -218,13 +179,7 @@ const FIELD_REQUIREMENTS = {
     },
     "derivation_explanation": {
       "type": "array",
-      "description": "Textual explanations for each derivation step",
-      "guidelines": [
-        "Not all steps need explanations, as some may be self-evident.",
-        "Define new symbols that appear",
-        "Provide concise and clear rationale",
-        "If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
-      ],
+      "description": "Textual explanations for each derivation step. Not all steps need explanations, as some may be self-evident. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "items": {
         "type": "object",
         "required": [
@@ -245,12 +200,7 @@ const FIELD_REQUIREMENTS = {
     },
     "programmatic_verification": {
       "type": "object",
-      "description": "Code that verifies the derivation correctness",
-      "guidelines": [
-        "Use minimal dependencies (pure Python or sympy)",
-        "Should follow the steps of the derivation, explicitly in the comments",
-        "Include assert statements to verify correctness"
-      ],
+      "description": "Code that verifies the derivation correctness. Use minimal dependencies (pure Python or sympy). Should follow the steps of the derivation, explicitly in the comments. Include assert statements to verify correctness.",
       "required": [
         "language",
         "library",
@@ -279,10 +229,7 @@ const FIELD_REQUIREMENTS = {
     },
     "domain": {
       "type": "string",
-      "description": "ArXiv category identifier (e.g., 'gr-qc', 'hep-th') from https://arxiv.org/category_taxonomy",
-      "guidelines": [
-        "Use official arXiv taxonomy identifiers"
-      ],
+      "description": "ArXiv category identifier (e.g., 'gr-qc', 'hep-th') from https://arxiv.org/category_taxonomy. Use official arXiv taxonomy identifiers.",
       "pattern": "^[a-z][a-z\\-\\.]+$"
     },
     "theory_status": {
@@ -294,22 +241,11 @@ const FIELD_REQUIREMENTS = {
         "limiting_case",
         "superseded"
       ],
-      "description": "Current scientific status of the theory",
-      "guidelines": [
-        "current: Modern theories widely accepted by scientific community",
-        "historical: Important for development but superseded by better theories",
-        "approximation: Valid simplifications of more general theories",
-        "limiting_case: Special cases with restricted applicability",
-        "superseded: Completely replaced by more accurate theories"
-      ]
+      "description": "Current scientific status of the theory. current: Modern theories widely accepted by scientific community. historical: Important for development but superseded by better theories. approximation: Valid simplifications of more general theories. limiting_case: Special cases with restricted applicability. superseded: Completely replaced by more accurate theories."
     },
     "validity_regime": {
       "type": "object",
-      "description": "Physical conditions where theory applies and limitations",
-      "guidelines": [
-        "Use for theories with specific applicability ranges",
-        "Include both conditions where valid and limitations"
-      ],
+      "description": "Physical conditions where theory applies and limitations. Use for theories with specific applicability ranges. Include both conditions where valid and limitations.",
       "additionalProperties": false,
       "properties": {
         "conditions": {
@@ -328,11 +264,7 @@ const FIELD_REQUIREMENTS = {
     },
     "superseded_by": {
       "type": "array",
-      "description": "Theories that supersede or generalize this result",
-      "guidelines": [
-        "Use exact result_id values (without .json extension)",
-        "Must reference existing entries in the dataset"
-      ],
+      "description": "Theories that supersede or generalize this result. Use exact result_id values (without .json extension). Must reference existing entries in the dataset.",
       "items": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$"
@@ -341,17 +273,11 @@ const FIELD_REQUIREMENTS = {
     "approximation_of": {
       "type": "string",
       "pattern": "^[a-z0-9_]+$",
-      "description": "The more general theory this approximates",
-      "guidelines": [
-        "Use exact result_id value (without .json extension)"
-      ]
+      "description": "The more general theory this approximates. Use exact result_id value (without .json extension)."
     },
     "historical_context": {
       "type": "object",
-      "description": "Educational context about theory's development",
-      "guidelines": [
-        "Provide importance, development period, and key insights"
-      ],
+      "description": "Educational context about theory's development. Provide importance, development period, and key insights.",
       "additionalProperties": false,
       "properties": {
         "importance": {
@@ -372,10 +298,7 @@ const FIELD_REQUIREMENTS = {
       "type": "array",
       "minItems": 1,
       "maxItems": 3,
-      "description": "Academic citations (1-3 references in APA style)",
-      "guidelines": [
-        "Use APA format: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages. DOI/URL"
-      ],
+      "description": "Academic citations (1-3 references in APA style). Use APA format: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages. DOI/URL.",
       "example": [
         {
           "id": "R1",
@@ -401,11 +324,7 @@ const FIELD_REQUIREMENTS = {
     },
     "dependencies": {
       "type": "array",
-      "description": "Other entries this result relies on",
-      "guidelines": [
-        "Use exact result_id values (without .json extension)",
-        "Only include direct dependencies"
-      ],
+      "description": "Other entries this result relies on. Use exact result_id values (without .json extension). Only include direct dependencies.",
       "items": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$"
@@ -413,10 +332,7 @@ const FIELD_REQUIREMENTS = {
     },
     "created_by": {
       "type": "string",
-      "description": "Full name or ORCID of the entry author",
-      "guidelines": [
-        "Provides attribution and accountability"
-      ]
+      "description": "Full name or ORCID of the entry author. Provides attribution and accountability."
     },
     "review_status": {
       "type": "string",
@@ -424,22 +340,9 @@ const FIELD_REQUIREMENTS = {
         "draft",
         "reviewed"
       ],
-      "description": "Review status of the entry",
-      "guidelines": [
-        "Use 'draft' for initial submissions",
-        "Use 'reviewed' for entries approved for main dataset"
-      ]
+      "description": "Review status of the entry. Use 'draft' for initial submissions. Use 'reviewed' for entries approved for main dataset."
     }
-  },
-  "examples": {
-    "complete_entry": "entries/lorentz_transformations.json"
-  },
-  "testing_commands": [
-    "make test",
-    "make test-entry FILE=name",
-    "make validate FILE=name",
-    "docker-compose run --rm theoria-tests"
-  ]
+  }
 };
 
 // Helper functions for accessing requirement data

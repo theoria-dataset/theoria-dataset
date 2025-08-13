@@ -38,14 +38,14 @@ def format_field_section(field_name, field_data, is_required=False):
     required_marker = "**" if is_required else ""
     lines.append(f"- {required_marker}`{field_name}`:{required_marker}")
 
-    # Description
+    # Description (now contains both description and guidelines)
     if 'description' in field_data:
-        lines.append(f"  - {field_data['description']}")
-
-    # Guidelines
-    if 'guidelines' in field_data:
-        for guideline in field_data['guidelines']:
-            lines.append(f"  - {guideline}")
+        # Split the combined description by sentences for better formatting
+        description = field_data['description']
+        sentences = [s.strip() for s in description.split('.') if s.strip()]
+        for sentence in sentences:
+            if sentence:
+                lines.append(f"  - {sentence}")
 
     # Example
     if 'example' in field_data:

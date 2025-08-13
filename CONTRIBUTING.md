@@ -10,7 +10,8 @@ IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `en
 Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.
 
 - **`result_id`:**
-  - Unique identifier that must exactly match the filename (without .json extension)
+  - Unique identifier that must exactly match the filename (without
+  - json extension)
   - Use lowercase letters, numbers, and underscores only
   - Choose descriptive names that clearly identify the physics concept
   - Example:
@@ -23,7 +24,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - **`result_equations`:**
   - List of equations in AsciiMath format
-  - Provide each equation with a unique ID (e.g., 'eq1', 'eq2')
+  - Provide each equation with a unique ID (e
+  - g
+  - , 'eq1', 'eq2')
   - Use AsciiMath format for all equations
   - Example:
     ```json
@@ -40,7 +43,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Assume the reader has a graduate-level understanding of physics
   - Use clear and concise language to explain the significance, usage, and context of the theoretical result
   - Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears
-  - Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon
+  - Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e
+  - g
+  - , "This is important in physics"), or overly technical jargon
   - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
   - Example:
     `Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction.`
@@ -61,8 +66,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - **`definitions`:**
   - Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols
-  - Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.
-  - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format.
+  - Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field
+  - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format
   - Example:
     ```json
     [
@@ -74,9 +79,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ```
 
 - **`derivation`:**
-  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format.
+  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format
   - Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field
-  - Each step should contaon the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields
+  - Each step should contain the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields
   - Include all steps for complete derivation
   - Use very explicit detail level for easy following
   - Equations only - use 'derivation_explanation' field for rationale
@@ -98,14 +103,14 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'
   - List all assumptions required for the derivation
   - Use sequential IDs like 'assumption1', 'assumption2'
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`derivation_explanation`:**
   - Textual explanations for each derivation step
-  - Not all steps need explanations, as some may be self-evident.
+  - Not all steps need explanations, as some may be self-evident
   - Define new symbols that appear
   - Provide concise and clear rationale
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`programmatic_verification`:**
   - Code that verifies the derivation correctness
@@ -114,7 +119,10 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Include assert statements to verify correctness
 
 - **`domain`:**
-  - ArXiv category identifier (e.g., 'gr-qc', 'hep-th') from https://arxiv.org/category_taxonomy
+  - ArXiv category identifier (e
+  - g
+  - , 'gr-qc', 'hep-th') from https://arxiv
+  - org/category_taxonomy
   - Use official arXiv taxonomy identifiers
 
 - **`theory_status`:**
@@ -132,12 +140,14 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - `superseded_by`:
   - Theories that supersede or generalize this result
-  - Use exact result_id values (without .json extension)
+  - Use exact result_id values (without
+  - json extension)
   - Must reference existing entries in the dataset
 
 - `approximation_of`:
   - The more general theory this approximates
-  - Use exact result_id value (without .json extension)
+  - Use exact result_id value (without
+  - json extension)
 
 - `historical_context`:
   - Educational context about theory's development
@@ -145,7 +155,11 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - **`references`:**
   - Academic citations (1-3 references in APA style)
-  - Use APA format: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages. DOI/URL
+  - Use APA format: Author(s)
+  - (Year)
+  - Title
+  - Publisher/Journal, volume(issue), pages
+  - DOI/URL
   - Example:
     ```json
     [
@@ -158,7 +172,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - `dependencies`:
   - Other entries this result relies on
-  - Use exact result_id values (without .json extension)
+  - Use exact result_id values (without
+  - json extension)
   - Only include direct dependencies
 
 - **`created_by`:**
@@ -169,14 +184,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Review status of the entry
   - Use 'draft' for initial submissions
   - Use 'reviewed' for entries approved for main dataset
-
-## Theory Status Options
-
-- current: Modern theories widely accepted by scientific community
-- historical: Important for development but superseded by better theories
-- approximation: Valid simplifications of more general theories
-- limiting_case: Special cases with restricted applicability
-- superseded: Completely replaced by more accurate theories
 
 ## Testing
 
