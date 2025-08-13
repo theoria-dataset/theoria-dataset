@@ -197,6 +197,6 @@ docker-compose run --rm theoria-tests
 
 ## Example
 
-See `entries/lorentz_transformations.json` for a complete, compliant example.
+See `entries/special_relativity.json` for a complete, compliant example.
 
 Happy contributing!

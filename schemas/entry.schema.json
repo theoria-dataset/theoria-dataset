@@ -396,8 +396,8 @@
     }
   },
 
-  "examples": {
-    "complete_entry": "entries/lorentz_transformations.json"
+  "x-examples": {
+    "complete_entry": "entries/special_relativity.json"
   },
 
   "testing_commands": [

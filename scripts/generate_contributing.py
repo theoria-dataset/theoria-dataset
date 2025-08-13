@@ -144,9 +144,9 @@ def generate_contributing_md(requirements_file, output_file):
         ""
     ])
 
-    if 'examples' in requirements and 'complete_entry' in requirements['examples']:
+    if 'x-examples' in requirements and 'complete_entry' in requirements['x-examples']:
         lines.append(
-            f"See `{requirements['examples']['complete_entry']}` for a complete, compliant example.")
+            f"See `{requirements['x-examples']['complete_entry']}` for a complete, compliant example.")
 
     lines.extend([
         "",
