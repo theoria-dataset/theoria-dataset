@@ -140,7 +140,8 @@
       "version": "0.4.3",
       "date": "2025-08-12",
       "changes": [
-        "Fixed GitHub Pages deployment issue where entry modification URLs failed to load existing entries"
+        "Fixed GitHub Pages deployment issue where entry modification URLs failed to load existing entries",
+        "Make a single source of truth for the requirements of each entry in the schema file. CONTRIBUTING.md and Form will be automatically populated on the build based on the schema file."
       ]
     }
   ]

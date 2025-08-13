@@ -3,6 +3,114 @@
 const $ = (id) => document.getElementById(id);
 const qs = (sel) => document.querySelector(sel);
 
+// Format long equations by breaking them at logical points
+function formatLongEquation(equation) {
+  // If equation is short enough, return as is
+  if (equation.length <= 80) {
+    return `\`${equation}\``;
+  }
+  
+  // Define break points in order of preference
+  const breakPatterns = [
+    /(\s*=\s*)/g,           // Equals signs (highest priority)
+    /(\s*\+\s*)/g,          // Plus signs
+    /(\s*-\s*)/g,           // Minus signs (but be careful with negative numbers)
+    /(\s*\*\s*)/g,          // Multiplication
+    /(\s*\/\s*)/g,          // Division
+    /(\s*\^\s*)/g,          // Exponentiation
+    /(\s*,\s*)/g,           // Commas (for function arguments)
+    /(\s*;\s*)/g,           // Semicolons
+    /(\s+and\s+)/g,         // Logical AND
+    /(\s+or\s+)/g,          // Logical OR
+    /(\s*\|\s*)/g,          // Pipes (for conditions)
+    /(\s*&\s*)/g,           // Ampersands
+  ];
+  
+  // Try each break pattern until we find one that works
+  for (const pattern of breakPatterns) {
+    const parts = equation.split(pattern);
+    
+    if (parts.length > 1) {
+      const lines = groupPartsIntoLines(parts);
+      if (lines.length > 1) {
+        return lines.map(line => `\`${line}\``).join('<br>');
+      }
+    }
+  }
+  
+  // If no good break points found, try breaking at parentheses or brackets
+  const parenParts = equation.split(/(\s*[\(\)\[\]]\s*)/);
+  if (parenParts.length > 1) {
+    const lines = groupPartsIntoLines(parenParts);
+    if (lines.length > 1) {
+      return lines.map(line => `\`${line}\``).join('<br>');
+    }
+  }
+  
+  // Last resort: break at word boundaries
+  const words = equation.split(/(\s+)/);
+  if (words.length > 1) {
+    const lines = groupWordsIntoLines(words, 80);
+    if (lines.length > 1) {
+      return lines.map(line => `\`${line}\``).join('<br>');
+    }
+  }
+  
+  // If all else fails, return original
+  return `\`${equation}\``;
+}
+
+// Helper function to group parts into lines with reasonable length
+function groupPartsIntoLines(parts) {
+  const lines = [];
+  let currentLine = parts[0] || '';
+  
+  for (let i = 1; i < parts.length; i += 2) {
+    const separator = parts[i] || '';
+    const nextPart = parts[i + 1] || '';
+    
+    // Check if adding the next part would make line too long
+    if (currentLine.length + separator.length + nextPart.length > 80) {
+      // Start new line
+      if (currentLine.trim()) {
+        lines.push(currentLine.trim());
+      }
+      currentLine = separator + nextPart;
+    } else {
+      // Add to current line
+      currentLine += separator + nextPart;
+    }
+  }
+  
+  // Add the last line
+  if (currentLine.trim()) {
+    lines.push(currentLine.trim());
+  }
+  
+  return lines;
+}
+
+// Helper function to group words into lines
+function groupWordsIntoLines(words, maxLength) {
+  const lines = [];
+  let currentLine = '';
+  
+  for (const word of words) {
+    if (currentLine.length + word.length > maxLength && currentLine.trim()) {
+      lines.push(currentLine.trim());
+      currentLine = word;
+    } else {
+      currentLine += word;
+    }
+  }
+  
+  if (currentLine.trim()) {
+    lines.push(currentLine.trim());
+  }
+  
+  return lines;
+}
+
 // View toggling
 const homeView = $("homeView");
 const entryView = $("entryView");
@@ -186,7 +294,7 @@ function render(data) {
   // Render equations as <p> blocks, not as a list
   const eqDiv = $("equations-content");
   eqDiv.innerHTML = (data.result_equations || [])
-    .map((eq) => `<p>\`${eq.equation}\`</p>`)
+    .map((eq) => `<p>${formatLongEquation(eq.equation)}</p>`)
     .join("");
   safeTypesetMathJax([eqDiv]);
   renderList("#assumptions ul", data.equations_assumptions, (a) => a.text);
@@ -218,7 +326,9 @@ function render(data) {
       html += `<div class='step-expl'>${explanationMap[step.step]}</div>`;
     }
     if (step.equation) {
-      html += `<div class='step-eq'>\`${step.equation}\`</div>`;
+      // Break long equations at logical points
+      const formattedEquation = formatLongEquation(step.equation);
+      html += `<div class='step-eq'>${formattedEquation}</div>`;
     } else if (step.text) {
       html += `<div class='step-text'>${step.text}</div>`;
     }

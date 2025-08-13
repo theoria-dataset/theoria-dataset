@@ -35,7 +35,7 @@ echo "1. Validating JSON entries against schema..." \n\
 echo "=============================================" \n\
 for file in entries/*.json; do \n\
     echo "Validating $file" \n\
-    if ! ajv validate -s schemas/entry.schema.json -d "$file"; then \n\
+    if ! ajv validate -s schemas/entry.schema.json -d "$file" --strict=false; then \n\
         echo "❌ JSON validation failed for $file" \n\
         exit 1 \n\
     fi \n\

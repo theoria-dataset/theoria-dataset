@@ -39,7 +39,7 @@
       "equation": "E_0 = m*c^2"
     }
   ],
-  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence E = mc². These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
+  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence `E = mc^2`. These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
@@ -93,7 +93,7 @@
     },
     {
       "symbol": "gamma",
-      "definition": "Lorentz factor, defined as 1/sqrt(1-(v^2/c^2))."
+      "definition": "Lorentz factor, defined as `1/sqrt(1-(v^2/c^2))`."
     },
     {
       "symbol": "E",
@@ -109,7 +109,7 @@
     },
     {
       "symbol": "E_0",
-      "definition": "Rest energy of the particle (E_0 = mc^2)."
+      "definition": "Rest energy of the particle `(E_0 = mc^2)`."
     }
   ],
   "derivation": [
@@ -197,15 +197,15 @@
   "derivation_assumptions": [
     {
       "id": "assumption1",
-      "text": "Linearity: the transformation (x,t) → (x',t') is linear owing to homogeneity of space‑time."
+      "text": "Linearity: the transformation `(x,t) -> (x',t')` is linear owing to homogeneity of space‑time."
     },
     {
       "id": "assumption2",
-      "text": "Light‑speed invariance: a ray with x = ±c·t in S satisfies x' = ±c·t' in S'."
+      "text": "Light‑speed invariance: a ray with `x = ±c*t` in S satisfies `x' = ±c*t'` in S'."
     },
     {
       "id": "assumption3",
-      "text": "Frame setup: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0."
+      "text": "Frame setup: S' moves with velocity `v` along the common x-axis and origins coincide at `t = t' = 0`."
     },
     {
       "id": "assumption4",
@@ -223,19 +223,19 @@
     },
     {
       "step": 2,
-      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
+      "text": "Impose that the spatial origin of S' (`x' = 0`) moves as `x = v*t` in S."
     },
     {
       "step": 3,
-      "text": "Get the relationship between coefficients A and B."
+      "text": "Get the relationship between coefficients `A` and `B`."
     },
     {
       "step": 4,
-      "text": "Demand that any right light x=+c*t in S also satisfies x'=+c*t' in S' substituting in equations from step1. Use step3."
+      "text": "Demand that any right light `x=+c*t` in `S` also satisfies `x'=+c*t'` in `S'` substituting in equations from step1. Use step3."
     },
     {
       "step": 5,
-      "text": "Repeat for a left-moving pulse (x=-c*t in S and x'=-c*t' in S') to get a second constraint."
+      "text": "Repeat for a left-moving pulse (`x=-c*t` in `S` and `x'=-c*t'` in `S'`) to get a second constraint."
     },
     {
       "step": 6,
@@ -247,23 +247,23 @@
     },
     {
       "step": 8,
-      "text": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1."
+      "text": "Substitute `E = A`, `B = -A*v`, and `D = -A*v/c^2` into the equations from step 1."
     },
     {
       "step": 9,
-      "text": "Demand invariance of the spacetime interval: x'^2 - c^2*t'^2 = x^2 - c^2*t^2."
+      "text": "Demand invariance of the spacetime interval: `x'^2 - c^2*t'^2 = x^2 - c^2*t^2`."
     },
     {
       "step": 10,
-      "text": "Collect terms to obtain A²(1 - v²/c²) = 1."
+      "text": "Collect terms to obtain `A^2*(1 - v^2/c^2) = 1`."
     },
     {
       "step": 11,
-      "text": "Solve for A."
+      "text": "Solve for `A`."
     },
     {
       "step": 12,
-      "text": "Substitute γ back into the equations to obtain the Lorentz tranformation."
+      "text": "Substitute `gamma` back into the equations to obtain the Lorentz tranformation."
     },
     {
       "step": 13,
@@ -387,9 +387,7 @@
       "Superseded by general relativity in curved spacetime"
     ]
   },
-  "superseded_by": [
-    "general_relativity"
-  ],
+  "superseded_by": ["general_relativity"],
   "historical_context": {
     "importance": "Revolutionary unification of space, time, mass, and energy",
     "development_period": "1905",

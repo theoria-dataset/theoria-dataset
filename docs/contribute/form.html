@@ -18,7 +18,6 @@
     
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="form.css">
@@ -120,8 +119,8 @@
             <!-- Basic Information Section -->
             <div class="form-section">
                 <h3>📝 Basic Information</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> A unique identifier that must exactly match the filename (without the .json extension). Use lowercase letters, numbers, and underscores only.
+                <div class="guidelines" data-field="result_id">
+                    <strong>Guidelines:</strong> <span class="guideline-text">Unique identifier that must exactly match the filename (without .json extension). Use lowercase letters, numbers, and underscores only. Choose descriptive names that clearly identify the physics concept.</span>
                 </div>
                 
                 <div class="form-group">
@@ -140,8 +139,8 @@
             <!-- Equations Section -->
             <div class="form-section">
                 <h3>🧮 Main Equations</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> Provide each equation in AsciiMath format. Include an equation ID for each equation (e.g., "eq1", "eq2").
+                <div class="guidelines" data-field="result_equations">
+                    <strong>Guidelines:</strong> <span class="guideline-text">List of equations in AsciiMath format. Provide each equation with a unique ID (e.g., 'eq1', 'eq2'). Use AsciiMath format for all equations.</span>
                 </div>
                 
                 <div id="equations_container">
@@ -153,8 +152,8 @@
             <!-- Explanation Section -->
             <div class="form-section">
                 <h3>💡 Explanation</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> Provide a brief 2-5 sentence conceptual summary (max 100 words). Assume graduate-level physics understanding. Explain significance, usage, and context.
+                <div class="guidelines" data-field="explanation">
+                    <strong>Guidelines:</strong> <span class="guideline-text">Provide a brief (2–5 sentences, max 100 words) conceptual summary of the theoretical result or equation. Assume the reader has a graduate-level understanding of physics. Use clear and concise language to explain the significance, usage, and context of the theoretical result. Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears. Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon. If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (<code><code>``</code></code>) and written in AsciiMath format.</span>
                 </div>
                 
                 <div class="form-group">
@@ -168,7 +167,7 @@
             <div class="form-section">
                 <h3>📋 Equations Assumptions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> List any assumptions directly related to the equations. Use backticks for math symbols in AsciiMath format.
+                    <strong>Guidelines:</strong> Focus on assumptions specific to the equations themselves. Use backticks for math symbols in AsciiMath format
                 </div>
                 
                 <div id="equations_assumptions_container">
@@ -181,7 +180,7 @@
             <div class="form-section">
                 <h3>📖 Symbol Definitions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Define every symbol used in the equations. Each definition should include a symbol field (in AsciiMath) and a definition field.
+                    <strong>Guidelines:</strong> Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.. If there are math symbols or equations included in the definition, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="definitions_container">
@@ -194,7 +193,7 @@
             <div class="form-section">
                 <h3>🔬 Derivation</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Provide formal derivation steps with equations in AsciiMath format. Include step numbers and ensure explicit detail level.
+                    <strong>Guidelines:</strong> Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contaon the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following. Equations only - use 'derivation_explanation' field for rationale
                 </div>
                 
                 <div id="derivation_container">
@@ -207,7 +206,7 @@
             <div class="form-section">
                 <h3>📝 Derivation Assumptions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Specify assumptions behind the derivation. Each assumption should have a unique ID and text description.
+                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="derivation_assumptions_container">
@@ -220,7 +219,7 @@
             <div class="form-section">
                 <h3>📚 Derivation Explanation</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Add textual explanations for derivation steps. Include step numbers that match the derivation. Define any new symbols.
+                    <strong>Guidelines:</strong> Not all steps need explanations, as some may be self-evident.. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="derivation_explanation_container">
@@ -233,7 +232,7 @@
             <div class="form-section">
                 <h3>💻 Programmatic Verification</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Include programmatic verification using Python/SymPy. Specify language and library versions. Include comments and assert statements.
+                    <strong>Guidelines:</strong> Use minimal dependencies (pure Python or sympy). Should follow the steps of the derivation, explicitly in the comments. Include assert statements to verify correctness
                 </div>
                 
                 <div class="form-group">
@@ -259,7 +258,7 @@
             <div class="form-section">
                 <h3>🏷️ Metadata & Classification</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Select the appropriate ArXiv category identifier that best matches the physics domain of this entry.
+                    <strong>Guidelines:</strong> Use official arXiv taxonomy identifiers
                 </div>
                 
                 <div class="form-group">
@@ -299,7 +298,7 @@
             <div class="form-section">
                 <h3>⚖️ Validity Regime</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Describe physical conditions where the theory applies and limitations where it breaks down.
+                    <strong>Guidelines:</strong> Use for theories with specific applicability ranges. Include both conditions where valid and limitations
                 </div>
                 
                 <div class="form-group">
@@ -325,7 +324,7 @@
             <div class="form-section">
                 <h3>🔗 Dependencies</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> List other entry result_ids that this result relies on. Use exact result_id values without .json extension.
+                    <strong>Guidelines:</strong> Use exact result_id values (without .json extension). Only include direct dependencies
                 </div>
                 
                 <div id="dependencies_container">
@@ -338,7 +337,7 @@
             <div class="form-section">
                 <h3>🔄 Superseded By</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> List theories that supersede or generalize this result. Use exact result_id values from the dataset.
+                    <strong>Guidelines:</strong> Use exact result_id values (without .json extension). Must reference existing entries in the dataset
                 </div>
                 
                 <div id="superseded_by_container">
@@ -351,7 +350,7 @@
             <div class="form-section">
                 <h3>📜 Historical Context</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Provide educational context including importance, development period, and key insights introduced by this theory.
+                    <strong>Guidelines:</strong> Provide importance, development period, and key insights
                 </div>
                 
                 <div class="form-group">
@@ -380,7 +379,7 @@
             <div class="form-section">
                 <h3>📚 References</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Include 1-3 full citations in APA style. Format as: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages.
+                    <strong>Guidelines:</strong> Use APA format: Author(s). (Year). Title. Publisher/Journal, volume(issue), pages. DOI/URL
                 </div>
                 
                 <div id="references_container">
@@ -413,7 +412,7 @@
             <div class="form-section">
                 <h3>👤 Attribution</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Provide the full name or ORCID of the entry author. Use "draft" status for initial submissions.
+                    <strong>Guidelines:</strong> Provides attribution and accountability
                 </div>
                 
                 <div class="form-group">
@@ -476,5 +475,7 @@
 
     <script src="../script.js" defer></script>
     <script src="form.js" defer></script>
+    
+    
 </body>
 </html>

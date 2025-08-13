@@ -189,7 +189,10 @@ def main():
             print(f"   → Make sure the file is in the entries/ directory")
             sys.exit(1)
     
-    print(f"📋 Validating schema for: {entry_path.name}")
+    try:
+        print(f"📋 Validating schema for: {entry_path.name}")
+    except UnicodeEncodeError:
+        print(f"[VALIDATE] Validating schema for: {entry_path.name}")
     print("="*50)
     
     is_valid, errors = validate_entry_schema(entry_path)

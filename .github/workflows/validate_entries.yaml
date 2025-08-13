@@ -21,7 +21,7 @@ jobs:
         run: |
           for file in entries/*.json; do
             echo "Validating $file"
-            ajv validate -s schemas/entry.schema.json -d "$file" || exit 1
+            ajv validate -s schemas/entry.schema.json -d "$file" --strict=false || exit 1
           done
 
       - name: Set up Python
