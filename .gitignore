@@ -26,7 +26,6 @@ yarn.lock
 .vscode/
 .claude
 CLAUDE.md
-AI_guidance.md
 *.swp
 *.swo
 .DS_Store
