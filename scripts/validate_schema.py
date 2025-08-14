@@ -22,9 +22,9 @@ def validate_entry_schema(entry_path):
         with open(entry_path, 'r') as f:
             data = json.load(f)
     except json.JSONDecodeError as e:
-        return False, [f"❌ Invalid JSON syntax: {e}"]
+        return False, [f"[ERROR] Invalid JSON syntax: {e}"]
     except FileNotFoundError:
-        return False, [f"❌ File not found: {entry_path}"]
+        return False, [f"[ERROR] File not found: {entry_path}"]
     
     # Check required fields with specific guidance
     required_fields = {
@@ -41,13 +41,13 @@ def validate_entry_schema(entry_path):
         'domain': "arXiv category (e.g., 'hep-th', 'gr-qc')",
         'theory_status': "One of: current, historical, approximation, limiting_case, superseded",
         'references': "Array of 1-3 references with 'id' and 'citation'",
-        'created_by': "Contributor name or identifier",
+        'contributors': "Array of contributors with 'full_name' and 'identifier'",
         'review_status': "Either 'draft' or 'reviewed'"
     }
     
     for field, description in required_fields.items():
         if field not in data:
-            errors.append(f"❌ Missing required field '{field}': {description}")
+            errors.append(f"[ERROR] Missing required field '{field}': {description}")
     
     if errors:
         return False, errors
@@ -55,92 +55,92 @@ def validate_entry_schema(entry_path):
     # Detailed validation for specific fields
     filename_stem = entry_path.stem
     if data.get('result_id') != filename_stem:
-        errors.append(f"❌ result_id mismatch:")
+        errors.append(f"[ERROR] result_id mismatch:")
         errors.append(f"   → Expected: '{filename_stem}' (based on filename)")
         errors.append(f"   → Got: '{data.get('result_id')}'")
         errors.append(f"   → Fix: Rename file to '{data.get('result_id')}.json' or change result_id")
     
     # Validate result_name length
     if len(data.get('result_name', '')) > 100:
-        errors.append(f"❌ result_name too long: {len(data['result_name'])} chars (max 100)")
+        errors.append(f"[ERROR] result_name too long: {len(data['result_name'])} chars (max 100)")
     
     # Validate explanation length (approximately 100 words = ~800 characters)
     explanation = data.get('explanation', '')
     if len(explanation) > 800:
-        errors.append(f"❌ explanation too long: ~{len(explanation.split())} words (max ~100 words)")
+        errors.append(f"[ERROR] explanation too long: ~{len(explanation.split())} words (max ~100 words)")
     
     # Validate result_equations structure
     equations = data.get('result_equations', [])
     if not equations:
-        errors.append(f"❌ result_equations cannot be empty")
+        errors.append(f"[ERROR] result_equations cannot be empty")
     else:
         for i, eq in enumerate(equations):
             if not isinstance(eq, dict):
-                errors.append(f"❌ result_equations[{i}] must be an object with 'id' and 'equation' fields")
+                errors.append(f"[ERROR] result_equations[{i}] must be an object with 'id' and 'equation' fields")
             else:
                 if 'id' not in eq:
-                    errors.append(f"❌ result_equations[{i}] missing 'id' field")
+                    errors.append(f"[ERROR] result_equations[{i}] missing 'id' field")
                 if 'equation' not in eq:
-                    errors.append(f"❌ result_equations[{i}] missing 'equation' field")
+                    errors.append(f"[ERROR] result_equations[{i}] missing 'equation' field")
     
     # Validate definitions structure
     definitions = data.get('definitions', [])
     if not definitions:
-        errors.append(f"❌ definitions cannot be empty - define all symbols used in equations")
+        errors.append(f"[ERROR] definitions cannot be empty - define all symbols used in equations")
     else:
         for i, defn in enumerate(definitions):
             if not isinstance(defn, dict):
-                errors.append(f"❌ definitions[{i}] must be an object with 'symbol' and 'definition' fields")
+                errors.append(f"[ERROR] definitions[{i}] must be an object with 'symbol' and 'definition' fields")
             else:
                 if 'symbol' not in defn:
-                    errors.append(f"❌ definitions[{i}] missing 'symbol' field")
+                    errors.append(f"[ERROR] definitions[{i}] missing 'symbol' field")
                 if 'definition' not in defn:
-                    errors.append(f"❌ definitions[{i}] missing 'definition' field")
+                    errors.append(f"[ERROR] definitions[{i}] missing 'definition' field")
     
     # Validate derivation structure  
     derivation = data.get('derivation', [])
     if not derivation:
-        errors.append(f"❌ derivation cannot be empty")
+        errors.append(f"[ERROR] derivation cannot be empty")
     else:
         steps = set()
         for i, step_obj in enumerate(derivation):
             if not isinstance(step_obj, dict):
-                errors.append(f"❌ derivation[{i}] must be an object with 'step' and 'equation' fields")
+                errors.append(f"[ERROR] derivation[{i}] must be an object with 'step' and 'equation' fields")
             else:
                 if 'step' not in step_obj:
-                    errors.append(f"❌ derivation[{i}] missing 'step' field")
+                    errors.append(f"[ERROR] derivation[{i}] missing 'step' field")
                 elif not isinstance(step_obj['step'], int) or step_obj['step'] < 1:
-                    errors.append(f"❌ derivation[{i}] 'step' must be a positive integer")
+                    errors.append(f"[ERROR] derivation[{i}] 'step' must be a positive integer")
                 else:
                     step_num = step_obj['step']
                     if step_num in steps:
-                        errors.append(f"❌ derivation step {step_num} is duplicated")
+                        errors.append(f"[ERROR] derivation step {step_num} is duplicated")
                     steps.add(step_num)
                 
                 if 'equation' not in step_obj:
-                    errors.append(f"❌ derivation[{i}] missing 'equation' field")
+                    errors.append(f"[ERROR] derivation[{i}] missing 'equation' field")
     
     # Validate theory_status
     valid_statuses = ['current', 'historical', 'approximation', 'limiting_case', 'superseded']
     if data.get('theory_status') not in valid_statuses:
-        errors.append(f"❌ Invalid theory_status: '{data.get('theory_status')}'")
+        errors.append(f"[ERROR] Invalid theory_status: '{data.get('theory_status')}'")
         errors.append(f"   → Must be one of: {', '.join(valid_statuses)}")
     
     # Validate references
     references = data.get('references', [])
     if not references:
-        errors.append(f"❌ references cannot be empty - provide 1-3 references")
+        errors.append(f"[ERROR] references cannot be empty - provide 1-3 references")
     elif len(references) > 3:
-        errors.append(f"❌ Too many references: {len(references)} (max 3)")
+        errors.append(f"[ERROR] Too many references: {len(references)} (max 3)")
     else:
         for i, ref in enumerate(references):
             if not isinstance(ref, dict):
-                errors.append(f"❌ references[{i}] must be an object with 'id' and 'citation' fields")
+                errors.append(f"[ERROR] references[{i}] must be an object with 'id' and 'citation' fields")
             else:
                 if 'id' not in ref:
-                    errors.append(f"❌ references[{i}] missing 'id' field")
+                    errors.append(f"[ERROR] references[{i}] missing 'id' field")
                 if 'citation' not in ref:
-                    errors.append(f"❌ references[{i}] missing 'citation' field")
+                    errors.append(f"[ERROR] references[{i}] missing 'citation' field")
     
     # Validate programmatic_verification
     pv = data.get('programmatic_verification', {})
@@ -148,23 +148,23 @@ def validate_entry_schema(entry_path):
         required_pv_fields = ['language', 'library', 'code']
         for field in required_pv_fields:
             if field not in pv:
-                errors.append(f"❌ programmatic_verification missing '{field}' field")
+                errors.append(f"[ERROR] programmatic_verification missing '{field}' field")
         
         if 'language' in pv:
             # Should be format "python X.Y.Z"
             lang_parts = pv['language'].split()
             if len(lang_parts) != 2 or lang_parts[0] != 'python':
-                errors.append(f"❌ programmatic_verification.language format should be 'python X.Y.Z', got '{pv['language']}'")
+                errors.append(f"[ERROR] programmatic_verification.language format should be 'python X.Y.Z', got '{pv['language']}'")
         
         if 'library' in pv:
             # Should be format "library_name X.Y.Z"
             lib_parts = pv['library'].split()
             if len(lib_parts) != 2:
-                errors.append(f"❌ programmatic_verification.library format should be 'library_name X.Y.Z', got '{pv['library']}'")
+                errors.append(f"[ERROR] programmatic_verification.library format should be 'library_name X.Y.Z', got '{pv['library']}'")
         
         if 'code' in pv:
             if not isinstance(pv['code'], list) or not pv['code']:
-                errors.append(f"❌ programmatic_verification.code must be a non-empty array of strings")
+                errors.append(f"[ERROR] programmatic_verification.code must be a non-empty array of strings")
     
     return len(errors) == 0, errors
 
@@ -185,7 +185,7 @@ def main():
         # Try as absolute path
         entry_path = Path(entry_file)
         if not entry_path.exists():
-            print(f"❌ File not found: {entry_file}")
+            print(f"[ERROR] File not found: {entry_file}")
             print(f"   → Make sure the file is in the entries/ directory")
             sys.exit(1)
     
@@ -198,12 +198,12 @@ def main():
     is_valid, errors = validate_entry_schema(entry_path)
     
     if is_valid:
-        print("✅ Schema validation passed!")
+        print("[OK] Schema validation passed!")
         print(f"   → Entry '{entry_path.name}' follows the correct structure")
     else:
-        print(f"❌ Schema validation failed ({len(errors)} issues):")
+        print(f"[ERROR] Schema validation failed ({len(errors)} issues):")
         for error in errors:
-            if error.startswith('❌'):
+            if error.startswith('[ERROR]'):
                 print(f"  {error}")
             else:
                 print(f"    {error}")

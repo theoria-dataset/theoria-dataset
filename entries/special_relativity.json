@@ -552,7 +552,9 @@
       "Superseded by general relativity in curved spacetime"
     ]
   },
-  "superseded_by": ["einstein_field_equations"],
+  "superseded_by": [
+    "einstein_field_equations"
+  ],
   "historical_context": {
     "importance": "Revolutionary unification of space, time, mass, and energy",
     "development_period": "1905",
@@ -573,6 +575,11 @@
       "citation": "Rindler, W. (1991). Introduction to Special Relativity (2nd ed.). Oxford University Press."
     }
   ],
-  "created_by": "Manuel Sánchez Hernández, ORCID 0009-0006-4904-3695",
-  "review_status": "reviewed"
+  "review_status": "reviewed",
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ]
 }

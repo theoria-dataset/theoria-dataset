@@ -279,6 +279,11 @@
       "citation": "Reif, F. (1965). Fundamentals of Statistical and Thermal Physics. McGraw-Hill."
     }
   ],
-  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ]
 }

@@ -22,7 +22,7 @@ const FIELD_REQUIREMENTS = {
     "domain",
     "theory_status",
     "references",
-    "created_by",
+    "contributors",
     "review_status"
   ],
   "properties": {
@@ -330,9 +330,28 @@ const FIELD_REQUIREMENTS = {
         "pattern": "^[a-z0-9_]+$"
       }
     },
-    "created_by": {
-      "type": "string",
-      "description": "Full name or ORCID of the entry author. Provides attribution and accountability."
+    "contributors": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of contributors who created or modified this entry. Each contributor must have a full name and an identifier (ORCID, website, LinkedIn, etc.).",
+      "items": {
+        "type": "object",
+        "required": [
+          "full_name",
+          "identifier"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "description": "Full name of the contributor"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "Unique identifier for the contributor (ORCID, personal website, academic profile, LinkedIn, etc.)"
+          }
+        }
+      }
     },
     "review_status": {
       "type": "string",

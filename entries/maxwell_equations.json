@@ -316,6 +316,11 @@
       "Displacement current concept"
     ]
   },
-  "created_by": "Manuel Sánchez Hernández",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "Not provided"
+    }
+  ]
 }

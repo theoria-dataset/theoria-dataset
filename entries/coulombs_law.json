@@ -202,6 +202,11 @@
       "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics (4th ed.). Cambridge University Press."
     }
   ],
-  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ]
 }

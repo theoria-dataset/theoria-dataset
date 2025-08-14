@@ -30,7 +30,8 @@ def parse_issue_body(body: str) -> Dict[str, Any]:
         'arxiv_domain': r'### ArXiv Domain\s*\n\s*([^\n]+)',
         'theory_status': r'### Theory Status\s*\n\s*([^\n]+)',
         'references': r'### References\s*\n\s*(.*?)(?=###|\Z)',
-        'created_by': r'### Your Name/ORCID\s*\n\s*([^\n]+)',
+        'contributor_name': r'### Your Full Name\s*\n\s*([^\n]+)',
+        'contributor_identifier': r'### Your Identifier\s*\n\s*([^\n]+)',
     }
     
     extracted = {}
@@ -174,7 +175,10 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
         'domain': parsed_data.get('arxiv_domain', '').replace('(', '').replace(')', '').split(' ')[0],
         'theory_status': theory_status,
         'references': references,
-        'created_by': parsed_data.get('created_by', 'GitHub Issue Submission'),
+        'contributors': [{
+            'full_name': parsed_data.get('contributor_name', 'GitHub Issue Submission'),
+            'identifier': parsed_data.get('contributor_identifier', 'GitHub')
+        }],
         'review_status': 'draft'
     }
     
@@ -210,7 +214,7 @@ def main():
         print(f"::set-output name=entry_name::{entry['result_name']}", file=sys.stderr)
         print(f"::set-output name=entry_id::{entry['result_id']}", file=sys.stderr)
         print(f"::set-output name=domain::{entry['domain']}", file=sys.stderr)
-        print(f"::set-output name=created_by::{entry['created_by']}", file=sys.stderr)
+        print(f"::set-output name=contributor::{entry['contributors'][0]['full_name']}", file=sys.stderr)
         
     except Exception as e:
         print(f"Error parsing issue: {e}", file=sys.stderr)

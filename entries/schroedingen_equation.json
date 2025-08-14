@@ -173,6 +173,11 @@
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
   ],
-  "created_by": "Manuel Sánchez Hernández",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "Not provided"
+    }
+  ]
 }

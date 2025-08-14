@@ -277,6 +277,11 @@
   "dependencies": [
     "conservation_of_momentum"
   ],
-  "created_by": "Consolidated from individual Newton's law entries",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Consolidated from individual Newton's law entries",
+      "identifier": "Not provided"
+    }
+  ]
 }

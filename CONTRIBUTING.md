@@ -176,9 +176,18 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - json extension)
   - Only include direct dependencies
 
-- **`created_by`:**
-  - Full name or ORCID of the entry author
-  - Provides attribution and accountability
+- **`contributors`:**
+  - List of contributors who created or modified this entry
+  - Each contributor must have a full name and an identifier (ORCID, website, LinkedIn, etc.)
+  - Example:
+    ```json
+    [
+      {
+        "full_name": "Manuel Sánchez Hernández",
+        "identifier": "ORCID 0009-0006-4904-3695"
+      }
+    ]
+    ```
 
 - **`review_status`:**
   - Review status of the entry

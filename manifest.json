@@ -150,7 +150,11 @@
       "changes": [
         "Adding special relativity reviewed entry.",
         "Added comprehensive FAQ page with common questions about the dataset.",
-        "Updated GitHub issue templates to allow blank issues without enforcing templates."
+        "Updated GitHub issue templates to allow blank issues without enforcing templates.",
+        "Migrated from single 'created_by' field to 'contributors' array structure to better support collaborative entries with multiple contributors.",
+        "Each contributor now has 'full_name' and 'identifier' fields supporting ORCID, website, LinkedIn, or other identifiers.",
+        "Successfully migrated all 100 existing entries while preserving attribution information.",
+        "Updated contribution forms, documentation, and validation scripts to support new contributors structure."
       ]
 
     }

@@ -180,7 +180,7 @@
             <div class="form-section">
                 <h3>📖 Symbol Definitions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.. If there are math symbols or equations included in the definition, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
+                    <strong>Guidelines:</strong> Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.. If there are math symbols or equations included in the definition, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="definitions_container">
@@ -206,7 +206,7 @@
             <div class="form-section">
                 <h3>📝 Derivation Assumptions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
+                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="derivation_assumptions_container">
@@ -219,7 +219,7 @@
             <div class="form-section">
                 <h3>📚 Derivation Explanation</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Not all steps need explanations, as some may be self-evident.. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code>``</code></code></code>) and written in AsciiMath format.
+                    <strong>Guidelines:</strong> Not all steps need explanations, as some may be self-evident.. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="derivation_explanation_container">
@@ -412,14 +412,13 @@
             <div class="form-section">
                 <h3>👤 Attribution</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Provides attribution and accountability
+                    <strong>Guidelines:</strong> Each contributor must have a full name and an identifier (ORCID, website, LinkedIn, etc.)
                 </div>
                 
-                <div class="form-group">
-                    <label for="created_by">Created By</label>
-                    <input type="text" id="created_by">
-                    <div class="help-text">Full name or ORCID of author of the entry</div>
+                <div id="contributors_container">
+                    <!-- Contributors will be populated here -->
                 </div>
+                <button type="button" class="btn btn-secondary" onclick="addContributor()">+ Add Contributor</button>
                 
                 <div class="form-group">
                     <label for="contributor-email">Your Email (optional)</label>
