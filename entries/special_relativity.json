@@ -39,7 +39,7 @@
       "equation": "E_0 = m*c^2"
     }
   ],
-  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence `E = mc^2`. These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
+  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence E = mc². These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
   "equations_assumptions": [
     {
       "id": "eq_assump1",
@@ -93,7 +93,7 @@
     },
     {
       "symbol": "gamma",
-      "definition": "Lorentz factor, defined as `1/sqrt(1-(v^2/c^2))`."
+      "definition": "Lorentz factor, defined as 1/sqrt(1-(v^2/c^2))."
     },
     {
       "symbol": "E",
@@ -109,7 +109,7 @@
     },
     {
       "symbol": "E_0",
-      "definition": "Rest energy of the particle `(E_0 = mc^2)`."
+      "definition": "Rest energy of the particle (E_0 = mc^2)."
     }
   ],
   "derivation": [
@@ -167,7 +167,7 @@
     },
     {
       "step": 14,
-      "equation": "Delta x' = Delta x/gamma"
+      "equation": "Delta x' = (Delta x)/(gamma)"
     },
     {
       "step": 15,
@@ -183,29 +183,97 @@
     },
     {
       "step": 18,
-      "equation": "E = gamma*m*c^2"
+      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p"
     },
     {
       "step": 19,
-      "equation": "E_0 = m*c^2"
+      "equation": "E = int vec v * d(gamma*m*vec v) = m*int vec v * d(gamma*vec v)"
     },
     {
       "step": 20,
-      "equation": "E^2 - (p*c)^2 = (m*c^2)^2"
+      "equation": "d(gamma*vec v) = d gamma * vec v + gamma * d vec v"
+    },
+    {
+      "step": 21,
+      "equation": "E = m*int vec v * (d gamma * vec v + gamma * d vec v) = m*int (vec v^2 * d gamma + gamma * vec v * d vec v)"
+    },
+    {
+      "step": 22,
+      "equation": "d gamma = d(1/sqrt(1 - v^2/c^2)) = (gamma^3 * v * dv)/c^2"
+    },
+    {
+      "step": 23,
+      "equation": "E = m*int (v^2 * (gamma^3 * v * dv)/c^2 + gamma * v * dv)"
+    },
+    {
+      "step": 24,
+      "equation": "E = m*int v*dv * gamma * (v^2*gamma^2/c^2 + 1)"
+    },
+    {
+      "step": 25,
+      "equation": "v^2*gamma^2/c^2 + 1 = v^2/(c^2*(1-v^2/c^2)) + 1 = (v^2 + c^2 - v^2)/(c^2*(1-v^2/c^2)) = c^2/(c^2*(1-v^2/c^2)) = gamma^2"
+    },
+    {
+      "step": 26,
+      "equation": "E = m*int v*gamma^3*dv = m*c^2*int (v/c^2)*gamma^3*dv = m*c^2*int d gamma"
+    },
+    {
+      "step": 27,
+      "equation": "E = m*c^2 * (gamma - 1)|_1^gamma = m*c^2 * (gamma - 1)"
+    },
+    {
+      "step": 28,
+      "equation": "E = E_k + E_0 = m*c^2*(gamma - 1) + m*c^2"
+    },
+    {
+      "step": 29,
+      "equation": "E = gamma*m*c^2"
+    },
+    {
+      "step": 30,
+      "equation": "E_0 = m*c^2"
+    },
+    {
+      "step": 31,
+      "equation": "E = gamma*m*c^2, p = gamma*m*v"
+    },
+    {
+      "step": 32,
+      "equation": "E^2 = (gamma*m*c^2)^2 = gamma^2*m^2*c^4"
+    },
+    {
+      "step": 33,
+      "equation": "(p*c)^2 = (gamma*m*v*c)^2 = gamma^2*m^2*v^2*c^2"
+    },
+    {
+      "step": 34,
+      "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^4 - gamma^2*m^2*v^2*c^2"
+    },
+    {
+      "step": 35,
+      "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^2*(c^2 - v^2)"
+    },
+    {
+      "step": 36,
+      "equation": "gamma^2*(c^2 - v^2) = (c^2 - v^2)/(1 - v^2/c^2) = c^2"
+    },
+    {
+      "step": 37,
+      "equation": "E^2 - (p*c)^2 = m^2*c^4 = (m*c^2)^2"
     }
   ],
   "derivation_assumptions": [
     {
       "id": "assumption1",
-      "text": "Linearity: the transformation `(x,t) -> (x',t')` is linear owing to homogeneity of space‑time."
+      "text": "Linearity: the transformation (x,t) → (x',t') is linear owing to homogeneity of space‑time."
     },
     {
       "id": "assumption2",
-      "text": "Light‑speed invariance: a ray with `x = ±c*t` in S satisfies `x' = ±c*t'` in S'."
+      "text": "Light‑speed invariance: a ray with x = ±c·t in S satisfies x' = ±c·t' in S'."
     },
     {
       "id": "assumption3",
-      "text": "Frame setup: S' moves with velocity `v` along the common x-axis and origins coincide at `t = t' = 0`."
+      "text": "Frame setup: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0."
     },
     {
       "id": "assumption4",
@@ -223,19 +291,19 @@
     },
     {
       "step": 2,
-      "text": "Impose that the spatial origin of S' (`x' = 0`) moves as `x = v*t` in S."
+      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
     },
     {
       "step": 3,
-      "text": "Get the relationship between coefficients `A` and `B`."
+      "text": "Get the relationship between coefficients A and B."
     },
     {
       "step": 4,
-      "text": "Demand that any right light `x=+c*t` in `S` also satisfies `x'=+c*t'` in `S'` substituting in equations from step1. Use step3."
+      "text": "Demand that any right light x=+c*t in S also satisfies x'=+c*t' in S' substituting in equations from step1. Use step3."
     },
     {
       "step": 5,
-      "text": "Repeat for a left-moving pulse (`x=-c*t` in `S` and `x'=-c*t'` in `S'`) to get a second constraint."
+      "text": "Repeat for a left-moving pulse (x=-c*t in S and x'=-c*t' in S') to get a second constraint."
     },
     {
       "step": 6,
@@ -247,23 +315,23 @@
     },
     {
       "step": 8,
-      "text": "Substitute `E = A`, `B = -A*v`, and `D = -A*v/c^2` into the equations from step 1."
+      "text": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1."
     },
     {
       "step": 9,
-      "text": "Demand invariance of the spacetime interval: `x'^2 - c^2*t'^2 = x^2 - c^2*t^2`."
+      "text": "Demand invariance of the spacetime interval: x'^2 - c^2*t'^2 = x^2 - c^2*t^2."
     },
     {
       "step": 10,
-      "text": "Collect terms to obtain `A^2*(1 - v^2/c^2) = 1`."
+      "text": "Collect terms to obtain A²(1 - v²/c²) = 1."
     },
     {
       "step": 11,
-      "text": "Solve for `A`."
+      "text": "Solve for A."
     },
     {
       "step": 12,
-      "text": "Substitute `gamma` back into the equations to obtain the Lorentz tranformation."
+      "text": "Substitute γ back into the equations to obtain the Lorentz tranformation."
     },
     {
       "step": 13,
@@ -287,15 +355,83 @@
     },
     {
       "step": 18,
-      "text": "Obtain the relativistic energy-momentum relation."
+      "text": "Rewrite the work integral using the relation between force and momentum."
     },
     {
       "step": 19,
-      "text": "Identify rest energy when velocity is zero."
+      "text": "Substitute the relativistic momentum `vec p = gamma*m*vec v` into the integral."
     },
     {
       "step": 20,
-      "text": "Derive the fundamental energy-momentum-mass relation."
+      "text": "Apply the product rule to expand `d(gamma*vec v)`."
+    },
+    {
+      "step": 21,
+      "text": "Distribute the dot product and separate the integral terms."
+    },
+    {
+      "step": 22,
+      "text": "Calculate the differential of the Lorentz factor `gamma` with respect to velocity."
+    },
+    {
+      "step": 23,
+      "text": "Substitute the expression for `d gamma` into the integral."
+    },
+    {
+      "step": 24,
+      "text": "Factor out common terms from the integrand, including `gamma`."
+    },
+    {
+      "step": 25,
+      "text": "Show that `v^2*gamma^2/c^2 + 1 = gamma^2` using the definition of the Lorentz factor."
+    },
+    {
+      "step": 26,
+      "text": "Use the relation `d gamma = (gamma^3*v*dv)/c^2` to transform the integral to `int d gamma`."
+    },
+    {
+      "step": 27,
+      "text": "Evaluate the integral from `gamma = 1` (at `v=0`) to `gamma` to get kinetic energy."
+    },
+    {
+      "step": 28,
+      "text": "Add the rest energy `E_0 = m*c^2` to the kinetic energy `E_k` to get the total energy."
+    },
+    {
+      "step": 29,
+      "text": "Final relativistic energy formula `E = gamma*m*c^2`."
+    },
+    {
+      "step": 30,
+      "text": "Identify rest energy when velocity is zero."
+    },
+    {
+      "step": 31,
+      "text": "State the relativistic energy and momentum expressions to derive their relationship."
+    },
+    {
+      "step": 32,
+      "text": "Square the energy expression."
+    },
+    {
+      "step": 33,
+      "text": "Square the momentum expression multiplied by `c`."
+    },
+    {
+      "step": 34,
+      "text": "Calculate `E^2 - (pc)^2` by subtracting the squared expressions."
+    },
+    {
+      "step": 35,
+      "text": "Factor out common terms from the difference."
+    },
+    {
+      "step": 36,
+      "text": "Use the definition of the Lorentz factor to simplify `gamma^2*(c^2 - v^2)`."
+    },
+    {
+      "step": 37,
+      "text": "Arrive at the fundamental energy-momentum-mass relation."
     }
   ],
   "programmatic_verification": {
@@ -337,21 +473,50 @@
       "# Ensure it gives 0",
       "assert dt_diff == 0 and dx_diff == 0",
       "",
-      "# Additional verification: Energy-momentum relations",
+      "# Steps 15-16: Relativistic force and momentum definitions",
       "m, E, p = sp.symbols('m E p', positive=True, real=True)",
       "gamma_def = 1/sp.sqrt(1 - v**2/c**2)",
+      "p_rel = gamma_def*m*v  # Step 16: relativistic momentum",
       "",
-      "# Energy-momentum relation",
-      "E_rel = gamma_def*m*c**2",
-      "p_rel = gamma_def*m*v",
+      "# Step 22: Verify d(gamma)/dv calculation",
+      "gamma_expr = 1/sp.sqrt(1 - v**2/c**2)",
+      "dgamma_dv = sp.diff(gamma_expr, v)",
+      "expected_dgamma = (v/c**2) * gamma_expr**3",
+      "dgamma_simplified = sp.simplify(dgamma_dv - expected_dgamma)",
+      "assert dgamma_simplified == 0, 'Step 22: d(gamma)/dv calculation verification failed'",
       "",
-      "# E² - (pc)² = (mc²)²",
-      "energy_momentum_relation = E_rel**2 - (p_rel*c)**2",
+      "# Step 25: Verify gamma^2 identity",
+      "identity_lhs = v**2*gamma_expr**2/c**2 + 1",
+      "identity_rhs = gamma_expr**2",
+      "identity_check = sp.simplify(identity_lhs - identity_rhs)",
+      "assert identity_check == 0, 'Step 25: gamma^2 identity verification failed'",
+      "",
+      "# Step 26: Verify integral transformation using d(gamma) = (gamma^3*v*dv)/c^2",
+      "# This verifies that d(gamma) = (gamma^3*v*dv)/c^2, so (v/c^2)*dv = d(gamma)/gamma^3",
+      "dgamma_expected = (gamma_expr**3*v/c**2)",
+      "dgamma_actual = dgamma_dv",
+      "substitution_check = sp.simplify(dgamma_expected - dgamma_actual)",
+      "assert substitution_check == 0, 'Step 26: d(gamma) relation verification failed'",
+      "",
+      "# Step 36: Verify gamma^2*(c^2 - v^2) = c^2",
+      "gamma_identity_expr = gamma_expr**2*(c**2 - v**2)",
+      "gamma_identity_simplified = sp.simplify(gamma_identity_expr)",
+      "assert sp.simplify(gamma_identity_simplified - c**2) == 0, 'Step 36: gamma identity verification failed'",
+      "",
+      "# Steps 29-37: Energy-momentum relation derivation",
+      "E_rel = gamma_def*m*c**2  # Step 29: relativistic energy",
+      "p_rel = gamma_def*m*v     # Step 16: relativistic momentum",
+      "",
+      "# Steps 32-33: Square energy and momentum expressions",
+      "E_squared = E_rel**2",
+      "pc_squared = (p_rel*c)**2",
+      "",
+      "# Steps 34-37: Derive E² - (pc)² = (mc²)²",
+      "energy_momentum_relation = E_squared - pc_squared",
       "expected_mass_energy = (m*c**2)**2",
-      "",
-      "# Simplify to verify",
       "relation_simplified = sp.simplify(energy_momentum_relation)",
       "mass_energy_simplified = sp.simplify(expected_mass_energy)",
+      "assert sp.simplify(relation_simplified - mass_energy_simplified) == 0, 'Energy-momentum relation verification failed'",
       "",
       "# Test specific cases",
       "# Case 1: v = 0 (rest frame)",
@@ -387,7 +552,7 @@
       "Superseded by general relativity in curved spacetime"
     ]
   },
-  "superseded_by": ["general_relativity"],
+  "superseded_by": ["einstein_field_equations"],
   "historical_context": {
     "importance": "Revolutionary unification of space, time, mass, and energy",
     "development_period": "1905",
@@ -408,6 +573,6 @@
       "citation": "Rindler, W. (1991). Introduction to Special Relativity (2nd ed.). Oxford University Press."
     }
   ],
-  "created_by": "Consolidated entry incorporating reviewed content from lorentz_transformations.json and mass_energy_equivalence.json",
+  "created_by": "Manuel Sánchez Hernández, ORCID 0009-0006-4904-3695",
   "review_status": "reviewed"
 }
