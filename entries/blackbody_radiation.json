@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Blackbody radiation describes the electromagnetic radiation emitted by an ideal absorber (blackbody) in thermal equilibrium. The spectral energy density follows Planck's distribution, which resolved the ultraviolet catastrophe and led to quantum theory. This radiation depends only on temperature and is fundamental to thermodynamics, stellar physics, and quantum mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The body is an ideal absorber and emitter (perfect blackbody)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Electromagnetic modes in the cavity are quantized with energy E = ℏω."
-    }
-  ],
   "definitions": [
     {
       "symbol": "u(nu, T)",
@@ -54,6 +40,28 @@
     {
       "symbol": "sigma",
       "definition": "Stefan-Boltzmann constant."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The body is an ideal absorber and emitter (perfect blackbody)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "assumption3",
+      "text": "Electromagnetic modes in the cavity are quantized with energy E = ℏω."
+    },
+    {
+      "id": "assumption4",
+      "text": "Electromagnetic field modes are independent oscillators."
+    },
+    {
+      "id": "assumption5",
+      "text": "Each mode is in thermal equilibrium described by canonical ensemble."
     }
   ],
   "derivation": [
@@ -88,16 +96,6 @@
     {
       "step": 8,
       "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Electromagnetic field modes are independent oscillators."
-    },
-    {
-      "id": "assumption2",
-      "text": "Each mode is in thermal equilibrium described by canonical ensemble."
     }
   ],
   "derivation_explanation": [
@@ -209,11 +207,11 @@
     "stefan_boltzmann_law",
     "wiens_displacement_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

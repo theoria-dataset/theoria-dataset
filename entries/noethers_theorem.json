@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities. For example, time translation symmetry leads to energy conservation, spatial translation symmetry to linear momentum conservation, and rotational symmetry to angular momentum conservation. It is a cornerstone of theoretical physics, providing deep insights into the structure of physical laws.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The physical system is described by a Lagrangian `L` that is a function of generalized coordinates `q_i`, generalized velocities `dot q_i`, and time `t`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The action `S = int L dt` is invariant under a continuous infinitesimal transformation of coordinates and time."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The transformation is characterized by generators `X_(q_i)` for coordinates and `X_t` for time, such that `delta q_i = epsilon X_(q_i)` and `delta t = epsilon X_t`, where `epsilon` is an infinitesimal parameter."
-    }
-  ],
   "definitions": [
     {
       "symbol": "L",
@@ -72,6 +58,36 @@
       "definition": "The total time derivative of the conserved quantity `J`. Noether's theorem states this is zero."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The physical system is described by a Lagrangian `L` that is a function of generalized coordinates `q_i`, generalized velocities `dot q_i`, and time `t`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The action `S = int L dt` is invariant under a continuous infinitesimal transformation of coordinates and time."
+    },
+    {
+      "id": "assumption3",
+      "text": "The transformation is characterized by generators `X_(q_i)` for coordinates and `X_t` for time, such that `delta q_i = epsilon X_(q_i)` and `delta t = epsilon X_t`, where `epsilon` is an infinitesimal parameter."
+    },
+    {
+      "id": "assumption4",
+      "text": "The system obeys the principle of stationary action, meaning the path taken by the system minimizes the action, leading to the Euler-Lagrange equations."
+    },
+    {
+      "id": "assumption5",
+      "text": "The Lagrangian `L` is a sufficiently smooth (differentiable) function of its arguments `q_i, dot q_i, t`."
+    },
+    {
+      "id": "assumption6",
+      "text": "The symmetry transformation is continuous and differentiable, allowing for infinitesimal changes `delta q_i` and `delta t`."
+    },
+    {
+      "id": "assumption7",
+      "text": "The variations `delta q_i` and `delta t` vanish at the endpoints of integration if boundary terms are to be ignored, or the Lagrangian transforms by a total time derivative that matches boundary terms."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,24 +112,6 @@
     {
       "step": 6,
       "equation": "dJ/dt = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "The system obeys the principle of stationary action, meaning the path taken by the system minimizes the action, leading to the Euler-Lagrange equations."
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "The Lagrangian `L` is a sufficiently smooth (differentiable) function of its arguments `q_i, dot q_i, t`."
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "The symmetry transformation is continuous and differentiable, allowing for infinitesimal changes `delta q_i` and `delta t`."
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "The variations `delta q_i` and `delta t` vanish at the endpoints of integration if boundary terms are to be ignored, or the Lagrangian transforms by a total time derivative that matches boundary terms."
     }
   ],
   "derivation_explanation": [
@@ -195,6 +193,7 @@
       "print('Verification successful if the last line is 0 and assert passes.')"
     ]
   },
+  "domain": "math-ph",
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -220,7 +219,6 @@
       "Guide for constructing physical theories"
     ]
   },
-  "domain": "math-ph",
   "references": [
     {
       "id": "R1",
@@ -235,11 +233,11 @@
       "citation": "Lanczos, C. (1970). *The Variational Principles of Mechanics* (4th ed.). Dover Publications. (Chapter 4, Section 10 discusses symmetry and conservation laws)."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

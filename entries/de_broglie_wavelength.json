@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "The de Broglie wavelength expresses the wave-particle duality by relating the momentum of any particle to its associated wavelength. This fundamental quantum mechanical relation shows that all matter exhibits wave properties, with the wavelength inversely proportional to momentum. It enables the description of particles as waves in quantum mechanics and is essential for understanding electron diffraction, atomic orbitals, and the wave function formalism.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particle follows the principles of quantum mechanics and exhibits wave-particle duality."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The relation applies to both relativistic and non-relativistic particles when the correct momentum expression is used."
-    }
-  ],
   "definitions": [
     {
       "symbol": "lambda",
@@ -30,6 +20,32 @@
     {
       "symbol": "p",
       "definition": "Momentum of the particle."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particle follows the principles of quantum mechanics and exhibits wave-particle duality."
+    },
+    {
+      "id": "assumption2",
+      "text": "The relation applies to both relativistic and non-relativistic particles when the correct momentum expression is used."
+    },
+    {
+      "id": "assumption3",
+      "text": "Planck's relation `E = hf` applies to all particles with wave character."
+    },
+    {
+      "id": "assumption4",
+      "text": "For photons, the energy-momentum relation `E = pc` holds."
+    },
+    {
+      "id": "assumption5",
+      "text": "The wave relation `c = lambda*f` applies to electromagnetic waves."
+    },
+    {
+      "id": "assumption6",
+      "text": "The symmetry principle suggests that if photons have particle properties, then matter particles should have wave properties."
     }
   ],
   "derivation": [
@@ -68,24 +84,6 @@
     {
       "step": 9,
       "equation": "lambda = h/p"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Planck's relation `E = hf` applies to all particles with wave character."
-    },
-    {
-      "id": "assumption2",
-      "text": "For photons, the energy-momentum relation `E = pc` holds."
-    },
-    {
-      "id": "assumption3",
-      "text": "The wave relation `c = lambda*f` applies to electromagnetic waves."
-    },
-    {
-      "id": "assumption4",
-      "text": "The symmetry principle suggests that if photons have particle properties, then matter particles should have wave properties."
     }
   ],
   "derivation_explanation": [
@@ -173,11 +171,11 @@
       "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

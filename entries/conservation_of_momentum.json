@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Conservation of momentum states that the total momentum of a closed system remains constant over time. This fundamental principle applies to all interactions in the absence of external forces and is a direct consequence of Newton's third law.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Closed system (no external forces)"
-    },
-    {
-      "id": "assump2",
-      "text": "Newton's laws apply"
-    },
-    {
-      "id": "assump3",
-      "text": "Inertial reference frame"
-    },
-    {
-      "id": "assump4",
-      "text": "Classical mechanics regime"
-    }
-  ],
   "definitions": [
     {
       "symbol": "p⃗",
@@ -64,6 +46,40 @@
       "definition": "Final velocity of object i"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Closed system (no external forces)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Newton's laws apply"
+    },
+    {
+      "id": "assumption3",
+      "text": "Inertial reference frame"
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical mechanics regime"
+    },
+    {
+      "id": "assumption5",
+      "text": "Newton's third law"
+    },
+    {
+      "id": "assumption6",
+      "text": "No external forces"
+    },
+    {
+      "id": "assumption7",
+      "text": "Constant mass"
+    },
+    {
+      "id": "assumption8",
+      "text": "Classical mechanics"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -84,24 +100,6 @@
     {
       "step": 5,
       "equation": "\\sum_{i=1}^n \\vec{p}_i = \\text{constant}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Newton's third law"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "No external forces"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Constant mass"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Classical mechanics"
     }
   ],
   "derivation_explanation": [
@@ -220,11 +218,11 @@
   "dependencies": [
     "newtons_laws"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

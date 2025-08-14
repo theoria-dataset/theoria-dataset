@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Crystal lattice structure describes the periodic arrangement of atoms in crystalline solids. The structure is characterized by a unit cell with basis vectors that, when repeated, generates the entire crystal through translational symmetry. This periodicity determines fundamental properties like mechanical strength, electrical conductivity, and optical behavior of materials.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The crystal has perfect translational periodicity (ideal crystal)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Atomic positions are well-defined and static (neglecting thermal motion)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The crystal extends infinitely in all directions."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec R",
@@ -42,6 +28,28 @@
     {
       "symbol": "rho(vec r)",
       "definition": "Electron density or mass density at position r."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The crystal has perfect translational periodicity (ideal crystal)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Atomic positions are well-defined and static (neglecting thermal motion)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The crystal extends infinitely in all directions."
+    },
+    {
+      "id": "assumption4",
+      "text": "The crystal structure can be described by discrete translational symmetry."
+    },
+    {
+      "id": "assumption5",
+      "text": "Basis vectors are linearly independent and span 3D space."
     }
   ],
   "derivation": [
@@ -76,16 +84,6 @@
     {
       "step": 8,
       "equation": "Crystal systems: 7 unique systems based on lattice parameters"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The crystal structure can be described by discrete translational symmetry."
-    },
-    {
-      "id": "assumption2",
-      "text": "Basis vectors are linearly independent and span 3D space."
     }
   ],
   "derivation_explanation": [
@@ -209,11 +207,11 @@
     "x_ray_diffraction",
     "crystal_symmetry"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

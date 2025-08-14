@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "The work-energy theorem states that the net work done on an object equals the change in its kinetic energy. This fundamental principle connects the concepts of force, displacement, and energy in classical mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Classical mechanics framework"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Point particle or rigid body"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Non-relativistic speeds"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Well-defined force and displacement"
-    }
-  ],
   "definitions": [
     {
       "symbol": "W_net",
@@ -80,6 +62,40 @@
       "definition": "Angle between force and displacement"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Classical mechanics framework"
+    },
+    {
+      "id": "assumption2",
+      "text": "Point particle or rigid body"
+    },
+    {
+      "id": "assumption3",
+      "text": "Non-relativistic speeds"
+    },
+    {
+      "id": "assumption4",
+      "text": "Well-defined force and displacement"
+    },
+    {
+      "id": "assumption5",
+      "text": "Newton's second law applies"
+    },
+    {
+      "id": "assumption6",
+      "text": "Vector calculus relations"
+    },
+    {
+      "id": "assumption7",
+      "text": "Path independence for conservative forces"
+    },
+    {
+      "id": "assumption8",
+      "text": "Continuous force and motion"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -116,24 +132,6 @@
     {
       "step": 9,
       "equation": "W = K_f - K_i = \\Delta K"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Vector calculus relations"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Path independence for conservative forces"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Continuous force and motion"
     }
   ],
   "derivation_explanation": [
@@ -233,11 +231,11 @@
     "newtons_second_law",
     "conservation_of_energy"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

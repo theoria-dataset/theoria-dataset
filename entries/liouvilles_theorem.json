@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "Liouville's theorem relates the time-averaged kinetic energy `T` and potential energy of a bound system. For particles with positions `r_i` and forces `F_i`, it states `<2T> = -<sum r_i dot F_i>`. For power-law forces, this yields simple ratios: for Newton's gravity (1/r), `<T> = -1/2 <V>`. The theorem is useful in astrophysics and molecular physics for deducing properties of equilibrated systems.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is bound and in steady state (time averages are well-defined)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "For power-law potentials `V propto r^n`, the force is `F_i = -del V/del r_i`, allowing a simple relation between `<T>` and `<V>`."
-    }
-  ],
   "definitions": [
     {
       "symbol": "T",
@@ -36,6 +26,24 @@
       "definition": "Time average over a long duration."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is bound and in steady state (time averages are well-defined)."
+    },
+    {
+      "id": "assumption2",
+      "text": "For power-law potentials `V propto r^n`, the force is `F_i = -del V/del r_i`, allowing a simple relation between `<T>` and `<V>`."
+    },
+    {
+      "id": "assumption3",
+      "text": "The moment of inertia `I` remains bounded so that `d^2 I/dt^2` averages to zero over time."
+    },
+    {
+      "id": "assumption4",
+      "text": "Each force is derived from a potential `V(r)`, so `r dot F = r_i del V/del r_i` allows relating the term to potential energy."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -52,16 +60,6 @@
     {
       "step": 4,
       "equation": "<2 T> = - <sum_i r_i dot F_i>"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assump1",
-      "text": "The moment of inertia `I` remains bounded so that `d^2 I/dt^2` averages to zero over time."
-    },
-    {
-      "id": "assump2",
-      "text": "Each force is derived from a potential `V(r)`, so `r dot F = r_i del V/del r_i` allows relating the term to potential energy."
     }
   ],
   "derivation_explanation": [
@@ -104,6 +102,7 @@
       "assert sp.simplify(2*T_avg + rF_avg) == 0"
     ]
   },
+  "domain": "physics.class-ph",
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -128,7 +127,6 @@
       "Connection between dynamics and statistics"
     ]
   },
-  "domain": "physics.class-ph",
   "references": [
     {
       "id": "R1",
@@ -139,11 +137,11 @@
       "citation": "Goldstein, H. (1980). *Classical Mechanics* (2nd ed.). Addison-Wesley. (Section on virial theorem)"
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "The photoelectric effect demonstrates the particle nature of light, where photons with energy above a threshold frequency can eject electrons from a material. Einstein's explanation of this phenomenon led to the concept of light quanta and earned him the Nobel Prize in Physics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Photons behave as discrete energy packets"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "One photon interacts with one electron"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Energy conservation applies"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Quantum mechanical description"
-    }
-  ],
   "definitions": [
     {
       "symbol": "E_photon",
@@ -72,6 +54,40 @@
       "definition": "Stopping potential"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Photons behave as discrete energy packets"
+    },
+    {
+      "id": "assumption2",
+      "text": "One photon interacts with one electron"
+    },
+    {
+      "id": "assumption3",
+      "text": "Energy conservation applies"
+    },
+    {
+      "id": "assumption4",
+      "text": "Quantum mechanical description"
+    },
+    {
+      "id": "assumption5",
+      "text": "Energy conservation in photon-electron interaction"
+    },
+    {
+      "id": "assumption6",
+      "text": "Einstein's photon hypothesis"
+    },
+    {
+      "id": "assumption7",
+      "text": "Work function is material-dependent constant"
+    },
+    {
+      "id": "assumption8",
+      "text": "Instantaneous emission process"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,24 +112,6 @@
     {
       "step": 6,
       "equation": "K_{max} = h(f - f_0)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Energy conservation in photon-electron interaction"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Einstein's photon hypothesis"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Work function is material-dependent constant"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Instantaneous emission process"
     }
   ],
   "derivation_explanation": [
@@ -204,11 +202,11 @@
   "dependencies": [
     "plancks_quantum_hypothesis"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

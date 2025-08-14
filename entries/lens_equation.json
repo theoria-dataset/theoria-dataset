@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The thin lens equation relates the focal length of a lens to the object and image distances, forming the foundation of geometric optics. It describes how lenses form images by refraction, enabling the design of optical instruments from eyeglasses to telescopes. The equation applies to both converging and diverging lenses, with sign conventions determining whether images are real or virtual, upright or inverted.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The lens is thin compared to object and image distances."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Light rays make small angles with the optical axis (paraxial approximation)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The lens has uniform refractive index and spherical surfaces."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Monochromatic light (no chromatic aberration considered)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "f",
@@ -70,6 +52,40 @@
     {
       "symbol": "R_2",
       "definition": "Radius of curvature of second lens surface."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The lens is thin compared to object and image distances."
+    },
+    {
+      "id": "assumption2",
+      "text": "Light rays make small angles with the optical axis (paraxial approximation)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The lens has uniform refractive index and spherical surfaces."
+    },
+    {
+      "id": "assumption4",
+      "text": "Monochromatic light (no chromatic aberration considered)."
+    },
+    {
+      "id": "assumption5",
+      "text": "Paraxial rays (small angle approximation)."
+    },
+    {
+      "id": "assumption6",
+      "text": "Thin lens approximation (lens thickness negligible)."
+    },
+    {
+      "id": "assumption7",
+      "text": "Spherical lens surfaces."
+    },
+    {
+      "id": "assumption8",
+      "text": "Homogeneous lens material."
     }
   ],
   "derivation": [
@@ -116,24 +132,6 @@
     {
       "step": 11,
       "equation": "1/f = 1/d_o + 1/d_i"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Paraxial rays (small angle approximation)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Thin lens approximation (lens thickness negligible)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Spherical lens surfaces."
-    },
-    {
-      "id": "assumption4",
-      "text": "Homogeneous lens material."
     }
   ],
   "derivation_explanation": [
@@ -283,11 +281,11 @@
     "snells_law",
     "electromagnetic_waves"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

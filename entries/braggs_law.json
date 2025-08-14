@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Bragg's law describes the conditions for constructive interference of X-rays diffracted by crystal lattice planes. When X-rays with wavelength λ are incident on parallel crystal planes separated by distance d, constructive interference occurs at specific angles θ where the path difference between rays equals an integer multiple of the wavelength. This fundamental law enables X-ray crystallography, allowing determination of crystal structures and atomic arrangements in materials.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The crystal consists of parallel planes of atoms with uniform spacing d."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "X-rays are treated as waves with well-defined wavelength λ."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Elastic scattering (no energy loss) occurs at each lattice plane."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The crystal is perfect with no defects or thermal motion considered."
-    }
-  ],
   "definitions": [
     {
       "symbol": "n",
@@ -46,6 +28,36 @@
     {
       "symbol": "theta",
       "definition": "Bragg angle (angle of incidence measured from the crystal plane)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The crystal consists of parallel planes of atoms with uniform spacing d."
+    },
+    {
+      "id": "assumption2",
+      "text": "X-rays are treated as waves with well-defined wavelength λ."
+    },
+    {
+      "id": "assumption3",
+      "text": "Elastic scattering (no energy loss) occurs at each lattice plane."
+    },
+    {
+      "id": "assumption4",
+      "text": "The crystal is perfect with no defects or thermal motion considered."
+    },
+    {
+      "id": "assumption5",
+      "text": "X-rays reflect specularly from each crystal plane."
+    },
+    {
+      "id": "assumption6",
+      "text": "The incident beam is monochromatic with single wavelength."
+    },
+    {
+      "id": "assumption7",
+      "text": "Crystal planes are perfectly flat and parallel."
     }
   ],
   "derivation": [
@@ -72,20 +84,6 @@
     {
       "step": 6,
       "equation": "n*lambda = 2*d*sin(theta)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "X-rays reflect specularly from each crystal plane."
-    },
-    {
-      "id": "assumption2",
-      "text": "The incident beam is monochromatic with single wavelength."
-    },
-    {
-      "id": "assumption3",
-      "text": "Crystal planes are perfectly flat and parallel."
     }
   ],
   "derivation_explanation": [
@@ -199,11 +197,11 @@
     "electromagnetic_waves",
     "waves_interference"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

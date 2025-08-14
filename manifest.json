@@ -154,7 +154,8 @@
         "Migrated from single 'created_by' field to 'contributors' array structure to better support collaborative entries with multiple contributors.",
         "Each contributor now has 'full_name' and 'identifier' fields supporting ORCID, website, LinkedIn, or other identifiers.",
         "Successfully migrated all 100 existing entries while preserving attribution information.",
-        "Updated contribution forms, documentation, and validation scripts to support new contributors structure."
+        "Updated contribution forms, documentation, and validation scripts to support new contributors structure.",
+        "Unified assumption structure: removed redundant 'equations_assumptions' field and renamed 'derivation_assumptions' to 'assumptions'. Changes applied to all entries"
       ]
 
     }

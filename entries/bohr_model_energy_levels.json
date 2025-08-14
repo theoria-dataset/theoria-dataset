@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The Bohr model describes the energy levels of hydrogen atoms through quantized circular orbits, where electrons can only exist at specific energy states. The energy is inversely proportional to the square of the principal quantum number, explaining the discrete line spectra observed in hydrogen. This semi-classical model provided the first successful quantitative theory of atomic structure and paved the way for modern quantum mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The electron orbits are circular and the nucleus is stationary."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Angular momentum is quantized: `L = n*hbar` where `n` is a positive integer."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The electron does not radiate energy while in a stationary orbit."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Classical electrostatics applies for the Coulomb force between proton and electron."
-    }
-  ],
   "definitions": [
     {
       "symbol": "E_n",
@@ -50,6 +32,40 @@
     {
       "symbol": "a_0",
       "definition": "Bohr radius, the radius of the first orbit (`n=1`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The electron orbits are circular and the nucleus is stationary."
+    },
+    {
+      "id": "assumption2",
+      "text": "Angular momentum is quantized: `L = n*hbar` where `n` is a positive integer."
+    },
+    {
+      "id": "assumption3",
+      "text": "The electron does not radiate energy while in a stationary orbit."
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical electrostatics applies for the Coulomb force between proton and electron."
+    },
+    {
+      "id": "assumption5",
+      "text": "The electron follows classical circular motion under Coulomb attraction."
+    },
+    {
+      "id": "assumption6",
+      "text": "Angular momentum quantization condition `L = n*hbar` applies."
+    },
+    {
+      "id": "assumption7",
+      "text": "The total energy is the sum of kinetic and potential energies."
+    },
+    {
+      "id": "assumption8",
+      "text": "The virial theorem applies: `K = -(1/2)*U` for Coulomb potential."
     }
   ],
   "derivation": [
@@ -120,24 +136,6 @@
     {
       "step": 17,
       "equation": "E_n = -13.6/n^2 text( eV)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The electron follows classical circular motion under Coulomb attraction."
-    },
-    {
-      "id": "assumption2",
-      "text": "Angular momentum quantization condition `L = n*hbar` applies."
-    },
-    {
-      "id": "assumption3",
-      "text": "The total energy is the sum of kinetic and potential energies."
-    },
-    {
-      "id": "assumption4",
-      "text": "The virial theorem applies: `K = -(1/2)*U` for Coulomb potential."
     }
   ],
   "derivation_explanation": [
@@ -283,11 +281,11 @@
       "citation": "Bethe, H. A., & Salpeter, E. E. (1957). Quantum Mechanics of One- and Two-Electron Atoms. Academic Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "Faraday's law describes how a changing magnetic flux through a closed loop induces an electromotive force (EMF) in that loop. The induced EMF is proportional to the negative rate of change of magnetic flux, which explains electromagnetic induction phenomena including electric generators, transformers, and inductors.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The magnetic field `vec B` and loop area can vary with time."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The loop forms a closed path for current flow."
-    }
-  ],
   "definitions": [
     {
       "symbol": "EMF",
@@ -34,6 +24,24 @@
     {
       "symbol": "Phi_B",
       "definition": "Magnetic flux through the loop (`int vec B cdot d vec A`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The magnetic field `vec B` and loop area can vary with time."
+    },
+    {
+      "id": "assumption2",
+      "text": "The loop forms a closed path for current flow."
+    },
+    {
+      "id": "assumption3",
+      "text": "Maxwell's equations apply, specifically Faraday's law in differential form."
+    },
+    {
+      "id": "assumption4",
+      "text": "The surface is simply connected and the loop bounds a well-defined surface."
     }
   ],
   "derivation": [
@@ -60,16 +68,6 @@
     {
       "step": 6,
       "equation": "EMF = -d/dt int vec B cdot d vec A = -d Phi_B/dt"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations apply, specifically Faraday's law in differential form."
-    },
-    {
-      "id": "assumption2",
-      "text": "The surface is simply connected and the loop bounds a well-defined surface."
     }
   ],
   "derivation_explanation": [
@@ -157,11 +155,11 @@
   "dependencies": [
     "maxwell_equations"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

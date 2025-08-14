@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "The Euler-Lagrange equation provides the equations of motion for a system from its Lagrangian. It states that the physical trajectory makes the action stationary, generalizing Newton's laws to generalized coordinates. This equation is fundamental in analytical mechanics and the calculus of variations.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "q_i",
@@ -30,6 +20,24 @@
     {
       "symbol": "L",
       "definition": "Lagrangian (kinetic energy minus potential energy) of the system."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable."
+    },
+    {
+      "id": "assumption2",
+      "text": "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3."
+    },
+    {
+      "id": "assumption4",
+      "text": "The functions are sufficiently smooth to perform integration by parts."
     }
   ],
   "derivation": [
@@ -48,16 +56,6 @@
     {
       "step": 4,
       "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3."
-    },
-    {
-      "id": "assump2",
-      "text": "The functions are sufficiently smooth to perform integration by parts."
     }
   ],
   "derivation_explanation": [
@@ -133,11 +131,11 @@
       "citation": "Goldstein, H. (1980). *Classical Mechanics* (2nd ed.). Addison-Wesley."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

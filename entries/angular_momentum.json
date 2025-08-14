@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Angular momentum is the rotational analog of linear momentum, representing the quantity of rotation of an object. It depends on the object's moment of inertia, angular velocity, and the distribution of mass relative to the axis of rotation.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Classical mechanics"
-    },
-    {
-      "id": "assump2",
-      "text": "Well-defined rotation axis"
-    },
-    {
-      "id": "assump3",
-      "text": "Rigid body approximation (for I×ω form)"
-    },
-    {
-      "id": "assump4",
-      "text": "Inertial reference frame"
-    }
-  ],
   "definitions": [
     {
       "symbol": "L⃗",
@@ -76,6 +58,40 @@
       "definition": "External torque"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Classical mechanics"
+    },
+    {
+      "id": "assumption2",
+      "text": "Well-defined rotation axis"
+    },
+    {
+      "id": "assumption3",
+      "text": "Rigid body approximation (for I×ω form)"
+    },
+    {
+      "id": "assumption4",
+      "text": "Inertial reference frame"
+    },
+    {
+      "id": "assumption5",
+      "text": "Newton's second law applies"
+    },
+    {
+      "id": "assumption6",
+      "text": "Position vector is measured from fixed point"
+    },
+    {
+      "id": "assumption7",
+      "text": "Cross product properties"
+    },
+    {
+      "id": "assumption8",
+      "text": "Classical mechanics"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -104,24 +120,6 @@
     {
       "step": 7,
       "equation": "\\frac{d\\vec{L}}{dt} = \\vec{r} \\times \\vec{F} = \\vec{\\tau}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Position vector is measured from fixed point"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Cross product properties"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Classical mechanics"
     }
   ],
   "derivation_explanation": [
@@ -250,11 +248,11 @@
     "newtons_laws",
     "conservation_of_momentum"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

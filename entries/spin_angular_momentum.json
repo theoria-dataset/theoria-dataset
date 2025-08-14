@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Spin angular momentum is an intrinsic quantum mechanical property of particles that has no classical analog. Unlike orbital angular momentum arising from spatial motion, spin is an inherent characteristic like mass or charge. Particles can have integer spin (bosons) or half-integer spin (fermions), which determines their statistical behavior and fundamental interactions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Spin is an intrinsic property independent of particle motion."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The quantum numbers s and m_s take discrete values."
-    }
-  ],
   "definitions": [
     {
       "symbol": "S^2",
@@ -50,6 +36,28 @@
     {
       "symbol": "hbar",
       "definition": "Reduced Planck constant."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra."
+    },
+    {
+      "id": "assumption2",
+      "text": "Spin is an intrinsic property independent of particle motion."
+    },
+    {
+      "id": "assumption3",
+      "text": "The quantum numbers s and m_s take discrete values."
+    },
+    {
+      "id": "assumption4",
+      "text": "Angular momentum operators form a Lie algebra SU(2)."
+    },
+    {
+      "id": "assumption5",
+      "text": "The Hilbert space is finite-dimensional for each spin value."
     }
   ],
   "derivation": [
@@ -84,16 +92,6 @@
     {
       "step": 8,
       "equation": "Magnetic quantum numbers: m_s = -s, -s+1, ..., s-1, s"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Angular momentum operators form a Lie algebra SU(2)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The Hilbert space is finite-dimensional for each spin value."
     }
   ],
   "derivation_explanation": [
@@ -212,11 +210,11 @@
     "quantum_angular_momentum",
     "pauli_exclusion_principle"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

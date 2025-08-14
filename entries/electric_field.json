@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Electric field is a vector quantity that describes the electric force per unit charge at any point in space. It provides a way to describe how charges interact with each other through the field they create in the surrounding space.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Static charges (electrostatics)"
-    },
-    {
-      "id": "assump2",
-      "text": "Point charges or continuous charge distributions"
-    },
-    {
-      "id": "assump3",
-      "text": "Vacuum or linear dielectric medium"
-    },
-    {
-      "id": "assump4",
-      "text": "Classical (non-quantum) treatment"
-    }
-  ],
   "definitions": [
     {
       "symbol": "E⃗",
@@ -80,6 +62,40 @@
       "definition": "Unit vector in polar coordinate system"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Static charges (electrostatics)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Point charges or continuous charge distributions"
+    },
+    {
+      "id": "assumption3",
+      "text": "Vacuum or linear dielectric medium"
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical (non-quantum) treatment"
+    },
+    {
+      "id": "assumption5",
+      "text": "Coulomb's law is valid"
+    },
+    {
+      "id": "assumption6",
+      "text": "Test charge is small enough not to disturb the field"
+    },
+    {
+      "id": "assumption7",
+      "text": "Principle of superposition applies"
+    },
+    {
+      "id": "assumption8",
+      "text": "Electrostatic conditions"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -100,24 +116,6 @@
     {
       "step": 5,
       "equation": "\\vec{E}_{total} = \\frac{\\vec{F}_{total}}{q} = \\frac{1}{q}\\sum_i \\vec{F}_i = \\sum_i \\frac{\\vec{F}_i}{q} = \\sum_i \\vec{E}_i"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Coulomb's law is valid"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Test charge is small enough not to disturb the field"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Principle of superposition applies"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Electrostatic conditions"
     }
   ],
   "derivation_explanation": [
@@ -267,11 +265,11 @@
   "dependencies": [
     "coulombs_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Young's double slit experiment demonstrates wave interference and the wave nature of light (and matter). When coherent light passes through two parallel slits, it creates an interference pattern with alternating bright and dark fringes. This experiment is fundamental to quantum mechanics, showing wave-particle duality when performed with individual photons or electrons.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The light source is coherent (constant phase relationship between waves from both slits)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The screen distance L is much larger than slit separation d and slit width."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Small angle approximation applies (sin θ ≈ tan θ ≈ θ)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "delta",
@@ -54,6 +40,28 @@
     {
       "symbol": "m",
       "definition": "Integer representing the order of interference (m = 0, ±1, ±2, ...)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The light source is coherent (constant phase relationship between waves from both slits)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The screen distance L is much larger than slit separation d and slit width."
+    },
+    {
+      "id": "assumption3",
+      "text": "Small angle approximation applies (sin θ ≈ tan θ ≈ θ)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Plane wave approximation applies at the observation screen."
+    },
+    {
+      "id": "assumption5",
+      "text": "The slits act as coherent point sources (Huygens' principle)."
     }
   ],
   "derivation": [
@@ -92,16 +100,6 @@
     {
       "step": 9,
       "equation": "Fringe spacing: Delta y = lambda L/d"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Plane wave approximation applies at the observation screen."
-    },
-    {
-      "id": "assumption2",
-      "text": "The slits act as coherent point sources (Huygens' principle)."
     }
   ],
   "derivation_explanation": [
@@ -219,11 +217,11 @@
     "wave_interference",
     "de_broglie_wavelength"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

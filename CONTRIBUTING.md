@@ -5,6 +5,31 @@ Welcome to TheorIA dataset! This dataset is being built, and it is designed to p
 To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.
 
 IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry.
+
+## Schema Changes and Repository Updates
+
+When modifying the schema (`schemas/entry.schema.json`), the following files/components need to be updated to maintain consistency:
+
+1. **Core validation scripts:**
+   - `scripts/validate_schema.py` - Update field names and descriptions in `required_fields` dictionary
+   - `scripts/test_entry.py` - Update `required_fields` list
+
+2. **Code generation scripts:**
+   - `scripts/generate_contributing.py` - Update `field_order` list  
+   - `scripts/generate_form.py` - Update `form_to_schema_mapping` and heading mappings
+   - `scripts/parse_github_issue.py` - Update entry template structure
+
+3. **Documentation:**
+   - Run `python scripts/generate_contributing.py` to regenerate this CONTRIBUTING.md file
+   - Run `python scripts/build_requirements.py` to update form requirements
+
+4. **Existing entries:**
+   - All JSON files in `entries/` directory must be updated to match new schema
+   - Use find/replace or automated scripts to update field names consistently
+
+**Recent schema changes:**
+- **v0.4.4**: Removed `equations_assumptions` field and renamed `derivation_assumptions` to `assumptions`. The new `assumptions` field contains all fundamental assumptions that lead to the result equations and is positioned after `definitions` for logical flow.
+
 ## Dataset Entry structure
 
 Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.
@@ -50,20 +75,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Example:
     `Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction.`
 
-- **`equations_assumptions`:**
-  - Assumptions directly related to the equations
-  - Focus on assumptions specific to the equations themselves
-  - Use backticks for math symbols in AsciiMath format
-  - Example:
-    ```json
-    [
-      {
-        "id": "eq_assump1",
-        "text": "The transformation is performed only along the x-axis, meaning that the `y` and `z` coordinates remain unchanged."
-      }
-    ]
-    ```
-
 - **`definitions`:**
   - Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols
   - Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field
@@ -77,6 +88,12 @@ Each entry of the dataset should be a self contained relevant physics result. Th
       }
     ]
     ```
+
+- **`assumptions`:**
+  - Assumptions that lead to the result equations, which usually are either first principles, results from another entry specified in 'dependencies' or empirical results
+  - List all assumptions required for the derivation
+  - Use sequential IDs like 'assumption1', 'assumption2'
+  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps and equations in AsciiMath format
@@ -98,12 +115,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
       }
     ]
     ```
-
-- **`derivation_assumptions`:**
-  - Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'
-  - List all assumptions required for the derivation
-  - Use sequential IDs like 'assumption1', 'assumption2'
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`derivation_explanation`:**
   - Textual explanations for each derivation step
@@ -175,19 +186,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Use exact result_id values (without
   - json extension)
   - Only include direct dependencies
-
-- **`contributors`:**
-  - List of contributors who created or modified this entry
-  - Each contributor must have a full name and an identifier (ORCID, website, LinkedIn, etc.)
-  - Example:
-    ```json
-    [
-      {
-        "full_name": "Manuel Sánchez Hernández",
-        "identifier": "ORCID 0009-0006-4904-3695"
-      }
-    ]
-    ```
 
 - **`review_status`:**
   - Review status of the entry

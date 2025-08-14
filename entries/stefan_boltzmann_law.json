@@ -8,12 +8,6 @@
     }
   ],
   "explanation": "The Stefan–Boltzmann law gives the radiant energy flux emitted by an ideal black body as the fourth power of its absolute temperature, `j^* = sigma*T^4`. By linking thermodynamic temperature to measurable luminosity, the law is fundamental to stellar astrophysics, climate modelling and furnace engineering. It enables surface temperatures to be inferred from radiative output and sets theoretical efficiency limits for thermal devices.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Emitter behaves as an ideal black body (`epsilon = 1`)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "j^*",
@@ -26,6 +20,20 @@
     {
       "symbol": "T",
       "definition": "Absolute temperature (`K`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Emitter behaves as an ideal black body (`epsilon = 1`)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Radiation is isotropic, allowing conversion of energy density `u(T)` to radiant exitance `j^*` by the factor `c/4`."
+    },
+    {
+      "id": "assumption3",
+      "text": "The emitter is an ideal black body in thermal equilibrium, whose spectral energy density is described by Planck's law."
     }
   ],
   "derivation": [
@@ -68,16 +76,6 @@
     {
       "step": 10,
       "equation": "j^* = sigma*T^4"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "ass1",
-      "text": "Radiation is isotropic, allowing conversion of energy density `u(T)` to radiant exitance `j^*` by the factor `c/4`."
-    },
-    {
-      "id": "ass2",
-      "text": "The emitter is an ideal black body in thermal equilibrium, whose spectral energy density is described by Planck's law."
     }
   ],
   "derivation_explanation": [
@@ -161,15 +159,6 @@
     ]
   },
   "domain": "astro-ph",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Boltzmann, L. (1884). *Ableitung des Stefan'schen Gesetzes…* Annalen der Physik, 22, 291–294."
-    }
-  ],
-  "dependencies": [
-    "planck_radiation_law"
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -195,11 +184,20 @@
       "Connection between thermodynamics and electromagnetic radiation"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Boltzmann, L. (1884). *Ableitung des Stefan'schen Gesetzes…* Annalen der Physik, 22, 291–294."
+    }
+  ],
+  "dependencies": [
+    "planck_radiation_law"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -298,21 +298,15 @@ function render(data) {
     .map((eq) => `<p>${formatLongEquation(eq.equation)}</p>`)
     .join("");
   safeTypesetMathJax([eqDiv]);
-  renderList("#assumptions ul", data.equations_assumptions, (a) => a.text);
+  renderList("#assumptions ol", data.assumptions, (a) => a.text);
   safeTypesetMathJax([qs("#assumptions")]);
 
   // Ensure derivation sections are visible
   $("derivation").style.display = "";
-  $("derivationAssumptions").style.display = "";
   $("derivationSteps").style.display = "";
 
-  // Render derivation assumptions
-  renderList(
-    "#derivationAssumptions ul",
-    data.derivation_assumptions,
-    (a) => a.text
-  );
-  safeTypesetMathJax([qs("#derivationAssumptions")]);
+  // Hide derivation assumptions section since assumptions are now unified above
+  $("derivationAssumptions").style.display = "none";
 
   // Render derivation steps into #derivationSteps ol
   const ol = qs("#derivationSteps ol");

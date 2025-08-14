@@ -8,20 +8,6 @@
     }
   ],
   "explanation": "The time-dependent Schrödinger equation governs the non-relativistic evolution of a quantum particle's wavefunction ψ(x,t). By promoting energy and momentum to differential operators, it relates the temporal derivative of ψ to the kinetic (−ħ²/2m∇²) and potential (V) terms. It's the foundational equation of quantum mechanics, determining probabilities and dynamics of microscopic systems.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Non-relativistic regime: particle velocity `v ≪ c`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Single, spin-zero particle described by a scalar wavefunction `psi(x,t)`."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Potential `V = V(x,t)` is a well-defined real function."
-    }
-  ],
   "definitions": [
     {
       "symbol": "psi",
@@ -52,17 +38,29 @@
       "definition": "Imaginary unit (`i^2 = -1`)."
     }
   ],
-  "derivation_assumptions": [
+  "assumptions": [
     {
       "id": "assumption1",
-      "text": "Canonical quantization: replace E and p by their operator forms: energy becomes iħ∂/∂t and momentum becomes -iħ∇."
+      "text": "Non-relativistic regime: particle velocity `v ≪ c`."
     },
     {
       "id": "assumption2",
-      "text": "Particle is non-relativistic and spinless."
+      "text": "Single, spin-zero particle described by a scalar wavefunction `psi(x,t)`."
     },
     {
       "id": "assumption3",
+      "text": "Potential `V = V(x,t)` is a well-defined real function."
+    },
+    {
+      "id": "assumption4",
+      "text": "Canonical quantization: replace E and p by their operator forms: energy becomes iħ∂/∂t and momentum becomes -iħ∇."
+    },
+    {
+      "id": "assumption5",
+      "text": "Particle is non-relativistic and spinless."
+    },
+    {
+      "id": "assumption6",
       "text": "Potential `V(x,t)` enters multiplicatively."
     }
   ],
@@ -173,11 +171,11 @@
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",
       "identifier": "Not provided"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

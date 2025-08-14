@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Alpha decay is a type of radioactive decay where an atomic nucleus emits an alpha particle (helium-4 nucleus) consisting of two protons and two neutrons. This process occurs in heavy nuclei to reduce their mass and achieve greater stability. The decay energy Q determines the kinetic energies of the products and governs the decay probability through quantum tunneling.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The alpha particle exists as a bound unit within the parent nucleus."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The decay products separate to infinite distance (complete separation)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Conservation of energy and momentum apply to the decay process."
-    }
-  ],
   "definitions": [
     {
       "symbol": "A",
@@ -64,6 +50,28 @@
       "definition": "Speed of light in vacuum."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The alpha particle exists as a bound unit within the parent nucleus."
+    },
+    {
+      "id": "assumption2",
+      "text": "The decay products separate to infinite distance (complete separation)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Conservation of energy and momentum apply to the decay process."
+    },
+    {
+      "id": "assumption4",
+      "text": "The parent nucleus is initially at rest in the laboratory frame."
+    },
+    {
+      "id": "assumption5",
+      "text": "Nuclear recoil energy is much smaller than the Q-value for heavy nuclei."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,16 +104,6 @@
     {
       "step": 8,
       "equation": "lambda_alpha prop exp(-2 G) where G = Gamow factor"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The parent nucleus is initially at rest in the laboratory frame."
-    },
-    {
-      "id": "assumption2",
-      "text": "Nuclear recoil energy is much smaller than the Q-value for heavy nuclei."
     }
   ],
   "derivation_explanation": [
@@ -219,11 +217,11 @@
     "nuclear_binding_energy",
     "quantum_tunneling"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

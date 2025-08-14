@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The second law of thermodynamics, expressed through the Clausius inequality, states that the integral of heat flow divided by temperature over any closed cycle is non-positive. This leads to the definition of entropy as a state function whose total change in an isolated system is always non-negative. The law establishes the arrow of time and explains why certain processes are irreversible in nature.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system undergoes a thermodynamic cycle (returns to initial state)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Temperature `T` is the absolute temperature of the heat reservoir."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Heat exchange `dQ` represents heat absorbed by the system from the reservoir."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The equality holds for reversible processes, inequality for irreversible ones."
-    }
-  ],
   "definitions": [
     {
       "symbol": "dQ",
@@ -46,6 +28,40 @@
     {
       "symbol": "dS",
       "definition": "Infinitesimal change in entropy."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system undergoes a thermodynamic cycle (returns to initial state)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Temperature `T` is the absolute temperature of the heat reservoir."
+    },
+    {
+      "id": "assumption3",
+      "text": "Heat exchange `dQ` represents heat absorbed by the system from the reservoir."
+    },
+    {
+      "id": "assumption4",
+      "text": "The equality holds for reversible processes, inequality for irreversible ones."
+    },
+    {
+      "id": "assumption5",
+      "text": "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures."
+    },
+    {
+      "id": "assumption6",
+      "text": "The system can be connected to arbitrary combinations of heat reservoirs."
+    },
+    {
+      "id": "assumption7",
+      "text": "Entropy is a state function, so its integral over a closed cycle is zero."
+    },
+    {
+      "id": "assumption8",
+      "text": "The analysis can be extended from two-reservoir cycles to arbitrary cycles."
     }
   ],
   "derivation": [
@@ -108,24 +124,6 @@
     {
       "step": 15,
       "equation": "dS >= (dQ)/T"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can be connected to arbitrary combinations of heat reservoirs."
-    },
-    {
-      "id": "assumption3",
-      "text": "Entropy is a state function, so its integral over a closed cycle is zero."
-    },
-    {
-      "id": "assumption4",
-      "text": "The analysis can be extended from two-reservoir cycles to arbitrary cycles."
     }
   ],
   "derivation_explanation": [
@@ -246,11 +244,11 @@
       "citation": "Callen, H. B. (1985). Thermodynamics and an Introduction to Thermostatistics (2nd ed.). John Wiley & Sons."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

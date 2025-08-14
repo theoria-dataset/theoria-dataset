@@ -8,20 +8,6 @@
     }
   ],
   "explanation": "The Heisenberg uncertainty principle states that the simultaneous precise measurement of position and momentum of a particle is fundamentally impossible. The product of their uncertainties has a quantum mechanical lower bound proportional to Planck's constant. This principle reflects the wave-particle duality and is a cornerstone of quantum mechanics, setting fundamental limits on measurement precision and enabling phenomena like quantum tunneling.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particle is described by a quantum mechanical wavefunction."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Position and momentum are represented by non-commuting Hermitian operators."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The uncertainties are defined as standard deviations of the observables."
-    }
-  ],
   "definitions": [
     {
       "symbol": "Delta x",
@@ -34,6 +20,32 @@
     {
       "symbol": "hbar",
       "definition": "Reduced Planck's constant (`h/(2*pi) = 1.055 × 10^-34 J⋅s`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particle is described by a quantum mechanical wavefunction."
+    },
+    {
+      "id": "assumption2",
+      "text": "Position and momentum are represented by non-commuting Hermitian operators."
+    },
+    {
+      "id": "assumption3",
+      "text": "The uncertainties are defined as standard deviations of the observables."
+    },
+    {
+      "id": "assumption4",
+      "text": "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators."
+    },
+    {
+      "id": "assumption5",
+      "text": "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values."
+    },
+    {
+      "id": "assumption6",
+      "text": "The wavefunction is normalized: `<psi|psi> = 1`."
     }
   ],
   "derivation": [
@@ -84,20 +96,6 @@
     {
       "step": 12,
       "equation": "Delta x * Delta p >= hbar/2"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators."
-    },
-    {
-      "id": "assumption2",
-      "text": "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values."
-    },
-    {
-      "id": "assumption3",
-      "text": "The wavefunction is normalized: `<psi|psi> = 1`."
     }
   ],
   "derivation_explanation": [
@@ -190,11 +188,11 @@
       "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

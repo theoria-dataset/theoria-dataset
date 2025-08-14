@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "The heat equation describes how temperature changes over time due to thermal diffusion. It is a parabolic partial differential equation that governs heat conduction in materials and is fundamental to understanding thermal transport phenomena.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Isotropic, homogeneous material"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Constant thermal properties"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "No internal heat generation"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Fourier's law of heat conduction applies"
-    }
-  ],
   "definitions": [
     {
       "symbol": "T",
@@ -76,6 +58,40 @@
       "definition": "Heat flux vector"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Isotropic, homogeneous material"
+    },
+    {
+      "id": "assumption2",
+      "text": "Constant thermal properties"
+    },
+    {
+      "id": "assumption3",
+      "text": "No internal heat generation"
+    },
+    {
+      "id": "assumption4",
+      "text": "Fourier's law of heat conduction applies"
+    },
+    {
+      "id": "assumption5",
+      "text": "Energy conservation"
+    },
+    {
+      "id": "assumption6",
+      "text": "Fourier's law of heat conduction"
+    },
+    {
+      "id": "assumption7",
+      "text": "Constant material properties"
+    },
+    {
+      "id": "assumption8",
+      "text": "No internal heat sources"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -100,24 +116,6 @@
     {
       "step": 6,
       "equation": "\\frac{\\partial T}{\\partial t} = \\frac{k}{\\rho c_p} \\nabla^2 T = \\alpha \\nabla^2 T"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Energy conservation"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Fourier's law of heat conduction"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Constant material properties"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "No internal heat sources"
     }
   ],
   "derivation_explanation": [
@@ -223,11 +221,11 @@
   "dependencies": [
     "conservation_of_energy"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

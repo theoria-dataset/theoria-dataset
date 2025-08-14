@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "The continuity equation expresses conservation of mass in fluid dynamics. It states that the rate of increase of density in a volume plus the net outflow of mass through the volume's boundary is zero. In incompressible flow, this reduces to `grad dot vec v = 0`. The continuity equation is fundamental for any fluid (liquid or gas).",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "No mass is created or destroyed within the flow (mass conservation)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "rho(vec r,t)",
@@ -28,6 +18,24 @@
       "definition": "Fluid velocity field."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "No mass is created or destroyed within the flow (mass conservation)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary."
+    },
+    {
+      "id": "assumption4",
+      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -36,16 +44,6 @@
     {
       "step": 2,
       "equation": "del rho/del t + grad dot (rho vec v) = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary."
-    },
-    {
-      "id": "assump2",
-      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."
     }
   ],
   "derivation_explanation": [
@@ -83,16 +81,6 @@
     ]
   },
   "domain": "physics.flu-dyn",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Landau, L. D., & Lifshitz, E. M. (1987). *Fluid Mechanics* (2nd ed.). Pergamon."
-    },
-    {
-      "id": "R2",
-      "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."
-    }
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -117,11 +105,21 @@
       "Foundation for fluid dynamics"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Landau, L. D., & Lifshitz, E. M. (1987). *Fluid Mechanics* (2nd ed.). Pergamon."
+    },
+    {
+      "id": "R2",
+      "citation": "Batchelor, G. K. (1967). *An Introduction to Fluid Dynamics*. Cambridge University Press."
+    }
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

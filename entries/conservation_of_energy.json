@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another. In a closed system, the total energy remains constant, though it may change between kinetic, potential, thermal, and other forms.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Closed system"
-    },
-    {
-      "id": "assump2",
-      "text": "Conservative forces only (for mechanical energy)"
-    },
-    {
-      "id": "assump3",
-      "text": "No non-conservative work (for mechanical energy conservation)"
-    },
-    {
-      "id": "assump4",
-      "text": "Classical mechanics regime"
-    }
-  ],
   "definitions": [
     {
       "symbol": "E_total",
@@ -84,6 +66,40 @@
       "definition": "Work done by system"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Closed system"
+    },
+    {
+      "id": "assumption2",
+      "text": "Conservative forces only (for mechanical energy)"
+    },
+    {
+      "id": "assumption3",
+      "text": "No non-conservative work (for mechanical energy conservation)"
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical mechanics regime"
+    },
+    {
+      "id": "assumption5",
+      "text": "Conservative forces"
+    },
+    {
+      "id": "assumption6",
+      "text": "Work-energy theorem applies"
+    },
+    {
+      "id": "assumption7",
+      "text": "Potential energy is well-defined"
+    },
+    {
+      "id": "assumption8",
+      "text": "Classical mechanics"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -108,24 +124,6 @@
     {
       "step": 6,
       "equation": "K_f + U_f = K_i + U_i = E"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Conservative forces"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Work-energy theorem applies"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Potential energy is well-defined"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Classical mechanics"
     }
   ],
   "derivation_explanation": [
@@ -255,11 +253,11 @@
     "newtons_laws",
     "work_energy_theorem"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

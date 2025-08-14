@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Gauss's law relates the electric flux through a closed surface to the electric charge enclosed by that surface. It is one of Maxwell's equations and provides a powerful method for calculating electric fields in situations with high symmetry.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Electrostatic conditions"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Linear, isotropic media"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Classical field theory"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Continuous charge distributions"
-    }
-  ],
   "definitions": [
     {
       "symbol": "E⃗",
@@ -72,6 +54,40 @@
       "definition": "Distance from point charge"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Electrostatic conditions"
+    },
+    {
+      "id": "assumption2",
+      "text": "Linear, isotropic media"
+    },
+    {
+      "id": "assumption3",
+      "text": "Classical field theory"
+    },
+    {
+      "id": "assumption4",
+      "text": "Continuous charge distributions"
+    },
+    {
+      "id": "assumption5",
+      "text": "Superposition principle applies"
+    },
+    {
+      "id": "assumption6",
+      "text": "Solid angle subtended by closed surface"
+    },
+    {
+      "id": "assumption7",
+      "text": "Coulomb's law for point charges"
+    },
+    {
+      "id": "assumption8",
+      "text": "Charge conservation"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,24 +108,6 @@
     {
       "step": 5,
       "equation": "\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{1}{\\epsilon_0} \\sum_{i \\text{ inside}} q_i = \\frac{Q_{enc}}{\\epsilon_0}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Superposition principle applies"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Solid angle subtended by closed surface"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Coulomb's law for point charges"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Charge conservation"
     }
   ],
   "derivation_explanation": [
@@ -201,11 +199,11 @@
     "electric_field",
     "coulombs_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

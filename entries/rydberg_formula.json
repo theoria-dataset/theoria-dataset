@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The Rydberg formula describes the wavelengths of spectral lines in hydrogen and hydrogen-like atoms. It predicts the wavelength of light emitted when an electron transitions between energy levels, with the wavenumber proportional to the difference in inverse squares of the principal quantum numbers. This empirical formula, discovered before quantum mechanics, provided crucial evidence for quantized energy levels in atoms and laid the foundation for atomic spectroscopy.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The atom has a single electron (hydrogen-like)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Electronic transitions occur between well-defined energy levels."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The nucleus is infinitely massive (reduced mass approximation)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Fine structure effects are neglected."
-    }
-  ],
   "definitions": [
     {
       "symbol": "lambda",
@@ -60,6 +42,36 @@
       "definition": "Principal quantum number of higher energy level (n₂ > n₁)."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The atom has a single electron (hydrogen-like)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Electronic transitions occur between well-defined energy levels."
+    },
+    {
+      "id": "assumption3",
+      "text": "The nucleus is infinitely massive (reduced mass approximation)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Fine structure effects are neglected."
+    },
+    {
+      "id": "assumption5",
+      "text": "Energy levels follow the Bohr model: E ∝ -1/n²."
+    },
+    {
+      "id": "assumption6",
+      "text": "Photon energy equals the energy difference between levels."
+    },
+    {
+      "id": "assumption7",
+      "text": "Conservation of energy applies to electronic transitions."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -80,20 +92,6 @@
     {
       "step": 5,
       "equation": "1/lambda = R_infinity * (1/n_1^2 - 1/n_2^2)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy levels follow the Bohr model: E ∝ -1/n²."
-    },
-    {
-      "id": "assumption2",
-      "text": "Photon energy equals the energy difference between levels."
-    },
-    {
-      "id": "assumption3",
-      "text": "Conservation of energy applies to electronic transitions."
     }
   ],
   "derivation_explanation": [
@@ -212,11 +210,11 @@
     "bohr_model_energy_levels",
     "electromagnetic_waves"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "A diffraction grating consists of many parallel slits or lines that diffract light, creating interference patterns with sharp, bright maxima at specific angles. The grating equation determines these angles based on the wavelength and grating spacing, making gratings powerful tools for spectroscopy. They provide high resolution separation of different wavelengths and are fundamental components in spectrometers, monochromators, and optical instruments.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Plane wave incidence (or far-field conditions)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "All slits have the same width and spacing."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Normal incidence (angle modifications needed for oblique incidence)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Far-field observation (Fraunhofer diffraction)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "d",
@@ -58,6 +40,40 @@
     {
       "symbol": "Delta*lambda",
       "definition": "Minimum resolvable wavelength difference."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Plane wave incidence (or far-field conditions)."
+    },
+    {
+      "id": "assumption2",
+      "text": "All slits have the same width and spacing."
+    },
+    {
+      "id": "assumption3",
+      "text": "Normal incidence (angle modifications needed for oblique incidence)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Far-field observation (Fraunhofer diffraction)."
+    },
+    {
+      "id": "assumption5",
+      "text": "Far-field diffraction (Fraunhofer conditions)."
+    },
+    {
+      "id": "assumption6",
+      "text": "Uniform illumination of all slits."
+    },
+    {
+      "id": "assumption7",
+      "text": "Small angle approximation may apply for angular dispersion."
+    },
+    {
+      "id": "assumption8",
+      "text": "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line)."
     }
   ],
   "derivation": [
@@ -104,24 +120,6 @@
     {
       "step": 11,
       "equation": "lambda/Delta*lambda = (d*theta/d*lambda)/Delta*theta = m*N"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Far-field diffraction (Fraunhofer conditions)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Uniform illumination of all slits."
-    },
-    {
-      "id": "assumption3",
-      "text": "Small angle approximation may apply for angular dispersion."
-    },
-    {
-      "id": "assumption4",
-      "text": "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line)."
     }
   ],
   "derivation_explanation": [
@@ -290,11 +288,11 @@
     "waves_interference",
     "young_double_slit"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

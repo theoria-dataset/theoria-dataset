@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Coulomb's law describes the electrostatic force between two point charges, stating that the force is proportional to the product of the charges and inversely proportional to the square of their separation distance. The force acts along the line connecting the charges, being repulsive for like charges and attractive for opposite charges. This fundamental law underlies all electrostatic phenomena and forms the basis for understanding electric fields and potentials.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The charges are point charges (or can be treated as such)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The charges are at rest (electrostatic case)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The medium between charges is vacuum or can be approximated as such."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The distance between charges is much larger than their size."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec F",
@@ -60,6 +42,40 @@
       "definition": "Vacuum permittivity (`8.854 × 10^-12 F/m`)."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The charges are point charges (or can be treated as such)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The charges are at rest (electrostatic case)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The medium between charges is vacuum or can be approximated as such."
+    },
+    {
+      "id": "assumption4",
+      "text": "The distance between charges is much larger than their size."
+    },
+    {
+      "id": "assumption5",
+      "text": "The force between charges is directly proportional to each charge magnitude."
+    },
+    {
+      "id": "assumption6",
+      "text": "The force follows an inverse square law with distance, analogous to Newton's law of gravitation."
+    },
+    {
+      "id": "assumption7",
+      "text": "The force acts along the line connecting the two charges."
+    },
+    {
+      "id": "assumption8",
+      "text": "The principle of superposition applies to electric forces."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -88,24 +104,6 @@
     {
       "step": 7,
       "equation": "k = 1/(4*pi*epsilon_0)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The force between charges is directly proportional to each charge magnitude."
-    },
-    {
-      "id": "assumption2",
-      "text": "The force follows an inverse square law with distance, analogous to Newton's law of gravitation."
-    },
-    {
-      "id": "assumption3",
-      "text": "The force acts along the line connecting the two charges."
-    },
-    {
-      "id": "assumption4",
-      "text": "The principle of superposition applies to electric forces."
     }
   ],
   "derivation_explanation": [
@@ -202,11 +200,11 @@
       "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics (4th ed.). Cambridge University Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

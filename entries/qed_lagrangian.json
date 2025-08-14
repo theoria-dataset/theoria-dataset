@@ -16,20 +16,6 @@
     }
   ],
   "explanation": "The QED Lagrangian density merges the standalone photon field contribution and the free spin-½ fermion action by using the simplest gauge-invariant prescription: replacing ordinary derivatives with a covariant derivative. It therefore fully specifies how light and charged matter propagate and interact under a local U(1) symmetry, and its variation directly yields Maxwell's laws sourced by the fermion current and the Dirac equation in an electromagnetic field.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Natural units are used, setting `c = hbar = 1`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The space-time metric is Minkowskian with signature (+,−,−,−)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`."
-    }
-  ],
   "definitions": [
     {
       "symbol": "L",
@@ -72,6 +58,36 @@
       "definition": "Partial derivative with respect to the coordinate `x^mu`."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Natural units are used, setting `c = hbar = 1`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The space-time metric is Minkowskian with signature (+,−,−,−)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`."
+    },
+    {
+      "id": "assumption4",
+      "text": "Local U(1) gauge invariance dictates the interaction structure."
+    },
+    {
+      "id": "assumption5",
+      "text": "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions."
+    },
+    {
+      "id": "assumption6",
+      "text": "Flat Minkowski space-time with metric `g_(mu nu)`."
+    },
+    {
+      "id": "assumption7",
+      "text": "Natural units `c = hbar = 1` are employed."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -112,24 +128,6 @@
     {
       "step": 10,
       "equation": "delta_L/delta_(A_nu) => partial_mu F^(mu nu) = e*bar psi*gamma^nu*psi"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Local U(1) gauge invariance dictates the interaction structure."
-    },
-    {
-      "id": "assumption2",
-      "text": "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions."
-    },
-    {
-      "id": "assumption3",
-      "text": "Flat Minkowski space-time with metric `g_(mu nu)`."
-    },
-    {
-      "id": "assumption4",
-      "text": "Natural units `c = hbar = 1` are employed."
     }
   ],
   "derivation_explanation": [
@@ -200,25 +198,6 @@
     ]
   },
   "domain": "hep-th",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
-    },
-    {
-      "id": "R2",
-      "citation": "Weinberg, S. (1995). *The Quantum Theory of Fields, Vol. I: Foundations*. Cambridge University Press."
-    },
-    {
-      "id": "R3",
-      "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
-    }
-  ],
-  "dependencies": [
-    "dirac_equation_em",
-    "maxwell_equations",
-    "noethers_theorem"
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -245,11 +224,30 @@
       "Quantum corrections"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). *The Quantum Theory of Fields, Vol. I: Foundations*. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
+    }
+  ],
+  "dependencies": [
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

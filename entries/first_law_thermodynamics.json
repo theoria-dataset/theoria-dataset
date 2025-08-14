@@ -8,20 +8,6 @@
     }
   ],
   "explanation": "The first law states that for any closed system the change in internal energy `Delta U` equals heat supplied `Q` minus work done `W`. It enforces macroscopic energy conservation without specifying microscopic details, underpinning calorimetry, engine-cycle analysis and phase-transition studies. Engineers apply it to compute energy balances, determine heating requirements and set upper limits on process efficiency.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "System mass remains constant; no matter crosses the boundary."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary."
-    }
-  ],
   "definitions": [
     {
       "symbol": "Delta U",
@@ -46,6 +32,36 @@
     {
       "symbol": "E_pot",
       "definition": "Macroscopic potential energy of the system."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "System mass remains constant; no matter crosses the boundary."
+    },
+    {
+      "id": "assumption2",
+      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system."
+    },
+    {
+      "id": "assumption3",
+      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary."
+    },
+    {
+      "id": "assumption4",
+      "text": "Closed system: no mass crosses the boundary during the process."
+    },
+    {
+      "id": "assumption5",
+      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`."
+    },
+    {
+      "id": "assumption6",
+      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`."
+    },
+    {
+      "id": "assumption7",
+      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
     }
   ],
   "derivation": [
@@ -76,24 +92,6 @@
     {
       "step": 7,
       "equation": "Delta U = Q - W"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "ass1",
-      "text": "Closed system: no mass crosses the boundary during the process."
-    },
-    {
-      "id": "ass2",
-      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`."
-    },
-    {
-      "id": "ass3",
-      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`."
-    },
-    {
-      "id": "ass4",
-      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
     }
   ],
   "derivation_explanation": [
@@ -148,16 +146,6 @@
     ]
   },
   "domain": "physics.class-ph",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Fermi, E. (1937). *Thermodynamics*. Prentice-Hall."
-    },
-    {
-      "id": "R2",
-      "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
-    }
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -182,11 +170,21 @@
       "Internal energy concept"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fermi, E. (1937). *Thermodynamics*. Prentice-Hall."
+    },
+    {
+      "id": "R2",
+      "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
+    }
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

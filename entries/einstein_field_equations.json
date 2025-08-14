@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Einstein's field equations describe how matter and energy curve spacetime, forming the foundation of general relativity. They relate the geometry of spacetime (left side) to the matter-energy content (right side), showing that matter tells spacetime how to curve, and curved spacetime tells matter how to move.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "General covariance: the laws of physics are the same in all coordinate systems."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The equivalence principle: gravitational and inertial effects are locally indistinguishable."
-    }
-  ],
   "definitions": [
     {
       "symbol": "G_(mu nu)",
@@ -56,6 +46,24 @@
       "definition": "Speed of light in vacuum."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "General covariance: the laws of physics are the same in all coordinate systems."
+    },
+    {
+      "id": "assumption2",
+      "text": "The equivalence principle: gravitational and inertial effects are locally indistinguishable."
+    },
+    {
+      "id": "assumption3",
+      "text": "The action principle applies to spacetime geometry."
+    },
+    {
+      "id": "assumption4",
+      "text": "Minimal coupling between matter and geometry."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -80,16 +88,6 @@
     {
       "step": 6,
       "equation": "G_(mu nu) + Lambda g_(mu nu) = 8 pi G T_(mu nu)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The action principle applies to spacetime geometry."
-    },
-    {
-      "id": "assumption2",
-      "text": "Minimal coupling between matter and geometry."
     }
   ],
   "derivation_explanation": [
@@ -183,11 +181,11 @@
   "dependencies": [
     "special_relativity"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

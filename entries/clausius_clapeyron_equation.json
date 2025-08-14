@@ -16,20 +16,6 @@
     }
   ],
   "explanation": "The Clausius-Clapeyron equation describes the relationship between pressure and temperature along phase transition curves. It relates the slope of the coexistence curve to the latent heat and volume change during phase transitions, providing fundamental insight into phase diagrams and enabling prediction of vapor pressures, melting points, and boiling points under different conditions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The transition occurs at thermodynamic equilibrium."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The latent heat and volume change are approximately constant near the transition."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The system is in a reversible process."
-    }
-  ],
   "definitions": [
     {
       "symbol": "dp/dT",
@@ -54,6 +40,32 @@
     {
       "symbol": "R",
       "definition": "Gas constant."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The transition occurs at thermodynamic equilibrium."
+    },
+    {
+      "id": "assumption2",
+      "text": "The latent heat and volume change are approximately constant near the transition."
+    },
+    {
+      "id": "assumption3",
+      "text": "The system is in a reversible process."
+    },
+    {
+      "id": "assumption4",
+      "text": "Thermodynamic equilibrium exists between phases."
+    },
+    {
+      "id": "assumption5",
+      "text": "The transition is reversible."
+    },
+    {
+      "id": "assumption6",
+      "text": "Gibbs-Duhem relation applies."
     }
   ],
   "derivation": [
@@ -104,20 +116,6 @@
     {
       "step": 12,
       "equation": "dp/dT = Delta H/(T*Delta V)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Thermodynamic equilibrium exists between phases."
-    },
-    {
-      "id": "assumption2",
-      "text": "The transition is reversible."
-    },
-    {
-      "id": "assumption3",
-      "text": "Gibbs-Duhem relation applies."
     }
   ],
   "derivation_explanation": [
@@ -270,11 +268,11 @@
     "first_law_thermodynamics",
     "second_law_thermodynamics_clausius"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

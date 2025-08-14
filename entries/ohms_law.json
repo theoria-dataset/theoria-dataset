@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Ohm's law states that the current through a conductor between two points is directly proportional to the voltage across the two points, and inversely proportional to the resistance between them. This fundamental relationship forms the basis of electrical circuit analysis.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Linear, ohmic materials"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Constant temperature"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Steady-state conditions"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Homogeneous material properties"
-    }
-  ],
   "definitions": [
     {
       "symbol": "V",
@@ -54,6 +36,40 @@
     {
       "symbol": "P",
       "definition": "Power dissipated"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Linear, ohmic materials"
+    },
+    {
+      "id": "assumption2",
+      "text": "Constant temperature"
+    },
+    {
+      "id": "assumption3",
+      "text": "Steady-state conditions"
+    },
+    {
+      "id": "assumption4",
+      "text": "Homogeneous material properties"
+    },
+    {
+      "id": "assumption5",
+      "text": "Drift velocity proportional to electric field"
+    },
+    {
+      "id": "assumption6",
+      "text": "Constant charge carrier density"
+    },
+    {
+      "id": "assumption7",
+      "text": "Uniform current distribution"
+    },
+    {
+      "id": "assumption8",
+      "text": "Classical electron transport"
     }
   ],
   "derivation": [
@@ -84,24 +100,6 @@
     {
       "step": 7,
       "equation": "V = IR"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Drift velocity proportional to electric field"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Constant charge carrier density"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Uniform current distribution"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Classical electron transport"
     }
   ],
   "derivation_explanation": [
@@ -191,11 +189,11 @@
     }
   ],
   "dependencies": [],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

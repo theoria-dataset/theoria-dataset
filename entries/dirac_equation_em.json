@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The Dirac equation with minimal coupling to the electromagnetic four-potential extends the free-particle equation to describe spin-1/2 fermions interacting with external fields. By replacing space-time derivatives with gauge-covariant ones, it incorporates electric and magnetic interactions while preserving Lorentz covariance and gauge invariance, forming the quantum-mechanical cornerstone of quantum electrodynamics (QED).",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
-    }
-  ],
   "definitions": [
     {
       "symbol": "psi",
@@ -84,6 +66,40 @@
       "definition": "Speed of light in vacuum."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected."
+    },
+    {
+      "id": "assumption3",
+      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
+    },
+    {
+      "id": "assumption4",
+      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
+    },
+    {
+      "id": "assumption5",
+      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`."
+    },
+    {
+      "id": "assumption6",
+      "text": "Desire for a first-order linear differential equation preserving probability density."
+    },
+    {
+      "id": "assumption7",
+      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form."
+    },
+    {
+      "id": "assumption8",
+      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -116,24 +132,6 @@
     {
       "step": 8,
       "equation": "Define gamma^0 = beta, gamma^i = beta*alpha_i and write covariant form: (i*hbar*gamma^mu*(partial_mu + i*(q/(hbar*c))*A_mu) - m*c) psi = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`."
-    },
-    {
-      "id": "assumption2",
-      "text": "Desire for a first-order linear differential equation preserving probability density."
-    },
-    {
-      "id": "assumption3",
-      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form."
-    },
-    {
-      "id": "assumption4",
-      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance."
     }
   ],
   "derivation_explanation": [
@@ -201,24 +199,6 @@
     ]
   },
   "domain": "hep-th",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Dirac, P. A. M. (1928). 'The Quantum Theory of the Electron'. *Proceedings of the Royal Society A*, 117(778), 610-624."
-    },
-    {
-      "id": "R2",
-      "citation": "Bjorken, J. D., & Drell, S. D. (1964). *Relativistic Quantum Mechanics*. McGraw-Hill."
-    },
-    {
-      "id": "R3",
-      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
-    }
-  ],
-  "dependencies": [
-    "dirac_equation_free",
-    "maxwell_equations"
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -246,11 +226,29 @@
       "Relativistic electromagnetic interactions"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Dirac, P. A. M. (1928). 'The Quantum Theory of the Electron'. *Proceedings of the Royal Society A*, 117(778), 610-624."
+    },
+    {
+      "id": "R2",
+      "citation": "Bjorken, J. D., & Drell, S. D. (1964). *Relativistic Quantum Mechanics*. McGraw-Hill."
+    },
+    {
+      "id": "R3",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    }
+  ],
+  "dependencies": [
+    "dirac_equation_free",
+    "maxwell_equations"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

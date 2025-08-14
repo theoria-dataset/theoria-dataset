@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The Biot-Savart law calculates the magnetic field produced by a steady current. It states that the magnetic field contribution from a current element is proportional to the current, the length element, and inversely proportional to the square of the distance. This law is fundamental for calculating magnetic fields from arbitrary current distributions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The current is steady (time-independent)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The medium is non-magnetic (relative permeability = 1)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "d vec B",
@@ -52,6 +42,24 @@
       "definition": "Distance from current element to field point."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The current is steady (time-independent)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The medium is non-magnetic (relative permeability = 1)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Maxwell's equations apply for static magnetic fields."
+    },
+    {
+      "id": "assumption4",
+      "text": "The current flows in thin wires (line current approximation)."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -80,16 +88,6 @@
     {
       "step": 7,
       "equation": "d vec B = (mu_0)/(4 pi) (I d vec l times hat r)/(r^2)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations apply for static magnetic fields."
-    },
-    {
-      "id": "assumption2",
-      "text": "The current flows in thin wires (line current approximation)."
     }
   ],
   "derivation_explanation": [
@@ -189,11 +187,11 @@
     "amperes_law",
     "maxwell_equations"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -24,24 +24,6 @@
     }
   ],
   "explanation": "Capacitance is the ability of a system to store electric charge per unit voltage. Capacitors store electrical energy in the electric field between conducting plates and are fundamental components in electronic circuits for energy storage, filtering, and timing applications.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Linear dielectric materials"
-    },
-    {
-      "id": "assump2",
-      "text": "Static electric fields"
-    },
-    {
-      "id": "assump3",
-      "text": "Ideal conductors (infinite conductivity)"
-    },
-    {
-      "id": "assump4",
-      "text": "Neglect edge effects (for parallel plate)"
-    }
-  ],
   "definitions": [
     {
       "symbol": "C",
@@ -80,6 +62,40 @@
       "definition": "Individual capacitances"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Linear dielectric materials"
+    },
+    {
+      "id": "assumption2",
+      "text": "Static electric fields"
+    },
+    {
+      "id": "assumption3",
+      "text": "Ideal conductors (infinite conductivity)"
+    },
+    {
+      "id": "assumption4",
+      "text": "Neglect edge effects (for parallel plate)"
+    },
+    {
+      "id": "assumption5",
+      "text": "Uniform electric field between plates"
+    },
+    {
+      "id": "assumption6",
+      "text": "Negligible fringing fields"
+    },
+    {
+      "id": "assumption7",
+      "text": "Plates are large compared to separation"
+    },
+    {
+      "id": "assumption8",
+      "text": "Linear relationship between charge and voltage"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -112,24 +128,6 @@
     {
       "step": 8,
       "equation": "U = \\frac{1}{C} \\int_0^Q q dq = \\frac{1}{C} \\cdot \\frac{Q^2}{2} = \\frac{Q^2}{2C}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Uniform electric field between plates"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Negligible fringing fields"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Plates are large compared to separation"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Linear relationship between charge and voltage"
     }
   ],
   "derivation_explanation": [
@@ -247,11 +245,11 @@
     "electric_field",
     "electric_potential"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

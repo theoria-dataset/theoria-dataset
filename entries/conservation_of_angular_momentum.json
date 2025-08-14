@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Angular momentum is conserved when no external torque acts on a system. This fundamental conservation law explains phenomena from planetary motion to figure skating spins. Angular momentum equals the cross product of position and momentum vectors, or the product of moment of inertia and angular velocity for rigid bodies.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "No external torques act on the system (`vec tau_ext = 0`)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system can be treated as a collection of particles or rigid bodies."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec L",
@@ -48,6 +38,24 @@
       "definition": "External torque acting on the system."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "No external torques act on the system (`vec tau_ext = 0`)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system can be treated as a collection of particles or rigid bodies."
+    },
+    {
+      "id": "assumption3",
+      "text": "Newton's laws apply to each particle in the system."
+    },
+    {
+      "id": "assumption4",
+      "text": "Internal forces between particles obey Newton's third law."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -72,16 +80,6 @@
     {
       "step": 6,
       "equation": "If vec tau_ext = 0, then d vec L/dt = 0 => vec L = const"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Newton's laws apply to each particle in the system."
-    },
-    {
-      "id": "assumption2",
-      "text": "Internal forces between particles obey Newton's third law."
     }
   ],
   "derivation_explanation": [
@@ -180,11 +178,11 @@
     "conservation_of_momentum",
     "newtons_second_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Newton's three laws of motion form the foundation of classical mechanics. The First Law (Law of Inertia) states that objects maintain constant velocity unless acted upon by a net force, defining inertial reference frames. The Second Law establishes that net force equals mass times acceleration, or the rate of change of momentum, providing the fundamental equation of motion. The Third Law states that forces occur in equal and opposite pairs, ensuring momentum conservation. Together, these laws enable the prediction and analysis of motion for all macroscopic objects in the classical regime.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Observations are made from inertial reference frames."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Classical mechanics applies (non-relativistic velocities)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "For the Second Law constant-mass form, mass remains constant during motion."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Forces are well-defined and can be measured or calculated."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec F",
@@ -74,6 +56,40 @@
     {
       "symbol": "vec F_(BA)",
       "definition": "Force exerted by object B on object A."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Observations are made from inertial reference frames."
+    },
+    {
+      "id": "assumption2",
+      "text": "Classical mechanics applies (non-relativistic velocities)."
+    },
+    {
+      "id": "assumption3",
+      "text": "For the Second Law constant-mass form, mass remains constant during motion."
+    },
+    {
+      "id": "assumption4",
+      "text": "Forces are well-defined and can be measured or calculated."
+    },
+    {
+      "id": "assumption5",
+      "text": "The concept of inertial reference frames can be defined operationally."
+    },
+    {
+      "id": "assumption6",
+      "text": "Force can be defined as the rate of change of momentum."
+    },
+    {
+      "id": "assumption7",
+      "text": "Mass is an intrinsic property that may be constant or variable."
+    },
+    {
+      "id": "assumption8",
+      "text": "For isolated systems, total momentum is conserved."
     }
   ],
   "derivation": [
@@ -124,24 +140,6 @@
     {
       "step": 12,
       "equation": "vec F_(BA) + vec F_(AB) = 0 => vec F_(AB) = -vec F_(BA)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The concept of inertial reference frames can be defined operationally."
-    },
-    {
-      "id": "assumption2",
-      "text": "Force can be defined as the rate of change of momentum."
-    },
-    {
-      "id": "assumption3",
-      "text": "Mass is an intrinsic property that may be constant or variable."
-    },
-    {
-      "id": "assumption4",
-      "text": "For isolated systems, total momentum is conserved."
     }
   ],
   "derivation_explanation": [
@@ -277,11 +275,11 @@
   "dependencies": [
     "conservation_of_momentum"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Consolidated from individual Newton's law entries",
       "identifier": "Not provided"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

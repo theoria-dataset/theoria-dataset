@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Gibbs free energy is a thermodynamic potential that measures the maximum reversible work that can be performed by a system at constant temperature and pressure. It determines the direction of spontaneous processes: reactions proceed when ΔG < 0. This function is fundamental in chemistry, materials science, and phase transitions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system can exchange work and heat with surroundings but maintains constant temperature and pressure."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Reversible processes are considered for maximum work calculations."
-    }
-  ],
   "definitions": [
     {
       "symbol": "G",
@@ -60,6 +50,24 @@
       "definition": "Number of particles of species i."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system can exchange work and heat with surroundings but maintains constant temperature and pressure."
+    },
+    {
+      "id": "assumption2",
+      "text": "Reversible processes are considered for maximum work calculations."
+    },
+    {
+      "id": "assumption3",
+      "text": "The first law of thermodynamics applies with chemical work included."
+    },
+    {
+      "id": "assumption4",
+      "text": "The system is in quasi-static equilibrium during the process."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,16 +100,6 @@
     {
       "step": 8,
       "equation": "At equilibrium: dG = 0 (at constant T, P)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The first law of thermodynamics applies with chemical work included."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is in quasi-static equilibrium during the process."
     }
   ],
   "derivation_explanation": [
@@ -211,11 +209,11 @@
     "first_law_thermodynamics",
     "second_law_thermodynamics_clausius"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

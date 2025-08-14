@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "The Dirac equation is a first-order relativistic wave equation that consistently describes spin-1/2 particles such as electrons. By linearly combining space-time derivatives with the Dirac gamma matrices, it reconciles quantum mechanics with special relativity while predicting intrinsic spin and the existence of antiparticles. It underpins relativistic quantum mechanics and is a cornerstone of quantum field theory for fermions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particle is free (no external electromagnetic or gravitational fields)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
-    }
-  ],
   "definitions": [
     {
       "symbol": "psi",
@@ -60,6 +46,32 @@
       "definition": "Speed of light in vacuum."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particle is free (no external electromagnetic or gravitational fields)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
+    },
+    {
+      "id": "assumption3",
+      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
+    },
+    {
+      "id": "assumption4",
+      "text": "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`."
+    },
+    {
+      "id": "assumption5",
+      "text": "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density."
+    },
+    {
+      "id": "assumption6",
+      "text": "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,20 +104,6 @@
     {
       "step": 8,
       "equation": "Define gamma^0 = beta, gamma^i = beta*alpha_i and write covariant form: (i*hbar*gamma^mu*partial_mu - m*c) psi = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`."
-    },
-    {
-      "id": "assumption2",
-      "text": "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density."
-    },
-    {
-      "id": "assumption3",
-      "text": "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
     }
   ],
   "derivation_explanation": [
@@ -172,23 +170,6 @@
     ]
   },
   "domain": "hep-th",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Dirac, P. A. M. (1928). 'The Quantum Theory of the Electron'. *Proceedings of the Royal Society A*, 117(778), 610-624."
-    },
-    {
-      "id": "R2",
-      "citation": "Bjorken, J. D., & Drell, S. D. (1964). *Relativistic Quantum Mechanics*. McGraw-Hill."
-    },
-    {
-      "id": "R3",
-      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
-    }
-  ],
-  "dependencies": [
-    "klein_gordon_equation"
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -217,11 +198,28 @@
       "Electron magnetic moment"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Dirac, P. A. M. (1928). 'The Quantum Theory of the Electron'. *Proceedings of the Royal Society A*, 117(778), 610-624."
+    },
+    {
+      "id": "R2",
+      "citation": "Bjorken, J. D., & Drell, S. D. (1964). *Relativistic Quantum Mechanics*. McGraw-Hill."
+    },
+    {
+      "id": "R3",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    }
+  ],
+  "dependencies": [
+    "klein_gordon_equation"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

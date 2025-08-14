@@ -20,28 +20,6 @@
     }
   ],
   "explanation": "The ideal gas law describes the relationship between pressure, volume, temperature, and amount of substance for an ideal gas. It combines Boyle's law, Charles's law, and Gay-Lussac's law into a single equation.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Point particles (negligible molecular size)"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "No intermolecular forces"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Elastic collisions only"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Classical mechanics applies"
-    },
-    {
-      "id": "eq_assump5",
-      "text": "Thermal equilibrium"
-    }
-  ],
   "definitions": [
     {
       "symbol": "P",
@@ -80,6 +58,44 @@
       "definition": "Molar mass"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Point particles (negligible molecular size)"
+    },
+    {
+      "id": "assumption2",
+      "text": "No intermolecular forces"
+    },
+    {
+      "id": "assumption3",
+      "text": "Elastic collisions only"
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical mechanics applies"
+    },
+    {
+      "id": "assumption5",
+      "text": "Thermal equilibrium"
+    },
+    {
+      "id": "assumption6",
+      "text": "Kinetic theory of gases"
+    },
+    {
+      "id": "assumption7",
+      "text": "Statistical mechanics principles"
+    },
+    {
+      "id": "assumption8",
+      "text": "Perfect gas approximation"
+    },
+    {
+      "id": "assumption9",
+      "text": "Maxwell-Boltzmann distribution"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -112,24 +128,6 @@
     {
       "step": 8,
       "equation": "PV = Nk_BT"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Kinetic theory of gases"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Statistical mechanics principles"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Perfect gas approximation"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Maxwell-Boltzmann distribution"
     }
   ],
   "derivation_explanation": [
@@ -222,11 +220,11 @@
   "dependencies": [
     "kinetic_theory"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

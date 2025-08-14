@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "The Bose-Einstein distribution describes the statistical distribution of bosons (particles with integer spin) in thermal equilibrium. Unlike fermions, bosons can occupy the same quantum state with no restriction, leading to phenomena like Bose-Einstein condensation and stimulated emission. This distribution is fundamental for understanding photons, phonons, and superfluid behavior.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particles are bosons (integer spin) with no restriction on state occupancy."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Particles are non-interacting (ideal Bose gas)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "n(E)",
@@ -54,6 +40,28 @@
     {
       "symbol": "g(E)",
       "definition": "Density of states (number of states per unit energy)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particles are bosons (integer spin) with no restriction on state occupancy."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "assumption3",
+      "text": "Particles are non-interacting (ideal Bose gas)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Maximum entropy principle applies at thermal equilibrium."
+    },
+    {
+      "id": "assumption5",
+      "text": "Bosons can occupy the same quantum state without restriction."
     }
   ],
   "derivation": [
@@ -88,16 +96,6 @@
     {
       "step": 8,
       "equation": "n(E) = 1/(exp((E - mu)/(k_B T)) - 1)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maximum entropy principle applies at thermal equilibrium."
-    },
-    {
-      "id": "assumption2",
-      "text": "Bosons can occupy the same quantum state without restriction."
     }
   ],
   "derivation_explanation": [
@@ -216,11 +214,11 @@
     "partition_function",
     "planck_radiation_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

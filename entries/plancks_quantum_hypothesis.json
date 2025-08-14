@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Planck's quantum hypothesis revolutionized physics by proposing that electromagnetic energy is emitted and absorbed in discrete packets called quanta, with energy proportional to frequency. This fundamental relation ended the ultraviolet catastrophe of classical physics and birthed quantum mechanics. It explains the photoelectric effect, atomic spectra, and provides the foundation for all quantum phenomena.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Energy exchange between matter and electromagnetic radiation occurs in discrete packets."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The energy of each quantum is proportional to the frequency of the radiation."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "For equation `eq2`, `n` is a positive integer representing the number of quanta."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Planck's constant `h` is a universal constant of nature."
-    }
-  ],
   "definitions": [
     {
       "symbol": "E",
@@ -46,6 +28,40 @@
     {
       "symbol": "n",
       "definition": "Number of quanta (positive integer: 1, 2, 3, ...)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Energy exchange between matter and electromagnetic radiation occurs in discrete packets."
+    },
+    {
+      "id": "assumption2",
+      "text": "The energy of each quantum is proportional to the frequency of the radiation."
+    },
+    {
+      "id": "assumption3",
+      "text": "For equation `eq2`, `n` is a positive integer representing the number of quanta."
+    },
+    {
+      "id": "assumption4",
+      "text": "Planck's constant `h` is a universal constant of nature."
+    },
+    {
+      "id": "assumption5",
+      "text": "Classical electromagnetic field theory correctly describes the density of modes in frequency space."
+    },
+    {
+      "id": "assumption6",
+      "text": "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation."
+    },
+    {
+      "id": "assumption7",
+      "text": "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`."
+    },
+    {
+      "id": "assumption8",
+      "text": "The system is in thermal equilibrium and follows Boltzmann statistics."
     }
   ],
   "derivation": [
@@ -112,24 +128,6 @@
     {
       "step": 16,
       "equation": "<E> = h*f/(e^(h*f/(k_B*T)) - 1)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical electromagnetic field theory correctly describes the density of modes in frequency space."
-    },
-    {
-      "id": "assumption2",
-      "text": "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation."
-    },
-    {
-      "id": "assumption3",
-      "text": "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`."
-    },
-    {
-      "id": "assumption4",
-      "text": "The system is in thermal equilibrium and follows Boltzmann statistics."
     }
   ],
   "derivation_explanation": [
@@ -264,9 +262,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "historical",
-  "dependencies": [
-    "planck_radiation_law"
-  ],
   "references": [
     {
       "id": "R1",
@@ -277,11 +272,14 @@
       "citation": "Einstein, A. (1905). 'Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt.' Annalen der Physik, 17, 132-148."
     }
   ],
-  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

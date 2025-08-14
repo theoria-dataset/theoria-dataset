@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Wave interference occurs when two or more waves overlap in space and time. The superposition principle states that the total wave function is the sum of individual wave functions. This phenomenon produces constructive and destructive interference patterns depending on the phase relationship between waves.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Linear superposition applies"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Waves are coherent"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Medium is linear"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "No nonlinear effects"
-    }
-  ],
   "definitions": [
     {
       "symbol": "ψ_total",
@@ -72,6 +54,40 @@
       "definition": "Integer number"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Linear superposition applies"
+    },
+    {
+      "id": "assumption2",
+      "text": "Waves are coherent"
+    },
+    {
+      "id": "assumption3",
+      "text": "Medium is linear"
+    },
+    {
+      "id": "assumption4",
+      "text": "No nonlinear effects"
+    },
+    {
+      "id": "assumption5",
+      "text": "Wave equation is linear"
+    },
+    {
+      "id": "assumption6",
+      "text": "Superposition principle applies"
+    },
+    {
+      "id": "assumption7",
+      "text": "Waves propagate in same medium"
+    },
+    {
+      "id": "assumption8",
+      "text": "No boundary effects"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,24 +112,6 @@
     {
       "step": 6,
       "equation": "A_{eff} = \\sqrt{A_1^2 + A_2^2 + 2A_1A_2\\cos(\\Delta\\phi)}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Wave equation is linear"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Superposition principle applies"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Waves propagate in same medium"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "No boundary effects"
     }
   ],
   "derivation_explanation": [
@@ -207,11 +205,11 @@
     "wave_equation",
     "superposition_principle"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

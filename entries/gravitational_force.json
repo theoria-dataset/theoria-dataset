@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Newton's law of universal gravitation states that every mass attracts every other mass with a force proportional to the product of their masses and inversely proportional to the square of the distance between them. This fundamental force governs planetary motion, tides, and large-scale structure of the universe.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Point masses or spherically symmetric mass distributions"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "No other forces acting (isolated system)"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Non-relativistic regime (weak gravitational fields)"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Static or slowly varying system"
-    }
-  ],
   "definitions": [
     {
       "symbol": "F",
@@ -76,6 +58,40 @@
       "definition": "Source mass creating the field"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Point masses or spherically symmetric mass distributions"
+    },
+    {
+      "id": "assumption2",
+      "text": "No other forces acting (isolated system)"
+    },
+    {
+      "id": "assumption3",
+      "text": "Non-relativistic regime (weak gravitational fields)"
+    },
+    {
+      "id": "assumption4",
+      "text": "Static or slowly varying system"
+    },
+    {
+      "id": "assumption5",
+      "text": "Force is empirically observed to follow inverse square law"
+    },
+    {
+      "id": "assumption6",
+      "text": "Force is proportional to both masses"
+    },
+    {
+      "id": "assumption7",
+      "text": "Gravitational force is conservative"
+    },
+    {
+      "id": "assumption8",
+      "text": "Potential energy is zero at infinite separation"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -108,24 +124,6 @@
     {
       "step": 8,
       "equation": "U = -G\\frac{m_1 m_2}{r} \\text{ (setting C = 0)}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Force is empirically observed to follow inverse square law"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Force is proportional to both masses"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Gravitational force is conservative"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Potential energy is zero at infinite separation"
     }
   ],
   "derivation_explanation": [
@@ -221,11 +219,11 @@
   "dependencies": [
     "newtons_laws"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

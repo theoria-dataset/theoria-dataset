@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Hooke's law states that the force required to extend or compress a spring is proportional to the displacement from its equilibrium position. This linear relationship forms the foundation for understanding elastic behavior in materials and oscillatory motion.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Small displacements from equilibrium"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Linear elastic regime"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "No plastic deformation"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Constant spring constant"
-    }
-  ],
   "definitions": [
     {
       "symbol": "F",
@@ -72,6 +54,40 @@
       "definition": "Strain (relative deformation)"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Small displacements from equilibrium"
+    },
+    {
+      "id": "assumption2",
+      "text": "Linear elastic regime"
+    },
+    {
+      "id": "assumption3",
+      "text": "No plastic deformation"
+    },
+    {
+      "id": "assumption4",
+      "text": "Constant spring constant"
+    },
+    {
+      "id": "assumption5",
+      "text": "Conservative force field"
+    },
+    {
+      "id": "assumption6",
+      "text": "Potential energy is well-defined"
+    },
+    {
+      "id": "assumption7",
+      "text": "Force derivable from potential"
+    },
+    {
+      "id": "assumption8",
+      "text": "Quadratic potential energy"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,24 +108,6 @@
     {
       "step": 5,
       "equation": "F = -kx"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Conservative force field"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Potential energy is well-defined"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Force derivable from potential"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Quadratic potential energy"
     }
   ],
   "derivation_explanation": [
@@ -221,11 +219,11 @@
     }
   ],
   "dependencies": [],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

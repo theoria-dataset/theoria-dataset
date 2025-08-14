@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The Pauli exclusion principle states that no two identical fermions can occupy the same quantum state simultaneously. This fundamental quantum mechanical rule explains the structure of atoms, the periodic table, stellar stability, and the behavior of matter at high densities. It arises from the antisymmetric nature of fermionic wavefunctions under particle exchange.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particles are identical fermions (half-integer spin)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system can be described by quantum mechanics."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Particle interactions can be neglected in the independent particle approximation."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The particles are non-relativistic (for atomic physics applications)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "psi(vec r_1, s_1; vec r_2, s_2)",
@@ -42,6 +24,40 @@
     {
       "symbol": "l",
       "definition": "Orbital angular momentum quantum number (0, 1, 2, ...)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particles are identical fermions (half-integer spin)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system can be described by quantum mechanics."
+    },
+    {
+      "id": "assumption3",
+      "text": "Particle interactions can be neglected in the independent particle approximation."
+    },
+    {
+      "id": "assumption4",
+      "text": "The particles are non-relativistic (for atomic physics applications)."
+    },
+    {
+      "id": "assumption5",
+      "text": "Identical particles are truly indistinguishable in quantum mechanics."
+    },
+    {
+      "id": "assumption6",
+      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange."
+    },
+    {
+      "id": "assumption7",
+      "text": "Fermions have half-integer spin and antisymmetric wavefunctions."
+    },
+    {
+      "id": "assumption8",
+      "text": "Each quantum state is characterized by a complete set of quantum numbers."
     }
   ],
   "derivation": [
@@ -96,24 +112,6 @@
     {
       "step": 13,
       "equation": "N_max = (2*l + 1) * 2 = 2*(2*l + 1)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Identical particles are truly indistinguishable in quantum mechanics."
-    },
-    {
-      "id": "assumption2",
-      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange."
-    },
-    {
-      "id": "assumption3",
-      "text": "Fermions have half-integer spin and antisymmetric wavefunctions."
-    },
-    {
-      "id": "assumption4",
-      "text": "Each quantum state is characterized by a complete set of quantum numbers."
     }
   ],
   "derivation_explanation": [
@@ -272,11 +270,11 @@
       "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

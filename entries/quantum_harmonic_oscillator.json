@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The quantum harmonic oscillator describes a quantum particle in a parabolic potential. Unlike the classical oscillator, energy levels are discrete and equally spaced, with a zero-point energy of ℏω/2. This model is fundamental in quantum mechanics, appearing in molecular vibrations, phonons, and quantum field theory.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The particle is confined to one dimension and non-relativistic."
-    }
-  ],
   "definitions": [
     {
       "symbol": "E_n",
@@ -50,6 +40,24 @@
     {
       "symbol": "m",
       "definition": "Mass of the particle."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The particle is confined to one dimension and non-relativistic."
+    },
+    {
+      "id": "assumption3",
+      "text": "The Schrödinger equation applies with the harmonic oscillator potential."
+    },
+    {
+      "id": "assumption4",
+      "text": "Ladder operator algebra applies to find eigenvalues."
     }
   ],
   "derivation": [
@@ -84,16 +92,6 @@
     {
       "step": 8,
       "equation": "E_n = hbar omega (n + 1/2)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The Schrödinger equation applies with the harmonic oscillator potential."
-    },
-    {
-      "id": "assumption2",
-      "text": "Ladder operator algebra applies to find eigenvalues."
     }
   ],
   "derivation_explanation": [
@@ -198,11 +196,11 @@
     "schroedingen_equation",
     "simple_harmonic_oscillator"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

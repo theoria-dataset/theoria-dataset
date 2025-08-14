@@ -86,7 +86,7 @@ def generate_contributing_md(requirements_file, output_file):
     # Process fields in specific order for readability
     field_order = [
         'result_id', 'result_name', 'result_equations', 'explanation',
-        'equations_assumptions', 'definitions', 'derivation', 'derivation_assumptions',
+        'definitions', 'assumptions', 'derivation',
         'derivation_explanation', 'programmatic_verification', 'domain',
         'theory_status', 'validity_regime', 'superseded_by', 'approximation_of',
         'historical_context', 'references', 'dependencies', 'created_by', 'review_status'
