@@ -162,12 +162,7 @@
       "version": "0.4.5",
       "date": "2025-08-14",
       "changes": [
-        "Enhanced Planck radiation law entry with comprehensive 16-step derivation showing complete path from Maxwell equations to quantum statistical mechanics.",
-        "Added explicit standing wave enumeration and mode counting in electromagnetic cavities.",
-        "Improved mathematical rigor with detailed partition function derivation and Bose-Einstein statistics.",
-        "Added dependencies on maxwell_equations and partition_function entries for modular approach.",
-        "Enhanced programmatic verification following all derivation steps with intermediate assertions.",
-        "Updated to reviewed status with proper contributor attribution."
+        "Reviewed Planck radiation law entry"
       ]
     }
   ]
