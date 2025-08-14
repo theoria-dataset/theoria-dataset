@@ -187,6 +187,7 @@ function loadEntry(filename) {
     "historicalContext",
     "references",
     "dependencies",
+    "supersededBy",
     "meta-domain",
     "meta-created",
     "meta-status",
@@ -394,13 +395,31 @@ function render(data) {
     safeTypesetMathJax([qs("#historicalContext")]);
   }
 
-  renderList(
-    "#dependencies ul",
-    data.dependencies || [],
-    (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
-    true
-  );
-  safeTypesetMathJax([qs("#dependencies")]);
+  // Dependencies section - only show if data exists
+  if (data.dependencies && data.dependencies.length > 0) {
+    renderList(
+      "#dependencies ul",
+      data.dependencies,
+      (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
+      true
+    );
+    safeTypesetMathJax([qs("#dependencies")]);
+  } else {
+    qs("#dependencies").style.display = "none";
+  }
+
+  // Superseded by section - only show if data exists
+  if (data.superseded_by && data.superseded_by.length > 0) {
+    renderList(
+      "#supersededBy ul",
+      data.superseded_by,
+      (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
+      true
+    );
+    safeTypesetMathJax([qs("#supersededBy")]);
+  } else {
+    qs("#supersededBy").style.display = "none";
+  }
 
   $("meta-domain").textContent = data.domain;
   $("meta-created").textContent = data.created_by;
