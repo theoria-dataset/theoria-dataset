@@ -147,7 +147,11 @@
     {
       "version": "0.4.4",
       "date": "2025-08-14",
-      "changes": ["Adding special relativity reviewed entry."]
+      "changes": [
+        "Adding special relativity reviewed entry.",
+        "Added comprehensive FAQ page with common questions about the dataset.",
+        "Updated GitHub issue templates to allow blank issues without enforcing templates."
+      ]
     }
   ]
 }
