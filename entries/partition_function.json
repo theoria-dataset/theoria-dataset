@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The partition function is the central quantity in statistical mechanics that connects microscopic energy states to macroscopic thermodynamic properties. It represents the sum over all possible energy states weighted by their Boltzmann factors. All thermodynamic quantities can be derived from the partition function.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is in thermal equilibrium with a heat reservoir at temperature T."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The number of particles is fixed (canonical ensemble)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "Z",
@@ -42,6 +32,24 @@
     {
       "symbol": "F",
       "definition": "Helmholtz free energy."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is in thermal equilibrium with a heat reservoir at temperature T."
+    },
+    {
+      "id": "assumption2",
+      "text": "The number of particles is fixed (canonical ensemble)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Boltzmann distribution applies to the probability of each microstate."
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical thermodynamic relations hold for ensemble averages."
     }
   ],
   "derivation": [
@@ -76,16 +84,6 @@
     {
       "step": 8,
       "equation": "F = -k_B T ln(Z)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Boltzmann distribution applies to the probability of each microstate."
-    },
-    {
-      "id": "assumption2",
-      "text": "Classical thermodynamic relations hold for ensemble averages."
     }
   ],
   "derivation_explanation": [
@@ -194,11 +192,11 @@
     "boltzmann_distribution",
     "first_law_thermodynamics"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

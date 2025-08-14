@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The third law of thermodynamics states that the entropy of a perfect crystal approaches zero as temperature approaches absolute zero. This law provides an absolute reference point for entropy calculations and explains why absolute zero is unattainable. It has profound implications for low-temperature physics and quantum statistical mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is a perfect crystal with no structural defects or disorder."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "All nuclear spins are aligned (no nuclear entropy contribution)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "S(T)",
@@ -38,6 +28,24 @@
     {
       "symbol": "X",
       "definition": "Any extensive thermodynamic variable (volume, pressure, etc.)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is a perfect crystal with no structural defects or disorder."
+    },
+    {
+      "id": "assumption2",
+      "text": "All nuclear spins are aligned (no nuclear entropy contribution)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The system has a unique ground state (single microstate at T = 0)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Quantum statistical mechanics applies at low temperatures."
     }
   ],
   "derivation": [
@@ -60,16 +68,6 @@
     {
       "step": 5,
       "equation": "lim_(T -> 0) (partial S/partial X) = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system has a unique ground state (single microstate at T = 0)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Quantum statistical mechanics applies at low temperatures."
     }
   ],
   "derivation_explanation": [
@@ -160,11 +158,11 @@
     "first_law_thermodynamics",
     "second_law_thermodynamics_clausius"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

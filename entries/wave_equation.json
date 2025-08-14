@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The wave equation is a fundamental partial differential equation that describes the propagation of waves through a medium. It relates the second derivatives of a wave function with respect to time and space coordinates.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Linear medium"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Homogeneous medium"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Constant wave speed"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "No dispersion"
-    }
-  ],
   "definitions": [
     {
       "symbol": "u(x,t)",
@@ -64,6 +46,40 @@
       "definition": "Laplacian operator"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Linear medium"
+    },
+    {
+      "id": "assumption2",
+      "text": "Homogeneous medium"
+    },
+    {
+      "id": "assumption3",
+      "text": "Constant wave speed"
+    },
+    {
+      "id": "assumption4",
+      "text": "No dispersion"
+    },
+    {
+      "id": "assumption5",
+      "text": "Small amplitude approximation"
+    },
+    {
+      "id": "assumption6",
+      "text": "Elastic medium properties"
+    },
+    {
+      "id": "assumption7",
+      "text": "No energy loss"
+    },
+    {
+      "id": "assumption8",
+      "text": "Continuous medium"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -88,24 +104,6 @@
     {
       "step": 6,
       "equation": "\\frac{\\partial^2 u}{\\partial t^2} = \\frac{T}{\\mu} \\frac{\\partial^2 u}{\\partial x^2} = v^2 \\frac{\\partial^2 u}{\\partial x^2}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Small amplitude approximation"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Elastic medium properties"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "No energy loss"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Continuous medium"
     }
   ],
   "derivation_explanation": [
@@ -208,11 +206,11 @@
     }
   ],
   "dependencies": [],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

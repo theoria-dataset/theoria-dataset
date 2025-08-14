@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The Schwarzschild radius defines the event horizon of a black hole - the critical radius where the escape velocity equals the speed of light. Named after Karl Schwarzschild, who found the first exact solution to Einstein's field equations, it represents the boundary beyond which nothing, not even light, can escape the gravitational pull. This fundamental length scale determines when an object becomes a black hole and governs the most extreme gravitational environments in the universe.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Spherically symmetric, non-rotating black hole."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "General relativity is the correct theory of gravity."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The mass M is concentrated within the Schwarzschild radius."
-    }
-  ],
   "definitions": [
     {
       "symbol": "r_s",
@@ -54,6 +36,40 @@
     {
       "symbol": "v_escape",
       "definition": "Escape velocity from radius r."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Spherically symmetric, non-rotating black hole."
+    },
+    {
+      "id": "assumption2",
+      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström)."
+    },
+    {
+      "id": "assumption3",
+      "text": "General relativity is the correct theory of gravity."
+    },
+    {
+      "id": "assumption4",
+      "text": "The mass M is concentrated within the Schwarzschild radius."
+    },
+    {
+      "id": "assumption5",
+      "text": "Energy conservation applies in the classical derivation."
+    },
+    {
+      "id": "assumption6",
+      "text": "The speed of light is the maximum possible velocity."
+    },
+    {
+      "id": "assumption7",
+      "text": "General relativity provides the correct spacetime geometry."
+    },
+    {
+      "id": "assumption8",
+      "text": "The Schwarzschild solution is the appropriate metric."
     }
   ],
   "derivation": [
@@ -100,24 +116,6 @@
     {
       "step": 11,
       "equation": "r_s = 2*G*M/c^2"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy conservation applies in the classical derivation."
-    },
-    {
-      "id": "assumption2",
-      "text": "The speed of light is the maximum possible velocity."
-    },
-    {
-      "id": "assumption3",
-      "text": "General relativity provides the correct spacetime geometry."
-    },
-    {
-      "id": "assumption4",
-      "text": "The Schwarzschild solution is the appropriate metric."
     }
   ],
   "derivation_explanation": [
@@ -269,11 +267,11 @@
     "einstein_field_equations",
     "gravitational_force"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

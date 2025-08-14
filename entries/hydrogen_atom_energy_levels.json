@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "The hydrogen atom energy levels describe the quantized energy states of an electron bound to a proton. The energy depends only on the principal quantum number n, with the ground state at -13.6 eV. These energy levels explain the hydrogen spectrum and demonstrate key principles of quantum mechanics including energy quantization and wave-particle duality.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Only Coulomb interaction between electron and proton is considered."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Relativistic effects and spin-orbit coupling are neglected."
-    }
-  ],
   "definitions": [
     {
       "symbol": "E_n",
@@ -60,6 +46,28 @@
       "definition": "Reduced Planck constant."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Only Coulomb interaction between electron and proton is considered."
+    },
+    {
+      "id": "assumption3",
+      "text": "Relativistic effects and spin-orbit coupling are neglected."
+    },
+    {
+      "id": "assumption4",
+      "text": "The Schrödinger equation applies with Coulomb potential."
+    },
+    {
+      "id": "assumption5",
+      "text": "Separation of variables in spherical coordinates is possible."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,16 +100,6 @@
     {
       "step": 8,
       "equation": "a_0 = (4 pi epsilon_0 hbar^2)/(m_e e^2)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The Schrödinger equation applies with Coulomb potential."
-    },
-    {
-      "id": "assumption2",
-      "text": "Separation of variables in spherical coordinates is possible."
     }
   ],
   "derivation_explanation": [
@@ -211,11 +209,11 @@
     "schroedingen_equation",
     "coulombs_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

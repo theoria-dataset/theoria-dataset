@@ -40,24 +40,6 @@
     }
   ],
   "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence E = mc². These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The principle of relativity: the laws of physics are the same in all inertial reference frames."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Spacetime is flat (no gravitational effects considered)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Reference frames move with constant relative velocity (no acceleration)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "t",
@@ -110,6 +92,28 @@
     {
       "symbol": "E_0",
       "definition": "Rest energy of the particle (E_0 = mc^2)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The principle of relativity: the laws of physics are the same in all inertial reference frames."
+    },
+    {
+      "id": "assumption2",
+      "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer."
+    },
+    {
+      "id": "assumption3",
+      "text": "Spacetime is flat (no gravitational effects considered)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Reference frames move with constant relative velocity (no acceleration)."
+    },
+    {
+      "id": "assumption5",
+      "text": "Energy and momentum conservation hold in relativistic mechanics."
     }
   ],
   "derivation": [
@@ -262,32 +266,10 @@
       "equation": "E^2 - (p*c)^2 = m^2*c^4 = (m*c^2)^2"
     }
   ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linearity: the transformation (x,t) → (x',t') is linear owing to homogeneity of space‑time."
-    },
-    {
-      "id": "assumption2",
-      "text": "Light‑speed invariance: a ray with x = ±c·t in S satisfies x' = ±c·t' in S'."
-    },
-    {
-      "id": "assumption3",
-      "text": "Frame setup: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0."
-    },
-    {
-      "id": "assumption4",
-      "text": "The spacetime interval is invariant under coordinate transformations."
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy and momentum conservation hold in relativistic mechanics."
-    }
-  ],
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Postulate the most general linear transformation between coordinates in two inertial frames."
+      "text": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime)."
     },
     {
       "step": 2,
@@ -299,11 +281,11 @@
     },
     {
       "step": 4,
-      "text": "Demand that any right light x=+c*t in S also satisfies x'=+c*t' in S' substituting in equations from step1. Use step3."
+      "text": "Apply light-speed invariance: demand that any right-moving light pulse x=+c*t in S also satisfies x'=+c*t' in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3."
     },
     {
       "step": 5,
-      "text": "Repeat for a left-moving pulse (x=-c*t in S and x'=-c*t' in S') to get a second constraint."
+      "text": "Apply light-speed invariance for left-moving pulse: repeat for x=-c*t in S and x'=-c*t' in S' to get a second constraint from the constancy of light speed."
     },
     {
       "step": 6,
@@ -319,7 +301,7 @@
     },
     {
       "step": 9,
-      "text": "Demand invariance of the spacetime interval: x'^2 - c^2*t'^2 = x^2 - c^2*t^2."
+      "text": "Apply spacetime interval invariance: demand x'^2 - c^2*t'^2 = x^2 - c^2*t^2 (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames)."
     },
     {
       "step": 10,
@@ -575,11 +557,11 @@
       "citation": "Rindler, W. (1991). Introduction to Special Relativity (2nd ed.). Oxford University Press."
     }
   ],
-  "review_status": "reviewed",
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",
       "identifier": "ORCID 0009-0006-4904-3695"
     }
-  ]
+  ],
+  "review_status": "reviewed"
 }

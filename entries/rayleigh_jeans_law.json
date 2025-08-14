@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The Rayleigh-Jeans law describes the classical limit of blackbody radiation for long wavelengths (low frequencies), where the energy density is proportional to temperature and inversely proportional to the fourth power of wavelength. This classical result agrees with experiments at long wavelengths but fails catastrophically at short wavelengths, leading to the ultraviolet catastrophe that motivated Planck's quantum theory of radiation.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Classical statistical mechanics applies (equipartition theorem)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The radiation is in thermal equilibrium with the blackbody."
-    }
-  ],
   "definitions": [
     {
       "symbol": "u(lambda, T)",
@@ -54,6 +36,40 @@
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Classical statistical mechanics applies (equipartition theorem)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators."
+    },
+    {
+      "id": "assumption3",
+      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The radiation is in thermal equilibrium with the blackbody."
+    },
+    {
+      "id": "assumption5",
+      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity."
+    },
+    {
+      "id": "assumption6",
+      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem."
+    },
+    {
+      "id": "assumption7",
+      "text": "The transformation from frequency to wavelength space preserves the total energy."
+    },
+    {
+      "id": "assumption8",
+      "text": "The spectral radiance relates to energy density through geometric factors."
     }
   ],
   "derivation": [
@@ -108,24 +124,6 @@
     {
       "step": 13,
       "equation": "B(lambda, T) = (2*c*k_B*T)/lambda^4"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity."
-    },
-    {
-      "id": "assumption2",
-      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem."
-    },
-    {
-      "id": "assumption3",
-      "text": "The transformation from frequency to wavelength space preserves the total energy."
-    },
-    {
-      "id": "assumption4",
-      "text": "The spectral radiance relates to energy density through geometric factors."
     }
   ],
   "derivation_explanation": [
@@ -247,9 +245,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "historical",
-  "dependencies": [
-    "planck_radiation_law"
-  ],
   "references": [
     {
       "id": "R1",
@@ -260,11 +255,14 @@
       "citation": "Jeans, J. H. (1905). 'On the Partition of Energy between Matter and Æther.' Philosophical Magazine, 10, 91-98."
     }
   ],
-  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

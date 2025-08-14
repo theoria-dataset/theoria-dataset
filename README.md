@@ -54,7 +54,7 @@ theoretical-physics-dataset/
 We are _tiny_ right now, every new entry counts! To contribute:
 
 1. **Fork and clone**
-2. **Create a JSON in `entries/`** following the instruciont in the [CONTRIBUTING.md](CONTRIBUTING.md) file and the schema in `schemas/entry.schema.json`.
+2. **Create a JSON in `entries/`** following the instructions in the [CONTRIBUTING.md](CONTRIBUTING.md) file and the schema in `schemas/entry.schema.json`.
 3. **Submit your Pull Request**. CI will automatically validate your JSON against the schema. If it passes, we will review and merge it.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.

@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Lenz's law states that the direction of an induced current is such that its magnetic field opposes the change in flux that produced it. This law is a manifestation of energy conservation in electromagnetic systems, ensuring that induced currents always act to resist changes in magnetic flux, requiring work to maintain the changing flux.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The magnetic flux through a closed conducting loop is changing with time."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The conducting loop has finite resistance allowing current flow."
-    }
-  ],
   "definitions": [
     {
       "symbol": "EMF",
@@ -38,6 +28,24 @@
     {
       "symbol": "U_magnetic",
       "definition": "Magnetic potential energy of the system."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The magnetic flux through a closed conducting loop is changing with time."
+    },
+    {
+      "id": "assumption2",
+      "text": "The conducting loop has finite resistance allowing current flow."
+    },
+    {
+      "id": "assumption3",
+      "text": "Energy conservation applies to the electromagnetic system."
+    },
+    {
+      "id": "assumption4",
+      "text": "The system can be treated using classical electromagnetism."
     }
   ],
   "derivation": [
@@ -68,16 +76,6 @@
     {
       "step": 7,
       "equation": "vec F opposes motion => negative work by induced current"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy conservation applies to the electromagnetic system."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can be treated using classical electromagnetism."
     }
   ],
   "derivation_explanation": [
@@ -181,11 +179,11 @@
     "faradays_law",
     "conservation_of_energy"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

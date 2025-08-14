@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "The Doppler effect describes the change in frequency of a wave when there is relative motion between the source and observer. The observed frequency increases when source and observer approach each other and decreases when they move apart.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Classical mechanics (non-relativistic)"
-    },
-    {
-      "id": "assump2",
-      "text": "Homogeneous medium"
-    },
-    {
-      "id": "assump3",
-      "text": "Straight-line motion"
-    },
-    {
-      "id": "assump4",
-      "text": "Constant velocities"
-    }
-  ],
   "definitions": [
     {
       "symbol": "f'",
@@ -68,6 +50,40 @@
       "definition": "Speed of light"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Classical mechanics (non-relativistic)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Homogeneous medium"
+    },
+    {
+      "id": "assumption3",
+      "text": "Straight-line motion"
+    },
+    {
+      "id": "assumption4",
+      "text": "Constant velocities"
+    },
+    {
+      "id": "assumption5",
+      "text": "Small velocities compared to wave speed"
+    },
+    {
+      "id": "assumption6",
+      "text": "Source and observer move along line connecting them"
+    },
+    {
+      "id": "assumption7",
+      "text": "Medium at rest"
+    },
+    {
+      "id": "assumption8",
+      "text": "Wave propagation is isotropic"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -88,24 +104,6 @@
     {
       "step": 5,
       "equation": "f' = f \\frac{1 \\pm v_r/v}{1 \\pm v_s/v} = f \\frac{v \\pm v_r}{v \\pm v_s}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Small velocities compared to wave speed"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Source and observer move along line connecting them"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Medium at rest"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Wave propagation is isotropic"
     }
   ],
   "derivation_explanation": [
@@ -237,11 +235,11 @@
     "wave_equation",
     "waves_interference"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

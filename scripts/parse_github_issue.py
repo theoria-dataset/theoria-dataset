@@ -162,10 +162,9 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
         'result_name': parsed_data.get('entry_name', ''),
         'result_equations': equations,
         'explanation': parsed_data.get('explanation', ''),
-        'equations_assumptions': [],  # Will be filled manually if needed
         'definitions': definitions,
+        'assumptions': [],  # Will be filled manually if needed
         'derivation': derivation,
-        'derivation_assumptions': [],  # Will be filled manually if needed
         'derivation_explanation': derivation_explanation,
         'programmatic_verification': {
             'language': 'python 3.11.0',

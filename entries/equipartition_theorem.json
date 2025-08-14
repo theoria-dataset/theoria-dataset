@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The equipartition theorem states that each quadratic term in the Hamiltonian contributes (1/2)k_B*T to the average energy in thermal equilibrium. This fundamental principle of classical statistical mechanics explains heat capacities, connects microscopic motion to temperature, and provides the classical limit of quantum systems. It fails at low temperatures where quantum effects become important.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Classical statistical mechanics applies (no quantum effects)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Each degree of freedom appears quadratically in the Hamiltonian."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The potential energy has no infinite barriers or singular behavior."
-    }
-  ],
   "definitions": [
     {
       "symbol": "x_i",
@@ -50,6 +32,40 @@
     {
       "symbol": "T",
       "definition": "Absolute temperature of the system."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "assumption2",
+      "text": "Classical statistical mechanics applies (no quantum effects)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Each degree of freedom appears quadratically in the Hamiltonian."
+    },
+    {
+      "id": "assumption4",
+      "text": "The potential energy has no infinite barriers or singular behavior."
+    },
+    {
+      "id": "assumption5",
+      "text": "The canonical ensemble describes the system in thermal equilibrium."
+    },
+    {
+      "id": "assumption6",
+      "text": "Integration by parts can be applied and boundary terms vanish."
+    },
+    {
+      "id": "assumption7",
+      "text": "The Hamiltonian is quadratic in each degree of freedom."
+    },
+    {
+      "id": "assumption8",
+      "text": "The system has sufficient degrees of freedom for statistical treatment."
     }
   ],
   "derivation": [
@@ -108,24 +124,6 @@
     {
       "step": 14,
       "equation": "<E_i> = (1/2) * k_B*T"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The canonical ensemble describes the system in thermal equilibrium."
-    },
-    {
-      "id": "assumption2",
-      "text": "Integration by parts can be applied and boundary terms vanish."
-    },
-    {
-      "id": "assumption3",
-      "text": "The Hamiltonian is quadratic in each degree of freedom."
-    },
-    {
-      "id": "assumption4",
-      "text": "The system has sufficient degrees of freedom for statistical treatment."
     }
   ],
   "derivation_explanation": [
@@ -279,11 +277,11 @@
       "citation": "Reif, F. (1965). Fundamentals of Statistical and Thermal Physics. McGraw-Hill."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

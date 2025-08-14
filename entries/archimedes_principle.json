@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Archimedes' principle states that the buoyant force on an object immersed in a fluid equals the weight of the fluid displaced by the object. This fundamental law explains why objects float or sink and forms the foundation of fluid statics, ship design, and density measurements. The principle applies to any fluid in a gravitational field.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The fluid is in hydrostatic equilibrium (no fluid motion)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The gravitational field is uniform over the object's dimensions."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The fluid density is constant (incompressible fluid)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The object is completely or partially submerged in the fluid."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec F_buoyant",
@@ -50,6 +32,40 @@
     {
       "symbol": "vec F_fluid_weight",
       "definition": "Weight of the displaced fluid (downward)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The fluid is in hydrostatic equilibrium (no fluid motion)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The gravitational field is uniform over the object's dimensions."
+    },
+    {
+      "id": "assumption3",
+      "text": "The fluid density is constant (incompressible fluid)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The object is completely or partially submerged in the fluid."
+    },
+    {
+      "id": "assumption5",
+      "text": "Hydrostatic pressure varies linearly with depth in a uniform gravitational field."
+    },
+    {
+      "id": "assumption6",
+      "text": "The net force on the object equals the integral of pressure over its surface."
+    },
+    {
+      "id": "assumption7",
+      "text": "The mathematical identity for surface integrals of closed surfaces applies."
+    },
+    {
+      "id": "assumption8",
+      "text": "The buoyant force direction is opposite to the weight of displaced fluid."
     }
   ],
   "derivation": [
@@ -108,24 +124,6 @@
     {
       "step": 14,
       "equation": "vec F_buoyant = -vec F_fluid_weight"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Hydrostatic pressure varies linearly with depth in a uniform gravitational field."
-    },
-    {
-      "id": "assumption2",
-      "text": "The net force on the object equals the integral of pressure over its surface."
-    },
-    {
-      "id": "assumption3",
-      "text": "The mathematical identity for surface integrals of closed surfaces applies."
-    },
-    {
-      "id": "assumption4",
-      "text": "The buoyant force direction is opposite to the weight of displaced fluid."
     }
   ],
   "derivation_explanation": [
@@ -276,11 +274,11 @@
       "citation": "Munson, B. R., Young, D. F., & Okiishi, T. H. (2009). Fundamentals of Fluid Mechanics (6th ed.). John Wiley & Sons."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

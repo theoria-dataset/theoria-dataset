@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Gravitational time dilation describes how time passes more slowly in stronger gravitational fields according to general relativity. Clocks closer to massive objects run slower when observed from weaker gravitational fields, with the effect proportional to the gravitational potential difference. This phenomenon is crucial for GPS satellite accuracy, explains redshift of light escaping gravitational wells, and provides direct evidence for the equivalence principle.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The gravitational field is weak (`GM/(c²r) << 1`)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The mass distribution is spherically symmetric (Schwarzschild metric)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The observer is at a much larger distance from the gravitational source than the emitter."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Special relativistic effects from relative motion are negligible."
-    }
-  ],
   "definitions": [
     {
       "symbol": "dt_obs",
@@ -62,6 +44,40 @@
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The gravitational field is weak (`GM/(c²r) << 1`)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The mass distribution is spherically symmetric (Schwarzschild metric)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The observer is at a much larger distance from the gravitational source than the emitter."
+    },
+    {
+      "id": "assumption4",
+      "text": "Special relativistic effects from relative motion are negligible."
+    },
+    {
+      "id": "assumption5",
+      "text": "The Schwarzschild metric accurately describes spacetime around a spherically symmetric mass."
+    },
+    {
+      "id": "assumption6",
+      "text": "The weak field approximation applies (`GM/(c²r) << 1`)."
+    },
+    {
+      "id": "assumption7",
+      "text": "Proper time corresponds to the time measured by a local clock at rest."
+    },
+    {
+      "id": "assumption8",
+      "text": "Coordinate time corresponds to time measured by an observer at spatial infinity."
     }
   ],
   "derivation": [
@@ -128,24 +144,6 @@
     {
       "step": 16,
       "equation": "f_obs = f_proper * sqrt(1 - (2*G*M)/(c^2*r))"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The Schwarzschild metric accurately describes spacetime around a spherically symmetric mass."
-    },
-    {
-      "id": "assumption2",
-      "text": "The weak field approximation applies (`GM/(c²r) << 1`)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Proper time corresponds to the time measured by a local clock at rest."
-    },
-    {
-      "id": "assumption4",
-      "text": "Coordinate time corresponds to time measured by an observer at spatial infinity."
     }
   ],
   "derivation_explanation": [
@@ -294,11 +292,11 @@
       "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). Gravitation. W. H. Freeman and Company."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -19,24 +19,6 @@
       "equation": "grad times bb B = mu_0 * bb J + 1/c^2 * (partial bb E)/(partial t)"
     }
   ],
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Fields and sources are continuously differentiable so vector-calculus theorems apply."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
-    }
-  ],
   "explanation": "Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents. These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light. They are essential for understanding electromagnetic phenomena from radio waves to optics, and form the basis for electrical engineering and modern communications technology.",
   "definitions": [
     {
@@ -72,29 +54,45 @@
       "definition": "Speed of light in vacuum, related by `c^2 = 1/(epsilon_0*mu_0)`."
     }
   ],
-  "derivation_assumptions": [
+  "assumptions": [
     {
       "id": "assumption1",
-      "text": "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law)."
+      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`."
     },
     {
       "id": "assumption2",
-      "text": "Empirical: Magnetic monopoles have never been observed."
+      "text": "Fields and sources are continuously differentiable so vector-calculus theorems apply."
     },
     {
       "id": "assumption3",
-      "text": "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments)."
+      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`."
     },
     {
       "id": "assumption4",
-      "text": "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments)."
+      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
     },
     {
       "id": "assumption5",
-      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`."
+      "text": "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law)."
     },
     {
       "id": "assumption6",
+      "text": "Empirical: Magnetic monopoles have never been observed."
+    },
+    {
+      "id": "assumption7",
+      "text": "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments)."
+    },
+    {
+      "id": "assumption8",
+      "text": "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments)."
+    },
+    {
+      "id": "assumption9",
+      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`."
+    },
+    {
+      "id": "assumption10",
       "text": "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
     }
   ],
@@ -284,16 +282,6 @@
     ]
   },
   "domain": "physics.class-ph",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Jackson, J. D. (1999). *Classical Electrodynamics* (3rd ed.). Wiley."
-    },
-    {
-      "id": "R2",
-      "citation": "Griffiths, D. J. (2013). *Introduction to Electrodynamics* (4th ed.). Pearson."
-    }
-  ],
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -316,11 +304,21 @@
       "Displacement current concept"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Jackson, J. D. (1999). *Classical Electrodynamics* (3rd ed.). Wiley."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2013). *Introduction to Electrodynamics* (4th ed.). Pearson."
+    }
+  ],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",
       "identifier": "Not provided"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

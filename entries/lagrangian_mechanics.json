@@ -16,20 +16,6 @@
     }
   ],
   "explanation": "Lagrangian mechanics reformulates classical mechanics using the Lagrangian function L = T - V, where T is kinetic energy and V is potential energy. The principle of stationary action states that physical systems evolve along paths that make the action S stationary. This formulation provides a powerful alternative to Newtonian mechanics, particularly useful for complex coordinate systems and constrained motion.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities."
-    }
-  ],
   "definitions": [
     {
       "symbol": "L",
@@ -64,6 +50,36 @@
       "definition": "Variation of the action under small changes in the path."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
+    },
+    {
+      "id": "assumption2",
+      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
+    },
+    {
+      "id": "assumption3",
+      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities."
+    },
+    {
+      "id": "assumption4",
+      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
+    },
+    {
+      "id": "assumption5",
+      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
+    },
+    {
+      "id": "assumption6",
+      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`."
+    },
+    {
+      "id": "assumption7",
+      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -92,24 +108,6 @@
     {
       "step": 7,
       "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`."
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
     }
   ],
   "derivation_explanation": [
@@ -210,9 +208,6 @@
       "Foundation for modern physics"
     ]
   },
-  "dependencies": [
-    "euler_lagrange_equation"
-  ],
   "references": [
     {
       "id": "R1",
@@ -227,11 +222,14 @@
       "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann."
     }
   ],
-  "review_status": "draft",
+  "dependencies": [
+    "euler_lagrange_equation"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

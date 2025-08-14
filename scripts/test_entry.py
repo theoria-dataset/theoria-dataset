@@ -51,10 +51,10 @@ def test_single_entry(filename):
     # Check required fields
     required_fields = [
         'result_id', 'result_name', 'result_equations', 'explanation',
-        'equations_assumptions', 'definitions', 'derivation',
-        'derivation_assumptions', 'derivation_explanation', 
+        'definitions', 'assumptions', 'derivation',
+        'derivation_explanation', 
         'programmatic_verification', 'domain', 'theory_status',
-        'references', 'created_by', 'review_status'
+        'references', 'contributors', 'review_status'
     ]
     
     missing = [field for field in required_fields if field not in data]

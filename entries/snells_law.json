@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "Snell's law describes the relationship between the angles of incidence and refraction when light passes from one medium to another with different optical properties. The law states that the product of refractive index and sine of angle remains constant across the interface. This fundamental principle governs the behavior of light in lenses, prisms, optical fibers, and explains phenomena like total internal reflection and mirages.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The interface between media is smooth and well-defined."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The media are homogeneous and isotropic."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Geometric optics applies (wavelength much smaller than relevant length scales)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The light beam is a plane wave with well-defined direction."
-    }
-  ],
   "definitions": [
     {
       "symbol": "n_1",
@@ -58,6 +40,40 @@
     {
       "symbol": "v",
       "definition": "Speed of light in the medium."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The interface between media is smooth and well-defined."
+    },
+    {
+      "id": "assumption2",
+      "text": "The media are homogeneous and isotropic."
+    },
+    {
+      "id": "assumption3",
+      "text": "Geometric optics applies (wavelength much smaller than relevant length scales)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The light beam is a plane wave with well-defined direction."
+    },
+    {
+      "id": "assumption5",
+      "text": "Fermat's principle applies: light takes the path of stationary optical path length."
+    },
+    {
+      "id": "assumption6",
+      "text": "The optical path length is the integral of refractive index along the path."
+    },
+    {
+      "id": "assumption7",
+      "text": "The interface is planar and the geometry can be described in 2D coordinates."
+    },
+    {
+      "id": "assumption8",
+      "text": "The refractive index is constant within each medium."
     }
   ],
   "derivation": [
@@ -108,24 +124,6 @@
     {
       "step": 12,
       "equation": "n = c/v"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Fermat's principle applies: light takes the path of stationary optical path length."
-    },
-    {
-      "id": "assumption2",
-      "text": "The optical path length is the integral of refractive index along the path."
-    },
-    {
-      "id": "assumption3",
-      "text": "The interface is planar and the geometry can be described in 2D coordinates."
-    },
-    {
-      "id": "assumption4",
-      "text": "The refractive index is constant within each medium."
     }
   ],
   "derivation_explanation": [
@@ -244,11 +242,11 @@
       "citation": "Hecht, E. (2017). Optics (5th ed.). Pearson Education."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

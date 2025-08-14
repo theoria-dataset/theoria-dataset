@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Carnot efficiency represents the maximum theoretical efficiency of any heat engine operating between two thermal reservoirs. It depends only on the absolute temperatures of the hot and cold reservoirs, establishing an upper limit that no real heat engine can exceed. This efficiency is achieved by the reversible Carnot cycle and is fundamental to understanding the second law of thermodynamics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "All processes in the Carnot cycle are reversible (quasi-static and frictionless)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "eta_Carnot",
@@ -46,6 +36,24 @@
     {
       "symbol": "Q_C",
       "definition": "Heat rejected to the cold reservoir per cycle."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C."
+    },
+    {
+      "id": "assumption2",
+      "text": "All processes in the Carnot cycle are reversible (quasi-static and frictionless)."
+    },
+    {
+      "id": "assumption3",
+      "text": "The second law of thermodynamics applies (entropy of universe cannot decrease)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The reservoirs are large enough that their temperatures remain constant."
     }
   ],
   "derivation": [
@@ -80,16 +88,6 @@
     {
       "step": 8,
       "equation": "eta_Carnot = 1 - T_C/T_H"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The second law of thermodynamics applies (entropy of universe cannot decrease)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The reservoirs are large enough that their temperatures remain constant."
     }
   ],
   "derivation_explanation": [
@@ -207,11 +205,11 @@
     "second_law_thermodynamics_clausius",
     "first_law_thermodynamics"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

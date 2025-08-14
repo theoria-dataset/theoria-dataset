@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Gauss's law for gravity relates the gravitational field flux through a closed surface to the enclosed mass. Unlike electrostatics, gravitational forces are always attractive, resulting in negative flux and the negative sign in the law. This formulation provides the field-theoretic foundation for gravity, connecting Newton's law to modern field theory concepts.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Newtonian gravity applies (weak field, low velocity limit)"
-    },
-    {
-      "id": "assump2",
-      "text": "Mass distribution is continuous and well-defined"
-    },
-    {
-      "id": "assump3",
-      "text": "Gravitational field is differentiable and well-behaved"
-    },
-    {
-      "id": "assump4",
-      "text": "No relativistic effects (general relativity corrections ignored)"
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec(g)",
@@ -68,6 +50,40 @@
       "definition": "Gravitational potential (units m²·s⁻²)"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Newtonian gravity applies (weak field, low velocity limit)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Mass distribution is continuous and well-defined"
+    },
+    {
+      "id": "assumption3",
+      "text": "Gravitational field is differentiable and well-behaved"
+    },
+    {
+      "id": "assumption4",
+      "text": "No relativistic effects (general relativity corrections ignored)"
+    },
+    {
+      "id": "assumption5",
+      "text": "Newton's law of universal gravitation applies"
+    },
+    {
+      "id": "assumption6",
+      "text": "Superposition principle holds for gravitational fields"
+    },
+    {
+      "id": "assumption7",
+      "text": "Divergence theorem can be applied"
+    },
+    {
+      "id": "assumption8",
+      "text": "Mass distribution is localized and well-defined"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,24 +112,6 @@
     {
       "step": 7,
       "equation": "grad cdot vec(g) = -4 pi G rho"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Newton's law of universal gravitation applies"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Superposition principle holds for gravitational fields"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Divergence theorem can be applied"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Mass distribution is localized and well-defined"
     }
   ],
   "derivation_explanation": [
@@ -255,11 +253,11 @@
     "gravitational_force",
     "newtons_laws_of_motion"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -8,20 +8,6 @@
     }
   ],
   "explanation": "Fourier's conduction law states that heat-flux density `vec{q}` is proportional to the negative temperature gradient, `vec{q} = -k*nabla T`. It defines thermal conductivity, leads directly to the heat-diffusion equation and quantifies how rapidly solids or stationary fluids conduct heat. Engineers apply it to rate insulation, design heat exchangers and simulate geothermal or electronic cooling problems.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Heat moves only by conduction; convection and radiation are absent."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Thermal conductivity `k` is constant and isotropic."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The system is in steady state (no time dependence)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec{q}",
@@ -72,6 +58,28 @@
       "definition": "Temperature at x=L (`K`)."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Heat moves only by conduction; convection and radiation are absent."
+    },
+    {
+      "id": "assumption2",
+      "text": "Thermal conductivity `k` is constant and isotropic."
+    },
+    {
+      "id": "assumption3",
+      "text": "The system is in steady state (no time dependence)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Temperature varies linearly over small `Delta x`."
+    },
+    {
+      "id": "assumption5",
+      "text": "Material properties are uniform and isotropic."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -88,16 +96,6 @@
     {
       "step": 4,
       "equation": "`vec{q} = -k*nabla T`"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "ass1",
-      "text": "Temperature varies linearly over small `Delta x`."
-    },
-    {
-      "id": "ass2",
-      "text": "Material properties are uniform and isotropic."
     }
   ],
   "derivation_explanation": [
@@ -137,6 +135,7 @@
       "assert sp.simplify(q - k*(T1 - T2)/L) == 0"
     ]
   },
+  "domain": "cond-mat.stat-mech",
   "theory_status": "approximation",
   "validity_regime": {
     "conditions": [
@@ -161,7 +160,6 @@
       "Thermal conductivity concept"
     ]
   },
-  "domain": "cond-mat.stat-mech",
   "references": [
     {
       "id": "R1",
@@ -179,11 +177,11 @@
   "dependencies": [
     "first_law_thermodynamics"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

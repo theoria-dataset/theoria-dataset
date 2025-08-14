@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The virial theorem relates the time-averaged kinetic energy to the potential energy of a system in equilibrium. For systems with power-law potentials V ∝ r^n, it provides a direct relationship between kinetic and potential energies. This theorem is fundamental in astrophysics, atomic physics, and statistical mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is in a time-averaged equilibrium or bound state."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Forces are derivable from a potential function."
-    }
-  ],
   "definitions": [
     {
       "symbol": "<T>",
@@ -42,6 +32,24 @@
     {
       "symbol": "n",
       "definition": "Power in the potential law V ∝ r^n."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is in a time-averaged equilibrium or bound state."
+    },
+    {
+      "id": "assumption2",
+      "text": "Forces are derivable from a potential function."
+    },
+    {
+      "id": "assumption3",
+      "text": "The system is bound so that the moment of inertia is finite and time-averaged."
+    },
+    {
+      "id": "assumption4",
+      "text": "Forces are conservative and derivable from a potential."
     }
   ],
   "derivation": [
@@ -80,16 +88,6 @@
     {
       "step": 9,
       "equation": "2 <T> = n <V>"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is bound so that the moment of inertia is finite and time-averaged."
-    },
-    {
-      "id": "assumption2",
-      "text": "Forces are conservative and derivable from a potential."
     }
   ],
   "derivation_explanation": [
@@ -210,11 +208,11 @@
     "conservation_of_energy",
     "newtons_second_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

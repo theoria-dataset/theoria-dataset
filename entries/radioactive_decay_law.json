@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The radioactive decay law describes the exponential decrease of unstable nuclei over time. The number of undecayed nuclei decreases exponentially with a characteristic decay constant λ. The half-life represents the time for half the nuclei to decay, independent of the initial amount.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The decay probability per unit time is constant for each nucleus."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Decay events are independent and random."
-    }
-  ],
   "definitions": [
     {
       "symbol": "N(t)",
@@ -38,6 +28,24 @@
     {
       "symbol": "t_(1/2)",
       "definition": "Half-life of the radioactive isotope."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The decay probability per unit time is constant for each nucleus."
+    },
+    {
+      "id": "assumption2",
+      "text": "Decay events are independent and random."
+    },
+    {
+      "id": "assumption3",
+      "text": "Each nucleus has the same probability λdt of decaying in time interval dt."
+    },
+    {
+      "id": "assumption4",
+      "text": "The large number limit applies (statistical behavior)."
     }
   ],
   "derivation": [
@@ -72,16 +80,6 @@
     {
       "step": 8,
       "equation": "t_(1/2) = ln(2)/lambda"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Each nucleus has the same probability λdt of decaying in time interval dt."
-    },
-    {
-      "id": "assumption2",
-      "text": "The large number limit applies (statistical behavior)."
     }
   ],
   "derivation_explanation": [
@@ -181,11 +179,11 @@
       "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

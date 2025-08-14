@@ -12,24 +12,6 @@
     }
   ],
   "explanation": "The Boltzmann distribution describes the probability of finding a system in a particular energy state when in thermal equilibrium at temperature T. This fundamental statistical law governs how energy is distributed among particles in thermal systems and forms the cornerstone of statistical mechanics, explaining phenomena from gas kinetics to chemical equilibrium and phase transitions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The system is in thermal equilibrium at constant temperature."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system can exchange energy with a thermal reservoir but particle number is fixed."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Quantum states are discrete and non-degenerate (or degeneracies are included in the sum)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "The system follows classical or quantum statistical mechanics."
-    }
-  ],
   "definitions": [
     {
       "symbol": "P(E)",
@@ -54,6 +36,40 @@
     {
       "symbol": "T",
       "definition": "Absolute temperature of the thermal reservoir."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system is in thermal equilibrium at constant temperature."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system can exchange energy with a thermal reservoir but particle number is fixed."
+    },
+    {
+      "id": "assumption3",
+      "text": "Quantum states are discrete and non-degenerate (or degeneracies are included in the sum)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The system follows classical or quantum statistical mechanics."
+    },
+    {
+      "id": "assumption5",
+      "text": "The fundamental thermodynamic relation `dS = dE/T` applies to the system."
+    },
+    {
+      "id": "assumption6",
+      "text": "The system is weakly coupled to a much larger thermal reservoir."
+    },
+    {
+      "id": "assumption7",
+      "text": "The number of microstates is proportional to probability in thermal equilibrium."
+    },
+    {
+      "id": "assumption8",
+      "text": "Energy levels are well-defined and the system can be described by statistical mechanics."
     }
   ],
   "derivation": [
@@ -120,24 +136,6 @@
     {
       "step": 16,
       "equation": "Z = sum_i e^(-E_i/(k_B*T))"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The fundamental thermodynamic relation `dS = dE/T` applies to the system."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is weakly coupled to a much larger thermal reservoir."
-    },
-    {
-      "id": "assumption3",
-      "text": "The number of microstates is proportional to probability in thermal equilibrium."
-    },
-    {
-      "id": "assumption4",
-      "text": "Energy levels are well-defined and the system can be described by statistical mechanics."
     }
   ],
   "derivation_explanation": [
@@ -303,11 +301,11 @@
       "citation": "Reif, F. (1965). Fundamentals of Statistical and Thermal Physics. McGraw-Hill."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

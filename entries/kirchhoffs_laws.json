@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Kirchhoff's laws are fundamental principles for analyzing electrical circuits. Kirchhoff's Current Law (KCL) states that the sum of currents at any node equals zero, while Kirchhoff's Voltage Law (KVL) states that the sum of voltages around any closed loop equals zero.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Circuit elements are lumped (not distributed)"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Quasi-static conditions (frequencies low enough)"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Conservation of charge and energy"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "No time-varying magnetic fields threading loops"
-    }
-  ],
   "definitions": [
     {
       "symbol": "I_i",
@@ -62,6 +44,40 @@
     {
       "symbol": "R_i",
       "definition": "Resistance of element i"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Circuit elements are lumped (not distributed)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Quasi-static conditions (frequencies low enough)"
+    },
+    {
+      "id": "assumption3",
+      "text": "Conservation of charge and energy"
+    },
+    {
+      "id": "assumption4",
+      "text": "No time-varying magnetic fields threading loops"
+    },
+    {
+      "id": "assumption5",
+      "text": "Conservation of electric charge"
+    },
+    {
+      "id": "assumption6",
+      "text": "Conservation of energy"
+    },
+    {
+      "id": "assumption7",
+      "text": "Electrostatic field is conservative"
+    },
+    {
+      "id": "assumption8",
+      "text": "No accumulation of charge at nodes"
     }
   ],
   "derivation": [
@@ -92,24 +108,6 @@
     {
       "step": 7,
       "equation": "\\sum V_k = 0 \\text{ (KVL)}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Conservation of electric charge"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Conservation of energy"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Electrostatic field is conservative"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "No accumulation of charge at nodes"
     }
   ],
   "derivation_explanation": [
@@ -202,11 +200,11 @@
   "dependencies": [
     "ohms_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

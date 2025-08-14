@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The Hall effect occurs when a current-carrying conductor is placed in a magnetic field perpendicular to the current direction, resulting in a voltage difference across the conductor. This effect allows determination of charge carrier density, mobility, and type (positive or negative) in materials, making it fundamental for semiconductor characterization and magnetic field sensing.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The magnetic field is uniform and perpendicular to the current direction."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The conductor has a single type of charge carrier with well-defined mobility."
-    }
-  ],
   "definitions": [
     {
       "symbol": "V_H",
@@ -50,6 +40,24 @@
     {
       "symbol": "R_H",
       "definition": "Hall coefficient."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The magnetic field is uniform and perpendicular to the current direction."
+    },
+    {
+      "id": "assumption2",
+      "text": "The conductor has a single type of charge carrier with well-defined mobility."
+    },
+    {
+      "id": "assumption3",
+      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers."
+    },
+    {
+      "id": "assumption4",
+      "text": "The conductor geometry is well-defined with uniform current distribution."
     }
   ],
   "derivation": [
@@ -84,16 +92,6 @@
     {
       "step": 8,
       "equation": "V_H = (I B w)/(n q w t) = (I B)/(n q t)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers."
-    },
-    {
-      "id": "assumption2",
-      "text": "The conductor geometry is well-defined with uniform current distribution."
     }
   ],
   "derivation_explanation": [
@@ -203,11 +201,11 @@
     "ohms_law",
     "lorentz_force"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

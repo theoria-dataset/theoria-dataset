@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "The magnetic field is a vector field that describes the magnetic influence on moving electric charges, electric currents, and magnetic materials. It is produced by moving charges and changing electric fields, and exerts forces on other moving charges and magnetic dipoles.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Classical electromagnetism (non-relativistic limit)"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Steady currents (magnetostatics)"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Linear, isotropic media"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "No magnetic monopoles"
-    }
-  ],
   "definitions": [
     {
       "symbol": "B⃗",
@@ -76,6 +58,40 @@
       "definition": "Magnetic dipole moment"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Classical electromagnetism (non-relativistic limit)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Steady currents (magnetostatics)"
+    },
+    {
+      "id": "assumption3",
+      "text": "Linear, isotropic media"
+    },
+    {
+      "id": "assumption4",
+      "text": "No magnetic monopoles"
+    },
+    {
+      "id": "assumption5",
+      "text": "Maxwell's equations in magnetostatic limit"
+    },
+    {
+      "id": "assumption6",
+      "text": "Principle of superposition applies"
+    },
+    {
+      "id": "assumption7",
+      "text": "Current conservation (∇·J = 0)"
+    },
+    {
+      "id": "assumption8",
+      "text": "No time-varying electric fields"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -96,24 +112,6 @@
     {
       "step": 5,
       "equation": "\\vec{B} = \\frac{\\mu_0}{4\\pi} \\int \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Maxwell's equations in magnetostatic limit"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Principle of superposition applies"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Current conservation (∇·J = 0)"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "No time-varying electric fields"
     }
   ],
   "derivation_explanation": [
@@ -205,11 +203,11 @@
     "electric_field",
     "lorentz_force"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

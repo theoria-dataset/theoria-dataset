@@ -16,24 +16,6 @@
     }
   ],
   "explanation": "The Larmor formula describes the power radiated by a non-relativistic accelerating point charge. It shows that any accelerating charge emits electromagnetic radiation, with power proportional to the square of acceleration. This fundamental result explains energy loss in accelerating electrons, the instability of classical atomic models, and forms the basis for understanding synchrotron radiation, antenna theory, and electromagnetic braking.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Non-relativistic motion (v << c)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Point charge approximation."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Far-field radiation (observation distance >> wavelength)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Classical electrodynamics applies."
-    }
-  ],
   "definitions": [
     {
       "symbol": "P",
@@ -54,6 +36,40 @@
     {
       "symbol": "c",
       "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Non-relativistic motion (v << c)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Point charge approximation."
+    },
+    {
+      "id": "assumption3",
+      "text": "Far-field radiation (observation distance >> wavelength)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Classical electrodynamics applies."
+    },
+    {
+      "id": "assumption5",
+      "text": "The charge undergoes non-relativistic motion."
+    },
+    {
+      "id": "assumption6",
+      "text": "Radiation is observed in the far-field zone."
+    },
+    {
+      "id": "assumption7",
+      "text": "Classical electromagnetic theory is valid."
+    },
+    {
+      "id": "assumption8",
+      "text": "The charge is a point source."
     }
   ],
   "derivation": [
@@ -112,24 +128,6 @@
     {
       "step": 14,
       "equation": "P = (2*e^2*a^2)/(3*4*pi*epsilon_0*c^3)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The charge undergoes non-relativistic motion."
-    },
-    {
-      "id": "assumption2",
-      "text": "Radiation is observed in the far-field zone."
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical electromagnetic theory is valid."
-    },
-    {
-      "id": "assumption4",
-      "text": "The charge is a point source."
     }
   ],
   "derivation_explanation": [
@@ -292,11 +290,11 @@
     "electromagnetic_waves",
     "poynting_vector"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

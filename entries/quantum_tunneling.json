@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Quantum tunneling is the quantum mechanical phenomenon where particles can pass through potential barriers even when their kinetic energy is less than the barrier height. The transmission probability depends exponentially on the barrier width and height, and is strictly forbidden in classical mechanics. This effect is crucial in nuclear fusion, semiconductor devices, and scanning tunneling microscopes.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particle is described by a wavefunction satisfying the Schrödinger equation."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The potential barrier has a well-defined shape and finite extent."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The particle energy E is less than the barrier height V_0."
-    }
-  ],
   "definitions": [
     {
       "symbol": "T",
@@ -54,6 +40,28 @@
     {
       "symbol": "kappa",
       "definition": "Decay constant in the barrier (`kappa = sqrt(2m(V_0 - E))/hbar`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particle is described by a wavefunction satisfying the Schrödinger equation."
+    },
+    {
+      "id": "assumption2",
+      "text": "The potential barrier has a well-defined shape and finite extent."
+    },
+    {
+      "id": "assumption3",
+      "text": "The particle energy E is less than the barrier height V_0."
+    },
+    {
+      "id": "assumption4",
+      "text": "The barrier is rectangular with constant potential V_0 in the barrier region."
+    },
+    {
+      "id": "assumption5",
+      "text": "The particle approaches from the left with no reflection from the right."
     }
   ],
   "derivation": [
@@ -92,16 +100,6 @@
     {
       "step": 9,
       "equation": "For kappa a >> 1: T approx exp(-2 kappa a)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The barrier is rectangular with constant potential V_0 in the barrier region."
-    },
-    {
-      "id": "assumption2",
-      "text": "The particle approaches from the left with no reflection from the right."
     }
   ],
   "derivation_explanation": [
@@ -221,11 +219,11 @@
     "schroedingen_equation",
     "particle_in_a_box"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

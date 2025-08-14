@@ -4,24 +4,14 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"
+      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3)*(1)/(e^((h*nu)/(k_B*T)) - 1)"
     }
   ],
   "explanation": "Planck's law describes the spectral energy density of black-body radiation as a function of frequency and temperature. By quantizing electromagnetic modes with energy quanta `h*nu`, it resolves the ultraviolet catastrophe of classical physics and underpins modern quantum theory and thermal emission models.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Emitter is an ideal black body in thermal equilibrium."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Radiation is isotropic and contained in a cavity of volume V."
-    }
-  ],
   "definitions": [
     {
       "symbol": "u(nu,T)",
-      "definition": "Spectral energy density per unit frequency."
+      "definition": "Spectral energy density per unit volume and per unit frequency."
     },
     {
       "symbol": "nu",
@@ -40,8 +30,34 @@
       "definition": "Speed of light in vacuum."
     },
     {
-      "symbol": "k",
+      "symbol": "k_B",
       "definition": "Boltzmann constant."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent."
+    },
+    {
+      "id": "assumption3",
+      "text": "The electromagnetic field is quantized into discrete energy levels `E_n = n*h*nu` for each mode, where `n` is the occupation number and `h*nu` is the fundamental quantum of energy."
+    },
+    {
+      "id": "assumption4",
+      "text": "Electromagnetic radiation energy is quantized in discrete packets (quanta) of energy `h*nu` for each mode of frequency `nu`."
+    },
+    {
+      "id": "assumption5",
+      "text": "The system is in thermal equilibrium, allowing the use of statistical mechanics to determine average occupation numbers."
+    },
+    {
+      "id": "assumption6",
+      "text": "Photons are indistinguishable bosonic particles with no chemical potential, following Bose-Einstein statistics."
     }
   ],
   "derivation": [
@@ -55,21 +71,11 @@
     },
     {
       "step": 3,
-      "equation": "<E> = (h*nu)/(exp(h*nu/(k*T)) - 1)"
+      "equation": "<E> = (h*nu)/(exp(h*nu/(k_B*T)) - 1)"
     },
     {
       "step": 4,
       "equation": "u(nu,T) = rho(nu)*<E>"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "ass1",
-      "text": "Photon occupation numbers follow the Bose-Einstein distribution."
-    },
-    {
-      "id": "ass2",
-      "text": "Energy levels of each mode are integer multiples of `h*nu`."
     }
   ],
   "derivation_explanation": [
@@ -95,20 +101,14 @@
     "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
-      "nu, T, h, k, c = sp.symbols('nu T h k c', positive=True)",
-      "u = (8*sp.pi*h*nu**3)/(c**3*(sp.exp(h*nu/(k*T)) - 1))",
+      "nu, T, h, k_B, c = sp.symbols('nu T h k_B c', positive=True)",
+      "u = (8*sp.pi*h*nu**3)/(c**3*(sp.exp(h*nu/(k_B*T)) - 1))",
       "rho = (8*sp.pi*nu**2)/(c**3)",
-      "E_avg = (h*nu)/(sp.exp(h*nu/(k*T)) - 1)",
+      "E_avg = (h*nu)/(sp.exp(h*nu/(k_B*T)) - 1)",
       "assert sp.simplify(rho*E_avg - u) == 0"
     ]
   },
-  "domain": "astro-ph",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Planck, M. (1901). *On the Law of Distribution of Energy in the Normal Spectrum*. Annalen der Physik, 309(3), 553-563."
-    }
-  ],
+  "domain": "quant-ph",
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
@@ -134,11 +134,17 @@
       "Photon concept foundation"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Planck, M. (1901). *On the Law of Distribution of Energy in the Normal Spectrum*. Annalen der Physik, 309(3), 553-563."
+    }
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

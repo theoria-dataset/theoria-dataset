@@ -8,20 +8,6 @@
     }
   ],
   "explanation": "Bernoulli's equation asserts that along a streamline in steady, incompressible, inviscid flow the sum of static pressure, kinetic head and gravitational head remains constant. It translates fluid-energy conservation into a simple algebraic relation, connecting pressure differences with velocity changes. The equation governs Venturi meters, airfoil lift estimation and cardiovascular diagnostics, providing quick estimates of flow speed and pressure drop.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Flow is steady (`partial/partial t = 0`)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Fluid is incompressible and inviscid (`mu = 0`)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Flow is irrotational or evaluated along a single streamline (`curl vec v = 0`)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "P",
@@ -42,6 +28,28 @@
     {
       "symbol": "h",
       "definition": "Elevation above datum."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Flow is steady (`partial/partial t = 0`)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Fluid is incompressible and inviscid (`mu = 0`)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Flow is irrotational or evaluated along a single streamline (`curl vec v = 0`)."
+    },
+    {
+      "id": "assumption4",
+      "text": "No energy is added or dissipated along the streamline."
+    },
+    {
+      "id": "assumption5",
+      "text": "Flow is irrotational (`nabla times vec v = 0`)."
     }
   ],
   "derivation": [
@@ -68,16 +76,6 @@
     {
       "step": 6,
       "equation": "P + (1/2)*rho*v^2 + rho*g*h = const"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "ass1",
-      "text": "No energy is added or dissipated along the streamline."
-    },
-    {
-      "id": "ass2",
-      "text": "Flow is irrotational (`nabla times vec v = 0`)."
     }
   ],
   "derivation_explanation": [
@@ -122,15 +120,6 @@
     ]
   },
   "domain": "physics.flu-dyn",
-  "references": [
-    {
-      "id": "R1",
-      "citation": "Bernoulli, D. (1738). *Hydrodynamica*. Basel."
-    }
-  ],
-  "dependencies": [
-    "navier_stokes_incompressible"
-  ],
   "theory_status": "approximation",
   "validity_regime": {
     "conditions": [
@@ -156,11 +145,20 @@
       "Foundation for flow measurement devices"
     ]
   },
-  "review_status": "draft",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bernoulli, D. (1738). *Hydrodynamica*. Basel."
+    }
+  ],
+  "dependencies": [
+    "navier_stokes_incompressible"
+  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

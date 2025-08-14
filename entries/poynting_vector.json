@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The Poynting vector describes the directional energy flux density of electromagnetic fields, representing the rate of energy flow per unit area. It points in the direction of electromagnetic wave propagation and its magnitude gives the intensity. This vector is fundamental for understanding electromagnetic energy transport, radiation pressure, and power flow in electromagnetic systems.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Maxwell's equations apply and the fields are well-defined."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec S",
@@ -50,6 +40,24 @@
     {
       "symbol": "vec E_0",
       "definition": "Electric field amplitude."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Maxwell's equations apply and the fields are well-defined."
+    },
+    {
+      "id": "assumption2",
+      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified."
+    },
+    {
+      "id": "assumption3",
+      "text": "Maxwell's equations hold throughout the region of interest."
+    },
+    {
+      "id": "assumption4",
+      "text": "Energy conservation applies to the electromagnetic field."
     }
   ],
   "derivation": [
@@ -84,16 +92,6 @@
     {
       "step": 8,
       "equation": "vec S = (1/mu_0) (vec E times vec B)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations hold throughout the region of interest."
-    },
-    {
-      "id": "assumption2",
-      "text": "Energy conservation applies to the electromagnetic field."
     }
   ],
   "derivation_explanation": [
@@ -201,11 +199,11 @@
     "maxwell_equations",
     "electromagnetic_waves"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

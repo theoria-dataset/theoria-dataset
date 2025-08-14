@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "The Fermi-Dirac distribution describes the statistical distribution of fermions (particles with half-integer spin) in thermal equilibrium. Unlike classical particles, fermions obey the Pauli exclusion principle, limiting occupancy to one particle per quantum state. This distribution is fundamental for understanding electrons in metals, semiconductors, and degenerate matter.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Particles are non-interacting (ideal Fermi gas)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "f(E)",
@@ -54,6 +40,28 @@
     {
       "symbol": "g(E)",
       "definition": "Density of states (number of states per unit energy)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "assumption3",
+      "text": "Particles are non-interacting (ideal Fermi gas)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Maximum entropy principle applies at thermal equilibrium."
+    },
+    {
+      "id": "assumption5",
+      "text": "Particle number and energy are conserved (grand canonical ensemble)."
     }
   ],
   "derivation": [
@@ -88,16 +96,6 @@
     {
       "step": 8,
       "equation": "f(E) = 1/(exp((E - mu)/(k_B T)) + 1)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maximum entropy principle applies at thermal equilibrium."
-    },
-    {
-      "id": "assumption2",
-      "text": "Particle number and energy are conserved (grand canonical ensemble)."
     }
   ],
   "derivation_explanation": [
@@ -215,11 +213,11 @@
     "pauli_exclusion_principle",
     "partition_function"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

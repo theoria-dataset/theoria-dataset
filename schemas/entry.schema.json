@@ -11,10 +11,9 @@
     "result_name",
     "result_equations",
     "explanation",
-    "equations_assumptions",
     "definitions",
+    "assumptions",
     "derivation",
-    "derivation_assumptions",
     "derivation_explanation",
     "programmatic_verification",
     "domain",
@@ -72,25 +71,6 @@
       "example": "Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction."
     },
 
-    "equations_assumptions": {
-      "type": "array",
-      "description": "Assumptions directly related to the equations. Focus on assumptions specific to the equations themselves. Use backticks for math symbols in AsciiMath format.",
-      "example": [
-        {
-          "id": "eq_assump1",
-          "text": "The transformation is performed only along the x-axis, meaning that the `y` and `z` coordinates remain unchanged."
-        }
-      ],
-      "items": {
-        "type": "object",
-        "required": ["id", "text"],
-        "additionalProperties": false,
-        "properties": {
-          "id": { "type": "string" },
-          "text": { "type": "string" }
-        }
-      }
-    },
 
     "definitions": {
       "type": "array",
@@ -141,9 +121,9 @@
       }
     },
 
-    "derivation_assumptions": {
+    "assumptions": {
       "type": "array",
-      "description": "Assumptions behind the derivation, which usually are either first principles or results from another entry specified in 'dependencies'. List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
+      "description": "Assumptions that lead to the result equations, which usually are either first principles, results from another entry specified in 'dependencies' or empirical results. List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "items": {
         "type": "object",
         "required": ["id", "text"],

@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "Wien's displacement law describes the relationship between the temperature of a blackbody and the wavelength at which it emits the maximum intensity of electromagnetic radiation. As temperature increases, the peak wavelength shifts toward shorter wavelengths (higher frequencies), explaining why hot objects glow red, then white, then blue. This law is crucial for temperature measurements of stars, thermal imaging, and understanding blackbody radiation.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The object behaves as an ideal blackbody (perfect absorber and emitter)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The object is in thermodynamic equilibrium."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "The emission spectrum follows Planck's blackbody radiation law."
-    }
-  ],
   "definitions": [
     {
       "symbol": "lambda_max",
@@ -38,6 +24,32 @@
     {
       "symbol": "b",
       "definition": "Wien's displacement constant (`2.898 × 10^-3 m⋅K`)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The object behaves as an ideal blackbody (perfect absorber and emitter)."
+    },
+    {
+      "id": "assumption2",
+      "text": "The object is in thermodynamic equilibrium."
+    },
+    {
+      "id": "assumption3",
+      "text": "The emission spectrum follows Planck's blackbody radiation law."
+    },
+    {
+      "id": "assumption4",
+      "text": "Planck's law for blackbody radiation accurately describes the spectral energy distribution."
+    },
+    {
+      "id": "assumption5",
+      "text": "The maximum of the spectral radiance occurs where the derivative with respect to wavelength equals zero."
+    },
+    {
+      "id": "assumption6",
+      "text": "The transcendental equation `e^x*(5 - x) = 5` has a solution at `x ≈ 4.965`."
     }
   ],
   "derivation": [
@@ -104,20 +116,6 @@
     {
       "step": 16,
       "equation": "lambda_max*T = h*c/(4.965*k_B) = b"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Planck's law for blackbody radiation accurately describes the spectral energy distribution."
-    },
-    {
-      "id": "assumption2",
-      "text": "The maximum of the spectral radiance occurs where the derivative with respect to wavelength equals zero."
-    },
-    {
-      "id": "assumption3",
-      "text": "The transcendental equation `e^x*(5 - x) = 5` has a solution at `x ≈ 4.965`."
     }
   ],
   "derivation_explanation": [
@@ -250,11 +248,11 @@
       "citation": "Planck, M. (1900). 'Über das Gesetz der Energieverteilung im Normalspektrum.' Annalen der Physik, 4, 553-563."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

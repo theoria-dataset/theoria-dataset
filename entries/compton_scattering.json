@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Compton scattering occurs when a photon collides with a free or loosely bound electron, transferring energy and momentum to the electron. The scattered photon has lower energy (longer wavelength) than the incident photon, providing direct evidence for the particle nature of light.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Free or loosely bound electrons"
-    },
-    {
-      "id": "assump2",
-      "text": "Relativistic energy-momentum conservation"
-    },
-    {
-      "id": "assump3",
-      "text": "Point-like collision"
-    },
-    {
-      "id": "assump4",
-      "text": "No other interactions"
-    }
-  ],
   "definitions": [
     {
       "symbol": "λ'",
@@ -80,6 +62,40 @@
       "definition": "Kinetic energy of recoil electron"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Free or loosely bound electrons"
+    },
+    {
+      "id": "assumption2",
+      "text": "Relativistic energy-momentum conservation"
+    },
+    {
+      "id": "assumption3",
+      "text": "Point-like collision"
+    },
+    {
+      "id": "assumption4",
+      "text": "No other interactions"
+    },
+    {
+      "id": "assumption5",
+      "text": "Relativistic energy-momentum relations"
+    },
+    {
+      "id": "assumption6",
+      "text": "Conservation of energy and momentum"
+    },
+    {
+      "id": "assumption7",
+      "text": "Photon as massless particle"
+    },
+    {
+      "id": "assumption8",
+      "text": "Initial electron at rest"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -108,24 +124,6 @@
     {
       "step": 7,
       "equation": "\\lambda' - \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Relativistic energy-momentum relations"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Conservation of energy and momentum"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Photon as massless particle"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Initial electron at rest"
     }
   ],
   "derivation_explanation": [
@@ -241,11 +239,11 @@
     "conservation_of_energy",
     "conservation_of_momentum"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

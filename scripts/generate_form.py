@@ -75,10 +75,9 @@ def update_form_guidelines(form_content, schema_data):
     # Now handle hardcoded guidelines without data-field attributes  
     # Map current form text to schema fields
     form_to_schema_mapping = {
-        'equations_assumptions': 'equations_assumptions',
-        'definitions': 'definitions', 
+        'definitions': 'definitions',
+        'assumptions': 'assumptions', 
         'derivation': 'derivation',
-        'derivation_assumptions': 'derivation_assumptions',
         'derivation_explanation': 'derivation_explanation',
         'programmatic_verification': 'programmatic_verification',
         'domain': 'domain',
@@ -116,14 +115,12 @@ def update_form_guidelines(form_content, schema_data):
                 schema_field = None
                 
                 # Map section headings to schema fields
-                if 'Equations Assumptions' in heading:
-                    schema_field = 'equations_assumptions'
-                elif 'Symbol Definitions' in heading:
+                if 'Symbol Definitions' in heading:
                     schema_field = 'definitions'
                 elif 'Derivation' in heading and 'Assumptions' not in heading and 'Explanation' not in heading:
                     schema_field = 'derivation'
-                elif 'Derivation Assumptions' in heading:
-                    schema_field = 'derivation_assumptions'
+                elif 'Assumptions' in heading:
+                    schema_field = 'assumptions'
                 elif 'Derivation Explanation' in heading:
                     schema_field = 'derivation_explanation'
                 elif 'Programmatic Verification' in heading:

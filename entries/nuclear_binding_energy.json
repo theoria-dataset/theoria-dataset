@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Nuclear binding energy is the energy required to completely separate a nucleus into its constituent protons and neutrons. It represents the mass defect converted to energy when nucleons bind together. The binding energy per nucleon peaks around iron-56, explaining why fusion releases energy for light nuclei and fission for heavy nuclei.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The nucleus can be separated into individual protons and neutrons."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Mass-energy equivalence (E = mc²) applies."
-    }
-  ],
   "definitions": [
     {
       "symbol": "BE",
@@ -56,6 +46,24 @@
       "definition": "Speed of light in vacuum."
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The nucleus can be separated into individual protons and neutrons."
+    },
+    {
+      "id": "assumption2",
+      "text": "Mass-energy equivalence (E = mc²) applies."
+    },
+    {
+      "id": "assumption3",
+      "text": "The mass of separated nucleons is greater than the bound nucleus mass."
+    },
+    {
+      "id": "assumption4",
+      "text": "Electron binding energies are negligible compared to nuclear binding energy."
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -80,16 +88,6 @@
     {
       "step": 6,
       "equation": "BE/A = (Z m_H + N m_n - M_atom) c^2 / A"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The mass of separated nucleons is greater than the bound nucleus mass."
-    },
-    {
-      "id": "assumption2",
-      "text": "Electron binding energies are negligible compared to nuclear binding energy."
     }
   ],
   "derivation_explanation": [
@@ -188,11 +186,11 @@
   "dependencies": [
     "mass_energy_equivalence"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

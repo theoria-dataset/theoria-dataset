@@ -12,20 +12,6 @@
     }
   ],
   "explanation": "The Maxwell-Boltzmann distribution describes the probability distribution of particle speeds in a classical ideal gas at thermal equilibrium. It shows that most particles have intermediate speeds, with exponentially fewer particles at very high speeds. This distribution is fundamental to kinetic theory and statistical mechanics.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The gas is ideal with no intermolecular interactions."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Classical mechanics applies (non-relativistic and non-quantum)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "f(v)",
@@ -50,6 +36,28 @@
     {
       "symbol": "<v>",
       "definition": "Mean speed of particles."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The gas is ideal with no intermolecular interactions."
+    },
+    {
+      "id": "assumption2",
+      "text": "The system is in thermal equilibrium at temperature T."
+    },
+    {
+      "id": "assumption3",
+      "text": "Classical mechanics applies (non-relativistic and non-quantum)."
+    },
+    {
+      "id": "assumption4",
+      "text": "The probability follows Boltzmann distribution with kinetic energy."
+    },
+    {
+      "id": "assumption5",
+      "text": "Velocity components are independent and isotropic."
     }
   ],
   "derivation": [
@@ -84,16 +92,6 @@
     {
       "step": 8,
       "equation": "f(v) = 4 pi (m/(2 pi k_B T))^(3/2) v^2 exp(-m v^2/(2 k_B T))"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The probability follows Boltzmann distribution with kinetic energy."
-    },
-    {
-      "id": "assumption2",
-      "text": "Velocity components are independent and isotropic."
     }
   ],
   "derivation_explanation": [
@@ -194,11 +192,11 @@
     "boltzmann_distribution",
     "ideal_gas_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

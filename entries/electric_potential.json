@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "Electric potential is the electric potential energy per unit charge at a point in space. It provides a scalar description of the electric field and represents the work required to bring a unit positive charge from infinity to that point.",
-  "equations_assumptions": [
-    {
-      "id": "assump1",
-      "text": "Electrostatic conditions (time-independent)"
-    },
-    {
-      "id": "assump2",
-      "text": "Point charges or continuous charge distributions"
-    },
-    {
-      "id": "assump3",
-      "text": "Linear medium or vacuum"
-    },
-    {
-      "id": "assump4",
-      "text": "Reference potential at infinity is zero"
-    }
-  ],
   "definitions": [
     {
       "symbol": "V",
@@ -80,6 +62,40 @@
       "definition": "Unit vector in radial direction"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Electrostatic conditions (time-independent)"
+    },
+    {
+      "id": "assumption2",
+      "text": "Point charges or continuous charge distributions"
+    },
+    {
+      "id": "assumption3",
+      "text": "Linear medium or vacuum"
+    },
+    {
+      "id": "assumption4",
+      "text": "Reference potential at infinity is zero"
+    },
+    {
+      "id": "assumption5",
+      "text": "Conservative electric field"
+    },
+    {
+      "id": "assumption6",
+      "text": "Work is path-independent"
+    },
+    {
+      "id": "assumption7",
+      "text": "Point charge field formula"
+    },
+    {
+      "id": "assumption8",
+      "text": "Integration along radial path"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -116,24 +132,6 @@
     {
       "step": 9,
       "equation": "V = \\frac{Q}{4\\pi\\epsilon_0} \\left(-\\frac{1}{r} + 0\\right) = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r}"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Conservative electric field"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Work is path-independent"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "Point charge field formula"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Integration along radial path"
     }
   ],
   "derivation_explanation": [
@@ -272,11 +270,11 @@
     "electric_field",
     "coulombs_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "The Klein-Gordon equation is a relativistic wave equation that describes spinless particles. It was the first attempt to merge quantum mechanics with special relativity, predating the Dirac equation. The equation naturally arises when applying quantum mechanics' energy-momentum relation to relativistic particles, and it correctly predicts both positive and negative energy solutions.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The equation describes a free spinless particle in flat spacetime."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "The wave function `phi` represents a scalar field."
-    }
-  ],
   "definitions": [
     {
       "symbol": "partial^2_t",
@@ -50,6 +40,28 @@
     {
       "symbol": "phi",
       "definition": "Scalar field representing the wave function of the particle."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The equation describes a free spinless particle in flat spacetime."
+    },
+    {
+      "id": "assumption2",
+      "text": "The wave function `phi` represents a scalar field."
+    },
+    {
+      "id": "assumption3",
+      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity."
+    },
+    {
+      "id": "assumption4",
+      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`."
+    },
+    {
+      "id": "assumption5",
+      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
     }
   ],
   "derivation": [
@@ -84,20 +96,6 @@
     {
       "step": 8,
       "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity."
-    },
-    {
-      "id": "assumption2",
-      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`."
-    },
-    {
-      "id": "assumption3",
-      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
     }
   ],
   "derivation_explanation": [
@@ -234,11 +232,11 @@
       "citation": "Greiner, W. (2000). *Relativistic Quantum Mechanics: Wave Equations*. Springer-Verlag."
     }
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -20,24 +20,6 @@
     }
   ],
   "explanation": "A magnetic dipole moment characterizes the magnetic strength and orientation of a current loop or magnetic object. It arises from circulating currents and determines how the system interacts with external magnetic fields through torques and potential energies. Magnetic dipoles are fundamental to understanding atomic magnetism, magnetic materials, magnetic resonance, and the behavior of permanent magnets and electromagnets.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The current loop is small compared to distances of interest (dipole approximation)."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Steady currents (no time-varying fields)."
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Linear, isotropic, and homogeneous medium (or vacuum)."
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Far-field approximation for magnetic field calculation."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec mu",
@@ -74,6 +56,40 @@
     {
       "symbol": "r",
       "definition": "Distance from dipole to field point."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The current loop is small compared to distances of interest (dipole approximation)."
+    },
+    {
+      "id": "assumption2",
+      "text": "Steady currents (no time-varying fields)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Linear, isotropic, and homogeneous medium (or vacuum)."
+    },
+    {
+      "id": "assumption4",
+      "text": "Far-field approximation for magnetic field calculation."
+    },
+    {
+      "id": "assumption5",
+      "text": "The current distribution is localized (dipole approximation valid)."
+    },
+    {
+      "id": "assumption6",
+      "text": "Magnetostatic conditions (∂B/∂t = 0)."
+    },
+    {
+      "id": "assumption7",
+      "text": "Far-field limit (r >> size of current distribution)."
+    },
+    {
+      "id": "assumption8",
+      "text": "Linear superposition of fields applies."
     }
   ],
   "derivation": [
@@ -128,24 +144,6 @@
     {
       "step": 13,
       "equation": "vec B = (mu_0/(4*pi)) * (3*(vec mu cdot hat r)*hat r - vec mu)/r^3"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The current distribution is localized (dipole approximation valid)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Magnetostatic conditions (∂B/∂t = 0)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Far-field limit (r >> size of current distribution)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Linear superposition of fields applies."
     }
   ],
   "derivation_explanation": [
@@ -326,11 +324,11 @@
     "magnetic_field",
     "amperes_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

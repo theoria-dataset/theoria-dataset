@@ -16,16 +16,6 @@
     }
   ],
   "explanation": "Electromagnetic waves are self-propagating oscillations of electric and magnetic fields that travel at the speed of light. They result from Maxwell's equations and include visible light, radio waves, X-rays, and all other forms of electromagnetic radiation. The wave equation shows that EM disturbances propagate at speed c = 1/√(μ₀ε₀).",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The medium is free space (vacuum) with no charges or currents."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "Electric and magnetic fields are perpendicular to each other and to the direction of propagation."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec E",
@@ -54,6 +44,24 @@
     {
       "symbol": "omega",
       "definition": "Angular frequency of the wave."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The medium is free space (vacuum) with no charges or currents."
+    },
+    {
+      "id": "assumption2",
+      "text": "Electric and magnetic fields are perpendicular to each other and to the direction of propagation."
+    },
+    {
+      "id": "assumption3",
+      "text": "Maxwell's equations apply in free space with no sources."
+    },
+    {
+      "id": "assumption4",
+      "text": "The curl-curl vector identity is used for the electric field."
     }
   ],
   "derivation": [
@@ -88,16 +96,6 @@
     {
       "step": 8,
       "equation": "c^2 = 1/(mu_0 epsilon_0)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations apply in free space with no sources."
-    },
-    {
-      "id": "assumption2",
-      "text": "The curl-curl vector identity is used for the electric field."
     }
   ],
   "derivation_explanation": [
@@ -202,11 +200,11 @@
   "dependencies": [
     "maxwell_equations"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

@@ -8,16 +8,6 @@
     }
   ],
   "explanation": "Ampère's law relates the circulation of magnetic field around a closed loop to the electric current passing through the loop. It provides a powerful method for calculating magnetic fields in cases with high symmetry and is one of Maxwell's fundamental equations of electromagnetism.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The current distribution has sufficient symmetry to apply Ampère's law directly."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "We are in the static or quasi-static regime (no rapidly changing electric fields)."
-    }
-  ],
   "definitions": [
     {
       "symbol": "vec B",
@@ -34,6 +24,24 @@
     {
       "symbol": "I_enc",
       "definition": "Total electric current enclosed by the loop."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The current distribution has sufficient symmetry to apply Ampère's law directly."
+    },
+    {
+      "id": "assumption2",
+      "text": "We are in the static or quasi-static regime (no rapidly changing electric fields)."
+    },
+    {
+      "id": "assumption3",
+      "text": "Ampère's law in differential form (one of Maxwell's equations) applies."
+    },
+    {
+      "id": "assumption4",
+      "text": "The surface bounded by the loop is simply connected."
     }
   ],
   "derivation": [
@@ -56,16 +64,6 @@
     {
       "step": 5,
       "equation": "oint vec B cdot d vec l = mu_0 I_enc"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Ampère's law in differential form (one of Maxwell's equations) applies."
-    },
-    {
-      "id": "assumption2",
-      "text": "The surface bounded by the loop is simply connected."
     }
   ],
   "derivation_explanation": [
@@ -152,11 +150,11 @@
   "dependencies": [
     "maxwell_equations"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

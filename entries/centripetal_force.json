@@ -12,16 +12,6 @@
     }
   ],
   "explanation": "Centripetal force is the net force directed toward the center of curvature that causes an object to follow a curved path. For uniform circular motion, this force is constant in magnitude but continuously changes direction, providing the centripetal acceleration needed to maintain circular motion.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "The motion is circular with constant radius r."
-    },
-    {
-      "id": "eq_assump2",
-      "text": "For uniform circular motion, the speed is constant."
-    }
-  ],
   "definitions": [
     {
       "symbol": "F_c",
@@ -46,6 +36,24 @@
     {
       "symbol": "a_c",
       "definition": "Centripetal acceleration (directed toward center)."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The motion is circular with constant radius r."
+    },
+    {
+      "id": "assumption2",
+      "text": "For uniform circular motion, the speed is constant."
+    },
+    {
+      "id": "assumption3",
+      "text": "The circular motion occurs in a plane with constant radius."
+    },
+    {
+      "id": "assumption4",
+      "text": "Newton's second law applies in the radial direction."
     }
   ],
   "derivation": [
@@ -76,16 +84,6 @@
     {
       "step": 7,
       "equation": "F_c = m a_c = m v^2/r = m omega^2 r"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The circular motion occurs in a plane with constant radius."
-    },
-    {
-      "id": "assumption2",
-      "text": "Newton's second law applies in the radial direction."
     }
   ],
   "derivation_explanation": [
@@ -189,11 +187,11 @@
   "dependencies": [
     "newtons_second_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }

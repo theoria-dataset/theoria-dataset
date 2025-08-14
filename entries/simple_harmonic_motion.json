@@ -24,24 +24,6 @@
     }
   ],
   "explanation": "Simple harmonic motion describes oscillatory motion where the restoring force is proportional to the displacement from equilibrium. This type of motion is fundamental in physics, appearing in systems from pendulums to quantum oscillators.",
-  "equations_assumptions": [
-    {
-      "id": "eq_assump1",
-      "text": "Restoring force proportional to displacement"
-    },
-    {
-      "id": "eq_assump2",
-      "text": "No damping or external forces"
-    },
-    {
-      "id": "eq_assump3",
-      "text": "Small oscillation approximation"
-    },
-    {
-      "id": "eq_assump4",
-      "text": "Linear system response"
-    }
-  ],
   "definitions": [
     {
       "symbol": "x(t)",
@@ -80,6 +62,40 @@
       "definition": "Mass of oscillating object"
     }
   ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "Restoring force proportional to displacement"
+    },
+    {
+      "id": "assumption2",
+      "text": "No damping or external forces"
+    },
+    {
+      "id": "assumption3",
+      "text": "Small oscillation approximation"
+    },
+    {
+      "id": "assumption4",
+      "text": "Linear system response"
+    },
+    {
+      "id": "assumption5",
+      "text": "Newton's second law applies"
+    },
+    {
+      "id": "assumption6",
+      "text": "Hooke's law for restoring force"
+    },
+    {
+      "id": "assumption7",
+      "text": "No energy dissipation"
+    },
+    {
+      "id": "assumption8",
+      "text": "Constant mass system"
+    }
+  ],
   "derivation": [
     {
       "step": 1,
@@ -108,24 +124,6 @@
     {
       "step": 7,
       "equation": "x(t) = A\\cos(\\omega t + \\phi)"
-    }
-  ],
-  "derivation_assumptions": [
-    {
-      "id": "deriv_assump1",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "deriv_assump2",
-      "text": "Hooke's law for restoring force"
-    },
-    {
-      "id": "deriv_assump3",
-      "text": "No energy dissipation"
-    },
-    {
-      "id": "deriv_assump4",
-      "text": "Constant mass system"
     }
   ],
   "derivation_explanation": [
@@ -224,11 +222,11 @@
     "hookes_law",
     "newtons_second_law"
   ],
-  "review_status": "draft",
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
-  ]
+  ],
+  "review_status": "draft"
 }
