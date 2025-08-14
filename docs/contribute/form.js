@@ -14,7 +14,8 @@ class NewEntryForm {
             derivation: 0,
             derivation_assumptions: 0,
             derivation_explanation: 0,
-            references: 0
+            references: 0,
+            contributors: 0
         };
         this.init();
     }
@@ -31,6 +32,7 @@ class NewEntryForm {
             this.addEquation();
             this.addDefinition();
             this.addReference();
+            this.addContributor();
         }
         
         this.setupEventListeners();
@@ -82,7 +84,17 @@ class NewEntryForm {
         document.getElementById('domain').value = entry.domain || '';
         document.getElementById('theory_status').value = entry.theory_status || '';
         document.getElementById('review_status').value = entry.review_status || 'draft';
-        document.getElementById('created_by').value = entry.created_by || '';
+        // Handle contributors (new format) or created_by (legacy format)
+        if (entry.contributors && entry.contributors.length > 0) {
+            entry.contributors.forEach((contributor) => {
+                this.addContributor(contributor.full_name || '', contributor.identifier || '');
+            });
+        } else if (entry.created_by) {
+            // Legacy format - convert to new format
+            this.addContributor(entry.created_by, '');
+        } else {
+            this.addContributor(); // Add empty contributor
+        }
         
         // Populate equations
         if (entry.result_equations && entry.result_equations.length > 0) {
@@ -567,7 +579,7 @@ class NewEntryForm {
             // Template parameters for dataset team
             const teamParams = {
                 submission_type: isEditing ? 'Entry Modification' : 'New Entry Submission',
-                contributor_name: entry.created_by || 'Anonymous',
+                contributor_name: entry.contributors?.[0]?.full_name || 'Anonymous',
                 contributor_email: contributorEmail || 'Not provided',
                 submission_date: new Date().toLocaleDateString(),
                 entry_id: entry.result_id,
@@ -727,7 +739,7 @@ Submitted via TheorIA new entry form`;
                 
                 <div class="metadata">
                     <h3>Metadata</h3>
-                    <p><strong>Created by:</strong> ${entry.created_by || 'Not specified'}</p>
+                    <p><strong>Contributors:</strong> ${entry.contributors?.map(c => c.full_name).join(', ') || 'Not specified'}</p>
                     <p><strong>Review Status:</strong> ${entry.review_status || 'draft'}</p>
                 </div>
             </div>
@@ -764,7 +776,7 @@ Submitted via TheorIA new entry form`;
             superseded_by: this.collectSupersededBy(),
             historical_context: this.collectHistoricalContext(),
             references: this.collectReferences(),
-            created_by: document.getElementById('created_by').value || '',
+            contributors: this.collectContributors(),
             review_status: document.getElementById('review_status').value || 'draft'
         };
     }
@@ -937,6 +949,43 @@ Submitted via TheorIA new entry form`;
         });
         return references.length > 0 ? references : undefined;
     }
+
+    addContributor(fullName = '', identifier = '') {
+        const container = document.getElementById('contributors_container');
+        const index = ++this.counters.contributors;
+        
+        const div = document.createElement('div');
+        div.className = 'dynamic-item';
+        div.innerHTML = `
+            <div class="dynamic-item-header">
+                <h4>Contributor ${index}</h4>
+                <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
+            </div>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="contributor-name" value="${fullName}" placeholder="Full name of contributor">
+            </div>
+            <div class="form-group">
+                <label>Identifier</label>
+                <input type="text" class="contributor-id" value="${identifier}" placeholder="ORCID, website, LinkedIn, etc.">
+                <div class="help-text">ORCID, personal website, academic profile, LinkedIn, etc.</div>
+            </div>
+        `;
+        
+        container.appendChild(div);
+    }
+
+    collectContributors() {
+        const contributors = [];
+        document.querySelectorAll('#contributors_container .dynamic-item').forEach(item => {
+            const fullName = item.querySelector('.contributor-name').value;
+            const identifier = item.querySelector('.contributor-id').value;
+            if (fullName && identifier) {
+                contributors.push({ full_name: fullName, identifier });
+            }
+        });
+        return contributors.length > 0 ? contributors : undefined;
+    }
 }
 
 // Global functions for dynamic items
@@ -1009,6 +1058,12 @@ function addKeyInsight() {
 function addReference() {
     if (window.newEntryForm) {
         window.newEntryForm.addReference();
+    }
+}
+
+function addContributor() {
+    if (window.newEntryForm) {
+        window.newEntryForm.addContributor();
     }
 }
 

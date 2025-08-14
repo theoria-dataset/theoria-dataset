@@ -286,7 +286,15 @@
       "citation": "Born, M., & Wolf, E. (1999). *Principles of Optics* (7th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["waves_interference", "young_double_slit"],
-  "created_by": "Synthetic entry, created with AI, may have mistakes. Looking for contributors to review all fields",
-  "review_status": "draft"
+  "dependencies": [
+    "waves_interference",
+    "young_double_slit"
+  ],
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ]
 }

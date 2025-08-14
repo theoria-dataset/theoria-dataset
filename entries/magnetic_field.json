@@ -205,6 +205,11 @@
     "electric_field",
     "lorentz_force"
   ],
-  "created_by": "Synthetic entry, AI created. May have mistakes, looking for contributors to this entry.",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ]
 }

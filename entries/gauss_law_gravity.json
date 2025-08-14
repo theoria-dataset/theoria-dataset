@@ -243,7 +243,7 @@
       "citation": "Griffiths, D. J. (2013). Introduction to Electrodynamics (4th ed.). Pearson."
     },
     {
-      "id": "ref2", 
+      "id": "ref2",
       "citation": "Jackson, J. D. (1999). Classical Electrodynamics (3rd ed.). Wiley."
     },
     {
@@ -255,6 +255,11 @@
     "gravitational_force",
     "newtons_laws_of_motion"
   ],
-  "created_by": "Synthetic entry, AI created. May have mistakes, looking for contributors to this entry.",
-  "review_status": "draft"
+  "review_status": "draft",
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ]
 }

@@ -422,7 +422,7 @@ function render(data) {
   }
 
   $("meta-domain").textContent = data.domain;
-  $("meta-created").textContent = data.created_by;
+  $("meta-created").textContent = data.contributors?.map(c => c.full_name).join(', ') || 'Unknown';
   $("meta-status").textContent = data.review_status;
 
   // Show/hide draft watermark based on review status

@@ -195,11 +195,20 @@ body:
       required: true
 
   - type: input
-    id: created_by
+    id: contributor_name
     attributes:
-      label: Your Name/ORCID
-      description: Full name or ORCID identifier
-      placeholder: "Jane Doe or 0000-0000-0000-0000"
+      label: Your Full Name
+      description: Your full name as contributor
+      placeholder: "Jane Doe"
+    validations:
+      required: true
+
+  - type: input
+    id: contributor_identifier
+    attributes:
+      label: Your Identifier
+      description: ORCID, personal website, academic profile, LinkedIn, etc.
+      placeholder: "0000-0000-0000-0000 or https://example.com"
     validations:
       required: true
 
