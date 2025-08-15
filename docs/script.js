@@ -240,6 +240,24 @@ function safeTypesetMathJax(elements) {
   }
 }
 
+// Generate Google Colab link for programmatic verification using pre-generated notebooks
+function generateColabLink(data) {
+  const entryId = data.result_id;
+  
+  // Use pre-generated notebook from the repository
+  const notebookFilename = `${entryId}_verification.ipynb`;
+  const notebookUrl = `${baseUrl}/notebooks/${notebookFilename}`;
+  
+  // Create Colab link that opens the notebook directly from GitHub
+  const colabUrl = `https://colab.research.google.com/github/theoria-dataset/theoria-dataset/blob/main/notebooks/${notebookFilename}`;
+  
+  const colabLink = $("colab-link");
+  if (colabLink) {
+    colabLink.href = colabUrl;
+    colabLink.target = '_blank';
+  }
+}
+
 // Render function
 function render(data) {
   $("title").style.display = "";
@@ -345,6 +363,10 @@ function render(data) {
   const codeEl = $("pv-code");
   codeEl.textContent = data.programmatic_verification.code.join("\n");
   hljs.highlightElement(codeEl);
+  
+  // Generate Google Colab link
+  generateColabLink(data);
+  
   safeTypesetMathJax([qs("#programmaticVerification")]);
 
   renderList("#references ul", data.references, (r) => r.citation);
