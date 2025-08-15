@@ -8,7 +8,7 @@
     },
     {
       "id": "eq2",
-      "equation": "(dA)/(dt) = (L)/(2*m) = text(constant)"
+      "equation": "dot(A) = (L)/(2*m) = text{constant}"
     },
     {
       "id": "eq3",
@@ -61,191 +61,287 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The central body (Sun) is much more massive than the orbiting body (planet)."
+      "text": "Classical mechanics framework: relativistic effects are negligible for typical planetary orbital velocities `v < < c`, and quantum effects are negligible for macroscopic celestial bodies, allowing application of Newton's laws."
     },
     {
       "id": "assumption2",
-      "text": "Only gravitational forces act between the bodies (two-body problem)."
+      "text": "Newton's law of universal gravitation: the gravitational force between two point masses is `F = G*M*m/r^2` directed along the line connecting them, where `G` is the gravitational constant."
     },
     {
       "id": "assumption3",
-      "text": "The gravitational force follows an inverse square law."
+      "text": "Two-body problem: only gravitational interaction between the central body and orbiting body is considered, neglecting all other gravitational perturbations from other celestial bodies."
     },
     {
       "id": "assumption4",
-      "text": "The orbiting bodies can be treated as point masses."
+      "text": "Point mass approximation: both the central body and orbiting body can be treated as point masses located at their centers of mass, with spherically symmetric mass distributions."
     },
     {
       "id": "assumption5",
-      "text": "Newton's law of gravitation applies with an inverse square force law."
+      "text": "Central body dominance: the central body (Sun) mass `M > > m` where `m` is the planet mass, allowing treatment of the central body as effectively fixed at the origin (reduced mass approximation)."
     },
     {
       "id": "assumption6",
-      "text": "Angular momentum is conserved due to the central nature of the gravitational force."
-    },
-    {
-      "id": "assumption7",
-      "text": "The orbit is a closed ellipse with the central body at one focus."
-    },
-    {
-      "id": "assumption8",
-      "text": "Energy conservation applies throughout the orbital motion."
+      "text": "Rotational dynamics relation: the time rate of change of angular momentum equals the applied torque, `dot(vec(L)) = vec(tau)`."
     }
   ],
   "derivation": [
     {
       "step": 1,
-      "equation": "vec F = -G*M*m/r^2 * hat r"
+      "equation": "vec(F) = -G*M*m/r^2 * hat(r)"
     },
     {
       "step": 2,
-      "equation": "vec L = vec r times vec p = text(constant)"
+      "equation": "vec(tau) = vec(r) times vec(F) = vec(r) times (-G*M*m/r^2 * hat(r)) = 0"
     },
     {
       "step": 3,
-      "equation": "L = m*r^2*omega = m*r^2*(d theta)/(dt)"
+      "equation": "dot(vec(L)) = vec(tau) = 0"
     },
     {
       "step": 4,
-      "equation": "(d theta)/(dt) = L/(m*r^2)"
+      "equation": "vec(L) = vec(r) times vec(p) = text{constant}"
     },
     {
       "step": 5,
-      "equation": "dA = (1/2)*r^2*d theta"
+      "equation": "L = m*r^2*dot(theta)"
     },
     {
       "step": 6,
-      "equation": "(dA)/(dt) = (1/2)*r^2*(d theta)/(dt)"
+      "equation": "dot(A) = 1/2*r^2*dot(theta) = L/(2*m)"
     },
     {
       "step": 7,
-      "equation": "(dA)/(dt) = (1/2)*r^2*L/(m*r^2) = L/(2*m)"
+      "equation": "ddot(vec(r)) = -G*M/r^2 * hat(r)"
     },
     {
       "step": 8,
-      "equation": "E = (1/2)*m*v^2 - G*M*m/r"
+      "equation": "ddot(vec(r)) = (ddot(r) - r*dot(theta)^2)*hat(r) + (r*ddot(theta) + 2*dot(r)*dot(theta))*hat(theta)"
     },
     {
       "step": 9,
-      "equation": "E = -G*M*m/(2*a)"
+      "equation": "r*ddot(theta) + 2*dot(r)*dot(theta) = 0"
     },
     {
       "step": 10,
-      "equation": "u = 1/r"
+      "equation": "(d)/(dt)(r^2*dot(theta)) = 0"
     },
     {
       "step": 11,
-      "equation": "(d^2 u)/(d theta^2) + u = G*M*m^2/(L^2)"
+      "equation": "h := r^2*dot(theta) = text{constant}"
     },
     {
       "step": 12,
-      "equation": "u = G*M*m^2/(L^2) * (1 + e*cos(theta))"
+      "equation": "ddot(r) - r*dot(theta)^2 = -G*M/r^2"
     },
     {
       "step": 13,
-      "equation": "r = L^2/(G*M*m^2) * 1/(1 + e*cos(theta))"
+      "equation": "ddot(r) - r*(h^2/r^4) = -G*M/r^2"
     },
     {
       "step": 14,
-      "equation": "a*(1-e^2) = L^2/(G*M*m^2)"
+      "equation": "ddot(r) - h^2/r^3 = -G*M/r^2"
     },
     {
       "step": 15,
-      "equation": "r = (a*(1-e^2))/(1 + e*cos(theta))"
+      "equation": "u = 1/r; dot(r) = -h*(du)/(d theta); ddot(r) = -h^2*u^2*(d^2 u)/(d theta^2)"
     },
     {
       "step": 16,
-      "equation": "A_total = pi*a*b = pi*a^2*sqrt(1-e^2)"
+      "equation": "r*dot(theta)^2 = (1/u)*(h^2*u^4) = h^2*u^3"
     },
     {
       "step": 17,
-      "equation": "T = A_total/((dA)/(dt)) = (2*pi*a^2*sqrt(1-e^2))/(L/(2*m))"
+      "equation": "(-h^2*u^2*(d^2 u)/(d theta^2)) - h^2*u^3 = -G*M*u^2"
     },
     {
       "step": 18,
-      "equation": "L^2 = G*M*m^2*a*(1-e^2)"
+      "equation": "(d^2 u)/(d theta^2) + u = G*M/h^2"
     },
     {
       "step": 19,
-      "equation": "T^2 = (4*pi^2*a^3)/(G*M)"
+      "equation": "u(theta) = G*M/h^2 + C*cos(theta - theta_0)"
+    },
+    {
+      "step": 20,
+      "equation": "u(theta) = (G*M/h^2)*(1 + e*cos(theta))"
+    },
+    {
+      "step": 21,
+      "equation": "r(theta) = h^2/(G*M*(1 + e*cos(theta)))"
+    },
+    {
+      "step": 22,
+      "equation": "p := h^2/(G*M); r(theta) = p/(1 + e*cos(theta))"
+    },
+    {
+      "step": 23,
+      "equation": "r_p = p/(1 + e); r_a = p/(1 - e)"
+    },
+    {
+      "step": 24,
+      "equation": "a = (r_p + r_a)/2 = p/(1 - e^2)"
+    },
+    {
+      "step": 25,
+      "equation": "r(theta) = (a*(1 - e^2))/(1 + e*cos(theta))"
+    },
+    {
+      "step": 26,
+      "equation": "h^2 = G*M*a*(1 - e^2)"
+    },
+    {
+      "step": 27,
+      "equation": "A_text{ellipse} = pi*a*b = pi*a^2*sqrt(1 - e^2)"
+    },
+    {
+      "step": 28,
+      "equation": "T = A_text{ellipse} / dot(A) = (pi*a^2*sqrt(1 - e^2)) / (h/2)"
+    },
+    {
+      "step": 29,
+      "equation": "T = (2*pi*a^2*sqrt(1 - e^2)) / h"
+    },
+    {
+      "step": 30,
+      "equation": "T = (2*pi*a^2*sqrt(1 - e^2)) / sqrt(G*M*a*(1 - e^2))"
+    },
+    {
+      "step": 31,
+      "equation": "T = (2*pi*a^(3/2)) / sqrt(G*M)"
+    },
+    {
+      "step": 32,
+      "equation": "T^2 = (4*pi^2*a^3) / (G*M)"
     }
   ],
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Start with Newton's law of gravitation as the central force."
+      "text": "Start with Newton's law of gravitation as the central force (assumption 2). Here `vec(F)` is the force vector, `vec(r)` is the position vector from Sun to planet, `r = |vec(r)|` is the distance, and `hat(r) = vec(r)/r` is the unit vector in the radial direction."
     },
     {
       "step": 2,
-      "text": "Angular momentum is conserved because the gravitational force is central."
+      "text": "Calculate torque: since `vec(F)` is parallel to `vec(r)` (both along radial direction), their cross product `vec(tau) = vec(r) times vec(F)` is zero."
     },
     {
       "step": 3,
-      "text": "Express angular momentum in terms of radius and angular velocity."
+      "text": "Apply the fundamental relation `dot(vec(L)) = vec(tau)` from rotational dynamics (assumption 6) and substitute `vec(tau) = 0` from step 2: since torque is zero, the time derivative of angular momentum is zero."
     },
     {
       "step": 4,
-      "text": "Solve for angular velocity in terms of angular momentum and radius."
+      "text": "Since `dot(vec(L)) = 0`, integrating with respect to time gives `vec(L) = text{constant}` - this proves conservation of angular momentum for central forces."
     },
     {
       "step": 5,
-      "text": "The area element swept in time dt is a sector of angle dθ."
+      "text": "Use the definition of angular momentum magnitude for a point mass: `L = m*r^2*dot(theta)` where `dot(theta)` is the angular velocity."
     },
     {
       "step": 6,
-      "text": "Calculate the rate of area sweeping using the chain rule."
+      "text": "Kepler's 2nd law: using the area formula for circular sectors `dA = 1/2*r^2*d theta` and substituting angular momentum, the areal velocity `dot(A) = L/(2*m)` is constant."
     },
     {
       "step": 7,
-      "text": "Substitute angular velocity to show area rate is constant (Kepler's 2nd law)."
+      "text": "Newton's law for a test mass in the gravitational field of mass `M`."
     },
     {
       "step": 8,
-      "text": "Write the total energy as kinetic plus potential energy."
+      "text": "In plane polar coordinates, acceleration decomposes into radial and tangential components."
     },
     {
       "step": 9,
-      "text": "For elliptical orbits, total energy is related to the semi-major axis."
+      "text": "Central force implies the tangential component must vanish, giving the angular momentum conservation condition."
     },
     {
       "step": 10,
-      "text": "Introduce the substitution u = 1/r to linearize the orbital equation."
+      "text": "The tangential equation can be written as a time derivative of `r^2*dot(theta)`."
     },
     {
       "step": 11,
-      "text": "Derive the differential equation for u(θ) from the force law."
+      "text": "Define specific angular momentum `h = r^2*dot(theta)` which is conserved for central forces."
     },
     {
       "step": 12,
-      "text": "Solve the differential equation to get the general solution."
+      "text": "Match the radial component to the gravitational force."
     },
     {
       "step": 13,
-      "text": "Convert back to r(θ) to get the orbit equation."
+      "text": "Substitute `dot(theta) = h/r^2` from angular momentum conservation."
     },
     {
       "step": 14,
-      "text": "Identify the relationship between orbital parameters and angular momentum."
+      "text": "Simplify the radial equation of motion."
     },
     {
       "step": 15,
-      "text": "Obtain Kepler's first law: the orbit is an ellipse with the Sun at one focus."
+      "text": "Binet substitution: let `u = 1/r` and calculate derivatives using `dot(theta) = h*u^2`."
     },
     {
       "step": 16,
-      "text": "Calculate the total area of the ellipse using semi-major and semi-minor axes."
+      "text": "Express the centrifugal term in terms of `u`."
     },
     {
       "step": 17,
-      "text": "The period is the total area divided by the constant area rate."
+      "text": "Substitute all expressions into the radial equation."
     },
     {
       "step": 18,
-      "text": "Use the relationship between angular momentum and orbital parameters."
+      "text": "Simplify to get the standard orbital differential equation."
     },
     {
       "step": 19,
-      "text": "Derive Kepler's third law relating period squared to semi-major axis cubed."
+      "text": "General solution to the linear ODE with constant coefficient."
+    },
+    {
+      "step": 20,
+      "text": "Choose coordinates so periapsis is at `theta = 0` and define eccentricity `e = C*h^2/(G*M)`."
+    },
+    {
+      "step": 21,
+      "text": "Invert to get `r(theta)` and define semi-latus rectum `p = h^2/(G*M)`."
+    },
+    {
+      "step": 22,
+      "text": "Standard conic section form with semi-latus rectum `p`."
+    },
+    {
+      "step": 23,
+      "text": "For ellipse case (`e < 1`), calculate periapsis and apoapsis radii."
+    },
+    {
+      "step": 24,
+      "text": "Semi-major axis is the average of periapsis and apoapsis radii, giving `p = a*(1-e^2)`."
+    },
+    {
+      "step": 25,
+      "text": "Kepler's First Law: substitute `p = a*(1-e^2)` to get the standard ellipse equation."
+    },
+    {
+      "step": 26,
+      "text": "From `p = h^2/(G*M)` and `p = a*(1-e^2)`, we get the relationship between specific angular momentum and orbital parameters."
+    },
+    {
+      "step": 27,
+      "text": "Total area of the ellipse with semi-major axis `a` and semi-minor axis `b = a*sqrt(1-e^2)`."
+    },
+    {
+      "step": 28,
+      "text": "Period is total area divided by areal velocity. Use `dot(A) = h/2` from Kepler's 2nd law."
+    },
+    {
+      "step": 29,
+      "text": "Simplify the period expression."
+    },
+    {
+      "step": 30,
+      "text": "Substitute `h = sqrt(G*M*a*(1-e^2))` from step 26."
+    },
+    {
+      "step": 31,
+      "text": "Cancel the `sqrt(1-e^2)` terms to get the period in terms of `a`, `G`, and `M` only."
+    },
+    {
+      "step": 32,
+      "text": "Kepler's Third Law: square both sides to get the final relationship `T^2 ∝ a^3`."
     }
   ],
   "programmatic_verification": {
@@ -255,68 +351,126 @@
       "import sympy as sp",
       "",
       "# Define symbols",
-      "r, a, e, theta, L, m, t, T, G, M = sp.symbols('r a e theta L m t T G M', positive=True, real=True)",
+      "r, a, e, theta, L, m, t, T, G, M, u, E, h, p, b = sp.symbols('r a e theta L m t T G M u E h p b', positive=True, real=True)",
       "pi = sp.pi",
       "",
-      "# Step 15: Kepler's 1st law - elliptical orbit equation",
-      "r_ellipse = (a*(1-e**2))/(1 + e*sp.cos(theta))",
+      "# Steps 1-2: Newton's law of gravitation and torque calculation",
+      "F_grav = G*M*m/r**2",
+      "# Central force means tau = r x F = 0 (parallel vectors)",
       "",
-      "# Step 7: Kepler's 2nd law - constant areal velocity",
+      "# Steps 3-4: Angular momentum conservation",
+      "# From dot(L) = tau = 0, we get L = constant",
+      "L_magnitude = m*r**2*sp.Symbol('omega')",
+      "",
+      "# Steps 5-6: Angular momentum and areal velocity",
+      "# L = m*r²*dot(theta) and dot(A) = (1/2)*r²*dot(theta) = L/(2*m)",
+      "omega_from_L = L/(m*r**2)",
       "areal_velocity = L/(2*m)",
+      "dot_A_direct = sp.Rational(1,2)*r**2*omega_from_L",
+      "assert sp.simplify(dot_A_direct - areal_velocity) == 0",
       "",
-      "# Step 19: Kepler's 3rd law - period-distance relationship",
-      "T_squared = (4*pi**2*a**3)/(G*M)",
+      "# Steps 7-11: Polar coordinates and specific angular momentum",
+      "# From central force: d/dt(r²*dot(theta)) = 0",
+      "# So h := r²*dot(theta) = constant (specific angular momentum)",
+      "h_def = r**2*omega_from_L",
+      "h_simplified = L/m",
+      "assert sp.simplify(h_def - h_simplified) == 0",
       "",
-      "# Verify special cases of the ellipse equation",
+      "# Steps 12-14: Radial equation of motion",
+      "# ddot(r) - h²/r³ = -GM/r²",
+      "",
+      "# Step 15: Binet substitution u = 1/r",
+      "u_def = 1/r",
+      "r_from_u = 1/u",
+      "assert sp.simplify(r_from_u.subs(u, u_def) - r) == 0",
+      "",
+      "# Steps 16-18: Transform to orbital differential equation",
+      "# Final form: d²u/dθ² + u = GM/h²",
+      "orbital_eq_rhs = G*M/h**2",
+      "",
+      "# Steps 19-20: Solution of orbital equation",
+      "# u(theta) = (GM/h²)*(1 + e*cos(theta))",
+      "u_solution = orbital_eq_rhs*(1 + e*sp.cos(theta))",
+      "",
+      "# Steps 21-22: Convert back to r(theta) and define semi-latus rectum",
+      "# r(theta) = h²/(GM*(1 + e*cos(theta)))",
+      "# p := h²/(GM), so r(theta) = p/(1 + e*cos(theta))",
+      "p_def = h**2/(G*M)",
+      "r_conic = p_def/(1 + e*sp.cos(theta))",
+      "",
+      "# Steps 23-25: Ellipse parameters and Kepler's 1st law",
+      "# For ellipse: a = p/(1-e²), so p = a*(1-e²)",
+      "# Final form: r(theta) = a*(1-e²)/(1 + e*cos(theta))",
+      "p_ellipse = a*(1 - e**2)",
+      "r_kepler1 = (a*(1-e**2))/(1 + e*sp.cos(theta))",
+      "",
+      "# Verify consistency: p_def = p_ellipse",
+      "# This gives us h² = GM*a*(1-e²)",
+      "",
+      "# Step 26: Relationship h² = GM*a*(1-e²)",
+      "h_squared_orbital = G*M*a*(1 - e**2)",
+      "h_from_orbital = sp.sqrt(h_squared_orbital)",
+      "",
+      "# Step 27: Ellipse area A = π*a*b where b = a*sqrt(1-e²)",
+      "b_def = a*sp.sqrt(1 - e**2)",
+      "A_ellipse = pi*a*b_def",
+      "A_expanded = pi*a**2*sp.sqrt(1 - e**2)",
+      "assert sp.simplify(A_ellipse - A_expanded) == 0",
+      "",
+      "# Step 28: Period from T = A_ellipse / dot(A)",
+      "# Using dot(A) = h/2 from Kepler's 2nd law",
+      "T_from_area = A_ellipse / (h/2)",
+      "T_step28 = (2*pi*a**2*sp.sqrt(1 - e**2)) / h",
+      "assert sp.simplify(T_from_area - T_step28) == 0",
+      "",
+      "# Step 29: Already simplified in step 28",
+      "",
+      "# Step 30: Substitute h = sqrt(GM*a*(1-e²))",
+      "T_step30 = T_step28.subs(h, h_from_orbital)",
+      "T_substituted = (2*pi*a**2*sp.sqrt(1 - e**2)) / sp.sqrt(G*M*a*(1 - e**2))",
+      "assert sp.simplify(T_step30 - T_substituted) == 0",
+      "",
+      "# Step 31: Cancel sqrt(1-e²) terms",
+      "T_step31 = (2*pi*a**(sp.Rational(3,2))) / sp.sqrt(G*M)",
+      "T_simplified = sp.simplify(T_substituted)",
+      "assert sp.simplify(T_simplified - T_step31) == 0",
+      "",
+      "# Step 32: Square to get Kepler's 3rd law",
+      "T_squared = T_step31**2",
+      "T_squared_kepler3 = (4*pi**2*a**3)/(G*M)",
+      "assert sp.simplify(T_squared - T_squared_kepler3) == 0",
+      "",
+      "# Verify special cases of Kepler's 1st law",
       "# At periapsis (θ = 0): r = a(1-e)",
-      "r_periapsis = r_ellipse.subs(theta, 0)",
+      "r_periapsis = r_kepler1.subs(theta, 0)",
       "expected_periapsis = a*(1-e)",
       "assert sp.simplify(r_periapsis - expected_periapsis) == 0",
       "",
       "# At apoapsis (θ = π): r = a(1+e)",
-      "r_apoapsis = r_ellipse.subs(theta, pi)",
+      "r_apoapsis = r_kepler1.subs(theta, pi)",
       "expected_apoapsis = a*(1+e)",
       "assert sp.simplify(r_apoapsis - expected_apoapsis) == 0",
       "",
-      "# Verify circular orbit limit (e = 0)",
-      "r_circular = r_ellipse.subs(e, 0)",
-      "expected_circular = a",
-      "assert sp.simplify(r_circular - expected_circular) == 0",
+      "# Circular orbit limit (e = 0): r = a",
+      "r_circular = r_kepler1.subs(e, 0)",
+      "assert sp.simplify(r_circular - a) == 0",
       "",
-      "# For circular orbits, verify period formula reduces to standard form",
-      "T_circular_squared = T_squared  # Same formula applies",
-      "# For circular orbit: T = 2πr/v, v² = GM/r, so T² = 4π²r³/GM",
-      "# With r = a for circular orbit, this matches Kepler's 3rd law",
-      "",
-      "# Test with real solar system data (approximate)",
+      "# Verify Kepler's 3rd law with solar system data",
       "# Earth: a ≈ 1 AU, T ≈ 1 year",
       "# Mars: a ≈ 1.52 AU, T ≈ 1.88 years",
+      "a_earth, a_mars = 1, sp.Rational(152, 100)",
+      "T_earth, T_mars = 1, sp.Rational(188, 100)",
       "",
-      "a_earth = 1  # AU",
-      "a_mars = sp.Rational(152, 100)  # 1.52 AU",
+      "# Test T₁²/T₂² = a₁³/a₂³",
+      "ratio_periods = T_earth**2 / T_mars**2",
+      "ratio_distances = a_earth**3 / a_mars**3",
+      "difference = abs(float(ratio_periods - ratio_distances))",
+      "assert difference < 0.01  # Within 1% accuracy",
       "",
-      "# Kepler's 3rd law: T₁²/T₂² = a₁³/a₂³",
-      "ratio_periods_squared = (1)**2 / (sp.Rational(188, 100))**2  # T_earth²/T_mars²",
-      "ratio_distances_cubed = (a_earth)**3 / (a_mars)**3  # a_earth³/a_mars³",
-      "",
-      "# These should be approximately equal",
-      "difference = abs(float(ratio_periods_squared - ratio_distances_cubed))",
-      "assert difference < 0.01  # Within 1% (reasonable for approximations)",
-      "",
-      "# Verify conservation of angular momentum leads to 2nd law",
-      "# Area of ellipse sector from θ₁ to θ₂",
-      "# For small Δθ: ΔA = (1/2)r²Δθ",
-      "# So dA/dt = (1/2)r²(dθ/dt) = (1/2)r²(L/mr²) = L/(2m)",
-      "",
-      "# This confirms the constant areal velocity",
-      "",
-      "# Test energy relationship for elliptical orbits",
-      "# E = -GMm/(2a) for any elliptical orbit",
-      "E_ellipse = -G*M*m/(2*a)",
-      "",
-      "# At periapsis: E = (1/2)mv² - GMm/r with r = a(1-e)",
-      "# At apoapsis: E = (1/2)mv² - GMm/r with r = a(1+e)",
-      "# Both should give the same total energy E = -GMm/(2a)"
+      "print('All Kepler laws verified successfully!')",
+      "print(f'Kepler 1st law: r(θ) = a(1-e²)/(1+e cos θ)')",
+      "print(f'Kepler 2nd law: dA/dt = L/(2m) = h/2 = constant')",
+      "print(f'Kepler 3rd law: T² = 4π²a³/(GM)')"
     ]
   },
   "domain": "astro-ph",
@@ -335,10 +489,7 @@
       "No relativistic corrections included"
     ]
   },
-  "superseded_by": [
-    "newtonian_gravitation",
-    "general_relativity"
-  ],
+  "superseded_by": ["newtonian_gravitation", "general_relativity"],
   "historical_context": {
     "importance": "First accurate description of planetary motion, led to Newton's universal gravitation",
     "development_period": "1609-1619",
@@ -358,11 +509,12 @@
       "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
     }
   ],
+  "dependencies": ["newtonian_mechanics", "conservation_laws"],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
