@@ -99,37 +99,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Compton scattering is derived using relativistic conservation of energy and momentum for the photon-electron collision. The key insight is treating the photon as a particle with energy E = hf and momentum p = h/λ.",
       "equation": "E = hf = \\frac{hc}{\\lambda}, \\quad p = \\frac{E}{c} = \\frac{h}{\\lambda}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\text{Energy conservation: } E + m_e c^2 = E' + \\sqrt{(p_e c)^2 + (m_e c^2)^2}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\text{Momentum conservation: } \\vec{p} = \\vec{p}' + \\vec{p}_e"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "p_e^2 = p^2 + p'^2 - 2pp'\\cos\\theta"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "(E - E' + m_e c^2)^2 = (p_e c)^2 + (m_e c^2)^2"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\frac{1}{E'} - \\frac{1}{E} = \\frac{1 - \\cos\\theta}{m_e c^2}"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "\\lambda' - \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Compton scattering is derived using relativistic conservation of energy and momentum for the photon-electron collision. The key insight is treating the photon as a particle with energy E = hf and momentum p = h/λ."
     }
   ],
   "programmatic_verification": {

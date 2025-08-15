@@ -51,61 +51,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define magnetic flux as the integral of magnetic field through the loop area.",
       "equation": "Phi_B = int vec B cdot d vec A"
     },
     {
       "step": 2,
+      "description": "Apply Faraday's law to relate induced EMF to changing magnetic flux.",
       "equation": "EMF = oint vec E cdot d vec l = -d Phi_B/dt"
     },
     {
       "step": 3,
+      "description": "Calculate the induced current using Ohm's law with the loop resistance.",
       "equation": "I = EMF/R = -(1/R) d Phi_B/dt"
     },
     {
       "step": 4,
+      "description": "Find the power dissipated as Joule heating in the resistance.",
       "equation": "P_dissipated = I^2 R = (1/R) (d Phi_B/dt)^2"
     },
     {
       "step": 5,
+      "description": "Express the external work done to change the magnetic flux.",
       "equation": "W_external = int vec F cdot d vec x"
     },
     {
       "step": 6,
+      "description": "Apply energy conservation: external work equals energy dissipated.",
       "equation": "Energy conservation: W_external = P_dissipated dt"
     },
     {
       "step": 7,
+      "description": "The direction must be such that the induced effects oppose the change (Lenz's law).",
       "equation": "vec F opposes motion => negative work by induced current"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define magnetic flux as the integral of magnetic field through the loop area."
-    },
-    {
-      "step": 2,
-      "text": "Apply Faraday's law to relate induced EMF to changing magnetic flux."
-    },
-    {
-      "step": 3,
-      "text": "Calculate the induced current using Ohm's law with the loop resistance."
-    },
-    {
-      "step": 4,
-      "text": "Find the power dissipated as Joule heating in the resistance."
-    },
-    {
-      "step": 5,
-      "text": "Express the external work done to change the magnetic flux."
-    },
-    {
-      "step": 6,
-      "text": "Apply energy conservation: external work equals energy dissipated."
-    },
-    {
-      "step": 7,
-      "text": "The direction must be such that the induced effects oppose the change (Lenz's law)."
     }
   ],
   "programmatic_verification": {

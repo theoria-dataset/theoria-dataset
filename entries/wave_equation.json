@@ -83,33 +83,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The wave equation is derived from Newton's laws applied to a continuous medium. For small displacements, the restoring force is proportional to the curvature, leading to the characteristic second-order partial differential equation.",
       "equation": "F = -T \\sin\\theta_2 + T \\sin\\theta_1"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\sin\\theta \\approx \\tan\\theta = \\frac{\\partial u}{\\partial x}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "F = T\\left(\\frac{\\partial u}{\\partial x}\\bigg|_{x+\\Delta x} - \\frac{\\partial u}{\\partial x}\\bigg|_x\\right)"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "F = T \\frac{\\partial^2 u}{\\partial x^2} \\Delta x"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\mu \\Delta x \\frac{\\partial^2 u}{\\partial t^2} = T \\frac{\\partial^2 u}{\\partial x^2} \\Delta x"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\frac{\\partial^2 u}{\\partial t^2} = \\frac{T}{\\mu} \\frac{\\partial^2 u}{\\partial x^2} = v^2 \\frac{\\partial^2 u}{\\partial x^2}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The wave equation is derived from Newton's laws applied to a continuous medium. For small displacements, the restoring force is proportional to the curvature, leading to the characteristic second-order partial differential equation."
     }
   ],
   "programmatic_verification": {

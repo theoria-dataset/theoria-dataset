@@ -75,69 +75,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Begin with the relativistic dispersion relation for a free particle, valid in any inertial frame.",
       "equation": "E^2 = p^2*c^2 + m^2*c^4"
     },
     {
       "step": 2,
+      "description": "Propose a linear factorization of the quadratic form, introducing unknown constant matrices `alpha_i` and `beta`.",
       "equation": "(E - c*alpha cdot p - beta*m*c^2)(E + c*alpha cdot p + beta*m*c^2) = 0"
     },
     {
       "step": 3,
+      "description": "Expand the product to identify conditions these matrices must satisfy so that all cross terms cancel.",
       "equation": "Expand ⇒ E^2 - c^2*(alpha cdot p)^2 - m^2*c^4*beta^2 - c*E{alpha cdot p,} - m*c^2{E,beta} - m*c^3{alpha cdot p,beta} = 0"
     },
     {
       "step": 4,
+      "description": "Impose anticommutation rules ensuring that the expansion reproduces the dispersion relation, thereby determining the algebra of the matrices.",
       "equation": "Require anticommutation relations: alpha_i*alpha_j + alpha_j*alpha_i = 2 delta_(ij); alpha_i*beta + beta*alpha_i = 0; beta^2 = 1"
     },
     {
       "step": 5,
+      "description": "With the algebra fixed, the factorization squares to the desired energy-momentum relation.",
       "equation": "Under these conditions the cross terms vanish and we recover E^2 = p^2*c^2 + m^2*c^4"
     },
     {
       "step": 6,
+      "description": "Quantize by substituting energy and momentum operators for their classical counterparts.",
       "equation": "Promote E -> i*hbar*partial_t and p -> -i*hbar*grad"
     },
     {
       "step": 7,
+      "description": "Write the resulting first-order differential equation in Hamiltonian form.",
       "equation": "(i*hbar*partial_t - (-i*hbar*c*alpha cdot grad) - beta*m*c^2) psi = 0"
     },
     {
       "step": 8,
+      "description": "Re-express using gamma matrices to obtain the manifestly Lorentz-covariant Dirac equation.",
       "equation": "Define gamma^0 = beta, gamma^i = beta*alpha_i and write covariant form: (i*hbar*gamma^mu*partial_mu - m*c) psi = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Begin with the relativistic dispersion relation for a free particle, valid in any inertial frame."
-    },
-    {
-      "step": 2,
-      "text": "Propose a linear factorization of the quadratic form, introducing unknown constant matrices `alpha_i` and `beta`."
-    },
-    {
-      "step": 3,
-      "text": "Expand the product to identify conditions these matrices must satisfy so that all cross terms cancel."
-    },
-    {
-      "step": 4,
-      "text": "Impose anticommutation rules ensuring that the expansion reproduces the dispersion relation, thereby determining the algebra of the matrices."
-    },
-    {
-      "step": 5,
-      "text": "With the algebra fixed, the factorization squares to the desired energy-momentum relation."
-    },
-    {
-      "step": 6,
-      "text": "Quantize by substituting energy and momentum operators for their classical counterparts."
-    },
-    {
-      "step": 7,
-      "text": "Write the resulting first-order differential equation in Hamiltonian form."
-    },
-    {
-      "step": 8,
-      "text": "Re-express using gamma matrices to obtain the manifestly Lorentz-covariant Dirac equation."
     }
   ],
   "programmatic_verification": {

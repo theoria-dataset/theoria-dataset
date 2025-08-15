@@ -67,61 +67,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Apply conservation of energy to a closed system: any change in total energy equals energy added as heat minus energy lost as work.",
       "equation": "dE = dQ - dW"
     },
     {
       "step": 2,
+      "description": "Resolve total energy into internal, kinetic and potential contributions.",
       "equation": "E = U + E_kin + E_pot"
     },
     {
       "step": 3,
+      "description": "Differentiate to relate infinitesimal changes of the individual energy modes.",
       "equation": "dE = dU + dE_kin + dE_pot"
     },
     {
       "step": 4,
+      "description": "Assume the centre-of-mass velocity is constant, eliminating kinetic energy changes.",
       "equation": "dE_kin = 0"
     },
     {
       "step": 5,
+      "description": "Assume the system's elevation in a gravitational field is unchanged, eliminating potential energy changes.",
       "equation": "dE_pot = 0"
     },
     {
       "step": 6,
+      "description": "Substitute the previous two results into the energy balance to isolate the differential change in internal energy.",
       "equation": "dU = dQ - dW"
     },
     {
       "step": 7,
+      "description": "Integrate the differential relation between two equilibrium states to obtain the finite difference form.",
       "equation": "Delta U = Q - W"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Apply conservation of energy to a closed system: any change in total energy equals energy added as heat minus energy lost as work."
-    },
-    {
-      "step": 2,
-      "text": "Resolve total energy into internal, kinetic and potential contributions."
-    },
-    {
-      "step": 3,
-      "text": "Differentiate to relate infinitesimal changes of the individual energy modes."
-    },
-    {
-      "step": 4,
-      "text": "Assume the centre-of-mass velocity is constant, eliminating kinetic energy changes."
-    },
-    {
-      "step": 5,
-      "text": "Assume the system's elevation in a gravitational field is unchanged, eliminating potential energy changes."
-    },
-    {
-      "step": 6,
-      "text": "Substitute the previous two results into the energy balance to isolate the differential change in internal energy."
-    },
-    {
-      "step": 7,
-      "text": "Integrate the differential relation between two equilibrium states to obtain the finite difference form."
     }
   ],
   "programmatic_verification": {

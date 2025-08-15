@@ -99,41 +99,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "For a parallel plate capacitor, we start with the electric field from a charged plate, calculate the voltage by integrating the field, then use the definition of capacitance. Energy storage is derived by integrating the work done to charge the capacitor.",
       "equation": "\\vec{E} = \\frac{\\sigma}{\\epsilon_0}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\sigma = \\frac{Q}{A}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\vec{E} = \\frac{Q}{\\epsilon_0 A}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "V = \\int_0^d \\vec{E} \\cdot d\\vec{l} = Ed"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "V = \\frac{Q}{\\epsilon_0 A} \\cdot d = \\frac{Qd}{\\epsilon_0 A}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "C = \\frac{Q}{V} = \\frac{Q}{\\frac{Qd}{\\epsilon_0 A}} = \\frac{\\epsilon_0 A}{d}"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "U = \\int_0^Q V dq = \\int_0^Q \\frac{q}{C} dq"
     },
     {
       "step": 8,
+      "description": "",
       "equation": "U = \\frac{1}{C} \\int_0^Q q dq = \\frac{1}{C} \\cdot \\frac{Q^2}{2} = \\frac{Q^2}{2C}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "For a parallel plate capacitor, we start with the electric field from a charged plate, calculate the voltage by integrating the field, then use the definition of capacitance. Energy storage is derived by integrating the work done to charge the capacitor."
     }
   ],
   "programmatic_verification": {

@@ -106,13 +106,12 @@ def parse_references(references_text: str) -> List[Dict[str, str]]:
     
     return references
 
-def parse_derivation_steps(derivation_text: str) -> tuple:
-    """Parse derivation steps into derivation and explanation arrays."""
+def parse_derivation_steps(derivation_text: str) -> list:
+    """Parse derivation steps into new merged format."""
     derivation = []
-    derivation_explanation = []
     
     if not derivation_text:
-        return derivation, derivation_explanation
+        return derivation
     
     lines = derivation_text.strip().split('\n')
     step_num = 1
@@ -123,14 +122,16 @@ def parse_derivation_steps(derivation_text: str) -> tuple:
             # Extract step content
             step_content = line.split(':', 1)
             if len(step_content) > 1:
-                explanation_text = step_content[1].strip()
-                derivation_explanation.append({
+                description_text = step_content[1].strip()
+                # For now, create placeholder equation - user will need to fill this
+                derivation.append({
                     'step': step_num,
-                    'text': explanation_text
+                    'description': description_text,
+                    'equation': 'PLACEHOLDER_EQUATION'
                 })
                 step_num += 1
     
-    return derivation, derivation_explanation
+    return derivation
 
 def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
     """Build complete JSON entry from parsed data."""
@@ -139,7 +140,7 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
     equations = parse_equations(parsed_data.get('main_equations', ''))
     definitions = parse_definitions(parsed_data.get('symbol_definitions', ''))
     references = parse_references(parsed_data.get('references', ''))
-    derivation, derivation_explanation = parse_derivation_steps(parsed_data.get('derivation_steps', ''))
+    derivation = parse_derivation_steps(parsed_data.get('derivation_steps', ''))
     
     # Extract theory status from dropdown text
     theory_status = parsed_data.get('theory_status', '').lower()
@@ -165,9 +166,8 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
         'definitions': definitions,
         'assumptions': [],  # Will be filled manually if needed
         'derivation': derivation,
-        'derivation_explanation': derivation_explanation,
         'programmatic_verification': {
-            'language': 'python 3.11.0',
+            'language': 'python 3.11.12',
             'library': 'sympy 1.13.0',
             'code': ['# TODO: Add verification code']
         },

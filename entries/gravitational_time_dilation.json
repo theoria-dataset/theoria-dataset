@@ -83,133 +83,83 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the Schwarzschild metric in spherical coordinates for spacetime around a massive object.",
       "equation": "ds^2 = -(1 - (2*G*M)/(c^2*r))*c^2*dt^2 + dr^2 + r^2*d Omega^2"
     },
     {
       "step": 2,
+      "description": "Identify the time-time component of the metric tensor.",
       "equation": "g_00 = -(1 - (2*G*M)/(c^2*r))"
     },
     {
       "step": 3,
+      "description": "For a stationary observer (dr = dΩ = 0), only the time component contributes to the line element.",
       "equation": "ds^2 = g_00*c^2*dt^2"
     },
     {
       "step": 4,
+      "description": "Define proper time through the invariant spacetime interval.",
       "equation": "d tau^2 = -ds^2/c^2"
     },
     {
       "step": 5,
+      "description": "Substitute the metric component into the proper time expression.",
       "equation": "d tau^2 = -g_00*dt^2"
     },
     {
       "step": 6,
+      "description": "Simplify using the sign convention for timelike intervals.",
       "equation": "d tau^2 = (1 - (2*G*M)/(c^2*r))*dt^2"
     },
     {
       "step": 7,
+      "description": "Take the square root to get the relationship between proper time and coordinate time.",
       "equation": "d tau = sqrt(1 - (2*G*M)/(c^2*r)) * dt"
     },
     {
       "step": 8,
+      "description": "Identify proper time with the time measured by the local clock.",
       "equation": "dt_proper = d tau"
     },
     {
       "step": 9,
+      "description": "Identify coordinate time with the time measured by a distant observer.",
       "equation": "dt_coord = dt"
     },
     {
       "step": 10,
+      "description": "Express the fundamental time dilation relationship.",
       "equation": "dt_proper = sqrt(1 - (2*G*M)/(c^2*r)) * dt_coord"
     },
     {
       "step": 11,
+      "description": "The distant observer measures coordinate time as their proper time.",
       "equation": "dt_obs = dt_coord"
     },
     {
       "step": 12,
+      "description": "Solve for observed time in terms of proper time in the gravitational field.",
       "equation": "dt_obs = dt_proper / sqrt(1 - (2*G*M)/(c^2*r))"
     },
     {
       "step": 13,
+      "description": "Define frequency as the inverse of time period.",
       "equation": "f = 1/dt"
     },
     {
       "step": 14,
+      "description": "Calculate observed frequency using the time dilation relationship.",
       "equation": "f_obs = 1/dt_obs = sqrt(1 - (2*G*M)/(c^2*r)) / dt_proper"
     },
     {
       "step": 15,
+      "description": "Define the proper frequency emitted in the gravitational field.",
       "equation": "f_proper = 1/dt_proper"
     },
     {
       "step": 16,
+      "description": "Obtain the gravitational frequency shift (redshift) formula.",
       "equation": "f_obs = f_proper * sqrt(1 - (2*G*M)/(c^2*r))"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the Schwarzschild metric in spherical coordinates for spacetime around a massive object."
-    },
-    {
-      "step": 2,
-      "text": "Identify the time-time component of the metric tensor."
-    },
-    {
-      "step": 3,
-      "text": "For a stationary observer (dr = dΩ = 0), only the time component contributes to the line element."
-    },
-    {
-      "step": 4,
-      "text": "Define proper time through the invariant spacetime interval."
-    },
-    {
-      "step": 5,
-      "text": "Substitute the metric component into the proper time expression."
-    },
-    {
-      "step": 6,
-      "text": "Simplify using the sign convention for timelike intervals."
-    },
-    {
-      "step": 7,
-      "text": "Take the square root to get the relationship between proper time and coordinate time."
-    },
-    {
-      "step": 8,
-      "text": "Identify proper time with the time measured by the local clock."
-    },
-    {
-      "step": 9,
-      "text": "Identify coordinate time with the time measured by a distant observer."
-    },
-    {
-      "step": 10,
-      "text": "Express the fundamental time dilation relationship."
-    },
-    {
-      "step": 11,
-      "text": "The distant observer measures coordinate time as their proper time."
-    },
-    {
-      "step": 12,
-      "text": "Solve for observed time in terms of proper time in the gravitational field."
-    },
-    {
-      "step": 13,
-      "text": "Define frequency as the inverse of time period."
-    },
-    {
-      "step": 14,
-      "text": "Calculate observed frequency using the time dilation relationship."
-    },
-    {
-      "step": 15,
-      "text": "Define the proper frequency emitted in the gravitational field."
-    },
-    {
-      "step": 16,
-      "text": "Obtain the gravitational frequency shift (redshift) formula."
     }
   ],
   "programmatic_verification": {

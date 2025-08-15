@@ -55,53 +55,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Apply Euler's equation, which gives momentum balance for a steady, inviscid, incompressible fluid element.",
       "equation": "rho*(vec v cdot nabla)vec v = -nabla P + rho*g*nabla h"
     },
     {
       "step": 2,
+      "description": "Use the vector identity `(vec v cdot nabla)vec v = nabla(v^2/2) - vec v times (nabla times vec v)` to rewrite the convective acceleration term.",
       "equation": "vec v cdot nabla vec v = nabla(v^2/2) - vec v times (nabla times vec v)"
     },
     {
       "step": 3,
+      "description": "Assert the irrotational condition `nabla times vec v = 0`.",
       "equation": "nabla times vec v = 0"
     },
     {
       "step": 4,
+      "description": "With zero vorticity the convective term simplifies to `nabla(v^2/2)`.",
       "equation": "vec v cdot nabla vec v = nabla(v^2/2)"
     },
     {
       "step": 5,
+      "description": "Collect pressure, kinetic, and potential contributions into a single gradient; a zero gradient implies spatial constancy.",
       "equation": "nabla(P + (1/2)*rho*v^2 + rho*g*h) = 0"
     },
     {
       "step": 6,
+      "description": "Integrate the gradient along the streamline to obtain Bernoulli's equation: the sum of heads is constant.",
       "equation": "P + (1/2)*rho*v^2 + rho*g*h = const"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Apply Euler's equation, which gives momentum balance for a steady, inviscid, incompressible fluid element."
-    },
-    {
-      "step": 2,
-      "text": "Use the vector identity `(vec v cdot nabla)vec v = nabla(v^2/2) - vec v times (nabla times vec v)` to rewrite the convective acceleration term."
-    },
-    {
-      "step": 3,
-      "text": "Assert the irrotational condition `nabla times vec v = 0`."
-    },
-    {
-      "step": 4,
-      "text": "With zero vorticity the convective term simplifies to `nabla(v^2/2)`."
-    },
-    {
-      "step": 5,
-      "text": "Collect pressure, kinetic, and potential contributions into a single gradient; a zero gradient implies spatial constancy."
-    },
-    {
-      "step": 6,
-      "text": "Integrate the gradient along the streamline to obtain Bernoulli's equation: the sum of heads is constant."
     }
   ],
   "programmatic_verification": {

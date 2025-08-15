@@ -55,69 +55,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The probability of finding the system in state i follows the Boltzmann distribution.",
       "equation": "P_i = exp(-E_i/(k_B T))/Z"
     },
     {
       "step": 2,
+      "description": "The sum of all probabilities must equal unity (normalization condition).",
       "equation": "sum_i P_i = 1"
     },
     {
       "step": 3,
+      "description": "Substitute the Boltzmann distribution into the normalization condition.",
       "equation": "sum_i exp(-E_i/(k_B T))/Z = 1"
     },
     {
       "step": 4,
+      "description": "Solve for the partition function Z as the normalization constant.",
       "equation": "Z = sum_i exp(-E_i/(k_B T))"
     },
     {
       "step": 5,
+      "description": "Define entropy using the statistical definition in terms of probabilities.",
       "equation": "S = k_B sum_i P_i ln(1/P_i)"
     },
     {
       "step": 6,
+      "description": "Define internal energy as the ensemble average of energy.",
       "equation": "U = sum_i P_i E_i"
     },
     {
       "step": 7,
+      "description": "Use the thermodynamic definition of Helmholtz free energy.",
       "equation": "F = U - T S"
     },
     {
       "step": 8,
+      "description": "Show that free energy is related to the logarithm of the partition function.",
       "equation": "F = -k_B T ln(Z)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The probability of finding the system in state i follows the Boltzmann distribution."
-    },
-    {
-      "step": 2,
-      "text": "The sum of all probabilities must equal unity (normalization condition)."
-    },
-    {
-      "step": 3,
-      "text": "Substitute the Boltzmann distribution into the normalization condition."
-    },
-    {
-      "step": 4,
-      "text": "Solve for the partition function Z as the normalization constant."
-    },
-    {
-      "step": 5,
-      "text": "Define entropy using the statistical definition in terms of probabilities."
-    },
-    {
-      "step": 6,
-      "text": "Define internal energy as the ensemble average of energy."
-    },
-    {
-      "step": 7,
-      "text": "Use the thermodynamic definition of Helmholtz free energy."
-    },
-    {
-      "step": 8,
-      "text": "Show that free energy is related to the logarithm of the partition function."
     }
   ],
   "programmatic_verification": {

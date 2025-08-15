@@ -43,21 +43,13 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Due to Coriolis force, the pendulum's plane rotates at an angular rate equal to the vertical component of Earth's rotation: `Omega_E sin phi`.",
       "equation": "Coriolis deflection frequency in horizontal plane = Omega_E sin phi"
     },
     {
       "step": 2,
+      "description": "Compute the period of precession as `T = 2*pi/(Omega_E sin phi)`. For example, at `phi = 30 deg`, `T` is about 48 hours.",
       "equation": "T_precession = 2*pi/(Omega_E sin phi)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Due to Coriolis force, the pendulum's plane rotates at an angular rate equal to the vertical component of Earth's rotation: `Omega_E sin phi`."
-    },
-    {
-      "step": 2,
-      "text": "Compute the period of precession as `T = 2*pi/(Omega_E sin phi)`. For example, at `phi = 30 deg`, `T` is about 48 hours."
     }
   ],
   "programmatic_verification": {

@@ -71,69 +71,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the fundamental thermodynamic relation including chemical work.",
       "equation": "dU = T dS - P dV + sum_i mu_i dN_i"
     },
     {
       "step": 2,
+      "description": "Define enthalpy as internal energy plus pressure-volume work.",
       "equation": "H = U + P V"
     },
     {
       "step": 3,
+      "description": "Take the differential of enthalpy using the product rule.",
       "equation": "dH = dU + P dV + V dP"
     },
     {
       "step": 4,
+      "description": "Substitute the first law to express dH in terms of entropy, pressure, and chemical potentials.",
       "equation": "dH = T dS + V dP + sum_i mu_i dN_i"
     },
     {
       "step": 5,
+      "description": "Define Gibbs free energy as enthalpy minus temperature times entropy.",
       "equation": "G = H - T S"
     },
     {
       "step": 6,
+      "description": "Take the differential of G using the product rule.",
       "equation": "dG = dH - T dS - S dT"
     },
     {
       "step": 7,
+      "description": "Substitute the expression for dH to get the fundamental Gibbs relation.",
       "equation": "dG = V dP - S dT + sum_i mu_i dN_i"
     },
     {
       "step": 8,
+      "description": "At equilibrium under constant T and P, the Gibbs free energy is minimized.",
       "equation": "At equilibrium: dG = 0 (at constant T, P)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the fundamental thermodynamic relation including chemical work."
-    },
-    {
-      "step": 2,
-      "text": "Define enthalpy as internal energy plus pressure-volume work."
-    },
-    {
-      "step": 3,
-      "text": "Take the differential of enthalpy using the product rule."
-    },
-    {
-      "step": 4,
-      "text": "Substitute the first law to express dH in terms of entropy, pressure, and chemical potentials."
-    },
-    {
-      "step": 5,
-      "text": "Define Gibbs free energy as enthalpy minus temperature times entropy."
-    },
-    {
-      "step": 6,
-      "text": "Take the differential of G using the product rule."
-    },
-    {
-      "step": 7,
-      "text": "Substitute the expression for dH to get the fundamental Gibbs relation."
-    },
-    {
-      "step": 8,
-      "text": "At equilibrium under constant T and P, the Gibbs free energy is minimized."
     }
   ],
   "programmatic_verification": {

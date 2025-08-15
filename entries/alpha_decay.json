@@ -75,69 +75,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Apply conservation of energy to the decay process, including rest masses and kinetic energies.",
       "equation": "Conservation of energy: M_parent c^2 = M_daughter c^2 + M_alpha c^2 + T_daughter + T_alpha"
     },
     {
       "step": 2,
+      "description": "Define the Q-value as the energy available for kinetic energy of the products.",
       "equation": "Q_alpha = T_daughter + T_alpha = (M_parent - M_daughter - M_alpha) c^2"
     },
     {
       "step": 3,
+      "description": "Apply conservation of momentum: the products must have equal and opposite momenta.",
       "equation": "Conservation of momentum: vec p_daughter + vec p_alpha = 0"
     },
     {
       "step": 4,
+      "description": "Since momentum is conserved and initial momentum is zero, final momenta are equal in magnitude.",
       "equation": "|vec p_daughter| = |vec p_alpha| = p"
     },
     {
       "step": 5,
+      "description": "Express kinetic energies in terms of momentum for non-relativistic particles.",
       "equation": "T_daughter = p^2/(2 M_daughter), T_alpha = p^2/(2 M_alpha)"
     },
     {
       "step": 6,
+      "description": "Relate the total kinetic energy to the momentum using reduced mass concepts.",
       "equation": "Q_alpha = p^2/(2 M_daughter) + p^2/(2 M_alpha) = p^2/2 (1/M_daughter + 1/M_alpha)"
     },
     {
       "step": 7,
+      "description": "Determine the alpha particle kinetic energy from momentum conservation.",
       "equation": "T_alpha = Q_alpha * M_daughter/(M_daughter + M_alpha)"
     },
     {
       "step": 8,
+      "description": "The decay rate depends exponentially on quantum tunneling through the Coulomb barrier.",
       "equation": "lambda_alpha prop exp(-2 G) where G = Gamow factor"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Apply conservation of energy to the decay process, including rest masses and kinetic energies."
-    },
-    {
-      "step": 2,
-      "text": "Define the Q-value as the energy available for kinetic energy of the products."
-    },
-    {
-      "step": 3,
-      "text": "Apply conservation of momentum: the products must have equal and opposite momenta."
-    },
-    {
-      "step": 4,
-      "text": "Since momentum is conserved and initial momentum is zero, final momenta are equal in magnitude."
-    },
-    {
-      "step": 5,
-      "text": "Express kinetic energies in terms of momentum for non-relativistic particles."
-    },
-    {
-      "step": 6,
-      "text": "Relate the total kinetic energy to the momentum using reduced mass concepts."
-    },
-    {
-      "step": 7,
-      "text": "Determine the alpha particle kinetic energy from momentum conservation."
-    },
-    {
-      "step": 8,
-      "text": "The decay rate depends exponentially on quantum tunneling through the Coulomb barrier."
     }
   ],
   "programmatic_verification": {

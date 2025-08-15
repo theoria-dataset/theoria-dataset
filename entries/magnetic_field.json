@@ -95,29 +95,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The magnetic field is derived from Maxwell's equations in the magnetostatic limit. The Biot-Savart law emerges from solving for the vector potential A, while Ampère's law provides an integral form useful for symmetric current distributions.",
       "equation": "\\vec{F}_{12} = q_1 \\vec{v}_1 \\times \\vec{B}_2"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\vec{B}_2 = \\frac{\\mu_0}{4\\pi} \\frac{q_2 \\vec{v}_2 \\times \\hat{r}_{12}}{r_{12}^2}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "I d\\vec{l} = \\rho \\vec{v} dV = nq\\vec{v} dV"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\vec{B} = \\frac{\\mu_0}{4\\pi} \\int \\frac{I d\\vec{l} \\times \\hat{r}}{r^2}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The magnetic field is derived from Maxwell's equations in the magnetostatic limit. The Biot-Savart law emerges from solving for the vector potential A, while Ampère's law provides an integral form useful for symmetric current distributions."
     }
   ],
   "programmatic_verification": {

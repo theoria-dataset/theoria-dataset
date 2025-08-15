@@ -47,37 +47,23 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Write the relation between accelerations in inertial vs rotating frame (including Coriolis and centrifugal terms).",
       "equation": "vec a_inertial = vec a_rot + 2 vec Omega cross vec v + vec Omega cross (vec Omega cross vec r)"
     },
     {
       "step": 2,
+      "description": "Newton's second law in the inertial frame relates real forces to inertial acceleration.",
       "equation": "m vec a_inertial = vec F_real"
     },
     {
       "step": 3,
+      "description": "Re-arrange in the rotating frame: fictitious force terms (Coriolis and centrifugal) are moved to the right-hand side.",
       "equation": "m vec a_rot = vec F_real - 2 m(vec Omega cross vec v) - m vec Omega cross (vec Omega cross vec r)"
     },
     {
       "step": 4,
+      "description": "Identify the Coriolis force `2 m(vec v cross vec Omega)` and centrifugal force in the rotating frame's equation of motion.",
       "equation": "Identify vec F_c = 2 m(vec v cross vec Omega) and centrifugal vec F_cf = m vec Omega cross (vec Omega cross vec r)."
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Write the relation between accelerations in inertial vs rotating frame (including Coriolis and centrifugal terms)."
-    },
-    {
-      "step": 2,
-      "text": "Newton's second law in the inertial frame relates real forces to inertial acceleration."
-    },
-    {
-      "step": 3,
-      "text": "Re-arrange in the rotating frame: fictitious force terms (Coriolis and centrifugal) are moved to the right-hand side."
-    },
-    {
-      "step": 4,
-      "text": "Identify the Coriolis force `2 m(vec v cross vec Omega)` and centrifugal force in the rotating frame's equation of motion."
     }
   ],
   "programmatic_verification": {

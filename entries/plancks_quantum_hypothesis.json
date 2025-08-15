@@ -67,133 +67,83 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the classical expression for energy density, where the average energy per mode needs to be determined.",
       "equation": "u(f, T) = (8*pi*f^2)/c^3 * <E>"
     },
     {
       "step": 2,
+      "description": "Classical equipartition theorem assigns `k_B*T` energy to each oscillator mode.",
       "equation": "<E> = k_B*T"
     },
     {
       "step": 3,
+      "description": "This leads to the Rayleigh-Jeans law for blackbody radiation.",
       "equation": "u(f, T) = (8*pi*f^2*k_B*T)/c^3"
     },
     {
       "step": 4,
+      "description": "The classical result diverges when integrated over all frequencies (ultraviolet catastrophe).",
       "equation": "int_0^infinity u(f, T) df = infinity"
     },
     {
       "step": 5,
+      "description": "Planck's revolutionary hypothesis: energy levels are discrete, with spacing `epsilon`.",
       "equation": "E_n = n * epsilon"
     },
     {
       "step": 6,
+      "description": "The energy quantum is proportional to frequency, defining Planck's constant.",
       "equation": "epsilon = h * f"
     },
     {
       "step": 7,
+      "description": "Each oscillator can have energy `0, hf, 2hf, 3hf, ...`",
       "equation": "E_n = n * h * f"
     },
     {
       "step": 8,
+      "description": "Calculate the thermal average energy using Boltzmann statistics for discrete levels.",
       "equation": "<E> = (sum_{n=0}^infinity E_n * e^(-E_n/(k_B*T)))/(sum_{n=0}^infinity e^(-E_n/(k_B*T)))"
     },
     {
       "step": 9,
+      "description": "Substitute the quantized energy levels into the partition function.",
       "equation": "<E> = (sum_{n=0}^infinity n*h*f * e^(-n*h*f/(k_B*T)))/(sum_{n=0}^infinity e^(-n*h*f/(k_B*T)))"
     },
     {
       "step": 10,
+      "description": "Introduce dimensionless variable to simplify the calculation.",
       "equation": "x = h*f/(k_B*T)"
     },
     {
       "step": 11,
+      "description": "Factor out common terms and express as ratio of geometric series.",
       "equation": "<E> = (h*f * sum_{n=0}^infinity n * e^(-n*x))/(sum_{n=0}^infinity e^(-n*x))"
     },
     {
       "step": 12,
+      "description": "Evaluate the denominator using the geometric series formula.",
       "equation": "sum_{n=0}^infinity e^(-n*x) = 1/(1 - e^(-x))"
     },
     {
       "step": 13,
+      "description": "Evaluate the numerator by differentiating the geometric series.",
       "equation": "sum_{n=0}^infinity n * e^(-n*x) = e^(-x)/(1 - e^(-x))^2"
     },
     {
       "step": 14,
+      "description": "Combine the results and simplify the expression.",
       "equation": "<E> = h*f * (e^(-x)/(1 - e^(-x))^2) * (1 - e^(-x))"
     },
     {
       "step": 15,
+      "description": "Further simplify by canceling common factors.",
       "equation": "<E> = h*f * e^(-x)/(1 - e^(-x))"
     },
     {
       "step": 16,
+      "description": "Obtain Planck's formula for the average energy of a quantum harmonic oscillator.",
       "equation": "<E> = h*f/(e^(h*f/(k_B*T)) - 1)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the classical expression for energy density, where the average energy per mode needs to be determined."
-    },
-    {
-      "step": 2,
-      "text": "Classical equipartition theorem assigns `k_B*T` energy to each oscillator mode."
-    },
-    {
-      "step": 3,
-      "text": "This leads to the Rayleigh-Jeans law for blackbody radiation."
-    },
-    {
-      "step": 4,
-      "text": "The classical result diverges when integrated over all frequencies (ultraviolet catastrophe)."
-    },
-    {
-      "step": 5,
-      "text": "Planck's revolutionary hypothesis: energy levels are discrete, with spacing `epsilon`."
-    },
-    {
-      "step": 6,
-      "text": "The energy quantum is proportional to frequency, defining Planck's constant."
-    },
-    {
-      "step": 7,
-      "text": "Each oscillator can have energy `0, hf, 2hf, 3hf, ...`"
-    },
-    {
-      "step": 8,
-      "text": "Calculate the thermal average energy using Boltzmann statistics for discrete levels."
-    },
-    {
-      "step": 9,
-      "text": "Substitute the quantized energy levels into the partition function."
-    },
-    {
-      "step": 10,
-      "text": "Introduce dimensionless variable to simplify the calculation."
-    },
-    {
-      "step": 11,
-      "text": "Factor out common terms and express as ratio of geometric series."
-    },
-    {
-      "step": 12,
-      "text": "Evaluate the denominator using the geometric series formula."
-    },
-    {
-      "step": 13,
-      "text": "Evaluate the numerator by differentiating the geometric series."
-    },
-    {
-      "step": 14,
-      "text": "Combine the results and simplify the expression."
-    },
-    {
-      "step": 15,
-      "text": "Further simplify by canceling common factors."
-    },
-    {
-      "step": 16,
-      "text": "Obtain Planck's formula for the average energy of a quantum harmonic oscillator."
     }
   ],
   "programmatic_verification": {

@@ -95,109 +95,68 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define magnetic dipole moment for a current loop.",
       "equation": "text(Magnetic dipole moment from current loop)"
     },
     {
       "step": 2,
+      "description": "Integrate current times area element to get total magnetic moment.",
       "equation": "vec mu = I*int d vec A = I*vec A"
     },
     {
       "step": 3,
+      "description": "Calculate potential energy of current distribution in external field.",
       "equation": "text(Potential energy in external field)"
     },
     {
       "step": 4,
+      "description": "Use the interaction energy between current and vector potential.",
       "equation": "U = -int vec J cdot vec A_ext dV"
     },
     {
       "step": 5,
+      "description": "For uniform magnetic field, express vector potential in terms of B.",
       "equation": "text(For uniform field: ) vec A_ext = (1/2)*vec B times vec r"
     },
     {
       "step": 6,
+      "description": "Simplify to get the dipole-field interaction energy.",
       "equation": "U = -vec mu cdot vec B"
     },
     {
       "step": 7,
+      "description": "Calculate torque as negative gradient of potential energy.",
       "equation": "text(Torque from potential energy)"
     },
     {
       "step": 8,
+      "description": "Apply the gradient operator to the interaction energy.",
       "equation": "vec tau = -nabla U = -nabla(-vec mu cdot vec B)"
     },
     {
       "step": 9,
+      "description": "Obtain the torque as cross product of dipole moment and field.",
       "equation": "vec tau = vec mu times vec B"
     },
     {
       "step": 10,
+      "description": "Calculate the magnetic field produced by the dipole itself.",
       "equation": "text(Magnetic field of dipole from vector potential)"
     },
     {
       "step": 11,
+      "description": "Start with the vector potential of a magnetic dipole.",
       "equation": "vec A(vec r) = (mu_0/(4*pi)) * (vec mu times vec r)/r^3"
     },
     {
       "step": 12,
+      "description": "Take the curl of vector potential to get magnetic field.",
       "equation": "vec B = nabla times vec A"
     },
     {
       "step": 13,
+      "description": "Evaluate the curl to get the dipole field expression.",
       "equation": "vec B = (mu_0/(4*pi)) * (3*(vec mu cdot hat r)*hat r - vec mu)/r^3"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define magnetic dipole moment for a current loop."
-    },
-    {
-      "step": 2,
-      "text": "Integrate current times area element to get total magnetic moment."
-    },
-    {
-      "step": 3,
-      "text": "Calculate potential energy of current distribution in external field."
-    },
-    {
-      "step": 4,
-      "text": "Use the interaction energy between current and vector potential."
-    },
-    {
-      "step": 5,
-      "text": "For uniform magnetic field, express vector potential in terms of B."
-    },
-    {
-      "step": 6,
-      "text": "Simplify to get the dipole-field interaction energy."
-    },
-    {
-      "step": 7,
-      "text": "Calculate torque as negative gradient of potential energy."
-    },
-    {
-      "step": 8,
-      "text": "Apply the gradient operator to the interaction energy."
-    },
-    {
-      "step": 9,
-      "text": "Obtain the torque as cross product of dipole moment and field."
-    },
-    {
-      "step": 10,
-      "text": "Calculate the magnetic field produced by the dipole itself."
-    },
-    {
-      "step": 11,
-      "text": "Start with the vector potential of a magnetic dipole."
-    },
-    {
-      "step": 12,
-      "text": "Take the curl of vector potential to get magnetic field."
-    },
-    {
-      "step": 13,
-      "text": "Evaluate the curl to get the dipole field expression."
     }
   ],
   "programmatic_verification": {

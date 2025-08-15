@@ -75,133 +75,83 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Boltzmann's fundamental relation between entropy and number of microstates.",
       "equation": "S = k_B * ln(Omega)"
     },
     {
       "step": 2,
+      "description": "Apply the thermodynamic definition of temperature from the first law.",
       "equation": "dS = (1/T) * dE"
     },
     {
       "step": 3,
+      "description": "Combine the entropy and temperature relationships.",
       "equation": "d(k_B * ln(Omega)) = (1/T) * dE"
     },
     {
       "step": 4,
+      "description": "Differentiate and rearrange to isolate the derivative of ln(Omega).",
       "equation": "k_B * (d ln(Omega))/(dE) = 1/T"
     },
     {
       "step": 5,
+      "description": "Simplify to get the relationship between microstates and energy.",
       "equation": "(d ln(Omega))/(dE) = 1/(k_B*T)"
     },
     {
       "step": 6,
+      "description": "Integrate to find ln(Omega) as a function of energy.",
       "equation": "ln(Omega) = E/(k_B*T) + C"
     },
     {
       "step": 7,
+      "description": "Exponentiate to get the number of microstates as a function of energy.",
       "equation": "Omega = A * e^(E/(k_B*T))"
     },
     {
       "step": 8,
+      "description": "For a system in contact with a reservoir, probability is proportional to reservoir microstates.",
       "equation": "P(E) prop Omega(E_total - E)"
     },
     {
       "step": 9,
+      "description": "The reservoir has energy (E_total - E), so apply the microstate formula.",
       "equation": "P(E) prop e^((E_total - E)/(k_B*T))"
     },
     {
       "step": 10,
+      "description": "Factor the exponential into reservoir and system terms.",
       "equation": "P(E) prop e^(E_total/(k_B*T)) * e^(-E/(k_B*T))"
     },
     {
       "step": 11,
+      "description": "The reservoir term is constant, leaving only the system energy dependence.",
       "equation": "P(E) prop e^(-E/(k_B*T))"
     },
     {
       "step": 12,
+      "description": "Introduce the normalization constant Z to make it a proper probability.",
       "equation": "P(E) = (1/Z) * e^(-E/(k_B*T))"
     },
     {
       "step": 13,
+      "description": "Apply the normalization condition that all probabilities sum to unity.",
       "equation": "sum_i P(E_i) = 1"
     },
     {
       "step": 14,
+      "description": "Substitute the Boltzmann probability expression.",
       "equation": "sum_i (1/Z) * e^(-E_i/(k_B*T)) = 1"
     },
     {
       "step": 15,
+      "description": "Factor out the constant 1/Z from the sum.",
       "equation": "(1/Z) * sum_i e^(-E_i/(k_B*T)) = 1"
     },
     {
       "step": 16,
+      "description": "Solve for the partition function Z.",
       "equation": "Z = sum_i e^(-E_i/(k_B*T))"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Boltzmann's fundamental relation between entropy and number of microstates."
-    },
-    {
-      "step": 2,
-      "text": "Apply the thermodynamic definition of temperature from the first law."
-    },
-    {
-      "step": 3,
-      "text": "Combine the entropy and temperature relationships."
-    },
-    {
-      "step": 4,
-      "text": "Differentiate and rearrange to isolate the derivative of ln(Omega)."
-    },
-    {
-      "step": 5,
-      "text": "Simplify to get the relationship between microstates and energy."
-    },
-    {
-      "step": 6,
-      "text": "Integrate to find ln(Omega) as a function of energy."
-    },
-    {
-      "step": 7,
-      "text": "Exponentiate to get the number of microstates as a function of energy."
-    },
-    {
-      "step": 8,
-      "text": "For a system in contact with a reservoir, probability is proportional to reservoir microstates."
-    },
-    {
-      "step": 9,
-      "text": "The reservoir has energy (E_total - E), so apply the microstate formula."
-    },
-    {
-      "step": 10,
-      "text": "Factor the exponential into reservoir and system terms."
-    },
-    {
-      "step": 11,
-      "text": "The reservoir term is constant, leaving only the system energy dependence."
-    },
-    {
-      "step": 12,
-      "text": "Introduce the normalization constant Z to make it a proper probability."
-    },
-    {
-      "step": 13,
-      "text": "Apply the normalization condition that all probabilities sum to unity."
-    },
-    {
-      "step": 14,
-      "text": "Substitute the Boltzmann probability expression."
-    },
-    {
-      "step": 15,
-      "text": "Factor out the constant 1/Z from the sum."
-    },
-    {
-      "step": 16,
-      "text": "Solve for the partition function Z."
     }
   ],
   "programmatic_verification": {

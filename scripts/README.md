@@ -2,17 +2,22 @@
 
 This directory contains build scripts for generating the TheorIA dataset documentation.
 
-## generate-index.js
+## generate_index.py
 
-Generates the main index.html page that displays all entries organized by physics domains.
+Generates the main entries_index.html page that displays all entries organized by physics domains.
+
+**Requirements:** Python 3.8+ (tested with Python 3.11.12)
 
 **Usage:**
 ```bash
-# Run directly
-node scripts/generate-index.js
+# Run directly (requires Python)
+python scripts/generate_index.py
 
-# Or use npm script
-npm run build-index
+# Or use make with Docker
+make build
+
+# Or run with Docker directly
+docker-compose run --rm theoria-tests python scripts/generate_index.py
 ```
 
 **What it does:**
@@ -20,7 +25,7 @@ npm run build-index
 - Groups entries by their `domain` field using readable category names
 - Generates entry cards showing title, description, and review status
 - Creates navigation links between domain sections
-- Outputs a complete HTML page to `docs/index.html`
+- Outputs a complete HTML page to `docs/entries_index.html`
 
 **When to run:**
 - After adding new entries to the `entries/` directory

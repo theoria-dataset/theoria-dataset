@@ -103,69 +103,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the classical dispersion relation for a charged particle in external electromagnetic potentials.",
       "equation": "(E - q*phi)^2 = c^2*(p - (q/c)*A)^2 + m^2*c^4"
     },
     {
       "step": 2,
+      "description": "Factorize the quadratic expression using matrices `alpha_i` and `beta`, generalizing the free-particle approach.",
       "equation": "(E - q*phi - c*alpha cdot (p - (q/c)*A) - beta*m*c^2)(E - q*phi + c*alpha cdot (p - (q/c)*A) + beta*m*c^2) = 0"
     },
     {
       "step": 3,
+      "description": "Require the same anticommutation relations as in the free case so that squaring the linear operator reproduces step 1.",
       "equation": "Expand and impose anticommutation ⇒ alpha_i*alpha_j + alpha_j*alpha_i = 2 delta_(ij); alpha_i*beta + beta*alpha_i = 0; beta^2 = 1"
     },
     {
       "step": 4,
+      "description": "These relations guarantee cancellation of cross terms and fix the matrix algebra.",
       "equation": "With these relations the cross terms cancel, reproducing step 1."
     },
     {
       "step": 5,
+      "description": "Quantize by substituting operators for classical observables via the canonical correspondence principle.",
       "equation": "Promote E -> i*hbar*partial_t and p -> -i*hbar*grad"
     },
     {
       "step": 6,
+      "description": "Insert the minimal substitution for momentum and energy into the linear factor.",
       "equation": "(i*hbar*partial_t - q*phi - c*alpha cdot (-i*hbar*grad - (q/c)*A) - beta*m*c^2) psi = 0"
     },
     {
       "step": 7,
+      "description": "Isolate the time derivative to obtain the Hamiltonian form of the Dirac equation with electromagnetic interaction.",
       "equation": "Rewrite ⇒ i*hbar*partial_t psi = (c*alpha cdot (p - q*A) + q*phi + beta*m*c^2) psi"
     },
     {
       "step": 8,
+      "description": "Identify `gamma` matrices and rewrite the equation in manifestly Lorentz-covariant, gauge-covariant form.",
       "equation": "Define gamma^0 = beta, gamma^i = beta*alpha_i and write covariant form: (i*hbar*gamma^mu*(partial_mu + i*(q/(hbar*c))*A_mu) - m*c) psi = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the classical dispersion relation for a charged particle in external electromagnetic potentials."
-    },
-    {
-      "step": 2,
-      "text": "Factorize the quadratic expression using matrices `alpha_i` and `beta`, generalizing the free-particle approach."
-    },
-    {
-      "step": 3,
-      "text": "Require the same anticommutation relations as in the free case so that squaring the linear operator reproduces step 1."
-    },
-    {
-      "step": 4,
-      "text": "These relations guarantee cancellation of cross terms and fix the matrix algebra."
-    },
-    {
-      "step": 5,
-      "text": "Quantize by substituting operators for classical observables via the canonical correspondence principle."
-    },
-    {
-      "step": 6,
-      "text": "Insert the minimal substitution for momentum and energy into the linear factor."
-    },
-    {
-      "step": 7,
-      "text": "Isolate the time derivative to obtain the Hamiltonian form of the Dirac equation with electromagnetic interaction."
-    },
-    {
-      "step": 8,
-      "text": "Identify `gamma` matrices and rewrite the equation in manifestly Lorentz-covariant, gauge-covariant form."
     }
   ],
   "programmatic_verification": {

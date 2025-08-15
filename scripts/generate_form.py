@@ -78,7 +78,6 @@ def update_form_guidelines(form_content, schema_data):
         'definitions': 'definitions',
         'assumptions': 'assumptions', 
         'derivation': 'derivation',
-        'derivation_explanation': 'derivation_explanation',
         'programmatic_verification': 'programmatic_verification',
         'domain': 'domain',
         'validity_regime': 'validity_regime',
@@ -121,8 +120,6 @@ def update_form_guidelines(form_content, schema_data):
                     schema_field = 'derivation'
                 elif 'Assumptions' in heading:
                     schema_field = 'assumptions'
-                elif 'Derivation Explanation' in heading:
-                    schema_field = 'derivation_explanation'
                 elif 'Programmatic Verification' in heading:
                     schema_field = 'programmatic_verification'
                 elif 'Metadata' in heading:

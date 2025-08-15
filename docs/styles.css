@@ -885,3 +885,23 @@ select option {
     font-size: 0.8em !important;
   }
 }
+
+/* Google Colab badge styling */
+.colab-container {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.colab-container a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.colab-container a:hover {
+  transform: scale(1.05);
+}
+
+.colab-container img {
+  height: 32px;
+  border-radius: 4px;
+}

@@ -67,77 +67,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the time-independent Schrödinger equation.",
       "equation": "-(hbar^2)/(2m) (d^2 psi)/(dx^2) + V(x) psi = E psi"
     },
     {
       "step": 2,
+      "description": "In region I (before barrier), the wavefunction consists of incident and reflected waves.",
       "equation": "Region I (x < 0): psi_I = A e^(i k_1 x) + B e^(-i k_1 x)"
     },
     {
       "step": 3,
+      "description": "In region II (inside barrier), the wavefunction has exponentially growing and decaying terms.",
       "equation": "Region II (0 < x < a): psi_II = C e^(kappa x) + D e^(-kappa x)"
     },
     {
       "step": 4,
+      "description": "In region III (after barrier), only the transmitted wave remains.",
       "equation": "Region III (x > a): psi_III = F e^(i k_1 x)"
     },
     {
       "step": 5,
+      "description": "Define wave numbers for the kinetic energy regions and decay constant for the barrier.",
       "equation": "k_1 = sqrt(2mE)/hbar, kappa = sqrt(2m(V_0 - E))/hbar"
     },
     {
       "step": 6,
+      "description": "Apply continuity conditions for the wavefunction and its derivative at boundaries.",
       "equation": "Boundary conditions: psi and dpsi/dx continuous at x = 0, a"
     },
     {
       "step": 7,
+      "description": "Define transmission probability as the ratio of transmitted to incident flux.",
       "equation": "T = |F/A|^2"
     },
     {
       "step": 8,
+      "description": "Solve the boundary value problem to find the exact transmission probability.",
       "equation": "T = 1/(1 + (V_0^2 sinh^2(kappa a))/(4 E (V_0 - E)))"
     },
     {
       "step": 9,
+      "description": "For thick barriers, the transmission becomes exponentially suppressed.",
       "equation": "For kappa a >> 1: T approx exp(-2 kappa a)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the time-independent Schrödinger equation."
-    },
-    {
-      "step": 2,
-      "text": "In region I (before barrier), the wavefunction consists of incident and reflected waves."
-    },
-    {
-      "step": 3,
-      "text": "In region II (inside barrier), the wavefunction has exponentially growing and decaying terms."
-    },
-    {
-      "step": 4,
-      "text": "In region III (after barrier), only the transmitted wave remains."
-    },
-    {
-      "step": 5,
-      "text": "Define wave numbers for the kinetic energy regions and decay constant for the barrier."
-    },
-    {
-      "step": 6,
-      "text": "Apply continuity conditions for the wavefunction and its derivative at boundaries."
-    },
-    {
-      "step": 7,
-      "text": "Define transmission probability as the ratio of transmitted to incident flux."
-    },
-    {
-      "step": 8,
-      "text": "Solve the boundary value problem to find the exact transmission probability."
-    },
-    {
-      "step": 9,
-      "text": "For thick barriers, the transmission becomes exponentially suppressed."
     }
   ],
   "programmatic_verification": {

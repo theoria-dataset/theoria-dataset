@@ -71,69 +71,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the time-independent Schrödinger equation for hydrogen with Coulomb potential.",
       "equation": "-(hbar^2)/(2 m_e) nabla^2 psi - (e^2)/(4 pi epsilon_0 r) psi = E psi"
     },
     {
       "step": 2,
+      "description": "Separate variables into radial and angular parts using spherical coordinates.",
       "equation": "psi(r, theta, phi) = R_{nl}(r) Y_l^m(theta, phi)"
     },
     {
       "step": 3,
+      "description": "Focus on the radial equation with effective potential including centrifugal term.",
       "equation": "-(hbar^2)/(2 m_e) (d^2 R)/(dr^2) + [-(e^2)/(4 pi epsilon_0 r) + (l(l+1) hbar^2)/(2 m_e r^2)] R = E R"
     },
     {
       "step": 4,
+      "description": "Introduce dimensionless variable ρ related to the radius.",
       "equation": "rho = sqrt((-8 m_e E)/hbar^2) r"
     },
     {
       "step": 5,
+      "description": "Define parameter λ that determines the bound state condition.",
       "equation": "lambda = (m_e e^2)/(4 pi epsilon_0 hbar^2 sqrt(-2 m_e E))"
     },
     {
       "step": 6,
+      "description": "Quantization condition: λ must be a positive integer n for normalizable solutions.",
       "equation": "lambda = n (n = 1, 2, 3, ...)"
     },
     {
       "step": 7,
+      "description": "Solve for energy levels in terms of fundamental constants and quantum number n.",
       "equation": "E_n = -(m_e e^4)/(2 (4 pi epsilon_0)^2 hbar^2 n^2)"
     },
     {
       "step": 8,
+      "description": "Define the Bohr radius as the characteristic length scale.",
       "equation": "a_0 = (4 pi epsilon_0 hbar^2)/(m_e e^2)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the time-independent Schrödinger equation for hydrogen with Coulomb potential."
-    },
-    {
-      "step": 2,
-      "text": "Separate variables into radial and angular parts using spherical coordinates."
-    },
-    {
-      "step": 3,
-      "text": "Focus on the radial equation with effective potential including centrifugal term."
-    },
-    {
-      "step": 4,
-      "text": "Introduce dimensionless variable ρ related to the radius."
-    },
-    {
-      "step": 5,
-      "text": "Define parameter λ that determines the bound state condition."
-    },
-    {
-      "step": 6,
-      "text": "Quantization condition: λ must be a positive integer n for normalizable solutions."
-    },
-    {
-      "step": 7,
-      "text": "Solve for energy levels in terms of fundamental constants and quantum number n."
-    },
-    {
-      "step": 8,
-      "text": "Define the Bohr radius as the characteristic length scale."
     }
   ],
   "programmatic_verification": {

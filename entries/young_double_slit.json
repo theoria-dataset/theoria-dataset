@@ -67,77 +67,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define path difference as the difference in distance traveled by waves from each slit.",
       "equation": "Path difference: delta = r_2 - r_1"
     },
     {
       "step": 2,
+      "description": "For the geometric setup, path difference depends on slit separation and observation angle.",
       "equation": "For small angles: delta = d sin(theta)"
     },
     {
       "step": 3,
+      "description": "Apply small angle approximation for distant screen observation.",
       "equation": "tan(theta) = y/L approx sin(theta) = y/L"
     },
     {
       "step": 4,
+      "description": "Express path difference in terms of measurable quantities y and L.",
       "equation": "delta = d y/L"
     },
     {
       "step": 5,
+      "description": "Constructive interference occurs when path difference is an integer multiple of wavelength.",
       "equation": "Constructive interference: delta = m lambda"
     },
     {
       "step": 6,
+      "description": "Solve for positions of bright fringes (maxima) on the screen.",
       "equation": "Bright fringes: d y/L = m lambda => y = (m lambda L)/d"
     },
     {
       "step": 7,
+      "description": "Destructive interference occurs when path difference is a half-integer multiple of wavelength.",
       "equation": "Destructive interference: delta = (m + 1/2) lambda"
     },
     {
       "step": 8,
+      "description": "Solve for positions of dark fringes (minima) on the screen.",
       "equation": "Dark fringes: y = ((m + 1/2) lambda L)/d"
     },
     {
       "step": 9,
+      "description": "Calculate the spacing between adjacent bright (or dark) fringes.",
       "equation": "Fringe spacing: Delta y = lambda L/d"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define path difference as the difference in distance traveled by waves from each slit."
-    },
-    {
-      "step": 2,
-      "text": "For the geometric setup, path difference depends on slit separation and observation angle."
-    },
-    {
-      "step": 3,
-      "text": "Apply small angle approximation for distant screen observation."
-    },
-    {
-      "step": 4,
-      "text": "Express path difference in terms of measurable quantities y and L."
-    },
-    {
-      "step": 5,
-      "text": "Constructive interference occurs when path difference is an integer multiple of wavelength."
-    },
-    {
-      "step": 6,
-      "text": "Solve for positions of bright fringes (maxima) on the screen."
-    },
-    {
-      "step": 7,
-      "text": "Destructive interference occurs when path difference is a half-integer multiple of wavelength."
-    },
-    {
-      "step": 8,
-      "text": "Solve for positions of dark fringes (minima) on the screen."
-    },
-    {
-      "step": 9,
-      "text": "Calculate the spacing between adjacent bright (or dark) fringes."
     }
   ],
   "programmatic_verification": {

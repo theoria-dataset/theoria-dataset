@@ -71,101 +71,63 @@
   "derivation": [
     {
       "step": 1,
+      "description": "At phase equilibrium, chemical potentials of both phases must be equal.",
       "equation": "text(At equilibrium: chemical potentials are equal)"
     },
     {
       "step": 2,
+      "description": "Express the equilibrium condition mathematically.",
       "equation": "mu_1(p,T) = mu_2(p,T)"
     },
     {
       "step": 3,
+      "description": "Use the fundamental thermodynamic relation for chemical potential.",
       "equation": "text(Differential of chemical potential)"
     },
     {
       "step": 4,
+      "description": "Write the differential form of chemical potential.",
       "equation": "dmu = -S*dT + V*dp"
     },
     {
       "step": 5,
+      "description": "Along the phase boundary, both phases remain in equilibrium.",
       "equation": "text(For equilibrium along phase boundary)"
     },
     {
       "step": 6,
+      "description": "Equate the differentials of chemical potentials.",
       "equation": "dmu_1 = dmu_2"
     },
     {
       "step": 7,
+      "description": "Substitute the expressions for chemical potential differentials.",
       "equation": "-S_1*dT + V_1*dp = -S_2*dT + V_2*dp"
     },
     {
       "step": 8,
+      "description": "Rearrange to group volume and entropy differences.",
       "equation": "(V_2 - V_1)*dp = (S_2 - S_1)*dT"
     },
     {
       "step": 9,
+      "description": "Solve for the slope dp/dT in terms of entropy and volume changes.",
       "equation": "dp/dT = (S_2 - S_1)/(V_2 - V_1)"
     },
     {
       "step": 10,
+      "description": "Connect entropy change to latent heat.",
       "equation": "text(Entropy change relates to latent heat)"
     },
     {
       "step": 11,
+      "description": "Use the thermodynamic relation between entropy and enthalpy changes.",
       "equation": "Delta S = Delta H/T"
     },
     {
       "step": 12,
+      "description": "Substitute to obtain the Clausius-Clapeyron equation.",
       "equation": "dp/dT = Delta H/(T*Delta V)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "At phase equilibrium, chemical potentials of both phases must be equal."
-    },
-    {
-      "step": 2,
-      "text": "Express the equilibrium condition mathematically."
-    },
-    {
-      "step": 3,
-      "text": "Use the fundamental thermodynamic relation for chemical potential."
-    },
-    {
-      "step": 4,
-      "text": "Write the differential form of chemical potential."
-    },
-    {
-      "step": 5,
-      "text": "Along the phase boundary, both phases remain in equilibrium."
-    },
-    {
-      "step": 6,
-      "text": "Equate the differentials of chemical potentials."
-    },
-    {
-      "step": 7,
-      "text": "Substitute the expressions for chemical potential differentials."
-    },
-    {
-      "step": 8,
-      "text": "Rearrange to group volume and entropy differences."
-    },
-    {
-      "step": 9,
-      "text": "Solve for the slope dp/dT in terms of entropy and volume changes."
-    },
-    {
-      "step": 10,
-      "text": "Connect entropy change to latent heat."
-    },
-    {
-      "step": 11,
-      "text": "Use the thermodynamic relation between entropy and enthalpy changes."
-    },
-    {
-      "step": 12,
-      "text": "Substitute to obtain the Clausius-Clapeyron equation."
     }
   ],
   "programmatic_verification": {

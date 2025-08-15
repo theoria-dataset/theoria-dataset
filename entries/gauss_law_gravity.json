@@ -87,61 +87,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Newton's law of universal gravitation for the force between two masses.",
       "equation": "vec(F) = -G (m_1 m_2)/r^2 hat(r)"
     },
     {
       "step": 2,
+      "description": "Define gravitational field as force per unit test mass, with negative sign indicating attractive nature.",
       "equation": "vec(g) = vec(F)/m = -G M/r^2 hat(r)"
     },
     {
       "step": 3,
+      "description": "Calculate flux of gravitational field through spherical surface of radius r.",
       "equation": "oint_S vec(g) cdot d vec(A) = vec(g) cdot 4 pi r^2"
     },
     {
       "step": 4,
+      "description": "Substitute field expression to show flux equals -4πGM, independent of radius.",
       "equation": "oint_S vec(g) cdot d vec(A) = -G M/r^2 cdot 4 pi r^2 = -4 pi G M"
     },
     {
       "step": 5,
+      "description": "Apply divergence theorem to convert surface integral to volume integral.",
       "equation": "int_V grad cdot vec(g) dV = oint_S vec(g) cdot d vec(A)"
     },
     {
       "step": 6,
+      "description": "Express enclosed mass as integral of density over volume.",
       "equation": "int_V grad cdot vec(g) dV = -4 pi G int_V rho dV"
     },
     {
       "step": 7,
+      "description": "Equate integrands to obtain differential form of Gauss's law for gravity.",
       "equation": "grad cdot vec(g) = -4 pi G rho"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Newton's law of universal gravitation for the force between two masses."
-    },
-    {
-      "step": 2,
-      "text": "Define gravitational field as force per unit test mass, with negative sign indicating attractive nature."
-    },
-    {
-      "step": 3,
-      "text": "Calculate flux of gravitational field through spherical surface of radius r."
-    },
-    {
-      "step": 4,
-      "text": "Substitute field expression to show flux equals -4πGM, independent of radius."
-    },
-    {
-      "step": 5,
-      "text": "Apply divergence theorem to convert surface integral to volume integral."
-    },
-    {
-      "step": 6,
-      "text": "Express enclosed mass as integral of density over volume."
-    },
-    {
-      "step": 7,
-      "text": "Equate integrands to obtain differential form of Gauss's law for gravity."
     }
   ],
   "programmatic_verification": {

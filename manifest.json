@@ -162,7 +162,9 @@
       "version": "0.4.5",
       "date": "2025-08-14",
       "changes": [
-        "Reviewed Planck radiation law entry"
+        "Reviewed Planck radiation law and Kepler's laws entry",
+        "Merged derivation and derivation_explanation fields into unified derivation structure with inline descriptions",
+        "Added Google Colab integration with pre-generated Jupyter notebooks for all programmatic verifications"
       ]
     }
   ]

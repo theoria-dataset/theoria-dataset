@@ -83,37 +83,23 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Empirical observation: rate of heat transfer ∝ area and `Delta T`.",
       "equation": "`Qdot = -k*A*(Delta T/Delta x)`"
     },
     {
       "step": 2,
+      "description": "Define flux by dividing by cross-section area.",
       "equation": "`q_x = Qdot/A`"
     },
     {
       "step": 3,
+      "description": "Take limit `Delta x -> 0` to obtain gradient form.",
       "equation": "`q_x = -k*partial T/partial x`"
     },
     {
       "step": 4,
+      "description": "Generalise to three dimensions using vector gradient, assuming isotropic thermal conductivity.",
       "equation": "`vec{q} = -k*nabla T`"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Empirical observation: rate of heat transfer ∝ area and `Delta T`."
-    },
-    {
-      "step": 2,
-      "text": "Define flux by dividing by cross-section area."
-    },
-    {
-      "step": 3,
-      "text": "Take limit `Delta x -> 0` to obtain gradient form."
-    },
-    {
-      "step": 4,
-      "text": "Generalise to three dimensions using vector gradient, assuming isotropic thermal conductivity."
     }
   ],
   "programmatic_verification": {

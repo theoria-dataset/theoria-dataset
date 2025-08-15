@@ -6,7 +6,7 @@
 #   make validate FILE=name      - Validate entry schema only
 #   make help                    - Show this help
 
-.PHONY: help test test-entry validate build-requirements
+.PHONY: help test test-entry validate build-requirements build
 
 help:
 	@echo "🧬 TheorIA Dataset - Helper Commands"
@@ -17,6 +17,7 @@ help:
 	@echo "  make test-entry FILE=<name>      - Test specific entry (e.g., FILE=carnot_efficiency)"
 	@echo "  make validate FILE=<name>        - Validate entry schema only"
 	@echo "  make build-requirements       - Rebuild CONTRIBUTING.md and form requirements from JSON"
+	@echo "  make build                    - Generate entries index HTML"
 	@echo "  make help                     - Show this help"
 	@echo ""
 	@echo "Examples:"
@@ -52,6 +53,10 @@ validate:
 build-requirements:
 	@echo "🏗️ Rebuilding requirement-dependent files..."
 	python scripts/build_requirements.py
+
+build:
+	@echo "🏗️ Generating entries index HTML..."
+	docker-compose run --rm theoria-tests python scripts/generate_index.py
 
 # Legacy support for original verification
 verify:

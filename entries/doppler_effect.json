@@ -87,29 +87,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The Doppler effect is derived by considering how the wavelength changes due to source motion, then how the observed frequency changes due to observer motion. The effects combine to give the general formula.",
       "equation": "\\lambda = \\frac{v}{f}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\lambda' = \\lambda \\pm \\frac{v_s T}{1} = \\lambda \\left(1 \\pm \\frac{v_s}{v}\\right)"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "f'_{source} = \\frac{v}{\\lambda'} = \\frac{f}{1 \\pm v_s/v}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "f'_{observer} = f'_{source} \\left(1 \\pm \\frac{v_r}{v}\\right)"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "f' = f \\frac{1 \\pm v_r/v}{1 \\pm v_s/v} = f \\frac{v \\pm v_r}{v \\pm v_s}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The Doppler effect is derived by considering how the wavelength changes due to source motion, then how the observed frequency changes due to observer motion. The effects combine to give the general formula."
     }
   ],
   "programmatic_verification": {

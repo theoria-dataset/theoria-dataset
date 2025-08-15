@@ -95,41 +95,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Newton's law is empirically derived from observations of planetary motion and experimental measurements. The potential energy is derived from the force law using the relationship for conservative forces, with the convention that potential energy is zero at infinite separation.",
       "equation": "F \\propto m_1 m_2"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "F \\propto \\frac{1}{r^2}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "F = G\\frac{m_1 m_2}{r^2}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "F = -\\frac{dU}{dr}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "U = -\\int F dr = -\\int G\\frac{m_1 m_2}{r^2} dr"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "U = G m_1 m_2 \\int r^{-2} dr = G m_1 m_2 (-r^{-1}) + C"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "U = -G\\frac{m_1 m_2}{r} + C"
     },
     {
       "step": 8,
+      "description": "",
       "equation": "U = -G\\frac{m_1 m_2}{r} \\text{ (setting C = 0)}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Newton's law is empirically derived from observations of planetary motion and experimental measurements. The potential energy is derived from the force law using the relationship for conservative forces, with the convention that potential energy is zero at infinite separation."
     }
   ],
   "programmatic_verification": {

@@ -55,77 +55,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the moment of inertia I as a measure of mass distribution.",
       "equation": "I = sum_i m_i |vec r_i|^2"
     },
     {
       "step": 2,
+      "description": "Take the second time derivative of I and expand using kinematic relations.",
       "equation": "d^2 I/dt^2 = 2 sum_i m_i vec v_i cdot vec v_i + 2 sum_i m_i vec r_i cdot vec a_i"
     },
     {
       "step": 3,
+      "description": "Express in terms of kinetic energy T and forces using Newton's second law.",
       "equation": "d^2 I/dt^2 = 4 T + 2 sum_i vec r_i cdot vec F_i"
     },
     {
       "step": 4,
+      "description": "For bound systems, the long-time average of the second derivative of I is zero.",
       "equation": "<d^2 I/dt^2> = 0 (for bound systems)"
     },
     {
       "step": 5,
+      "description": "Apply time averaging to the equation from step 3.",
       "equation": "4 <T> + 2 <sum_i vec r_i cdot vec F_i> = 0"
     },
     {
       "step": 6,
+      "description": "Rearrange to obtain the general virial theorem.",
       "equation": "2 <T> = -<sum_i vec r_i cdot vec F_i>"
     },
     {
       "step": 7,
+      "description": "For power-law potentials, express force in terms of potential gradient.",
       "equation": "For V = k r^n: vec F = -nabla V = -n k r^{n-1} hat r"
     },
     {
       "step": 8,
+      "description": "Calculate the dot product of position and force for power-law potentials.",
       "equation": "vec r cdot vec F = -n k r^n = -n V"
     },
     {
       "step": 9,
+      "description": "Obtain the specific form of virial theorem for power-law potentials.",
       "equation": "2 <T> = n <V>"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the moment of inertia I as a measure of mass distribution."
-    },
-    {
-      "step": 2,
-      "text": "Take the second time derivative of I and expand using kinematic relations."
-    },
-    {
-      "step": 3,
-      "text": "Express in terms of kinetic energy T and forces using Newton's second law."
-    },
-    {
-      "step": 4,
-      "text": "For bound systems, the long-time average of the second derivative of I is zero."
-    },
-    {
-      "step": 5,
-      "text": "Apply time averaging to the equation from step 3."
-    },
-    {
-      "step": 6,
-      "text": "Rearrange to obtain the general virial theorem."
-    },
-    {
-      "step": 7,
-      "text": "For power-law potentials, express force in terms of potential gradient."
-    },
-    {
-      "step": 8,
-      "text": "Calculate the dot product of position and force for power-law potentials."
-    },
-    {
-      "step": 9,
-      "text": "Obtain the specific form of virial theorem for power-law potentials."
     }
   ],
   "programmatic_verification": {

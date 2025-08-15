@@ -71,141 +71,88 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Balance centripetal force with Coulomb attraction for circular orbit.",
       "equation": "F_centripetal = F_coulomb"
     },
     {
       "step": 2,
+      "description": "Write the force balance equation explicitly.",
       "equation": "m*v^2/r = k*e^2/r^2"
     },
     {
       "step": 3,
+      "description": "Simplify to relate kinetic energy to potential energy.",
       "equation": "m*v^2 = k*e^2/r"
     },
     {
       "step": 4,
+      "description": "Apply Bohr's quantization condition for angular momentum.",
       "equation": "L = m*v*r = n*hbar"
     },
     {
       "step": 5,
+      "description": "Express velocity in terms of quantum number and radius.",
       "equation": "v = n*hbar/(m*r)"
     },
     {
       "step": 6,
+      "description": "Substitute quantized velocity into the force balance equation.",
       "equation": "m*(n*hbar/(m*r))^2 = k*e^2/r"
     },
     {
       "step": 7,
+      "description": "Simplify the equation.",
       "equation": "n^2*hbar^2/(m*r^2) = k*e^2/r"
     },
     {
       "step": 8,
+      "description": "Multiply both sides by r to eliminate one power of r.",
       "equation": "n^2*hbar^2/(m*r) = k*e^2"
     },
     {
       "step": 9,
+      "description": "Solve for the orbital radius.",
       "equation": "r = n^2*hbar^2/(m*k*e^2)"
     },
     {
       "step": 10,
+      "description": "Define the Bohr radius as the smallest orbit radius (n=1).",
       "equation": "a_0 = hbar^2/(m*k*e^2)"
     },
     {
       "step": 11,
+      "description": "Express orbital radii in terms of Bohr radius.",
       "equation": "r_n = n^2*a_0"
     },
     {
       "step": 12,
+      "description": "Write total energy as sum of kinetic and potential energies.",
       "equation": "E = K + U = (1/2)*m*v^2 - k*e^2/r"
     },
     {
       "step": 13,
+      "description": "Use the virial theorem result for kinetic energy.",
       "equation": "K = (1/2)*k*e^2/r"
     },
     {
       "step": 14,
+      "description": "Calculate total energy using the virial theorem.",
       "equation": "E = (1/2)*k*e^2/r - k*e^2/r = -(1/2)*k*e^2/r"
     },
     {
       "step": 15,
+      "description": "Substitute the quantized radius expression.",
       "equation": "E_n = -(1/2)*k*e^2/(n^2*a_0)"
     },
     {
       "step": 16,
+      "description": "Express energy in terms of fundamental constants.",
       "equation": "E_n = -(m*k^2*e^4)/(2*hbar^2*n^2)"
     },
     {
       "step": 17,
+      "description": "Evaluate numerically to get the Rydberg energy scale.",
       "equation": "E_n = -13.6/n^2 text( eV)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Balance centripetal force with Coulomb attraction for circular orbit."
-    },
-    {
-      "step": 2,
-      "text": "Write the force balance equation explicitly."
-    },
-    {
-      "step": 3,
-      "text": "Simplify to relate kinetic energy to potential energy."
-    },
-    {
-      "step": 4,
-      "text": "Apply Bohr's quantization condition for angular momentum."
-    },
-    {
-      "step": 5,
-      "text": "Express velocity in terms of quantum number and radius."
-    },
-    {
-      "step": 6,
-      "text": "Substitute quantized velocity into the force balance equation."
-    },
-    {
-      "step": 7,
-      "text": "Simplify the equation."
-    },
-    {
-      "step": 8,
-      "text": "Multiply both sides by r to eliminate one power of r."
-    },
-    {
-      "step": 9,
-      "text": "Solve for the orbital radius."
-    },
-    {
-      "step": 10,
-      "text": "Define the Bohr radius as the smallest orbit radius (n=1)."
-    },
-    {
-      "step": 11,
-      "text": "Express orbital radii in terms of Bohr radius."
-    },
-    {
-      "step": 12,
-      "text": "Write total energy as sum of kinetic and potential energies."
-    },
-    {
-      "step": 13,
-      "text": "Use the virial theorem result for kinetic energy."
-    },
-    {
-      "step": 14,
-      "text": "Calculate total energy using the virial theorem."
-    },
-    {
-      "step": 15,
-      "text": "Substitute the quantized radius expression."
-    },
-    {
-      "step": 16,
-      "text": "Express energy in terms of fundamental constants."
-    },
-    {
-      "step": 17,
-      "text": "Evaluate numerically to get the Rydberg energy scale."
     }
   ],
   "programmatic_verification": {

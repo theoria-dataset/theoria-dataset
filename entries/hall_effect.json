@@ -63,69 +63,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Moving charges in a magnetic field experience a Lorentz force perpendicular to both velocity and field.",
       "equation": "vec F_magnetic = q vec v times vec B"
     },
     {
       "step": 2,
+      "description": "Charge accumulation creates an electric field that exerts a force on the carriers.",
       "equation": "vec F_electric = q vec E_H"
     },
     {
       "step": 3,
+      "description": "At steady state, the magnetic and electric forces balance each other.",
       "equation": "At equilibrium: vec F_magnetic + vec F_electric = 0"
     },
     {
       "step": 4,
+      "description": "Solve for the Hall electric field from the force balance condition.",
       "equation": "q v B = q E_H => E_H = v B"
     },
     {
       "step": 5,
+      "description": "The Hall voltage is the electric field times the width of the conductor.",
       "equation": "V_H = E_H * w = v B w"
     },
     {
       "step": 6,
+      "description": "Express current in terms of carrier density, charge, velocity, and cross-sectional area.",
       "equation": "I = n q v A = n q v w t"
     },
     {
       "step": 7,
+      "description": "Solve for the drift velocity in terms of current and material parameters.",
       "equation": "v = I/(n q w t)"
     },
     {
       "step": 8,
+      "description": "Substitute to get the Hall voltage in terms of measurable quantities.",
       "equation": "V_H = (I B w)/(n q w t) = (I B)/(n q t)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Moving charges in a magnetic field experience a Lorentz force perpendicular to both velocity and field."
-    },
-    {
-      "step": 2,
-      "text": "Charge accumulation creates an electric field that exerts a force on the carriers."
-    },
-    {
-      "step": 3,
-      "text": "At steady state, the magnetic and electric forces balance each other."
-    },
-    {
-      "step": 4,
-      "text": "Solve for the Hall electric field from the force balance condition."
-    },
-    {
-      "step": 5,
-      "text": "The Hall voltage is the electric field times the width of the conductor."
-    },
-    {
-      "step": 6,
-      "text": "Express current in terms of carrier density, charge, velocity, and cross-sectional area."
-    },
-    {
-      "step": 7,
-      "text": "Solve for the drift velocity in terms of current and material parameters."
-    },
-    {
-      "step": 8,
-      "text": "Substitute to get the Hall voltage in terms of measurable quantities."
     }
   ],
   "programmatic_verification": {

@@ -63,133 +63,83 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers.",
       "equation": "E_x = E_(0x) * sin(n_x*pi*x/L) * cos(omega*t); E_y = E_(0y) * sin(n_y*pi*y/L) * cos(omega*t); E_z = E_(0z) * sin(n_z*pi*z/L) * cos(omega*t)"
     },
     {
       "step": 2,
+      "description": "Boundary conditions determine the allowed wave vector components: each component must be quantized as `k_i = n_i*pi/L` where `n_i` are the mode integers.",
       "equation": "k_x = n_x*pi/L; k_y = n_y*pi/L; k_z = n_z*pi/L"
     },
     {
       "step": 3,
+      "description": "Calculate the magnitude of the wave vector using the Pythagorean theorem: `|k| = sqrt(k_x^2 + k_y^2 + k_z^2)`.",
       "equation": "|k| = sqrt(k_x^2 + k_y^2 + k_z^2) = (pi/L) * sqrt(n_x^2 + n_y^2 + n_z^2)"
     },
     {
       "step": 4,
+      "description": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`.",
       "equation": "omega = c*|k|"
     },
     {
       "step": 5,
+      "description": "Convert angular frequency to ordinary frequency: `nu = omega/(2*pi)`, yielding the frequency for each mode.",
       "equation": "nu = omega/(2*pi) = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)"
     },
     {
       "step": 6,
+      "description": "Transform to integer space: since `nu = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)`, solving for the integer radius gives `R = 2*L*nu/c = sqrt(n_x^2 + n_y^2 + n_z^2)`.",
       "equation": "R = 2*L*nu/c"
     },
     {
       "step": 7,
+      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR.",
       "equation": "N_(sphere) = (1/8) * (4*pi*R^2) * dR = 1/2*pi*R^2*dR"
     },
     {
       "step": 8,
+      "description": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count.",
       "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR"
     },
     {
       "step": 9,
+      "description": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`.",
       "equation": "N_(all) = pi*(2*L*nu/c)^2*(2*L*dnu/c) = 8*pi*L^3*nu^2*dnu/c^3"
     },
     {
       "step": 10,
+      "description": "Convert to mode density per unit volume by dividing by cavity volume `L^3` and frequency interval `dnu`, yielding `rho(nu)`.",
       "equation": "rho(nu) = N_(all)/(L^3*dnu) = (8*pi*nu^2)/(c^3)"
     },
     {
       "step": 11,
+      "description": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number.",
       "equation": "E_n = n*h*nu"
     },
     {
       "step": 12,
+      "description": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`.",
       "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 13,
+      "description": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function.",
       "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 14,
+      "description": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution.",
       "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)"
     },
     {
       "step": 15,
+      "description": "Convert average occupation number to average energy per mode using the quantization relation.",
       "equation": "bar(E) = bar(n) * h*nu = (h*nu)/(exp(h*nu/(k_B*T)) - 1)"
     },
     {
       "step": 16,
+      "description": "Combine mode density with average energy to get spectral energy density (black body assumption 1 ensures this represents thermal emission).",
       "equation": "u(nu,T) = rho(nu)*bar(E) = (8*pi*nu^2)/(c^3) * (h*nu)/(exp(h*nu/(k_B*T)) - 1) = (8*pi*h*nu^3)/(c^3) * (1)/(exp(h*nu/(k_B*T)) - 1)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers."
-    },
-    {
-      "step": 2,
-      "text": "Boundary conditions determine the allowed wave vector components: each component must be quantized as `k_i = n_i*pi/L` where `n_i` are the mode integers."
-    },
-    {
-      "step": 3,
-      "text": "Calculate the magnitude of the wave vector using the Pythagorean theorem: `|k| = sqrt(k_x^2 + k_y^2 + k_z^2)`."
-    },
-    {
-      "step": 4,
-      "text": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`."
-    },
-    {
-      "step": 5,
-      "text": "Convert angular frequency to ordinary frequency: `nu = omega/(2*pi)`, yielding the frequency for each mode."
-    },
-    {
-      "step": 6,
-      "text": "Transform to integer space: since `nu = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)`, solving for the integer radius gives `R = 2*L*nu/c = sqrt(n_x^2 + n_y^2 + n_z^2)`."
-    },
-    {
-      "step": 7,
-      "text": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR."
-    },
-    {
-      "step": 8,
-      "text": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count."
-    },
-    {
-      "step": 9,
-      "text": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`."
-    },
-    {
-      "step": 10,
-      "text": "Convert to mode density per unit volume by dividing by cavity volume `L^3` and frequency interval `dnu`, yielding `rho(nu)`."
-    },
-    {
-      "step": 11,
-      "text": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number."
-    },
-    {
-      "step": 12,
-      "text": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`."
-    },
-    {
-      "step": 13,
-      "text": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function."
-    },
-    {
-      "step": 14,
-      "text": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution."
-    },
-    {
-      "step": 15,
-      "text": "Convert average occupation number to average energy per mode using the quantization relation."
-    },
-    {
-      "step": 16,
-      "text": "Combine mode density with average energy to get spectral energy density (black body assumption 1 ensures this represents thermal emission)."
     }
   ],
   "programmatic_verification": {
@@ -229,7 +179,7 @@
       "# Step 12: Partition function definition",
       "Z_sum = sp.Sum(sp.exp(-n*h*nu/(k_B*T)), (n, 0, sp.oo))",
       "",
-      "# Step 13: Average occupation definition", 
+      "# Step 13: Average occupation definition",
       "n_avg_sum = sp.Sum(n * sp.exp(-n*h*nu/(k_B*T)), (n, 0, sp.oo))",
       "",
       "# Step 14: Evaluate geometric series",
@@ -283,7 +233,10 @@
       "citation": "Planck, M. (1901). On the Law of Distribution of Energy in the Normal Spectrum. Annalen der Physik, 309(3), 553-563."
     }
   ],
-  "dependencies": ["maxwell_equations", "partition_function"],
+  "dependencies": [
+    "maxwell_equations",
+    "partition_function"
+  ],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

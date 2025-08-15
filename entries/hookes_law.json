@@ -91,29 +91,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Hooke's law can be derived from the principle that the force is the negative gradient of potential energy. For a quadratic potential energy function, this gives a linear restoring force proportional to displacement.",
       "equation": "U = \\int_0^x F(x') dx'"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "F = -\\frac{dU}{dx}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "U = \\frac{1}{2}kx^2"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "F = -\\frac{d}{dx}\\left(\\frac{1}{2}kx^2\\right)"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "F = -kx"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Hooke's law can be derived from the principle that the force is the negative gradient of potential energy. For a quadratic potential energy function, this gives a linear restoring force proportional to displacement."
     }
   ],
   "programmatic_verification": {

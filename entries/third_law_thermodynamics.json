@@ -51,45 +51,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the Boltzmann definition of entropy in terms of microstates.",
       "equation": "S = k_B ln Omega"
     },
     {
       "step": 2,
+      "description": "At absolute zero, a perfect crystal has only one accessible microstate (the ground state).",
       "equation": "lim_(T -> 0) Omega = 1"
     },
     {
       "step": 3,
+      "description": "Therefore, entropy approaches zero as temperature approaches zero.",
       "equation": "lim_(T -> 0) S = k_B ln 1 = 0"
     },
     {
       "step": 4,
+      "description": "Any partial derivative of entropy involves the logarithmic derivative of microstates.",
       "equation": "partial S/partial X = k_B (partial ln Omega/partial X)"
     },
     {
       "step": 5,
+      "description": "Since Ω = 1 at T = 0, all entropy derivatives also approach zero.",
       "equation": "lim_(T -> 0) (partial S/partial X) = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the Boltzmann definition of entropy in terms of microstates."
-    },
-    {
-      "step": 2,
-      "text": "At absolute zero, a perfect crystal has only one accessible microstate (the ground state)."
-    },
-    {
-      "step": 3,
-      "text": "Therefore, entropy approaches zero as temperature approaches zero."
-    },
-    {
-      "step": 4,
-      "text": "Any partial derivative of entropy involves the logarithmic derivative of microstates."
-    },
-    {
-      "step": 5,
-      "text": "Since Ω = 1 at T = 0, all entropy derivatives also approach zero."
     }
   ],
   "programmatic_verification": {

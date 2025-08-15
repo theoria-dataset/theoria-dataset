@@ -67,69 +67,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the number of microstates for fermions (each state can be occupied by 0 or 1 particle).",
       "equation": "Omega = prod_i (1 + n_i)!"
     },
     {
       "step": 2,
+      "description": "Use Boltzmann's entropy formula with the microstate count.",
       "equation": "S = k_B ln(Omega)"
     },
     {
       "step": 3,
+      "description": "Maximize entropy subject to constraints on particle number and energy.",
       "equation": "delta(S - alpha N - beta U) = 0"
     },
     {
       "step": 4,
+      "description": "Apply Lagrange multipliers and take variations with respect to occupation numbers.",
       "equation": "sum_i delta n_i [k_B ln(1 + n_i) - k_B ln(n_i) - alpha - beta E_i] = 0"
     },
     {
       "step": 5,
+      "description": "Set each variation to zero to find the equilibrium condition.",
       "equation": "ln(1 + n_i) - ln(n_i) = alpha + beta E_i"
     },
     {
       "step": 6,
+      "description": "Solve for the occupation number of each state.",
       "equation": "n_i = 1/(exp(alpha + beta E_i) - 1)"
     },
     {
       "step": 7,
+      "description": "Identify the Lagrange multipliers with temperature and chemical potential.",
       "equation": "alpha = -mu/(k_B T), beta = 1/(k_B T)"
     },
     {
       "step": 8,
+      "description": "Obtain the Fermi-Dirac distribution function.",
       "equation": "f(E) = 1/(exp((E - mu)/(k_B T)) + 1)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the number of microstates for fermions (each state can be occupied by 0 or 1 particle)."
-    },
-    {
-      "step": 2,
-      "text": "Use Boltzmann's entropy formula with the microstate count."
-    },
-    {
-      "step": 3,
-      "text": "Maximize entropy subject to constraints on particle number and energy."
-    },
-    {
-      "step": 4,
-      "text": "Apply Lagrange multipliers and take variations with respect to occupation numbers."
-    },
-    {
-      "step": 5,
-      "text": "Set each variation to zero to find the equilibrium condition."
-    },
-    {
-      "step": 6,
-      "text": "Solve for the occupation number of each state."
-    },
-    {
-      "step": 7,
-      "text": "Identify the Lagrange multipliers with temperature and chemical potential."
-    },
-    {
-      "step": 8,
-      "text": "Obtain the Fermi-Dirac distribution function."
     }
   ],
   "programmatic_verification": {

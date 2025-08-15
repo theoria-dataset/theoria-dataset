@@ -75,37 +75,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Ohm's law can be derived from the microscopic behavior of charge carriers in conductors. When an electric field is applied, electrons drift with a velocity proportional to the field strength, leading to a current proportional to the applied voltage.",
       "equation": "\\vec{J} = \\sigma \\vec{E}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "I = \\int \\vec{J} \\cdot d\\vec{A} = JA"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "V = \\int \\vec{E} \\cdot d\\vec{l} = EL"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\frac{V}{I} = \\frac{EL}{JA} = \\frac{EL}{\\sigma EA} = \\frac{L}{\\sigma A}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\rho = \\frac{1}{\\sigma}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "R = \\frac{V}{I} = \\rho \\frac{L}{A}"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "V = IR"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Ohm's law can be derived from the microscopic behavior of charge carriers in conductors. When an electric field is applied, electrons drift with a velocity proportional to the field strength, leading to a current proportional to the applied voltage."
     }
   ],
   "programmatic_verification": {

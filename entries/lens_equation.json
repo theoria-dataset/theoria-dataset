@@ -91,93 +91,58 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Snell's law of refraction at each lens surface.",
       "equation": "text(Apply Snell's law at both lens surfaces)"
     },
     {
       "step": 2,
+      "description": "Express Snell's law for refraction between two media.",
       "equation": "n_1*sin(theta_1) = n_2*sin(theta_2)"
     },
     {
       "step": 3,
+      "description": "Apply the paraxial approximation for small angles.",
       "equation": "text(Paraxial approximation: sin(theta) ≈ theta)"
     },
     {
       "step": 4,
+      "description": "Simplify Snell's law under paraxial conditions.",
       "equation": "n_1*theta_1 = n_2*theta_2"
     },
     {
       "step": 5,
+      "description": "Apply refraction formula to the first lens surface.",
       "equation": "text(Apply refraction at first surface)"
     },
     {
       "step": 6,
+      "description": "Use the general refraction formula relating object, image, and surface curvature.",
       "equation": "n/s + n'/s' = (n'-n)/R"
     },
     {
       "step": 7,
+      "description": "Apply the same refraction formula to the second lens surface.",
       "equation": "text(Apply refraction at second surface)"
     },
     {
       "step": 8,
+      "description": "Combine the effects of both surfaces assuming thin lens.",
       "equation": "text(Combine effects of both surfaces)"
     },
     {
       "step": 9,
+      "description": "Derive the general form relating object distance, image distance, and lens properties.",
       "equation": "1/s_o + 1/s_i = (n-1)*(1/R_1 - 1/R_2)"
     },
     {
       "step": 10,
+      "description": "Define the focal length in terms of lens material and curvature.",
       "equation": "text(Define focal length: f = 1/((n-1)*(1/R_1 - 1/R_2)))"
     },
     {
       "step": 11,
+      "description": "Obtain the thin lens equation in its standard form.",
       "equation": "1/f = 1/d_o + 1/d_i"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Snell's law of refraction at each lens surface."
-    },
-    {
-      "step": 2,
-      "text": "Express Snell's law for refraction between two media."
-    },
-    {
-      "step": 3,
-      "text": "Apply the paraxial approximation for small angles."
-    },
-    {
-      "step": 4,
-      "text": "Simplify Snell's law under paraxial conditions."
-    },
-    {
-      "step": 5,
-      "text": "Apply refraction formula to the first lens surface."
-    },
-    {
-      "step": 6,
-      "text": "Use the general refraction formula relating object, image, and surface curvature."
-    },
-    {
-      "step": 7,
-      "text": "Apply the same refraction formula to the second lens surface."
-    },
-    {
-      "step": 8,
-      "text": "Combine the effects of both surfaces assuming thin lens."
-    },
-    {
-      "step": 9,
-      "text": "Derive the general form relating object distance, image distance, and lens properties."
-    },
-    {
-      "step": 10,
-      "text": "Define the focal length in terms of lens material and curvature."
-    },
-    {
-      "step": 11,
-      "text": "Obtain the thin lens equation in its standard form."
     }
   ],
   "programmatic_verification": {

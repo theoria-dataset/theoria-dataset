@@ -47,53 +47,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define magnetic flux as the surface integral of magnetic field through the loop.",
       "equation": "Phi_B = int vec B cdot d vec A"
     },
     {
       "step": 2,
+      "description": "Express EMF as the line integral of electric field around the closed loop.",
       "equation": "EMF = oint vec E cdot d vec l"
     },
     {
       "step": 3,
+      "description": "Use Faraday's law in differential form from Maxwell's equations.",
       "equation": "nabla times vec E = -partial vec B/partial t"
     },
     {
       "step": 4,
+      "description": "Apply Stokes' theorem to convert the line integral to a surface integral.",
       "equation": "oint vec E cdot d vec l = int (nabla times vec E) cdot d vec A"
     },
     {
       "step": 5,
+      "description": "Substitute Faraday's law in differential form into the surface integral.",
       "equation": "EMF = -int (partial vec B/partial t) cdot d vec A"
     },
     {
       "step": 6,
+      "description": "Recognize that this equals the negative time derivative of magnetic flux.",
       "equation": "EMF = -d/dt int vec B cdot d vec A = -d Phi_B/dt"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define magnetic flux as the surface integral of magnetic field through the loop."
-    },
-    {
-      "step": 2,
-      "text": "Express EMF as the line integral of electric field around the closed loop."
-    },
-    {
-      "step": 3,
-      "text": "Use Faraday's law in differential form from Maxwell's equations."
-    },
-    {
-      "step": 4,
-      "text": "Apply Stokes' theorem to convert the line integral to a surface integral."
-    },
-    {
-      "step": 5,
-      "text": "Substitute Faraday's law in differential form into the surface integral."
-    },
-    {
-      "step": 6,
-      "text": "Recognize that this equals the negative time derivative of magnetic flux."
     }
   ],
   "programmatic_verification": {

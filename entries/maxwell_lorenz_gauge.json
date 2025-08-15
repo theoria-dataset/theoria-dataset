@@ -83,77 +83,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Gauss's law for electricity.",
       "equation": "nabla dot vec E = rho/epsilon_0"
     },
     {
       "step": 2,
+      "description": "Express the electric field in terms of scalar and vector potentials.",
       "equation": "vec E = -nabla phi - partial vec A/partial t"
     },
     {
       "step": 3,
+      "description": "Insert the potentials into Gauss's law and rearrange the derivatives.",
       "equation": "-nabla^2 phi - partial/partial t(nabla dot vec A) = rho/epsilon_0"
     },
     {
       "step": 4,
+      "description": "Impose the Lorenz gauge to relate the divergence of `vec A` to the time derivative of `phi`.",
       "equation": "nabla dot vec A + (1/c^2)*partial phi/partial t = 0"
     },
     {
       "step": 5,
+      "description": "Combine the previous two steps to obtain the inhomogeneous wave equation for the scalar potential.",
       "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*phi = -rho/epsilon_0"
     },
     {
       "step": 6,
+      "description": "Write Ampère–Maxwell law with Maxwell's displacement current term.",
       "equation": "nabla cross vec B - (1/c^2)*partial vec E/partial t = mu_0*vec J"
     },
     {
       "step": 7,
+      "description": "Express the magnetic field through the vector potential.",
       "equation": "vec B = nabla cross vec A"
     },
     {
       "step": 8,
+      "description": "Substitute potentials into Ampère–Maxwell law and use the vector identity `nabla cross (nabla cross vec A) = nabla(nabla dot vec A) - nabla^2 vec A`.",
       "equation": "nabla cross (nabla cross vec A) + (1/c^2)*partial/partial t(nabla phi + partial vec A/partial t) = mu_0*vec J"
     },
     {
       "step": 9,
+      "description": "Employ the Lorenz gauge again to isolate the vector potential, yielding its wave equation.",
       "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*vec A = -mu_0*vec J"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Gauss's law for electricity."
-    },
-    {
-      "step": 2,
-      "text": "Express the electric field in terms of scalar and vector potentials."
-    },
-    {
-      "step": 3,
-      "text": "Insert the potentials into Gauss's law and rearrange the derivatives."
-    },
-    {
-      "step": 4,
-      "text": "Impose the Lorenz gauge to relate the divergence of `vec A` to the time derivative of `phi`."
-    },
-    {
-      "step": 5,
-      "text": "Combine the previous two steps to obtain the inhomogeneous wave equation for the scalar potential."
-    },
-    {
-      "step": 6,
-      "text": "Write Ampère–Maxwell law with Maxwell's displacement current term."
-    },
-    {
-      "step": 7,
-      "text": "Express the magnetic field through the vector potential."
-    },
-    {
-      "step": 8,
-      "text": "Substitute potentials into Ampère–Maxwell law and use the vector identity `nabla cross (nabla cross vec A) = nabla(nabla dot vec A) - nabla^2 vec A`."
-    },
-    {
-      "step": 9,
-      "text": "Employ the Lorenz gauge again to isolate the vector potential, yielding its wave equation."
     }
   ],
   "programmatic_verification": {

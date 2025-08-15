@@ -67,53 +67,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Calculate the total mass of separated nucleons (protons and neutrons).",
       "equation": "M_separated = Z m_p + N m_n"
     },
     {
       "step": 2,
+      "description": "Find the mass defect as the difference between separated and bound masses.",
       "equation": "Delta m = M_separated - M_nucleus"
     },
     {
       "step": 3,
+      "description": "Apply Einstein's mass-energy relation to convert mass defect to binding energy.",
       "equation": "BE = Delta m c^2"
     },
     {
       "step": 4,
+      "description": "Express binding energy in terms of constituent masses and nuclear mass.",
       "equation": "BE = (Z m_p + N m_n - M_nucleus) c^2"
     },
     {
       "step": 5,
+      "description": "Use atomic masses (including electrons) for practical calculations.",
       "equation": "BE = (Z m_H + N m_n - M_atom) c^2"
     },
     {
       "step": 6,
+      "description": "Calculate binding energy per nucleon to compare different nuclei.",
       "equation": "BE/A = (Z m_H + N m_n - M_atom) c^2 / A"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Calculate the total mass of separated nucleons (protons and neutrons)."
-    },
-    {
-      "step": 2,
-      "text": "Find the mass defect as the difference between separated and bound masses."
-    },
-    {
-      "step": 3,
-      "text": "Apply Einstein's mass-energy relation to convert mass defect to binding energy."
-    },
-    {
-      "step": 4,
-      "text": "Express binding energy in terms of constituent masses and nuclear mass."
-    },
-    {
-      "step": 5,
-      "text": "Use atomic masses (including electrons) for practical calculations."
-    },
-    {
-      "step": 6,
-      "text": "Calculate binding energy per nucleon to compare different nuclei."
     }
   ],
   "programmatic_verification": {

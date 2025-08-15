@@ -12,34 +12,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install ajv-cli
-        run: npm install -g ajv-cli
-
-      - name: Validate JSON entries
-        run: |
-          for file in entries/*.json; do
-            echo "Validating $file"
-            ajv validate -s schemas/entry.schema.json -d "$file" --strict=false || exit 1
-          done
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11.12'
 
       - name: Install Python dependencies
-        run: pip install sympy==1.12.0
+        run: pip install sympy==1.12.0 jsonschema
+
+      - name: Validate JSON entries
+        run: |
+          for file in entries/*.json; do
+            echo "Validating $file"
+            python scripts/validate_schema.py "$file" || exit 1
+          done
 
       - name: Run programmatic verifications
         run: python scripts/verify_programmatic.py
 
       - name: Generate index
-        run: npm run build
+        run: python scripts/generate_index.py
 
       - name: Check for index changes
         id: verify-changed-files

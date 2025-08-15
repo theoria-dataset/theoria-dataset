@@ -79,61 +79,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Empirical observation shows that the force is proportional to the product of the two charges.",
       "equation": "vec F prop q_1 * q_2"
     },
     {
       "step": 2,
+      "description": "Experimental measurements reveal that the force decreases as the inverse square of the distance.",
       "equation": "vec F prop 1/r^2"
     },
     {
       "step": 3,
+      "description": "The force acts along the straight line connecting the two charges (central force).",
       "equation": "vec F prop hat r"
     },
     {
       "step": 4,
+      "description": "Combine the proportionalities into a single equation with a proportionality constant.",
       "equation": "vec F = C * (q_1 * q_2)/r^2 * hat r"
     },
     {
       "step": 5,
+      "description": "Define the proportionality constant as Coulomb's constant `k`.",
       "equation": "C = k"
     },
     {
       "step": 6,
+      "description": "Write the complete force law with the constant `k`.",
       "equation": "vec F = k * (q_1 * q_2)/r^2 * hat r"
     },
     {
       "step": 7,
+      "description": "Express the constant in terms of the fundamental vacuum permittivity.",
       "equation": "k = 1/(4*pi*epsilon_0)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Empirical observation shows that the force is proportional to the product of the two charges."
-    },
-    {
-      "step": 2,
-      "text": "Experimental measurements reveal that the force decreases as the inverse square of the distance."
-    },
-    {
-      "step": 3,
-      "text": "The force acts along the straight line connecting the two charges (central force)."
-    },
-    {
-      "step": 4,
-      "text": "Combine the proportionalities into a single equation with a proportionality constant."
-    },
-    {
-      "step": 5,
-      "text": "Define the proportionality constant as Coulomb's constant `k`."
-    },
-    {
-      "step": 6,
-      "text": "Write the complete force law with the constant `k`."
-    },
-    {
-      "step": 7,
-      "text": "Express the constant in terms of the fundamental vacuum permittivity."
     }
   ],
   "programmatic_verification": {

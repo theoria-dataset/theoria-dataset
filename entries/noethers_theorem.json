@@ -91,53 +91,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The derivation starts from the fundamental assumption that the action `S` is invariant (`delta S = 0`) under an infinitesimal continuous symmetry transformation.",
       "equation": "delta S = delta (int L(q_i, dot q_i, t) dt) = 0"
     },
     {
       "step": 2,
+      "description": "The variation of the action `delta S` is expressed in terms of variations of coordinates `delta q_i = epsilon X_(q_i)` and time `delta t = epsilon X_t`. This expression involves the Lagrangian and its derivatives.",
       "equation": "delta S = int [ sum_i ( (del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) ) (X_(q_i) - dot q_i X_t) + d/dt ( L X_t + sum_i ((del L)/(del dot q_i)) (X_(q_i) - dot q_i X_t) ) ] dt"
     },
     {
       "step": 3,
+      "description": "The Euler-Lagrange equations, `(del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) = 0`, which describe the equations of motion of the system, are used. These equations hold for the physical path of the system.",
       "equation": "(del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) = 0"
     },
     {
       "step": 4,
+      "description": "Applying the Euler-Lagrange equations simplifies the expression for `delta S` to the integral of a total time derivative of a certain quantity. For `delta S` to be zero, this quantity evaluated at the boundaries must be zero, or the quantity itself must be conserved if the boundary terms vanish appropriately.",
       "equation": "delta S = int [ d/dt ( L X_t + sum_i ((del L)/(del dot q_i)) (X_(q_i) - dot q_i X_t) ) ] dt = 0"
     },
     {
       "step": 5,
+      "description": "The quantity whose total time derivative appears in the integrand is identified as the (negative of the) Noether current or charge, `J`. Its specific form depends on the Lagrangian and the generators of the symmetry `X_(q_i)` and `X_t`.",
       "equation": "J = sum_i ((del L)/(del dot q_i) X_(q_i)) - (sum_i ((del L)/(del dot q_i) dot q_i) - L) X_t"
     },
     {
       "step": 6,
+      "description": "The condition `delta S = 0` (after considering boundary conditions) implies that the total time derivative of `J` is zero, `dJ/dt = 0`, meaning `J` is a conserved quantity.",
       "equation": "dJ/dt = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The derivation starts from the fundamental assumption that the action `S` is invariant (`delta S = 0`) under an infinitesimal continuous symmetry transformation."
-    },
-    {
-      "step": 2,
-      "text": "The variation of the action `delta S` is expressed in terms of variations of coordinates `delta q_i = epsilon X_(q_i)` and time `delta t = epsilon X_t`. This expression involves the Lagrangian and its derivatives."
-    },
-    {
-      "step": 3,
-      "text": "The Euler-Lagrange equations, `(del L)/(del q_i) - d/dt ((del L)/(del dot q_i)) = 0`, which describe the equations of motion of the system, are used. These equations hold for the physical path of the system."
-    },
-    {
-      "step": 4,
-      "text": "Applying the Euler-Lagrange equations simplifies the expression for `delta S` to the integral of a total time derivative of a certain quantity. For `delta S` to be zero, this quantity evaluated at the boundaries must be zero, or the quantity itself must be conserved if the boundary terms vanish appropriately."
-    },
-    {
-      "step": 5,
-      "text": "The quantity whose total time derivative appears in the integrand is identified as the (negative of the) Noether current or charge, `J`. Its specific form depends on the Lagrangian and the generators of the symmetry `X_(q_i)` and `X_t`."
-    },
-    {
-      "step": 6,
-      "text": "The condition `delta S = 0` (after considering boundary conditions) implies that the total time derivative of `J` is zero, `dJ/dt = 0`, meaning `J` is a conserved quantity."
     }
   ],
   "programmatic_verification": {

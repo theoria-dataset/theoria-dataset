@@ -59,53 +59,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define total angular momentum as sum of angular momenta of all particles.",
       "equation": "vec L = sum_i vec r_i times vec p_i"
     },
     {
       "step": 2,
+      "description": "Take the time derivative of total angular momentum.",
       "equation": "d vec L/dt = sum_i (d/dt(vec r_i times vec p_i))"
     },
     {
       "step": 3,
+      "description": "Apply product rule: first term vanishes since velocity is parallel to momentum.",
       "equation": "d vec L/dt = sum_i (vec v_i times vec p_i + vec r_i times d vec p_i/dt)"
     },
     {
       "step": 4,
+      "description": "Use Newton's second law and recognize that internal forces cancel in pairs.",
       "equation": "d vec L/dt = sum_i vec r_i times vec F_i"
     },
     {
       "step": 5,
+      "description": "The remaining sum equals the net external torque on the system.",
       "equation": "d vec L/dt = vec tau_ext"
     },
     {
       "step": 6,
+      "description": "If external torque is zero, angular momentum is conserved.",
       "equation": "If vec tau_ext = 0, then d vec L/dt = 0 => vec L = const"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define total angular momentum as sum of angular momenta of all particles."
-    },
-    {
-      "step": 2,
-      "text": "Take the time derivative of total angular momentum."
-    },
-    {
-      "step": 3,
-      "text": "Apply product rule: first term vanishes since velocity is parallel to momentum."
-    },
-    {
-      "step": 4,
-      "text": "Use Newton's second law and recognize that internal forces cancel in pairs."
-    },
-    {
-      "step": 5,
-      "text": "The remaining sum equals the net external torque on the system."
-    },
-    {
-      "step": 6,
-      "text": "If external torque is zero, angular momentum is conserved."
     }
   ],
   "programmatic_verification": {

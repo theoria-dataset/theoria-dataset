@@ -51,45 +51,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Introduce the momentum conjugate to `q_i`. This defines `p_i`.",
       "equation": "p_i = del L/del dot q_i"
     },
     {
       "step": 2,
+      "description": "Perform a Legendre transform to define the Hamiltonian, expressing it in terms of `q_i` and `p_i`.",
       "equation": "H(q_i, p_i, t) = sum_i p_i dot q_i - L(q_i, dot q_i, t)"
     },
     {
       "step": 3,
+      "description": "Differentiate the Hamiltonian with respect to `p_i` (holding `q` fixed). By construction, this yields the corresponding velocity `dot q_i`.",
       "equation": "del H/del p_i = dot q_i"
     },
     {
       "step": 4,
+      "description": "Differentiate the Hamiltonian with respect to `q_i` (holding `p` fixed). Using the Euler-Lagrange equation, replace `del L/del q_i` with `d/dt(del L/del dot q_i) = dot p_i`.",
       "equation": "del H/del q_i = - del L/del q_i = - d/dt(del L/del dot q_i) = - dot p_i"
     },
     {
       "step": 5,
+      "description": "Rearrange to obtain Hamilton's canonical equations for `dot q_i` and `dot p_i` in terms of partial derivatives of `H`.",
       "equation": "dot q_i = del H/del p_i, dot p_i = - del H/del q_i"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Introduce the momentum conjugate to `q_i`. This defines `p_i`."
-    },
-    {
-      "step": 2,
-      "text": "Perform a Legendre transform to define the Hamiltonian, expressing it in terms of `q_i` and `p_i`."
-    },
-    {
-      "step": 3,
-      "text": "Differentiate the Hamiltonian with respect to `p_i` (holding `q` fixed). By construction, this yields the corresponding velocity `dot q_i`."
-    },
-    {
-      "step": 4,
-      "text": "Differentiate the Hamiltonian with respect to `q_i` (holding `p` fixed). Using the Euler-Lagrange equation, replace `del L/del q_i` with `d/dt(del L/del dot q_i) = dot p_i`."
-    },
-    {
-      "step": 5,
-      "text": "Rearrange to obtain Hamilton's canonical equations for `dot q_i` and `dot p_i` in terms of partial derivatives of `H`."
     }
   ],
   "programmatic_verification": {

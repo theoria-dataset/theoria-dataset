@@ -92,16 +92,6 @@ body:
     validations:
       required: false
 
-  - type: textarea
-    id: derivation_explanation
-    attributes:
-      label: Derivation Explanation (Optional)
-      description: Textual explanations for derivation steps
-      placeholder: |
-        Step 1: We start with the fundamental postulate of quantum mechanics
-        Step 2: Separation assumes the solution can be factored into spatial and temporal parts
-    validations:
-      required: false
 
   - type: textarea
     id: programmatic_verification

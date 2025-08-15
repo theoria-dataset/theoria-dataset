@@ -43,37 +43,23 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the action `S` as the time integral of the Lagrangian from `t1` to `t2`. The physical path makes `S` stationary.",
       "equation": "S = int_(t1)^(t2) L(q_i, dot q_i, t) dt"
     },
     {
       "step": 2,
+      "description": "Express the first-order variation `delta S` by varying the integrand. Use the chain rule on `L(q_i, dot q_i, t)`.",
       "equation": "delta S = int_(t1)^(t2) [del L/del q_i delta q_i + del L/del dot q_i delta dot q_i] dt"
     },
     {
       "step": 3,
+      "description": "Integrate the `delta dot q_i` term by parts. The boundary term vanishes due to fixed endpoint variations, yielding an integral proportional to `delta q_i`.",
       "equation": "delta S = [del L/del dot q_i delta q_i]_(t1)^(t2) + int_(t1)^(t2) [del L/del q_i - d/dt(del L/del dot q_i)] delta q_i dt"
     },
     {
       "step": 4,
+      "description": "Since the variations `delta q_i(t)` are arbitrary, the integrand must vanish, giving the Euler-Lagrange equation.",
       "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the action `S` as the time integral of the Lagrangian from `t1` to `t2`. The physical path makes `S` stationary."
-    },
-    {
-      "step": 2,
-      "text": "Express the first-order variation `delta S` by varying the integrand. Use the chain rule on `L(q_i, dot q_i, t)`."
-    },
-    {
-      "step": 3,
-      "text": "Integrate the `delta dot q_i` term by parts. The boundary term vanishes due to fixed endpoint variations, yielding an integral proportional to `delta q_i`."
-    },
-    {
-      "step": 4,
-      "text": "Since the variations `delta q_i(t)` are arbitrary, the integrand must vanish, giving the Euler-Lagrange equation."
     }
   ],
   "programmatic_verification": {

@@ -91,33 +91,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Wave interference is derived from the linearity of the wave equation. When multiple waves exist in the same region, the superposition principle states that the total disturbance is simply the algebraic sum of individual disturbances.",
       "equation": "\\psi_1 = A_1\\cos(kx - \\omega t + \\phi_1)"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\psi_2 = A_2\\cos(kx - \\omega t + \\phi_2)"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\psi_{total} = \\psi_1 + \\psi_2"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\psi_{total} = A_1\\cos(kx - \\omega t + \\phi_1) + A_2\\cos(kx - \\omega t + \\phi_2)"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\psi_{total} = A_{eff}\\cos(kx - \\omega t + \\phi_{eff})"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "A_{eff} = \\sqrt{A_1^2 + A_2^2 + 2A_1A_2\\cos(\\Delta\\phi)}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Wave interference is derived from the linearity of the wave equation. When multiple waves exist in the same region, the superposition principle states that the total disturbance is simply the algebraic sum of individual disturbances."
     }
   ],
   "programmatic_verification": {

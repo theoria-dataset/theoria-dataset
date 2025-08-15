@@ -75,109 +75,68 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Calculate the density of electromagnetic modes per unit frequency using cavity wave analysis.",
       "equation": "n(f) = (8*pi*f^2)/c^3"
     },
     {
       "step": 2,
+      "description": "Apply the classical equipartition theorem: each mode has average energy `k_B*T`.",
       "equation": "<E> = k_B*T"
     },
     {
       "step": 3,
+      "description": "Multiply mode density by average energy to get energy density per frequency.",
       "equation": "u(f) = n(f) * <E>"
     },
     {
       "step": 4,
+      "description": "Substitute the expressions to get the frequency-dependent energy density.",
       "equation": "u(f) = (8*pi*f^2*k_B*T)/c^3"
     },
     {
       "step": 5,
+      "description": "Use the relationship between frequency and wavelength for electromagnetic waves.",
       "equation": "f = c/lambda"
     },
     {
       "step": 6,
+      "description": "Calculate the differential relationship between frequency and wavelength.",
       "equation": "df = -(c/lambda^2) * d lambda"
     },
     {
       "step": 7,
+      "description": "Transform the energy density from frequency space to wavelength space.",
       "equation": "u(lambda) = u(f) * |df/d lambda|"
     },
     {
       "step": 8,
+      "description": "Substitute the frequency-wavelength relations into the energy density expression.",
       "equation": "u(lambda) = (8*pi*(c/lambda)^2*k_B*T)/c^3 * (c/lambda^2)"
     },
     {
       "step": 9,
+      "description": "Simplify the powers of `c` and `lambda`.",
       "equation": "u(lambda) = (8*pi*c^2*k_B*T)/(lambda^2*c^3) * (c/lambda^2)"
     },
     {
       "step": 10,
+      "description": "Obtain the Rayleigh-Jeans energy density formula.",
       "equation": "u(lambda) = (8*pi*k_B*T)/lambda^4"
     },
     {
       "step": 11,
+      "description": "Relate spectral radiance to energy density through geometric factors.",
       "equation": "B(lambda, T) = (c/4*pi) * u(lambda, T)"
     },
     {
       "step": 12,
+      "description": "Substitute the energy density expression.",
       "equation": "B(lambda, T) = (c/4*pi) * (8*pi*k_B*T)/lambda^4"
     },
     {
       "step": 13,
+      "description": "Simplify to get the final Rayleigh-Jeans spectral radiance.",
       "equation": "B(lambda, T) = (2*c*k_B*T)/lambda^4"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Calculate the density of electromagnetic modes per unit frequency using cavity wave analysis."
-    },
-    {
-      "step": 2,
-      "text": "Apply the classical equipartition theorem: each mode has average energy `k_B*T`."
-    },
-    {
-      "step": 3,
-      "text": "Multiply mode density by average energy to get energy density per frequency."
-    },
-    {
-      "step": 4,
-      "text": "Substitute the expressions to get the frequency-dependent energy density."
-    },
-    {
-      "step": 5,
-      "text": "Use the relationship between frequency and wavelength for electromagnetic waves."
-    },
-    {
-      "step": 6,
-      "text": "Calculate the differential relationship between frequency and wavelength."
-    },
-    {
-      "step": 7,
-      "text": "Transform the energy density from frequency space to wavelength space."
-    },
-    {
-      "step": 8,
-      "text": "Substitute the frequency-wavelength relations into the energy density expression."
-    },
-    {
-      "step": 9,
-      "text": "Simplify the powers of `c` and `lambda`."
-    },
-    {
-      "step": 10,
-      "text": "Obtain the Rayleigh-Jeans energy density formula."
-    },
-    {
-      "step": 11,
-      "text": "Relate spectral radiance to energy density through geometric factors."
-    },
-    {
-      "step": 12,
-      "text": "Substitute the energy density expression."
-    },
-    {
-      "step": 13,
-      "text": "Simplify to get the final Rayleigh-Jeans spectral radiance."
     }
   ],
   "programmatic_verification": {

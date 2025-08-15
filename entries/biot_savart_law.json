@@ -63,61 +63,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Ampère's law in differential form from Maxwell's equations.",
       "equation": "nabla times vec B = mu_0 vec J"
     },
     {
       "step": 2,
+      "description": "Use the fact that magnetic field is divergence-free (no magnetic monopoles).",
       "equation": "nabla cdot vec B = 0"
     },
     {
       "step": 3,
+      "description": "Solve the magnetic field equations using Green's function method.",
       "equation": "vec B(vec r) = (mu_0)/(4 pi) int (vec J(vec r') times (vec r - vec r'))/|vec r - vec r'|^3 d^3 r'"
     },
     {
       "step": 4,
+      "description": "Express current density in terms of line current for thin wires.",
       "equation": "vec J d^3 r' = I d vec l"
     },
     {
       "step": 5,
+      "description": "Transform volume integral to line integral along the current path.",
       "equation": "vec B(vec r) = (mu_0 I)/(4 pi) oint (d vec l times (vec r - vec r'))/|vec r - vec r'|^3"
     },
     {
       "step": 6,
+      "description": "Define unit vector from source to field point.",
       "equation": "hat r = (vec r - vec r')/|vec r - vec r'|"
     },
     {
       "step": 7,
+      "description": "Obtain the Biot-Savart law for the magnetic field contribution.",
       "equation": "d vec B = (mu_0)/(4 pi) (I d vec l times hat r)/(r^2)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Ampère's law in differential form from Maxwell's equations."
-    },
-    {
-      "step": 2,
-      "text": "Use the fact that magnetic field is divergence-free (no magnetic monopoles)."
-    },
-    {
-      "step": 3,
-      "text": "Solve the magnetic field equations using Green's function method."
-    },
-    {
-      "step": 4,
-      "text": "Express current density in terms of line current for thin wires."
-    },
-    {
-      "step": 5,
-      "text": "Transform volume integral to line integral along the current path."
-    },
-    {
-      "step": 6,
-      "text": "Define unit vector from source to field point."
-    },
-    {
-      "step": 7,
-      "text": "Obtain the Biot-Savart law for the magnetic field contribution."
     }
   ],
   "programmatic_verification": {

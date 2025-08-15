@@ -51,77 +51,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Planck's quantum relation for photons relating energy to frequency.",
       "equation": "E = hf"
     },
     {
       "step": 2,
+      "description": "Use the energy-momentum relation for photons (massless particles).",
       "equation": "E = pc"
     },
     {
       "step": 3,
+      "description": "Equate the two expressions for energy.",
       "equation": "hf = pc"
     },
     {
       "step": 4,
+      "description": "Solve for frequency in terms of momentum.",
       "equation": "f = pc/h"
     },
     {
       "step": 5,
+      "description": "Apply the fundamental wave relation connecting speed, wavelength, and frequency.",
       "equation": "c = lambda*f"
     },
     {
       "step": 6,
+      "description": "Express frequency in terms of wavelength.",
       "equation": "f = c/lambda"
     },
     {
       "step": 7,
+      "description": "Substitute this expression into the momentum equation.",
       "equation": "c/lambda = pc/h"
     },
     {
       "step": 8,
+      "description": "Cancel the speed of light and rearrange.",
       "equation": "1/lambda = p/h"
     },
     {
       "step": 9,
+      "description": "Solve for the de Broglie wavelength.",
       "equation": "lambda = h/p"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Planck's quantum relation for photons relating energy to frequency."
-    },
-    {
-      "step": 2,
-      "text": "Use the energy-momentum relation for photons (massless particles)."
-    },
-    {
-      "step": 3,
-      "text": "Equate the two expressions for energy."
-    },
-    {
-      "step": 4,
-      "text": "Solve for frequency in terms of momentum."
-    },
-    {
-      "step": 5,
-      "text": "Apply the fundamental wave relation connecting speed, wavelength, and frequency."
-    },
-    {
-      "step": 6,
-      "text": "Express frequency in terms of wavelength."
-    },
-    {
-      "step": 7,
-      "text": "Substitute this expression into the momentum equation."
-    },
-    {
-      "step": 8,
-      "text": "Cancel the speed of light and rearrange."
-    },
-    {
-      "step": 9,
-      "text": "Solve for the de Broglie wavelength."
     }
   ],
   "programmatic_verification": {

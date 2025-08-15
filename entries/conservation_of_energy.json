@@ -103,33 +103,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "For conservative forces, the work done equals the negative change in potential energy. By the work-energy theorem, this work also equals the change in kinetic energy, leading to conservation of mechanical energy.",
       "equation": "\\vec{F} = -\\nabla U"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "W = \\int \\vec{F} \\cdot d\\vec{r} = \\int (-\\nabla U) \\cdot d\\vec{r}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "W = -\\int dU = -(U_f - U_i) = U_i - U_f"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "W = \\Delta K = K_f - K_i"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "K_f - K_i = U_i - U_f"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "K_f + U_f = K_i + U_i = E"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "For conservative forces, the work done equals the negative change in potential energy. By the work-energy theorem, this work also equals the change in kinetic energy, leading to conservation of mechanical energy."
     }
   ],
   "programmatic_verification": {

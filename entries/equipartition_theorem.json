@@ -71,117 +71,73 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the definition of thermal average using the canonical distribution.",
       "equation": "<A> = (int A * e^(-H/(k_B*T)) d tau)/(int e^(-H/(k_B*T)) d tau)"
     },
     {
       "step": 2,
+      "description": "Apply the averaging formula to the specific quantity of interest.",
       "equation": "<x_i * (partial H)/(partial x_i)> = (int x_i * (partial H)/(partial x_i) * e^(-H/(k_B*T)) d tau)/(int e^(-H/(k_B*T)) d tau)"
     },
     {
       "step": 3,
+      "description": "Use the chain rule to relate the Hamiltonian derivative to the exponential derivative.",
       "equation": "int x_i * (partial H)/(partial x_i) * e^(-H/(k_B*T)) d tau = int x_i * (-k_B*T) * (partial)/(partial x_i)[e^(-H/(k_B*T))] d tau"
     },
     {
       "step": 4,
+      "description": "Factor out the constant -k_B*T from the integral.",
       "equation": "= -k_B*T * int x_i * (partial)/(partial x_i)[e^(-H/(k_B*T))] d tau"
     },
     {
       "step": 5,
+      "description": "Apply integration by parts to the product x_i times the derivative.",
       "equation": "= -k_B*T * int (partial)/(partial x_i)[x_i * e^(-H/(k_B*T))] d tau + k_B*T * int e^(-H/(k_B*T)) d tau"
     },
     {
       "step": 6,
+      "description": "Evaluate the boundary term and the remaining integral.",
       "equation": "= -k_B*T * [x_i * e^(-H/(k_B*T))]_text(boundary) + k_B*T * int e^(-H/(k_B*T)) d tau"
     },
     {
       "step": 7,
+      "description": "The boundary term vanishes because the exponential decays faster than x_i grows.",
       "equation": "= 0 + k_B*T * int e^(-H/(k_B*T)) d tau"
     },
     {
       "step": 8,
+      "description": "Obtain the general equipartition result for any coordinate.",
       "equation": "<x_i * (partial H)/(partial x_i)> = k_B*T"
     },
     {
       "step": 9,
+      "description": "Consider a Hamiltonian with quadratic terms in each degree of freedom.",
       "equation": "H = sum_i (1/2) * alpha_i * x_i^2"
     },
     {
       "step": 10,
+      "description": "Calculate the partial derivative for a quadratic term.",
       "equation": "(partial H)/(partial x_i) = alpha_i * x_i"
     },
     {
       "step": 11,
+      "description": "Form the product x_i times its derivative.",
       "equation": "x_i * (partial H)/(partial x_i) = alpha_i * x_i^2"
     },
     {
       "step": 12,
+      "description": "Apply the equipartition result to this product.",
       "equation": "<alpha_i * x_i^2> = k_B*T"
     },
     {
       "step": 13,
+      "description": "Factor out the 1/2 to get the energy of one quadratic degree of freedom.",
       "equation": "<(1/2) * alpha_i * x_i^2> = (1/2) * k_B*T"
     },
     {
       "step": 14,
+      "description": "Conclude that each quadratic term contributes (1/2)k_B*T to the average energy.",
       "equation": "<E_i> = (1/2) * k_B*T"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the definition of thermal average using the canonical distribution."
-    },
-    {
-      "step": 2,
-      "text": "Apply the averaging formula to the specific quantity of interest."
-    },
-    {
-      "step": 3,
-      "text": "Use the chain rule to relate the Hamiltonian derivative to the exponential derivative."
-    },
-    {
-      "step": 4,
-      "text": "Factor out the constant -k_B*T from the integral."
-    },
-    {
-      "step": 5,
-      "text": "Apply integration by parts to the product x_i times the derivative."
-    },
-    {
-      "step": 6,
-      "text": "Evaluate the boundary term and the remaining integral."
-    },
-    {
-      "step": 7,
-      "text": "The boundary term vanishes because the exponential decays faster than x_i grows."
-    },
-    {
-      "step": 8,
-      "text": "Obtain the general equipartition result for any coordinate."
-    },
-    {
-      "step": 9,
-      "text": "Consider a Hamiltonian with quadratic terms in each degree of freedom."
-    },
-    {
-      "step": 10,
-      "text": "Calculate the partial derivative for a quadratic term."
-    },
-    {
-      "step": 11,
-      "text": "Form the product x_i times its derivative."
-    },
-    {
-      "step": 12,
-      "text": "Apply the equipartition result to this product."
-    },
-    {
-      "step": 13,
-      "text": "Factor out the 1/2 to get the energy of one quadratic degree of freedom."
-    },
-    {
-      "step": 14,
-      "text": "Conclude that each quadratic term contributes (1/2)k_B*T to the average energy."
     }
   ],
   "programmatic_verification": {

@@ -67,69 +67,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Einstein's relativistic energy-momentum relation.",
       "equation": "E^2 = p^2 c^2 + m^2 c^4"
     },
     {
       "step": 2,
+      "description": "Apply the quantum mechanical energy operator.",
       "equation": "E -> i hbar partial_t"
     },
     {
       "step": 3,
+      "description": "Apply the quantum mechanical momentum operator.",
       "equation": "p -> -i hbar nabla"
     },
     {
       "step": 4,
+      "description": "Substitute the operators into the energy-momentum relation, ensuring the `c^2` factor is correctly placed with the momentum term, and apply to the wave function `phi`.",
       "equation": "(i hbar partial_t)^2 phi = (-i hbar nabla)^2 c^2 phi + m^2 c^4 phi"
     },
     {
       "step": 5,
+      "description": "Expand the squared operators.",
       "equation": "-hbar^2 partial^2_t phi = -hbar^2 c^2 nabla^2 phi + m^2 c^4 phi"
     },
     {
       "step": 6,
+      "description": "Divide the entire equation by `-hbar^2 c^2` and rearrange to group terms.",
       "equation": "(1/c^2) partial^2_t phi = nabla^2 phi - (m^2 c^2 / hbar^2) phi"
     },
     {
       "step": 7,
+      "description": "Rearrange terms to the standard form of the Klein-Gordon equation.",
       "equation": "( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0"
     },
     {
       "step": 8,
+      "description": "Express using the D'Alembertian operator `Box = (1/c^2)partial^2_t - nabla^2` for compactness.",
       "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Einstein's relativistic energy-momentum relation."
-    },
-    {
-      "step": 2,
-      "text": "Apply the quantum mechanical energy operator."
-    },
-    {
-      "step": 3,
-      "text": "Apply the quantum mechanical momentum operator."
-    },
-    {
-      "step": 4,
-      "text": "Substitute the operators into the energy-momentum relation, ensuring the `c^2` factor is correctly placed with the momentum term, and apply to the wave function `phi`."
-    },
-    {
-      "step": 5,
-      "text": "Expand the squared operators."
-    },
-    {
-      "step": 6,
-      "text": "Divide the entire equation by `-hbar^2 c^2` and rearrange to group terms."
-    },
-    {
-      "step": 7,
-      "text": "Rearrange terms to the standard form of the Klein-Gordon equation."
-    },
-    {
-      "step": 8,
-      "text": "Express using the D'Alembertian operator `Box = (1/c^2)partial^2_t - nabla^2` for compactness."
     }
   ],
   "programmatic_verification": {

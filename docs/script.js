@@ -240,6 +240,24 @@ function safeTypesetMathJax(elements) {
   }
 }
 
+// Generate Google Colab link for programmatic verification using pre-generated notebooks
+function generateColabLink(data) {
+  const entryId = data.result_id;
+  
+  // Use pre-generated notebook from the repository
+  const notebookFilename = `${entryId}_verification.ipynb`;
+  const notebookUrl = `${baseUrl}/notebooks/${notebookFilename}`;
+  
+  // Create Colab link that opens the notebook directly from GitHub
+  const colabUrl = `https://colab.research.google.com/github/theoria-dataset/theoria-dataset/blob/main/notebooks/${notebookFilename}`;
+  
+  const colabLink = $("colab-link");
+  if (colabLink) {
+    colabLink.href = colabUrl;
+    colabLink.target = '_blank';
+  }
+}
+
 // Render function
 function render(data) {
   $("title").style.display = "";
@@ -311,14 +329,10 @@ function render(data) {
   // Render derivation steps into #derivationSteps ol
   const ol = qs("#derivationSteps ol");
   ol.innerHTML = "";
-  const explanationMap = {};
-  (data.derivation_explanation || []).forEach(
-    (e) => (explanationMap[e.step] = e.text)
-  );
   (data.derivation || []).forEach((step) => {
     let html = "";
-    if (explanationMap[step.step]) {
-      html += `<div class='step-expl'>${explanationMap[step.step]}</div>`;
+    if (step.description) {
+      html += `<div class='step-expl'>${step.description}</div>`;
     }
     if (step.equation) {
       // Break long equations at logical points
@@ -349,6 +363,10 @@ function render(data) {
   const codeEl = $("pv-code");
   codeEl.textContent = data.programmatic_verification.code.join("\n");
   hljs.highlightElement(codeEl);
+  
+  // Generate Google Colab link
+  generateColabLink(data);
+  
   safeTypesetMathJax([qs("#programmaticVerification")]);
 
   renderList("#references ul", data.references, (r) => r.citation);

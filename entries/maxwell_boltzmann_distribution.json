@@ -63,69 +63,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Boltzmann distribution for velocity probability based on energy.",
       "equation": "P(vec v) = C exp(-E/(k_B T))"
     },
     {
       "step": 2,
+      "description": "Express kinetic energy in terms of velocity components.",
       "equation": "E = (1/2) m (v_x^2 + v_y^2 + v_z^2)"
     },
     {
       "step": 3,
+      "description": "Substitute kinetic energy into the Boltzmann factor.",
       "equation": "P(vec v) = C exp(-m (v_x^2 + v_y^2 + v_z^2)/(2 k_B T))"
     },
     {
       "step": 4,
+      "description": "Factor the exponential into independent components for each velocity direction.",
       "equation": "P(vec v) = C exp(-m v_x^2/(2 k_B T)) exp(-m v_y^2/(2 k_B T)) exp(-m v_z^2/(2 k_B T))"
     },
     {
       "step": 5,
+      "description": "Use the standard Gaussian integral result for normalization.",
       "equation": "int_{-oo}^{oo} exp(-alpha x^2) dx = sqrt(pi/alpha)"
     },
     {
       "step": 6,
+      "description": "Determine the normalization constant C from the requirement that total probability equals 1.",
       "equation": "C = (m/(2 pi k_B T))^(3/2)"
     },
     {
       "step": 7,
+      "description": "Convert from velocity components to speed by integrating over spherical coordinates.",
       "equation": "f(v) = int_0^{2pi} int_0^pi P(v, theta, phi) v^2 sin(theta) d theta d phi"
     },
     {
       "step": 8,
+      "description": "Obtain the final speed distribution including the v² factor from spherical volume element.",
       "equation": "f(v) = 4 pi (m/(2 pi k_B T))^(3/2) v^2 exp(-m v^2/(2 k_B T))"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Boltzmann distribution for velocity probability based on energy."
-    },
-    {
-      "step": 2,
-      "text": "Express kinetic energy in terms of velocity components."
-    },
-    {
-      "step": 3,
-      "text": "Substitute kinetic energy into the Boltzmann factor."
-    },
-    {
-      "step": 4,
-      "text": "Factor the exponential into independent components for each velocity direction."
-    },
-    {
-      "step": 5,
-      "text": "Use the standard Gaussian integral result for normalization."
-    },
-    {
-      "step": 6,
-      "text": "Determine the normalization constant C from the requirement that total probability equals 1."
-    },
-    {
-      "step": 7,
-      "text": "Convert from velocity components to speed by integrating over spherical coordinates."
-    },
-    {
-      "step": 8,
-      "text": "Obtain the final speed distribution including the v² factor from spherical volume element."
     }
   ],
   "programmatic_verification": {

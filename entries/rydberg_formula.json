@@ -75,45 +75,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the Bohr model energy levels for hydrogen-like atoms.",
       "equation": "E_n = -R_infinity * h * c / n^2"
     },
     {
       "step": 2,
+      "description": "Calculate the energy difference between initial (n₂) and final (n₁) states.",
       "equation": "Delta E = E_n2 - E_n1 = R_infinity * h * c * (1/n_1^2 - 1/n_2^2)"
     },
     {
       "step": 3,
+      "description": "Apply Planck's relation for photon energy in terms of wavelength.",
       "equation": "Delta E = h * c / lambda"
     },
     {
       "step": 4,
+      "description": "Equate the energy difference to the photon energy.",
       "equation": "h * c / lambda = R_infinity * h * c * (1/n_1^2 - 1/n_2^2)"
     },
     {
       "step": 5,
+      "description": "Solve for the reciprocal wavelength to obtain the Rydberg formula.",
       "equation": "1/lambda = R_infinity * (1/n_1^2 - 1/n_2^2)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the Bohr model energy levels for hydrogen-like atoms."
-    },
-    {
-      "step": 2,
-      "text": "Calculate the energy difference between initial (n₂) and final (n₁) states."
-    },
-    {
-      "step": 3,
-      "text": "Apply Planck's relation for photon energy in terms of wavelength."
-    },
-    {
-      "step": 4,
-      "text": "Equate the energy difference to the photon energy."
-    },
-    {
-      "step": 5,
-      "text": "Solve for the reciprocal wavelength to obtain the Rydberg formula."
     }
   ],
   "programmatic_verification": {

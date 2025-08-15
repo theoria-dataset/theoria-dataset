@@ -63,69 +63,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the time-independent Schrödinger equation.",
       "equation": "H psi = E psi"
     },
     {
       "step": 2,
+      "description": "Write the Hamiltonian for the harmonic oscillator with kinetic and potential energy terms.",
       "equation": "H = -(hbar^2/(2m)) d^2/dx^2 + (1/2) m omega^2 x^2"
     },
     {
       "step": 3,
+      "description": "Define the lowering (annihilation) operator using position and momentum.",
       "equation": "a = sqrt(m omega/(2 hbar)) (x + i p/(m omega))"
     },
     {
       "step": 4,
+      "description": "Define the raising (creation) operator as the Hermitian conjugate of the lowering operator.",
       "equation": "a^dagger = sqrt(m omega/(2 hbar)) (x - i p/(m omega))"
     },
     {
       "step": 5,
+      "description": "Express the Hamiltonian in terms of ladder operators.",
       "equation": "H = hbar omega (a^dagger a + 1/2)"
     },
     {
       "step": 6,
+      "description": "Define the number operator as the product of creation and annihilation operators.",
       "equation": "N = a^dagger a"
     },
     {
       "step": 7,
+      "description": "The number operator has eigenvalues n = 0, 1, 2, ... corresponding to energy eigenstates.",
       "equation": "N |n> = n |n>"
     },
     {
       "step": 8,
+      "description": "The energy eigenvalues are equally spaced with zero-point energy ℏω/2.",
       "equation": "E_n = hbar omega (n + 1/2)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the time-independent Schrödinger equation."
-    },
-    {
-      "step": 2,
-      "text": "Write the Hamiltonian for the harmonic oscillator with kinetic and potential energy terms."
-    },
-    {
-      "step": 3,
-      "text": "Define the lowering (annihilation) operator using position and momentum."
-    },
-    {
-      "step": 4,
-      "text": "Define the raising (creation) operator as the Hermitian conjugate of the lowering operator."
-    },
-    {
-      "step": 5,
-      "text": "Express the Hamiltonian in terms of ladder operators."
-    },
-    {
-      "step": 6,
-      "text": "Define the number operator as the product of creation and annihilation operators."
-    },
-    {
-      "step": 7,
-      "text": "The number operator has eigenvalues n = 0, 1, 2, ... corresponding to energy eigenstates."
-    },
-    {
-      "step": 8,
-      "text": "The energy eigenvalues are equally spaced with zero-point energy ℏω/2."
     }
   ],
   "programmatic_verification": {
