@@ -1,6 +1,9 @@
 name: Validate Dataset Entries
 
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+    types: [opened, synchronize, closed]
 
 jobs:
   validate:
@@ -48,7 +51,7 @@ jobs:
           fi
 
       - name: Commit updated index
-        if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
