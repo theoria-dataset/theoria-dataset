@@ -55,69 +55,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the fundamental unit cell with three primitive vectors.",
       "equation": "Unit cell: smallest repeating unit with vectors vec a_1, vec a_2, vec a_3"
     },
     {
       "step": 2,
+      "description": "Generate all lattice points by integer linear combinations of basis vectors.",
       "equation": "Lattice points: vec R_n = n_1 vec a_1 + n_2 vec a_2 + n_3 vec a_3"
     },
     {
       "step": 3,
+      "description": "Define translation operators that shift the crystal by lattice vectors.",
       "equation": "Translation operation: T_R f(vec r) = f(vec r - vec R)"
     },
     {
       "step": 4,
+      "description": "Impose periodicity: physical properties repeat at equivalent lattice points.",
       "equation": "Periodicity condition: T_R rho(vec r) = rho(vec r)"
     },
     {
       "step": 5,
+      "description": "Classify all possible 3D lattice types (14 Bravais lattices).",
       "equation": "Bravais lattices: 14 unique 3D lattice types"
     },
     {
       "step": 6,
+      "description": "Include rotational and reflection symmetries at each lattice point.",
       "equation": "Point group symmetries: rotation, reflection, inversion"
     },
     {
       "step": 7,
+      "description": "Combine translational and point symmetries to form space groups.",
       "equation": "Space group: lattice translations + point group operations"
     },
     {
       "step": 8,
+      "description": "Group lattices by symmetry into seven crystal systems.",
       "equation": "Crystal systems: 7 unique systems based on lattice parameters"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the fundamental unit cell with three primitive vectors."
-    },
-    {
-      "step": 2,
-      "text": "Generate all lattice points by integer linear combinations of basis vectors."
-    },
-    {
-      "step": 3,
-      "text": "Define translation operators that shift the crystal by lattice vectors."
-    },
-    {
-      "step": 4,
-      "text": "Impose periodicity: physical properties repeat at equivalent lattice points."
-    },
-    {
-      "step": 5,
-      "text": "Classify all possible 3D lattice types (14 Bravais lattices)."
-    },
-    {
-      "step": 6,
-      "text": "Include rotational and reflection symmetries at each lattice point."
-    },
-    {
-      "step": 7,
-      "text": "Combine translational and point symmetries to form space groups."
-    },
-    {
-      "step": 8,
-      "text": "Group lattices by symmetry into seven crystal systems."
     }
   ],
   "programmatic_verification": {

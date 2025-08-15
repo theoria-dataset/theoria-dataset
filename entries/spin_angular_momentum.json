@@ -63,69 +63,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the fundamental commutation relations for angular momentum operators.",
       "equation": "[S_i, S_j] = i hbar epsilon_{ijk} S_k"
     },
     {
       "step": 2,
+      "description": "Total angular momentum commutes with all components (conserved quantity).",
       "equation": "[S^2, S_i] = 0 for all i"
     },
     {
       "step": 3,
+      "description": "Define total spin as sum of squared components.",
       "equation": "S^2 = S_x^2 + S_y^2 + S_z^2"
     },
     {
       "step": 4,
+      "description": "Introduce ladder operators that change magnetic quantum number by ±1.",
       "equation": "S_± = S_x ± i S_y (raising and lowering operators)"
     },
     {
       "step": 5,
+      "description": "Derive action of ladder operators on spin states.",
       "equation": "S_± |s, m_s> = hbar sqrt(s(s+1) - m_s(m_s ± 1)) |s, m_s ± 1>"
     },
     {
       "step": 6,
+      "description": "Assume S² has discrete eigenvalues with corresponding eigenstates.",
       "equation": "Eigenvalue condition: S^2 |s, m_s> = lambda |s, m_s>"
     },
     {
       "step": 7,
+      "description": "Use ladder operator algebra to determine eigenvalues.",
       "equation": "From ladder operators: lambda = hbar^2 s(s + 1)"
     },
     {
       "step": 8,
+      "description": "Constraint from finite ladder: magnetic quantum numbers are bounded.",
       "equation": "Magnetic quantum numbers: m_s = -s, -s+1, ..., s-1, s"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the fundamental commutation relations for angular momentum operators."
-    },
-    {
-      "step": 2,
-      "text": "Total angular momentum commutes with all components (conserved quantity)."
-    },
-    {
-      "step": 3,
-      "text": "Define total spin as sum of squared components."
-    },
-    {
-      "step": 4,
-      "text": "Introduce ladder operators that change magnetic quantum number by ±1."
-    },
-    {
-      "step": 5,
-      "text": "Derive action of ladder operators on spin states."
-    },
-    {
-      "step": 6,
-      "text": "Assume S² has discrete eigenvalues with corresponding eigenstates."
-    },
-    {
-      "step": 7,
-      "text": "Use ladder operator algebra to determine eigenvalues."
-    },
-    {
-      "step": 8,
-      "text": "Constraint from finite ladder: magnetic quantum numbers are bounded."
     }
   ],
   "programmatic_verification": {

@@ -19,7 +19,7 @@ def validate_entry_schema(entry_path):
     errors = []
     
     try:
-        with open(entry_path, 'r') as f:
+        with open(entry_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
     except json.JSONDecodeError as e:
         return False, [f"[ERROR] Invalid JSON syntax: {e}"]
@@ -34,8 +34,7 @@ def validate_entry_schema(entry_path):
         'explanation': "2-5 sentence summary (≤100 words)",
         'definitions': "Array defining all symbols used",
         'assumptions': "Array of assumptions that lead to the result equations",
-        'derivation': "Array of derivation steps with 'step' and 'equation'", 
-        'derivation_explanation': "Array explaining each derivation step",
+        'derivation': "Array of derivation steps with 'step', 'description', and 'equation'", 
         'programmatic_verification': "Object with 'language', 'library', and 'code'",
         'domain': "arXiv category (e.g., 'hep-th', 'gr-qc')",
         'theory_status': "One of: current, historical, approximation, limiting_case, superseded",
@@ -198,7 +197,7 @@ def main():
     
     if is_valid:
         print("[OK] Schema validation passed!")
-        print(f"   → Entry '{entry_path.name}' follows the correct structure")
+        print(f"   Entry '{entry_path.name}' follows the correct structure")
     else:
         print(f"[ERROR] Schema validation failed ({len(errors)} issues):")
         for error in errors:
@@ -207,7 +206,7 @@ def main():
             else:
                 print(f"    {error}")
         
-        print(f"\n💡 Next steps:")
+        print(f"\nNext steps:")
         print(f"  1. Fix the issues listed above")
         print(f"  2. Check CONTRIBUTING.md for detailed field descriptions")
         print(f"  3. Use scripts/test_entry.py to test programmatic verification")

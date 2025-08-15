@@ -34,14 +34,14 @@ def test_single_entry(filename):
             print(f"   • {f.name}")
         return False
     
-    print(f"🧪 Testing entry: {filename}")
+    print(f"Testing entry: {filename}")
     print("="*50)
     
     # First, check JSON syntax
     try:
-        with open(entry_path, 'r') as f:
+        with open(entry_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        print("✅ JSON syntax is valid")
+        print("JSON syntax is valid")
     except json.JSONDecodeError as e:
         print(f"❌ Invalid JSON syntax:")
         print(f"   → Error: {e}")
@@ -110,7 +110,7 @@ def test_single_entry(filename):
 
 def main():
     """Main entry point."""
-    print("🧬 TheorIA Dataset Entry Tester")
+    print("TheorIA Dataset Entry Tester")
     print("="*40)
     
     if len(sys.argv) > 1:

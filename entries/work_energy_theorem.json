@@ -99,45 +99,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The work-energy theorem is derived by applying Newton's second law and integrating the force along the path of motion. Starting from F = ma and using the chain rule, we can show that the work integral equals the change in kinetic energy.",
       "equation": "\\vec{F} = m\\vec{a}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\vec{a} = \\frac{d\\vec{v}}{dt}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "W = \\int \\vec{F} \\cdot d\\vec{r} = \\int m\\vec{a} \\cdot d\\vec{r}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "d\\vec{r} = \\vec{v} dt"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "W = \\int m \\frac{d\\vec{v}}{dt} \\cdot \\vec{v} dt = \\int m \\vec{v} \\cdot d\\vec{v}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\vec{v} \\cdot d\\vec{v} = \\frac{1}{2} d(\\vec{v} \\cdot \\vec{v}) = \\frac{1}{2} d(v^2)"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "W = \\int m \\frac{1}{2} d(v^2) = \\frac{m}{2} \\int dv^2"
     },
     {
       "step": 8,
+      "description": "",
       "equation": "W = \\frac{m}{2}(v_f^2 - v_i^2) = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2"
     },
     {
       "step": 9,
+      "description": "",
       "equation": "W = K_f - K_i = \\Delta K"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The work-energy theorem is derived by applying Newton's second law and integrating the force along the path of motion. Starting from F = ma and using the chain rule, we can show that the work integral equals the change in kinetic energy."
     }
   ],
   "programmatic_verification": {

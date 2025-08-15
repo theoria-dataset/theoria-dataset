@@ -119,101 +119,63 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Establish the relationship between angular and linear motion.",
       "equation": "text(Angular velocity from linear motion)"
     },
     {
       "step": 2,
+      "description": "Derive angular velocity from the arc length-angle relationship.",
       "equation": "s = r*theta => v = ds/dt = r*d*theta/dt = r*omega"
     },
     {
       "step": 3,
+      "description": "Connect angular velocity to measurable quantities like period and frequency.",
       "equation": "text(Period-frequency relation)"
     },
     {
       "step": 4,
+      "description": "Express angular velocity in terms of period T and frequency f.",
       "equation": "omega = 2*pi/T = 2*pi*f"
     },
     {
       "step": 5,
+      "description": "Define torque as the rotational effect of force.",
       "equation": "text(Torque from force and lever arm)"
     },
     {
       "step": 6,
+      "description": "Express torque as the cross product of position and force vectors.",
       "equation": "tau = r*F*sin(phi) => vec tau = vec r times vec F"
     },
     {
       "step": 7,
+      "description": "Establish the rotational analog of Newton's second law.",
       "equation": "text(Newton's second law for rotation)"
     },
     {
       "step": 8,
+      "description": "Relate torque to angular acceleration through moment of inertia.",
       "equation": "tau = I*alpha"
     },
     {
       "step": 9,
+      "description": "Define angular momentum as the rotational analog of linear momentum.",
       "equation": "text(Angular momentum definition)"
     },
     {
       "step": 10,
+      "description": "Derive angular momentum in terms of moment of inertia and angular velocity.",
       "equation": "vec L = vec r times vec p = vec r times (m*vec v) = m*r^2*omega = I*omega"
     },
     {
       "step": 11,
+      "description": "Establish rotational kinetic energy by analogy with linear kinetic energy.",
       "equation": "text(Rotational kinetic energy)"
     },
     {
       "step": 12,
+      "description": "Derive the rotational kinetic energy formula for rigid bodies.",
       "equation": "K_rot = (1/2)*sum(m_i*v_i^2) = (1/2)*sum(m_i*r_i^2*omega^2) = (1/2)*I*omega^2"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Establish the relationship between angular and linear motion."
-    },
-    {
-      "step": 2,
-      "text": "Derive angular velocity from the arc length-angle relationship."
-    },
-    {
-      "step": 3,
-      "text": "Connect angular velocity to measurable quantities like period and frequency."
-    },
-    {
-      "step": 4,
-      "text": "Express angular velocity in terms of period T and frequency f."
-    },
-    {
-      "step": 5,
-      "text": "Define torque as the rotational effect of force."
-    },
-    {
-      "step": 6,
-      "text": "Express torque as the cross product of position and force vectors."
-    },
-    {
-      "step": 7,
-      "text": "Establish the rotational analog of Newton's second law."
-    },
-    {
-      "step": 8,
-      "text": "Relate torque to angular acceleration through moment of inertia."
-    },
-    {
-      "step": 9,
-      "text": "Define angular momentum as the rotational analog of linear momentum."
-    },
-    {
-      "step": 10,
-      "text": "Derive angular momentum in terms of moment of inertia and angular velocity."
-    },
-    {
-      "step": 11,
-      "text": "Establish rotational kinetic energy by analogy with linear kinetic energy."
-    },
-    {
-      "step": 12,
-      "text": "Derive the rotational kinetic energy formula for rigid bodies."
     }
   ],
   "programmatic_verification": {

@@ -91,29 +91,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Gauss's law is derived from Coulomb's law using the superposition principle. The key insight is that the solid angle subtended by any closed surface around a point charge is 4π, while charges outside contribute zero flux.",
       "equation": "\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\sum_i \\frac{q_i}{r_i^2} \\hat{r}_i"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{1}{4\\pi\\epsilon_0} \\sum_i q_i \\oint \\frac{\\hat{r}_i \\cdot d\\vec{A}}{r_i^2}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\oint \\frac{\\hat{r}_i \\cdot d\\vec{A}}{r_i^2} = \\begin{cases} 4\\pi & \\text{if charge inside} \\\\ 0 & \\text{if charge outside} \\end{cases}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{1}{4\\pi\\epsilon_0} \\sum_{i \\text{ inside}} q_i \\cdot 4\\pi"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{1}{\\epsilon_0} \\sum_{i \\text{ inside}} q_i = \\frac{Q_{enc}}{\\epsilon_0}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Gauss's law is derived from Coulomb's law using the superposition principle. The key insight is that the solid angle subtended by any closed surface around a point charge is 4π, while charges outside contribute zero flux."
     }
   ],
   "programmatic_verification": {

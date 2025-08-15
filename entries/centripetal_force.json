@@ -59,61 +59,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Express position vector for uniform circular motion in Cartesian coordinates.",
       "equation": "vec r(t) = r (cos(omega t) hat i + sin(omega t) hat j)"
     },
     {
       "step": 2,
+      "description": "Find velocity by taking the time derivative of position.",
       "equation": "vec v(t) = d vec r/dt = r omega (-sin(omega t) hat i + cos(omega t) hat j)"
     },
     {
       "step": 3,
+      "description": "The magnitude of velocity is constant and equals rω.",
       "equation": "|vec v| = r omega = v"
     },
     {
       "step": 4,
+      "description": "Find acceleration by taking the time derivative of velocity.",
       "equation": "vec a(t) = d vec v/dt = -r omega^2 (cos(omega t) hat i + sin(omega t) hat j)"
     },
     {
       "step": 5,
+      "description": "The acceleration vector points radially inward, opposite to position.",
       "equation": "vec a(t) = -omega^2 vec r(t)"
     },
     {
       "step": 6,
+      "description": "The magnitude of centripetal acceleration in terms of v and ω.",
       "equation": "a_c = |vec a| = omega^2 r = v^2/r"
     },
     {
       "step": 7,
+      "description": "Apply Newton's second law to find the required centripetal force.",
       "equation": "F_c = m a_c = m v^2/r = m omega^2 r"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Express position vector for uniform circular motion in Cartesian coordinates."
-    },
-    {
-      "step": 2,
-      "text": "Find velocity by taking the time derivative of position."
-    },
-    {
-      "step": 3,
-      "text": "The magnitude of velocity is constant and equals rω."
-    },
-    {
-      "step": 4,
-      "text": "Find acceleration by taking the time derivative of velocity."
-    },
-    {
-      "step": 5,
-      "text": "The acceleration vector points radially inward, opposite to position."
-    },
-    {
-      "step": 6,
-      "text": "The magnitude of centripetal acceleration in terms of v and ω."
-    },
-    {
-      "step": 7,
-      "text": "Apply Newton's second law to find the required centripetal force."
     }
   ],
   "programmatic_verification": {

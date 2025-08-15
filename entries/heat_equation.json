@@ -95,33 +95,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The heat equation is derived from energy conservation and Fourier's law. We start with the continuity equation for thermal energy, substitute Fourier's law for heat flux, and relate internal energy to temperature to obtain the diffusion equation.",
       "equation": "\\vec{q} = -k \\nabla T"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\frac{\\partial u}{\\partial t} = -\\nabla \\cdot \\vec{q}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "u = \\rho c_p T"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\rho c_p \\frac{\\partial T}{\\partial t} = -\\nabla \\cdot (-k \\nabla T)"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\rho c_p \\frac{\\partial T}{\\partial t} = k \\nabla^2 T"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\frac{\\partial T}{\\partial t} = \\frac{k}{\\rho c_p} \\nabla^2 T = \\alpha \\nabla^2 T"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The heat equation is derived from energy conservation and Fourier's law. We start with the continuity equation for thermal energy, substitute Fourier's law for heat flux, and relate internal energy to temperature to obtain the diffusion equation."
     }
   ],
   "programmatic_verification": {

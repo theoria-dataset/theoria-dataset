@@ -99,41 +99,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The ideal gas law is derived from kinetic theory by considering the microscopic motion of gas molecules and their collisions with container walls. Starting from the kinetic theory expression for pressure and relating average kinetic energy to temperature leads to the macroscopic gas law.",
       "equation": "P \\propto \\frac{1}{V} \\text{ (Boyle's law)}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "V \\propto T \\text{ (Charles's law)}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "V \\propto n \\text{ (Avogadro's law)}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "PV \\propto nT"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "PV = nRT"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "N = nN_A \\text{ where } N_A \\text{ is Avogadro's number}"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "k_B = \\frac{R}{N_A}"
     },
     {
       "step": 8,
+      "description": "",
       "equation": "PV = Nk_BT"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The ideal gas law is derived from kinetic theory by considering the microscopic motion of gas molecules and their collisions with container walls. Starting from the kinetic theory expression for pressure and relating average kinetic energy to temperature leads to the macroscopic gas law."
     }
   ],
   "programmatic_verification": {

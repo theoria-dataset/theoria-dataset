@@ -47,45 +47,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Ampère's law in differential form from Maxwell's equations.",
       "equation": "nabla times vec B = mu_0 vec J"
     },
     {
       "step": 2,
+      "description": "Integrate both sides over a surface bounded by the closed loop.",
       "equation": "int (nabla times vec B) cdot d vec A = int mu_0 vec J cdot d vec A"
     },
     {
       "step": 3,
+      "description": "Apply Stokes' theorem to convert the left side to a line integral.",
       "equation": "oint vec B cdot d vec l = mu_0 int vec J cdot d vec A"
     },
     {
       "step": 4,
+      "description": "Recognize that the surface integral of current density gives the enclosed current.",
       "equation": "I_enc = int vec J cdot d vec A"
     },
     {
       "step": 5,
+      "description": "Obtain Ampère's law in integral form relating circulation of B to enclosed current.",
       "equation": "oint vec B cdot d vec l = mu_0 I_enc"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Ampère's law in differential form from Maxwell's equations."
-    },
-    {
-      "step": 2,
-      "text": "Integrate both sides over a surface bounded by the closed loop."
-    },
-    {
-      "step": 3,
-      "text": "Apply Stokes' theorem to convert the left side to a line integral."
-    },
-    {
-      "step": 4,
-      "text": "Recognize that the surface integral of current density gives the enclosed current."
-    },
-    {
-      "step": 5,
-      "text": "Obtain Ampère's law in integral form relating circulation of B to enclosed current."
     }
   ],
   "programmatic_verification": {

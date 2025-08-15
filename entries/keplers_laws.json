@@ -8,7 +8,7 @@
     },
     {
       "id": "eq2",
-      "equation": "dot(A) = (L)/(2*m) = text{constant}"
+      "equation": "(dA)/(dt) = (L)/(2*m) = text{constant}"
     },
     {
       "id": "eq3",
@@ -87,261 +87,163 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Newton's law of gravitation as the central force (assumption 2). Here `vec(F)` is the force vector, `vec(r)` is the position vector from Sun to planet, `r = |vec(r)|` is the distance, and `hat(r) = vec(r)/r` is the unit vector in the radial direction.",
       "equation": "vec(F) = -G*M*m/r^2 * hat(r)"
     },
     {
       "step": 2,
+      "description": "Calculate torque: since `vec(F)` is parallel to `vec(r)` (both along radial direction), their cross product `vec(tau) = vec(r) times vec(F)` is zero.",
       "equation": "vec(tau) = vec(r) times vec(F) = vec(r) times (-G*M*m/r^2 * hat(r)) = 0"
     },
     {
       "step": 3,
+      "description": "Apply the fundamental relation `dot(vec(L)) = vec(tau)` from rotational dynamics (assumption 6) and substitute `vec(tau) = 0` from step 2: since torque is zero, the time derivative of angular momentum is zero.",
       "equation": "dot(vec(L)) = vec(tau) = 0"
     },
     {
       "step": 4,
+      "description": "Since `dot(vec(L)) = 0`, integrating with respect to time gives `vec(L) = text{constant}` - this proves conservation of angular momentum for central forces.",
       "equation": "vec(L) = vec(r) times vec(p) = text{constant}"
     },
     {
       "step": 5,
+      "description": "Use the definition of angular momentum magnitude for a point mass: `L = m*r^2*dot(theta)` where `dot(theta)` is the angular velocity.",
       "equation": "L = m*r^2*dot(theta)"
     },
     {
       "step": 6,
+      "description": "Kepler's 2nd law: using the area formula for circular sectors `dA = 1/2*r^2*d theta` and substituting angular momentum, the areal velocity `dot(A) = L/(2*m)` is constant.",
       "equation": "dot(A) = 1/2*r^2*dot(theta) = L/(2*m)"
     },
     {
       "step": 7,
+      "description": "Newton's law for a test mass in the gravitational field of mass `M`.",
       "equation": "ddot(vec(r)) = -G*M/r^2 * hat(r)"
     },
     {
       "step": 8,
+      "description": "In plane polar coordinates, acceleration decomposes into radial and tangential components.",
       "equation": "ddot(vec(r)) = (ddot(r) - r*dot(theta)^2)*hat(r) + (r*ddot(theta) + 2*dot(r)*dot(theta))*hat(theta)"
     },
     {
       "step": 9,
+      "description": "Central force implies the tangential component must vanish, giving the angular momentum conservation condition.",
       "equation": "r*ddot(theta) + 2*dot(r)*dot(theta) = 0"
     },
     {
       "step": 10,
+      "description": "The tangential equation can be written as a time derivative of `r^2*dot(theta)`.",
       "equation": "(d)/(dt)(r^2*dot(theta)) = 0"
     },
     {
       "step": 11,
+      "description": "Define specific angular momentum `h = r^2*dot(theta)` which is conserved for central forces.",
       "equation": "h := r^2*dot(theta) = text{constant}"
     },
     {
       "step": 12,
+      "description": "Match the radial component to the gravitational force.",
       "equation": "ddot(r) - r*dot(theta)^2 = -G*M/r^2"
     },
     {
       "step": 13,
+      "description": "Substitute `dot(theta) = h/r^2` from angular momentum conservation.",
       "equation": "ddot(r) - r*(h^2/r^4) = -G*M/r^2"
     },
     {
       "step": 14,
+      "description": "Simplify the radial equation of motion.",
       "equation": "ddot(r) - h^2/r^3 = -G*M/r^2"
     },
     {
       "step": 15,
+      "description": "Binet substitution: let `u = 1/r` and calculate derivatives using `dot(theta) = h*u^2`.",
       "equation": "u = 1/r; dot(r) = -h*(du)/(d theta); ddot(r) = -h^2*u^2*(d^2 u)/(d theta^2)"
     },
     {
       "step": 16,
+      "description": "Express the centrifugal term in terms of `u`.",
       "equation": "r*dot(theta)^2 = (1/u)*(h^2*u^4) = h^2*u^3"
     },
     {
       "step": 17,
+      "description": "Substitute all expressions into the radial equation.",
       "equation": "(-h^2*u^2*(d^2 u)/(d theta^2)) - h^2*u^3 = -G*M*u^2"
     },
     {
       "step": 18,
+      "description": "Simplify to get the standard orbital differential equation.",
       "equation": "(d^2 u)/(d theta^2) + u = G*M/h^2"
     },
     {
       "step": 19,
+      "description": "General solution to the linear ODE with constant coefficient.",
       "equation": "u(theta) = G*M/h^2 + C*cos(theta - theta_0)"
     },
     {
       "step": 20,
+      "description": "Choose coordinates so periapsis is at `theta = 0` and define eccentricity `e = C*h^2/(G*M)`.",
       "equation": "u(theta) = (G*M/h^2)*(1 + e*cos(theta))"
     },
     {
       "step": 21,
+      "description": "Invert to get `r(theta)` and define semi-latus rectum `p = h^2/(G*M)`.",
       "equation": "r(theta) = h^2/(G*M*(1 + e*cos(theta)))"
     },
     {
       "step": 22,
+      "description": "Standard conic section form with semi-latus rectum `p`.",
       "equation": "p := h^2/(G*M); r(theta) = p/(1 + e*cos(theta))"
     },
     {
       "step": 23,
+      "description": "For ellipse case (`e < 1`), calculate periapsis and apoapsis radii.",
       "equation": "r_p = p/(1 + e); r_a = p/(1 - e)"
     },
     {
       "step": 24,
+      "description": "Semi-major axis is the average of periapsis and apoapsis radii, giving `p = a*(1-e^2)`.",
       "equation": "a = (r_p + r_a)/2 = p/(1 - e^2)"
     },
     {
       "step": 25,
+      "description": "Kepler's First Law: substitute `p = a*(1-e^2)` to get the standard ellipse equation.",
       "equation": "r(theta) = (a*(1 - e^2))/(1 + e*cos(theta))"
     },
     {
       "step": 26,
+      "description": "From `p = h^2/(G*M)` and `p = a*(1-e^2)`, we get the relationship between specific angular momentum and orbital parameters.",
       "equation": "h^2 = G*M*a*(1 - e^2)"
     },
     {
       "step": 27,
+      "description": "Total area of the ellipse with semi-major axis `a` and semi-minor axis `b = a*sqrt(1-e^2)`.",
       "equation": "A_text{ellipse} = pi*a*b = pi*a^2*sqrt(1 - e^2)"
     },
     {
       "step": 28,
+      "description": "Period is total area divided by areal velocity. Use `dot(A) = h/2` from Kepler's 2nd law.",
       "equation": "T = A_text{ellipse} / dot(A) = (pi*a^2*sqrt(1 - e^2)) / (h/2)"
     },
     {
       "step": 29,
+      "description": "Simplify the period expression.",
       "equation": "T = (2*pi*a^2*sqrt(1 - e^2)) / h"
     },
     {
       "step": 30,
+      "description": "Substitute `h = sqrt(G*M*a*(1-e^2))` from step 26.",
       "equation": "T = (2*pi*a^2*sqrt(1 - e^2)) / sqrt(G*M*a*(1 - e^2))"
     },
     {
       "step": 31,
+      "description": "Cancel the `sqrt(1-e^2)` terms to get the period in terms of `a`, `G`, and `M` only.",
       "equation": "T = (2*pi*a^(3/2)) / sqrt(G*M)"
     },
     {
       "step": 32,
+      "description": "Kepler's Third Law: square both sides to get the final relationship `T^2 ∝ a^3`.",
       "equation": "T^2 = (4*pi^2*a^3) / (G*M)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Newton's law of gravitation as the central force (assumption 2). Here `vec(F)` is the force vector, `vec(r)` is the position vector from Sun to planet, `r = |vec(r)|` is the distance, and `hat(r) = vec(r)/r` is the unit vector in the radial direction."
-    },
-    {
-      "step": 2,
-      "text": "Calculate torque: since `vec(F)` is parallel to `vec(r)` (both along radial direction), their cross product `vec(tau) = vec(r) times vec(F)` is zero."
-    },
-    {
-      "step": 3,
-      "text": "Apply the fundamental relation `dot(vec(L)) = vec(tau)` from rotational dynamics (assumption 6) and substitute `vec(tau) = 0` from step 2: since torque is zero, the time derivative of angular momentum is zero."
-    },
-    {
-      "step": 4,
-      "text": "Since `dot(vec(L)) = 0`, integrating with respect to time gives `vec(L) = text{constant}` - this proves conservation of angular momentum for central forces."
-    },
-    {
-      "step": 5,
-      "text": "Use the definition of angular momentum magnitude for a point mass: `L = m*r^2*dot(theta)` where `dot(theta)` is the angular velocity."
-    },
-    {
-      "step": 6,
-      "text": "Kepler's 2nd law: using the area formula for circular sectors `dA = 1/2*r^2*d theta` and substituting angular momentum, the areal velocity `dot(A) = L/(2*m)` is constant."
-    },
-    {
-      "step": 7,
-      "text": "Newton's law for a test mass in the gravitational field of mass `M`."
-    },
-    {
-      "step": 8,
-      "text": "In plane polar coordinates, acceleration decomposes into radial and tangential components."
-    },
-    {
-      "step": 9,
-      "text": "Central force implies the tangential component must vanish, giving the angular momentum conservation condition."
-    },
-    {
-      "step": 10,
-      "text": "The tangential equation can be written as a time derivative of `r^2*dot(theta)`."
-    },
-    {
-      "step": 11,
-      "text": "Define specific angular momentum `h = r^2*dot(theta)` which is conserved for central forces."
-    },
-    {
-      "step": 12,
-      "text": "Match the radial component to the gravitational force."
-    },
-    {
-      "step": 13,
-      "text": "Substitute `dot(theta) = h/r^2` from angular momentum conservation."
-    },
-    {
-      "step": 14,
-      "text": "Simplify the radial equation of motion."
-    },
-    {
-      "step": 15,
-      "text": "Binet substitution: let `u = 1/r` and calculate derivatives using `dot(theta) = h*u^2`."
-    },
-    {
-      "step": 16,
-      "text": "Express the centrifugal term in terms of `u`."
-    },
-    {
-      "step": 17,
-      "text": "Substitute all expressions into the radial equation."
-    },
-    {
-      "step": 18,
-      "text": "Simplify to get the standard orbital differential equation."
-    },
-    {
-      "step": 19,
-      "text": "General solution to the linear ODE with constant coefficient."
-    },
-    {
-      "step": 20,
-      "text": "Choose coordinates so periapsis is at `theta = 0` and define eccentricity `e = C*h^2/(G*M)`."
-    },
-    {
-      "step": 21,
-      "text": "Invert to get `r(theta)` and define semi-latus rectum `p = h^2/(G*M)`."
-    },
-    {
-      "step": 22,
-      "text": "Standard conic section form with semi-latus rectum `p`."
-    },
-    {
-      "step": 23,
-      "text": "For ellipse case (`e < 1`), calculate periapsis and apoapsis radii."
-    },
-    {
-      "step": 24,
-      "text": "Semi-major axis is the average of periapsis and apoapsis radii, giving `p = a*(1-e^2)`."
-    },
-    {
-      "step": 25,
-      "text": "Kepler's First Law: substitute `p = a*(1-e^2)` to get the standard ellipse equation."
-    },
-    {
-      "step": 26,
-      "text": "From `p = h^2/(G*M)` and `p = a*(1-e^2)`, we get the relationship between specific angular momentum and orbital parameters."
-    },
-    {
-      "step": 27,
-      "text": "Total area of the ellipse with semi-major axis `a` and semi-minor axis `b = a*sqrt(1-e^2)`."
-    },
-    {
-      "step": 28,
-      "text": "Period is total area divided by areal velocity. Use `dot(A) = h/2` from Kepler's 2nd law."
-    },
-    {
-      "step": 29,
-      "text": "Simplify the period expression."
-    },
-    {
-      "step": 30,
-      "text": "Substitute `h = sqrt(G*M*a*(1-e^2))` from step 26."
-    },
-    {
-      "step": 31,
-      "text": "Cancel the `sqrt(1-e^2)` terms to get the period in terms of `a`, `G`, and `M` only."
-    },
-    {
-      "step": 32,
-      "text": "Kepler's Third Law: square both sides to get the final relationship `T^2 ∝ a^3`."
     }
   ],
   "programmatic_verification": {
@@ -489,7 +391,10 @@
       "No relativistic corrections included"
     ]
   },
-  "superseded_by": ["newtonian_gravitation", "general_relativity"],
+  "superseded_by": [
+    "newtonian_gravitation",
+    "general_relativity"
+  ],
   "historical_context": {
     "importance": "First accurate description of planetary motion, led to Newton's universal gravitation",
     "development_period": "1609-1619",
@@ -509,7 +414,10 @@
       "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
     }
   ],
-  "dependencies": ["newtonian_mechanics", "conservation_laws"],
+  "dependencies": [
+    "newtonian_mechanics",
+    "conservation_laws"
+  ],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

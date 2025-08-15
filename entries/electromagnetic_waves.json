@@ -67,69 +67,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Faraday's law from Maxwell's equations.",
       "equation": "nabla times vec E = -partial vec B/partial t"
     },
     {
       "step": 2,
+      "description": "Use Ampère's law (with Maxwell's correction) in free space.",
       "equation": "nabla times vec B = mu_0 epsilon_0 partial vec E/partial t"
     },
     {
       "step": 3,
+      "description": "Take the curl of Faraday's law and substitute time derivative.",
       "equation": "nabla times (nabla times vec E) = -partial/partial t (nabla times vec B)"
     },
     {
       "step": 4,
+      "description": "Substitute Ampère's law to eliminate magnetic field.",
       "equation": "nabla times (nabla times vec E) = -mu_0 epsilon_0 partial^2 vec E/partial t^2"
     },
     {
       "step": 5,
+      "description": "Apply the vector identity for curl of curl.",
       "equation": "nabla(nabla cdot vec E) - nabla^2 vec E = -mu_0 epsilon_0 partial^2 vec E/partial t^2"
     },
     {
       "step": 6,
+      "description": "In free space, there are no charges, so divergence of E is zero.",
       "equation": "nabla cdot vec E = 0 (in free space)"
     },
     {
       "step": 7,
+      "description": "Obtain the wave equation for the electric field.",
       "equation": "nabla^2 vec E - mu_0 epsilon_0 partial^2 vec E/partial t^2 = 0"
     },
     {
       "step": 8,
+      "description": "Identify the wave speed as the speed of light.",
       "equation": "c^2 = 1/(mu_0 epsilon_0)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Faraday's law from Maxwell's equations."
-    },
-    {
-      "step": 2,
-      "text": "Use Ampère's law (with Maxwell's correction) in free space."
-    },
-    {
-      "step": 3,
-      "text": "Take the curl of Faraday's law and substitute time derivative."
-    },
-    {
-      "step": 4,
-      "text": "Substitute Ampère's law to eliminate magnetic field."
-    },
-    {
-      "step": 5,
-      "text": "Apply the vector identity for curl of curl."
-    },
-    {
-      "step": 6,
-      "text": "In free space, there are no charges, so divergence of E is zero."
-    },
-    {
-      "step": 7,
-      "text": "Obtain the wave equation for the electric field."
-    },
-    {
-      "step": 8,
-      "text": "Identify the wave speed as the speed of light."
     }
   ],
   "programmatic_verification": {

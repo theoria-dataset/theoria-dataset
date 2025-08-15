@@ -63,109 +63,68 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with a simple product wavefunction for two particles in different states.",
       "equation": "Psi = psi_1(vec r_1) * psi_2(vec r_2)"
     },
     {
       "step": 2,
+      "description": "Construct the symmetric combination under particle exchange.",
       "equation": "Psi_+ = (1/sqrt(2)) * [psi_1(vec r_1) * psi_2(vec r_2) + psi_2(vec r_1) * psi_1(vec r_2)]"
     },
     {
       "step": 3,
+      "description": "Construct the antisymmetric combination under particle exchange.",
       "equation": "Psi_- = (1/sqrt(2)) * [psi_1(vec r_1) * psi_2(vec r_2) - psi_2(vec r_1) * psi_1(vec r_2)]"
     },
     {
       "step": 4,
+      "description": "The permutation operator leaves the symmetric state unchanged.",
       "equation": "hat P_{12} Psi_+ = +Psi_+"
     },
     {
       "step": 5,
+      "description": "The permutation operator changes the sign of the antisymmetric state.",
       "equation": "hat P_{12} Psi_- = -Psi_-"
     },
     {
       "step": 6,
+      "description": "Fermions must have antisymmetric wavefunctions by the spin-statistics theorem.",
       "equation": "Psi_fermion = Psi_-"
     },
     {
       "step": 7,
+      "description": "When both particles are in the same state, the antisymmetric wavefunction vanishes.",
       "equation": "psi_1 = psi_2 Rightarrow Psi_- = 0"
     },
     {
       "step": 8,
+      "description": "List the quantum numbers that specify an electron state in an atom.",
       "equation": "n, l, m_l, m_s"
     },
     {
       "step": 9,
+      "description": "The spin magnetic quantum number can take two values for spin-1/2 particles.",
       "equation": "m_s = +1/2 text( or ) -1/2"
     },
     {
       "step": 10,
+      "description": "The orbital magnetic quantum number ranges from -l to +l.",
       "equation": "m_l = -l, -l+1, ..., l-1, l"
     },
     {
       "step": 11,
+      "description": "Count the number of possible orbital magnetic quantum numbers.",
       "equation": "text(Number of ) m_l text( values) = 2*l + 1"
     },
     {
       "step": 12,
+      "description": "Each orbital state can accommodate two electrons with opposite spins.",
       "equation": "text(Number of spin states) = 2"
     },
     {
       "step": 13,
+      "description": "Calculate the maximum occupancy by multiplying orbital and spin degeneracies.",
       "equation": "N_max = (2*l + 1) * 2 = 2*(2*l + 1)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with a simple product wavefunction for two particles in different states."
-    },
-    {
-      "step": 2,
-      "text": "Construct the symmetric combination under particle exchange."
-    },
-    {
-      "step": 3,
-      "text": "Construct the antisymmetric combination under particle exchange."
-    },
-    {
-      "step": 4,
-      "text": "The permutation operator leaves the symmetric state unchanged."
-    },
-    {
-      "step": 5,
-      "text": "The permutation operator changes the sign of the antisymmetric state."
-    },
-    {
-      "step": 6,
-      "text": "Fermions must have antisymmetric wavefunctions by the spin-statistics theorem."
-    },
-    {
-      "step": 7,
-      "text": "When both particles are in the same state, the antisymmetric wavefunction vanishes."
-    },
-    {
-      "step": 8,
-      "text": "List the quantum numbers that specify an electron state in an atom."
-    },
-    {
-      "step": 9,
-      "text": "The spin magnetic quantum number can take two values for spin-1/2 particles."
-    },
-    {
-      "step": 10,
-      "text": "The orbital magnetic quantum number ranges from -l to +l."
-    },
-    {
-      "step": 11,
-      "text": "Count the number of possible orbital magnetic quantum numbers."
-    },
-    {
-      "step": 12,
-      "text": "Each orbital state can accommodate two electrons with opposite spins."
-    },
-    {
-      "step": 13,
-      "text": "Calculate the maximum occupancy by multiplying orbital and spin degeneracies."
     }
   ],
   "programmatic_verification": {

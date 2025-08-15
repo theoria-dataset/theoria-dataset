@@ -95,37 +95,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The relationship between torque and angular momentum is derived by taking the time derivative of angular momentum and using Newton's second law. The key insight is that the cross product of parallel vectors (velocity with itself) is zero.",
       "equation": "\\vec{L} = \\vec{r} \\times \\vec{p}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\frac{d\\vec{L}}{dt} = \\frac{d}{dt}(\\vec{r} \\times \\vec{p})"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\frac{d\\vec{L}}{dt} = \\frac{d\\vec{r}}{dt} \\times \\vec{p} + \\vec{r} \\times \\frac{d\\vec{p}}{dt}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\frac{d\\vec{r}}{dt} = \\vec{v}, \\quad \\frac{d\\vec{p}}{dt} = \\vec{F}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\frac{d\\vec{L}}{dt} = \\vec{v} \\times m\\vec{v} + \\vec{r} \\times \\vec{F}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\vec{v} \\times m\\vec{v} = 0"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "\\frac{d\\vec{L}}{dt} = \\vec{r} \\times \\vec{F} = \\vec{\\tau}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The relationship between torque and angular momentum is derived by taking the time derivative of angular momentum and using Newton's second law. The key insight is that the cross product of parallel vectors (velocity with itself) is zero."
     }
   ],
   "programmatic_verification": {

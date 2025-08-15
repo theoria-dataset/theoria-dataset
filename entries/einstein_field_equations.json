@@ -67,53 +67,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the Einstein-Hilbert action combining gravitational and matter terms.",
       "equation": "S = (1/(16 pi G)) int R sqrt(-g) d^4 x + int L_matter sqrt(-g) d^4 x"
     },
     {
       "step": 2,
+      "description": "Apply the principle of stationary action by varying with respect to the metric.",
       "equation": "delta S/delta g_(mu nu) = 0"
     },
     {
       "step": 3,
+      "description": "Obtain the field equations relating curvature to matter-energy content.",
       "equation": "R_(mu nu) - (1/2) R g_(mu nu) = 8 pi G T_(mu nu)"
     },
     {
       "step": 4,
+      "description": "Define the Einstein tensor as the left-hand side combination.",
       "equation": "G_(mu nu) = R_(mu nu) - (1/2) R g_(mu nu)"
     },
     {
       "step": 5,
+      "description": "The fundamental form without cosmological constant.",
       "equation": "G_(mu nu) = 8 pi G T_(mu nu)"
     },
     {
       "step": 6,
+      "description": "Add cosmological constant term for accelerating universe solutions.",
       "equation": "G_(mu nu) + Lambda g_(mu nu) = 8 pi G T_(mu nu)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the Einstein-Hilbert action combining gravitational and matter terms."
-    },
-    {
-      "step": 2,
-      "text": "Apply the principle of stationary action by varying with respect to the metric."
-    },
-    {
-      "step": 3,
-      "text": "Obtain the field equations relating curvature to matter-energy content."
-    },
-    {
-      "step": 4,
-      "text": "Define the Einstein tensor as the left-hand side combination."
-    },
-    {
-      "step": 5,
-      "text": "The fundamental form without cosmological constant."
-    },
-    {
-      "step": 6,
-      "text": "Add cosmological constant term for accelerating universe solutions."
     }
   ],
   "programmatic_verification": {

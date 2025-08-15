@@ -71,117 +71,73 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the hydrostatic pressure equation in a gravitational field.",
       "equation": "P = P_0 + rho_fluid * g * h"
     },
     {
       "step": 2,
+      "description": "The net force on the object is the integral of pressure over its surface.",
       "equation": "vec F = -oint P * d vec A"
     },
     {
       "step": 3,
+      "description": "Substitute the hydrostatic pressure expression.",
       "equation": "vec F = -oint (P_0 + rho_fluid * g * h) * d vec A"
     },
     {
       "step": 4,
+      "description": "Separate the atmospheric pressure and depth-dependent terms.",
       "equation": "vec F = -P_0 * oint d vec A - rho_fluid * g * oint h * d vec A"
     },
     {
       "step": 5,
+      "description": "The integral of the area element over a closed surface is zero (Gauss's theorem).",
       "equation": "oint d vec A = 0"
     },
     {
       "step": 6,
+      "description": "Only the depth-dependent term contributes to the net force.",
       "equation": "vec F = -rho_fluid * g * oint h * d vec A"
     },
     {
       "step": 7,
+      "description": "The integral of depth times area element equals the displaced volume times the unit vector.",
       "equation": "oint h * d vec A = V_displaced * hat k"
     },
     {
       "step": 8,
+      "description": "Substitute to get the force in terms of displaced volume.",
       "equation": "vec F = -rho_fluid * g * V_displaced * hat k"
     },
     {
       "step": 9,
+      "description": "The buoyant force acts upward (opposite to the pressure force).",
       "equation": "vec F_buoyant = rho_fluid * g * V_displaced * hat k"
     },
     {
       "step": 10,
+      "description": "Express in vector form with gravitational acceleration.",
       "equation": "vec F_buoyant = rho_fluid * V_displaced * vec g"
     },
     {
       "step": 11,
+      "description": "Define the mass of displaced fluid in terms of density and volume.",
       "equation": "m_fluid = rho_fluid * V_displaced"
     },
     {
       "step": 12,
+      "description": "Calculate the weight of the displaced fluid.",
       "equation": "vec F_fluid_weight = m_fluid * vec g"
     },
     {
       "step": 13,
+      "description": "Express the fluid weight in terms of density, volume, and gravity.",
       "equation": "vec F_fluid_weight = rho_fluid * V_displaced * vec g"
     },
     {
       "step": 14,
+      "description": "Establish that buoyant force equals the weight of displaced fluid (but opposite direction).",
       "equation": "vec F_buoyant = -vec F_fluid_weight"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the hydrostatic pressure equation in a gravitational field."
-    },
-    {
-      "step": 2,
-      "text": "The net force on the object is the integral of pressure over its surface."
-    },
-    {
-      "step": 3,
-      "text": "Substitute the hydrostatic pressure expression."
-    },
-    {
-      "step": 4,
-      "text": "Separate the atmospheric pressure and depth-dependent terms."
-    },
-    {
-      "step": 5,
-      "text": "The integral of the area element over a closed surface is zero (Gauss's theorem)."
-    },
-    {
-      "step": 6,
-      "text": "Only the depth-dependent term contributes to the net force."
-    },
-    {
-      "step": 7,
-      "text": "The integral of depth times area element equals the displaced volume times the unit vector."
-    },
-    {
-      "step": 8,
-      "text": "Substitute to get the force in terms of displaced volume."
-    },
-    {
-      "step": 9,
-      "text": "The buoyant force acts upward (opposite to the pressure force)."
-    },
-    {
-      "step": 10,
-      "text": "Express in vector form with gravitational acceleration."
-    },
-    {
-      "step": 11,
-      "text": "Define the mass of displaced fluid in terms of density and volume."
-    },
-    {
-      "step": 12,
-      "text": "Calculate the weight of the displaced fluid."
-    },
-    {
-      "step": 13,
-      "text": "Express the fluid weight in terms of density, volume, and gravity."
-    },
-    {
-      "step": 14,
-      "text": "Establish that buoyant force equals the weight of displaced fluid (but opposite direction)."
     }
   ],
   "programmatic_verification": {

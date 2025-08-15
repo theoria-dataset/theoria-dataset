@@ -75,93 +75,58 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Begin with the classical concept of escape velocity.",
       "equation": "text(Classical escape velocity condition)"
     },
     {
       "step": 2,
+      "description": "Set kinetic energy equal to gravitational potential energy.",
       "equation": "(1/2)*m*v_escape^2 = G*M*m/r"
     },
     {
       "step": 3,
+      "description": "Solve for the escape velocity as a function of radius.",
       "equation": "v_escape = sqrt(2*G*M/r)"
     },
     {
       "step": 4,
+      "description": "Impose the condition that escape velocity equals the speed of light.",
       "equation": "text(Set escape velocity equal to speed of light)"
     },
     {
       "step": 5,
+      "description": "Set up the equation with escape velocity equal to c.",
       "equation": "c = sqrt(2*G*M/r_s)"
     },
     {
       "step": 6,
+      "description": "Square both sides to eliminate the square root.",
       "equation": "c^2 = 2*G*M/r_s"
     },
     {
       "step": 7,
+      "description": "Solve for the critical radius (Schwarzschild radius).",
       "equation": "r_s = 2*G*M/c^2"
     },
     {
       "step": 8,
+      "description": "The rigorous derivation comes from the Schwarzschild metric in general relativity.",
       "equation": "text(General relativistic derivation from Schwarzschild metric)"
     },
     {
       "step": 9,
+      "description": "Write the Schwarzschild metric in standard coordinates.",
       "equation": "ds^2 = -(1-2*G*M/(r*c^2))*c^2*dt^2 + (1-2*G*M/(r*c^2))^(-1)*dr^2 + r^2*domega^2"
     },
     {
       "step": 10,
+      "description": "Identify where the metric coefficient becomes singular.",
       "equation": "text(Singularity at ) 1-2*G*M/(r*c^2) = 0"
     },
     {
       "step": 11,
+      "description": "This coordinate singularity defines the event horizon radius.",
       "equation": "r_s = 2*G*M/c^2"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Begin with the classical concept of escape velocity."
-    },
-    {
-      "step": 2,
-      "text": "Set kinetic energy equal to gravitational potential energy."
-    },
-    {
-      "step": 3,
-      "text": "Solve for the escape velocity as a function of radius."
-    },
-    {
-      "step": 4,
-      "text": "Impose the condition that escape velocity equals the speed of light."
-    },
-    {
-      "step": 5,
-      "text": "Set up the equation with escape velocity equal to c."
-    },
-    {
-      "step": 6,
-      "text": "Square both sides to eliminate the square root."
-    },
-    {
-      "step": 7,
-      "text": "Solve for the critical radius (Schwarzschild radius)."
-    },
-    {
-      "step": 8,
-      "text": "The rigorous derivation comes from the Schwarzschild metric in general relativity."
-    },
-    {
-      "step": 9,
-      "text": "Write the Schwarzschild metric in standard coordinates."
-    },
-    {
-      "step": 10,
-      "text": "Identify where the metric coefficient becomes singular."
-    },
-    {
-      "step": 11,
-      "text": "This coordinate singularity defines the event horizon radius."
     }
   ],
   "programmatic_verification": {

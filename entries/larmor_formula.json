@@ -75,117 +75,73 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Begin with the general expression for the electric field of an accelerating charge.",
       "equation": "text(Start with retarded electric field of accelerating charge)"
     },
     {
       "step": 2,
+      "description": "Write the full relativistic expression for the radiated electric field.",
       "equation": "vec E = (e/(4*pi*epsilon_0)) * (vec a times (vec n times vec a))/(c^2*R) * (1/(1 - vec n cdot vec v/c))"
     },
     {
       "step": 3,
+      "description": "Apply the non-relativistic approximation where velocity is much less than c.",
       "equation": "text(Non-relativistic limit: ) vec v << c"
     },
     {
       "step": 4,
+      "description": "Simplify the electric field expression for non-relativistic motion.",
       "equation": "vec E ≈ (e/(4*pi*epsilon_0)) * (vec n times (vec n times vec a))/(c^2*R)"
     },
     {
       "step": 5,
+      "description": "Use spherical coordinates with θ measured from the acceleration direction.",
       "equation": "text(Express in terms of angle θ from acceleration direction)"
     },
     {
       "step": 6,
+      "description": "Express the electric field magnitude in terms of the angle θ.",
       "equation": "|vec E| = (e*a*sin(theta))/(4*pi*epsilon_0*c^2*R)"
     },
     {
       "step": 7,
+      "description": "Use the Poynting vector to find the power flow per unit area.",
       "equation": "text(Poynting vector for radiated power density)"
     },
     {
       "step": 8,
+      "description": "Calculate the Poynting vector magnitude from E and B fields.",
       "equation": "vec S = (1/mu_0) * vec E times vec B = (epsilon_0*c/mu_0) * |vec E|^2 * hat r"
     },
     {
       "step": 9,
+      "description": "Express the power density in terms of distance and angle.",
       "equation": "|vec S| = (e^2*a^2*sin^2(theta))/(16*pi^2*epsilon_0*c^3*R^2)"
     },
     {
       "step": 10,
+      "description": "Set up the integral over all solid angles to find total radiated power.",
       "equation": "text(Integrate over solid angle to get total power)"
     },
     {
       "step": 11,
+      "description": "Write the power integral in spherical coordinates.",
       "equation": "P = int |vec S| * R^2 * domega = int_0^(2*pi) int_0^pi |vec S| * R^2 * sin(theta) * dtheta * dphi"
     },
     {
       "step": 12,
+      "description": "Factor out constants and identify the angular integral.",
       "equation": "P = (e^2*a^2)/(8*pi*epsilon_0*c^3) * int_0^pi sin^3(theta) * dtheta"
     },
     {
       "step": 13,
+      "description": "Evaluate the integral of sin³θ from 0 to π.",
       "equation": "int_0^pi sin^3(theta) * dtheta = 4/3"
     },
     {
       "step": 14,
+      "description": "Combine all factors to obtain the Larmor formula.",
       "equation": "P = (2*e^2*a^2)/(3*4*pi*epsilon_0*c^3)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Begin with the general expression for the electric field of an accelerating charge."
-    },
-    {
-      "step": 2,
-      "text": "Write the full relativistic expression for the radiated electric field."
-    },
-    {
-      "step": 3,
-      "text": "Apply the non-relativistic approximation where velocity is much less than c."
-    },
-    {
-      "step": 4,
-      "text": "Simplify the electric field expression for non-relativistic motion."
-    },
-    {
-      "step": 5,
-      "text": "Use spherical coordinates with θ measured from the acceleration direction."
-    },
-    {
-      "step": 6,
-      "text": "Express the electric field magnitude in terms of the angle θ."
-    },
-    {
-      "step": 7,
-      "text": "Use the Poynting vector to find the power flow per unit area."
-    },
-    {
-      "step": 8,
-      "text": "Calculate the Poynting vector magnitude from E and B fields."
-    },
-    {
-      "step": 9,
-      "text": "Express the power density in terms of distance and angle."
-    },
-    {
-      "step": 10,
-      "text": "Set up the integral over all solid angles to find total radiated power."
-    },
-    {
-      "step": 11,
-      "text": "Write the power integral in spherical coordinates."
-    },
-    {
-      "step": 12,
-      "text": "Factor out constants and identify the angular integral."
-    },
-    {
-      "step": 13,
-      "text": "Evaluate the integral of sin³θ from 0 to π."
-    },
-    {
-      "step": 14,
-      "text": "Combine all factors to obtain the Larmor formula."
     }
   ],
   "programmatic_verification": {

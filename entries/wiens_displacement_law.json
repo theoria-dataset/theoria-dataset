@@ -55,133 +55,83 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with Planck's law for the spectral radiance of blackbody radiation.",
       "equation": "B(lambda, T) = (2*h*c^2)/lambda^5 * 1/(e^(h*c/(lambda*k_B*T)) - 1)"
     },
     {
       "step": 2,
+      "description": "To find the maximum, set the derivative of spectral radiance with respect to wavelength equal to zero.",
       "equation": "(d B(lambda, T))/(d lambda) = 0"
     },
     {
       "step": 3,
+      "description": "Introduce the dimensionless variable `x` to simplify the differentiation.",
       "equation": "x = h*c/(lambda*k_B*T)"
     },
     {
       "step": 4,
+      "description": "Express the spectral radiance in terms of the new variable `x`.",
       "equation": "B(x) = (2*h*c^2)/lambda^5 * 1/(e^x - 1)"
     },
     {
       "step": 5,
+      "description": "Apply the chain rule to express the condition for maximum.",
       "equation": "(d B)/(d lambda) = (d B)/(d x) * (d x)/(d lambda) = 0"
     },
     {
       "step": 6,
+      "description": "Calculate the derivative of `x` with respect to wavelength.",
       "equation": "(d x)/(d lambda) = -h*c/(lambda^2*k_B*T)"
     },
     {
       "step": 7,
+      "description": "Since the derivative factor is non-zero, the condition reduces to setting the x-derivative to zero.",
       "equation": "(d B)/(d x) = 0"
     },
     {
       "step": 8,
+      "description": "The condition becomes finding where the derivative of the dimensionless function equals zero.",
       "equation": "d/dx [x^5/(e^x - 1)] = 0"
     },
     {
       "step": 9,
+      "description": "Apply the quotient rule to differentiate the function.",
       "equation": "5*x^4*(e^x - 1) - x^5*e^x = 0"
     },
     {
       "step": 10,
+      "description": "Divide through by `x^4` to simplify.",
       "equation": "5*(e^x - 1) - x*e^x = 0"
     },
     {
       "step": 11,
+      "description": "Expand and rearrange the equation.",
       "equation": "5*e^x - 5 - x*e^x = 0"
     },
     {
       "step": 12,
+      "description": "Factor and rearrange to isolate the exponential term.",
       "equation": "e^x*(5 - x) = 5"
     },
     {
       "step": 13,
+      "description": "Solve the transcendental equation numerically to find `x ≈ 4.965`.",
       "equation": "x = 4.965"
     },
     {
       "step": 14,
+      "description": "Substitute back the definition of `x` to relate to physical quantities.",
       "equation": "h*c/(lambda_max*k_B*T) = 4.965"
     },
     {
       "step": 15,
+      "description": "Solve for the wavelength at maximum intensity.",
       "equation": "lambda_max = h*c/(4.965*k_B*T)"
     },
     {
       "step": 16,
+      "description": "Recognize that the product `lambda_max * T` is constant, defining Wien's displacement constant.",
       "equation": "lambda_max*T = h*c/(4.965*k_B) = b"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with Planck's law for the spectral radiance of blackbody radiation."
-    },
-    {
-      "step": 2,
-      "text": "To find the maximum, set the derivative of spectral radiance with respect to wavelength equal to zero."
-    },
-    {
-      "step": 3,
-      "text": "Introduce the dimensionless variable `x` to simplify the differentiation."
-    },
-    {
-      "step": 4,
-      "text": "Express the spectral radiance in terms of the new variable `x`."
-    },
-    {
-      "step": 5,
-      "text": "Apply the chain rule to express the condition for maximum."
-    },
-    {
-      "step": 6,
-      "text": "Calculate the derivative of `x` with respect to wavelength."
-    },
-    {
-      "step": 7,
-      "text": "Since the derivative factor is non-zero, the condition reduces to setting the x-derivative to zero."
-    },
-    {
-      "step": 8,
-      "text": "The condition becomes finding where the derivative of the dimensionless function equals zero."
-    },
-    {
-      "step": 9,
-      "text": "Apply the quotient rule to differentiate the function."
-    },
-    {
-      "step": 10,
-      "text": "Divide through by `x^4` to simplify."
-    },
-    {
-      "step": 11,
-      "text": "Expand and rearrange the equation."
-    },
-    {
-      "step": 12,
-      "text": "Factor and rearrange to isolate the exponential term."
-    },
-    {
-      "step": 13,
-      "text": "Solve the transcendental equation numerically to find `x ≈ 4.965`."
-    },
-    {
-      "step": 14,
-      "text": "Substitute back the definition of `x` to relate to physical quantities."
-    },
-    {
-      "step": 15,
-      "text": "Solve for the wavelength at maximum intensity."
-    },
-    {
-      "step": 16,
-      "text": "Recognize that the product `lambda_max * T` is constant, defining Wien's displacement constant."
     }
   ],
   "programmatic_verification": {

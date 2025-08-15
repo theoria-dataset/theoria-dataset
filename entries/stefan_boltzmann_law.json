@@ -39,85 +39,53 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start from Planck's law, which gives the spectral energy density `u(nu,T)` of black-body radiation as a function of frequency `nu` and temperature `T`. Here, `h` is the Planck constant, `k` is the Boltzmann constant, and `c` is the speed of light in vacuum.",
       "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3*(exp(h*nu/(k*T)) - 1))"
     },
     {
       "step": 2,
+      "description": "To find the total energy density `u(T)`, integrate the spectral energy density `u(nu,T)` over all frequencies `nu` from 0 to infinity.",
       "equation": "u(T) = int_0^oo u(nu,T) dnu"
     },
     {
       "step": 3,
+      "description": "Perform a substitution to simplify the integral. Let `x = h*nu/(k*T)` be a dimensionless variable for integration. This implies `nu = (x*k*T)/h` and `dnu = ((k*T)/h)*dx`.",
       "equation": "x = h*nu/(k*T) => nu = (x*k*T)/h, dnu = (k*T/h)*dx"
     },
     {
       "step": 4,
+      "description": "Rewrite the integral for `u(T)` in terms of the dimensionless variable `x`. The expression shows that `u(T)` is proportional to `T^4` times a definite integral.",
       "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * int_0^oo (x^3)/(exp(x)-1) dx"
     },
     {
       "step": 5,
+      "description": "The definite integral `int_0^oo x^3/(exp(x)-1) dx` is a standard Bose-Einstein integral, which evaluates to `pi^4/15`.",
       "equation": "int_0^oo (x^3)/(exp(x)-1) dx = pi^4/15"
     },
     {
       "step": 6,
+      "description": "Substitute the value of the integral back into the expression for `u(T)` to obtain the total energy density of black-body radiation: `u(T) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)`.",
       "equation": "u(T) = (8*pi*h)/(c^3) * ((k*T)/h)^4 * (pi^4/15) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)"
     },
     {
       "step": 7,
+      "description": "Relate the total energy density `u(T)` to the radiant exitance `j^*` (power emitted per unit area). For isotropic radiation from a black body, this relationship is `j^* = (c/4)*u(T)`.",
       "equation": "j^* = (c/4)*u(T)"
     },
     {
       "step": 8,
+      "description": "Substitute the derived expression for `u(T)` into the formula for `j^*`. This simplifies to `j^* = (2*pi^5*k^4*T^4)/(15*h^3*c^2)`.",
       "equation": "j^* = (c/4) * (8*pi^5*k^4*T^4)/(15*h^3*c^3) = (2*pi^5*k^4*T^4)/(15*h^3*c^2)"
     },
     {
       "step": 9,
+      "description": "Define the Stefan-Boltzmann constant `sigma` by grouping all the physical constants: `sigma = (2*pi^5*k^4)/(15*h^3*c^2)`.",
       "equation": "sigma = (2*pi^5*k^4)/(15*h^3*c^2)"
     },
     {
       "step": 10,
+      "description": "This yields the Stefan-Boltzmann law, `j^* = sigma*T^4`, where the radiant exitance `j^*` is directly proportional to the fourth power of the absolute temperature `T`.",
       "equation": "j^* = sigma*T^4"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start from Planck's law, which gives the spectral energy density `u(nu,T)` of black-body radiation as a function of frequency `nu` and temperature `T`. Here, `h` is the Planck constant, `k` is the Boltzmann constant, and `c` is the speed of light in vacuum."
-    },
-    {
-      "step": 2,
-      "text": "To find the total energy density `u(T)`, integrate the spectral energy density `u(nu,T)` over all frequencies `nu` from 0 to infinity."
-    },
-    {
-      "step": 3,
-      "text": "Perform a substitution to simplify the integral. Let `x = h*nu/(k*T)` be a dimensionless variable for integration. This implies `nu = (x*k*T)/h` and `dnu = ((k*T)/h)*dx`."
-    },
-    {
-      "step": 4,
-      "text": "Rewrite the integral for `u(T)` in terms of the dimensionless variable `x`. The expression shows that `u(T)` is proportional to `T^4` times a definite integral."
-    },
-    {
-      "step": 5,
-      "text": "The definite integral `int_0^oo x^3/(exp(x)-1) dx` is a standard Bose-Einstein integral, which evaluates to `pi^4/15`."
-    },
-    {
-      "step": 6,
-      "text": "Substitute the value of the integral back into the expression for `u(T)` to obtain the total energy density of black-body radiation: `u(T) = (8*pi^5*k^4*T^4)/(15*h^3*c^3)`."
-    },
-    {
-      "step": 7,
-      "text": "Relate the total energy density `u(T)` to the radiant exitance `j^*` (power emitted per unit area). For isotropic radiation from a black body, this relationship is `j^* = (c/4)*u(T)`."
-    },
-    {
-      "step": 8,
-      "text": "Substitute the derived expression for `u(T)` into the formula for `j^*`. This simplifies to `j^* = (2*pi^5*k^4*T^4)/(15*h^3*c^2)`."
-    },
-    {
-      "step": 9,
-      "text": "Define the Stefan-Boltzmann constant `sigma` by grouping all the physical constants: `sigma = (2*pi^5*k^4)/(15*h^3*c^2)`."
-    },
-    {
-      "step": 10,
-      "text": "This yields the Stefan-Boltzmann law, `j^* = sigma*T^4`, where the radiant exitance `j^*` is directly proportional to the fourth power of the absolute temperature `T`."
     }
   ],
   "programmatic_verification": {

@@ -51,101 +51,63 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the canonical commutation relation for position and momentum operators.",
       "equation": "[hat x, hat p] = hat x hat p - hat p hat x = i*hbar"
     },
     {
       "step": 2,
+      "description": "Define the variance (uncertainty squared) of an observable as the expectation value of the squared deviation from the mean.",
       "equation": "Delta A^2 = <(hat A - <hat A>)^2>"
     },
     {
       "step": 3,
+      "description": "Define shifted operators that have zero expectation value.",
       "equation": "hat A' = hat A - <hat A>"
     },
     {
       "step": 4,
+      "description": "Express uncertainty in terms of shifted operators.",
       "equation": "Delta A^2 = <hat A'^2>"
     },
     {
       "step": 5,
+      "description": "The commutation relation is preserved under this shift.",
       "equation": "[hat x', hat p'] = [hat x, hat p] = i*hbar"
     },
     {
       "step": 6,
+      "description": "Apply the Cauchy-Schwarz inequality to the expectation value of the product of shifted operators.",
       "equation": "|<psi|hat A' hat B'|psi>|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
     },
     {
       "step": 7,
+      "description": "Decompose the product into anticommutator and commutator parts.",
       "equation": "<psi|hat A' hat B'|psi> = <psi|(hat A' hat B' + hat B' hat A')/2|psi> + <psi|(hat A' hat B' - hat B' hat A')/2|psi>"
     },
     {
       "step": 8,
+      "description": "The anticommutator part is real, the commutator part is imaginary.",
       "equation": "<psi|{hat A', hat B'}|psi>/2 + <psi|[hat A', hat B']|psi>/2"
     },
     {
       "step": 9,
+      "description": "For the inequality to be optimal, only the imaginary (commutator) part contributes.",
       "equation": "|<psi|[hat A', hat B']|psi>/2|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
     },
     {
       "step": 10,
+      "description": "Substitute the commutation relation and express in terms of uncertainties.",
       "equation": "|<psi|i*hbar|psi>/2|^2 <= Delta x^2 * Delta p^2"
     },
     {
       "step": 11,
+      "description": "Simplify the magnitude squared.",
       "equation": "hbar^2/4 <= Delta x^2 * Delta p^2"
     },
     {
       "step": 12,
+      "description": "Take the square root to obtain the uncertainty relation.",
       "equation": "Delta x * Delta p >= hbar/2"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the canonical commutation relation for position and momentum operators."
-    },
-    {
-      "step": 2,
-      "text": "Define the variance (uncertainty squared) of an observable as the expectation value of the squared deviation from the mean."
-    },
-    {
-      "step": 3,
-      "text": "Define shifted operators that have zero expectation value."
-    },
-    {
-      "step": 4,
-      "text": "Express uncertainty in terms of shifted operators."
-    },
-    {
-      "step": 5,
-      "text": "The commutation relation is preserved under this shift."
-    },
-    {
-      "step": 6,
-      "text": "Apply the Cauchy-Schwarz inequality to the expectation value of the product of shifted operators."
-    },
-    {
-      "step": 7,
-      "text": "Decompose the product into anticommutator and commutator parts."
-    },
-    {
-      "step": 8,
-      "text": "The anticommutator part is real, the commutator part is imaginary."
-    },
-    {
-      "step": 9,
-      "text": "For the inequality to be optimal, only the imaginary (commutator) part contributes."
-    },
-    {
-      "step": 10,
-      "text": "Substitute the commutation relation and express in terms of uncertainties."
-    },
-    {
-      "step": 11,
-      "text": "Simplify the magnitude squared."
-    },
-    {
-      "step": 12,
-      "text": "Take the square root to obtain the uncertainty relation."
     }
   ],
   "programmatic_verification": {

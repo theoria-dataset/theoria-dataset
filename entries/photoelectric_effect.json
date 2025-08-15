@@ -91,33 +91,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Einstein proposed that light consists of discrete energy packets (photons) with energy E = hf. When a photon interacts with an electron in a material, energy conservation requires that the photon energy equals the work function plus the electron's kinetic energy.",
       "equation": "E_{photon} = hf"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "W = \\text{minimum energy to remove electron}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\text{Energy conservation: } E_{photon} = W + K_{electron}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "K_{max} = E_{photon} - W = hf - W"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\text{At threshold: } hf_0 = W, \\text{ so } K_{max} = 0"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "K_{max} = h(f - f_0)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Einstein proposed that light consists of discrete energy packets (photons) with energy E = hf. When a photon interacts with an electron in a material, energy conservation requires that the photon energy equals the work function plus the electron's kinetic energy."
     }
   ],
   "programmatic_verification": {

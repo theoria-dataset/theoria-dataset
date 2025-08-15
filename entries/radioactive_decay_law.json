@@ -51,69 +51,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "The rate of decay is proportional to the number of undecayed nuclei present.",
       "equation": "dN/dt = -lambda N"
     },
     {
       "step": 2,
+      "description": "Separate variables to integrate the differential equation.",
       "equation": "dN/N = -lambda dt"
     },
     {
       "step": 3,
+      "description": "Integrate both sides from initial conditions to time t.",
       "equation": "int_(N_0)^N (dN'/N') = -lambda int_0^t dt'"
     },
     {
       "step": 4,
+      "description": "Apply properties of logarithms to simplify the integral.",
       "equation": "ln(N) - ln(N_0) = -lambda t"
     },
     {
       "step": 5,
+      "description": "Exponentiate both sides to get the exponential decay law.",
       "equation": "N(t) = N_0 e^(-lambda t)"
     },
     {
       "step": 6,
+      "description": "Define half-life as the time when N(t) = N₀/2.",
       "equation": "N(t_(1/2)) = N_0/2 = N_0 e^(-lambda t_(1/2))"
     },
     {
       "step": 7,
+      "description": "Simplify the exponential equation for half-life.",
       "equation": "1/2 = e^(-lambda t_(1/2))"
     },
     {
       "step": 8,
+      "description": "Take the natural logarithm to solve for half-life.",
       "equation": "t_(1/2) = ln(2)/lambda"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "The rate of decay is proportional to the number of undecayed nuclei present."
-    },
-    {
-      "step": 2,
-      "text": "Separate variables to integrate the differential equation."
-    },
-    {
-      "step": 3,
-      "text": "Integrate both sides from initial conditions to time t."
-    },
-    {
-      "step": 4,
-      "text": "Apply properties of logarithms to simplify the integral."
-    },
-    {
-      "step": 5,
-      "text": "Exponentiate both sides to get the exponential decay law."
-    },
-    {
-      "step": 6,
-      "text": "Define half-life as the time when N(t) = N₀/2."
-    },
-    {
-      "step": 7,
-      "text": "Simplify the exponential equation for half-life."
-    },
-    {
-      "step": 8,
-      "text": "Take the natural logarithm to solve for half-life."
     }
   ],
   "programmatic_verification": {

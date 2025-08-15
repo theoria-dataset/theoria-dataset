@@ -67,125 +67,78 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the efficiency of a Carnot engine operating between two temperatures.",
       "equation": "eta = 1 - T_c/T_h"
     },
     {
       "step": 2,
+      "description": "Any real engine has efficiency less than or equal to the Carnot efficiency.",
       "equation": "eta <= eta_carnot"
     },
     {
       "step": 3,
+      "description": "Express this constraint in terms of work and heat input.",
       "equation": "W/Q_h <= 1 - T_c/T_h"
     },
     {
       "step": 4,
+      "description": "Use the first law to relate work to heat absorbed and rejected.",
       "equation": "W = Q_h - Q_c"
     },
     {
       "step": 5,
+      "description": "Substitute the first law relation into the efficiency constraint.",
       "equation": "(Q_h - Q_c)/Q_h <= 1 - T_c/T_h"
     },
     {
       "step": 6,
+      "description": "Simplify the inequality.",
       "equation": "1 - Q_c/Q_h <= 1 - T_c/T_h"
     },
     {
       "step": 7,
+      "description": "Rearrange to get the fundamental relation between heat flows and temperatures.",
       "equation": "Q_c/Q_h >= T_c/T_h"
     },
     {
       "step": 8,
+      "description": "Rewrite using the sign convention where `Q_c` is negative (heat rejected).",
       "equation": "Q_h/T_h - Q_c/T_c <= 0"
     },
     {
       "step": 9,
+      "description": "Express for infinitesimal heat transfers in a two-reservoir cycle.",
       "equation": "dQ_h/T_h + dQ_c/T_c <= 0"
     },
     {
       "step": 10,
+      "description": "Generalize to cycles involving multiple heat reservoirs.",
       "equation": "sum_i (dQ_i)/T_i <= 0"
     },
     {
       "step": 11,
+      "description": "Take the continuum limit to get the Clausius inequality.",
       "equation": "oint (dQ)/T <= 0"
     },
     {
       "step": 12,
+      "description": "Decompose the integral by adding and subtracting the entropy change.",
       "equation": "oint (dQ)/T = oint dS - oint (dQ)/T + oint dS"
     },
     {
       "step": 13,
+      "description": "Use the fact that entropy is a state function (integral over closed cycle is zero).",
       "equation": "oint dS = 0"
     },
     {
       "step": 14,
+      "description": "Rearrange to get the entropy inequality.",
       "equation": "oint (dS - (dQ)/T) >= 0"
     },
     {
       "step": 15,
+      "description": "Express as the fundamental inequality for entropy change.",
       "equation": "dS >= (dQ)/T"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the efficiency of a Carnot engine operating between two temperatures."
-    },
-    {
-      "step": 2,
-      "text": "Any real engine has efficiency less than or equal to the Carnot efficiency."
-    },
-    {
-      "step": 3,
-      "text": "Express this constraint in terms of work and heat input."
-    },
-    {
-      "step": 4,
-      "text": "Use the first law to relate work to heat absorbed and rejected."
-    },
-    {
-      "step": 5,
-      "text": "Substitute the first law relation into the efficiency constraint."
-    },
-    {
-      "step": 6,
-      "text": "Simplify the inequality."
-    },
-    {
-      "step": 7,
-      "text": "Rearrange to get the fundamental relation between heat flows and temperatures."
-    },
-    {
-      "step": 8,
-      "text": "Rewrite using the sign convention where `Q_c` is negative (heat rejected)."
-    },
-    {
-      "step": 9,
-      "text": "Express for infinitesimal heat transfers in a two-reservoir cycle."
-    },
-    {
-      "step": 10,
-      "text": "Generalize to cycles involving multiple heat reservoirs."
-    },
-    {
-      "step": 11,
-      "text": "Take the continuum limit to get the Clausius inequality."
-    },
-    {
-      "step": 12,
-      "text": "Decompose the integral by adding and subtracting the entropy change."
-    },
-    {
-      "step": 13,
-      "text": "Use the fact that entropy is a state function (integral over closed cycle is zero)."
-    },
-    {
-      "step": 14,
-      "text": "Rearrange to get the entropy inequality."
-    },
-    {
-      "step": 15,
-      "text": "Express as the fundamental inequality for entropy change."
     }
   ],
   "programmatic_verification": {

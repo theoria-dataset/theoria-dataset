@@ -59,69 +59,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "For a reversible process, the total entropy change of the universe is zero.",
       "equation": "Delta S_universe = Delta S_H + Delta S_C + Delta S_engine = 0"
     },
     {
       "step": 2,
+      "description": "Calculate entropy changes of the hot and cold reservoirs.",
       "equation": "Delta S_H = -Q_H/T_H, Delta S_C = +Q_C/T_C"
     },
     {
       "step": 3,
+      "description": "For a reversible cycle, the working substance returns to its initial state.",
       "equation": "Delta S_engine = 0 (reversible cycle)"
     },
     {
       "step": 4,
+      "description": "Set the total entropy change to zero for reversible operation.",
       "equation": "-Q_H/T_H + Q_C/T_C = 0"
     },
     {
       "step": 5,
+      "description": "Solve for the ratio of heat transfers between reservoirs.",
       "equation": "Q_C/Q_H = T_C/T_H"
     },
     {
       "step": 6,
+      "description": "Apply conservation of energy: work equals net heat absorbed.",
       "equation": "W = Q_H - Q_C"
     },
     {
       "step": 7,
+      "description": "Define efficiency as the ratio of work output to heat input.",
       "equation": "eta = W/Q_H = (Q_H - Q_C)/Q_H = 1 - Q_C/Q_H"
     },
     {
       "step": 8,
+      "description": "Substitute the temperature ratio to get Carnot efficiency.",
       "equation": "eta_Carnot = 1 - T_C/T_H"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "For a reversible process, the total entropy change of the universe is zero."
-    },
-    {
-      "step": 2,
-      "text": "Calculate entropy changes of the hot and cold reservoirs."
-    },
-    {
-      "step": 3,
-      "text": "For a reversible cycle, the working substance returns to its initial state."
-    },
-    {
-      "step": 4,
-      "text": "Set the total entropy change to zero for reversible operation."
-    },
-    {
-      "step": 5,
-      "text": "Solve for the ratio of heat transfers between reservoirs."
-    },
-    {
-      "step": 6,
-      "text": "Apply conservation of energy: work equals net heat absorbed."
-    },
-    {
-      "step": 7,
-      "text": "Define efficiency as the ratio of work output to heat input."
-    },
-    {
-      "step": 8,
-      "text": "Substitute the temperature ratio to get Carnot efficiency."
     }
   ],
   "programmatic_verification": {

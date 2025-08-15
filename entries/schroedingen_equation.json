@@ -67,45 +67,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start from the classical energy-momentum relation for a particle in potential `V`.",
       "equation": "E = p^2/(2*m) + V"
     },
     {
       "step": 2,
+      "description": "Promote momentum to the operator `-iħ∇` acting on `psi`.",
       "equation": "p = -i*ħ*nabla"
     },
     {
       "step": 3,
+      "description": "Promote energy to the operator `iħ∂/∂t` acting on `psi`.",
       "equation": "E = i*ħ*partial_t"
     },
     {
       "step": 4,
+      "description": "Apply both operators to `psi` and equate to get an operator equation.",
       "equation": "i*ħ*partial_t(psi) = (p^2/(2*m) + V)*psi"
     },
     {
       "step": 5,
+      "description": "Expand `p^2 = (-iħ∇)^2 = −ħ²∇²` and write the final Schrödinger equation.",
       "equation": "i*ħ*partial_t(psi) = - (ħ^2/(2*m))*nabla^2(psi) + V*psi"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start from the classical energy-momentum relation for a particle in potential `V`."
-    },
-    {
-      "step": 2,
-      "text": "Promote momentum to the operator `-iħ∇` acting on `psi`."
-    },
-    {
-      "step": 3,
-      "text": "Promote energy to the operator `iħ∂/∂t` acting on `psi`."
-    },
-    {
-      "step": 4,
-      "text": "Apply both operators to `psi` and equate to get an operator equation."
-    },
-    {
-      "step": 5,
-      "text": "Expand `p^2 = (-iħ∇)^2 = −ħ²∇²` and write the final Schrödinger equation."
     }
   ],
   "programmatic_verification": {

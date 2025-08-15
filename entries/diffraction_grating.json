@@ -79,93 +79,58 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Calculate the optical path difference between light from adjacent slits.",
       "equation": "text(Path difference between adjacent slits)"
     },
     {
       "step": 2,
+      "description": "For slits separated by distance d, the path difference is d sin θ.",
       "equation": "Delta = d*sin(theta)"
     },
     {
       "step": 3,
+      "description": "Constructive interference occurs when path difference equals integer wavelengths.",
       "equation": "text(Constructive interference condition)"
     },
     {
       "step": 4,
+      "description": "Set path difference equal to mλ where m is the diffraction order.",
       "equation": "Delta = m*lambda"
     },
     {
       "step": 5,
+      "description": "This gives the fundamental grating equation.",
       "equation": "d*sin(theta) = m*lambda"
     },
     {
       "step": 6,
+      "description": "Angular dispersion measures how angle changes with wavelength.",
       "equation": "text(Angular dispersion from differentiation)"
     },
     {
       "step": 7,
+      "description": "Differentiate the grating equation with respect to λ and θ.",
       "equation": "d*cos(theta)*d*theta = m*d*lambda"
     },
     {
       "step": 8,
+      "description": "Solve for dθ/dλ to get the angular dispersion.",
       "equation": "d*theta/d*lambda = m/(d*cos(theta))"
     },
     {
       "step": 9,
+      "description": "Resolving power determines the ability to separate close wavelengths.",
       "equation": "text(Resolving power from Rayleigh criterion)"
     },
     {
       "step": 10,
+      "description": "Apply the Rayleigh criterion for just-resolved spectral lines.",
       "equation": "text(Principal maxima separated by ) Delta*theta = lambda/(N*d*cos(theta))"
     },
     {
       "step": 11,
+      "description": "Combine angular dispersion with resolution criterion to get resolving power.",
       "equation": "lambda/Delta*lambda = (d*theta/d*lambda)/Delta*theta = m*N"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Calculate the optical path difference between light from adjacent slits."
-    },
-    {
-      "step": 2,
-      "text": "For slits separated by distance d, the path difference is d sin θ."
-    },
-    {
-      "step": 3,
-      "text": "Constructive interference occurs when path difference equals integer wavelengths."
-    },
-    {
-      "step": 4,
-      "text": "Set path difference equal to mλ where m is the diffraction order."
-    },
-    {
-      "step": 5,
-      "text": "This gives the fundamental grating equation."
-    },
-    {
-      "step": 6,
-      "text": "Angular dispersion measures how angle changes with wavelength."
-    },
-    {
-      "step": 7,
-      "text": "Differentiate the grating equation with respect to λ and θ."
-    },
-    {
-      "step": 8,
-      "text": "Solve for dθ/dλ to get the angular dispersion."
-    },
-    {
-      "step": 9,
-      "text": "Resolving power determines the ability to separate close wavelengths."
-    },
-    {
-      "step": 10,
-      "text": "Apply the Rayleigh criterion for just-resolved spectral lines."
-    },
-    {
-      "step": 11,
-      "text": "Combine angular dispersion with resolution criterion to get resolving power."
     }
   ],
   "programmatic_verification": {

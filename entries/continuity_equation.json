@@ -39,21 +39,13 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Mass conservation in integral form: the time rate of change of mass in volume V equals the negative of mass flux leaving through the surface `partial V`.",
       "equation": "d/dt int_V rho dV = - int_{partial V} rho vec v dot d vec A"
     },
     {
       "step": 2,
+      "description": "Convert to a local statement by shrinking V to a point. This yields the continuity equation `del_t rho + grad dot (rho vec v) = 0`.",
       "equation": "del rho/del t + grad dot (rho vec v) = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Mass conservation in integral form: the time rate of change of mass in volume V equals the negative of mass flux leaving through the surface `partial V`."
-    },
-    {
-      "step": 2,
-      "text": "Convert to a local statement by shrinking V to a point. This yields the continuity equation `del_t rho + grad dot (rho vec v) = 0`."
     }
   ],
   "programmatic_verification": {

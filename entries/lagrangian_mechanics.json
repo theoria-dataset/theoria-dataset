@@ -83,61 +83,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Express the total kinetic energy as a sum over all particles with masses `m_i` and velocities `dot r_i`.",
       "equation": "T = (1/2) sum_i m_i dot r_i^2"
     },
     {
       "step": 2,
+      "description": "Define the potential energy as a function of particle positions and possibly time.",
       "equation": "V = V(r_1, r_2, ..., r_N, t)"
     },
     {
       "step": 3,
+      "description": "Construct the Lagrangian by transforming to generalized coordinates and taking L = T - V.",
       "equation": "L(q_i, dot q_i, t) = T(dot q_i) - V(q_i, t)"
     },
     {
       "step": 4,
+      "description": "Define the action as the time integral of the Lagrangian along a path `q(t)`.",
       "equation": "S[q] = int_(t_1)^(t_2) L(q_i(t), dot q_i(t), t) dt"
     },
     {
       "step": 5,
+      "description": "Calculate the first variation of the action using the chain rule for functional derivatives.",
       "equation": "delta S = int_(t_1)^(t_2) [del L/del q_i delta q_i + del L/del dot q_i delta dot q_i] dt"
     },
     {
       "step": 6,
+      "description": "Integrate the second term by parts. The boundary term vanishes due to fixed endpoints.",
       "equation": "delta S = int_(t_1)^(t_2) [del L/del q_i - d/dt(del L/del dot q_i)] delta q_i dt + [del L/del dot q_i delta q_i]_(t_1)^(t_2)"
     },
     {
       "step": 7,
+      "description": "For the action to be stationary (`delta S = 0`), the integrand must vanish, yielding the Euler-Lagrange equations.",
       "equation": "d/dt(del L/del dot q_i) - del L/del q_i = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Express the total kinetic energy as a sum over all particles with masses `m_i` and velocities `dot r_i`."
-    },
-    {
-      "step": 2,
-      "text": "Define the potential energy as a function of particle positions and possibly time."
-    },
-    {
-      "step": 3,
-      "text": "Construct the Lagrangian by transforming to generalized coordinates and taking L = T - V."
-    },
-    {
-      "step": 4,
-      "text": "Define the action as the time integral of the Lagrangian along a path `q(t)`."
-    },
-    {
-      "step": 5,
-      "text": "Calculate the first variation of the action using the chain rule for functional derivatives."
-    },
-    {
-      "step": 6,
-      "text": "Integrate the second term by parts. The boundary term vanishes due to fixed endpoints."
-    },
-    {
-      "step": 7,
-      "text": "For the action to be stationary (`delta S = 0`), the integrand must vanish, yielding the Euler-Lagrange equations."
     }
   ],
   "programmatic_verification": {

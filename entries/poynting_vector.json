@@ -63,69 +63,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start with the electromagnetic energy conservation equation (Poynting theorem).",
       "equation": "partial u/partial t + nabla cdot vec S = -vec J cdot vec E"
     },
     {
       "step": 2,
+      "description": "Define electromagnetic energy density in terms of electric and magnetic fields.",
       "equation": "u = (1/2) (epsilon_0 |vec E|^2 + (1/mu_0) |vec B|^2)"
     },
     {
       "step": 3,
+      "description": "Calculate the time derivative of energy density using field derivatives.",
       "equation": "partial u/partial t = epsilon_0 vec E cdot partial vec E/partial t + (1/mu_0) vec B cdot partial vec B/partial t"
     },
     {
       "step": 4,
+      "description": "Use Faraday's law and Ampère's law from Maxwell's equations.",
       "equation": "nabla times vec E = -partial vec B/partial t, nabla times vec B = mu_0 vec J + mu_0 epsilon_0 partial vec E/partial t"
     },
     {
       "step": 5,
+      "description": "Substitute Maxwell's equations into the energy density time derivative.",
       "equation": "partial u/partial t = -epsilon_0 vec E cdot (nabla times vec E) + (1/mu_0) vec B cdot (nabla times vec B - mu_0 vec J)"
     },
     {
       "step": 6,
+      "description": "Apply the vector identity for the divergence of a cross product.",
       "equation": "nabla cdot (vec E times vec B) = vec B cdot (nabla times vec E) - vec E cdot (nabla times vec B)"
     },
     {
       "step": 7,
+      "description": "Rearrange to identify the energy flux term in the conservation equation.",
       "equation": "partial u/partial t + (1/mu_0) nabla cdot (vec E times vec B) = -vec J cdot vec E"
     },
     {
       "step": 8,
+      "description": "Identify the Poynting vector as the electromagnetic energy flux density.",
       "equation": "vec S = (1/mu_0) (vec E times vec B)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start with the electromagnetic energy conservation equation (Poynting theorem)."
-    },
-    {
-      "step": 2,
-      "text": "Define electromagnetic energy density in terms of electric and magnetic fields."
-    },
-    {
-      "step": 3,
-      "text": "Calculate the time derivative of energy density using field derivatives."
-    },
-    {
-      "step": 4,
-      "text": "Use Faraday's law and Ampère's law from Maxwell's equations."
-    },
-    {
-      "step": 5,
-      "text": "Substitute Maxwell's equations into the energy density time derivative."
-    },
-    {
-      "step": 6,
-      "text": "Apply the vector identity for the divergence of a cross product."
-    },
-    {
-      "step": 7,
-      "text": "Rearrange to identify the energy flux term in the conservation equation."
-    },
-    {
-      "step": 8,
-      "text": "Identify the Poynting vector as the electromagnetic energy flux density."
     }
   ],
   "programmatic_verification": {

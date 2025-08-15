@@ -99,37 +99,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Simple harmonic motion is derived by applying Newton's second law to a system with a restoring force F = -kx. This leads to a second-order differential equation whose solution is sinusoidal motion with constant amplitude and frequency.",
       "equation": "F = -kx"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "ma = -kx"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "m\\frac{d^2x}{dt^2} = -kx"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\frac{d^2x}{dt^2} + \\frac{k}{m}x = 0"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\omega^2 = \\frac{k}{m}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\frac{d^2x}{dt^2} + \\omega^2 x = 0"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "x(t) = A\\cos(\\omega t + \\phi)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Simple harmonic motion is derived by applying Newton's second law to a system with a restoring force F = -kx. This leads to a second-order differential equation whose solution is sinusoidal motion with constant amplitude and frequency."
     }
   ],
   "programmatic_verification": {

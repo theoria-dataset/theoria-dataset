@@ -71,69 +71,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Set up initial state with deuterium and tritium nuclei at rest.",
       "equation": "Initial: ^2 H + ^3 H (at rest, total energy = M_D c^2 + M_T c^2)"
     },
     {
       "step": 2,
+      "description": "Define final state with alpha particle and neutron having kinetic energies.",
       "equation": "Final: ^4 He + n (with kinetic energies T_alpha + T_n)"
     },
     {
       "step": 3,
+      "description": "Apply conservation of energy including rest mass energies and kinetic energies.",
       "equation": "Energy conservation: M_D c^2 + M_T c^2 = M_alpha c^2 + M_n c^2 + T_alpha + T_n"
     },
     {
       "step": 4,
+      "description": "Define Q-value as the energy available for kinetic energy of products.",
       "equation": "Q = T_alpha + T_n = (M_D + M_T - M_alpha - M_n) c^2"
     },
     {
       "step": 5,
+      "description": "Apply conservation of momentum: products have equal and opposite momenta.",
       "equation": "Momentum conservation: vec p_alpha + vec p_n = 0"
     },
     {
       "step": 6,
+      "description": "Since initial momentum is zero, final momenta are equal in magnitude.",
       "equation": "|vec p_alpha| = |vec p_n| = p"
     },
     {
       "step": 7,
+      "description": "Express kinetic energies in terms of momentum for non-relativistic particles.",
       "equation": "T_alpha = p^2/(2 M_alpha), T_n = p^2/(2 M_n)"
     },
     {
       "step": 8,
+      "description": "Determine energy sharing between neutron and alpha particle from momentum conservation.",
       "equation": "T_n = Q * M_alpha/(M_alpha + M_n), T_alpha = Q * M_n/(M_alpha + M_n)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Set up initial state with deuterium and tritium nuclei at rest."
-    },
-    {
-      "step": 2,
-      "text": "Define final state with alpha particle and neutron having kinetic energies."
-    },
-    {
-      "step": 3,
-      "text": "Apply conservation of energy including rest mass energies and kinetic energies."
-    },
-    {
-      "step": 4,
-      "text": "Define Q-value as the energy available for kinetic energy of products."
-    },
-    {
-      "step": 5,
-      "text": "Apply conservation of momentum: products have equal and opposite momenta."
-    },
-    {
-      "step": 6,
-      "text": "Since initial momentum is zero, final momenta are equal in magnitude."
-    },
-    {
-      "step": 7,
-      "text": "Express kinetic energies in terms of momentum for non-relativistic particles."
-    },
-    {
-      "step": 8,
-      "text": "Determine energy sharing between neutron and alpha particle from momentum conservation."
     }
   ],
   "programmatic_verification": {

@@ -311,14 +311,10 @@ function render(data) {
   // Render derivation steps into #derivationSteps ol
   const ol = qs("#derivationSteps ol");
   ol.innerHTML = "";
-  const explanationMap = {};
-  (data.derivation_explanation || []).forEach(
-    (e) => (explanationMap[e.step] = e.text)
-  );
   (data.derivation || []).forEach((step) => {
     let html = "";
-    if (explanationMap[step.step]) {
-      html += `<div class='step-expl'>${explanationMap[step.step]}</div>`;
+    if (step.description) {
+      html += `<div class='step-expl'>${step.description}</div>`;
     }
     if (step.equation) {
       // Break long equations at logical points

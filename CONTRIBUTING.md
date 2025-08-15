@@ -5,31 +5,6 @@ Welcome to TheorIA dataset! This dataset is being built, and it is designed to p
 To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.
 
 IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry.
-
-## Schema Changes and Repository Updates
-
-When modifying the schema (`schemas/entry.schema.json`), the following files/components need to be updated to maintain consistency:
-
-1. **Core validation scripts:**
-   - `scripts/validate_schema.py` - Update field names and descriptions in `required_fields` dictionary
-   - `scripts/test_entry.py` - Update `required_fields` list
-
-2. **Code generation scripts:**
-   - `scripts/generate_contributing.py` - Update `field_order` list  
-   - `scripts/generate_form.py` - Update `form_to_schema_mapping` and heading mappings
-   - `scripts/parse_github_issue.py` - Update entry template structure
-
-3. **Documentation:**
-   - Run `python scripts/generate_contributing.py` to regenerate this CONTRIBUTING.md file
-   - Run `python scripts/build_requirements.py` to update form requirements
-
-4. **Existing entries:**
-   - All JSON files in `entries/` directory must be updated to match new schema
-   - Use find/replace or automated scripts to update field names consistently
-
-**Recent schema changes:**
-- **v0.4.4**: Removed `equations_assumptions` field and renamed `derivation_assumptions` to `assumptions`. The new `assumptions` field contains all fundamental assumptions that lead to the result equations and is positioned after `definitions` for logical flow.
-
 ## Dataset Entry structure
 
 Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.
@@ -68,7 +43,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Assume the reader has a graduate-level understanding of physics
   - Use clear and concise language to explain the significance, usage, and context of the theoretical result
   - Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears
-  - Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e
+  - Avoid derivation steps (covered in the derivation section), dense notation or inline math, empty generalities (e
   - g
   - , "This is important in physics"), or overly technical jargon
   - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
@@ -96,32 +71,26 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`derivation`:**
-  - Provide a formal derivation of the result, including all steps and equations in AsciiMath format
-  - Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field
-  - Each step should contain the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields
+  - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
+  - Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field
+  - Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields
   - Include all steps for complete derivation
   - Use very explicit detail level for easy following
-  - Equations only - use 'derivation_explanation' field for rationale
   - Example:
     ```json
     [
       {
         "step": 1,
+        "description": "Apply general linear transformation between reference frames.",
         "equation": "x' = A*x + B*t; t' = D*x + E*t"
       },
       {
         "step": 2,
+        "description": "For an object at rest in the moving frame, x'=0 always.",
         "equation": "0 = A*v*t + B*t"
       }
     ]
     ```
-
-- **`derivation_explanation`:**
-  - Textual explanations for each derivation step
-  - Not all steps need explanations, as some may be self-evident
-  - Define new symbols that appear
-  - Provide concise and clear rationale
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`programmatic_verification`:**
   - Code that verifies the derivation correctness

@@ -99,141 +99,88 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Start from Coulomb’s empirical point‑charge law, with bbE the electric field vector and bbhat(r) the radial unit vector.",
       "equation": "bbE(r) = q/(4*pi*epsilon_0*r^2)*bbhat(r)"
     },
     {
       "step": 2,
+      "description": "Compute the flux of `bbE` through a sphere of radius `r`.",
       "equation": "oint_S bbE cdot dA = bbE*4*pi*r^2"
     },
     {
       "step": 3,
+      "description": "Substitute `bbE(r)` to show the flux equals `q/epsilon_0`.",
       "equation": "bbE*4*pi*r^2 = q/epsilon_0"
     },
     {
       "step": 4,
+      "description": "Generalize by superposition to any charge distribution.",
       "equation": "oint(S) bbE cdot dA = (1/epsilon_0) int(V) rho dV"
     },
     {
       "step": 5,
+      "description": "Apply the divergence theorem to convert the surface integral into a volume integral.",
       "equation": "int(V) div(bbE) dV = (1/epsilon_0) int(V) rho dV"
     },
     {
       "step": 6,
+      "description": "Equate integrands to obtain `grad·bbE = rho/epsilon_0`.",
       "equation": "div(bbE) = rho/epsilon_0"
     },
     {
       "step": 7,
+      "description": "Invoke the empirical absence of magnetic monopoles.",
       "equation": "oint(S) bbB cdot dA = 0"
     },
     {
       "step": 8,
+      "description": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`",
       "equation": "int(V) div(bbB) dV = 0"
     },
     {
       "step": 9,
+      "description": "Conclude `grad·bbB = 0`.",
       "equation": "div(bbB) = 0"
     },
     {
       "step": 10,
+      "description": "Begin with Faraday’s law relating emf to changing magnetic flux.",
       "equation": "oint(C) bbE cdot dl = -d/dt int(S) bbB cdot dA"
     },
     {
       "step": 11,
+      "description": "Apply Stokes’ theorem to convert the loop integral to a surface integral of curl.",
       "equation": "int(S) curl(bbE) cdot dA = -d/dt int(S) bbB cdot dA"
     },
     {
       "step": 12,
+      "description": "Equate integrands to derive `grad xx bbE = - (partial bbB)/(partial t)`.",
       "equation": "curl(bbE) = -partial(bbB)/partial(t)"
     },
     {
       "step": 13,
+      "description": "State Ampère’s law for steady currents.",
       "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA"
     },
     {
       "step": 14,
+      "description": "Include Maxwell’s displacement‑current term for time‑varying fields.",
       "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA + mu_0*epsilon_0*d/dt int(S) bbE cdot dA"
     },
     {
       "step": 15,
+      "description": "Use Stokes’ theorem on the amended law to get the surface integral of curl.",
       "equation": "int(S) curl(bbB) cdot dA = mu_0*int(S) bbJ cdot dA + mu_0*epsilon_0*d/dt int(S) bbE cdot dA"
     },
     {
       "step": 16,
+      "description": "Equate integrands to derive `grad xx bbB = mu_0 bbJ + (1/c^2)(partial bbE)/(partial t)`.",
       "equation": "curl(bbB) = mu_0*bbJ + (1/c^2)*partial(bbE)/partial(t)"
     },
     {
       "step": 17,
+      "description": "Take divergence of the Ampère–Maxwell law and use `grad · bbE = rho / epsilon_0` to recover charge conservation.",
       "equation": "(partial rho)/(partial t ) + grad bbJ = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Start from Coulomb’s empirical point‑charge law, with bbE the electric field vector and bbhat(r) the radial unit vector."
-    },
-    {
-      "step": 2,
-      "text": "Compute the flux of `bbE` through a sphere of radius `r`."
-    },
-    {
-      "step": 3,
-      "text": "Substitute `bbE(r)` to show the flux equals `q/epsilon_0`."
-    },
-    {
-      "step": 4,
-      "text": "Generalize by superposition to any charge distribution."
-    },
-    {
-      "step": 5,
-      "text": "Apply the divergence theorem to convert the surface integral into a volume integral."
-    },
-    {
-      "step": 6,
-      "text": "Equate integrands to obtain `grad·bbE = rho/epsilon_0`."
-    },
-    {
-      "step": 7,
-      "text": "Invoke the empirical absence of magnetic monopoles."
-    },
-    {
-      "step": 8,
-      "text": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`"
-    },
-    {
-      "step": 9,
-      "text": "Conclude `grad·bbB = 0`."
-    },
-    {
-      "step": 10,
-      "text": "Begin with Faraday’s law relating emf to changing magnetic flux."
-    },
-    {
-      "step": 11,
-      "text": "Apply Stokes’ theorem to convert the loop integral to a surface integral of curl."
-    },
-    {
-      "step": 12,
-      "text": "Equate integrands to derive `grad xx bbE = - (partial bbB)/(partial t)`."
-    },
-    {
-      "step": 13,
-      "text": "State Ampère’s law for steady currents."
-    },
-    {
-      "step": 14,
-      "text": "Include Maxwell’s displacement‑current term for time‑varying fields."
-    },
-    {
-      "step": 15,
-      "text": "Use Stokes’ theorem on the amended law to get the surface integral of curl."
-    },
-    {
-      "step": 16,
-      "text": "Equate integrands to derive `grad xx bbB = mu_0 bbJ + (1/c^2)(partial bbE)/(partial t)`."
-    },
-    {
-      "step": 17,
-      "text": "Take divergence of the Ampère–Maxwell law and use `grad · bbE = rho / epsilon_0` to recover charge conservation."
     }
   ],
   "programmatic_verification": {

@@ -99,45 +99,48 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Electric potential is derived by calculating the work required to bring a unit charge from infinity to a point. For a point charge, we integrate the electric field along a radial path, using the fact that the electric field is conservative.",
       "equation": "W = \\int_{\\infty}^r \\vec{F} \\cdot d\\vec{l}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\vec{F} = q\\vec{E}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "W = q \\int_{\\infty}^r \\vec{E} \\cdot d\\vec{l}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "V = \\frac{W}{q} = \\int_{\\infty}^r \\vec{E} \\cdot d\\vec{l}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2}\\hat{r}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "V = \\int_{\\infty}^r \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r'^2} dr'"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "V = \\frac{Q}{4\\pi\\epsilon_0} \\int_{\\infty}^r r'^{-2} dr'"
     },
     {
       "step": 8,
+      "description": "",
       "equation": "V = \\frac{Q}{4\\pi\\epsilon_0} \\left[-r'^{-1}\\right]_{\\infty}^r"
     },
     {
       "step": 9,
+      "description": "",
       "equation": "V = \\frac{Q}{4\\pi\\epsilon_0} \\left(-\\frac{1}{r} + 0\\right) = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Electric potential is derived by calculating the work required to bring a unit charge from infinity to a point. For a point charge, we integrate the electric field along a radial path, using the fact that the electric field is conservative."
     }
   ],
   "programmatic_verification": {

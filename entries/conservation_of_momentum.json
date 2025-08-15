@@ -83,29 +83,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Conservation of momentum follows directly from Newton's third law. When two objects interact, they exert equal and opposite forces on each other, leading to equal and opposite changes in momentum, keeping the total momentum constant.",
       "equation": "\\vec{F}_{12} = -\\vec{F}_{21}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\frac{d\\vec{p}_1}{dt} = -\\frac{d\\vec{p}_2}{dt}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\frac{d}{dt}(\\vec{p}_1 + \\vec{p}_2) = 0"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\vec{p}_1 + \\vec{p}_2 = \\text{constant}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\sum_{i=1}^n \\vec{p}_i = \\text{constant}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Conservation of momentum follows directly from Newton's third law. When two objects interact, they exert equal and opposite forces on each other, leading to equal and opposite changes in momentum, keeping the total momentum constant."
     }
   ],
   "programmatic_verification": {

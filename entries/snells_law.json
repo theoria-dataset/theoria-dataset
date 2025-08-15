@@ -79,101 +79,63 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the optical path length as the integral of refractive index along the light path.",
       "equation": "S = int_(P_1)^(P_2) n * ds"
     },
     {
       "step": 2,
+      "description": "Apply Fermat's principle: the actual path taken by light is the one that makes the optical path length stationary.",
       "equation": "delta S = 0"
     },
     {
       "step": 3,
+      "description": "Set up the geometry with point source at origin, interface at y-axis, and destination at (L,H).",
       "equation": "S = n_1 * sqrt((x - 0)^2 + (y - 0)^2) + n_2 * sqrt((x - L)^2 + (y - H)^2)"
     },
     {
       "step": 4,
+      "description": "Express the total optical path length for light traveling from source to interface point (x,y) to destination.",
       "equation": "S = n_1 * sqrt(x^2 + y^2) + n_2 * sqrt((x - L)^2 + (y - H)^2)"
     },
     {
       "step": 5,
+      "description": "Apply the condition for stationary path: derivative with respect to the variable parameter equals zero.",
       "equation": "(partial S)/(partial x) = 0"
     },
     {
       "step": 6,
+      "description": "Calculate the partial derivative of optical path length with respect to x-coordinate of interface point.",
       "equation": "n_1 * x/sqrt(x^2 + y^2) + n_2 * (x - L)/sqrt((x - L)^2 + (y - H)^2) = 0"
     },
     {
       "step": 7,
+      "description": "Rearrange the stationarity condition to separate terms from each medium.",
       "equation": "n_1 * x/sqrt(x^2 + y^2) = -n_2 * (x - L)/sqrt((x - L)^2 + (y - H)^2)"
     },
     {
       "step": 8,
+      "description": "Recognize that the ratio represents the sine of the incident angle.",
       "equation": "sin(theta_1) = x/sqrt(x^2 + y^2)"
     },
     {
       "step": 9,
+      "description": "Recognize that the ratio represents the sine of the refraction angle.",
       "equation": "sin(theta_2) = -(x - L)/sqrt((x - L)^2 + (y - H)^2)"
     },
     {
       "step": 10,
+      "description": "Substitute the trigonometric identities to obtain Snell's law.",
       "equation": "n_1 * sin(theta_1) = n_2 * sin(theta_2)"
     },
     {
       "step": 11,
+      "description": "Express the wave speed in terms of vacuum speed and refractive index.",
       "equation": "v = c/n"
     },
     {
       "step": 12,
+      "description": "Define refractive index as the ratio of vacuum speed to medium speed.",
       "equation": "n = c/v"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the optical path length as the integral of refractive index along the light path."
-    },
-    {
-      "step": 2,
-      "text": "Apply Fermat's principle: the actual path taken by light is the one that makes the optical path length stationary."
-    },
-    {
-      "step": 3,
-      "text": "Set up the geometry with point source at origin, interface at y-axis, and destination at (L,H)."
-    },
-    {
-      "step": 4,
-      "text": "Express the total optical path length for light traveling from source to interface point (x,y) to destination."
-    },
-    {
-      "step": 5,
-      "text": "Apply the condition for stationary path: derivative with respect to the variable parameter equals zero."
-    },
-    {
-      "step": 6,
-      "text": "Calculate the partial derivative of optical path length with respect to x-coordinate of interface point."
-    },
-    {
-      "step": 7,
-      "text": "Rearrange the stationarity condition to separate terms from each medium."
-    },
-    {
-      "step": 8,
-      "text": "Recognize that the ratio represents the sine of the incident angle."
-    },
-    {
-      "step": 9,
-      "text": "Recognize that the ratio represents the sine of the refraction angle."
-    },
-    {
-      "step": 10,
-      "text": "Substitute the trigonometric identities to obtain Snell's law."
-    },
-    {
-      "step": 11,
-      "text": "Express the wave speed in terms of vacuum speed and refractive index."
-    },
-    {
-      "step": 12,
-      "text": "Define refractive index as the ratio of vacuum speed to medium speed."
     }
   ],
   "programmatic_verification": {

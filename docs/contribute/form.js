@@ -13,7 +13,6 @@ class NewEntryForm {
             definitions: 0,
             derivation: 0,
             derivation_assumptions: 0,
-            derivation_explanation: 0,
             references: 0,
             contributors: 0
         };
@@ -141,7 +140,7 @@ class NewEntryForm {
         // Populate derivation steps
         if (entry.derivation && entry.derivation.length > 0) {
             entry.derivation.forEach((step, index) => {
-                this.addDerivationStep(step.step || index + 1, step.equation || '');
+                this.addDerivationStep(step.step || index + 1, step.equation || '', step.description || '');
             });
         }
 
@@ -152,12 +151,6 @@ class NewEntryForm {
             });
         }
 
-        // Populate derivation explanations
-        if (entry.derivation_explanation && entry.derivation_explanation.length > 0) {
-            entry.derivation_explanation.forEach((explanation, index) => {
-                this.addDerivationExplanation(explanation.step || index + 1, explanation.text || '');
-            });
-        }
 
         // Populate validity conditions
         if (entry.validity_regime && entry.validity_regime.conditions) {
@@ -308,7 +301,7 @@ class NewEntryForm {
         container.appendChild(div);
     }
 
-    addDerivationStep(step = '', equation = '') {
+    addDerivationStep(step = '', equation = '', description = '') {
         const container = document.getElementById('derivation_container');
         const index = ++this.counters.derivation;
         
@@ -327,6 +320,10 @@ class NewEntryForm {
                 <label>Equation (AsciiMath)</label>
                 <textarea class="step-equation" rows="2" placeholder="Enter derivation step equation...">${equation}</textarea>
                 <div class="math-preview"></div>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="step-description" rows="3" placeholder="Describe the reasoning for this step...">${description}</textarea>
             </div>
         `;
         
@@ -358,29 +355,6 @@ class NewEntryForm {
         container.appendChild(div);
     }
 
-    addDerivationExplanation(step = '', text = '') {
-        const container = document.getElementById('derivation_explanation_container');
-        const index = ++this.counters.derivation_explanation;
-        
-        const div = document.createElement('div');
-        div.className = 'dynamic-item';
-        div.innerHTML = `
-            <div class="dynamic-item-header">
-                <h4>Explanation for Step ${step || index}</h4>
-                <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
-            </div>
-            <div class="form-group">
-                <label>Step Number</label>
-                <input type="number" class="exp-step-number" value="${step || index}" min="1">
-            </div>
-            <div class="form-group">
-                <label>Explanation Text</label>
-                <textarea class="exp-text" rows="3" placeholder="Explain the reasoning for this step...">${text}</textarea>
-            </div>
-        `;
-        
-        container.appendChild(div);
-    }
 
     addValidityCondition(condition = '') {
         const container = document.getElementById('validity_conditions_container');
@@ -767,7 +741,6 @@ Submitted via TheorIA new entry form`;
             definitions: this.collectDefinitions(),
             derivation: this.collectDerivation(),
             derivation_assumptions: this.collectDerivationAssumptions(),
-            derivation_explanation: this.collectDerivationExplanation(),
             programmatic_verification: this.collectProgrammaticVerification(),
             domain: document.getElementById('domain').value || '',
             theory_status: document.getElementById('theory_status').value || '',
@@ -822,8 +795,9 @@ Submitted via TheorIA new entry form`;
         document.querySelectorAll('#derivation_container .dynamic-item').forEach(item => {
             const step = parseInt(item.querySelector('.step-number').value);
             const equation = item.querySelector('.step-equation').value;
-            if (step && equation) {
-                derivation.push({ step, equation });
+            const description = item.querySelector('.step-description').value;
+            if (step && equation && description) {
+                derivation.push({ step, description, equation });
             }
         });
         return derivation.length > 0 ? derivation.sort((a, b) => a.step - b.step) : undefined;
@@ -841,17 +815,6 @@ Submitted via TheorIA new entry form`;
         return assumptions.length > 0 ? assumptions : undefined;
     }
 
-    collectDerivationExplanation() {
-        const explanations = [];
-        document.querySelectorAll('#derivation_explanation_container .dynamic-item').forEach(item => {
-            const step = parseInt(item.querySelector('.exp-step-number').value);
-            const text = item.querySelector('.exp-text').value;
-            if (step && text) {
-                explanations.push({ step, text });
-            }
-        });
-        return explanations.length > 0 ? explanations.sort((a, b) => a.step - b.step) : undefined;
-    }
 
     collectProgrammaticVerification() {
         const language = document.getElementById('prog_language').value;
@@ -1019,11 +982,6 @@ function addDerivationAssumption() {
     }
 }
 
-function addDerivationExplanation() {
-    if (window.newEntryForm) {
-        window.newEntryForm.addDerivationExplanation();
-    }
-}
 
 function addValidityCondition() {
     if (window.newEntryForm) {

@@ -83,37 +83,38 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Kirchhoff's laws are derived from Maxwell's equations in the quasi-static limit. KCL follows from the continuity equation (conservation of charge), while KVL follows from Faraday's law when magnetic flux through loops is constant.",
       "equation": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot \\vec{J} = 0"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\frac{\\partial Q}{\\partial t} = -\\oint \\vec{J} \\cdot d\\vec{A}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\frac{\\partial Q}{\\partial t} = 0 \\text{ (steady state)}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\oint \\vec{J} \\cdot d\\vec{A} = 0"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\sum I_k = 0 \\text{ (KCL)}"
     },
     {
       "step": 6,
+      "description": "",
       "equation": "\\oint \\vec{E} \\cdot d\\vec{l} = 0"
     },
     {
       "step": 7,
+      "description": "",
       "equation": "\\sum V_k = 0 \\text{ (KVL)}"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Kirchhoff's laws are derived from Maxwell's equations in the quasi-static limit. KCL follows from the continuity equation (conservation of charge), while KVL follows from Faraday's law when magnetic flux through loops is constant."
     }
   ],
   "programmatic_verification": {

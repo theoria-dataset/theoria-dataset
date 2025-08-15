@@ -153,7 +153,7 @@
             <div class="form-section">
                 <h3>💡 Explanation</h3>
                 <div class="guidelines" data-field="explanation">
-                    <strong>Guidelines:</strong> <span class="guideline-text">Provide a brief (2–5 sentences, max 100 words) conceptual summary of the theoretical result or equation. Assume the reader has a graduate-level understanding of physics. Use clear and concise language to explain the significance, usage, and context of the theoretical result. Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears. Avoid derivation steps (covered in the derivation_explanation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon. If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (<code><code>``</code></code>) and written in AsciiMath format.</span>
+                    <strong>Guidelines:</strong> <span class="guideline-text">Provide a brief (2–5 sentences, max 100 words) conceptual summary of the theoretical result or equation. Assume the reader has a graduate-level understanding of physics. Use clear and concise language to explain the significance, usage, and context of the theoretical result. Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears. Avoid derivation steps (covered in the derivation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon. If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (<code><code>``</code></code>) and written in AsciiMath format.</span>
                 </div>
                 
                 <div class="form-group">
@@ -180,7 +180,7 @@
             <div class="form-section">
                 <h3>📖 Symbol Definitions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.. If there are math symbols or equations included in the definition, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
+                    <strong>Guidelines:</strong> Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field.. If there are math symbols or equations included in the definition, they must be enclosed in backticks (<code><code><code><code><code><code><code>``</code></code></code></code></code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="definitions_container">
@@ -193,7 +193,7 @@
             <div class="form-section">
                 <h3>🔬 Derivation</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Derivation should start from either first principles (listed in the field 'derivation_assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contaon the `id` (an integer, in sequential order) and `equations` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following. Equations only - use 'derivation_explanation' field for rationale
+                    <strong>Guidelines:</strong> Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and explanations. Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contain the `step` (an integer, in sequential order), `equation` (AsciiMath format), and `explanation` (textual rationale) fields. Include all steps for complete derivation. Use very explicit detail level for easy following.
                 </div>
                 
                 <div id="derivation_container">
@@ -206,7 +206,7 @@
             <div class="form-section">
                 <h3>📝 Derivation Assumptions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
+                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code><code><code><code><code>``</code></code></code></code></code></code></code>) and written in AsciiMath format.
                 </div>
                 
                 <div id="derivation_assumptions_container">
@@ -215,18 +215,6 @@
                 <button type="button" class="btn btn-secondary" onclick="addDerivationAssumption()">+ Add Assumption</button>
             </div>
 
-            <!-- Derivation Explanation Section -->
-            <div class="form-section">
-                <h3>📚 Derivation Explanation</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> Not all steps need explanations, as some may be self-evident.. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (<code><code><code><code>``</code></code></code></code>) and written in AsciiMath format.
-                </div>
-                
-                <div id="derivation_explanation_container">
-                    <!-- Derivation explanations will be populated here -->
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="addDerivationExplanation()">+ Add Explanation</button>
-            </div>
 
             <!-- Programmatic Verification Section -->
             <div class="form-section">

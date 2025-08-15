@@ -47,29 +47,18 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Define the function `S(q_i, t)` such that its gradient yields the momentum: `p_i = del S/del q_i`. This S will serve as a generating function of a canonical transformation.",
       "equation": "p_i = del S/del q_i"
     },
     {
       "step": 2,
+      "description": "Require that the new Hamiltonian is zero. This condition leads to the Hamilton-Jacobi equation: `del S/del t + H(q_i, del S/del q_i, t) = 0`.",
       "equation": "H(q_i, p_i, t) + del S/del t = 0"
     },
     {
       "step": 3,
+      "description": "The H-J equation is a nonlinear PDE for `S(q,t)`. Solving it yields the action from which one can recover trajectories via `p_i = del S/del q_i` and `dot q_i = del H/del p_i`.",
       "equation": "H(q_i, del S/del q_i, t) + del S/del t = 0"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Define the function `S(q_i, t)` such that its gradient yields the momentum: `p_i = del S/del q_i`. This S will serve as a generating function of a canonical transformation."
-    },
-    {
-      "step": 2,
-      "text": "Require that the new Hamiltonian is zero. This condition leads to the Hamilton-Jacobi equation: `del S/del t + H(q_i, del S/del q_i, t) = 0`."
-    },
-    {
-      "step": 3,
-      "text": "The H-J equation is a nonlinear PDE for `S(q,t)`. Solving it yields the action from which one can recover trajectories via `p_i = del S/del q_i` and `dot q_i = del H/del p_i`."
     }
   ],
   "programmatic_verification": {

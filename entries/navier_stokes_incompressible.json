@@ -55,53 +55,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Apply Newton's second law to an infinitesimal control volume: the material acceleration equals the divergence of the stress tensor plus body forces.",
       "equation": "rho*D vec v/D t = nabla cdot sigma + vec f"
     },
     {
       "step": 2,
+      "description": "Decompose the Cauchy stress tensor `sigma` into an isotropic pressure part and a deviatoric (viscous) part.",
       "equation": "sigma = -p*I + tau"
     },
     {
       "step": 3,
+      "description": "Express the material derivative `D/D t` in terms of local (∂/∂t) and convective `(vec v cdot nabla)` contributions.",
       "equation": "D vec v/D t = partial vec v/partial t + (vec v cdot nabla)vec v"
     },
     {
       "step": 4,
+      "description": "Invoke the Newtonian constitutive relation that ties the viscous stress to the symmetric part of the velocity gradient.",
       "equation": "tau = mu*(nabla vec v + (nabla vec v)^T)"
     },
     {
       "step": 5,
+      "description": "Taking the divergence of the viscous stress and using incompressibility simplifies it to a Laplacian term.",
       "equation": "nabla cdot tau = mu*nabla^2 vec v"
     },
     {
       "step": 6,
+      "description": "Substitute the previous relations back into the momentum balance to obtain the incompressible Navier–Stokes equation.",
       "equation": "rho*(partial vec v/partial t + (vec v cdot nabla)vec v) = -nabla p + mu*nabla^2 vec v + vec f"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Apply Newton's second law to an infinitesimal control volume: the material acceleration equals the divergence of the stress tensor plus body forces."
-    },
-    {
-      "step": 2,
-      "text": "Decompose the Cauchy stress tensor `sigma` into an isotropic pressure part and a deviatoric (viscous) part."
-    },
-    {
-      "step": 3,
-      "text": "Express the material derivative `D/D t` in terms of local (∂/∂t) and convective `(vec v cdot nabla)` contributions."
-    },
-    {
-      "step": 4,
-      "text": "Invoke the Newtonian constitutive relation that ties the viscous stress to the symmetric part of the velocity gradient."
-    },
-    {
-      "step": 5,
-      "text": "Taking the divergence of the viscous stress and using incompressibility simplifies it to a Laplacian term."
-    },
-    {
-      "step": 6,
-      "text": "Substitute the previous relations back into the momentum balance to obtain the incompressible Navier–Stokes equation."
     }
   ],
   "programmatic_verification": {

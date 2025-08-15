@@ -63,53 +63,33 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Consider X-rays incident on a set of parallel crystal planes with uniform spacing d.",
       "equation": "text(X-rays incident on parallel planes separated by distance d)"
     },
     {
       "step": 2,
+      "description": "Calculate the path difference between rays reflected from adjacent planes.",
       "equation": "text(Path difference between rays from adjacent planes)"
     },
     {
       "step": 3,
+      "description": "The geometric path difference is 2d sin θ, where θ is measured from the plane.",
       "equation": "Delta = 2*d*sin(theta)"
     },
     {
       "step": 4,
+      "description": "For constructive interference, this path difference must equal an integer number of wavelengths.",
       "equation": "text(Constructive interference condition)"
     },
     {
       "step": 5,
+      "description": "Set the path difference equal to nλ where n is a positive integer.",
       "equation": "Delta = n*lambda"
     },
     {
       "step": 6,
+      "description": "This gives Bragg's law: nλ = 2d sin θ.",
       "equation": "n*lambda = 2*d*sin(theta)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Consider X-rays incident on a set of parallel crystal planes with uniform spacing d."
-    },
-    {
-      "step": 2,
-      "text": "Calculate the path difference between rays reflected from adjacent planes."
-    },
-    {
-      "step": 3,
-      "text": "The geometric path difference is 2d sin θ, where θ is measured from the plane."
-    },
-    {
-      "step": 4,
-      "text": "For constructive interference, this path difference must equal an integer number of wavelengths."
-    },
-    {
-      "step": 5,
-      "text": "Set the path difference equal to nλ where n is a positive integer."
-    },
-    {
-      "step": 6,
-      "text": "This gives Bragg's law: nλ = 2d sin θ."
     }
   ],
   "programmatic_verification": {

@@ -67,69 +67,43 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Calculate the density of electromagnetic modes in a cavity using wave mechanics.",
       "equation": "g(nu) = (8 pi nu^2)/c^3 (density of electromagnetic modes)"
     },
     {
       "step": 2,
+      "description": "Apply Planck's quantum hypothesis: each mode has discrete energy levels.",
       "equation": "E_n = n h nu (quantized energy levels, n = 0, 1, 2, ...)"
     },
     {
       "step": 3,
+      "description": "Calculate the average occupation number using Boltzmann statistics.",
       "equation": "<n> = sum_{n=0}^oo n exp(-n h nu/(k_B T))/sum_{n=0}^oo exp(-n h nu/(k_B T))"
     },
     {
       "step": 4,
+      "description": "Evaluate the geometric series to get the Bose-Einstein distribution for photons.",
       "equation": "<n> = 1/(exp(h nu/(k_B T)) - 1)"
     },
     {
       "step": 5,
+      "description": "Find the average energy per mode by multiplying occupation by quantum energy.",
       "equation": "<E> = <n> h nu = (h nu)/(exp(h nu/(k_B T)) - 1)"
     },
     {
       "step": 6,
+      "description": "Multiply mode density by average energy to get spectral energy density.",
       "equation": "u(nu, T) = g(nu) <E> = (8 pi h nu^3)/c^3 * 1/(exp(h nu/(k_B T)) - 1)"
     },
     {
       "step": 7,
+      "description": "Integrate over all frequencies to get total energy density (Stefan-Boltzmann law).",
       "equation": "U = int_0^oo u(nu, T) dnu = sigma T^4 (Stefan-Boltzmann law)"
     },
     {
       "step": 8,
+      "description": "Evaluate the integral to determine the Stefan-Boltzmann constant.",
       "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Calculate the density of electromagnetic modes in a cavity using wave mechanics."
-    },
-    {
-      "step": 2,
-      "text": "Apply Planck's quantum hypothesis: each mode has discrete energy levels."
-    },
-    {
-      "step": 3,
-      "text": "Calculate the average occupation number using Boltzmann statistics."
-    },
-    {
-      "step": 4,
-      "text": "Evaluate the geometric series to get the Bose-Einstein distribution for photons."
-    },
-    {
-      "step": 5,
-      "text": "Find the average energy per mode by multiplying occupation by quantum energy."
-    },
-    {
-      "step": 6,
-      "text": "Multiply mode density by average energy to get spectral energy density."
-    },
-    {
-      "step": 7,
-      "text": "Integrate over all frequencies to get total energy density (Stefan-Boltzmann law)."
-    },
-    {
-      "step": 8,
-      "text": "Evaluate the integral to determine the Stefan-Boltzmann constant."
     }
   ],
   "programmatic_verification": {

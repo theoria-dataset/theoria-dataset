@@ -119,301 +119,188 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime).",
       "equation": "x' = A*x + B*t; t' = D*x + E*t"
     },
     {
       "step": 2,
+      "description": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S.",
       "equation": "0 = A*v*t + B*t"
     },
     {
       "step": 3,
+      "description": "Get the relationship between coefficients A and B.",
       "equation": "B = -A*v"
     },
     {
       "step": 4,
+      "description": "Apply light-speed invariance: demand that any right-moving light pulse x=+c*t in S also satisfies x'=+c*t' in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3.",
       "equation": "(c - v)*A = (D*c + E)*c"
     },
     {
       "step": 5,
+      "description": "Apply light-speed invariance for left-moving pulse: repeat for x=-c*t in S and x'=-c*t' in S' to get a second constraint from the constancy of light speed.",
       "equation": "(-c - v)*A = (D*c - E)*c"
     },
     {
       "step": 6,
+      "description": "Subtracting equation in step 4 from the one in step 5 gives a relationship between A and E.",
       "equation": "E = A"
     },
     {
       "step": 7,
+      "description": "Adding equations in step 4 and step 5 gives a relationship between A and D.",
       "equation": "D = -A*v/c^2"
     },
     {
       "step": 8,
+      "description": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1.",
       "equation": "x' = A*(x - v*t); t' = A*(t - v/c^2*x)"
     },
     {
       "step": 9,
+      "description": "Apply spacetime interval invariance: demand x'^2 - c^2*t'^2 = x^2 - c^2*t^2 (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames).",
       "equation": "x'^2 - c^2*t'^2 = A^2*(x-v*t)^2-c^2*A^2*(t-v/c^2*x)^2 = A^2*(x^2 - 2*v*t*x + v^2*t^2 - c^2*t^2 + 2*v*x*t - v^2/c^2*x^2) = A^2*(1 - v^2/c^2)*(x^2 - c^2*t^2)"
     },
     {
       "step": 10,
+      "description": "Collect terms to obtain A²(1 - v²/c²) = 1.",
       "equation": "A^2*(1 - v^2/c^2) = 1"
     },
     {
       "step": 11,
+      "description": "Solve for A.",
       "equation": "A = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 12,
+      "description": "Substitute γ back into the equations to obtain the Lorentz tranformation.",
       "equation": "x' = gamma*(x - v*t); t' = gamma*(t - v/c^2*x); gamma = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 13,
+      "description": "Time dilation: time intervals are longer in the moving frame.",
       "equation": "Delta t' = gamma*Delta t"
     },
     {
       "step": 14,
+      "description": "Length contraction: spatial intervals are shorter in the moving frame.",
       "equation": "Delta x' = (Delta x)/(gamma)"
     },
     {
       "step": 15,
+      "description": "Redefine force as the rate of change of relativistic momentum.",
       "equation": "vec F = (d vec p)/(dt)"
     },
     {
       "step": 16,
+      "description": "Define relativistic momentum to preserve conservation laws.",
       "equation": "vec p = gamma*m*vec v"
     },
     {
       "step": 17,
+      "description": "Calculate work done to accelerate a particle, leading to relativistic energy.",
       "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
     },
     {
       "step": 18,
+      "description": "Rewrite the work integral using the relation between force and momentum.",
       "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p"
     },
     {
       "step": 19,
+      "description": "Substitute the relativistic momentum `vec p = gamma*m*vec v` into the integral.",
       "equation": "E = int vec v * d(gamma*m*vec v) = m*int vec v * d(gamma*vec v)"
     },
     {
       "step": 20,
+      "description": "Apply the product rule to expand `d(gamma*vec v)`.",
       "equation": "d(gamma*vec v) = d gamma * vec v + gamma * d vec v"
     },
     {
       "step": 21,
+      "description": "Distribute the dot product and separate the integral terms.",
       "equation": "E = m*int vec v * (d gamma * vec v + gamma * d vec v) = m*int (vec v^2 * d gamma + gamma * vec v * d vec v)"
     },
     {
       "step": 22,
+      "description": "Calculate the differential of the Lorentz factor `gamma` with respect to velocity.",
       "equation": "d gamma = d(1/sqrt(1 - v^2/c^2)) = (gamma^3 * v * dv)/c^2"
     },
     {
       "step": 23,
+      "description": "Substitute the expression for `d gamma` into the integral.",
       "equation": "E = m*int (v^2 * (gamma^3 * v * dv)/c^2 + gamma * v * dv)"
     },
     {
       "step": 24,
+      "description": "Factor out common terms from the integrand, including `gamma`.",
       "equation": "E = m*int v*dv * gamma * (v^2*gamma^2/c^2 + 1)"
     },
     {
       "step": 25,
+      "description": "Show that `v^2*gamma^2/c^2 + 1 = gamma^2` using the definition of the Lorentz factor.",
       "equation": "v^2*gamma^2/c^2 + 1 = v^2/(c^2*(1-v^2/c^2)) + 1 = (v^2 + c^2 - v^2)/(c^2*(1-v^2/c^2)) = c^2/(c^2*(1-v^2/c^2)) = gamma^2"
     },
     {
       "step": 26,
+      "description": "Use the relation `d gamma = (gamma^3*v*dv)/c^2` to transform the integral to `int d gamma`.",
       "equation": "E = m*int v*gamma^3*dv = m*c^2*int (v/c^2)*gamma^3*dv = m*c^2*int d gamma"
     },
     {
       "step": 27,
+      "description": "Evaluate the integral from `gamma = 1` (at `v=0`) to `gamma` to get kinetic energy.",
       "equation": "E = m*c^2 * (gamma - 1)|_1^gamma = m*c^2 * (gamma - 1)"
     },
     {
       "step": 28,
+      "description": "Add the rest energy `E_0 = m*c^2` to the kinetic energy `E_k` to get the total energy.",
       "equation": "E = E_k + E_0 = m*c^2*(gamma - 1) + m*c^2"
     },
     {
       "step": 29,
+      "description": "Final relativistic energy formula `E = gamma*m*c^2`.",
       "equation": "E = gamma*m*c^2"
     },
     {
       "step": 30,
+      "description": "Identify rest energy when velocity is zero.",
       "equation": "E_0 = m*c^2"
     },
     {
       "step": 31,
+      "description": "State the relativistic energy and momentum expressions to derive their relationship.",
       "equation": "E = gamma*m*c^2, p = gamma*m*v"
     },
     {
       "step": 32,
+      "description": "Square the energy expression.",
       "equation": "E^2 = (gamma*m*c^2)^2 = gamma^2*m^2*c^4"
     },
     {
       "step": 33,
+      "description": "Square the momentum expression multiplied by `c`.",
       "equation": "(p*c)^2 = (gamma*m*v*c)^2 = gamma^2*m^2*v^2*c^2"
     },
     {
       "step": 34,
+      "description": "Calculate `E^2 - (pc)^2` by subtracting the squared expressions.",
       "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^4 - gamma^2*m^2*v^2*c^2"
     },
     {
       "step": 35,
+      "description": "Factor out common terms from the difference.",
       "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^2*(c^2 - v^2)"
     },
     {
       "step": 36,
+      "description": "Use the definition of the Lorentz factor to simplify `gamma^2*(c^2 - v^2)`.",
       "equation": "gamma^2*(c^2 - v^2) = (c^2 - v^2)/(1 - v^2/c^2) = c^2"
     },
     {
       "step": 37,
+      "description": "Arrive at the fundamental energy-momentum-mass relation.",
       "equation": "E^2 - (p*c)^2 = m^2*c^4 = (m*c^2)^2"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime)."
-    },
-    {
-      "step": 2,
-      "text": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S."
-    },
-    {
-      "step": 3,
-      "text": "Get the relationship between coefficients A and B."
-    },
-    {
-      "step": 4,
-      "text": "Apply light-speed invariance: demand that any right-moving light pulse x=+c*t in S also satisfies x'=+c*t' in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3."
-    },
-    {
-      "step": 5,
-      "text": "Apply light-speed invariance for left-moving pulse: repeat for x=-c*t in S and x'=-c*t' in S' to get a second constraint from the constancy of light speed."
-    },
-    {
-      "step": 6,
-      "text": "Subtracting equation in step 4 from the one in step 5 gives a relationship between A and E."
-    },
-    {
-      "step": 7,
-      "text": "Adding equations in step 4 and step 5 gives a relationship between A and D."
-    },
-    {
-      "step": 8,
-      "text": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1."
-    },
-    {
-      "step": 9,
-      "text": "Apply spacetime interval invariance: demand x'^2 - c^2*t'^2 = x^2 - c^2*t^2 (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames)."
-    },
-    {
-      "step": 10,
-      "text": "Collect terms to obtain A²(1 - v²/c²) = 1."
-    },
-    {
-      "step": 11,
-      "text": "Solve for A."
-    },
-    {
-      "step": 12,
-      "text": "Substitute γ back into the equations to obtain the Lorentz tranformation."
-    },
-    {
-      "step": 13,
-      "text": "Time dilation: time intervals are longer in the moving frame."
-    },
-    {
-      "step": 14,
-      "text": "Length contraction: spatial intervals are shorter in the moving frame."
-    },
-    {
-      "step": 15,
-      "text": "Redefine force as the rate of change of relativistic momentum."
-    },
-    {
-      "step": 16,
-      "text": "Define relativistic momentum to preserve conservation laws."
-    },
-    {
-      "step": 17,
-      "text": "Calculate work done to accelerate a particle, leading to relativistic energy."
-    },
-    {
-      "step": 18,
-      "text": "Rewrite the work integral using the relation between force and momentum."
-    },
-    {
-      "step": 19,
-      "text": "Substitute the relativistic momentum `vec p = gamma*m*vec v` into the integral."
-    },
-    {
-      "step": 20,
-      "text": "Apply the product rule to expand `d(gamma*vec v)`."
-    },
-    {
-      "step": 21,
-      "text": "Distribute the dot product and separate the integral terms."
-    },
-    {
-      "step": 22,
-      "text": "Calculate the differential of the Lorentz factor `gamma` with respect to velocity."
-    },
-    {
-      "step": 23,
-      "text": "Substitute the expression for `d gamma` into the integral."
-    },
-    {
-      "step": 24,
-      "text": "Factor out common terms from the integrand, including `gamma`."
-    },
-    {
-      "step": 25,
-      "text": "Show that `v^2*gamma^2/c^2 + 1 = gamma^2` using the definition of the Lorentz factor."
-    },
-    {
-      "step": 26,
-      "text": "Use the relation `d gamma = (gamma^3*v*dv)/c^2` to transform the integral to `int d gamma`."
-    },
-    {
-      "step": 27,
-      "text": "Evaluate the integral from `gamma = 1` (at `v=0`) to `gamma` to get kinetic energy."
-    },
-    {
-      "step": 28,
-      "text": "Add the rest energy `E_0 = m*c^2` to the kinetic energy `E_k` to get the total energy."
-    },
-    {
-      "step": 29,
-      "text": "Final relativistic energy formula `E = gamma*m*c^2`."
-    },
-    {
-      "step": 30,
-      "text": "Identify rest energy when velocity is zero."
-    },
-    {
-      "step": 31,
-      "text": "State the relativistic energy and momentum expressions to derive their relationship."
-    },
-    {
-      "step": 32,
-      "text": "Square the energy expression."
-    },
-    {
-      "step": 33,
-      "text": "Square the momentum expression multiplied by `c`."
-    },
-    {
-      "step": 34,
-      "text": "Calculate `E^2 - (pc)^2` by subtracting the squared expressions."
-    },
-    {
-      "step": 35,
-      "text": "Factor out common terms from the difference."
-    },
-    {
-      "step": 36,
-      "text": "Use the definition of the Lorentz factor to simplify `gamma^2*(c^2 - v^2)`."
-    },
-    {
-      "step": 37,
-      "text": "Arrive at the fundamental energy-momentum-mass relation."
     }
   ],
   "programmatic_verification": {

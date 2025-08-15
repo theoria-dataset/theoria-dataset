@@ -99,29 +99,28 @@
   "derivation": [
     {
       "step": 1,
+      "description": "Electric field is defined as the force per unit charge. Starting from Coulomb's law for the force between charges, we can derive the field of a point charge and then use superposition to find the total field from multiple sources.",
       "equation": "\\vec{F} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Qq}{r^2} \\hat{r}"
     },
     {
       "step": 2,
+      "description": "",
       "equation": "\\vec{E} = \\frac{\\vec{F}}{q}"
     },
     {
       "step": 3,
+      "description": "",
       "equation": "\\vec{E} = \\frac{1}{q} \\frac{1}{4\\pi\\epsilon_0} \\frac{Qq}{r^2} \\hat{r}"
     },
     {
       "step": 4,
+      "description": "",
       "equation": "\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2} \\hat{r}"
     },
     {
       "step": 5,
+      "description": "",
       "equation": "\\vec{E}_{total} = \\frac{\\vec{F}_{total}}{q} = \\frac{1}{q}\\sum_i \\vec{F}_i = \\sum_i \\frac{\\vec{F}_i}{q} = \\sum_i \\vec{E}_i"
-    }
-  ],
-  "derivation_explanation": [
-    {
-      "step": 1,
-      "text": "Electric field is defined as the force per unit charge. Starting from Coulomb's law for the force between charges, we can derive the field of a point charge and then use superposition to find the total field from multiple sources."
     }
   ],
   "programmatic_verification": {
