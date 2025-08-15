@@ -182,4 +182,21 @@ docker-compose run --rm theoria-tests
 
 See `entries/special_relativity.json` for a complete, compliant example.
 
+## Automatic Jupyter Notebooks
+
+Every entry in the dataset automatically gets a corresponding Jupyter notebook generated for interactive exploration:
+
+- **Location**: `notebooks/{result_id}_verification.ipynb`
+- **Content**: Complete programmatic verification code with exact library versions
+- **Google Colab Integration**: Each entry page includes an 'Open in Colab' badge for instant access
+- **Automatic Generation**: Notebooks are regenerated automatically via GitHub Actions on every push
+
+When you contribute an entry, the system will automatically:
+1. Generate a Jupyter notebook from your `programmatic_verification` code
+2. Include proper library installation commands with exact versions
+3. Add links back to the original entry for context
+4. Make it available via Google Colab for interactive exploration
+
+No manual action is needed - notebooks are maintained automatically!
+
 Happy contributing!
