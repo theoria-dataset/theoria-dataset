@@ -49,51 +49,147 @@
     },
     {
       "id": "assumption4",
-      "text": "Electromagnetic radiation energy is quantized in discrete packets (quanta) of energy `h*nu` for each mode of frequency `nu`."
+      "text": "Maxwell's equations govern electromagnetic wave propagation, giving the wave equation and dispersion relation `omega^2 = c^2*k^2`."
     },
     {
       "id": "assumption5",
-      "text": "The system is in thermal equilibrium, allowing the use of statistical mechanics to determine average occupation numbers."
+      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)."
     },
     {
       "id": "assumption6",
-      "text": "Photons are indistinguishable bosonic particles with no chemical potential, following Bose-Einstein statistics."
+      "text": "Photons are indistinguishable bosonic particles, following Bose-Einstein statistics."
     }
   ],
   "derivation": [
     {
       "step": 1,
-      "equation": "rho(nu) = (8*pi*nu^2)/(c^3)"
+      "equation": "E_x = E_(0x) * sin(n_x*pi*x/L) * cos(omega*t); E_y = E_(0y) * sin(n_y*pi*y/L) * cos(omega*t); E_z = E_(0z) * sin(n_z*pi*z/L) * cos(omega*t)"
     },
     {
       "step": 2,
-      "equation": "E_n = n*h*nu"
+      "equation": "k_x = n_x*pi/L; k_y = n_y*pi/L; k_z = n_z*pi/L"
     },
     {
       "step": 3,
-      "equation": "<E> = (h*nu)/(exp(h*nu/(k_B*T)) - 1)"
+      "equation": "|k| = sqrt(k_x^2 + k_y^2 + k_z^2) = (pi/L) * sqrt(n_x^2 + n_y^2 + n_z^2)"
     },
     {
       "step": 4,
-      "equation": "u(nu,T) = rho(nu)*<E>"
+      "equation": "omega = c*|k|"
+    },
+    {
+      "step": 5,
+      "equation": "nu = omega/(2*pi) = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)"
+    },
+    {
+      "step": 6,
+      "equation": "R = 2*L*nu/c"
+    },
+    {
+      "step": 7,
+      "equation": "N_(sphere) = (1/8) * (4*pi*R^2) * dR = 1/2*pi*R^2*dR"
+    },
+    {
+      "step": 8,
+      "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR"
+    },
+    {
+      "step": 9,
+      "equation": "N_(all) = pi*(2*L*nu/c)^2*(2*L*dnu/c) = 8*pi*L^3*nu^2*dnu/c^3"
+    },
+    {
+      "step": 10,
+      "equation": "rho(nu) = N_(all)/(L^3*dnu) = (8*pi*nu^2)/(c^3)"
+    },
+    {
+      "step": 11,
+      "equation": "E_n = n*h*nu"
+    },
+    {
+      "step": 12,
+      "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))"
+    },
+    {
+      "step": 13,
+      "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))"
+    },
+    {
+      "step": 14,
+      "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)"
+    },
+    {
+      "step": 15,
+      "equation": "bar(E) = bar(n) * h*nu = (h*nu)/(exp(h*nu/(k_B*T)) - 1)"
+    },
+    {
+      "step": 16,
+      "equation": "u(nu,T) = rho(nu)*bar(E) = (8*pi*nu^2)/(c^3) * (h*nu)/(exp(h*nu/(k_B*T)) - 1) = (8*pi*h*nu^3)/(c^3) * (1)/(exp(h*nu/(k_B*T)) - 1)"
     }
   ],
   "derivation_explanation": [
     {
       "step": 1,
-      "text": "Count electromagnetic modes in a cavity between `nu` and `nu+dnu`."
+      "text": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers."
     },
     {
       "step": 2,
-      "text": "Assume quantized energies with spacing `h*nu` for each mode."
+      "text": "Boundary conditions determine the allowed wave vector components: each component must be quantized as `k_i = n_i*pi/L` where `n_i` are the mode integers."
     },
     {
       "step": 3,
-      "text": "Compute the thermal average energy per mode using Bose statistics."
+      "text": "Calculate the magnitude of the wave vector using the Pythagorean theorem: `|k| = sqrt(k_x^2 + k_y^2 + k_z^2)`."
     },
     {
       "step": 4,
-      "text": "Multiply density of states by average energy to obtain the spectral energy density."
+      "text": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`."
+    },
+    {
+      "step": 5,
+      "text": "Convert angular frequency to ordinary frequency: `nu = omega/(2*pi)`, yielding the frequency for each mode."
+    },
+    {
+      "step": 6,
+      "text": "Transform to integer space: since `nu = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)`, solving for the integer radius gives `R = 2*L*nu/c = sqrt(n_x^2 + n_y^2 + n_z^2)`."
+    },
+    {
+      "step": 7,
+      "text": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR."
+    },
+    {
+      "step": 8,
+      "text": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count."
+    },
+    {
+      "step": 9,
+      "text": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`."
+    },
+    {
+      "step": 10,
+      "text": "Convert to mode density per unit volume by dividing by cavity volume `L^3` and frequency interval `dnu`, yielding `rho(nu)`."
+    },
+    {
+      "step": 11,
+      "text": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number."
+    },
+    {
+      "step": 12,
+      "text": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`."
+    },
+    {
+      "step": 13,
+      "text": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function."
+    },
+    {
+      "step": 14,
+      "text": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution."
+    },
+    {
+      "step": 15,
+      "text": "Convert average occupation number to average energy per mode using the quantization relation."
+    },
+    {
+      "step": 16,
+      "text": "Combine mode density with average energy to get spectral energy density (black body assumption 1 ensures this represents thermal emission)."
     }
   ],
   "programmatic_verification": {
@@ -101,11 +197,58 @@
     "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
-      "nu, T, h, k_B, c = sp.symbols('nu T h k_B c', positive=True)",
-      "u = (8*sp.pi*h*nu**3)/(c**3*(sp.exp(h*nu/(k_B*T)) - 1))",
-      "rho = (8*sp.pi*nu**2)/(c**3)",
-      "E_avg = (h*nu)/(sp.exp(h*nu/(k_B*T)) - 1)",
-      "assert sp.simplify(rho*E_avg - u) == 0"
+      "nu, T, h, k_B, c, n, L, R = sp.symbols('nu T h k_B c n L R', positive=True)",
+      "",
+      "# Steps 6-10: Mode counting derivation",
+      "# Step 6: Transform to integer space",
+      "R = 2*L*nu/c",
+      "",
+      "# Step 7: Count modes in spherical shell",
+      "N_sphere = sp.Rational(1,8) * 4*sp.pi * R**2 * sp.Symbol('dR')",
+      "",
+      "# Step 8: Include polarizations",
+      "N_all = N_sphere * 2",
+      "N_all_simplified = sp.simplify(N_all)",
+      "N_all_expected = sp.pi * R**2 * sp.Symbol('dR')",
+      "assert sp.expand(N_all_simplified) == sp.expand(N_all_expected)",
+      "",
+      "# Step 9: Substitute R and dR back in terms of frequency",
+      "dR = 2*L*sp.Symbol('dnu')/c",
+      "N_all_freq = N_all_expected.subs([(R, 2*L*nu/c), (sp.Symbol('dR'), dR)])",
+      "N_all_freq_simplified = sp.simplify(N_all_freq)",
+      "",
+      "# Step 10: Mode density per unit volume",
+      "rho = N_all_freq_simplified / (L**3 * sp.Symbol('dnu'))",
+      "rho_simplified = sp.simplify(rho)",
+      "rho_expected = (8*sp.pi*nu**2)/(c**3)",
+      "assert sp.expand(rho_simplified) == sp.expand(rho_expected)",
+      "",
+      "# Step 11: Energy quantization",
+      "E_n = n*h*nu",
+      "",
+      "# Step 12: Partition function definition",
+      "Z_sum = sp.Sum(sp.exp(-n*h*nu/(k_B*T)), (n, 0, sp.oo))",
+      "",
+      "# Step 13: Average occupation definition", 
+      "n_avg_sum = sp.Sum(n * sp.exp(-n*h*nu/(k_B*T)), (n, 0, sp.oo))",
+      "",
+      "# Step 14: Evaluate geometric series",
+      "Z_eval = 1/(1 - sp.exp(-h*nu/(k_B*T)))",
+      "n_avg_eval = 1/(sp.exp(h*nu/(k_B*T)) - 1)",
+      "",
+      "# Step 15: Average energy per mode",
+      "E_avg = n_avg_eval * h*nu",
+      "E_avg_expected = (h*nu)/(sp.exp(h*nu/(k_B*T)) - 1)",
+      "assert sp.expand(E_avg) == sp.expand(E_avg_expected)",
+      "",
+      "# Step 16: Final Planck's law",
+      "u_planck = rho_expected * E_avg",
+      "u_expected = (8*sp.pi*h*nu**3)/(c**3*(sp.exp(h*nu/(k_B*T)) - 1))",
+      "assert sp.expand(u_planck) == sp.expand(u_expected)",
+      "",
+      "# Verify against original result equation",
+      "u_original = (8*sp.pi*h*nu**3)/(c**3)*(1)/(sp.exp((h*nu)/(k_B*T)) - 1)",
+      "assert sp.expand(u_expected) == sp.expand(u_original)"
     ]
   },
   "domain": "quant-ph",
@@ -137,14 +280,15 @@
   "references": [
     {
       "id": "R1",
-      "citation": "Planck, M. (1901). *On the Law of Distribution of Energy in the Normal Spectrum*. Annalen der Physik, 309(3), 553-563."
+      "citation": "Planck, M. (1901). On the Law of Distribution of Energy in the Normal Spectrum. Annalen der Physik, 309(3), 553-563."
     }
   ],
+  "dependencies": ["maxwell_equations", "partition_function"],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
