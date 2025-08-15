@@ -74,7 +74,7 @@ def create_notebook(entry_data):
             {
                 "cell_type": "code",
                 "metadata": {},
-                "source": code,
+                "source": [line + "\n" for line in code],  # Add newlines to each line
                 "execution_count": None,
                 "outputs": []
             },
@@ -83,6 +83,8 @@ def create_notebook(entry_data):
                 "metadata": {},
                 "source": [
                     "## Source\n",
+                    "\n",
+                    f"📖 **View this entry:** [theoria-dataset.org/entries.html?entry={entry_id}.json](https://theoria-dataset.org/entries.html?entry={entry_id}.json)\n",
                     "\n",
                     "This verification code is part of the [THEORIA dataset](https://github.com/theoria-dataset/theoria-dataset), ",
                     "a curated collection of theoretical physics derivations with programmatic verification.\n",
