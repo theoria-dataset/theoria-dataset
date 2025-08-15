@@ -76,3 +76,4 @@ wheels/
 *.pid
 *.seed
 *.pid.lock 
+old_entries/
