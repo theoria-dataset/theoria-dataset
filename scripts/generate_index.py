@@ -2,12 +2,20 @@
 """
 Generate entries_index.html from all entries in the dataset
 Converts from Node.js to Python implementation
+
+Requires: Python 3.11.12 (or compatible)
 """
 
 import json
 import os
 import re
+import sys
 from pathlib import Path
+
+# Check Python version compatibility
+if sys.version_info < (3, 8):
+    print("Error: Python 3.8 or higher is required")
+    sys.exit(1)
 
 
 # Domain mapping to readable categories  

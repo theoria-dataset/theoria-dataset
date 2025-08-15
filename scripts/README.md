@@ -6,6 +6,8 @@ This directory contains build scripts for generating the TheorIA dataset documen
 
 Generates the main entries_index.html page that displays all entries organized by physics domains.
 
+**Requirements:** Python 3.8+ (tested with Python 3.11.12)
+
 **Usage:**
 ```bash
 # Run directly (requires Python)

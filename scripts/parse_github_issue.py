@@ -167,7 +167,7 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
         'assumptions': [],  # Will be filled manually if needed
         'derivation': derivation,
         'programmatic_verification': {
-            'language': 'python 3.11.0',
+            'language': 'python 3.11.12',
             'library': 'sympy 1.13.0',
             'code': ['# TODO: Add verification code']
         },
