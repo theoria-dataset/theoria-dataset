@@ -1,0 +1,215 @@
+{
+  "result_id": "least_action_principle",
+  "result_name": "Principle of Least Action",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
+    },
+    {
+      "id": "eq2",
+      "equation": "delta S = 0"
+    },
+    {
+      "id": "eq3",
+      "equation": "d/dt((del L)/(del dot q_i)) - (del L)/(del q_i) = 0"
+    }
+  ],
+  "explanation": "The principle of least action states that the path taken by a physical system between two configurations is the one that makes the action stationary. The action is defined as the time integral of the Lagrangian function. This principle provides a unified foundation for classical mechanics and leads directly to the Euler-Lagrange equations of motion.",
+  "definitions": [
+    {
+      "symbol": "S",
+      "definition": "Action functional, the time integral of the Lagrangian over a given time interval."
+    },
+    {
+      "symbol": "L",
+      "definition": "Lagrangian function, typically the difference between kinetic and potential energy."
+    },
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinates describing the configuration of the system."
+    },
+    {
+      "symbol": "dot q_i",
+      "definition": "Generalized velocities, time derivatives of generalized coordinates."
+    },
+    {
+      "symbol": "t_1, t_2",
+      "definition": "Initial and final times defining the time interval for the action integral."
+    },
+    {
+      "symbol": "delta S",
+      "definition": "First variation of the action under small changes in the path."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`."
+    },
+    {
+      "id": "assumption2",
+      "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time."
+    },
+    {
+      "id": "assumption3",
+      "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments."
+    },
+    {
+      "id": "assumption4",
+      "text": "The path `q_i(t)` is smooth and differentiable on the interval `[t_1, t_2]`."
+    },
+    {
+      "id": "assumption5",
+      "text": "The endpoints of the path are fixed: `delta q_i(t_1) = delta q_i(t_2) = 0`."
+    },
+    {
+      "id": "assumption6",
+      "text": "The variations `delta q_i(t)` are small and arbitrary within the interior of the time interval."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Define the action functional as the time integral of the Lagrangian along a path `q_i(t)` with `i = 1,...,n`.",
+      "equation": "S[q] = int_(t_1)^(t_2) L(q_i(t), dot(q_i)(t), t) dt"
+    },
+    {
+      "step": 2,
+      "description": "Embed the given path into a one-parameter family (the variation direction) and fix endpoints: `q_i^(epsilon)(t) = q_i(t) + epsilon eta_i(t)`, with `eta_i(t_1)=eta_i(t_2)=0`. Define `S(epsilon) = int L(q_i^(epsilon), dot(q_i)^(epsilon), t) dt`.",
+      "equation": "q_i^(epsilon)(t) = q_i(t) + epsilon eta_i(t), eta_i(t_1)=eta_i(t_2)=0; S(epsilon) = int_(t_1)^(t_2) L(q_i^(epsilon)(t), dot(q_i)^(epsilon)(t), t) dt"
+    },
+    {
+      "step": 3,
+      "description": "Define the first variation as the derivative of `S(epsilon)` at `epsilon=0` and move the derivative inside the integral (assuming smoothness).",
+      "equation": "delta S := d/(d epsilon) S(epsilon)|_(epsilon=0) = int_(t_1)^(t_2) d/(d epsilon) L(q_i^(epsilon), dot(q_i)^(epsilon), t)|_(epsilon=0) dt"
+    },
+    {
+      "step": 4,
+      "description": "Apply the chain rule with respect to `epsilon` at fixed `t`. Since `q_i^(epsilon)(t)` depends on `epsilon` only via the variation, we have `(partial q_i^(epsilon))/(partial epsilon) = eta_i` and `(partial dot(q_i)^(epsilon))/(partial epsilon) = dot(eta_i)`.",
+      "equation": "d/(d epsilon) L(q_i^(epsilon), dot(q_i)^(epsilon), t) = sum_(i=1)^n ( (del L)/(del q_i) eta_i + (del L)/(del dot(q_i)) dot(eta_i) )"
+    },
+    {
+      "step": 5,
+      "description": "Evaluate at `epsilon=0` and substitute into `delta S`. ",
+      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ( (del L)/(del q_i) eta_i + (del L)/(del dot(q_i)) dot(eta_i) ) dt"
+    },
+    {
+      "step": 6,
+      "description": "Integrate the term with `dot(eta_i)` by parts, using `dot(eta_i) = d eta_i/dt`.",
+      "equation": "int_(t_1)^(t_2) (del L)/(del dot(q_i)) dot(eta_i) dt = [(del L)/(del dot(q_i)) eta_i]_(t_1)^(t_2) - int_(t_1)^(t_2) d/dt((del L)/(del dot(q_i))) eta_i dt"
+    },
+    {
+      "step": 7,
+      "description": "Use the endpoint conditions `eta_i(t_1)=eta_i(t_2)=0` to eliminate the boundary term.",
+      "equation": "[(del L)/(del dot(q_i)) eta_i]_(t_1)^(t_2) = 0"
+    },
+    {
+      "step": 8,
+      "description": "Collect terms to express the first variation solely in terms of `eta_i(t)`.",
+      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ( (del L)/(del q_i) - d/dt((del L)/(del dot(q_i))) ) eta_i dt"
+    },
+    {
+      "step": 9,
+      "description": "By the fundamental lemma of the calculus of variations, `delta S = 0` for all independent `eta_i` with `eta_i(t_1)=eta_i(t_2)=0` implies the coefficients vanish.",
+      "equation": "d/(dt)((del L)/(del dot(q_i))) - (del L)/(del q_i) = 0, i=1,...,n"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Step 1: Define symbols and a test system (harmonic oscillator)",
+      "t, m, k = sp.symbols('t m k', positive=True, real=True)",
+      "x = sp.Function('x')(t)",
+      "x_dot = sp.diff(x, t)",
+      "",
+      "# Lagrangian L = T - V",
+      "T = sp.Rational(1, 2) * m * x_dot**2",
+      "V = sp.Rational(1, 2) * k * x**2",
+      "L = T - V",
+      "",
+      "# Step 2: Compute partial derivatives of L",
+      "dL_dx = sp.diff(L, x)",
+      "dL_dx_dot = sp.diff(L, x_dot)",
+      "",
+      "# Step 3: Differentiate dL/dx_dot w.r.t time",
+      "ddt_dL_dx_dot = sp.diff(dL_dx_dot, t)",
+      "",
+      "# Step 4: Construct Euler–Lagrange equation",
+      "euler_lagrange = ddt_dL_dx_dot - dL_dx",
+      "euler_lagrange_simplified = sp.simplify(euler_lagrange)",
+      "",
+      "# Step 5: Expected equation of motion: m*x_ddot + k*x = 0",
+      "x_ddot = sp.diff(x, t, 2)",
+      "expected_eom = m * x_ddot + k * x",
+      "assert sp.simplify(euler_lagrange_simplified - expected_eom) == 0",
+      "",
+      "# Step 6: Express in normalized form with ω² = k/m",
+      "omega_sq = k/m",
+      "expected_normalized = x_ddot + omega_sq * x",
+      "normalized_el = sp.simplify(euler_lagrange_simplified / m)",
+      "assert sp.simplify(normalized_el - expected_normalized) == 0",
+      "",
+      "# Step 7: Verify classical solution satisfies the equation",
+      "A, phi = sp.symbols('A phi', real=True)",
+      "omega_val = sp.sqrt(k/m)",
+      "trial_solution = A * sp.cos(omega_val * t + phi)",
+      "trial_ddot = sp.diff(trial_solution, t, 2)",
+      "check_solution = trial_ddot + omega_val**2 * trial_solution",
+      "assert sp.simplify(check_solution) == 0",
+      "",
+      "print(\"All programmatic checks passed: Euler–Lagrange equations verified for harmonic oscillator.\")"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Classical mechanical systems",
+      "Well-defined Lagrangian function",
+      "Smooth and differentiable paths",
+      "Fixed boundary conditions"
+    ],
+    "limitations": [
+      "Classical mechanics only (no quantum effects)",
+      "Requires existence of Lagrangian formulation",
+      "May not apply to systems with friction or non-conservative forces without modification",
+      "Assumes deterministic evolution"
+    ]
+  },
+  "historical_context": {
+    "importance": "Fundamental principle unifying all of classical mechanics and providing foundation for modern field theories",
+    "development_period": "1744-1788",
+    "key_insights": [
+      "Unification of mechanics through single variational principle",
+      "Connection between symmetries and conservation laws",
+      "Foundation for Hamiltonian mechanics",
+      "Basis for quantum mechanics and field theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Maupertuis, P. L. M. (1744). Accord de différentes lois de la nature qui avaient jusqu'ici paru incompatibles. *Mémoires de l'Académie Royale des Sciences de Paris*, 417–426."
+    },
+    {
+      "id": "R2",
+      "citation": "Lagrange, J. L. (1788). Mécanique analytique. Chez la Veuve Desaint."
+    },
+    {
+      "id": "R3",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics (3rd ed.). Addison Wesley."
+    }
+  ],
+  "dependencies": [],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

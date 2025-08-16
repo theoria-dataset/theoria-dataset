@@ -8,9 +8,6 @@ jobs:
   process-new-entry:
     if: contains(github.event.label.name, 'new-entry') || contains(github.event.issue.labels.*.name, 'new-entry')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     
     steps:
       - name: Checkout repository
