@@ -4,26 +4,22 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "u(nu, T) = (8 pi h nu^3)/c^3 * 1/(exp(h nu/(k_B T)) - 1)"
-    },
-    {
-      "id": "eq2",
-      "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
+      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3)*(1)/(e^((h*nu)/(k_B*T)) - 1)"
     }
   ],
-  "explanation": "Blackbody radiation describes the electromagnetic radiation emitted by an ideal absorber (blackbody) in thermal equilibrium. The spectral energy density follows Planck's distribution, which resolved the ultraviolet catastrophe and led to quantum theory. This radiation depends only on temperature and is fundamental to thermodynamics, stellar physics, and quantum mechanics.",
+  "explanation": "Planck's law describes the spectral energy density of black-body radiation as a function of frequency and temperature. By quantizing electromagnetic modes with energy quanta `h*nu`, it resolves the ultraviolet catastrophe of classical physics and underpins modern quantum theory and thermal emission models.",
   "definitions": [
     {
-      "symbol": "u(nu, T)",
-      "definition": "Spectral energy density per unit frequency at temperature T."
+      "symbol": "u(nu,T)",
+      "definition": "Spectral energy density per unit volume and per unit frequency."
     },
     {
       "symbol": "nu",
-      "definition": "Frequency of electromagnetic radiation."
+      "definition": "Radiation frequency."
     },
     {
       "symbol": "T",
-      "definition": "Absolute temperature of the blackbody."
+      "definition": "Absolute temperature."
     },
     {
       "symbol": "h",
@@ -36,74 +32,114 @@
     {
       "symbol": "k_B",
       "definition": "Boltzmann constant."
-    },
-    {
-      "symbol": "sigma",
-      "definition": "Stefan-Boltzmann constant."
     }
   ],
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The body is an ideal absorber and emitter (perfect blackbody)."
+      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`."
     },
     {
       "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T."
+      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent."
     },
     {
       "id": "assumption3",
-      "text": "Electromagnetic modes in the cavity are quantized with energy E = ℏω."
+      "text": "The electromagnetic field is quantized into discrete energy levels `E_n = n*h*nu` for each mode, where `n` is the occupation number and `h*nu` is the fundamental quantum of energy."
     },
     {
       "id": "assumption4",
-      "text": "Electromagnetic field modes are independent oscillators."
+      "text": "Maxwell's equations govern electromagnetic wave propagation, giving the wave equation and dispersion relation `omega^2 = c^2*k^2`."
     },
     {
       "id": "assumption5",
-      "text": "Each mode is in thermal equilibrium described by canonical ensemble."
+      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)."
+    },
+    {
+      "id": "assumption6",
+      "text": "Photons are indistinguishable bosonic particles, following Bose-Einstein statistics."
     }
   ],
   "derivation": [
     {
       "step": 1,
-      "description": "Calculate the density of electromagnetic modes in a cavity using wave mechanics.",
-      "equation": "g(nu) = (8 pi nu^2)/c^3 (density of electromagnetic modes)"
+      "description": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers.",
+      "equation": "E_x = E_(0x) * sin(n_x*pi*x/L) * cos(omega*t); E_y = E_(0y) * sin(n_y*pi*y/L) * cos(omega*t); E_z = E_(0z) * sin(n_z*pi*z/L) * cos(omega*t)"
     },
     {
       "step": 2,
-      "description": "Apply Planck's quantum hypothesis: each mode has discrete energy levels.",
-      "equation": "E_n = n h nu (quantized energy levels, n = 0, 1, 2, ...)"
+      "description": "Boundary conditions determine the allowed wave vector components: each component must be quantized as `k_i = n_i*pi/L` where `n_i` are the mode integers.",
+      "equation": "k_x = n_x*pi/L; k_y = n_y*pi/L; k_z = n_z*pi/L"
     },
     {
       "step": 3,
-      "description": "Calculate the average occupation number using Boltzmann statistics.",
-      "equation": "<n> = sum_{n=0}^oo n exp(-n h nu/(k_B T))/sum_{n=0}^oo exp(-n h nu/(k_B T))"
+      "description": "Calculate the magnitude of the wave vector using the Pythagorean theorem: `|k| = sqrt(k_x^2 + k_y^2 + k_z^2)`.",
+      "equation": "|k| = sqrt(k_x^2 + k_y^2 + k_z^2) = (pi/L) * sqrt(n_x^2 + n_y^2 + n_z^2)"
     },
     {
       "step": 4,
-      "description": "Evaluate the geometric series to get the Bose-Einstein distribution for photons.",
-      "equation": "<n> = 1/(exp(h nu/(k_B T)) - 1)"
+      "description": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`.",
+      "equation": "omega = c*|k|"
     },
     {
       "step": 5,
-      "description": "Find the average energy per mode by multiplying occupation by quantum energy.",
-      "equation": "<E> = <n> h nu = (h nu)/(exp(h nu/(k_B T)) - 1)"
+      "description": "Convert angular frequency to ordinary frequency: `nu = omega/(2*pi)`, yielding the frequency for each mode.",
+      "equation": "nu = omega/(2*pi) = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)"
     },
     {
       "step": 6,
-      "description": "Multiply mode density by average energy to get spectral energy density.",
-      "equation": "u(nu, T) = g(nu) <E> = (8 pi h nu^3)/c^3 * 1/(exp(h nu/(k_B T)) - 1)"
+      "description": "Transform to integer space: since `nu = (c/(2*L)) * sqrt(n_x^2 + n_y^2 + n_z^2)`, solving for the integer radius gives `R = 2*L*nu/c = sqrt(n_x^2 + n_y^2 + n_z^2)`.",
+      "equation": "R = 2*L*nu/c"
     },
     {
       "step": 7,
-      "description": "Integrate over all frequencies to get total energy density (Stefan-Boltzmann law).",
-      "equation": "U = int_0^oo u(nu, T) dnu = sigma T^4 (Stefan-Boltzmann law)"
+      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR.",
+      "equation": "N_(sphere) = (1/8) * (4*pi*R^2) * dR = 1/2*pi*R^2*dR"
     },
     {
       "step": 8,
-      "description": "Evaluate the integral to determine the Stefan-Boltzmann constant.",
-      "equation": "sigma = (2 pi^5 k_B^4)/(15 h^3 c^2)"
+      "description": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count.",
+      "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR"
+    },
+    {
+      "step": 9,
+      "description": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`.",
+      "equation": "N_(all) = pi*(2*L*nu/c)^2*(2*L*dnu/c) = 8*pi*L^3*nu^2*dnu/c^3"
+    },
+    {
+      "step": 10,
+      "description": "Convert to mode density per unit volume by dividing by cavity volume `L^3` and frequency interval `dnu`, yielding `rho(nu)`.",
+      "equation": "rho(nu) = N_(all)/(L^3*dnu) = (8*pi*nu^2)/(c^3)"
+    },
+    {
+      "step": 11,
+      "description": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number.",
+      "equation": "E_n = n*h*nu"
+    },
+    {
+      "step": 12,
+      "description": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`.",
+      "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))"
+    },
+    {
+      "step": 13,
+      "description": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function.",
+      "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))"
+    },
+    {
+      "step": 14,
+      "description": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution.",
+      "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)"
+    },
+    {
+      "step": 15,
+      "description": "Convert average occupation number to average energy per mode using the quantization relation.",
+      "equation": "bar(E) = bar(n) * h*nu = (h*nu)/(exp(h*nu/(k_B*T)) - 1)"
+    },
+    {
+      "step": 16,
+      "description": "Combine mode density with average energy to get spectral energy density (black body assumption 1 ensures this represents thermal emission).",
+      "equation": "u(nu,T) = rho(nu)*bar(E) = (8*pi*nu^2)/(c^3) * (h*nu)/(exp(h*nu/(k_B*T)) - 1) = (8*pi*h*nu^3)/(c^3) * (1)/(exp(h*nu/(k_B*T)) - 1)"
     }
   ],
   "programmatic_verification": {
@@ -111,33 +147,90 @@
     "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
-      "# Define symbols",
-      "nu, T, h, c, k_B = sp.symbols('nu T h c k_B', positive=True)",
-      "# Planck distribution",
-      "u_planck = (8*sp.pi*h*nu**3)/c**3 * 1/(sp.exp(h*nu/(k_B*T)) - 1)",
-      "# Verify limiting cases",
-      "# High frequency limit (Wien's law): exponential cutoff",
-      "u_wien = sp.limit(u_planck, nu, sp.oo)",
-      "assert u_wien == 0",
-      "# Low frequency limit (Rayleigh-Jeans law)",
-      "# For small x = h*nu/(k_B*T), use expansion of 1/(exp(x)-1) ≈ 1/x",
-      "x = h*nu/(k_B*T)",
-      "# In the limit x -> 0: exp(x) ≈ 1 + x, so 1/(exp(x)-1) ≈ 1/x",
-      "u_rj_limit = (8*sp.pi*h*nu**3)/c**3 * (k_B*T)/(h*nu)",
-      "u_rj_simplified = sp.simplify(u_rj_limit)",
-      "u_rj_expected = (8*sp.pi*nu**2*k_B*T)/c**3",
-      "assert sp.simplify(u_rj_simplified - u_rj_expected) == 0",
-      "# Wien displacement law verification",
-      "# The maximum occurs at x ≈ 2.821 where x = hν/(kT)",
-      "x_max_approx = sp.Rational(2821, 1000)",
-      "nu_max = k_B*T*x_max_approx/h",
-      "# Verify Stefan-Boltzmann constant form",
-      "# σ = 2π⁵k⁴/(15h³c²)",
-      "sigma_formula = 2*sp.pi**5*k_B**4/(15*h**3*c**2)",
-      "# Check that the formula has the correct dimensions",
-      "print('Blackbody radiation verification passed!')",
-      "print(f'Wien displacement: ν_max ∝ T with coefficient {x_max_approx}')",
-      "print('Stefan-Boltzmann constant formula verified')"
+      "",
+      "# ===============================",
+      "# Programmatic verification: Blackbody Radiation (Planck law)",
+      "# Robust to SymPy summation quirks and includes classic checks.",
+      "# ===============================",
+      "",
+      "# Symbols",
+      "nu, T, h, k_B, c, L = sp.symbols('nu T h k_B c L', positive=True, real=True)",
+      "dnu, dR = sp.symbols('dnu dR', positive=True, real=True)",
+      "n = sp.symbols('n', integer=True, nonnegative=True)",
+      "",
+      "# ------------------------------",
+      "# Mode counting (per Hz per volume)",
+      "# ------------------------------",
+      "R = 2*L*nu/c",
+      "N_shell = sp.Rational(1,8) * 4*sp.pi*R**2 * dR     # 1/8 octant",
+      "N_all = sp.simplify(2 * N_shell)                    # ×2 polarizations",
+      "assert sp.simplify(N_all - sp.pi*R**2*dR) == 0",
+      "N_all_freq = sp.simplify(N_all.subs({R: 2*L*nu/c, dR: 2*L*dnu/c}))",
+      "rho_nu = sp.simplify(N_all_freq/(L**3 * dnu))",
+      "rho_nu_expected = sp.simplify(8*sp.pi*nu**2/c**3)",
+      "assert sp.simplify(rho_nu - rho_nu_expected) == 0",
+      "",
+      "# ------------------------------",
+      "# Partition function and Bose–Einstein occupancy via q-series",
+      "# ------------------------------",
+      "x = sp.symbols('x', positive=True, real=True)                 # x = h nu / (k_B T)",
+      "q = sp.symbols('q', real=True)",
+      "S = sp.summation(q**n, (n,0, sp.oo))                          # = Piecewise(1/(1-q), |q|<1, ...)",
+      "S_n = sp.summation(n*q**n, (n,0, sp.oo))                      # = Piecewise(q/(1-q)**2, |q|<1, ...)",
+      "Z_q = S.args[0][0]                                            # 1/(1-q) branch",
+      "n_avg_q = sp.simplify(S_n.args[0][0]/Z_q)                     # q/(1-q)",
+      "Z_eval = sp.simplify(Z_q.subs(q, sp.exp(-x)).subs(x, h*nu/(k_B*T)))",
+      "n_avg_eval = sp.simplify(n_avg_q.subs(q, sp.exp(-x)).subs(x, h*nu/(k_B*T)))",
+      "assert sp.simplify(n_avg_eval - 1/(sp.exp(h*nu/(k_B*T)) - 1)) == 0",
+      "",
+      "# Average energy per mode and Planck law u(nu,T)",
+      "E_avg = sp.simplify(h*nu * n_avg_eval)",
+      "u_planck = sp.simplify(rho_nu_expected * E_avg)",
+      "u_expected = sp.simplify((8*sp.pi*h*nu**3)/(c**3 * (sp.exp(h*nu/(k_B*T)) - 1)))",
+      "assert sp.simplify(u_planck - u_expected) == 0",
+      "",
+      "# ------------------------------",
+      "# ω–ν consistency (use ħ = h/(2π))",
+      "# ------------------------------",
+      "omega, hbar = sp.symbols('omega hbar', positive=True, real=True)",
+      "u_omega = sp.simplify((omega**2)/(sp.pi**2*c**3) * (hbar*omega)/(sp.exp(hbar*omega/(k_B*T)) - 1))",
+      "check_omega_to_nu = sp.simplify(u_omega.subs({hbar: h/(2*sp.pi), omega: 2*sp.pi*nu}) * (2*sp.pi) - u_expected)",
+      "assert check_omega_to_nu == 0",
+      "",
+      "# ------------------------------",
+      "# Rayleigh–Jeans (low-ν) and Wien (high-ν) limits",
+      "# ------------------------------",
+      "u_in_x = sp.simplify((8*sp.pi*(k_B*T)**3)/(c**3*h**2) * x**3/(sp.exp(x) - 1))",
+      "# RJ: need series to order >= 3 to capture x^2 term",
+      "u_RJ_series = sp.simplify(sp.series(u_in_x, x, 0, 3).removeO().subs(x, h*nu/(k_B*T)))",
+      "u_RJ_expected = sp.simplify(8*sp.pi*nu**2*k_B*T/c**3)",
+      "assert sp.simplify(u_RJ_series - u_RJ_expected) == 0",
+      "# Wien: ratio → 1 as ν→∞",
+      "ratio_Wien = sp.simplify(u_expected / ((8*sp.pi*h*nu**3)/(c**3) * sp.exp(-h*nu/(k_B*T))))",
+      "assert sp.limit(ratio_Wien, nu, sp.oo) == 1",
+      "",
+      "# ------------------------------",
+      "# Stefan–Boltzmann: ∫_0^∞ u(ν,T) dν = a T^4, a = 8π^5 k_B^4 / (15 c^3 h^3)",
+      "# Use Γ–ζ identity: ∫_0^∞ x^{s-1}/(e^x - 1) dx = Γ(s) ζ(s), s=4 ⇒ π^4/15",
+      "# Also verify numerically to avoid unevaluated Integral",
+      "# ------------------------------",
+      "a_const = sp.simplify(8*sp.pi**5 * k_B**4 / (15 * c**3 * h**3))",
+      "I_closed = sp.gamma(4) * sp.zeta(4)                         # = π^4/15",
+      "I_numeric = sp.N(sp.Integral(sp.Symbol('xx')**3/(sp.exp(sp.Symbol('xx'))-1), (sp.Symbol('xx'), 0, sp.oo)))",
+      "assert abs(float(I_numeric - sp.N(I_closed))) < 1e-10",
+      "u_total_from_x = sp.simplify((8*sp.pi*(k_B*T)**4)/(c**3*h**3) * I_closed)",
+      "assert sp.simplify(u_total_from_x - a_const*T**4) == 0",
+      "",
+      "# ------------------------------",
+      "# Wien's displacement (frequency form): maximize f(x)=x^3/(e^x-1)",
+      "# 3(1 - e^{-x}) - x = 0 ⇒ x_peak ≈ 2.821439372...",
+      "# ------------------------------",
+      "x_var = sp.symbols('x_var', positive=True)",
+      "eq_wien = sp.Eq(3*(1 - sp.exp(-x_var)) - x_var, 0)",
+      "x_peak = sp.nsolve(eq_wien, 3)     # good initial guess near 3",
+      "assert abs(float(x_peak) - 2.821439372) < 1e-6",
+      "",
+      "print('All blackbody verifications passed ✔')"
     ]
   },
   "domain": "quant-ph",
@@ -145,47 +238,39 @@
   "validity_regime": {
     "conditions": [
       "Thermal equilibrium",
-      "Ideal blackbody (perfect absorber/emitter)",
-      "Classical electromagnetic field with quantum energy levels",
-      "Well-defined temperature"
+      "Black body radiation",
+      "Quantum statistical mechanics regime",
+      "Well-defined temperature and frequency"
     ],
     "limitations": [
-      "Assumes perfect blackbody behavior",
-      "Classical field theory with quantum energy",
-      "May need corrections for finite size effects",
-      "Non-equilibrium situations require different treatment"
+      "Limited to ideal black bodies",
+      "Assumes thermal equilibrium",
+      "Classical electromagnetic field treatment",
+      "May need corrections for very high frequencies"
     ]
   },
   "historical_context": {
-    "importance": "Birth of quantum theory, resolved ultraviolet catastrophe, foundation of quantum mechanics",
-    "development_period": "1900",
+    "importance": "Founded quantum theory, resolved ultraviolet catastrophe, basis of thermal radiation",
+    "development_period": "1900-1901",
     "key_insights": [
       "Energy quantization",
-      "Quantum hypothesis",
-      "Resolution of classical paradox",
-      "Foundation of quantum statistics"
+      "Birth of quantum mechanics",
+      "Solution to ultraviolet catastrophe",
+      "Photon concept foundation"
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Planck, M. (1900). Zur Theorie des Gesetzes der Energieverteilung im Normalspektrum. *Verhandlungen der Deutschen Physikalischen Gesellschaft*, 2, 237-245."
-    },
-    {
-      "id": "R2",
-      "citation": "Rybicki, G. B., & Lightman, A. P. (1979). *Radiative Processes in Astrophysics*. Wiley."
+      "citation": "Planck, M. (1901). On the Law of Distribution of Energy in the Normal Spectrum. Annalen der Physik, 309(3), 553-563."
     }
   ],
-  "dependencies": [
-    "planck_radiation_law",
-    "stefan_boltzmann_law",
-    "wiens_displacement_law"
-  ],
+  "dependencies": ["maxwell_equations", "partition_function"],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
