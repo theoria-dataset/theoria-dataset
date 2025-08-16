@@ -8,7 +8,7 @@
     },
     {
       "id": "eq2",
-      "equation": "dJ/dt = 0"
+      "equation": "(dJ)/(dt) = 0"
     }
   ],
   "explanation": "Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities. For example, time translation symmetry leads to energy conservation, spatial translation symmetry to linear momentum conservation, and rotational symmetry to angular momentum conservation. It is a cornerstone of theoretical physics, providing deep insights into the structure of physical laws.",

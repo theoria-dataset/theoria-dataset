@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.4.5",
+  "dataset_version": "0.4.6",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -165,6 +165,13 @@
         "Reviewed Planck radiation law and Kepler's laws entry",
         "Merged derivation and derivation_explanation fields into unified derivation structure with inline descriptions",
         "Added Google Colab integration with pre-generated Jupyter notebooks for all programmatic verifications"
+      ]
+    },
+    {
+      "version": "0.4.6",
+      "date": "2025-08-16",
+      "changes": [
+        "Added principle of least action entry with comprehensive derivation and harmonic oscillator verification"
       ]
     }
   ]
