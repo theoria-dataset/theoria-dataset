@@ -14,7 +14,7 @@
       "definition": "Wavefunction of the particle, function of position x and time t."
     },
     {
-      "symbol": "hbar",
+      "symbol": "ħ",
       "definition": "Reduced Planck constant (`ħ = h/2π`)."
     },
     {
@@ -131,10 +131,7 @@
       "Superseded by quantum field theory at high energies"
     ]
   },
-  "superseded_by": [
-    "dirac_equation_free",
-    "qed_lagrangian"
-  ],
+  "superseded_by": ["dirac_equation_free", "qed_lagrangian"],
   "historical_context": {
     "importance": "Foundation of quantum mechanics, describes microscopic world dynamics",
     "development_period": "1925-1926",

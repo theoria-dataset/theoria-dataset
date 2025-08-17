@@ -6,7 +6,7 @@
 #   make validate FILE=name      - Validate entry schema only
 #   make help                    - Show this help
 
-.PHONY: help test test-entry validate build-requirements build
+.PHONY: help test test-entry validate build-requirements build pre-push
 
 help:
 	@echo "🧬 TheorIA Dataset - Helper Commands"
@@ -18,6 +18,7 @@ help:
 	@echo "  make validate FILE=<name>        - Validate entry schema only"
 	@echo "  make build-requirements       - Rebuild CONTRIBUTING.md and form requirements from JSON"
 	@echo "  make build                    - Generate entries index HTML"
+	@echo "  make pre-push                 - Run all build steps and tests before pushing"
 	@echo "  make help                     - Show this help"
 	@echo ""
 	@echo "Examples:"
@@ -57,6 +58,18 @@ build-requirements:
 build:
 	@echo "🏗️ Generating entries index HTML..."
 	docker-compose run --rm theoria-tests python scripts/generate_index.py
+
+pre-push:
+	@echo "🚀 Running all build steps and tests before push..."
+	@echo "📋 Step 1/4: Rebuilding requirements..."
+	python scripts/build_requirements.py
+	@echo "📔 Step 2/4: Generating notebooks..."
+	python scripts/generate_notebooks.py
+	@echo "🏗️ Step 3/4: Generating index..."
+	docker-compose run --rm theoria-tests python scripts/generate_index.py
+	@echo "🧪 Step 4/4: Running tests..."
+	docker-compose run --rm theoria-tests python scripts/test_entry.py
+	@echo "✅ All pre-push steps completed successfully!"
 
 # Legacy support for original verification
 verify:

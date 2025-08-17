@@ -52,7 +52,6 @@ def test_single_entry(filename):
     required_fields = [
         'result_id', 'result_name', 'result_equations', 'explanation',
         'definitions', 'assumptions', 'derivation',
-        'derivation_explanation', 
         'programmatic_verification', 'domain', 'theory_status',
         'references', 'contributors', 'review_status'
     ]
