@@ -7,7 +7,7 @@ CRITICAL REQUIREMENTS
 
 1. DERIVATION COMPLETENESS
 
-- Expand shallow derivations: If the derivation has fewer than 10 steps, it's likely too condensed
+- Expand shallow derivations
 - Show ALL intermediate steps: Never skip algebraic manipulations or substitutions
 - Start from first principles: Begin with fundamental equations (Maxwell's equations, statistical mechanics, etc.)
 - Use proper step numbering: Sequential integers starting from 1
