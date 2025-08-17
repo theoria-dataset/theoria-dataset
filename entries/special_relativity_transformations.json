@@ -1,6 +1,6 @@
 {
-  "result_id": "special_relativity",
-  "result_name": "Special Theory of Relativity",
+  "result_id": "special_relativity_transformations",
+  "result_name": "Special Relativity Coordinate Transformations",
   "result_equations": [
     {
       "id": "lorentz_time",
@@ -23,23 +23,15 @@
       "equation": "gamma = 1/sqrt(1 - (v^2/c^2))"
     },
     {
-      "id": "relativistic_energy",
-      "equation": "E = gamma*m*c^2"
+      "id": "time_dilation",
+      "equation": "Delta t' = gamma*Delta t"
     },
     {
-      "id": "relativistic_momentum",
-      "equation": "vec p = gamma*m*vec v"
-    },
-    {
-      "id": "energy_momentum_relation",
-      "equation": "E^2 = (p*c)^2 + (m*c^2)^2"
-    },
-    {
-      "id": "rest_energy",
-      "equation": "E_0 = m*c^2"
+      "id": "length_contraction",
+      "equation": "Delta x' = (Delta x)/(gamma)"
     }
   ],
-  "explanation": "Einstein's special theory of relativity revolutionized our understanding of space, time, mass, and energy. Built on two postulates - the relativity principle and the constancy of light speed - it derives the Lorentz transformations that describe how space and time coordinates change between inertial frames. The theory unifies space and time into spacetime, introduces time dilation and length contraction, establishes the relativistic energy-momentum relations, and reveals the famous mass-energy equivalence E = mc². These transformations ensure the invariance of the speed of light and the spacetime interval, forming the foundation of modern physics.",
+  "explanation": "Einstein's special theory of relativity derives the coordinate transformations between inertial reference frames moving at constant relative velocity. Built on two fundamental postulates - the relativity principle and the constancy of light speed - the theory reveals that space and time are unified into spacetime. The transformations ensure the invariance of the speed of light and the spacetime interval, leading to the profound consequences of time dilation and length contraction. These transformations replace the classical Galilean transformations and form the foundation for understanding relativistic kinematics.",
   "definitions": [
     {
       "symbol": "t",
@@ -78,20 +70,12 @@
       "definition": "Lorentz factor, defined as 1/sqrt(1-(v^2/c^2))."
     },
     {
-      "symbol": "E",
-      "definition": "Relativistic energy of a particle."
+      "symbol": "Delta t",
+      "definition": "Time interval measured in the stationary frame."
     },
     {
-      "symbol": "vec p",
-      "definition": "Relativistic momentum vector."
-    },
-    {
-      "symbol": "m",
-      "definition": "Rest mass (invariant mass) of the particle."
-    },
-    {
-      "symbol": "E_0",
-      "definition": "Rest energy of the particle (E_0 = mc^2)."
+      "symbol": "Delta x",
+      "definition": "Spatial interval measured in the stationary frame."
     }
   ],
   "assumptions": [
@@ -110,10 +94,6 @@
     {
       "id": "assumption4",
       "text": "Reference frames move with constant relative velocity (no acceleration)."
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy and momentum conservation hold in relativistic mechanics."
     }
   ],
   "derivation": [
@@ -174,133 +154,18 @@
     },
     {
       "step": 12,
-      "description": "Substitute γ back into the equations to obtain the Lorentz tranformation.",
+      "description": "Substitute `gamma` back into the equations to obtain the Lorentz tranformation.",
       "equation": "x' = gamma*(x - v*t); t' = gamma*(t - v/c^2*x); gamma = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 13,
-      "description": "Time dilation: time intervals are longer in the moving frame.",
+      "description": "Time dilation: time intervals are longer in the moving frame. For events at the same spatial location in S (Δx = 0), the time interval in S' is dilated.",
       "equation": "Delta t' = gamma*Delta t"
     },
     {
       "step": 14,
-      "description": "Length contraction: spatial intervals are shorter in the moving frame.",
+      "description": "Length contraction: spatial intervals are shorter in the moving frame. For simultaneous events in S' (Δt' = 0), the spatial interval contracts.",
       "equation": "Delta x' = (Delta x)/(gamma)"
-    },
-    {
-      "step": 15,
-      "description": "Redefine force as the rate of change of relativistic momentum.",
-      "equation": "vec F = (d vec p)/(dt)"
-    },
-    {
-      "step": 16,
-      "description": "Define relativistic momentum to preserve conservation laws.",
-      "equation": "vec p = gamma*m*vec v"
-    },
-    {
-      "step": 17,
-      "description": "Calculate work done to accelerate a particle, leading to relativistic energy.",
-      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
-    },
-    {
-      "step": 18,
-      "description": "Rewrite the work integral using the relation between force and momentum.",
-      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p"
-    },
-    {
-      "step": 19,
-      "description": "Substitute the relativistic momentum `vec p = gamma*m*vec v` into the integral.",
-      "equation": "E = int vec v * d(gamma*m*vec v) = m*int vec v * d(gamma*vec v)"
-    },
-    {
-      "step": 20,
-      "description": "Apply the product rule to expand `d(gamma*vec v)`.",
-      "equation": "d(gamma*vec v) = d gamma * vec v + gamma * d vec v"
-    },
-    {
-      "step": 21,
-      "description": "Distribute the dot product and separate the integral terms.",
-      "equation": "E = m*int vec v * (d gamma * vec v + gamma * d vec v) = m*int (vec v^2 * d gamma + gamma * vec v * d vec v)"
-    },
-    {
-      "step": 22,
-      "description": "Calculate the differential of the Lorentz factor `gamma` with respect to velocity.",
-      "equation": "d gamma = d(1/sqrt(1 - v^2/c^2)) = (gamma^3 * v * dv)/c^2"
-    },
-    {
-      "step": 23,
-      "description": "Substitute the expression for `d gamma` into the integral.",
-      "equation": "E = m*int (v^2 * (gamma^3 * v * dv)/c^2 + gamma * v * dv)"
-    },
-    {
-      "step": 24,
-      "description": "Factor out common terms from the integrand, including `gamma`.",
-      "equation": "E = m*int v*dv * gamma * (v^2*gamma^2/c^2 + 1)"
-    },
-    {
-      "step": 25,
-      "description": "Show that `v^2*gamma^2/c^2 + 1 = gamma^2` using the definition of the Lorentz factor.",
-      "equation": "v^2*gamma^2/c^2 + 1 = v^2/(c^2*(1-v^2/c^2)) + 1 = (v^2 + c^2 - v^2)/(c^2*(1-v^2/c^2)) = c^2/(c^2*(1-v^2/c^2)) = gamma^2"
-    },
-    {
-      "step": 26,
-      "description": "Use the relation `d gamma = (gamma^3*v*dv)/c^2` to transform the integral to `int d gamma`.",
-      "equation": "E = m*int v*gamma^3*dv = m*c^2*int (v/c^2)*gamma^3*dv = m*c^2*int d gamma"
-    },
-    {
-      "step": 27,
-      "description": "Evaluate the integral from `gamma = 1` (at `v=0`) to `gamma` to get kinetic energy.",
-      "equation": "E = m*c^2 * (gamma - 1)|_1^gamma = m*c^2 * (gamma - 1)"
-    },
-    {
-      "step": 28,
-      "description": "Add the rest energy `E_0 = m*c^2` to the kinetic energy `E_k` to get the total energy.",
-      "equation": "E = E_k + E_0 = m*c^2*(gamma - 1) + m*c^2"
-    },
-    {
-      "step": 29,
-      "description": "Final relativistic energy formula `E = gamma*m*c^2`.",
-      "equation": "E = gamma*m*c^2"
-    },
-    {
-      "step": 30,
-      "description": "Identify rest energy when velocity is zero.",
-      "equation": "E_0 = m*c^2"
-    },
-    {
-      "step": 31,
-      "description": "State the relativistic energy and momentum expressions to derive their relationship.",
-      "equation": "E = gamma*m*c^2, p = gamma*m*v"
-    },
-    {
-      "step": 32,
-      "description": "Square the energy expression.",
-      "equation": "E^2 = (gamma*m*c^2)^2 = gamma^2*m^2*c^4"
-    },
-    {
-      "step": 33,
-      "description": "Square the momentum expression multiplied by `c`.",
-      "equation": "(p*c)^2 = (gamma*m*v*c)^2 = gamma^2*m^2*v^2*c^2"
-    },
-    {
-      "step": 34,
-      "description": "Calculate `E^2 - (pc)^2` by subtracting the squared expressions.",
-      "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^4 - gamma^2*m^2*v^2*c^2"
-    },
-    {
-      "step": 35,
-      "description": "Factor out common terms from the difference.",
-      "equation": "E^2 - (p*c)^2 = gamma^2*m^2*c^2*(c^2 - v^2)"
-    },
-    {
-      "step": 36,
-      "description": "Use the definition of the Lorentz factor to simplify `gamma^2*(c^2 - v^2)`.",
-      "equation": "gamma^2*(c^2 - v^2) = (c^2 - v^2)/(1 - v^2/c^2) = c^2"
-    },
-    {
-      "step": 37,
-      "description": "Arrive at the fundamental energy-momentum-mass relation.",
-      "equation": "E^2 - (p*c)^2 = m^2*c^4 = (m*c^2)^2"
     }
   ],
   "programmatic_verification": {
@@ -310,7 +175,7 @@
       "import sympy as sp",
       "",
       "# ===============================",
-      "# Programmatic verification for Special Relativity",
+      "# Programmatic verification for Special Relativity Transformations",
       "# Python 3.11, SymPy 1.12",
       "# Mirrors the derivation steps with asserts.",
       "# ===============================",
@@ -318,7 +183,6 @@
       "# Symbols",
       "A, B, D, E, v, c, x, t = sp.symbols('A B D E v c x t', real=True, finite=True)",
       "c_pos = sp.symbols('c_pos', positive=True, real=True)",
-      "# We'll replace c by c_pos in places that require positivity.",
       "",
       "# ------------------------------",
       "# Steps 1-3: Linear map + origin worldline",
@@ -361,7 +225,7 @@
       "# Choose positive root A = 1/sqrt(1 - v^2/c^2) = γ",
       "gamma = 1/sp.sqrt(1 - v**2/c_pos**2)",
       "",
-      "# Final Lorentz transform:",
+      "# Final coordinate transformation:",
       "x_prime = sp.simplify(x_p2.subs(A, gamma))",
       "t_prime = sp.simplify(t_p2.subs(A, gamma))",
       "assert sp.simplify(x_prime - gamma*(x - v*t)) == 0",
@@ -389,47 +253,13 @@
       "assert sp.simplify(dxp - dx/gamma) == 0",
       "",
       "# ------------------------------",
-      "# Steps 15-29: Energy from work and γ identities",
-      "# ------------------------------",
-      "m = sp.symbols('m', positive=True, real=True)",
-      "gamma_v = 1/sp.sqrt(1 - v**2/c_pos**2)",
-      "",
-      "# dγ/dv identity (Step 22):",
-      "dgamma_dv = sp.simplify(sp.diff(gamma_v, v))",
-      "assert sp.simplify(dgamma_dv - (v/c_pos**2)*gamma_v**3) == 0",
-      "",
-      "# Identity v^2 γ^2 / c^2 + 1 = γ^2 (Step 25):",
-      "lhs = v**2*gamma_v**2/c_pos**2 + 1",
-      "rhs = gamma_v**2",
-      "assert sp.simplify(lhs - rhs) == 0",
-      "",
-      "# Total relativistic energy and momentum:",
-      "E_rel = sp.simplify(gamma_v*m*c_pos**2)",
-      "p_rel = sp.simplify(gamma_v*m*v)",
-      "",
-      "# Rest limits:",
-      "assert sp.simplify(E_rel.subs(v, 0) - m*c_pos**2) == 0",
-      "assert sp.simplify(p_rel.subs(v, 0)) == 0",
-      "",
-      "# ------------------------------",
-      "# Steps 31-37: Energy–momentum relation",
-      "# ------------------------------",
-      "E2_minus_p2c2 = sp.simplify(E_rel**2 - (p_rel*c_pos)**2)",
-      "assert sp.simplify(E2_minus_p2c2 - (m*c_pos**2)**2) == 0",
-      "",
-      "# ------------------------------",
       "# Extra sanity checks",
       "# ------------------------------",
       "# γ at v = 0.6c is 1.25:",
-      "gamma_test = sp.simplify(gamma_v.subs(v, sp.Rational(3,5)*c_pos))",
+      "gamma_test = sp.simplify(gamma.subs(v, sp.Rational(3,5)*c_pos))",
       "assert sp.simplify(gamma_test - sp.Rational(5,4)) == 0",
       "",
-      "# Low-velocity expansion: E ≈ mc^2 + (1/2) m v^2 + O(v^4)",
-      "series = sp.series(E_rel.expand(), v, 0, 3).removeO()",
-      "expected_series = m*c_pos**2 + sp.Rational(1,2)*m*v**2",
-      "assert sp.simplify(series - expected_series) == 0",
-      "",
-      "print('All special relativity verifications passed ✔')"
+      "print('All special relativity transformation verifications passed ✔')"
     ]
   },
   "domain": "gr-qc",
@@ -438,8 +268,7 @@
     "conditions": [
       "Inertial reference frames (no acceleration)",
       "Flat spacetime (negligible gravitational effects)",
-      "Velocities comparable to speed of light",
-      "Well-defined rest masses"
+      "Velocities comparable to speed of light"
     ],
     "limitations": [
       "Does not account for gravitational effects",
@@ -449,12 +278,12 @@
   },
   "superseded_by": ["einstein_field_equations"],
   "historical_context": {
-    "importance": "Revolutionary unification of space, time, mass, and energy",
+    "importance": "Revolutionary unification of space and time into spacetime",
     "development_period": "1905",
     "key_insights": [
       "Spacetime unity",
       "Relativity of simultaneity",
-      "Mass-energy equivalence",
+      "Time dilation and length contraction",
       "Universal speed limit"
     ]
   },

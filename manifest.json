@@ -171,7 +171,8 @@
       "version": "0.4.6",
       "date": "2025-08-16",
       "changes": [
-        "Added principle of least action entry with comprehensive derivation and harmonic oscillator verification"
+        "Added principle of least action entry with comprehensive derivation and harmonic oscillator verification",
+        "Split special_relativity entry into two focused entries: special_relativity_transformations (coordinate transformations, time dilation, length contraction) and relativistic_energy_momentum (energy-momentum relations, mass-energy equivalence)"
       ]
     }
   ]
