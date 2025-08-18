@@ -1,5 +1,5 @@
-// Auto-generated from C:\Users\Manuel\code\theoria-dataset\schemas\entry.schema.json
-// Do not edit manually - regenerate using scripts/generate_form_requirements.py
+// Auto-generated from entry.schema.json
+// Do not edit manually - regenerate using scripts/build.py
 
 const FIELD_REQUIREMENTS = {
   "$schema": "http://json-schema.org/draft-07/schema#",
@@ -324,22 +324,22 @@ const FIELD_REQUIREMENTS = {
 
 // Helper functions for accessing requirement data
 function getFieldGuidelines(fieldName) {
-    const field = FIELD_REQUIREMENTS.fields[fieldName];
+    const field = FIELD_REQUIREMENTS.properties[fieldName];
     return field ? field.guidelines || [] : [];
 }
 
 function getFieldDescription(fieldName) {
-    const field = FIELD_REQUIREMENTS.fields[fieldName];
+    const field = FIELD_REQUIREMENTS.properties[fieldName];
     return field ? field.description || '' : '';
 }
 
 function getFieldExample(fieldName) {
-    const field = FIELD_REQUIREMENTS.fields[fieldName];
+    const field = FIELD_REQUIREMENTS.properties[fieldName];
     return field ? field.example || null : null;
 }
 
 function getFieldConstraints(fieldName) {
-    const field = FIELD_REQUIREMENTS.fields[fieldName];
+    const field = FIELD_REQUIREMENTS.properties[fieldName];
     if (!field) return {};
     
     const constraints = {};
@@ -349,15 +349,12 @@ function getFieldConstraints(fieldName) {
     if (field.minItems) constraints.minItems = field.minItems;
     if (field.pattern) constraints.pattern = field.pattern;
     if (field.enum) constraints.enum = field.enum;
-    if (field.wordLimit) constraints.wordLimit = field.wordLimit;
-    if (field.sentenceRange) constraints.sentenceRange = field.sentenceRange;
     
     return constraints;
 }
 
 function isFieldRequired(fieldName) {
-    const field = FIELD_REQUIREMENTS.fields[fieldName];
-    return field ? field.required === true : false;
+    return FIELD_REQUIREMENTS.required.includes(fieldName);
 }
 
 function formatGuidelines(guidelines) {

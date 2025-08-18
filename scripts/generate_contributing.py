@@ -56,8 +56,8 @@ def format_field_section(field_name, field_data, is_required=False):
     return lines
 
 
-def generate_contributing_md(requirements_file, output_file):
-    """Generate CONTRIBUTING.md from requirements JSON"""
+def generate_contributing_md(requirements_file, static_file, output_file):
+    """Generate CONTRIBUTING.md from static content + requirements JSON"""
 
     # Load requirements
     with open(requirements_file, 'r', encoding='utf-8') as f:
@@ -65,17 +65,29 @@ def generate_contributing_md(requirements_file, output_file):
 
     lines = []
 
-    # Header
+    # Load static content if it exists
+    if Path(static_file).exists():
+        with open(static_file, 'r', encoding='utf-8') as f:
+            static_content = f.read()
+        lines.extend(static_content.split('\n'))
+        lines.append("")
+    else:
+        # Fallback to original header if no static file
+        lines.extend([
+            "# Contributing to TheorIA Dataset",
+            "",
+            "Welcome to TheorIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.",
+            "",
+            "To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.",
+            "",
+        ])
+
+    # Add schema-generated section
     lines.extend([
-        "# Contributing to TheorIA Dataset",
+        "## Dataset Entry Structure",
         "",
-        "Welcome to TheorIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.",
-        "",
-        "To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.",
-        "",
-        "## Dataset Entry structure",
-        "",
-        "Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.",
+        "Each entry should be a self-contained relevant physics result in JSON format.",
+        "All entries must be valid according to the schema in `schemas/entry.schema.json`.",
         ""
     ])
 
@@ -125,43 +137,12 @@ def generate_contributing_md(requirements_file, output_file):
         ""
     ])
 
-    # Footer
-    lines.extend([
-        "## Version Control & Collaboration",
-        "",
-        "- We will use Git and GitHub for versioning.",
-        "- Submit pull requests for new entries or changes.",
-        "- Ensure your JSON files validate against the schema (CI will check this automatically).",
-        "",
-        "## Example",
-        ""
-    ])
-
-    # Add hardcoded example reference since we removed x-examples from schema for strict mode compatibility
-    lines.append("See `entries/special_relativity.json` for a complete, compliant example.")
-
+    # Add auto-generation notice
     lines.extend([
         "",
-        "## Automatic Jupyter Notebooks",
+        "---",
         "",
-        "Every entry in the dataset automatically gets a corresponding Jupyter notebook generated for interactive exploration:",
-        "",
-        "- **Location**: `notebooks/{result_id}_verification.ipynb`",
-        "- **Content**: Complete programmatic verification code with exact library versions",
-        "- **Google Colab Integration**: Each entry page includes an 'Open in Colab' badge for instant access",
-        "- **Automatic Generation**: Notebooks are regenerated automatically via GitHub Actions on every push",
-        "",
-        "When you contribute an entry, the system will automatically:",
-        "1. Generate a Jupyter notebook from your `programmatic_verification` code",
-        "2. Include proper library installation commands with exact versions",
-        "3. Add links back to the original entry for context",
-        "4. Make it available via Google Colab for interactive exploration",
-        "",
-        "No manual action is needed - notebooks are maintained automatically!",
-        "",
-        "Happy contributing!",
-        "",
-        "IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry.",
+        "**IMPORTANT**: This CONTRIBUTING.md file is automatically generated from `CONTRIBUTING.static.md` and `schemas/entry.schema.json`. To update the guidelines, edit those source files and run the build script.",
         ""
     ])
 
@@ -177,6 +158,7 @@ if __name__ == "__main__":
     project_root = script_dir.parent
 
     requirements_file = project_root / "schemas" / "entry.schema.json"
+    static_file = project_root / "CONTRIBUTING.static.md"
     output_file = project_root / "CONTRIBUTING.md"
 
-    generate_contributing_md(requirements_file, output_file)
+    generate_contributing_md(requirements_file, static_file, output_file)
