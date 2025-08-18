@@ -1,5 +1,5 @@
 // Auto-generated from entry.schema.json
-// Do not edit manually - regenerate using scripts/build.py
+// Do not edit manually - regenerate using scripts/generate_form_requirements.py
 
 const FIELD_REQUIREMENTS = {
   "$schema": "http://json-schema.org/draft-07/schema#",

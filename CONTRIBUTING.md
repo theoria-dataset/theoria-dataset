@@ -4,14 +4,6 @@ Welcome to TheorIA dataset! This dataset provides a high-quality collection of t
 
 ## Getting Started
 
-### Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/) (usually included with Docker Desktop)
-- Git for version control
-
-### Fork and Clone
-
 1. **Fork** this repository on GitHub
 2. **Clone** your fork locally:
    ```bash
@@ -19,69 +11,18 @@ Welcome to TheorIA dataset! This dataset provides a high-quality collection of t
    cd theoria-dataset
    ```
 
-## Development Setup
+## Development Environment
 
-### Running Tests Locally
+For detailed setup instructions, testing procedures, and script documentation, see **[DEVELOPMENT.md](DEVELOPMENT.md)**.
 
-To ensure your environment exactly matches our CI, we use Docker for all testing:
-
-#### Quick Test Run
-```bash
-# Run all tests (same as CI)
-docker-compose run --rm theoria-tests
-```
-
-This will:
-1. Build the Docker image with the exact CI environment
-2. Validate all JSON entries against the schema
-3. Run programmatic verifications for physics equations
-4. Execute unit tests
-
-#### Development Shell
-For interactive development and debugging:
-```bash
-docker-compose run --rm theoria-dev
-```
-
-This gives you a bash shell inside the container where you can:
-```bash
-# Run individual test components
-ajv validate -s schemas/entry.schema.json -d entries/your_file.json
-python scripts/verify_programmatic.py
-pytest tests/ -v
-
-# Or run the full test suite
-run-tests
-```
-
-#### Testing Individual Entries
+Quick testing commands:
 ```bash
 # Test a specific entry
 make test-entry FILE=your_entry_name
 
-# Test all entries
+# Test all entries  
 make test
 ```
-
-### Environment Details
-
-The Docker environment includes:
-- **Python 3.11.12** (exact CI version)
-- **Node.js 18** with **ajv-cli** for JSON validation
-- **SymPy 1.12.0** (exact CI version) 
-- **pytest** for unit testing
-
-### Building Documentation
-
-Our documentation is auto-generated from the schema. To rebuild:
-```bash
-make build
-```
-
-This runs the consolidated build script that generates:
-- CONTRIBUTING.md (this file when generated)
-- Form requirements JavaScript
-- Static form HTML
 
 ## Entry Guidelines
 
