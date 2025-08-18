@@ -1,8 +1,10 @@
-version: "3.8"
-
 services:
   theoria-tests:
-    build: .
+    build: 
+      context: .
+      platforms:
+        - linux/amd64
+        - linux/arm64
     container_name: theoria-dev
     volumes:
       - .:/app
@@ -12,7 +14,11 @@ services:
 
   # Interactive development shell
   theoria-dev:
-    build: .
+    build: 
+      context: .
+      platforms:
+        - linux/amd64
+        - linux/arm64
     container_name: theoria-dev-shell
     volumes:
       - .:/app

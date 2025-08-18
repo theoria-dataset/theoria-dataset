@@ -40,12 +40,10 @@ def format_field_section(field_name, field_data, is_required=False):
 
     # Description (now contains both description and guidelines)
     if 'description' in field_data:
-        # Split the combined description by sentences for better formatting
+        # Don't split on periods since they can appear in examples like (e.g., ...)
+        # Just use the description as one block
         description = field_data['description']
-        sentences = [s.strip() for s in description.split('.') if s.strip()]
-        for sentence in sentences:
-            if sentence:
-                lines.append(f"  - {sentence}")
+        lines.append(f"  - {description}")
 
     # Example
     if 'example' in field_data:
@@ -74,8 +72,6 @@ def generate_contributing_md(requirements_file, output_file):
         "Welcome to TheorIA dataset! This dataset is being built, and it is designed to provide a high quality collection of theoretical physics equations, derivations, and explanations in a structured format. We encourage contributions from researchers, educators, and enthusiasts in the field of theoretical physics. We need your help to expand the dataset with new entries, peer review existing enties, and ensure the high quality of the content.",
         "",
         "To facilitate your contributions, please follow the guidelines below, that explain the structure of each entry in the dataset, as well as its requirements.",
-        "",
-        "IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry."
         "",
         "## Dataset Entry structure",
         "",
@@ -164,6 +160,8 @@ def generate_contributing_md(requirements_file, output_file):
         "No manual action is needed - notebooks are maintained automatically!",
         "",
         "Happy contributing!",
+        "",
+        "IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `entry.shema.json` file, which holds the source of truth on the requirements for each entry.",
         ""
     ])
 

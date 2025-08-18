@@ -1,20 +1,15 @@
 FROM python:3.11.12-slim
 
-# Install Node.js 18 using binary distribution (faster and cleaner)
+# Install Node.js 18 using NodeSource repository (supports multiple architectures)
 RUN apt-get update && \
-    apt-get install -y curl xz-utils && \
-    curl -fsSL https://nodejs.org/dist/v18.20.4/node-v18.20.4-linux-x64.tar.xz | tar -xJ -C /opt && \
-    ln -sf /opt/node-v18.20.4-linux-x64/bin/node /usr/local/bin/node && \
-    ln -sf /opt/node-v18.20.4-linux-x64/bin/npm /usr/local/bin/npm && \
-    ln -sf /opt/node-v18.20.4-linux-x64/bin/npx /usr/local/bin/npx && \
+    apt-get install -y curl gnupg && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set up Node.js environment and install ajv-cli globally
-ENV NODE_PATH="/opt/node-v18.20.4-linux-x64/lib/node_modules"
-ENV PATH="/opt/node-v18.20.4-linux-x64/bin:$PATH"
-RUN npm install -g ajv-cli && \
-    ln -sf /opt/node-v18.20.4-linux-x64/bin/ajv /usr/local/bin/ajv
+# Install ajv-cli globally
+RUN npm install -g ajv-cli
 
 # Set working directory
 WORKDIR /app
