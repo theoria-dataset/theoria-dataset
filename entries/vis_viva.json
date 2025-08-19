@@ -1,0 +1,180 @@
+{
+  "result_id": "vis_viva",
+  "result_name": "Vis-Viva Equation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "v^2=GM(2/r-1/a)"
+    }
+  ],
+  "explanation": "The Vis-Viva equation relates the velocity of a particle in an elliptical orbit to the distance to the barycenter, mass of the body it's orbiting, and the semi-major axis of the orbit",
+  "definitions": [
+    {
+      "symbol": "v",
+      "definition": "Orbital velocity of the particle"
+    },
+    {
+      "symbol": "G",
+      "definition": "Newton's Gravitational Constant: `6.67*10^(-11)`"
+    },
+    {
+      "symbol": "M",
+      "definition": "Mass of the body being orbited"
+    },
+    {
+      "symbol": "r",
+      "definition": "Distance from the center of mass of the orbiting body to the barycenter of the system"
+    },
+    {
+      "symbol": "a",
+      "definition": "The semi-major axis of the orbit"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "assumption1",
+      "text": "The orbiting body behaves as a point mass"
+    },
+    {
+      "id": "assumption2",
+      "text": "The sum of the Kinetic energy and GPE of the particle remains constant"
+    },
+    {
+      "id": "assumption3",
+      "text": "The only force acting on the particle is the force due to Gravity"
+    },
+    {
+      "id": "assumption4",
+      "text": "The massses of all the bodies in the system remains constant"
+    },
+    {
+      "id": "assumption5",
+      "text": "Conservation of momentum holds"
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Apply conservation of energy to eqaute the energies at the apoapsis and periapsis",
+      "equation": "1/2 mv_a^2 - (GMm)/r_a = 1/2mv_p^2-(GMm)/r_p"
+    },
+    {
+      "step": 2,
+      "description": "Rearrange and simplify the expression in step one",
+      "equation": "v_a^2/2 - v_p^2/2 = (GM)/r_a - (GM)/r_p"
+    },
+    {
+      "step": 3,
+      "description": "Use conservation of momentum to obtain an expression for v_p in terms of r_a, r_p and v_a",
+      "equation": "L=const=v_ar_a=v_pr_p => v_p = (r_av_a)/r_p"
+    },
+    {
+      "step": 4,
+      "description": "Substitute this expression into the energy equation from step 2",
+      "equation": "1/2(1-(r_a/r_p)^2)v_a^2 = (GM)/r_a - (GM)/r_p"
+    },
+    {
+      "step": 5,
+      "description": "Isolate v_a^2/2 (KE at apoapsis)",
+      "equation": "v_a^2/2 = GMr_p/(r_a(r_p+r_a))"
+    },
+    {
+      "step": 6,
+      "description": "Use the identity r_a+r_p=2a to simplify the expression",
+      "equation": "v_a^2/2 = GM(2a-r_a)/(r_a(2a)) = (GM)/r_a-(GM)/2a"
+    },
+    {
+      "step": 7,
+      "description": "Equate the total energy at any point in the orbit where the particle's velocity is v with the velocity at the apoapsis and use the expression from step 6 to eliminate r_a and v_a",
+      "equation": "v^2/2 - (GM)/2 = v_a^2/2 - (GM)/r_a = -(GM)/2a"
+    },
+    {
+      "step": 8,
+      "description": "Rearrange the expression v^2/2 - GM/2 = -(GM)/2a",
+      "equation": "v^2 = GM(2/r-1/a)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Example: Alpha decay of Uranium-238",
+      "# 238U -> 234Th + 4He + Q",
+      "# Atomic masses in atomic mass units (u)",
+      "M_U238 = sp.Rational(238050788, 1000000)  # u (approximate)",
+      "M_Th234 = sp.Rational(234043601, 1000000)  # u (approximate)",
+      "M_He4 = sp.Rational(4002603, 1000000)    # u (approximate)",
+      "c_squared = sp.symbols('c_squared', positive=True)  # c^2 factor",
+      "# Q-value calculation",
+      "Q_alpha = (M_U238 - M_Th234 - M_He4) * c_squared",
+      "# Verify positive Q-value (energetically favorable)",
+      "mass_diff = M_U238 - M_Th234 - M_He4",
+      "assert mass_diff > 0  # Decay is energetically allowed",
+      "# Momentum conservation and energy sharing",
+      "M_daughter = M_Th234",
+      "M_alpha = M_He4",
+      "# Kinetic energy of alpha particle",
+      "T_alpha_fraction = M_daughter / (M_daughter + M_alpha)",
+      "T_alpha = Q_alpha * T_alpha_fraction",
+      "# Kinetic energy of daughter nucleus (recoil)",
+      "T_daughter_fraction = M_alpha / (M_daughter + M_alpha)",
+      "T_daughter = Q_alpha * T_daughter_fraction",
+      "# Verify energy conservation",
+      "total_KE = T_alpha + T_daughter",
+      "assert sp.simplify(total_KE - Q_alpha) == 0",
+      "# Check that alpha gets most of the energy (since M_daughter >> M_alpha)",
+      "assert T_alpha_fraction > T_daughter_fraction",
+      "# Approximate values: alpha particle gets ~97% of kinetic energy",
+      "alpha_fraction_approx = float(T_alpha_fraction.evalf())",
+      "assert alpha_fraction_approx > 0.95"
+    ]
+  },
+  "domain": "astro-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Heavy nuclei (typically A > 200)",
+      "Q-value is positive (energetically favorable)",
+      "Quantum tunneling regime",
+      "Non-relativistic decay products"
+    ],
+    "limitations": [
+      "Limited to non-relativistic situations",
+      ""
+      
+    ]
+  },
+  "historical_context": {
+    "importance": "First type of radioactivity discovered, led to understanding of nuclear structure and quantum tunneling",
+    "development_period": "1896-1930",
+    "key_insights": [
+      "Nuclear transmutation",
+      "Quantum tunneling in nuclei",
+      "Mass-energy equivalence",
+      "Nuclear stability"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rutherford, E. (1899). Uranium radiation and the electrical conduction produced by it. *Philosophical Magazine*, 47(284), 109-163."
+    },
+    {
+      "id": "R2",
+      "citation": "Gamow, G. (1928). Zur Quantentheorie des Atomkernes. *Zeitschrift für Physik*, 51(3-4), 204-212."
+    }
+  ],
+  "dependencies": [
+    "radioactive_decay_law",
+    "nuclear_pinding_energy",
+    "quantum_tunneling"
+  ],
+  "contributors": [
+    {
+      "full_name": "@Astrophysics108",
+      "identifier": "https://astrophysics108.github.io/delana"
+    }
+  ],
+  "review_status": "reviewed"
+}
