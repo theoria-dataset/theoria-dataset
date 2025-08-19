@@ -1,6 +1,6 @@
 {
   "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.4.6",
+  "dataset_version": "0.4.8",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-14",
   "license": "CC-BY 4.0",
@@ -173,6 +173,13 @@
       "changes": [
         "Added principle of least action entry with comprehensive derivation and harmonic oscillator verification",
         "Split special_relativity entry into two focused entries: special_relativity_transformations (coordinate transformations, time dilation, length contraction) and relativistic_energy_momentum (energy-momentum relations, mass-energy equivalence)"
+      ]
+    },
+    {
+      "version": "0.4.8",
+      "date": "2025-08-19",
+      "changes": [
+        "Added comprehensive AI-generated content indicators: robot badges in DRAFT status tags, color-coded backgrounds for draft entries, sticky disclaimer banners, and clear pathways for users to contribute to reviewing AI-generated content"
       ]
     }
   ]

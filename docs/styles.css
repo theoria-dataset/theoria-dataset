@@ -738,6 +738,113 @@ select option {
 .status-draft {
   background: #f59e0b;
   color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.status-draft:hover {
+  background: #d97706;
+  color: white;
+}
+
+/* AI badge styles */
+.ai-badge {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.ai-badge:hover {
+  opacity: 1;
+}
+
+/* Color-coded backgrounds for AI entries */
+.entry-card-draft {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
+  border-left: 4px solid #f59e0b;
+}
+
+.latex-dark .entry-card-draft {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-left: 4px solid #f59e0b;
+}
+
+/* AI Disclaimer Banner */
+.ai-disclaimer-banner {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-bottom: 1px solid #f59e0b;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.latex-dark .ai-disclaimer-banner {
+  background: linear-gradient(135deg, #92400e 0%, #78350f 100%);
+  border-bottom: 1px solid #f59e0b;
+}
+
+.ai-disclaimer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0.75rem;
+}
+
+.ai-disclaimer-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ai-disclaimer-text {
+  font-size: 0.9rem;
+  color: #92400e;
+  line-height: 1.4;
+}
+
+.latex-dark .ai-disclaimer-text {
+  color: #fbbf24;
+}
+
+.ai-disclaimer-link {
+  color: #92400e;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(146, 64, 14, 0.5);
+  transition: all 0.2s ease;
+}
+
+.ai-disclaimer-link:hover {
+  color: #78350f;
+  text-decoration-color: #78350f;
+}
+
+.latex-dark .ai-disclaimer-link {
+  color: #fbbf24;
+  text-decoration-color: rgba(251, 191, 36, 0.5);
+}
+
+.latex-dark .ai-disclaimer-link:hover {
+  color: #fcd34d;
+  text-decoration-color: #fcd34d;
+}
+
+@media (max-width: 768px) {
+  .ai-disclaimer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .ai-disclaimer-text {
+    font-size: 0.85rem;
+  }
 }
 
 .entries-browser {

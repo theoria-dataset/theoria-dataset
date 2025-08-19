@@ -39,10 +39,6 @@ Example Fix:
 - ✅ Improved: "The radiation field is in thermal equilibrium at temperature T, meaning the emission and absorption rates are balanced and the energy
   distribution is time-independent"
 
-Assumption Hierarchy Fix:
-
-- ❌ AI: 8 assumptions including "Newton's law applies" AND "Angular momentum conserved due to central force" AND "Gravitational potential gives elliptical orbits"
-- ✅ Improved: 5 independent assumptions: "Classical mechanics framework" → "Newton's law" → "Two-body problem" → "Point masses" → "Mass hierarchy"
 
 3. PROGRAMMATIC VERIFICATION DEPTH
 
