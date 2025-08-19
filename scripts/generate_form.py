@@ -144,8 +144,7 @@ def update_form_guidelines(form_content, schema_data):
                     # Replace the guideline text
                     updated_content = updated_content.replace(current_text, schema_text)
     
-    # Final pass: replace any remaining backtick references with code tags
-    updated_content = updated_content.replace('``', '<code>``</code>')
+    # Final pass: replace any remaining HTML-encoded backtick references
     updated_content = updated_content.replace('(&#96;&#96;)', '(<code>``</code>)')
     updated_content = updated_content.replace('&#96;&#96;', '<code>``</code>')
     
