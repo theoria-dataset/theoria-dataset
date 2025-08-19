@@ -1,5 +1,79 @@
 /* Contribution Form Styles */
 
+/* AI Review Callout */
+.ai-review-callout {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 2px solid #3b82f6;
+    border-radius: 12px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.ai-review-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.ai-review-content h2 {
+    color: #1e40af;
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.ai-review-content p {
+    color: #1e3a8a;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review-cta-button {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.review-cta-button:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Dark mode styles for AI review callout */
+.latex-dark .ai-review-callout {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border-color: #60a5fa;
+}
+
+.latex-dark .ai-review-content h2 {
+    color: #93c5fd;
+}
+
+.latex-dark .ai-review-content p {
+    color: #bfdbfe;
+}
+
+.latex-dark .review-cta-button {
+    background: #60a5fa;
+    box-shadow: 0 2px 4px rgba(96, 165, 250, 0.2);
+}
+
+.latex-dark .review-cta-button:hover {
+    background: #3b82f6;
+    box-shadow: 0 4px 8px rgba(96, 165, 250, 0.3);
+}
+
 .contribution-options {
     margin: 2rem 0;
 }

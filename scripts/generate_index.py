@@ -55,15 +55,23 @@ def get_short_description(explanation):
 def generate_entry_card(entry, filename):
     """Generate entry card HTML"""
     short_desc = get_short_description(entry.get('explanation', ''))
+    is_draft = entry.get('review_status') != 'reviewed'
     status_class = 'status-reviewed' if entry.get('review_status') == 'reviewed' else 'status-draft'
     status_text = 'REVIEWED' if entry.get('review_status') == 'reviewed' else 'DRAFT'
     
+    # Add AI badge and color-coding for draft entries
+    card_class = 'entry-card entry-card-draft' if is_draft else 'entry-card'
+    status_text_with_emoji = f'🤖 {status_text}' if is_draft else status_text
+    status_link = f'<a href="contribute/" class="entry-status {status_class}" title="Click to help review this AI-generated entry">{status_text_with_emoji}</a>' if is_draft else f'<span class="entry-status {status_class}">{status_text_with_emoji}</span>'
+    
     return f'''
     <a href="entries.html?entry={filename}" class="entry-card-link">
-      <div class="entry-card">
-        <h3 class="entry-title">{entry.get('result_name', '')}</h3>
+      <div class="{card_class}">
+        <h3 class="entry-title">
+          {entry.get('result_name', '')}
+        </h3>
         <p class="entry-description">{short_desc}</p>
-        <span class="entry-status {status_class}">{status_text}</span>
+        {status_link}
       </div>
     </a>
   '''

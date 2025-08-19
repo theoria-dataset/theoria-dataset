@@ -261,7 +261,22 @@ function generateColabLink(data) {
 // Render function
 function render(data) {
   $("title").style.display = "";
-  $("title").textContent = data.result_name;
+  
+  // Check if this is a draft entry
+  const isDraft = data.review_status === "draft";
+  
+  // Set title with AI badge if draft
+  if (isDraft) {
+    $("title").innerHTML = `<span class="ai-badge" title="AI-generated content awaiting review">🤖</span>${data.result_name}`;
+  } else {
+    $("title").textContent = data.result_name;
+  }
+  
+  // Show/hide AI disclaimer banner based on draft status
+  const aiDisclaimer = document.querySelector('.ai-disclaimer-banner');
+  if (aiDisclaimer) {
+    aiDisclaimer.style.display = isDraft ? 'block' : 'none';
+  }
   
   // Add edit button after title
   const editButton = document.createElement('button');
@@ -437,8 +452,7 @@ function render(data) {
   $("meta-created").textContent = data.contributors?.map(c => c.full_name).join(', ') || 'Unknown';
   $("meta-status").textContent = data.review_status;
 
-  // Show/hide draft watermark based on review status
-  const isDraft = data.review_status === "draft";
+  // Show/hide draft watermark based on review status (isDraft already defined above)
   console.log("Review status:", data.review_status, "Is draft:", isDraft); // Debug log
 
   const draftWatermarks = document.querySelectorAll(".draft-watermark");
