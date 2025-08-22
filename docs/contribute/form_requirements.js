@@ -1,4 +1,4 @@
-// Auto-generated from /app/schemas/entry.schema.json
+// Auto-generated from c:\Users\dsingh\github-repos\theoria-dataset\schemas\entry.schema.json
 // Do not edit manually - regenerate using scripts/generate_form_requirements.py
 
 const FIELD_REQUIREMENTS = {
