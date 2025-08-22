@@ -3,72 +3,143 @@
   "result_name": "Ampère's Circuital Law",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "oint vec B cdot d vec l = mu_0 I_enc"
+      "id": "ampere_integral",
+      "equation": "\\oint \\vec{B} \\cdot \\mathrm{d}\\vec{l} = \\mu_0 I_{\\text{enc}}"
+    },
+    {
+      "id": "ampere_differential",
+      "equation": "\\nabla \\times \\vec{B} = \\mu_0 \\vec{J}"
+    },
+    {
+      "id": "ampere_maxwell",
+      "equation": "\\nabla \\times \\vec{B} = \\mu_0 \\vec{J} + \\mu_0\\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}"
+    },
+    {
+      "id": "wire_field",
+      "equation": "B(r) = \\frac{\\mu_0 I}{2\\pi r}"
     }
   ],
-  "explanation": "Ampère's law relates the circulation of magnetic field around a closed loop to the electric current passing through the loop. It provides a powerful method for calculating magnetic fields in cases with high symmetry and is one of Maxwell's fundamental equations of electromagnetism.",
+  "explanation": "Ampère's circuital law relates the circulation of the magnetic field around a closed loop to the electric current passing through any surface bounded by that loop. Originally formulated for steady currents, Maxwell extended it with the displacement current term to maintain consistency with charge conservation. This law is fundamental for calculating magnetic fields in symmetric geometries and forms one of Maxwell's four equations describing classical electromagnetism.",
   "definitions": [
     {
-      "symbol": "vec B",
-      "definition": "Magnetic field vector."
+      "symbol": "\\vec{B}",
+      "definition": "Magnetic field vector (tesla, T)."
     },
     {
-      "symbol": "d vec l",
-      "definition": "Differential length element along the closed loop."
+      "symbol": "\\mathrm{d}\\vec{l}",
+      "definition": "Differential path element along the closed integration loop (metres, m)."
     },
     {
-      "symbol": "mu_0",
-      "definition": "Permeability of free space (`4pi times 10^-7 H/m`)."
+      "symbol": "\\mu_0",
+      "definition": "Permeability of free space, $$\\mu_0 = 4\\pi \\times 10^{-7}\\ \\mathrm{H\\,m^{-1}}$$."
     },
     {
-      "symbol": "I_enc",
-      "definition": "Total electric current enclosed by the loop."
+      "symbol": "I_{\\mathrm{enc}}",
+      "definition": "Total electric current enclosed by the Amperian loop (amperes, A)."
+    },
+    {
+      "symbol": "\\vec{J}",
+      "definition": "Current density vector $$(\\mathrm{A\\,m^{-2}})$$."
+    },
+    {
+      "symbol": "\\epsilon_0",
+      "definition": "Permittivity of free space, $$\\epsilon_0 = 8.854\\times 10^{-12}\\ \\mathrm{F\\,m^{-1}}$$."
+    },
+    {
+      "symbol": "\\vec{E}",
+      "definition": "Electric field vector $$(\\mathrm{V\\,m^{-1}})$$."
+    },
+    {
+      "symbol": "r",
+      "definition": "Perpendicular distance from a straight current-carrying wire (m)."
     }
   ],
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The current distribution has sufficient symmetry to apply Ampère's law directly."
+      "text": "Classical electromagnetic theory applies: no quantum effects, fields are continuous and differentiable."
     },
     {
       "id": "assumption2",
-      "text": "We are in the static or quasi-static regime (no rapidly changing electric fields)."
+      "text": "For the original Ampère's law: steady currents only ($$\\frac{\\partial \\vec{E}}{\\partial t} = 0$$) and no time-varying electric fields."
     },
     {
       "id": "assumption3",
-      "text": "Ampère's law in differential form (one of Maxwell's equations) applies."
+      "text": "The integration path (Amperian loop) is a closed curve in a simply-connected region of space."
     },
     {
       "id": "assumption4",
-      "text": "The surface bounded by the loop is simply connected."
+      "text": "For practical applications: sufficient symmetry exists such that $$\\vec{B}$$ has constant magnitude and is parallel or perpendicular to $$\\mathrm{d}\\vec{l}$$ along the integration path."
+    },
+    {
+      "id": "assumption5",
+      "text": "Current sources are well-defined: current density $$\\vec{J}$$ is finite and integrable over the bounded surface."
+    },
+    {
+      "id": "assumption6",
+      "text": "Linear, homogeneous, and isotropic medium: $$\\vec{B} = \\mu\\,\\vec{H}$$ with constant permeability $$\\mu$$."
     }
   ],
   "derivation": [
     {
       "step": 1,
-      "description": "Start with Ampère's law in differential form from Maxwell's equations.",
-      "equation": "nabla times vec B = mu_0 vec J"
+      "description": "Begin with the empirical observation that magnetic field lines form closed loops around current-carrying conductors, unlike electric field lines which begin and end on charges.",
+      "equation": "\\text{Observation: Magnetic field lines encircle current sources}"
     },
     {
       "step": 2,
-      "description": "Integrate both sides over a surface bounded by the closed loop.",
-      "equation": "int (nabla times vec B) cdot d vec A = int mu_0 vec J cdot d vec A"
+      "description": "For an infinite straight wire carrying current $$I$$, symmetry arguments show that the magnetic field has circular symmetry around the wire with magnitude depending only on distance $$r$$.",
+      "equation": "\\vec{B}(r) = B(r)\\,\\hat{\\phi} \\quad \\text{where } \\hat{\\phi} \\text{ is the azimuthal unit vector}"
     },
     {
       "step": 3,
-      "description": "Apply Stokes' theorem to convert the left side to a line integral.",
-      "equation": "oint vec B cdot d vec l = mu_0 int vec J cdot d vec A"
+      "description": "Apply the circulation integral around a circular path of radius $$r$$ centered on the wire. By symmetry, $$\\vec{B} \\cdot \\mathrm{d}\\vec{l} = B(r)\\,\\mathrm{d}l$$ and the path integral becomes:",
+      "equation": "\\oint \\vec{B} \\cdot \\mathrm{d}\\vec{l} = B(r) \\oint \\mathrm{d}l = B(r)\\,2\\pi r"
     },
     {
       "step": 4,
-      "description": "Recognize that the surface integral of current density gives the enclosed current.",
-      "equation": "I_enc = int vec J cdot d vec A"
+      "description": "Ampère's experimental measurements and theoretical analysis showed this circulation is proportional to the enclosed current, establishing the fundamental relationship:",
+      "equation": "B(r)\\,2\\pi r = \\mu_0 I"
     },
     {
       "step": 5,
-      "description": "Obtain Ampère's law in integral form relating circulation of B to enclosed current.",
-      "equation": "oint vec B cdot d vec l = mu_0 I_enc"
+      "description": "Solving for the magnetic field magnitude gives the familiar result for an infinite straight wire:",
+      "equation": "B(r) = \\frac{\\mu_0 I}{2\\pi r}"
+    },
+    {
+      "step": 6,
+      "description": "Generalize to arbitrary closed loops and current distributions. The circulation of $$\\vec{B}$$ around any closed path equals $$\\mu_0$$ times the current threading through the surface bounded by that path:",
+      "equation": "\\oint \\vec{B} \\cdot \\mathrm{d}\\vec{l} = \\mu_0 I_{\\text{enc}}"
+    },
+    {
+      "step": 7,
+      "description": "Express the enclosed current as a surface integral of current density over any surface $$S$$ bounded by the loop $$C$$:",
+      "equation": "I_{\\text{enc}} = \\int_S \\vec{J} \\cdot \\mathrm{d}\\vec{A}"
+    },
+    {
+      "step": 8,
+      "description": "Substitute the current density integral into Ampère's law:",
+      "equation": "\\oint_C \\vec{B} \\cdot \\mathrm{d}\\vec{l} = \\mu_0 \\int_S \\vec{J} \\cdot \\mathrm{d}\\vec{A}"
+    },
+    {
+      "step": 9,
+      "description": "Apply Stokes' theorem to convert the line integral to a surface integral of the curl:",
+      "equation": "\\int_S (\\nabla \\times \\vec{B}) \\cdot \\mathrm{d}\\vec{A} = \\mu_0 \\int_S \\vec{J} \\cdot \\mathrm{d}\\vec{A}"
+    },
+    {
+      "step": 10,
+      "description": "Since this must hold for any surface $$S$$, the integrands must be equal at every point, giving Ampère's law in differential form:",
+      "equation": "\\nabla \\times \\vec{B} = \\mu_0 \\vec{J}"
+    },
+    {
+      "step": 11,
+      "description": "Maxwell identified an inconsistency: taking the divergence of both sides and using $$\\nabla \\cdot (\\nabla \\times \\vec{B}) = 0$$ gives $$\\nabla \\cdot \\vec{J} = 0$$, but charge conservation requires $$\\nabla \\cdot \\vec{J} + \\frac{\\partial \\rho}{\\partial t} = 0$$.",
+      "equation": "\\text{Inconsistency: } \\nabla \\cdot \\vec{J} = 0 \\quad \\text{vs.} \\quad \\nabla \\cdot \\vec{J} + \\frac{\\partial \\rho}{\\partial t} = 0"
+    },
+    {
+      "step": 12,
+      "description": "Maxwell resolved this by adding the displacement current term. Using Gauss's law $$\\nabla \\cdot \\vec{E} = \\frac{\\rho}{\\epsilon_0}$$, he showed that the modified Ampère's law is consistent with charge conservation:",
+      "equation": "\\nabla \\times \\vec{B} = \\mu_0 \\vec{J} + \\mu_0\\epsilon_0 \\frac{\\partial \\vec{E}}{\\partial t}"
     }
   ],
   "programmatic_verification": {
@@ -76,67 +147,136 @@
     "library": "sympy 1.12.0",
     "code": [
       "import sympy as sp",
-      "# Example: magnetic field around an infinite straight wire",
+      "",
+      "print('Ampère\\'s Law Verification')",
+      "print('=' * 40)",
+      "",
+      "# Test 1: Infinite straight wire",
+      "print('Test 1: Magnetic field of infinite straight wire')",
       "mu0, I, r = sp.symbols('mu0 I r', positive=True)",
-      "# For an infinite straight wire, B = (mu0 * I) / (2 * pi * r)",
+      "",
+      "# Step 5: B-field for straight wire",
       "B_wire = (mu0 * I) / (2 * sp.pi * r)",
-      "# Apply Ampère's law to a circular loop of radius r",
-      "# The circulation integral: B * circumference",
+      "print(f'B(r) = {B_wire}')",
+      "",
+      "# Step 3: Circulation around circular path",
       "circulation = B_wire * 2 * sp.pi * r",
-      "# Simplify",
       "circulation_simplified = sp.simplify(circulation)",
-      "# This should equal mu0 * I_enclosed",
-      "expected = mu0 * I",
-      "assert circulation_simplified == expected",
-      "# Test with specific values",
-      "test_vals = {mu0: 1, I: 2, r: 3}",
-      "circulation_val = circulation_simplified.subs(test_vals)",
-      "expected_val = expected.subs(test_vals)",
-      "assert circulation_val == expected_val"
+      "print(f'Circulation = B × 2πr = {circulation_simplified}')",
+      "",
+      "# Step 6: Verify Ampère\\'s law",
+      "ampere_rhs = mu0 * I",
+      "assert circulation_simplified == ampere_rhs",
+      "print(f'Ampère\\'s law verified: {circulation_simplified} = {ampere_rhs}')",
+      "",
+      "# Test 2: Solenoid magnetic field",
+      "print('\\nTest 2: Long solenoid magnetic field')",
+      "n, length = sp.symbols('n L', positive=True)  # turns per unit length, length",
+      "",
+      "# Inside solenoid: B = μ₀nI",
+      "B_solenoid_inside = mu0 * n * I",
+      "print(f'B inside solenoid = {B_solenoid_inside}')",
+      "",
+      "# Apply Ampère\\'s law to rectangular loop (length L inside solenoid)",
+      "# Only the side inside contributes to circulation",
+      "circulation_solenoid = B_solenoid_inside * length",
+      "print(f'Circulation = B × L = {circulation_solenoid}')",
+      "",
+      "# Enclosed current = n*L turns × I per turn",
+      "I_enclosed_solenoid = n * length * I",
+      "ampere_rhs_solenoid = mu0 * I_enclosed_solenoid",
+      "",
+      "assert sp.simplify(circulation_solenoid - ampere_rhs_solenoid) == 0",
+      "print(f'Solenoid verification: {circulation_solenoid} = {ampere_rhs_solenoid}')",
+      "",
+      "# Test 3: Stokes' theorem consistency (step 9)",
+      "print('\\nTest 3: Stokes\\' theorem consistency')",
+      "from sympy.vector import CoordSys3D, curl, divergence",
+      "",
+      "# Set up coordinate system",
+      "C = CoordSys3D('C')",
+      "x, y, z = C.x, C.y, C.z",
+      "",
+      "# Test divergence of curl is zero",
+      "Bx = sp.Function('Bx')(x, y, z)",
+      "By = sp.Function('By')(x, y, z)",
+      "Bz = sp.Function('Bz')(x, y, z)",
+      "B_vec = Bx*C.i + By*C.j + Bz*C.k",
+      "",
+      "curl_B = curl(B_vec)",
+      "div_curl_B = divergence(curl_B)",
+      "",
+      "# This should be identically zero",
+      "assert div_curl_B == 0",
+      "print('Verified: ∇ · (∇ × B) = 0 (vector identity)')",
+      "",
+      "# Test 4: Numerical verification with specific values",
+      "print('\\nTest 4: Numerical verification')",
+      "test_values = {mu0: 4*sp.pi*1e-7, I: 10, r: 0.1}  # 10 A current, 0.1 m distance",
+      "",
+      "B_numerical = float(B_wire.subs(test_values))",
+      "circulation_numerical = float(circulation_simplified.subs(test_values))",
+      "expected_numerical = float(ampere_rhs.subs(test_values))",
+      "",
+      "print(f'Numerical test: I = 10 A, r = 0.1 m')",
+      "print(f'B-field = {B_numerical:.2e} T')",
+      "print(f'Circulation = {circulation_numerical:.2e} T⋅m')",
+      "print(f'μ₀I = {expected_numerical:.2e} T⋅m')",
+      "",
+      "assert abs(circulation_numerical - expected_numerical) < 1e-15",
+      "print('Numerical verification passed!')",
+      "",
+      "print('\\nAll Ampère\\'s law verifications completed successfully!')"
     ]
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
   "validity_regime": {
     "conditions": [
-      "Classical electromagnetism",
-      "Static or quasi-static fields",
-      "Well-defined current distributions",
-      "Sufficient symmetry for application"
+      "Classical electromagnetic theory (non-quantum regime)",
+      "Well-defined, finite current distributions",
+      "For original Ampère's law: steady currents (\\partial E/\\partial t = 0)",
+      "For practical calculations: sufficient symmetry in current geometry",
+      "Linear, homogeneous, isotropic media"
     ],
     "limitations": [
-      "Requires high symmetry for direct application",
-      "Limited to static or slowly varying fields",
-      "Classical electromagnetic theory only",
-      "May need displacement current for time-varying fields"
+      "Original form fails for time-varying electric fields (requires Maxwell's displacement current)",
+      "Requires high symmetry for analytical solutions",
+      "Classical theory only — no quantum or relativistic effects",
+      "Assumes continuous current distributions",
+      "Limited to macroscopic scale where classical electromagnetism applies"
     ]
   },
+  "superseded_by": ["maxwell_equations"],
   "historical_context": {
-    "importance": "Fundamental law of electromagnetism, key tool for calculating magnetic fields",
-    "development_period": "1826",
+    "importance": "Fundamental law establishing relationship between electric current and magnetic field; key step toward unified electromagnetic theory",
+    "development_period": "1826-1865",
     "key_insights": [
-      "Relationship between current and magnetic field",
-      "Circulation theorem for magnetism",
-      "Foundation for electromagnetic theory"
+      "Electric currents create magnetic fields with circular symmetry",
+      "Circulation theorem for magnetostatics (Ampère, 1826)",
+      "Maxwell's displacement current resolves inconsistency (1865)",
+      "Foundation for electromagnetic induction and wave propagation"
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Ampère, A. M. (1826). *Théorie mathématique des phénomènes électro-dynamiques*. Chez Firmin Didot."
+      "citation": "Ampère, A. M. (1826). *Théorie mathématique des phénomènes électro-dynamiques uniquement déduite de l'expérience*. Chez Firmin Didot Père et Fils."
     },
     {
       "id": "R2",
+      "citation": "Maxwell, J. C. (1865). A dynamical theory of the electromagnetic field. *Philosophical Transactions of the Royal Society*, 155, 459-512."
+    },
+    {
+      "id": "R3",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "maxwell_equations"
-  ],
+  "dependencies": ["conservation_of_charge", "gauss_law", "biot_savart_law"],
   "contributors": [
     {
       "full_name": "Synthetic entry",
-      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+      "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
     }
   ],
   "review_status": "draft"
