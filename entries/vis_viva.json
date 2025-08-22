@@ -128,16 +128,14 @@
     "importance": "Heavily used in astrophysics and astrodynamics to calculate the velocities of orbiting objects. From this equation one can easily derive other equations such as the formula for escape velocity.",
     "development_period": "1676–1689",
     "key_insights": [
-      "Nuclear transmutation",
-      "Quantum tunneling in nuclei",
-      "Mass-energy equivalence",
-      "Nuclear stability"
+      "Orbital velocities",
+      "Conservation of energy in orbits"
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Rutherford, E. (1899). Uranium radiation and the electrical conduction produced by it. *Philosophical Magazine*, 47(284), 109-163."
+      "citation": "Logsdon, Thomas S.; Logsdon, Tom (1998). Orbital mechanics: theory and applications."
     }
   ],
   "dependencies": [
