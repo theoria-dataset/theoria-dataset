@@ -179,7 +179,9 @@
       "version": "0.4.8",
       "date": "2025-08-19",
       "changes": [
-        "Added comprehensive AI-generated content indicators: robot badges in DRAFT status tags, color-coded backgrounds for draft entries, sticky disclaimer banners, and clear pathways for users to contribute to reviewing AI-generated content"
+        "Added comprehensive AI-generated content indicators: robot badges in DRAFT status tags, color-coded backgrounds for draft entries, sticky disclaimer banners, and clear pathways for users to contribute to reviewing AI-generated content",
+        "Implemented AI entry visibility toggle: added toggle switch to entries index page allowing users to show/hide AI-generated entries, with reviewed entries shown by default for better user experience",
+        "Added persistent user preference storage for AI entry visibility using localStorage"
       ]
     }
   ]
