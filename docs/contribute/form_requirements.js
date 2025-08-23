@@ -173,8 +173,8 @@ const FIELD_REQUIREMENTS = {
         },
         "library": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_]+\\s\\d+\\.\\d+\\.\\d+$",
-          "description": "e.g. 'sympy 1.13.0'"
+          "pattern": "^(none|[A-Za-z0-9_]+\\s\\d+\\.\\d+\\.\\d+)$",
+          "description": "e.g. 'sympy 1.13.0' or 'none' for standard library only"
         },
         "code": {
           "type": "array",
