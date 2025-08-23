@@ -67,6 +67,10 @@ def run_verifications() -> None:
             errors.append(f"❌ {fname}: Invalid language format: '{language}'. Expected format: 'python X.Y.Z'")
             continue
 
+        # Skip verification if no additional libraries are used
+        if library.lower() == 'none':
+            continue
+            
         try:
             lib_parts = library.split()
             lib_name = lib_parts[0]

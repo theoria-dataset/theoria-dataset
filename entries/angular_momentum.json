@@ -127,7 +127,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "math (stdlib)",
+    "library": "none",
     "code": [
       "import math",
       "",
