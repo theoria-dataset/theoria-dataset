@@ -155,10 +155,11 @@ def validate_entry_schema(entry_path):
                 errors.append(f"[ERROR] programmatic_verification.language format should be 'python X.Y.Z', got '{pv['language']}'")
         
         if 'library' in pv:
-            # Should be format "library_name X.Y.Z"
-            lib_parts = pv['library'].split()
-            if len(lib_parts) != 2:
-                errors.append(f"[ERROR] programmatic_verification.library format should be 'library_name X.Y.Z', got '{pv['library']}'")
+            # Should be format "library_name X.Y.Z" or "none"
+            if pv['library'].lower() != 'none':
+                lib_parts = pv['library'].split()
+                if len(lib_parts) != 2:
+                    errors.append(f"[ERROR] programmatic_verification.library format should be 'library_name X.Y.Z' or 'none', got '{pv['library']}'")
         
         if 'code' in pv:
             if not isinstance(pv['code'], list) or not pv['code']:

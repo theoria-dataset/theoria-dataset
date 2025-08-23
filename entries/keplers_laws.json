@@ -4,58 +4,58 @@
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "r = (a*(1-e^2))/(1 + e*cos(theta))"
+      "equation": "r = (a(1-e^2))/(1 + e cos(theta))"
     },
     {
       "id": "eq2",
-      "equation": "(dA)/(dt) = (L)/(2*m) = text{constant}"
+      "equation": "(dA)/(dt) = (L)/(2m) = text{constant}"
     },
     {
       "id": "eq3",
-      "equation": "T^2 = (4*pi^2*a^3)/(G*M)"
+      "equation": "T^2 = (4pi^2a^3)/(GM)"
     }
   ],
   "explanation": "Kepler's three laws describe planetary motion around the Sun: orbits are ellipses with the Sun at one focus, planets sweep equal areas in equal times, and the square of orbital period is proportional to the cube of the semi-major axis. These empirical laws provided the foundation for Newton's law of gravitation and remain fundamental to celestial mechanics and orbital dynamics.",
   "definitions": [
     {
       "symbol": "r",
-      "definition": "Distance from the focus (Sun) to the planet at angle `theta`."
+      "definition": "Distance from the focus (Sun) to the planet at angle `theta`"
     },
     {
       "symbol": "a",
-      "definition": "Semi-major axis of the elliptical orbit."
+      "definition": "Semi-major axis of the elliptical orbit"
     },
     {
       "symbol": "e",
-      "definition": "Eccentricity of the ellipse (0 ≤ e < 1 for bound orbits)."
+      "definition": "Eccentricity of the ellipse (0 ≤ e < 1 for bound orbits)"
     },
     {
       "symbol": "theta",
-      "definition": "True anomaly (angle from periapsis to current position)."
+      "definition": "True anomaly (angle from periapsis to current position)"
     },
     {
       "symbol": "A",
-      "definition": "Area swept by the radius vector."
+      "definition": "Area swept by the radius vector"
     },
     {
       "symbol": "L",
-      "definition": "Angular momentum of the planet."
+      "definition": "Angular momentum of the planet"
     },
     {
       "symbol": "m",
-      "definition": "Mass of the planet."
+      "definition": "Mass of the planet"
     },
     {
       "symbol": "T",
-      "definition": "Orbital period of the planet."
+      "definition": "Orbital period of the planet"
     },
     {
       "symbol": "G",
-      "definition": "Gravitational constant."
+      "definition": "Gravitational constant"
     },
     {
       "symbol": "M",
-      "definition": "Mass of the central body (Sun)."
+      "definition": "Mass of the central body (Sun)"
     }
   ],
   "assumptions": [

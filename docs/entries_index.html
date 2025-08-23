@@ -16,11 +16,24 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 101 Physics Entries • Version 0.4.8</p>
+      <p class="subtitle">Browse All 101 Physics Entries (6 Reviewed, 95 AI-Generated) • Version 0.4.8</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
     </header>
+
+    <div class="ai-toggle-container">
+      <div class="ai-toggle-wrapper">
+        <label for="aiToggle" class="ai-toggle-label">
+          <input type="checkbox" id="aiToggle" class="ai-toggle-checkbox">
+          <span class="ai-toggle-slider"></span>
+          <span class="ai-toggle-text">Show AI-generated entries</span>
+        </label>
+        <div class="entry-count-display">
+          <span id="entryCountText">Showing reviewed entries only</span>
+        </div>
+      </div>
+    </div>
 
     
     <nav class="domain-navigation">
@@ -44,7 +57,7 @@
     </nav>
   
 
-    <main class="entries-browser">
+    <main class="entries-browser hide-ai-entries">
       
     <section id="astro-ph" class="domain-section">
       <h2 class="domain-title">Astrophysics</h2>
@@ -61,7 +74,7 @@
     </a>
   
       
-    <a href="entries.html?entry=stefan_boltzmann_law.json" class="entry-card-link">
+    <a href="entries.html?entry=stefan_boltzmann_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Stefan–Boltzmann Law
@@ -80,7 +93,7 @@
       <h2 class="domain-title">Atomic Physics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=bohr_model_energy_levels.json" class="entry-card-link">
+    <a href="entries.html?entry=bohr_model_energy_levels.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Bohr Model Energy Levels
@@ -91,7 +104,7 @@
     </a>
   
       
-    <a href="entries.html?entry=braggs_law.json" class="entry-card-link">
+    <a href="entries.html?entry=braggs_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Bragg's Law
@@ -102,7 +115,7 @@
     </a>
   
       
-    <a href="entries.html?entry=rydberg_formula.json" class="entry-card-link">
+    <a href="entries.html?entry=rydberg_formula.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Rydberg Formula
@@ -113,7 +126,7 @@
     </a>
   
       
-    <a href="entries.html?entry=wiens_displacement_law.json" class="entry-card-link">
+    <a href="entries.html?entry=wiens_displacement_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Wien's Displacement Law
@@ -132,18 +145,18 @@
       <h2 class="domain-title">Classical Physics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=amperes_law.json" class="entry-card-link">
+    <a href="entries.html?entry=amperes_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Ampère's Circuital Law
         </h3>
-        <p class="entry-description">Ampère's law relates the circulation of magnetic field around a closed loop to the electric current passing through the loop.  It provides a powerful method for calculating magnetic fields in cases with high symmetry and is one of Maxwell's fundamental equations of electromagnetism.</p>
+        <p class="entry-description">Ampère's circuital law relates the circulation of the magnetic field around a closed loop to the electric current passing through any surface bounded by that loop.  Originally formulated for steady currents, Maxwell extended it with the displacement current term to maintain consistency with charge conservation.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
   
       
-    <a href="entries.html?entry=angular_momentum.json" class="entry-card-link">
+    <a href="entries.html?entry=angular_momentum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Angular Momentum
@@ -154,7 +167,7 @@
     </a>
   
       
-    <a href="entries.html?entry=biot_savart_law.json" class="entry-card-link">
+    <a href="entries.html?entry=biot_savart_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Biot-Savart Law
@@ -165,7 +178,7 @@
     </a>
   
       
-    <a href="entries.html?entry=capacitance.json" class="entry-card-link">
+    <a href="entries.html?entry=capacitance.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Capacitance
@@ -176,7 +189,7 @@
     </a>
   
       
-    <a href="entries.html?entry=centripetal_force.json" class="entry-card-link">
+    <a href="entries.html?entry=centripetal_force.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Centripetal Force
@@ -187,7 +200,7 @@
     </a>
   
       
-    <a href="entries.html?entry=conservation_of_angular_momentum.json" class="entry-card-link">
+    <a href="entries.html?entry=conservation_of_angular_momentum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Conservation of Angular Momentum
@@ -198,7 +211,7 @@
     </a>
   
       
-    <a href="entries.html?entry=conservation_of_energy.json" class="entry-card-link">
+    <a href="entries.html?entry=conservation_of_energy.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Conservation of Energy
@@ -209,7 +222,7 @@
     </a>
   
       
-    <a href="entries.html?entry=conservation_of_momentum.json" class="entry-card-link">
+    <a href="entries.html?entry=conservation_of_momentum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Conservation of Momentum
@@ -220,7 +233,7 @@
     </a>
   
       
-    <a href="entries.html?entry=coriolis_force.json" class="entry-card-link">
+    <a href="entries.html?entry=coriolis_force.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Coriolis Force
@@ -231,7 +244,7 @@
     </a>
   
       
-    <a href="entries.html?entry=coulombs_law.json" class="entry-card-link">
+    <a href="entries.html?entry=coulombs_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Coulomb's Law
@@ -242,7 +255,7 @@
     </a>
   
       
-    <a href="entries.html?entry=doppler_effect.json" class="entry-card-link">
+    <a href="entries.html?entry=doppler_effect.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Doppler Effect
@@ -253,7 +266,7 @@
     </a>
   
       
-    <a href="entries.html?entry=electric_field.json" class="entry-card-link">
+    <a href="entries.html?entry=electric_field.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Electric Field
@@ -264,7 +277,7 @@
     </a>
   
       
-    <a href="entries.html?entry=electric_potential.json" class="entry-card-link">
+    <a href="entries.html?entry=electric_potential.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Electric Potential
@@ -275,7 +288,7 @@
     </a>
   
       
-    <a href="entries.html?entry=euler_lagrange_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=euler_lagrange_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Euler-Lagrange Equation
@@ -286,7 +299,7 @@
     </a>
   
       
-    <a href="entries.html?entry=faradays_law.json" class="entry-card-link">
+    <a href="entries.html?entry=faradays_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Faraday's Law of Electromagnetic Induction
@@ -297,7 +310,7 @@
     </a>
   
       
-    <a href="entries.html?entry=first_law_thermodynamics.json" class="entry-card-link">
+    <a href="entries.html?entry=first_law_thermodynamics.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           First Law of Thermodynamics
@@ -308,7 +321,7 @@
     </a>
   
       
-    <a href="entries.html?entry=foucault_pendulum.json" class="entry-card-link">
+    <a href="entries.html?entry=foucault_pendulum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Foucault Pendulum
@@ -319,7 +332,7 @@
     </a>
   
       
-    <a href="entries.html?entry=gauss_law.json" class="entry-card-link">
+    <a href="entries.html?entry=gauss_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Gauss's Law
@@ -330,7 +343,7 @@
     </a>
   
       
-    <a href="entries.html?entry=gauss_law_gravity.json" class="entry-card-link">
+    <a href="entries.html?entry=gauss_law_gravity.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Gauss's Law for Gravity
@@ -341,7 +354,7 @@
     </a>
   
       
-    <a href="entries.html?entry=gravitational_force.json" class="entry-card-link">
+    <a href="entries.html?entry=gravitational_force.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Gravitational Force (Newton's Law of Universal Gravitation)
@@ -352,7 +365,7 @@
     </a>
   
       
-    <a href="entries.html?entry=hamiltons_equations.json" class="entry-card-link">
+    <a href="entries.html?entry=hamiltons_equations.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Hamilton's Equations
@@ -363,7 +376,7 @@
     </a>
   
       
-    <a href="entries.html?entry=hamilton_jacobi_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=hamilton_jacobi_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Hamilton-Jacobi Equation
@@ -374,7 +387,7 @@
     </a>
   
       
-    <a href="entries.html?entry=hookes_law.json" class="entry-card-link">
+    <a href="entries.html?entry=hookes_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Hooke's Law
@@ -385,7 +398,7 @@
     </a>
   
       
-    <a href="entries.html?entry=kirchhoffs_laws.json" class="entry-card-link">
+    <a href="entries.html?entry=kirchhoffs_laws.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Kirchhoff's Laws
@@ -396,7 +409,7 @@
     </a>
   
       
-    <a href="entries.html?entry=lagrangian_mechanics.json" class="entry-card-link">
+    <a href="entries.html?entry=lagrangian_mechanics.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Lagrangian Mechanics
@@ -407,7 +420,7 @@
     </a>
   
       
-    <a href="entries.html?entry=larmor_formula.json" class="entry-card-link">
+    <a href="entries.html?entry=larmor_formula.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Larmor Formula
@@ -418,7 +431,7 @@
     </a>
   
       
-    <a href="entries.html?entry=lenzs_law.json" class="entry-card-link">
+    <a href="entries.html?entry=lenzs_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Lenz's Law
@@ -429,7 +442,7 @@
     </a>
   
       
-    <a href="entries.html?entry=liouvilles_theorem.json" class="entry-card-link">
+    <a href="entries.html?entry=liouvilles_theorem.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Liouville's Theorem
@@ -440,7 +453,7 @@
     </a>
   
       
-    <a href="entries.html?entry=magnetic_dipole_moment.json" class="entry-card-link">
+    <a href="entries.html?entry=magnetic_dipole_moment.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Magnetic Dipole Moment
@@ -451,7 +464,7 @@
     </a>
   
       
-    <a href="entries.html?entry=magnetic_field.json" class="entry-card-link">
+    <a href="entries.html?entry=magnetic_field.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Magnetic Field
@@ -462,7 +475,7 @@
     </a>
   
       
-    <a href="entries.html?entry=maxwell_equations.json" class="entry-card-link">
+    <a href="entries.html?entry=maxwell_equations.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Maxwell Equations
@@ -473,7 +486,7 @@
     </a>
   
       
-    <a href="entries.html?entry=maxwell_lorenz_gauge.json" class="entry-card-link">
+    <a href="entries.html?entry=maxwell_lorenz_gauge.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Maxwell's Equations (Lorenz Gauge)
@@ -484,7 +497,7 @@
     </a>
   
       
-    <a href="entries.html?entry=newtons_laws_of_motion.json" class="entry-card-link">
+    <a href="entries.html?entry=newtons_laws_of_motion.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Newton's Laws of Motion
@@ -495,7 +508,7 @@
     </a>
   
       
-    <a href="entries.html?entry=ohms_law.json" class="entry-card-link">
+    <a href="entries.html?entry=ohms_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Ohm's Law
@@ -517,7 +530,7 @@
     </a>
   
       
-    <a href="entries.html?entry=rotational_mechanics.json" class="entry-card-link">
+    <a href="entries.html?entry=rotational_mechanics.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Rotational Mechanics
@@ -528,7 +541,7 @@
     </a>
   
       
-    <a href="entries.html?entry=simple_harmonic_motion.json" class="entry-card-link">
+    <a href="entries.html?entry=simple_harmonic_motion.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Simple Harmonic Motion
@@ -539,7 +552,7 @@
     </a>
   
       
-    <a href="entries.html?entry=virial_theorem.json" class="entry-card-link">
+    <a href="entries.html?entry=virial_theorem.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Virial Theorem
@@ -550,7 +563,7 @@
     </a>
   
       
-    <a href="entries.html?entry=wave_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=wave_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Wave Equation
@@ -561,7 +574,7 @@
     </a>
   
       
-    <a href="entries.html?entry=waves_interference.json" class="entry-card-link">
+    <a href="entries.html?entry=waves_interference.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Wave Interference
@@ -572,7 +585,7 @@
     </a>
   
       
-    <a href="entries.html?entry=work_energy_theorem.json" class="entry-card-link">
+    <a href="entries.html?entry=work_energy_theorem.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Work-Energy Theorem
@@ -591,7 +604,7 @@
       <h2 class="domain-title">Condensed Matter Physics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=clausius_clapeyron_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=clausius_clapeyron_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Clausius-Clapeyron Equation
@@ -602,7 +615,7 @@
     </a>
   
       
-    <a href="entries.html?entry=heat_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=heat_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Heat Equation
@@ -613,7 +626,7 @@
     </a>
   
       
-    <a href="entries.html?entry=ideal_gas_law.json" class="entry-card-link">
+    <a href="entries.html?entry=ideal_gas_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Ideal Gas Law
@@ -632,29 +645,29 @@
       <h2 class="domain-title">Fluid Dynamics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=archimedes_principle.json" class="entry-card-link">
+    <a href="entries.html?entry=archimedes_principle.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Archimedes' Principle
         </h3>
-        <p class="entry-description">Archimedes' principle states that the buoyant force on an object immersed in a fluid equals the weight of the fluid displaced by the object.  This fundamental law explains why objects float or sink and forms the foundation of fluid statics, ship design, and density measurements.</p>
+        <p class="entry-description">Archimedes' principle states that the buoyant force exerted on an object immersed in a fluid equals the weight of the fluid displaced by the object.  This principle arises from the hydrostatic pressure distribution in the fluid and explains phenomena such as floating, sinking, and apparent weight reduction in fluids.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
   
       
-    <a href="entries.html?entry=bernoulli_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=bernoulli_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
-          Bernoulli's Equation (Inviscid Flow)
+          Bernoulli's Equation
         </h3>
-        <p class="entry-description">Bernoulli's equation asserts that along a streamline in steady, incompressible, inviscid flow the sum of static pressure, kinetic head and gravitational head remains constant.  It translates fluid-energy conservation into a simple algebraic relation, connecting pressure differences with velocity changes.</p>
+        <p class="entry-description">Bernoulli's equation is a fundamental principle in fluid mechanics expressing conservation of mechanical energy along a streamline in steady, inviscid, incompressible flow.  The equation states that the sum of pressure energy, kinetic energy, and potential energy per unit volume remains constant along a streamline.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
   
       
-    <a href="entries.html?entry=continuity_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=continuity_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Continuity Equation (Fluid Flow)
@@ -665,7 +678,7 @@
     </a>
   
       
-    <a href="entries.html?entry=navier_stokes_incompressible.json" class="entry-card-link">
+    <a href="entries.html?entry=navier_stokes_incompressible.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Navier–Stokes Equation (Incompressible)
@@ -676,7 +689,7 @@
     </a>
   
       
-    <a href="entries.html?entry=reynolds_number.json" class="entry-card-link">
+    <a href="entries.html?entry=reynolds_number.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Reynolds Number
@@ -695,7 +708,7 @@
       <h2 class="domain-title">General Relativity and Quantum Cosmology</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=einstein_field_equations.json" class="entry-card-link">
+    <a href="entries.html?entry=einstein_field_equations.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Einstein Field Equations
@@ -706,7 +719,7 @@
     </a>
   
       
-    <a href="entries.html?entry=gravitational_time_dilation.json" class="entry-card-link">
+    <a href="entries.html?entry=gravitational_time_dilation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Gravitational Time Dilation
@@ -728,7 +741,7 @@
     </a>
   
       
-    <a href="entries.html?entry=schwarzschild_radius.json" class="entry-card-link">
+    <a href="entries.html?entry=schwarzschild_radius.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Schwarzschild Radius
@@ -758,7 +771,7 @@
       <h2 class="domain-title">High Energy Physics (Theory)</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=dirac_equation_free.json" class="entry-card-link">
+    <a href="entries.html?entry=dirac_equation_free.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Dirac Equation
@@ -769,7 +782,7 @@
     </a>
   
       
-    <a href="entries.html?entry=dirac_equation_em.json" class="entry-card-link">
+    <a href="entries.html?entry=dirac_equation_em.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Dirac Equation in an Electromagnetic Field
@@ -780,7 +793,7 @@
     </a>
   
       
-    <a href="entries.html?entry=qed_lagrangian.json" class="entry-card-link">
+    <a href="entries.html?entry=qed_lagrangian.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           QED Lagrangian Density
@@ -799,7 +812,7 @@
       <h2 class="domain-title">Materials Science</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=crystal_lattice_structure.json" class="entry-card-link">
+    <a href="entries.html?entry=crystal_lattice_structure.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Crystal Lattice Structure
@@ -837,7 +850,7 @@
       <h2 class="domain-title">Mesoscale and Nanoscale Physics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=hall_effect.json" class="entry-card-link">
+    <a href="entries.html?entry=hall_effect.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Hall Effect
@@ -856,18 +869,18 @@
       <h2 class="domain-title">Nuclear Theory</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=alpha_decay.json" class="entry-card-link">
+    <a href="entries.html?entry=alpha_decay.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Alpha Decay
         </h3>
-        <p class="entry-description">Alpha decay is a type of radioactive decay where an atomic nucleus emits an alpha particle (helium-4 nucleus) consisting of two protons and two neutrons.  This process occurs in heavy nuclei to reduce their mass and achieve greater stability.</p>
+        <p class="entry-description">Alpha decay is a type of radioactive decay where an atomic nucleus emits an alpha particle (helium-4 nucleus) consisting of two protons and two neutrons.  This process occurs in heavy nuclei to reduce their mass and achieve greater stability through quantum tunneling through the Coulomb barrier.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
   
       
-    <a href="entries.html?entry=nuclear_binding_energy.json" class="entry-card-link">
+    <a href="entries.html?entry=nuclear_binding_energy.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Nuclear Binding Energy
@@ -878,7 +891,7 @@
     </a>
   
       
-    <a href="entries.html?entry=nuclear_fusion.json" class="entry-card-link">
+    <a href="entries.html?entry=nuclear_fusion.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Nuclear Fusion
@@ -889,7 +902,7 @@
     </a>
   
       
-    <a href="entries.html?entry=radioactive_decay_law.json" class="entry-card-link">
+    <a href="entries.html?entry=radioactive_decay_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Radioactive Decay Law
@@ -908,7 +921,7 @@
       <h2 class="domain-title">Optics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=diffraction_grating.json" class="entry-card-link">
+    <a href="entries.html?entry=diffraction_grating.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Diffraction Grating
@@ -919,7 +932,7 @@
     </a>
   
       
-    <a href="entries.html?entry=electromagnetic_waves.json" class="entry-card-link">
+    <a href="entries.html?entry=electromagnetic_waves.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Electromagnetic Waves
@@ -930,7 +943,7 @@
     </a>
   
       
-    <a href="entries.html?entry=poynting_vector.json" class="entry-card-link">
+    <a href="entries.html?entry=poynting_vector.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Poynting Vector
@@ -941,7 +954,7 @@
     </a>
   
       
-    <a href="entries.html?entry=snells_law.json" class="entry-card-link">
+    <a href="entries.html?entry=snells_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Snell's Law of Refraction
@@ -952,7 +965,7 @@
     </a>
   
       
-    <a href="entries.html?entry=lens_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=lens_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Thin Lens Equation
@@ -963,7 +976,7 @@
     </a>
   
       
-    <a href="entries.html?entry=young_double_slit.json" class="entry-card-link">
+    <a href="entries.html?entry=young_double_slit.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Young's Double Slit Experiment
@@ -993,7 +1006,7 @@
     </a>
   
       
-    <a href="entries.html?entry=compton_scattering.json" class="entry-card-link">
+    <a href="entries.html?entry=compton_scattering.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Compton Scattering
@@ -1004,7 +1017,7 @@
     </a>
   
       
-    <a href="entries.html?entry=heisenberg_uncertainty_principle.json" class="entry-card-link">
+    <a href="entries.html?entry=heisenberg_uncertainty_principle.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Heisenberg Uncertainty Principle
@@ -1015,7 +1028,7 @@
     </a>
   
       
-    <a href="entries.html?entry=hydrogen_atom_energy_levels.json" class="entry-card-link">
+    <a href="entries.html?entry=hydrogen_atom_energy_levels.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Hydrogen Atom Energy Levels
@@ -1026,7 +1039,7 @@
     </a>
   
       
-    <a href="entries.html?entry=klein_gordon_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=klein_gordon_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Klein-Gordon Equation
@@ -1037,7 +1050,7 @@
     </a>
   
       
-    <a href="entries.html?entry=pauli_exclusion_principle.json" class="entry-card-link">
+    <a href="entries.html?entry=pauli_exclusion_principle.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Pauli Exclusion Principle
@@ -1048,7 +1061,7 @@
     </a>
   
       
-    <a href="entries.html?entry=photoelectric_effect.json" class="entry-card-link">
+    <a href="entries.html?entry=photoelectric_effect.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Photoelectric Effect
@@ -1059,7 +1072,7 @@
     </a>
   
       
-    <a href="entries.html?entry=plancks_quantum_hypothesis.json" class="entry-card-link">
+    <a href="entries.html?entry=plancks_quantum_hypothesis.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Planck's Quantum Hypothesis
@@ -1070,7 +1083,7 @@
     </a>
   
       
-    <a href="entries.html?entry=quantum_harmonic_oscillator.json" class="entry-card-link">
+    <a href="entries.html?entry=quantum_harmonic_oscillator.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Quantum Harmonic Oscillator
@@ -1081,7 +1094,7 @@
     </a>
   
       
-    <a href="entries.html?entry=quantum_tunneling.json" class="entry-card-link">
+    <a href="entries.html?entry=quantum_tunneling.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Quantum Tunneling
@@ -1092,7 +1105,7 @@
     </a>
   
       
-    <a href="entries.html?entry=schroedingen_equation.json" class="entry-card-link">
+    <a href="entries.html?entry=schroedingen_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Schrödinger Equation
@@ -1103,7 +1116,7 @@
     </a>
   
       
-    <a href="entries.html?entry=spin_angular_momentum.json" class="entry-card-link">
+    <a href="entries.html?entry=spin_angular_momentum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Spin Angular Momentum
@@ -1114,7 +1127,7 @@
     </a>
   
       
-    <a href="entries.html?entry=de_broglie_wavelength.json" class="entry-card-link">
+    <a href="entries.html?entry=de_broglie_wavelength.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           de Broglie Wavelength
@@ -1133,7 +1146,7 @@
       <h2 class="domain-title">Statistical Mechanics</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=boltzmann_distribution.json" class="entry-card-link">
+    <a href="entries.html?entry=boltzmann_distribution.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Boltzmann Distribution
@@ -1144,7 +1157,7 @@
     </a>
   
       
-    <a href="entries.html?entry=bose_einstein_distribution.json" class="entry-card-link">
+    <a href="entries.html?entry=bose_einstein_distribution.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Bose-Einstein Distribution
@@ -1155,7 +1168,7 @@
     </a>
   
       
-    <a href="entries.html?entry=carnot_efficiency.json" class="entry-card-link">
+    <a href="entries.html?entry=carnot_efficiency.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Carnot Efficiency
@@ -1166,7 +1179,7 @@
     </a>
   
       
-    <a href="entries.html?entry=equipartition_theorem.json" class="entry-card-link">
+    <a href="entries.html?entry=equipartition_theorem.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Equipartition Theorem
@@ -1177,7 +1190,7 @@
     </a>
   
       
-    <a href="entries.html?entry=fermi_dirac_distribution.json" class="entry-card-link">
+    <a href="entries.html?entry=fermi_dirac_distribution.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Fermi-Dirac Distribution
@@ -1188,7 +1201,7 @@
     </a>
   
       
-    <a href="entries.html?entry=fourier_heat_conduction.json" class="entry-card-link">
+    <a href="entries.html?entry=fourier_heat_conduction.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Fourier's Law of Heat Conduction
@@ -1199,7 +1212,7 @@
     </a>
   
       
-    <a href="entries.html?entry=gibbs_free_energy.json" class="entry-card-link">
+    <a href="entries.html?entry=gibbs_free_energy.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Gibbs Free Energy
@@ -1210,7 +1223,7 @@
     </a>
   
       
-    <a href="entries.html?entry=maxwell_boltzmann_distribution.json" class="entry-card-link">
+    <a href="entries.html?entry=maxwell_boltzmann_distribution.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Maxwell-Boltzmann Distribution
@@ -1221,7 +1234,7 @@
     </a>
   
       
-    <a href="entries.html?entry=partition_function.json" class="entry-card-link">
+    <a href="entries.html?entry=partition_function.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Partition Function (Canonical Ensemble)
@@ -1232,7 +1245,7 @@
     </a>
   
       
-    <a href="entries.html?entry=rayleigh_jeans_law.json" class="entry-card-link">
+    <a href="entries.html?entry=rayleigh_jeans_law.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Rayleigh-Jeans Law
@@ -1243,7 +1256,7 @@
     </a>
   
       
-    <a href="entries.html?entry=second_law_thermodynamics_clausius.json" class="entry-card-link">
+    <a href="entries.html?entry=second_law_thermodynamics_clausius.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Second Law of Thermodynamics (Clausius Inequality)
@@ -1254,7 +1267,7 @@
     </a>
   
       
-    <a href="entries.html?entry=third_law_thermodynamics.json" class="entry-card-link">
+    <a href="entries.html?entry=third_law_thermodynamics.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Third Law of Thermodynamics
@@ -1315,6 +1328,82 @@
           }
         });
       });
+
+      // AI Toggle functionality
+      const aiToggle = document.getElementById('aiToggle');
+      const entryCountText = document.getElementById('entryCountText');
+      const mainContainer = document.querySelector('main');
+      
+      // Count entries
+      function countEntries() {
+        const totalEntries = document.querySelectorAll('.entry-card').length;
+        const aiEntries = document.querySelectorAll('.entry-card-draft').length;
+        const reviewedEntries = totalEntries - aiEntries;
+        
+        return { total: totalEntries, ai: aiEntries, reviewed: reviewedEntries };
+      }
+      
+      // Update entry count display and navigation
+      function updateDisplay(showAI) {
+        const counts = countEntries();
+        
+        if (showAI) {
+          mainContainer.classList.remove('hide-ai-entries');
+          entryCountText.textContent = `Showing all ${counts.total} entries (${counts.reviewed} reviewed, ${counts.ai} AI-generated)`;
+          updateNavigation(false); // Show original counts
+        } else {
+          mainContainer.classList.add('hide-ai-entries');
+          entryCountText.textContent = `Showing ${counts.reviewed} reviewed entries only`;
+          updateNavigation(true); // Show reduced counts
+        }
+      }
+      
+      // Update navigation counts and hide empty sections
+      function updateNavigation(hideAI) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+          const targetId = link.getAttribute('href').substring(1);
+          const section = document.getElementById(targetId);
+          
+          if (section) {
+            const totalCards = section.querySelectorAll('.entry-card').length;
+            const aiCards = section.querySelectorAll('.entry-card-draft').length;
+            const visibleCount = hideAI ? (totalCards - aiCards) : totalCards;
+            
+            // Extract domain name from current text
+            const currentText = link.textContent;
+            const domainName = currentText.replace(/\s*\(\d+\)$/, '');
+            
+            // Update the count
+            link.textContent = `${domainName} (${visibleCount})`;
+            
+            // Hide/show navigation links and entire domain sections
+            if (visibleCount === 0) {
+              link.style.display = 'none';
+              section.style.display = 'none'; // Hide the entire domain section
+            } else {
+              link.style.display = 'inline-block';
+              section.style.display = 'block'; // Show the domain section
+            }
+          }
+        });
+      }
+      
+      // Initialize state from localStorage or default to hiding AI entries
+      const showAIEntries = localStorage.getItem('showAIEntries') === 'true';
+      aiToggle.checked = showAIEntries;
+      updateDisplay(showAIEntries);
+      
+      // Handle toggle changes
+      aiToggle.addEventListener('change', () => {
+        const showAI = aiToggle.checked;
+        localStorage.setItem('showAIEntries', showAI.toString());
+        updateDisplay(showAI);
+      });
+      
+      // Update subtitle with dynamic count
+      const subtitle = document.querySelector('.subtitle');
+      const counts = countEntries();
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.4.8`;
     </script>
   </body>
 </html>
