@@ -1012,3 +1012,162 @@ select option {
   height: 32px;
   border-radius: 4px;
 }
+
+/* AI Toggle Styles */
+.ai-toggle-container {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.ai-toggle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ai-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.ai-toggle-checkbox {
+  display: none;
+}
+
+.ai-toggle-slider {
+  position: relative;
+  width: 54px;
+  height: 28px;
+  background-color: var(--shade-light);
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+  border: 2px solid var(--border-color);
+}
+
+.ai-toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ai-toggle-checkbox:checked + .ai-toggle-slider {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.ai-toggle-checkbox:checked + .ai-toggle-slider::before {
+  transform: translateX(26px);
+}
+
+.ai-toggle-text {
+  user-select: none;
+}
+
+.entry-count-display {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Hide AI entries by default - simple and reliable */
+.hide-ai-entries .ai-entry {
+  display: none !important;
+}
+
+/* Ensure no AI elements show when hidden */
+.hide-ai-entries .entry-card-draft,
+.hide-ai-entries .ai-entry * {
+  display: none !important;
+}
+
+/* Smooth transitions for showing/hiding */
+.entry-card-draft {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Domain sections that are hidden should not take up space */
+.domain-section {
+  transition: all 0.3s ease;
+}
+
+.domain-section[style*="display: none"] {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
+}
+
+/* Improve grid layout when entries are hidden */
+.entry-grid {
+  gap: 1.5rem;
+}
+
+/* When AI entries are hidden, maintain proper grid flow */
+.hide-ai-entries .entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Improve navigation appearance when items are hidden */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Smooth transitions for navigation links */
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+/* Better handling of empty states */
+.domain-navigation {
+  min-height: auto;
+}
+
+/* Add a subtle indicator when domains are filtered */
+.hide-ai-entries .domain-navigation::after {
+  content: "Some domains hidden (contain only AI-generated entries)";
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Responsive design for toggle */
+@media (max-width: 768px) {
+  .ai-toggle-container {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .ai-toggle-label {
+    font-size: 1rem;
+  }
+  
+  .entry-count-display {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}

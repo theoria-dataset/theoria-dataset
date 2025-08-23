@@ -64,8 +64,11 @@ def generate_entry_card(entry, filename):
     status_text_with_emoji = f'🤖 {status_text}' if is_draft else status_text
     status_link = f'<a href="contribute/" class="entry-status {status_class}" title="Click to help review this AI-generated entry">{status_text_with_emoji}</a>' if is_draft else f'<span class="entry-status {status_class}">{status_text_with_emoji}</span>'
     
+    # Add ai-entry class to AI-generated entries
+    link_class = 'entry-card-link ai-entry' if is_draft else 'entry-card-link'
+    
     return f'''
-    <a href="entries.html?entry={filename}" class="entry-card-link">
+    <a href="entries.html?entry={filename}" class="{link_class}">
       <div class="{card_class}">
         <h3 class="entry-title">
           {entry.get('result_name', '')}
@@ -168,6 +171,16 @@ def generate_index_page():
     # Generate complete HTML
     total_entries = sum(len(group['entries']) for group in domain_groups.values())
     
+    # Count reviewed vs AI entries
+    reviewed_count = 0
+    ai_count = 0
+    for group in domain_groups.values():
+        for item in group['entries']:
+            if item['entry'].get('review_status') == 'reviewed':
+                reviewed_count += 1
+            else:
+                ai_count += 1
+    
     html = f'''<!DOCTYPE html>
 <html lang="en" class="text-justify latex-dark">
   <head>
@@ -186,15 +199,28 @@ def generate_index_page():
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All {total_entries} Physics Entries • Version {version}</p>
+      <p class="subtitle">Browse All {total_entries} Physics Entries ({reviewed_count} Reviewed, {ai_count} AI-Generated) • Version {version}</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
     </header>
 
+    <div class="ai-toggle-container">
+      <div class="ai-toggle-wrapper">
+        <label for="aiToggle" class="ai-toggle-label">
+          <input type="checkbox" id="aiToggle" class="ai-toggle-checkbox">
+          <span class="ai-toggle-slider"></span>
+          <span class="ai-toggle-text">Show AI-generated entries</span>
+        </label>
+        <div class="entry-count-display">
+          <span id="entryCountText">Showing reviewed entries only</span>
+        </div>
+      </div>
+    </div>
+
     {navigation}
 
-    <main class="entries-browser">
+    <main class="entries-browser hide-ai-entries">
       {domain_sections}
     </main>
 
@@ -244,6 +270,82 @@ def generate_index_page():
           }}
         }});
       }});
+
+      // AI Toggle functionality
+      const aiToggle = document.getElementById('aiToggle');
+      const entryCountText = document.getElementById('entryCountText');
+      const mainContainer = document.querySelector('main');
+      
+      // Count entries
+      function countEntries() {{
+        const totalEntries = document.querySelectorAll('.entry-card').length;
+        const aiEntries = document.querySelectorAll('.entry-card-draft').length;
+        const reviewedEntries = totalEntries - aiEntries;
+        
+        return {{ total: totalEntries, ai: aiEntries, reviewed: reviewedEntries }};
+      }}
+      
+      // Update entry count display and navigation
+      function updateDisplay(showAI) {{
+        const counts = countEntries();
+        
+        if (showAI) {{
+          mainContainer.classList.remove('hide-ai-entries');
+          entryCountText.textContent = `Showing all ${{counts.total}} entries (${{counts.reviewed}} reviewed, ${{counts.ai}} AI-generated)`;
+          updateNavigation(false); // Show original counts
+        }} else {{
+          mainContainer.classList.add('hide-ai-entries');
+          entryCountText.textContent = `Showing ${{counts.reviewed}} reviewed entries only`;
+          updateNavigation(true); // Show reduced counts
+        }}
+      }}
+      
+      // Update navigation counts and hide empty sections
+      function updateNavigation(hideAI) {{
+        document.querySelectorAll('.nav-link').forEach(link => {{
+          const targetId = link.getAttribute('href').substring(1);
+          const section = document.getElementById(targetId);
+          
+          if (section) {{
+            const totalCards = section.querySelectorAll('.entry-card').length;
+            const aiCards = section.querySelectorAll('.entry-card-draft').length;
+            const visibleCount = hideAI ? (totalCards - aiCards) : totalCards;
+            
+            // Extract domain name from current text
+            const currentText = link.textContent;
+            const domainName = currentText.replace(/\\s*\\(\\d+\\)$/, '');
+            
+            // Update the count
+            link.textContent = `${{domainName}} (${{visibleCount}})`;
+            
+            // Hide/show navigation links and entire domain sections
+            if (visibleCount === 0) {{
+              link.style.display = 'none';
+              section.style.display = 'none'; // Hide the entire domain section
+            }} else {{
+              link.style.display = 'inline-block';
+              section.style.display = 'block'; // Show the domain section
+            }}
+          }}
+        }});
+      }}
+      
+      // Initialize state from localStorage or default to hiding AI entries
+      const showAIEntries = localStorage.getItem('showAIEntries') === 'true';
+      aiToggle.checked = showAIEntries;
+      updateDisplay(showAIEntries);
+      
+      // Handle toggle changes
+      aiToggle.addEventListener('change', () => {{
+        const showAI = aiToggle.checked;
+        localStorage.setItem('showAIEntries', showAI.toString());
+        updateDisplay(showAI);
+      }});
+      
+      // Update subtitle with dynamic count
+      const subtitle = document.querySelector('.subtitle');
+      const counts = countEntries();
+      subtitle.textContent = `Browse All ${{counts.total}} Physics Entries (${{counts.reviewed}} Reviewed, ${{counts.ai}} AI-Generated) • Version {version}`;
     </script>
   </body>
 </html>'''
