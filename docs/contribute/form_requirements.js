@@ -158,7 +158,7 @@ const FIELD_REQUIREMENTS = {
     },
     "programmatic_verification": {
       "type": "object",
-      "description": "Code that verifies the math correctness of the `derivation` field, hence it Should follow the steps of the derivation, including comments to mark each step (e.g. `# Step 2` or `# Steps 4-8`, as the programmatic verification may jump several steps). Include assert statements to verify correctness.",
+      "description": "Code should verify the mathematical correctness of the `derivation` field by explicitly following the sequence of steps in the derivation. Each step must be annotated with comments. For example: `# Step 2` or `# Steps 4\u20138`, since programmatic verification may skip or group multiple steps. Use assert statements to ensure correctnesss.",
       "required": [
         "language",
         "library",
