@@ -93,9 +93,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ```
 
 - **`programmatic_verification`:**
-  - Code that verifies the derivation correctness
-  - Use minimal dependencies (pure Python or sympy)
-  - Should follow the steps of the derivation, explicitly in the comments
+  - Code that verifies the math correctness of the `derivation` field, hence it Should follow the steps of the derivation, including comments to mark each step (e
+  - g
+  - `# Step 2` or `# Steps 4-8`, as the programmatic verification may jump several steps)
   - Include assert statements to verify correctness
 
 - **`domain`:**

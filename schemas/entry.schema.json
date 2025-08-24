@@ -143,7 +143,7 @@
 
     "programmatic_verification": {
       "type": "object",
-      "description": "Code that verifies the derivation correctness. Use minimal dependencies (pure Python or sympy). Should follow the steps of the derivation, explicitly in the comments. Include assert statements to verify correctness.",
+      "description": "Code that verifies the math correctness of the `derivation` field, hence it Should follow the steps of the derivation, including comments to mark each step (e.g. `# Step 2` or `# Steps 4-8`, as the programmatic verification may jump several steps). Include assert statements to verify correctness.",
       "required": ["language", "library", "code"],
       "additionalProperties": false,
       "properties": {
