@@ -37,7 +37,7 @@
     },
     {
       "id": "assumption2",
-      "text": "The sum of the Kinetic energy and GPE of the particle remains constant"
+      "text": "The sum of the Kinetic energy and Gravitational Potential energy of the particle remains constant"
     },
     {
       "id": "assumption3",
@@ -75,12 +75,12 @@
     },
     {
       "step": 5,
-      "description": "Isolate v_a^2/2 (KE at apoapsis)",
+      "description": "Isolate `v_a^2/2` (KE at apoapsis)",
       "equation": "v_a^2/2 = GMr_p/(r_a(r_p+r_a))"
     },
     {
       "step": 6,
-      "description": "Use the identity r_a+r_p=2a to simplify the expression",
+      "description": "Use the identity `r_a+r_p=2a` to simplify the expression",
       "equation": "v_a^2/2 = GM(2a-r_a)/(r_a(2a)) = (GM)/r_a-(GM)/(2a)"
     },
     {
