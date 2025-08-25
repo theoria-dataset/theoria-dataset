@@ -158,7 +158,7 @@ const FIELD_REQUIREMENTS = {
     },
     "programmatic_verification": {
       "type": "object",
-      "description": "Code that verifies the derivation correctness. Use minimal dependencies (pure Python or sympy). Should follow the steps of the derivation, explicitly in the comments. Include assert statements to verify correctness.",
+      "description": "Code should verify the mathematical correctness of the `derivation` field by explicitly following the sequence of steps in the derivation. Derivations should be done in `Python`, using `simpy` library. Each step must be annotated with comments. For example: `# Step 2` or `# Steps 4\u20138`, since programmatic verification may skip or group multiple steps. Use assert statements to ensure correctnesss.",
       "required": [
         "language",
         "library",
