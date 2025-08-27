@@ -49,7 +49,7 @@
     },
     {
       "id": "assumption5",
-      "text": "Conservation of momentum holds"
+      "text": "Conservation of angular momentum holds"
     }
   ],
   "derivation": [
@@ -65,7 +65,7 @@
     },
     {
       "step": 3,
-      "description": "Use conservation of momentum to obtain an expression for `v_p` in terms of `r_a`, `r_p` and `v_a`",
+      "description": "Use conservation of angular momentum to obtain an expression for `v_p` in terms of `r_a`, `r_p` and `v_a`",
       "equation": "L=const=v_ar_a=v_pr_p => v_p = (r_av_a)/r_p"
     },
     {
@@ -76,7 +76,7 @@
     {
       "step": 5,
       "description": "Isolate `v_a^2/2` (KE at apoapsis)",
-      "equation": "v_a^2/2 = GMr_p/(r_a(r_p+r_a))"
+      "equation": "v_a^2/2 = (GM(1/r_a - 1/r_p))/(1 - (r_a/r_p)^2) = ((GM(r_p - r_a))/(r_a r_p)) / ((r_p^2 - r_a^2)/r_p^2) = GM r_p/(r_a(r_p + r_a)"
     },
     {
       "step": 6,
@@ -112,9 +112,9 @@
       "# L_a and L_p are the angular momentum at the apoapsis and periapsis respectively",
       "L_a = v_a*r_a",
       "L_p = v_p*r_p",
-      "momentum_conservation = sp.Eq(L_p, L_a) # using conservation of momentum",
-      "# Solve for v_p from momentum conservation",
-      "expr_for_v_p = sp.solve(momentum_conservation, v_p)[0]  # Get first solution",
+      "angular_momentum_conservation = sp.Eq(L_p, L_a) # using conservation of angular momentum",
+      "# Solve for v_p from angular momentum conservation",
+      "expr_for_v_p = sp.solve(angular_momentum_conservation, v_p)[0]  # Get first solution",
       "# Step 4: substitute v_p into energy conservation equation",
       "energy_conservation = sp.simplify(energy_conservation.subs(v_p, expr_for_v_p))",
       "# step 5: rearrange for v_a^2/2 a.k.a the specific Kinetic energy at apoapsis",
