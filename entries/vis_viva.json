@@ -76,7 +76,7 @@
     {
       "step": 5,
       "description": "Isolate `v_a^2/2` (KE at apoapsis)",
-      "equation": "v_a^2/2 = (GM(1/r_a - 1/r_p))/(1 - (r_a/r_p)^2) = ((GM(r_p - r_a))/(r_a r_p)) / ((r_p^2 - r_a^2)/r_p^2) = GM r_p/(r_a(r_p + r_a)"
+      "equation": "v_a^2/2 = (GM(1/r_a - 1/r_p))/(1 - (r_a/r_p)^2) = ((GM(r_p - r_a))/(r_a r_p)) / ((r_p^2 - r_a^2)/r_p^2) = GM r_p/(r_a(r_p + r_a))"
     },
     {
       "step": 6,
