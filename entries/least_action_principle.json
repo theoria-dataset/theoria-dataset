@@ -45,27 +45,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`."
+      "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time."
+      "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments."
+      "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The path `q_i(t)` is smooth and differentiable on the interval `[t_1, t_2]`."
+      "text": "The path `q_i(t)` is smooth and differentiable on the interval `[t_1, t_2]`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The endpoints of the path are fixed: `delta q_i(t_1) = delta q_i(t_2) = 0`."
+      "text": "The endpoints of the path are fixed: `delta q_i(t_1) = delta q_i(t_2) = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The variations `delta q_i(t)` are small and arbitrary within the interior of the time interval."
+      "text": "The variations `delta q_i(t)` are small and arbitrary within the interior of the time interval.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -166,20 +172,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanical systems",
-      "Well-defined Lagrangian function",
-      "Smooth and differentiable paths",
-      "Fixed boundary conditions"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum effects)",
-      "Requires existence of Lagrangian formulation",
-      "May not apply to systems with friction or non-conservative forces without modification",
-      "Assumes deterministic evolution"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental principle unifying all of classical mechanics and providing foundation for modern field theories",
     "development_period": "1744-1788",
@@ -204,7 +196,6 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics (3rd ed.). Addison Wesley."
     }
   ],
-  "dependencies": [],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

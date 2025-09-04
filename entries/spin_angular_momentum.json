@@ -41,23 +41,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra."
+      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Spin is an intrinsic property independent of particle motion."
+      "text": "Spin is an intrinsic property independent of particle motion.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The quantum numbers s and m_s take discrete values."
+      "text": "The quantum numbers s and m_s take discrete values.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Angular momentum operators form a Lie algebra SU(2)."
+      "text": "Angular momentum operators form a Lie algebra SU(2).",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The Hilbert space is finite-dimensional for each spin value."
+      "text": "The Hilbert space is finite-dimensional for each spin value.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "quantum_angular_momentum"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "pauli_exclusion_principle"
     }
   ],
   "derivation": [
@@ -146,20 +161,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum mechanical systems",
-      "Well-defined particle states",
-      "Non-relativistic or relativistic quantum mechanics",
-      "Discrete quantum number spectrum"
-    ],
-    "limitations": [
-      "Classical analog does not exist",
-      "Requires quantum mechanical framework",
-      "May need relativistic treatment for high-energy particles",
-      "Composite particle spin involves coupling rules"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental quantum property, explains Pauli exclusion principle and particle statistics",
     "development_period": "1925-1928",
@@ -179,10 +180,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "quantum_angular_momentum",
-    "pauli_exclusion_principle"
   ],
   "contributors": [
     {

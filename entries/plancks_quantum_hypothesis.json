@@ -33,35 +33,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Energy exchange between matter and electromagnetic radiation occurs in discrete packets."
+      "text": "Energy exchange between matter and electromagnetic radiation occurs in discrete packets.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The energy of each quantum is proportional to the frequency of the radiation."
+      "text": "The energy of each quantum is proportional to the frequency of the radiation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "For equation `eq2`, `n` is a positive integer representing the number of quanta."
+      "text": "For equation `eq2`, `n` is a positive integer representing the number of quanta.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Planck's constant `h` is a universal constant of nature."
+      "text": "Planck's constant `h` is a universal constant of nature.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Classical electromagnetic field theory correctly describes the density of modes in frequency space."
+      "text": "Classical electromagnetic field theory correctly describes the density of modes in frequency space.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation."
+      "text": "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`."
+      "text": "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The system is in thermal equilibrium and follows Boltzmann statistics."
+      "text": "The system is in thermal equilibrium and follows Boltzmann statistics.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "planck_radiation_law"
     }
   ],
   "derivation": [
@@ -221,9 +234,6 @@
       "id": "R2",
       "citation": "Einstein, A. (1905). 'Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt.' Annalen der Physik, 17, 132-148."
     }
-  ],
-  "dependencies": [
-    "planck_radiation_law"
   ],
   "contributors": [
     {

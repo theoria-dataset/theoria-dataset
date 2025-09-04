@@ -29,19 +29,28 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The magnetic field `vec B` and loop area can vary with time."
+      "text": "The magnetic field `vec B` and loop area can vary with time.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The loop forms a closed path for current flow."
+      "text": "The loop forms a closed path for current flow.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Maxwell's equations apply, specifically Faraday's law in differential form."
+      "text": "Maxwell's equations apply, specifically Faraday's law in differential form.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The surface is simply connected and the loop bounds a well-defined surface."
+      "text": "The surface is simply connected and the loop bounds a well-defined surface.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
     }
   ],
   "derivation": [
@@ -99,20 +108,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Maxwell's equations apply",
-      "Well-defined magnetic fields and conducting loops",
-      "Non-relativistic or relativistically consistent treatment"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "Requires well-defined conducting paths",
-      "May need quantum corrections for microscopic systems",
-      "Assumes continuous fields and currents"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of electromagnetic induction, basis for electric generators and motors",
     "development_period": "1831",
@@ -131,9 +126,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "maxwell_equations"
   ],
   "contributors": [
     {

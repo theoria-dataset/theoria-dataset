@@ -37,35 +37,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system is in thermal equilibrium at temperature T."
+      "text": "The system is in thermal equilibrium at temperature T.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Classical statistical mechanics applies (no quantum effects)."
+      "text": "Classical statistical mechanics applies (no quantum effects).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Each degree of freedom appears quadratically in the Hamiltonian."
+      "text": "Each degree of freedom appears quadratically in the Hamiltonian.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The potential energy has no infinite barriers or singular behavior."
+      "text": "The potential energy has no infinite barriers or singular behavior.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The canonical ensemble describes the system in thermal equilibrium."
+      "text": "The canonical ensemble describes the system in thermal equilibrium.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Integration by parts can be applied and boundary terms vanish."
+      "text": "Integration by parts can be applied and boundary terms vanish.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "The Hamiltonian is quadratic in each degree of freedom."
+      "text": "The Hamiltonian is quadratic in each degree of freedom.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The system has sufficient degrees of freedom for statistical treatment."
+      "text": "The system has sufficient degrees of freedom for statistical treatment.",
+      "type": "unclassified"
     }
   ],
   "derivation": [

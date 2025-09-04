@@ -49,23 +49,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation)."
+      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Only Coulomb interaction between electron and proton is considered."
+      "text": "Only Coulomb interaction between electron and proton is considered.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Relativistic effects and spin-orbit coupling are neglected."
+      "text": "Relativistic effects and spin-orbit coupling are neglected.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The Schrödinger equation applies with Coulomb potential."
+      "text": "The Schrödinger equation applies with Coulomb potential.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Separation of variables in spherical coordinates is possible."
+      "text": "Separation of variables in spherical coordinates is possible.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "schroedingen_equation"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "coulombs_law"
     }
   ],
   "derivation": [
@@ -145,20 +160,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic quantum mechanics",
-      "Pure Coulomb potential",
-      "Single electron system",
-      "Fixed nucleus approximation"
-    ],
-    "limitations": [
-      "Non-relativistic treatment (ignores fine structure)",
-      "Neglects spin-orbit coupling",
-      "Fixed nucleus approximation",
-      "Does not include quantum field theory corrections"
-    ]
-  },
   "historical_context": {
     "importance": "First successful quantum mechanical solution, foundation of atomic physics",
     "development_period": "1913-1926",
@@ -178,10 +179,6 @@
       "id": "R2",
       "citation": "Bethe, H. A., & Salpeter, E. E. (1957). *Quantum Mechanics of One- and Two-Electron Atoms*. Academic Press."
     }
-  ],
-  "dependencies": [
-    "schroedingen_equation",
-    "coulombs_law"
   ],
   "contributors": [
     {

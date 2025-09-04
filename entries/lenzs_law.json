@@ -33,19 +33,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The magnetic flux through a closed conducting loop is changing with time."
+      "text": "The magnetic flux through a closed conducting loop is changing with time.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The conducting loop has finite resistance allowing current flow."
+      "text": "The conducting loop has finite resistance allowing current flow.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Energy conservation applies to the electromagnetic system."
+      "text": "Energy conservation applies to the electromagnetic system.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The system can be treated using classical electromagnetism."
+      "text": "The system can be treated using classical electromagnetism.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "faradays_law"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
     }
   ],
   "derivation": [
@@ -119,20 +133,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Conducting materials with finite resistance",
-      "Time-varying magnetic fields or moving conductors",
-      "Energy conservation applies"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "Requires conducting materials",
-      "May need relativistic treatment for high speeds",
-      "Assumes linear response in materials"
-    ]
-  },
   "historical_context": {
     "importance": "Establishes direction of electromagnetic induction, ensures energy conservation",
     "development_period": "1834",
@@ -151,10 +151,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "faradays_law",
-    "conservation_of_energy"
   ],
   "contributors": [
     {

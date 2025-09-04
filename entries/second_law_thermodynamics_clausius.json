@@ -33,35 +33,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system undergoes a thermodynamic cycle (returns to initial state)."
+      "text": "The system undergoes a thermodynamic cycle (returns to initial state).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Temperature `T` is the absolute temperature of the heat reservoir."
+      "text": "Temperature `T` is the absolute temperature of the heat reservoir.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Heat exchange `dQ` represents heat absorbed by the system from the reservoir."
+      "text": "Heat exchange `dQ` represents heat absorbed by the system from the reservoir.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The equality holds for reversible processes, inequality for irreversible ones."
+      "text": "The equality holds for reversible processes, inequality for irreversible ones.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures."
+      "text": "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The system can be connected to arbitrary combinations of heat reservoirs."
+      "text": "The system can be connected to arbitrary combinations of heat reservoirs.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Entropy is a state function, so its integral over a closed cycle is zero."
+      "text": "Entropy is a state function, so its integral over a closed cycle is zero.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The analysis can be extended from two-reservoir cycles to arbitrary cycles."
+      "text": "The analysis can be extended from two-reservoir cycles to arbitrary cycles.",
+      "type": "unclassified"
     }
   ],
   "derivation": [

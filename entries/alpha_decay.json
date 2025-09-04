@@ -81,27 +81,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The alpha particle exists as a preformed cluster within the parent nucleus with binding energy much greater than nuclear excitation energies."
+      "text": "The alpha particle exists as a preformed cluster within the parent nucleus with binding energy much greater than nuclear excitation energies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The nuclear interaction can be modeled by a potential well with a Coulomb barrier extending to infinity."
+      "text": "The nuclear interaction can be modeled by a potential well with a Coulomb barrier extending to infinity.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The parent nucleus is initially at rest in the center-of-mass frame."
+      "text": "The parent nucleus is initially at rest in the center-of-mass frame.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Non-relativistic quantum mechanics applies to the tunneling process (`v_alpha << c`)."
+      "text": "Non-relativistic quantum mechanics applies to the tunneling process (`v_alpha << c`).",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The nuclear radius `R approx r_0*A^(1/3)` where `r_0 approx 1.2` fm defines the boundary between nuclear and Coulomb potentials."
+      "text": "The nuclear radius `R approx r_0*A^(1/3)` where `r_0 approx 1.2` fm defines the boundary between nuclear and Coulomb potentials.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Spherically symmetric nuclear potential neglecting nuclear deformation effects."
+      "text": "Spherically symmetric nuclear potential neglecting nuclear deformation effects.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "conservation_of_momentum"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "quantum_tunneling"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "nuclear_binding_energy"
     }
   ],
   "derivation": [
@@ -213,22 +239,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Heavy nuclei with A > 140 where alpha decay is energetically favorable",
-      "Q-value positive (typically 4-9 MeV for naturally occurring alpha emitters)",
-      "Non-relativistic alpha particles (v_alpha << c)",
-      "Spherically symmetric nuclear potential approximation",
-      "Quantum tunneling regime where classical particles would be bound"
-    ],
-    "limitations": [
-      "Limited to nuclei where alpha preformation probability is significant",
-      "Tunneling calculations require detailed nuclear structure models",
-      "Competes with other decay modes (beta decay, spontaneous fission)",
-      "Nuclear deformation and shell effects not included in simple model",
-      "Semi-empirical approach for actual decay rate predictions"
-    ]
-  },
   "historical_context": {
     "importance": "First type of radioactivity discovered, led to understanding of nuclear structure, quantum tunneling, and nuclear transmutation",
     "development_period": "1896-1930",
@@ -252,12 +262,6 @@
       "id": "R3",
       "citation": "Condon, E. U., & Gurney, R. W. (1928). Wave mechanics and radioactive disintegration. *Nature*, 122(3073), 439."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy",
-    "conservation_of_momentum",
-    "quantum_tunneling",
-    "nuclear_binding_energy"
   ],
   "contributors": [
     {

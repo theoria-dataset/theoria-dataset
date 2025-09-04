@@ -33,23 +33,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The orbiting body behaves as a point mass"
+      "type": "fundamental",
+      "reference": "point_mass_approximation"
     },
     {
       "id": "assumption2",
-      "text": "The sum of the Kinetic energy and Gravitational Potential energy of the particle remains constant"
+      "type": "fundamental",
+      "reference": "conservation_laws_valid"
     },
     {
       "id": "assumption3",
-      "text": "The only force acting on the particle is the force due to Gravity"
+      "type": "validity_regime",
+      "reference": "isolated_system"
     },
     {
       "id": "assumption4",
-      "text": "The massses of all the bodies in the system remains constant"
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
     },
     {
       "id": "assumption5",
-      "text": "Conservation of angular momentum holds"
+      "type": "dependency",
+      "dependency_id": "angular_momentum"
+    },
+    {
+      "id": "assumption6",
+      "type": "dependency",
+      "dependency_id": "gravitational_force"
     }
   ],
   "derivation": [
@@ -137,16 +147,6 @@
   },
   "domain": "astro-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic situation",
-      "Orbit is stable",
-      "Orbiting body behaves as a point particle"
-    ],
-    "limitations": [
-      "Limited to non-relativistic situations"
-    ]
-  },
   "historical_context": {
     "importance": "Heavily used in astrophysics and astrodynamics to calculate the velocities of orbiting objects. From this equation one can easily derive other equations such as the formula for escape velocity.",
     "development_period": "1676–1689",
@@ -160,11 +160,6 @@
       "id": "R1",
       "citation": "Logsdon, Thomas S.; Logsdon, Tom (1998). Orbital mechanics: theory and applications."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy",
-    "angular_momentum",
-    "gravitational_force"
   ],
   "contributors": [
     {

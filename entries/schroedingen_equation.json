@@ -9,18 +9,52 @@
   ],
   "explanation": "The Schrödinger equation explains how the wavefunction of a particle evolves in time and how energy levels arise from the system’s Hamiltonian. Its solutions describe atomic and molecular structure, chemical bonding, and the behavior of matter at small scales. By replacing deterministic classical motion with probabilistic wave dynamics, it provides the framework that underpins much of modern physics, chemistry, and technology.",
   "definitions": [
-    { "symbol": "psi", "definition": "Wavefunction psi(x,t), a complex function of space and time, |psi(x,t)|^2 represents the probability density, and it must be square‑integrable with proper boundary conditions." },
-    { "symbol": "hbar", "definition": "Reduced Planck constant (`hbar = h/(2 pi)`)." },
-    { "symbol": "m", "definition": "Particle mass." },
-    { "symbol": "partial_t", "definition": "Partial derivative with respect to time t." },
-    { "symbol": "nabla^2", "definition": "Laplacian in 3D: `partial_(x x) + partial_(y y) + partial_(z z)`." },
-    { "symbol": "V", "definition": "Potential energy `V(x,t)`, acting as a multiplication operator." }
+    {
+      "symbol": "psi",
+      "definition": "Wavefunction psi(x,t), a complex function of space and time, |psi(x,t)|^2 represents the probability density, and it must be square‑integrable with proper boundary conditions."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant (`hbar = h/(2 pi)`)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Particle mass."
+    },
+    {
+      "symbol": "partial_t",
+      "definition": "Partial derivative with respect to time t."
+    },
+    {
+      "symbol": "nabla^2",
+      "definition": "Laplacian in 3D: `partial_(x x) + partial_(y y) + partial_(z z)`."
+    },
+    {
+      "symbol": "V",
+      "definition": "Potential energy `V(x,t)`, acting as a multiplication operator."
+    }
   ],
   "assumptions": [
-    { "id": "A1", "text": "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`)." },
-    { "id": "A2", "text": "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain)." },
-    { "id": "A3", "text": "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian." },
-    { "id": "A4", "text": "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`." }
+    {
+      "id": "A1",
+      "text": "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`).",
+      "type": "unclassified"
+    },
+    {
+      "id": "A2",
+      "text": "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain).",
+      "type": "unclassified"
+    },
+    {
+      "id": "A3",
+      "text": "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian.",
+      "type": "unclassified"
+    },
+    {
+      "id": "A4",
+      "text": "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`.",
+      "type": "unclassified"
+    }
   ],
   "derivation": [
     {
@@ -99,19 +133,11 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non‑relativistic quantum mechanics",
-      "Single‑particle systems (spin‑0)",
-      "Well‑defined, real potential V(x,t); appropriate boundary conditions"
-    ],
-    "limitations": [
-      "No relativistic effects (use Dirac equation at high energies)",
-      "No spin interactions (use Pauli equation for spin‑1/2 in electromagnetic fields)",
-      "No particle creation/annihilation (quantum field theory required)"
-    ]
-  },
-  "superseded_by": ["pauli_equation", "dirac_equation_free", "qed_lagrangian"],
+  "superseded_by": [
+    "pauli_equation",
+    "dirac_equation_free",
+    "qed_lagrangian"
+  ],
   "historical_context": {
     "importance": "Foundational equation of non‑relativistic quantum mechanics; enables quantitative predictions for spectra, bonding, transport, and nanoscale phenomena",
     "development_period": "1925–1926",
@@ -122,11 +148,20 @@
     ]
   },
   "references": [
-    { "id": "R1", "citation": "Schrödinger, E. (1926). Quantisierung als Eigenwertproblem. Annalen der Physik, 79(4), 361–376." },
-    { "id": "R2", "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press." }
+    {
+      "id": "R1",
+      "citation": "Schrödinger, E. (1926). Quantisierung als Eigenwertproblem. Annalen der Physik, 79(4), 361–376."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    }
   ],
   "contributors": [
-    { "full_name": "Manuel Sánchez Hernández", "identifier": "ORCID 0009-0006-4904-3695" }
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
   ],
   "review_status": "draft"
 }

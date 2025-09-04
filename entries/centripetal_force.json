@@ -41,19 +41,28 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The motion is circular with constant radius r."
+      "text": "The motion is circular with constant radius r.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "For uniform circular motion, the speed is constant."
+      "text": "For uniform circular motion, the speed is constant.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The circular motion occurs in a plane with constant radius."
+      "text": "The circular motion occurs in a plane with constant radius.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Newton's second law applies in the radial direction."
+      "text": "Newton's second law applies in the radial direction.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "newtons_second_law"
     }
   ],
   "derivation": [
@@ -127,20 +136,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics",
-      "Circular or curved motion",
-      "Well-defined radius of curvature",
-      "Non-relativistic speeds"
-    ],
-    "limitations": [
-      "Classical mechanics only (no relativistic effects)",
-      "Requires well-defined circular path",
-      "May need modifications for variable radius",
-      "Does not account for tangential forces"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental concept in circular motion, crucial for orbital mechanics and rotating systems",
     "development_period": "1600s-1700s",
@@ -160,9 +155,6 @@
       "id": "R2",
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). *Fundamentals of Physics* (10th ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "newtons_second_law"
   ],
   "contributors": [
     {

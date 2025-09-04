@@ -61,35 +61,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Isotropic, homogeneous material"
+      "text": "Isotropic, homogeneous material",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Constant thermal properties"
+      "text": "Constant thermal properties",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "No internal heat generation"
+      "text": "No internal heat generation",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Fourier's law of heat conduction applies"
+      "text": "Fourier's law of heat conduction applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Energy conservation"
+      "text": "Energy conservation",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Fourier's law of heat conduction"
+      "text": "Fourier's law of heat conduction",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Constant material properties"
+      "text": "Constant material properties",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "No internal heat sources"
+      "text": "No internal heat sources",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
     }
   ],
   "derivation": [
@@ -184,20 +197,6 @@
   },
   "domain": "physics.cond-mat",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Continuous media",
-      "Fourier heat conduction regime",
-      "Constant material properties",
-      "No phase transitions"
-    ],
-    "limitations": [
-      "Ballistic transport at very small scales",
-      "Non-Fourier effects at short time scales",
-      "Nonlinear effects at extreme temperatures",
-      "Radiative heat transfer dominance"
-    ]
-  },
   "historical_context": {
     "development_period": "1822",
     "importance": "Foundation of heat transfer analysis; first major application of partial differential equations to physics",
@@ -217,9 +216,6 @@
       "id": "R2",
       "citation": "Carslaw, H. S., & Jaeger, J. C. (1959). Conduction of Heat in Solids. Oxford University Press."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy"
   ],
   "contributors": [
     {

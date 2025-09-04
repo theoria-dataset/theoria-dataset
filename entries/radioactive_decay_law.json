@@ -33,19 +33,23 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The decay probability per unit time is constant for each nucleus."
+      "text": "The decay probability per unit time is constant for each nucleus.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Decay events are independent and random."
+      "text": "Decay events are independent and random.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Each nucleus has the same probability λdt of decaying in time interval dt."
+      "text": "Each nucleus has the same probability λdt of decaying in time interval dt.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The large number limit applies (statistical behavior)."
+      "text": "The large number limit applies (statistical behavior).",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -119,20 +123,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Large number of nuclei (statistical regime)",
-      "Isolated system (no external influences)",
-      "Single decay mode dominates",
-      "Classical nuclear physics"
-    ],
-    "limitations": [
-      "Requires large numbers for statistical validity",
-      "May not apply to very small samples",
-      "Classical treatment (no quantum decoherence effects)",
-      "Assumes single decay pathway"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of nuclear physics and radiometric dating, medical applications",
     "development_period": "1896-1910",

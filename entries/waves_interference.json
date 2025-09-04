@@ -57,35 +57,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Linear superposition applies"
+      "text": "Linear superposition applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Waves are coherent"
+      "text": "Waves are coherent",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Medium is linear"
+      "text": "Medium is linear",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "No nonlinear effects"
+      "text": "No nonlinear effects",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Wave equation is linear"
+      "text": "Wave equation is linear",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Superposition principle applies"
+      "text": "Superposition principle applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Waves propagate in same medium"
+      "text": "Waves propagate in same medium",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "No boundary effects"
+      "text": "No boundary effects",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "wave_equation"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "superposition_principle"
     }
   ],
   "derivation": [
@@ -167,20 +185,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Linear wave equation",
-      "Coherent wave sources",
-      "Small amplitude approximation",
-      "Homogeneous medium"
-    ],
-    "limitations": [
-      "Nonlinear effects at large amplitudes",
-      "Incoherent sources reduce interference",
-      "Dispersion affects different frequencies",
-      "Scattering in inhomogeneous media"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th centuries",
     "importance": "Fundamental wave phenomenon; essential for understanding optics, acoustics, and quantum mechanics",
@@ -200,10 +204,6 @@
       "id": "R2",
       "citation": "Born, M., & Wolf, E. (1999). Principles of Optics. Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "wave_equation",
-    "superposition_principle"
   ],
   "contributors": [
     {

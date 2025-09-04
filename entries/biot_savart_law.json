@@ -45,19 +45,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The current is steady (time-independent)."
+      "text": "The current is steady (time-independent).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The medium is non-magnetic (relative permeability = 1)."
+      "text": "The medium is non-magnetic (relative permeability = 1).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Maxwell's equations apply for static magnetic fields."
+      "text": "Maxwell's equations apply for static magnetic fields.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The current flows in thin wires (line current approximation)."
+      "text": "The current flows in thin wires (line current approximation).",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "amperes_law"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
     }
   ],
   "derivation": [
@@ -127,20 +141,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Static or quasi-static magnetic fields",
-      "Steady currents",
-      "Classical electromagnetism",
-      "Non-magnetic media"
-    ],
-    "limitations": [
-      "Limited to steady currents (no time-varying fields)",
-      "Classical electromagnetic theory only",
-      "May be difficult to integrate for complex geometries",
-      "Requires extension for magnetic materials"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental law for calculating magnetic fields, complements Ampère's law",
     "development_period": "1820",
@@ -159,10 +159,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "amperes_law",
-    "maxwell_equations"
   ],
   "contributors": [
     {

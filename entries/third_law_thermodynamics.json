@@ -33,19 +33,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system is a perfect crystal with no structural defects or disorder."
+      "text": "The system is a perfect crystal with no structural defects or disorder.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "All nuclear spins are aligned (no nuclear entropy contribution)."
+      "text": "All nuclear spins are aligned (no nuclear entropy contribution).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The system has a unique ground state (single microstate at T = 0)."
+      "text": "The system has a unique ground state (single microstate at T = 0).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Quantum statistical mechanics applies at low temperatures."
+      "text": "Quantum statistical mechanics applies at low temperatures.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "first_law_thermodynamics"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "second_law_thermodynamics_clausius"
     }
   ],
   "derivation": [
@@ -103,20 +117,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Very low temperatures approaching absolute zero",
-      "Perfect crystalline systems",
-      "Quantum statistical mechanics regime",
-      "Well-defined ground state"
-    ],
-    "limitations": [
-      "May not apply to amorphous solids or glasses",
-      "Nuclear entropy may provide residual entropy",
-      "Requires perfect crystalline order",
-      "Limited to systems with unique ground states"
-    ]
-  },
   "historical_context": {
     "importance": "Provides absolute reference for entropy, explains unattainability of absolute zero",
     "development_period": "1906-1912",
@@ -136,10 +136,6 @@
       "id": "R2",
       "citation": "Planck, M. (1911). Zur Hypothese der Quantenelemente. *Annalen der Physik*, 34(4), 419-440."
     }
-  ],
-  "dependencies": [
-    "first_law_thermodynamics",
-    "second_law_thermodynamics_clausius"
   ],
   "contributors": [
     {

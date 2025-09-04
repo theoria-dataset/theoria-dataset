@@ -45,35 +45,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The interface between media is smooth and well-defined."
+      "text": "The interface between media is smooth and well-defined.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The media are homogeneous and isotropic."
+      "text": "The media are homogeneous and isotropic.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Geometric optics applies (wavelength much smaller than relevant length scales)."
+      "text": "Geometric optics applies (wavelength much smaller than relevant length scales).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The light beam is a plane wave with well-defined direction."
+      "text": "The light beam is a plane wave with well-defined direction.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Fermat's principle applies: light takes the path of stationary optical path length."
+      "text": "Fermat's principle applies: light takes the path of stationary optical path length.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The optical path length is the integral of refractive index along the path."
+      "text": "The optical path length is the integral of refractive index along the path.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "The interface is planar and the geometry can be described in 2D coordinates."
+      "text": "The interface is planar and the geometry can be described in 2D coordinates.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The refractive index is constant within each medium."
+      "text": "The refractive index is constant within each medium.",
+      "type": "unclassified"
     }
   ],
   "derivation": [

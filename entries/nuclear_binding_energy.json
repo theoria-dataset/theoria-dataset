@@ -49,19 +49,28 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The nucleus can be separated into individual protons and neutrons."
+      "text": "The nucleus can be separated into individual protons and neutrons.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Mass-energy equivalence (E = mc²) applies."
+      "text": "Mass-energy equivalence (E = mc²) applies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The mass of separated nucleons is greater than the bound nucleus mass."
+      "text": "The mass of separated nucleons is greater than the bound nucleus mass.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Electron binding energies are negligible compared to nuclear binding energy."
+      "text": "Electron binding energies are negligible compared to nuclear binding energy.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "mass_energy_equivalence"
     }
   ],
   "derivation": [
@@ -129,20 +138,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Nuclear physics regime",
-      "Well-defined nuclear masses",
-      "Relativistic mass-energy relation applies",
-      "Collective nuclear properties"
-    ],
-    "limitations": [
-      "Semi-empirical models for complex nuclei",
-      "Does not explain detailed nuclear structure",
-      "Classical treatment of nuclear binding",
-      "May need quantum corrections for light nuclei"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of nuclear physics, explains nuclear stability and energy release",
     "development_period": "1920-1935",
@@ -162,9 +157,6 @@
       "id": "R2",
       "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
     }
-  ],
-  "dependencies": [
-    "mass_energy_equivalence"
   ],
   "contributors": [
     {

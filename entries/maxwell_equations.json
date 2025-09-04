@@ -57,43 +57,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`."
+      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Fields and sources are continuously differentiable so vector-calculus theorems apply."
+      "text": "Fields and sources are continuously differentiable so vector-calculus theorems apply.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`."
+      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
+      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law)."
+      "text": "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law).",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Empirical: Magnetic monopoles have never been observed."
+      "text": "Empirical: Magnetic monopoles have never been observed.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments)."
+      "text": "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments).",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments)."
+      "text": "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments).",
+      "type": "unclassified"
     },
     {
       "id": "assumption9",
-      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`."
+      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption10",
-      "text": "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
+      "text": "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -230,18 +240,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism (non-quantum regime)",
-      "Length scales much larger than atomic dimensions",
-      "Field strengths below quantum electrodynamic effects"
-    ],
-    "limitations": [
-      "Does not account for quantum effects",
-      "Breaks down at very high field strengths",
-      "Does not include weak and strong nuclear forces"
-    ]
-  },
   "historical_context": {
     "importance": "Unification of electricity, magnetism, and light; foundation of electromagnetic theory",
     "development_period": "1860-1873",

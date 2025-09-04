@@ -37,31 +37,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "System mass remains constant; no matter crosses the boundary."
+      "text": "System mass remains constant; no matter crosses the boundary.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system."
+      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary."
+      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Closed system: no mass crosses the boundary during the process."
+      "text": "Closed system: no mass crosses the boundary during the process.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`."
+      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`."
+      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
+      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -124,20 +131,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Thermodynamic systems with well-defined energy",
-      "Classical thermodynamics regime",
-      "Closed or open systems with clear boundaries",
-      "Macroscopic scale phenomena"
-    ],
-    "limitations": [
-      "Does not specify direction of processes (needs second law)",
-      "Classical framework (quantum corrections needed at low temperatures)",
-      "Requires careful definition of system boundaries",
-      "May need relativistic corrections at high energies"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental law of energy conservation in thermodynamics, foundation of energy analysis",
     "development_period": "1842-1850",

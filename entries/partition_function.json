@@ -37,19 +37,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system is in thermal equilibrium with a heat reservoir at temperature T."
+      "text": "The system is in thermal equilibrium with a heat reservoir at temperature T.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The number of particles is fixed (canonical ensemble)."
+      "text": "The number of particles is fixed (canonical ensemble).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Boltzmann distribution applies to the probability of each microstate."
+      "text": "Boltzmann distribution applies to the probability of each microstate.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Classical thermodynamic relations hold for ensemble averages."
+      "text": "Classical thermodynamic relations hold for ensemble averages.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "boltzmann_distribution"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "first_law_thermodynamics"
     }
   ],
   "derivation": [
@@ -129,20 +143,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Thermal equilibrium",
-      "Fixed number of particles",
-      "Well-defined energy levels",
-      "Classical or quantum statistical mechanics"
-    ],
-    "limitations": [
-      "Assumes thermal equilibrium",
-      "May be difficult to calculate for complex systems",
-      "Requires knowledge of all energy states",
-      "Classical limit needed for some applications"
-    ]
-  },
   "historical_context": {
     "importance": "Central concept in statistical mechanics, bridges microscopic and macroscopic physics",
     "development_period": "1870-1900",
@@ -161,10 +161,6 @@
       "id": "R2",
       "citation": "Pathria, R. K., & Beale, P. D. (2011). *Statistical Mechanics* (3rd ed.). Academic Press."
     }
-  ],
-  "dependencies": [
-    "boltzmann_distribution",
-    "first_law_thermodynamics"
   ],
   "contributors": [
     {

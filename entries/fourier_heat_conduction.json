@@ -61,23 +61,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Heat moves only by conduction; convection and radiation are absent."
+      "text": "Heat moves only by conduction; convection and radiation are absent.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Thermal conductivity `k` is constant and isotropic."
+      "text": "Thermal conductivity `k` is constant and isotropic.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The system is in steady state (no time dependence)."
+      "text": "The system is in steady state (no time dependence).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Temperature varies linearly over small `Delta x`."
+      "text": "Temperature varies linearly over small `Delta x`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Material properties are uniform and isotropic."
+      "text": "Material properties are uniform and isotropic.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "first_law_thermodynamics"
     }
   ],
   "derivation": [
@@ -123,20 +133,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "approximation",
-  "validity_regime": {
-    "conditions": [
-      "Classical heat conduction (macroscopic scale)",
-      "Continuum approximation",
-      "Local thermal equilibrium",
-      "Fourier's law applies (linear heat flux)"
-    ],
-    "limitations": [
-      "Breaks down at very small length scales",
-      "Assumes local thermal equilibrium",
-      "Classical treatment (no quantum effects)",
-      "May fail in extreme temperature gradients"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of heat transfer theory, widely used in engineering and physics",
     "development_period": "1822",
@@ -159,9 +155,6 @@
       "id": "R3",
       "citation": "Bergman, T. L., Lavine, A. S., Incropera, F. P., & DeWitt, D. P. (2011). *Introduction to Heat Transfer* (6th ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "first_law_thermodynamics"
   ],
   "contributors": [
     {

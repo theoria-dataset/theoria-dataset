@@ -29,19 +29,23 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth)."
+      "text": "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale)."
+      "text": "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear."
+      "text": "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "No actual force corresponds to these terms; they are apparent forces due to frame rotation."
+      "text": "No actual force corresponds to these terms; they are apparent forces due to frame rotation.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -96,20 +100,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "validity_regime": {
-    "conditions": [
-      "Rotating reference frame (e.g., Earth's surface)",
-      "Moderate velocities (v << Ω × R for planetary scale)",
-      "Classical mechanics applies",
-      "Uniform rotation rate"
-    ],
-    "limitations": [
-      "Fictitious force only appearing in rotating frames",
-      "Requires velocities much smaller than planetary surface speed",
-      "Classical mechanics only (no relativistic effects)",
-      "Assumes uniform rotation rate"
-    ]
-  },
   "approximation_of": "general_relativity",
   "historical_context": {
     "importance": "Explains atmospheric and oceanic circulation patterns, important for meteorology and ballistics",

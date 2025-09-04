@@ -57,35 +57,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Electrostatic conditions"
+      "text": "Electrostatic conditions",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Linear, isotropic media"
+      "text": "Linear, isotropic media",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Classical field theory"
+      "text": "Classical field theory",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Continuous charge distributions"
+      "text": "Continuous charge distributions",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Superposition principle applies"
+      "text": "Superposition principle applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Solid angle subtended by closed surface"
+      "text": "Solid angle subtended by closed surface",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Coulomb's law for point charges"
+      "text": "Coulomb's law for point charges",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Charge conservation"
+      "text": "Charge conservation",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electric_field"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "coulombs_law"
     }
   ],
   "derivation": [
@@ -160,20 +178,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Static or quasi-static fields",
-      "Linear, isotropic media",
-      "Macroscopic charge distributions"
-    ],
-    "limitations": [
-      "Time-varying fields require full Maxwell equations",
-      "Quantum effects ignored at microscopic scales",
-      "Relativistic corrections needed at high speeds",
-      "Breakdown in strongly nonlinear media"
-    ]
-  },
   "historical_context": {
     "development_period": "1835-1867",
     "importance": "One of Maxwell's equations; fundamental to understanding electromagnetism and enables calculation of electric fields with high symmetry",
@@ -193,10 +197,6 @@
       "id": "R2",
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "electric_field",
-    "coulombs_law"
   ],
   "contributors": [
     {

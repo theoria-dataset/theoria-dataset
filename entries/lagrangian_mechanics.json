@@ -53,31 +53,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
+      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
+      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities."
+      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
+      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
+      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`."
+      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
+      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "euler_lagrange_equation"
     }
   ],
   "derivation": [
@@ -161,20 +173,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanical systems",
-      "Well-defined kinetic and potential energies",
-      "Holonomic constraints (if any)",
-      "Differentiable coordinate transformations"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum effects)",
-      "Requires conservative forces or generalized forces from constraints",
-      "May be complex for non-holonomic systems",
-      "Does not naturally handle dissipative forces"
-    ]
-  },
   "historical_context": {
     "importance": "Reformulation of classical mechanics providing deeper insights into symmetries and conservation laws",
     "development_period": "1788-1834",
@@ -198,9 +196,6 @@
       "id": "R3",
       "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann."
     }
-  ],
-  "dependencies": [
-    "euler_lagrange_equation"
   ],
   "contributors": [
     {

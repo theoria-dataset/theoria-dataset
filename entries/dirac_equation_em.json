@@ -69,35 +69,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`."
+      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected."
+      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
+      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
+      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`."
+      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Desire for a first-order linear differential equation preserving probability density."
+      "text": "Desire for a first-order linear differential equation preserving probability density.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form."
+      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance."
+      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "dirac_equation_free"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
     }
   ],
   "derivation": [
@@ -174,20 +192,6 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Relativistic quantum mechanics with electromagnetic interactions",
-      "Single particle approximation",
-      "Classical electromagnetic fields",
-      "Spin-1/2 charged particles"
-    ],
-    "limitations": [
-      "Single particle theory (no field quantization)",
-      "Classical treatment of electromagnetic field",
-      "Does not include quantum field fluctuations",
-      "Superseded by full QED for quantum electromagnetic effects"
-    ]
-  },
   "superseded_by": [
     "qed_lagrangian"
   ],
@@ -213,10 +217,6 @@
       "id": "R3",
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
-  ],
-  "dependencies": [
-    "dirac_equation_free",
-    "maxwell_equations"
   ],
   "contributors": [
     {

@@ -65,10 +65,10 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ```
 
 - **`assumptions`:**
-  - Assumptions that lead to the result equations, which usually are either first principles, results from another entry specified in 'dependencies' or empirical results
-  - List all assumptions required for the derivation
+  - Unified assumption system with typed references
+  - Each assumption must specify its type and appropriate reference
   - Use sequential IDs like 'assumption1', 'assumption2'
-  - If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
+  - If there are math symbols or equations included in text fields, they must be enclosed in backticks (``) and written in AsciiMath format
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
@@ -114,11 +114,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - limiting_case: Special cases with restricted applicability
   - superseded: Completely replaced by more accurate theories
 
-- `validity_regime`:
-  - Physical conditions where theory applies and limitations
-  - Use for theories with specific applicability ranges
-  - Include both conditions where valid and limitations
-
 - `superseded_by`:
   - Theories that supersede or generalize this result
   - Use exact result_id values (without
@@ -150,12 +145,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
       }
     ]
     ```
-
-- `dependencies`:
-  - Other entries this result relies on
-  - Use exact result_id values (without
-  - json extension)
-  - Only include direct dependencies
 
 - **`review_status`:**
   - Review status of the entry

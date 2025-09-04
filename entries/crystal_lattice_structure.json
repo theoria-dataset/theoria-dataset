@@ -33,23 +33,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The crystal has perfect translational periodicity (ideal crystal)."
+      "text": "The crystal has perfect translational periodicity (ideal crystal).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Atomic positions are well-defined and static (neglecting thermal motion)."
+      "text": "Atomic positions are well-defined and static (neglecting thermal motion).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The crystal extends infinitely in all directions."
+      "text": "The crystal extends infinitely in all directions.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The crystal structure can be described by discrete translational symmetry."
+      "text": "The crystal structure can be described by discrete translational symmetry.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Basis vectors are linearly independent and span 3D space."
+      "text": "Basis vectors are linearly independent and span 3D space.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "x_ray_diffraction"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "crystal_symmetry"
     }
   ],
   "derivation": [
@@ -143,20 +158,6 @@
   },
   "domain": "cond-mat.mtrl-sci",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Crystalline materials",
-      "Long-range periodic order",
-      "Well-defined atomic positions",
-      "Solid state systems"
-    ],
-    "limitations": [
-      "Does not apply to amorphous materials",
-      "Neglects defects and disorder",
-      "Static lattice approximation",
-      "May need modifications for quasicrystals"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of solid state physics, materials science, and crystallography",
     "development_period": "1912-1920",
@@ -176,10 +177,6 @@
       "id": "R2",
       "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "x_ray_diffraction",
-    "crystal_symmetry"
   ],
   "contributors": [
     {

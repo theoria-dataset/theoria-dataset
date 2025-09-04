@@ -41,35 +41,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Linear, ohmic materials"
+      "text": "Linear, ohmic materials",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Constant temperature"
+      "text": "Constant temperature",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Steady-state conditions"
+      "text": "Steady-state conditions",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Homogeneous material properties"
+      "text": "Homogeneous material properties",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Drift velocity proportional to electric field"
+      "text": "Drift velocity proportional to electric field",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Constant charge carrier density"
+      "text": "Constant charge carrier density",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Uniform current distribution"
+      "text": "Uniform current distribution",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Classical electron transport"
+      "text": "Classical electron transport",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -155,20 +163,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Ohmic materials (linear V-I relationship)",
-      "Constant temperature",
-      "DC or low frequency AC",
-      "Steady state conditions"
-    ],
-    "limitations": [
-      "Non-ohmic devices (diodes, transistors)",
-      "High frequency effects",
-      "Temperature-dependent resistance",
-      "Superconductors (zero resistance)"
-    ]
-  },
   "historical_context": {
     "development_period": "1827",
     "importance": "Fundamental law of electrical circuits; enables quantitative analysis of electrical systems",
@@ -189,7 +183,6 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": [],
   "contributors": [
     {
       "full_name": "Synthetic entry",

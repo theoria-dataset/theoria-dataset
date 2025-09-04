@@ -45,23 +45,28 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The equation describes a free spinless particle in flat spacetime."
+      "text": "The equation describes a free spinless particle in flat spacetime.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The wave function `phi` represents a scalar field."
+      "text": "The wave function `phi` represents a scalar field.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity."
+      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`."
+      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
+      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -166,20 +171,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Relativistic quantum mechanics",
-      "Spin-0 particles",
-      "Free particles or in external fields",
-      "Single particle approximation"
-    ],
-    "limitations": [
-      "Does not account for particle creation/annihilation",
-      "Single particle interpretation problematic",
-      "Negative energy solutions require field quantization",
-      "Superseded by quantum field theory for multi-particle systems"
-    ]
-  },
   "superseded_by": [
     "qed_lagrangian"
   ],

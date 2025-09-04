@@ -65,35 +65,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Classical mechanics framework"
+      "text": "Classical mechanics framework",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Point particle or rigid body"
+      "text": "Point particle or rigid body",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Non-relativistic speeds"
+      "text": "Non-relativistic speeds",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Well-defined force and displacement"
+      "text": "Well-defined force and displacement",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Newton's second law applies"
+      "text": "Newton's second law applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Vector calculus relations"
+      "text": "Vector calculus relations",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Path independence for conservative forces"
+      "text": "Path independence for conservative forces",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Continuous force and motion"
+      "text": "Continuous force and motion",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "newtons_second_law"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
     }
   ],
   "derivation": [
@@ -196,20 +214,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics (non-relativistic)",
-      "Well-defined forces and paths",
-      "Inertial reference frames",
-      "Particle or rigid body systems"
-    ],
-    "limitations": [
-      "Relativistic corrections needed at high speeds",
-      "Quantum effects ignored at microscopic scales",
-      "May not apply to dissipative systems without careful accounting",
-      "Assumes point particle or rigid body"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th centuries",
     "importance": "Fundamental principle connecting force and energy concepts; essential for understanding mechanical systems",
@@ -229,10 +233,6 @@
       "id": "R2",
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
-  ],
-  "dependencies": [
-    "newtons_second_law",
-    "conservation_of_energy"
   ],
   "contributors": [
     {

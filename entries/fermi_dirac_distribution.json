@@ -45,23 +45,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle."
+      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T."
+      "text": "The system is in thermal equilibrium at temperature T.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Particles are non-interacting (ideal Fermi gas)."
+      "text": "Particles are non-interacting (ideal Fermi gas).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Maximum entropy principle applies at thermal equilibrium."
+      "text": "Maximum entropy principle applies at thermal equilibrium.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Particle number and energy are conserved (grand canonical ensemble)."
+      "text": "Particle number and energy are conserved (grand canonical ensemble).",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "pauli_exclusion_principle"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "partition_function"
     }
   ],
   "derivation": [
@@ -149,20 +164,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum statistical mechanics",
-      "Fermions (half-integer spin particles)",
-      "Non-interacting or weakly interacting particles",
-      "Thermal equilibrium"
-    ],
-    "limitations": [
-      "Limited to non-interacting fermions",
-      "Requires quantum mechanical treatment",
-      "May need corrections for strong correlations",
-      "Assumes well-defined chemical potential"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of solid state physics, explains electronic properties of metals and semiconductors",
     "development_period": "1926-1927",
@@ -182,10 +183,6 @@
       "id": "R2",
       "citation": "Dirac, P. A. M. (1926). On the theory of quantum mechanics. *Proceedings of the Royal Society of London*, 112(762), 661-677."
     }
-  ],
-  "dependencies": [
-    "pauli_exclusion_principle",
-    "partition_function"
   ],
   "contributors": [
     {

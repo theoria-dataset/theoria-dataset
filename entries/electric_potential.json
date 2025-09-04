@@ -65,35 +65,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Electrostatic conditions (time-independent)"
+      "text": "Electrostatic conditions (time-independent)",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Point charges or continuous charge distributions"
+      "text": "Point charges or continuous charge distributions",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Linear medium or vacuum"
+      "text": "Linear medium or vacuum",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Reference potential at infinity is zero"
+      "text": "Reference potential at infinity is zero",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Conservative electric field"
+      "text": "Conservative electric field",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Work is path-independent"
+      "text": "Work is path-independent",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Point charge field formula"
+      "text": "Point charge field formula",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Integration along radial path"
+      "text": "Integration along radial path",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electric_field"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "coulombs_law"
     }
   ],
   "derivation": [
@@ -236,20 +254,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Electrostatic regime (time-independent fields)",
-      "Classical treatment",
-      "Linear media or vacuum",
-      "Well-defined charge distributions"
-    ],
-    "limitations": [
-      "Time-varying fields require electromagnetic potentials",
-      "Quantum effects ignored at microscopic scales",
-      "Relativistic effects neglected",
-      "Breakdown in nonlinear materials"
-    ]
-  },
   "historical_context": {
     "development_period": "18th-19th century",
     "importance": "Introduced scalar potential concept; simplified electrostatics calculations and laid foundation for circuit theory",
@@ -268,10 +272,6 @@
       "id": "ref2",
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "electric_field",
-    "coulombs_law"
   ],
   "contributors": [
     {

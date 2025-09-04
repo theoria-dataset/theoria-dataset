@@ -331,7 +331,20 @@ function render(data) {
     .map((eq) => `<p>${formatLongEquation(eq.equation)}</p>`)
     .join("");
   safeTypesetMathJax([eqDiv]);
-  renderList("#assumptions ol", data.assumptions, (a) => a.text);
+  // Render assumptions with new unified structure
+  renderList("#assumptions ol", data.assumptions, (a) => {
+    if (a.type === 'unclassified') {
+      return a.text;
+    } else if (a.type === 'dependency') {
+      return `Depends on: <a href="entries.html?entry=${a.dependency_id}.json">${a.dependency_id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</a>`;
+    } else if (a.type === 'fundamental') {
+      return `Fundamental assumption: ${a.reference} ${a.temp_text ? '(' + a.temp_text + ')' : ''}`;
+    } else if (a.type === 'validity_regime') {
+      return `Validity condition: ${a.reference} ${a.temp_text ? '(' + a.temp_text + ')' : ''}`;
+    } else {
+      return a.text || `${a.type}: ${a.reference || a.dependency_id || 'unknown'}`;
+    }
+  }, true);
   safeTypesetMathJax([qs("#assumptions")]);
 
   // Ensure derivation sections are visible
@@ -388,19 +401,7 @@ function render(data) {
   safeTypesetMathJax([qs("#references")]);
 
   // Render validity regime
-  if (data.validity_regime) {
-    renderList(
-      "#validity-conditions ul",
-      data.validity_regime.conditions || [],
-      (c) => c
-    );
-    renderList(
-      "#validity-limitations ul",
-      data.validity_regime.limitations || [],
-      (l) => l
-    );
-    safeTypesetMathJax([qs("#validityRegime")]);
-  }
+  // validity_regime section removed - now integrated into assumptions
 
   // Render historical context
   if (data.historical_context) {
@@ -423,17 +424,8 @@ function render(data) {
   }
 
   // Dependencies section - only show if data exists
-  if (data.dependencies && data.dependencies.length > 0) {
-    renderList(
-      "#dependencies ul",
-      data.dependencies,
-      (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
-      true
-    );
-    safeTypesetMathJax([qs("#dependencies")]);
-  } else {
-    qs("#dependencies").style.display = "none";
-  }
+  // dependencies section removed - now integrated into assumptions
+  qs("#dependencies").style.display = "none";
 
   // Superseded by section - only show if data exists
   if (data.superseded_by && data.superseded_by.length > 0) {

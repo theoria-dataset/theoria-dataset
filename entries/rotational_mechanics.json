@@ -85,35 +85,58 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Rigid body rotation (no deformation during rotation)."
+      "text": "Rigid body rotation (no deformation during rotation).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Fixed axis of rotation."
+      "text": "Fixed axis of rotation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Classical mechanics applies (non-relativistic)."
+      "text": "Classical mechanics applies (non-relativistic).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Moment of inertia is constant for rigid bodies."
+      "text": "Moment of inertia is constant for rigid bodies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Rigid body assumption (distances between particles remain constant)."
+      "text": "Rigid body assumption (distances between particles remain constant).",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Fixed axis of rotation perpendicular to motion plane."
+      "text": "Fixed axis of rotation perpendicular to motion plane.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "All particles have the same angular velocity ω."
+      "text": "All particles have the same angular velocity ω.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Classical mechanics and Newtonian physics apply."
+      "text": "Classical mechanics and Newtonian physics apply.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "newtons_laws_of_motion"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "angular_momentum"
+    },
+    {
+      "id": "dependency11",
+      "type": "dependency",
+      "dependency_id": "conservation_of_angular_momentum"
     }
   ],
   "derivation": [
@@ -246,20 +269,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Rigid body motion",
-      "Fixed axis of rotation",
-      "Classical mechanics (non-relativistic)",
-      "Constant moment of inertia"
-    ],
-    "limitations": [
-      "Breaks down for deformable bodies",
-      "Fixed axis assumption may not hold",
-      "Relativistic corrections needed at high speeds",
-      "Gyroscopic effects in 3D rotation"
-    ]
-  },
   "historical_context": {
     "importance": "Essential for understanding rotating machinery, planetary motion, and spinning objects; foundation for angular momentum conservation",
     "development_period": "17th-18th centuries",
@@ -279,11 +288,6 @@
       "id": "R2",
       "citation": "Taylor, J. R. (2005). *Classical Mechanics*. University Science Books."
     }
-  ],
-  "dependencies": [
-    "newtons_laws_of_motion",
-    "angular_momentum",
-    "conservation_of_angular_momentum"
   ],
   "contributors": [
     {

@@ -45,19 +45,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Maxwell's equations apply and the fields are well-defined."
+      "text": "Maxwell's equations apply and the fields are well-defined.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified."
+      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Maxwell's equations hold throughout the region of interest."
+      "text": "Maxwell's equations hold throughout the region of interest.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Energy conservation applies to the electromagnetic field."
+      "text": "Energy conservation applies to the electromagnetic field.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "electromagnetic_waves"
     }
   ],
   "derivation": [
@@ -135,20 +149,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Maxwell's equations apply",
-      "Well-defined electric and magnetic fields",
-      "Macroscopic electromagnetic phenomena"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "May need quantum corrections for single photons",
-      "Assumes well-defined local fields",
-      "Limited to continuous media approximation"
-    ]
-  },
   "historical_context": {
     "importance": "Describes electromagnetic energy flow, fundamental for understanding radiation and power transmission",
     "development_period": "1884",
@@ -168,10 +168,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "maxwell_equations",
-    "electromagnetic_waves"
   ],
   "contributors": [
     {

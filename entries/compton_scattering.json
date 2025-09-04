@@ -65,35 +65,58 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Free or loosely bound electrons"
+      "text": "Free or loosely bound electrons",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Relativistic energy-momentum conservation"
+      "text": "Relativistic energy-momentum conservation",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Point-like collision"
+      "text": "Point-like collision",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "No other interactions"
+      "text": "No other interactions",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Relativistic energy-momentum relations"
+      "text": "Relativistic energy-momentum relations",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Conservation of energy and momentum"
+      "text": "Conservation of energy and momentum",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Photon as massless particle"
+      "text": "Photon as massless particle",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Initial electron at rest"
+      "text": "Initial electron at rest",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "photoelectric_effect"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
+    },
+    {
+      "id": "dependency11",
+      "type": "dependency",
+      "dependency_id": "conservation_of_momentum"
     }
   ],
   "derivation": [
@@ -202,20 +225,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "High-energy photons (X-ray, γ-ray)",
-      "Free or weakly bound electrons",
-      "Single scattering events",
-      "Non-relativistic electron treatment"
-    ],
-    "limitations": [
-      "Bound electron effects in inner shells",
-      "Multiple scattering in thick materials",
-      "Relativistic electron effects",
-      "Quantum field theory corrections"
-    ]
-  },
   "historical_context": {
     "development_period": "1923",
     "importance": "Provided definitive evidence for photon particle nature; confirmed quantum mechanics and earned Compton the 1927 Nobel Prize",
@@ -234,11 +243,6 @@
       "id": "ref2",
       "citation": "Klein, O., & Nishina, Y. (1929). Über die Streuung von Strahlung durch freie Elektronen nach der neuen relativistischen Quantendynamik von Dirac. Zeitschrift für Physik, 52(11-12), 853-868."
     }
-  ],
-  "dependencies": [
-    "photoelectric_effect",
-    "conservation_of_energy",
-    "conservation_of_momentum"
   ],
   "contributors": [
     {

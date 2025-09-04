@@ -41,23 +41,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The gas is ideal with no intermolecular interactions."
+      "text": "The gas is ideal with no intermolecular interactions.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T."
+      "text": "The system is in thermal equilibrium at temperature T.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Classical mechanics applies (non-relativistic and non-quantum)."
+      "text": "Classical mechanics applies (non-relativistic and non-quantum).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The probability follows Boltzmann distribution with kinetic energy."
+      "text": "The probability follows Boltzmann distribution with kinetic energy.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Velocity components are independent and isotropic."
+      "text": "Velocity components are independent and isotropic.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "boltzmann_distribution"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "ideal_gas_law"
     }
   ],
   "derivation": [
@@ -129,20 +144,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical ideal gas",
-      "Thermal equilibrium",
-      "Non-relativistic particles",
-      "No quantum effects (high temperature limit)"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum statistics)",
-      "Ideal gas approximation (no interactions)",
-      "Non-relativistic speeds only",
-      "Breaks down at very low temperatures"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of kinetic theory and statistical mechanics, explains gas properties",
     "development_period": "1860-1879",
@@ -161,10 +162,6 @@
       "id": "R2",
       "citation": "Boltzmann, L. (1872). Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen. *Wiener Berichte*, 66, 275-370."
     }
-  ],
-  "dependencies": [
-    "boltzmann_distribution",
-    "ideal_gas_law"
   ],
   "contributors": [
     {

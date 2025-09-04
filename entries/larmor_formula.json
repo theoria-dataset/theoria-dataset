@@ -41,35 +41,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Non-relativistic motion (v << c)."
+      "text": "Non-relativistic motion (v << c).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Point charge approximation."
+      "text": "Point charge approximation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Far-field radiation (observation distance >> wavelength)."
+      "text": "Far-field radiation (observation distance >> wavelength).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Classical electrodynamics applies."
+      "text": "Classical electrodynamics applies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The charge undergoes non-relativistic motion."
+      "text": "The charge undergoes non-relativistic motion.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Radiation is observed in the far-field zone."
+      "text": "Radiation is observed in the far-field zone.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Classical electromagnetic theory is valid."
+      "text": "Classical electromagnetic theory is valid.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The charge is a point source."
+      "text": "The charge is a point source.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electromagnetic_waves"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "poynting_vector"
     }
   ],
   "derivation": [
@@ -208,20 +226,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic motion (v << c)",
-      "Point charge approximation",
-      "Classical electrodynamics",
-      "Far-field observation"
-    ],
-    "limitations": [
-      "Relativistic corrections needed for high velocities",
-      "Finite size effects for extended charges",
-      "Quantum effects ignored",
-      "Radiation reaction effects not included"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental formula for electromagnetic radiation, explains classical electron instability and forms basis for antenna theory and synchrotron radiation",
     "development_period": "1897",
@@ -241,10 +245,6 @@
       "id": "R2",
       "citation": "Jackson, J. D. (1998). *Classical Electrodynamics* (3rd ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "electromagnetic_waves",
-    "poynting_vector"
   ],
   "contributors": [
     {

@@ -53,35 +53,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Newtonian gravity applies (weak field, low velocity limit)"
+      "text": "Newtonian gravity applies (weak field, low velocity limit)",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Mass distribution is continuous and well-defined"
+      "text": "Mass distribution is continuous and well-defined",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Gravitational field is differentiable and well-behaved"
+      "text": "Gravitational field is differentiable and well-behaved",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "No relativistic effects (general relativity corrections ignored)"
+      "text": "No relativistic effects (general relativity corrections ignored)",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Newton's law of universal gravitation applies"
+      "text": "Newton's law of universal gravitation applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Superposition principle holds for gravitational fields"
+      "text": "Superposition principle holds for gravitational fields",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Divergence theorem can be applied"
+      "text": "Divergence theorem can be applied",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Mass distribution is localized and well-defined"
+      "text": "Mass distribution is localized and well-defined",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "gravitational_force"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "newtons_laws_of_motion"
     }
   ],
   "derivation": [
@@ -188,20 +206,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Newtonian gravity regime (weak gravitational fields)",
-      "Non-relativistic velocities (v << c)",
-      "Well-defined mass distributions",
-      "Classical field theory applicable"
-    ],
-    "limitations": [
-      "Breaks down in strong gravitational fields (need general relativity)",
-      "Not valid for relativistic speeds",
-      "Cannot handle gravitational waves or time-dependent metrics",
-      "Assumes instantaneous action at a distance"
-    ]
-  },
   "historical_context": {
     "importance": "Provides field-theoretic formulation of Newtonian gravity, bridging particle mechanics and field theory; foundation for understanding gravitational potential theory",
     "development_period": "19th century",
@@ -225,10 +229,6 @@
       "id": "ref3",
       "citation": "Goldstein, H. (2002). Classical Mechanics (3rd ed.). Addison Wesley."
     }
-  ],
-  "dependencies": [
-    "gravitational_force",
-    "newtons_laws_of_motion"
   ],
   "contributors": [
     {

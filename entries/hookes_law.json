@@ -57,35 +57,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Small displacements from equilibrium"
+      "text": "Small displacements from equilibrium",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Linear elastic regime"
+      "text": "Linear elastic regime",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "No plastic deformation"
+      "text": "No plastic deformation",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Constant spring constant"
+      "text": "Constant spring constant",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Conservative force field"
+      "text": "Conservative force field",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Potential energy is well-defined"
+      "text": "Potential energy is well-defined",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Force derivable from potential"
+      "text": "Force derivable from potential",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Quadratic potential energy"
+      "text": "Quadratic potential energy",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -183,20 +191,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Small deformations (elastic regime)",
-      "Linear elastic materials",
-      "Constant temperature",
-      "Static or quasi-static loading"
-    ],
-    "limitations": [
-      "Breaks down for large deformations",
-      "Not applicable in plastic regime",
-      "Fails for viscoelastic materials",
-      "May not hold at very high frequencies"
-    ]
-  },
   "historical_context": {
     "development_period": "17th century",
     "importance": "Foundation of elasticity theory and mechanical engineering; enables understanding of springs, structural materials, and oscillatory systems",
@@ -217,7 +211,6 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": [],
   "contributors": [
     {
       "full_name": "Synthetic entry",

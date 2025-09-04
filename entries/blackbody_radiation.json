@@ -37,27 +37,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`."
+      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent."
+      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The electromagnetic field is quantized into discrete energy levels `E_n = n*h*nu` for each mode, where `n` is the occupation number and `h*nu` is the fundamental quantum of energy."
+      "text": "The electromagnetic field is quantized into discrete energy levels `E_n = n*h*nu` for each mode, where `n` is the occupation number and `h*nu` is the fundamental quantum of energy.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Maxwell's equations govern electromagnetic wave propagation, giving the wave equation and dispersion relation `omega^2 = c^2*k^2`."
+      "text": "Maxwell's equations govern electromagnetic wave propagation, giving the wave equation and dispersion relation `omega^2 = c^2*k^2`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)."
+      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction).",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Photons are indistinguishable bosonic particles, following Bose-Einstein statistics."
+      "text": "Photons are indistinguishable bosonic particles, following Bose-Einstein statistics.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "partition_function"
     }
   ],
   "derivation": [
@@ -235,20 +251,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Thermal equilibrium",
-      "Black body radiation",
-      "Quantum statistical mechanics regime",
-      "Well-defined temperature and frequency"
-    ],
-    "limitations": [
-      "Limited to ideal black bodies",
-      "Assumes thermal equilibrium",
-      "Classical electromagnetic field treatment",
-      "May need corrections for very high frequencies"
-    ]
-  },
   "historical_context": {
     "importance": "Founded quantum theory, resolved ultraviolet catastrophe, basis of thermal radiation",
     "development_period": "1900-1901",
@@ -265,7 +267,6 @@
       "citation": "Planck, M. (1901). On the Law of Distribution of Energy in the Normal Spectrum. Annalen der Physik, 309(3), 553-563."
     }
   ],
-  "dependencies": ["maxwell_equations", "partition_function"],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

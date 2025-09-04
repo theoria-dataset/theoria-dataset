@@ -61,35 +61,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Classical electromagnetism (non-relativistic limit)"
+      "text": "Classical electromagnetism (non-relativistic limit)",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Steady currents (magnetostatics)"
+      "text": "Steady currents (magnetostatics)",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Linear, isotropic media"
+      "text": "Linear, isotropic media",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "No magnetic monopoles"
+      "text": "No magnetic monopoles",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Maxwell's equations in magnetostatic limit"
+      "text": "Maxwell's equations in magnetostatic limit",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Principle of superposition applies"
+      "text": "Principle of superposition applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Current conservation (∇·J = 0)"
+      "text": "Current conservation (∇·J = 0)",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "No time-varying electric fields"
+      "text": "No time-varying electric fields",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electric_field"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "lorentz_force"
     }
   ],
   "derivation": [
@@ -164,20 +182,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Magnetostatic regime (steady currents)",
-      "Classical treatment (no quantum effects)",
-      "Linear magnetic media or vacuum",
-      "Non-relativistic velocities"
-    ],
-    "limitations": [
-      "Time-varying fields require Maxwell's equations",
-      "Relativistic effects ignored at high velocities",
-      "Quantum magnetic effects neglected",
-      "Breakdown in nonlinear magnetic materials"
-    ]
-  },
   "historical_context": {
     "development_period": "19th century",
     "importance": "Fundamental field in electromagnetism; essential for understanding electromagnetic phenomena and applications",
@@ -197,10 +201,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics. Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "electric_field",
-    "lorentz_force"
   ],
   "contributors": [
     {

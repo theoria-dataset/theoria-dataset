@@ -41,35 +41,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Classical statistical mechanics applies (equipartition theorem)."
+      "text": "Classical statistical mechanics applies (equipartition theorem).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators."
+      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`)."
+      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The radiation is in thermal equilibrium with the blackbody."
+      "text": "The radiation is in thermal equilibrium with the blackbody.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity."
+      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem."
+      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "The transformation from frequency to wavelength space preserves the total energy."
+      "text": "The transformation from frequency to wavelength space preserves the total energy.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The spectral radiance relates to energy density through geometric factors."
+      "text": "The spectral radiance relates to energy density through geometric factors.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "planck_radiation_law"
     }
   ],
   "derivation": [
@@ -213,9 +226,6 @@
       "id": "R2",
       "citation": "Jeans, J. H. (1905). 'On the Partition of Energy between Matter and Æther.' Philosophical Magazine, 10, 91-98."
     }
-  ],
-  "dependencies": [
-    "planck_radiation_law"
   ],
   "contributors": [
     {

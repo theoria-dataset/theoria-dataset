@@ -77,31 +77,58 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Steady flow: all fluid properties are independent of time at any fixed point, partial/partial t = 0."
+      "text": "Steady flow: all fluid properties are independent of time at any fixed point, partial/partial t = 0.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Incompressible fluid: density rho remains constant throughout the flow field and along streamlines."
+      "text": "Incompressible fluid: density rho remains constant throughout the flow field and along streamlines.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Inviscid flow: viscous forces are negligible compared to pressure and inertial forces (mu = 0 or Re >> 1)."
+      "text": "Inviscid flow: viscous forces are negligible compared to pressure and inertial forces (mu = 0 or Re >> 1).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Flow along streamlines: analysis applies to fluid particles moving along well-defined streamlines."
+      "text": "Flow along streamlines: analysis applies to fluid particles moving along well-defined streamlines.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Conservative body forces: gravitational field is conservative with potential Phi such that vec g = - del Phi."
+      "text": "Conservative body forces: gravitational field is conservative with potential Phi such that vec g = - del Phi.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "No work addition or heat transfer: no external energy input (pumps, compressors) or dissipation along the streamline."
+      "text": "No work addition or heat transfer: no external energy input (pumps, compressors) or dissipation along the streamline.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "For irrotational flow derivation: vorticity vec omega = del xx vec v = 0 allowing velocity potential vec v = del phi."
+      "text": "For irrotational flow derivation: vorticity vec omega = del xx vec v = 0 allowing velocity potential vec v = del phi.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "newtons_laws_of_motion"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "continuity_equation"
+    },
+    {
+      "id": "dependency11",
+      "type": "dependency",
+      "dependency_id": "navier_stokes_incompressible"
     }
   ],
   "derivation": [
@@ -315,24 +342,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "approximation",
-  "validity_regime": {
-    "conditions": [
-      "Steady flow: partial/partial t = 0 for all flow variables at fixed points",
-      "Incompressible fluid: Mach number M << 1, typically M < 0.3",
-      "Inviscid approximation: Reynolds number Re >> 1, viscous effects negligible",
-      "Conservative body forces: gravitational or other potential force fields",
-      "Along streamlines for rotational flow, or throughout domain for irrotational flow",
-      "No energy addition or removal (no pumps, heat transfer, or viscous dissipation)"
-    ],
-    "limitations": [
-      "Viscous flows: fails where boundary layers, separation, or viscous losses dominate",
-      "Unsteady flows: invalid for time-dependent pressure gradients or accelerating flows",
-      "Compressible flows: breaks down when density variations become significant",
-      "Turbulent mixing regions: cannot account for turbulent kinetic energy and dissipation",
-      "Flows with body forces doing work: magnetic forces, rotating reference frames",
-      "Phase change or chemical reactions: additional energy terms required"
-    ]
-  },
   "approximation_of": "navier_stokes_incompressible",
   "historical_context": {
     "importance": "Cornerstone of fluid mechanics providing the fundamental energy conservation principle for fluid flow; enables analysis of flight, hydraulic systems, and flow measurement devices",
@@ -357,12 +366,6 @@
       "id": "R3",
       "citation": "Anderson, J. D. (2016). Fundamentals of Aerodynamics (6th ed.). McGraw-Hill Education."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy",
-    "newtons_laws_of_motion",
-    "continuity_equation",
-    "navier_stokes_incompressible"
   ],
   "contributors": [
     {

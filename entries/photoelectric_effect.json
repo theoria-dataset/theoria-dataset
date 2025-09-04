@@ -57,35 +57,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Photons behave as discrete energy packets"
+      "text": "Photons behave as discrete energy packets",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "One photon interacts with one electron"
+      "text": "One photon interacts with one electron",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Energy conservation applies"
+      "text": "Energy conservation applies",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Quantum mechanical description"
+      "text": "Quantum mechanical description",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Energy conservation in photon-electron interaction"
+      "text": "Energy conservation in photon-electron interaction",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Einstein's photon hypothesis"
+      "text": "Einstein's photon hypothesis",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Work function is material-dependent constant"
+      "text": "Work function is material-dependent constant",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Instantaneous emission process"
+      "text": "Instantaneous emission process",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "plancks_quantum_hypothesis"
     }
   ],
   "derivation": [
@@ -165,20 +178,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum regime (individual photons)",
-      "Non-relativistic electrons",
-      "Single-photon processes",
-      "Weak-field approximation"
-    ],
-    "limitations": [
-      "Multi-photon effects at high intensity",
-      "Relativistic effects for high-energy photons",
-      "Band structure effects in semiconductors",
-      "Surface effects and contamination"
-    ]
-  },
   "historical_context": {
     "development_period": "1905",
     "importance": "Key evidence for quantum nature of light; led to development of quantum mechanics",
@@ -198,9 +197,6 @@
       "id": "R2",
       "citation": "Millikan, R. A. (1916). 'A direct photoelectric determination of Planck's \"h\".' Physical Review, 7, 355-388."
     }
-  ],
-  "dependencies": [
-    "plancks_quantum_hypothesis"
   ],
   "contributors": [
     {

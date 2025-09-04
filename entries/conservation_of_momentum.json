@@ -49,35 +49,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Closed system (no external forces)"
+      "text": "Closed system (no external forces)",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Newton's laws apply"
+      "text": "Newton's laws apply",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Inertial reference frame"
+      "text": "Inertial reference frame",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Classical mechanics regime"
+      "text": "Classical mechanics regime",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Newton's third law"
+      "text": "Newton's third law",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "No external forces"
+      "text": "No external forces",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Constant mass"
+      "text": "Constant mass",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Classical mechanics"
+      "text": "Classical mechanics",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "newtons_laws"
     }
   ],
   "derivation": [
@@ -182,19 +195,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Closed system",
-      "No external forces",
-      "Classical mechanics regime (v << c)",
-      "Inertial reference frame"
-    ],
-    "limitations": [
-      "Requires modification for relativistic speeds",
-      "Not applicable with external forces",
-      "May need quantum corrections for microscopic systems"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-18th century",
     "importance": "One of the fundamental conservation laws, essential for understanding collisions, rocket propulsion, and many other phenomena",
@@ -213,9 +213,6 @@
       "id": "ref2",
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
-  ],
-  "dependencies": [
-    "newtons_laws"
   ],
   "contributors": [
     {

@@ -65,35 +65,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Linear dielectric materials"
+      "text": "Linear dielectric materials",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Static electric fields"
+      "text": "Static electric fields",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Ideal conductors (infinite conductivity)"
+      "text": "Ideal conductors (infinite conductivity)",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Neglect edge effects (for parallel plate)"
+      "text": "Neglect edge effects (for parallel plate)",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Uniform electric field between plates"
+      "text": "Uniform electric field between plates",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Negligible fringing fields"
+      "text": "Negligible fringing fields",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Plates are large compared to separation"
+      "text": "Plates are large compared to separation",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Linear relationship between charge and voltage"
+      "text": "Linear relationship between charge and voltage",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electric_field"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "electric_potential"
     }
   ],
   "derivation": [
@@ -210,20 +228,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Linear dielectric materials",
-      "Static or slowly varying fields",
-      "Classical electromagnetism",
-      "Ideal conductors"
-    ],
-    "limitations": [
-      "Breakdown at high voltages",
-      "Frequency-dependent behavior at high frequencies",
-      "Nonlinear effects in some dielectrics",
-      "Parasitic effects in real capacitors"
-    ]
-  },
   "historical_context": {
     "development_period": "18th-19th century",
     "importance": "Fundamental for understanding energy storage in electric fields; essential component in electronics and power systems",
@@ -242,10 +246,6 @@
       "id": "ref2",
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "electric_field",
-    "electric_potential"
   ],
   "contributors": [
     {

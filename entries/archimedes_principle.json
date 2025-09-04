@@ -73,27 +73,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Hydrostatic equilibrium: the fluid is at rest with no bulk motion or acceleration."
+      "text": "Hydrostatic equilibrium: the fluid is at rest with no bulk motion or acceleration.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Incompressible fluid: fluid density `rho_(fluid)` remains constant throughout the region of interest."
+      "text": "Incompressible fluid: fluid density `rho_(fluid)` remains constant throughout the region of interest.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Uniform gravitational field: gravitational acceleration `vec g` is constant over the object’s dimensions."
+      "text": "Uniform gravitational field: gravitational acceleration `vec g` is constant over the object’s dimensions.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Continuous fluid medium: the fluid completely surrounds the submerged portions of the object with no cavities or discontinuities."
+      "text": "Continuous fluid medium: the fluid completely surrounds the submerged portions of the object with no cavities or discontinuities.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Hydrostatic pressure distribution: pressure in the fluid follows `P(h) = P_0 + rho_(fluid) * g * h` where `h` is measured downward from the surface."
+      "text": "Hydrostatic pressure distribution: pressure in the fluid follows `P(h) = P_0 + rho_(fluid) * g * h` where `h` is measured downward from the surface.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Rigid object approximation: the object does not deform significantly under the pressure variations in the fluid."
+      "text": "Rigid object approximation: the object does not deform significantly under the pressure variations in the fluid.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "hydrostatic_pressure"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "fluid_statics"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "divergence_theorem"
     }
   ],
   "derivation": [
@@ -289,22 +310,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Hydrostatic equilibrium (fluid at rest)",
-      "Incompressible fluid with constant density",
-      "Uniform gravitational field over object dimensions",
-      "Continuous fluid medium surrounding the object",
-      "Object dimensions much smaller than gravitational scale height"
-    ],
-    "limitations": [
-      "Assumes rigid object (no significant deformation under pressure)",
-      "Neglects fluid viscosity and dynamic effects",
-      "Inapplicable to accelerating reference frames without modification",
-      "Compressible fluid effects neglected (significant for large depth changes)",
-      "Surface tension effects neglected (important for small objects)"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of fluid statics and hydrostatics; enables ship design, density measurements, and understanding of natural buoyancy phenomena",
     "development_period": "c. 250 BCE",
@@ -328,11 +333,6 @@
       "id": "R3",
       "citation": "Munson, B. R., Rothmayer, A. P., Okiishi, T. H., & Huebsch, W. W. (2012). Fundamentals of Fluid Mechanics (7th ed.). John Wiley & Sons."
     }
-  ],
-  "dependencies": [
-    "hydrostatic_pressure",
-    "fluid_statics",
-    "divergence_theorem"
   ],
   "contributors": [
     {

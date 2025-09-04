@@ -25,19 +25,23 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The pendulum is long and freely swinging, and Earth's rotation (angular speed `Omega_E`) provides a slow Coriolis deflection."
+      "text": "The pendulum is long and freely swinging, and Earth's rotation (angular speed `Omega_E`) provides a slow Coriolis deflection.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Latitude `phi` is measured from the equator (so `phi = 90 deg` at the pole)."
+      "text": "Latitude `phi` is measured from the equator (so `phi = 90 deg` at the pole).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Only the Coriolis component of Earth's rotation affects the pendulum's plane (no restoring torque in azimuth)."
+      "text": "Only the Coriolis component of Earth's rotation affects the pendulum's plane (no restoring torque in azimuth).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Small-angle oscillations are assumed so the motion is planar and we can superpose the effect of Earth's rotation."
+      "text": "Small-angle oscillations are assumed so the motion is planar and we can superpose the effect of Earth's rotation.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -68,20 +72,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "validity_regime": {
-    "conditions": [
-      "Earth-bound rotating reference frame",
-      "Small oscillations (linear pendulum approximation)",
-      "Long time scales compared to pendulum period",
-      "Classical mechanics at Earth's surface"
-    ],
-    "limitations": [
-      "Limited to small angle approximations",
-      "Classical mechanics only",
-      "Requires isolation from external disturbances",
-      "Earth-specific demonstration of rotation effects"
-    ]
-  },
   "approximation_of": "coriolis_force",
   "historical_context": {
     "importance": "First direct demonstration of Earth's rotation, important for understanding rotating reference frames",

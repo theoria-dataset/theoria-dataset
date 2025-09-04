@@ -29,19 +29,23 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system is bound and in steady state (time averages are well-defined)."
+      "text": "The system is bound and in steady state (time averages are well-defined).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "For power-law potentials `V propto r^n`, the force is `F_i = -del V/del r_i`, allowing a simple relation between `<T>` and `<V>`."
+      "text": "For power-law potentials `V propto r^n`, the force is `F_i = -del V/del r_i`, allowing a simple relation between `<T>` and `<V>`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The moment of inertia `I` remains bounded so that `d^2 I/dt^2` averages to zero over time."
+      "text": "The moment of inertia `I` remains bounded so that `d^2 I/dt^2` averages to zero over time.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Each force is derived from a potential `V(r)`, so `r dot F = r_i del V/del r_i` allows relating the term to potential energy."
+      "text": "Each force is derived from a potential `V(r)`, so `r dot F = r_i del V/del r_i` allows relating the term to potential energy.",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -90,20 +94,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Hamiltonian systems",
-      "Classical statistical mechanics",
-      "Phase space with canonical coordinates",
-      "Conservative systems"
-    ],
-    "limitations": [
-      "Classical mechanics only",
-      "Requires Hamiltonian formulation",
-      "Limited to conservative systems",
-      "Quantum generalizations needed for microscopic systems"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of statistical mechanics, connects microscopic dynamics to thermodynamics",
     "development_period": "1838",

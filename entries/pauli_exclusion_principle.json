@@ -29,35 +29,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The particles are identical fermions (half-integer spin)."
+      "text": "The particles are identical fermions (half-integer spin).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The system can be described by quantum mechanics."
+      "text": "The system can be described by quantum mechanics.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Particle interactions can be neglected in the independent particle approximation."
+      "text": "Particle interactions can be neglected in the independent particle approximation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The particles are non-relativistic (for atomic physics applications)."
+      "text": "The particles are non-relativistic (for atomic physics applications).",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Identical particles are truly indistinguishable in quantum mechanics."
+      "text": "Identical particles are truly indistinguishable in quantum mechanics.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange."
+      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Fermions have half-integer spin and antisymmetric wavefunctions."
+      "text": "Fermions have half-integer spin and antisymmetric wavefunctions.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Each quantum state is characterized by a complete set of quantum numbers."
+      "text": "Each quantum state is characterized by a complete set of quantum numbers.",
+      "type": "unclassified"
     }
   ],
   "derivation": [

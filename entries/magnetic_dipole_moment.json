@@ -61,35 +61,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The current loop is small compared to distances of interest (dipole approximation)."
+      "text": "The current loop is small compared to distances of interest (dipole approximation).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Steady currents (no time-varying fields)."
+      "text": "Steady currents (no time-varying fields).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Linear, isotropic, and homogeneous medium (or vacuum)."
+      "text": "Linear, isotropic, and homogeneous medium (or vacuum).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Far-field approximation for magnetic field calculation."
+      "text": "Far-field approximation for magnetic field calculation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The current distribution is localized (dipole approximation valid)."
+      "text": "The current distribution is localized (dipole approximation valid).",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Magnetostatic conditions (∂B/∂t = 0)."
+      "text": "Magnetostatic conditions (∂B/∂t = 0).",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Far-field limit (r >> size of current distribution)."
+      "text": "Far-field limit (r >> size of current distribution).",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Linear superposition of fields applies."
+      "text": "Linear superposition of fields applies.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "magnetic_field"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "amperes_law"
     }
   ],
   "derivation": [
@@ -245,20 +263,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Magnetostatic conditions (steady currents)",
-      "Dipole approximation (small current loops)",
-      "Far-field for external field calculations",
-      "Linear, homogeneous media"
-    ],
-    "limitations": [
-      "Near-field effects for close distances",
-      "Time-varying fields require full Maxwell equations",
-      "Quantum effects in atomic/molecular magnetism",
-      "Nonlinear magnetic materials"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental concept for understanding magnetism from atomic scale to macroscopic magnets, essential for magnetic materials and devices",
     "development_period": "1820s-1860s",
@@ -278,10 +282,6 @@
       "id": "R2",
       "citation": "Jackson, J. D. (1998). *Classical Electrodynamics* (3rd ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "magnetic_field",
-    "amperes_law"
   ],
   "contributors": [
     {

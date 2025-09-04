@@ -11,6 +11,28 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def load_global_references():
+    """Load global reference files for validation."""
+    global_fundamentals = {}
+    global_conditions = {}
+    
+    try:
+        with open(ROOT / 'globals' / 'fundamental_assumptions.json', 'r', encoding='utf-8') as f:
+            fundamentals_data = json.load(f)
+            global_fundamentals = {item['id']: item for item in fundamentals_data['assumptions']}
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+        print(f"[WARNING] Could not load global fundamental assumptions: {e}")
+    
+    try:
+        with open(ROOT / 'globals' / 'validity_regime_conditions.json', 'r', encoding='utf-8') as f:
+            conditions_data = json.load(f)
+            global_conditions = {item['id']: item for item in conditions_data['conditions']}
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+        print(f"[WARNING] Could not load global validity regime conditions: {e}")
+    
+    return global_fundamentals, global_conditions
+
+
 def validate_entry_schema(entry_path):
     """
     Validate a single entry against the schema with helpful error messages.
@@ -49,6 +71,9 @@ def validate_entry_schema(entry_path):
     
     if errors:
         return False, errors
+    
+    # Load global references for assumption validation
+    global_fundamentals, global_conditions = load_global_references()
     
     # Detailed validation for specific fields
     filename_stem = entry_path.stem
@@ -139,6 +164,48 @@ def validate_entry_schema(entry_path):
                     errors.append(f"[ERROR] references[{i}] missing 'id' field")
                 if 'citation' not in ref:
                     errors.append(f"[ERROR] references[{i}] missing 'citation' field")
+    
+    # Validate assumptions structure (new unified system)
+    assumptions = data.get('assumptions', [])
+    for i, assumption in enumerate(assumptions):
+        if not isinstance(assumption, dict):
+            errors.append(f"[ERROR] assumptions[{i}] must be an object")
+            continue
+            
+        if 'id' not in assumption:
+            errors.append(f"[ERROR] assumptions[{i}] missing 'id' field")
+        if 'type' not in assumption:
+            errors.append(f"[ERROR] assumptions[{i}] missing 'type' field")
+            continue
+            
+        assumption_type = assumption.get('type')
+        valid_types = ['fundamental', 'validity_regime', 'dependency', 'unclassified']
+        
+        if assumption_type not in valid_types:
+            errors.append(f"[ERROR] assumptions[{i}] invalid type '{assumption_type}' - must be one of: {', '.join(valid_types)}")
+            continue
+            
+        # Validate type-specific requirements
+        if assumption_type == 'fundamental':
+            if 'reference' not in assumption:
+                errors.append(f"[ERROR] assumptions[{i}] type 'fundamental' requires 'reference' field")
+            elif assumption['reference'] not in global_fundamentals:
+                errors.append(f"[ERROR] assumptions[{i}] reference '{assumption['reference']}' not found in global fundamental assumptions")
+                
+        elif assumption_type == 'validity_regime':
+            if 'reference' not in assumption:
+                errors.append(f"[ERROR] assumptions[{i}] type 'validity_regime' requires 'reference' field")
+            elif assumption['reference'] not in global_conditions:
+                errors.append(f"[ERROR] assumptions[{i}] reference '{assumption['reference']}' not found in global validity regime conditions")
+                
+        elif assumption_type == 'dependency':
+            if 'dependency_id' not in assumption:
+                errors.append(f"[ERROR] assumptions[{i}] type 'dependency' requires 'dependency_id' field")
+            # Note: We can't validate dependency_id references without loading all entries
+                
+        elif assumption_type == 'unclassified':
+            if 'text' not in assumption:
+                errors.append(f"[ERROR] assumptions[{i}] type 'unclassified' requires 'text' field")
     
     # Validate programmatic_verification
     pv = data.get('programmatic_verification', {})

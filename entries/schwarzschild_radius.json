@@ -41,35 +41,53 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Spherically symmetric, non-rotating black hole."
+      "text": "Spherically symmetric, non-rotating black hole.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström)."
+      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "General relativity is the correct theory of gravity."
+      "text": "General relativity is the correct theory of gravity.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The mass M is concentrated within the Schwarzschild radius."
+      "text": "The mass M is concentrated within the Schwarzschild radius.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Energy conservation applies in the classical derivation."
+      "text": "Energy conservation applies in the classical derivation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The speed of light is the maximum possible velocity."
+      "text": "The speed of light is the maximum possible velocity.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "General relativity provides the correct spacetime geometry."
+      "text": "General relativity provides the correct spacetime geometry.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The Schwarzschild solution is the appropriate metric."
+      "text": "The Schwarzschild solution is the appropriate metric.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "einstein_field_equations"
+    },
+    {
+      "id": "dependency10",
+      "type": "dependency",
+      "dependency_id": "gravitational_force"
     }
   ],
   "derivation": [
@@ -194,20 +212,6 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "General relativity is correct",
-      "Spherically symmetric mass distribution",
-      "Non-rotating black hole (Schwarzschild case)",
-      "No electric charge"
-    ],
-    "limitations": [
-      "Rotating black holes require Kerr metric",
-      "Charged black holes need Reissner-Nordström metric",
-      "Quantum effects ignored near the horizon",
-      "Classical general relativity may break down at singularity"
-    ]
-  },
   "historical_context": {
     "importance": "Defines black hole event horizons, crucial for understanding gravitational collapse, Hawking radiation, and modern astrophysics",
     "development_period": "1916",
@@ -227,10 +231,6 @@
       "id": "R2",
       "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
     }
-  ],
-  "dependencies": [
-    "einstein_field_equations",
-    "gravitational_force"
   ],
   "contributors": [
     {

@@ -61,35 +61,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Point masses or spherically symmetric mass distributions"
+      "text": "Point masses or spherically symmetric mass distributions",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "No other forces acting (isolated system)"
+      "text": "No other forces acting (isolated system)",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Non-relativistic regime (weak gravitational fields)"
+      "text": "Non-relativistic regime (weak gravitational fields)",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Static or slowly varying system"
+      "text": "Static or slowly varying system",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Force is empirically observed to follow inverse square law"
+      "text": "Force is empirically observed to follow inverse square law",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Force is proportional to both masses"
+      "text": "Force is proportional to both masses",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Gravitational force is conservative"
+      "text": "Gravitational force is conservative",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "Potential energy is zero at infinite separation"
+      "text": "Potential energy is zero at infinite separation",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "newtons_laws"
     }
   ],
   "derivation": [
@@ -181,20 +194,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "approximation",
-  "validity_regime": {
-    "conditions": [
-      "Weak gravitational fields (Newtonian limit)",
-      "Non-relativistic velocities (v << c)",
-      "Large-scale systems (>> Planck length)",
-      "Classical treatment"
-    ],
-    "limitations": [
-      "Fails in strong gravitational fields",
-      "Invalid at relativistic speeds",
-      "Quantum gravitational effects ignored",
-      "Does not explain gravitational lensing or time dilation"
-    ]
-  },
   "superseded_by": [
     "general_relativity"
   ],
@@ -217,9 +216,6 @@
       "id": "R2",
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
-  ],
-  "dependencies": [
-    "newtons_laws"
   ],
   "contributors": [
     {

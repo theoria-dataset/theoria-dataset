@@ -49,19 +49,28 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The medium is free space (vacuum) with no charges or currents."
+      "text": "The medium is free space (vacuum) with no charges or currents.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Electric and magnetic fields are perpendicular to each other and to the direction of propagation."
+      "text": "Electric and magnetic fields are perpendicular to each other and to the direction of propagation.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Maxwell's equations apply in free space with no sources."
+      "text": "Maxwell's equations apply in free space with no sources.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The curl-curl vector identity is used for the electric field."
+      "text": "The curl-curl vector identity is used for the electric field.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
     }
   ],
   "derivation": [
@@ -137,20 +146,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Maxwell's equations apply",
-      "Free space or linear media",
-      "Non-quantum regime"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "Does not include quantum effects (photons)",
-      "Linear media assumption",
-      "May need relativistic treatment at extreme scales"
-    ]
-  },
   "historical_context": {
     "importance": "Unification of electricity and magnetism, foundation of modern communication and optics",
     "development_period": "1860-1888",
@@ -170,9 +165,6 @@
       "id": "R2",
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
-  ],
-  "dependencies": [
-    "maxwell_equations"
   ],
   "contributors": [
     {

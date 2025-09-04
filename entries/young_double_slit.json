@@ -45,23 +45,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The light source is coherent (constant phase relationship between waves from both slits)."
+      "text": "The light source is coherent (constant phase relationship between waves from both slits).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The screen distance L is much larger than slit separation d and slit width."
+      "text": "The screen distance L is much larger than slit separation d and slit width.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Small angle approximation applies (sin θ ≈ tan θ ≈ θ)."
+      "text": "Small angle approximation applies (sin θ ≈ tan θ ≈ θ).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Plane wave approximation applies at the observation screen."
+      "text": "Plane wave approximation applies at the observation screen.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The slits act as coherent point sources (Huygens' principle)."
+      "text": "The slits act as coherent point sources (Huygens' principle).",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "wave_interference"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "de_broglie_wavelength"
     }
   ],
   "derivation": [
@@ -150,20 +165,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Wave optics regime (wavelength comparable to slit separation)",
-      "Coherent light source",
-      "Far-field observation (L >> d)",
-      "Classical or quantum wave description"
-    ],
-    "limitations": [
-      "Requires coherent illumination",
-      "Small angle approximation limits observation range",
-      "Finite slit width effects not included in simple model",
-      "Classical treatment does not explain single-particle interference"
-    ]
-  },
   "historical_context": {
     "importance": "Established wave nature of light, fundamental to quantum mechanics and wave-particle duality",
     "development_period": "1801-1909",
@@ -183,10 +184,6 @@
       "id": "R2",
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1965). *The Feynman Lectures on Physics, Volume III: Quantum Mechanics*. Addison-Wesley."
     }
-  ],
-  "dependencies": [
-    "wave_interference",
-    "de_broglie_wavelength"
   ],
   "contributors": [
     {

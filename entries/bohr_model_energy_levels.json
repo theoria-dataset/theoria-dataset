@@ -37,35 +37,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The electron orbits are circular and the nucleus is stationary."
+      "text": "The electron orbits are circular and the nucleus is stationary.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Angular momentum is quantized: `L = n*hbar` where `n` is a positive integer."
+      "text": "Angular momentum is quantized: `L = n*hbar` where `n` is a positive integer.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The electron does not radiate energy while in a stationary orbit."
+      "text": "The electron does not radiate energy while in a stationary orbit.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Classical electrostatics applies for the Coulomb force between proton and electron."
+      "text": "Classical electrostatics applies for the Coulomb force between proton and electron.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "The electron follows classical circular motion under Coulomb attraction."
+      "text": "The electron follows classical circular motion under Coulomb attraction.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Angular momentum quantization condition `L = n*hbar` applies."
+      "text": "Angular momentum quantization condition `L = n*hbar` applies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "The total energy is the sum of kinetic and potential energies."
+      "text": "The total energy is the sum of kinetic and potential energies.",
+      "type": "unclassified"
     },
     {
       "id": "assumption8",
-      "text": "The virial theorem applies: `K = -(1/2)*U` for Coulomb potential."
+      "text": "The virial theorem applies: `K = -(1/2)*U` for Coulomb potential.",
+      "type": "unclassified"
     }
   ],
   "derivation": [

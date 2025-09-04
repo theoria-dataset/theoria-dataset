@@ -128,15 +128,52 @@
 
     "assumptions": {
       "type": "array",
-      "description": "Assumptions that lead to the result equations, which usually are either first principles, results from another entry specified in 'dependencies' or empirical results. List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
+      "description": "Unified assumption system with typed references. Each assumption must specify its type and appropriate reference. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included in text fields, they must be enclosed in backticks (``) and written in AsciiMath format.",
       "items": {
         "type": "object",
-        "required": ["id", "text"],
+        "required": ["id", "type"],
         "additionalProperties": false,
         "properties": {
           "id": { "type": "string" },
-          "text": { "type": "string" }
-        }
+          "type": { 
+            "type": "string",
+            "enum": ["fundamental", "validity_regime", "dependency", "unclassified"],
+            "description": "Type of assumption: fundamental (global fundamental assumptions), validity_regime (global validity conditions), dependency (references to other entries), unclassified (temporary for drafts)"
+          },
+          "reference": {
+            "type": "string",
+            "description": "Reference ID for fundamental and validity_regime types. Must match IDs in global reference files."
+          },
+          "dependency_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Entry ID for dependency type assumptions. Must reference existing entry result_id."
+          },
+          "text": {
+            "type": "string",
+            "description": "Direct text for unclassified assumptions or temporary descriptions for reference types."
+          }
+        },
+        "anyOf": [
+          {
+            "properties": {
+              "type": { "enum": ["fundamental", "validity_regime"] }
+            },
+            "required": ["reference"]
+          },
+          {
+            "properties": {
+              "type": { "enum": ["dependency"] }
+            },
+            "required": ["dependency_id"]
+          },
+          {
+            "properties": {
+              "type": { "enum": ["unclassified"] }
+            },
+            "required": ["text"]
+          }
+        ]
       }
     },
 
@@ -185,25 +222,6 @@
       "description": "Current scientific status of the theory. current: Modern theories widely accepted by scientific community. historical: Important for development but superseded by better theories. approximation: Valid simplifications of more general theories. limiting_case: Special cases with restricted applicability. superseded: Completely replaced by more accurate theories."
     },
 
-    "validity_regime": {
-      "type": "object",
-      "description": "Physical conditions where theory applies and limitations. Use for theories with specific applicability ranges. Include both conditions where valid and limitations.",
-      "additionalProperties": false,
-      "properties": {
-        "conditions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "limitations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
 
     "superseded_by": {
       "type": "array",
@@ -262,14 +280,6 @@
       }
     },
 
-    "dependencies": {
-      "type": "array",
-      "description": "Other entries this result relies on. Use exact result_id values (without .json extension). Only include direct dependencies.",
-      "items": {
-        "type": "string",
-        "pattern": "^[a-z0-9_]+$"
-      }
-    },
 
     "contributors": {
       "type": "array",

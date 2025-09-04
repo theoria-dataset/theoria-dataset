@@ -21,19 +21,23 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "No mass is created or destroyed within the flow (mass conservation)."
+      "text": "No mass is created or destroyed within the flow (mass conservation).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis)."
+      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary."
+      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."
+      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`).",
+      "type": "unclassified"
     }
   ],
   "derivation": [
@@ -74,20 +78,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Continuum approximation (fluid larger than molecular scale)",
-      "Well-defined fluid density and velocity fields",
-      "Conservation of mass applies",
-      "Macroscopic fluid flow"
-    ],
-    "limitations": [
-      "Continuum assumption breaks down at molecular scales",
-      "May need modifications for relativistic flows",
-      "Requires careful treatment at interfaces",
-      "Limited to systems where mass is conserved"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental conservation law in fluid mechanics, basis for flow analysis",
     "development_period": "1757-1760",

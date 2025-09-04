@@ -33,31 +33,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The crystal consists of parallel planes of atoms with uniform spacing d."
+      "text": "The crystal consists of parallel planes of atoms with uniform spacing d.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "X-rays are treated as waves with well-defined wavelength λ."
+      "text": "X-rays are treated as waves with well-defined wavelength λ.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Elastic scattering (no energy loss) occurs at each lattice plane."
+      "text": "Elastic scattering (no energy loss) occurs at each lattice plane.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The crystal is perfect with no defects or thermal motion considered."
+      "text": "The crystal is perfect with no defects or thermal motion considered.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "X-rays reflect specularly from each crystal plane."
+      "text": "X-rays reflect specularly from each crystal plane.",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "The incident beam is monochromatic with single wavelength."
+      "text": "The incident beam is monochromatic with single wavelength.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Crystal planes are perfectly flat and parallel."
+      "text": "Crystal planes are perfectly flat and parallel.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "electromagnetic_waves"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "waves_interference"
     }
   ],
   "derivation": [
@@ -139,20 +156,6 @@
   },
   "domain": "physics.atom-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "X-ray wavelength comparable to interatomic spacing",
-      "Perfect crystal structure with well-defined planes",
-      "Elastic scattering (no inelastic effects)",
-      "Kinematic diffraction (weak scattering)"
-    ],
-    "limitations": [
-      "Fails for highly defected or amorphous materials",
-      "Dynamic diffraction effects in thick crystals",
-      "Thermal motion reduces diffraction intensity",
-      "Multiple scattering in complex structures"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of X-ray crystallography, enabling determination of crystal structures and revolutionizing materials science and structural biology",
     "development_period": "1912-1913",
@@ -172,10 +175,6 @@
       "id": "R2",
       "citation": "Warren, B. E. (1990). *X-ray Diffraction*. Dover Publications."
     }
-  ],
-  "dependencies": [
-    "electromagnetic_waves",
-    "waves_interference"
   ],
   "contributors": [
     {

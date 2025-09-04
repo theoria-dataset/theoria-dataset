@@ -45,19 +45,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The magnetic field is uniform and perpendicular to the current direction."
+      "text": "The magnetic field is uniform and perpendicular to the current direction.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The conductor has a single type of charge carrier with well-defined mobility."
+      "text": "The conductor has a single type of charge carrier with well-defined mobility.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers."
+      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The conductor geometry is well-defined with uniform current distribution."
+      "text": "The conductor geometry is well-defined with uniform current distribution.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "ohms_law"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "lorentz_force"
     }
   ],
   "derivation": [
@@ -137,20 +151,6 @@
   },
   "domain": "cond-mat.mes-hall",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical charge transport",
-      "Uniform magnetic field perpendicular to current",
-      "Single carrier type dominates",
-      "Ohmic conduction regime"
-    ],
-    "limitations": [
-      "Quantum Hall effects at very high fields/low temperatures",
-      "Multiple carrier types complicate interpretation",
-      "Non-uniform fields may cause deviations",
-      "Very high frequency effects not included"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental for semiconductor characterization, magnetic sensing, and understanding charge transport",
     "development_period": "1879",
@@ -170,10 +170,6 @@
       "id": "R2",
       "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
     }
-  ],
-  "dependencies": [
-    "ohms_law",
-    "lorentz_force"
   ],
   "contributors": [
     {

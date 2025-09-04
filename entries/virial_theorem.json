@@ -37,19 +37,33 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The system is in a time-averaged equilibrium or bound state."
+      "text": "The system is in a time-averaged equilibrium or bound state.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Forces are derivable from a potential function."
+      "text": "Forces are derivable from a potential function.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The system is bound so that the moment of inertia is finite and time-averaged."
+      "text": "The system is bound so that the moment of inertia is finite and time-averaged.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Forces are conservative and derivable from a potential."
+      "text": "Forces are conservative and derivable from a potential.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency5",
+      "type": "dependency",
+      "dependency_id": "conservation_of_energy"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "newtons_second_law"
     }
   ],
   "derivation": [
@@ -141,20 +155,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Bound systems in equilibrium",
-      "Conservative forces",
-      "Classical mechanics",
-      "Time-averaged quantities"
-    ],
-    "limitations": [
-      "Requires bound or periodic motion",
-      "Classical treatment only",
-      "May need modifications for relativistic systems",
-      "Assumes time-averaged equilibrium"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental relationship in mechanics, crucial for stellar structure and atomic physics",
     "development_period": "1870",
@@ -174,10 +174,6 @@
       "id": "R2",
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy",
-    "newtons_second_law"
   ],
   "contributors": [
     {

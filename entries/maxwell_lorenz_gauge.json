@@ -57,27 +57,38 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`."
+      "text": "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`."
+      "text": "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Sources are represented by smooth charge density `rho` and current density `vec J`."
+      "text": "Sources are represented by smooth charge density `rho` and current density `vec J`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`."
+      "text": "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`)."
+      "text": "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`).",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Fields and sources are sufficiently smooth to permit interchange of derivatives."
+      "text": "Fields and sources are sufficiently smooth to permit interchange of derivatives.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "maxwell_equations"
     }
   ],
   "derivation": [
@@ -147,20 +158,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Maxwell's equations apply",
-      "Specific gauge choice (Lorentz gauge)",
-      "Vector and scalar potential formulation"
-    ],
-    "limitations": [
-      "Specific gauge choice (other gauges equally valid)",
-      "Classical electromagnetic theory",
-      "May not be optimal for all calculations",
-      "Gauge-dependent formulation"
-    ]
-  },
   "approximation_of": "maxwell_equations",
   "historical_context": {
     "importance": "Useful gauge choice for electromagnetic calculations, simplifies wave equations",
@@ -184,9 +181,6 @@
       "id": "R3",
       "citation": "Lorenz, L. (1867). 'Über die Identität der Schwingungen des Lichts mit den elektrischen Strömen.' *Annalen der Physik und Chemie*, 131(10), 243–263."
     }
-  ],
-  "dependencies": [
-    "maxwell_equations"
   ],
   "contributors": [
     {

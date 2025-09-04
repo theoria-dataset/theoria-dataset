@@ -45,31 +45,48 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The atom has a single electron (hydrogen-like)."
+      "text": "The atom has a single electron (hydrogen-like).",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "Electronic transitions occur between well-defined energy levels."
+      "text": "Electronic transitions occur between well-defined energy levels.",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "The nucleus is infinitely massive (reduced mass approximation)."
+      "text": "The nucleus is infinitely massive (reduced mass approximation).",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "Fine structure effects are neglected."
+      "text": "Fine structure effects are neglected.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Energy levels follow the Bohr model: E ∝ -1/n²."
+      "text": "Energy levels follow the Bohr model: E ∝ -1/n².",
+      "type": "unclassified"
     },
     {
       "id": "assumption6",
-      "text": "Photon energy equals the energy difference between levels."
+      "text": "Photon energy equals the energy difference between levels.",
+      "type": "unclassified"
     },
     {
       "id": "assumption7",
-      "text": "Conservation of energy applies to electronic transitions."
+      "text": "Conservation of energy applies to electronic transitions.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "bohr_model_energy_levels"
+    },
+    {
+      "id": "dependency9",
+      "type": "dependency",
+      "dependency_id": "electromagnetic_waves"
     }
   ],
   "derivation": [
@@ -155,20 +172,6 @@
   },
   "domain": "physics.atom-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Hydrogen and hydrogen-like atoms (single electron)",
-      "Electric dipole transitions",
-      "Non-relativistic conditions",
-      "Neglecting fine structure"
-    ],
-    "limitations": [
-      "Breaks down for multi-electron atoms",
-      "Fine structure not included",
-      "Relativistic corrections needed for high-Z atoms",
-      "Hyperfine structure effects neglected"
-    ]
-  },
   "historical_context": {
     "importance": "First successful formula for atomic spectra, provided evidence for quantized energy levels and guided development of quantum mechanics",
     "development_period": "1888",
@@ -188,10 +191,6 @@
       "id": "R2",
       "citation": "Bethe, H. A., & Salpeter, E. E. (1957). *Quantum Mechanics of One- and Two-Electron Atoms*. Academic Press."
     }
-  ],
-  "dependencies": [
-    "bohr_model_energy_levels",
-    "electromagnetic_waves"
   ],
   "contributors": [
     {

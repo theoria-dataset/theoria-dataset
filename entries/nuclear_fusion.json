@@ -49,23 +49,43 @@
   "assumptions": [
     {
       "id": "assumption1",
-      "text": "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier."
+      "text": "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier.",
+      "type": "unclassified"
     },
     {
       "id": "assumption2",
-      "text": "The reaction products separate to infinite distance (complete energy release)."
+      "text": "The reaction products separate to infinite distance (complete energy release).",
+      "type": "unclassified"
     },
     {
       "id": "assumption3",
-      "text": "Conservation of energy, momentum, and nucleon number apply."
+      "text": "Conservation of energy, momentum, and nucleon number apply.",
+      "type": "unclassified"
     },
     {
       "id": "assumption4",
-      "text": "The reactant nuclei are initially at rest in the center-of-mass frame."
+      "text": "The reactant nuclei are initially at rest in the center-of-mass frame.",
+      "type": "unclassified"
     },
     {
       "id": "assumption5",
-      "text": "Non-relativistic kinematics apply for the reaction products."
+      "text": "Non-relativistic kinematics apply for the reaction products.",
+      "type": "unclassified"
+    },
+    {
+      "id": "dependency6",
+      "type": "dependency",
+      "dependency_id": "nuclear_binding_energy"
+    },
+    {
+      "id": "dependency7",
+      "type": "dependency",
+      "dependency_id": "quantum_tunneling"
+    },
+    {
+      "id": "dependency8",
+      "type": "dependency",
+      "dependency_id": "mass_energy_equivalence"
     }
   ],
   "derivation": [
@@ -151,20 +171,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Light nuclei (A ≤ 60 approximately)",
-      "Sufficient energy to overcome Coulomb barrier",
-      "Non-relativistic nuclear reaction kinematics",
-      "Well-separated reaction products"
-    ],
-    "limitations": [
-      "Requires very high temperatures for significant reaction rates",
-      "Quantum tunneling probability affects cross-section",
-      "May require consideration of electron screening in plasma",
-      "Three-body reactions need more complex treatment"
-    ]
-  },
   "historical_context": {
     "importance": "Powers stars, potential clean energy source, key to nucleosynthesis and cosmology",
     "development_period": "1920-1950",
@@ -184,11 +190,6 @@
       "id": "R2",
       "citation": "Bosch, H. S., & Hale, G. M. (1992). Improved formulas for fusion cross-sections and thermal reactivities. *Nuclear Fusion*, 32(4), 611-631."
     }
-  ],
-  "dependencies": [
-    "nuclear_binding_energy",
-    "quantum_tunneling",
-    "mass_energy_equivalence"
   ],
   "contributors": [
     {
