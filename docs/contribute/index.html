@@ -7,14 +7,17 @@
     <!-- LaTeX.css dark theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css">
     
-    <!-- MathJax for AsciiMath -->
+    <!-- MathJax v4 for AsciiMath -->
     <script>
         window.MathJax = {
             loader: { load: ['input/asciimath', 'output/chtml'] },
-            asciimath: { delimiters: [['`', '`']] }
+            asciimath: { delimiters: [['`', '`']] },
+            chtml: {
+                linebreaks: { automatic: true, width: "container" }
+            }
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles.css">

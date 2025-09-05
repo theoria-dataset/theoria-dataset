@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import importlib
+import traceback
 
 
 def normalize_version(ver: str):
@@ -117,6 +118,12 @@ def run_verifications() -> None:
         except Exception as e:
             errors.append(f"❌ {fname}: Verification code failed")
             errors.append(f"   → Error: {type(e).__name__}: {e}")
+            
+            # Show full stack trace
+            stack_trace = traceback.format_exc()
+            errors.append(f"   → Stack trace:")
+            for line in stack_trace.strip().split('\n'):
+                errors.append(f"     {line}")
             
             # Try to provide more specific guidance
             if 'NameError' in str(type(e)):
