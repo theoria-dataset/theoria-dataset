@@ -39,36 +39,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "No external torques act on the system (`vec tau_ext = 0`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can be treated as a collection of particles or rigid bodies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Newton's laws apply to each particle in the system.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Internal forces between particles obey Newton's third law.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "conservation_of_momentum"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "newtons_second_law"
-    }
+    "No external torques act on the system (`vec tau_ext = 0`).",
+    "The system can be treated as a collection of particles or rigid bodies.",
+    "Newton's laws apply to each particle in the system.",
+    "Internal forces between particles obey Newton's third law."
   ],
   "derivation": [
     {
@@ -160,5 +134,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_momentum",
+    "newtons_second_law"
+  ]
 }

@@ -55,56 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear superposition applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Waves are coherent",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Medium is linear",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No nonlinear effects",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Wave equation is linear",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Superposition principle applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Waves propagate in same medium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "No boundary effects",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "wave_equation"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "superposition_principle"
-    }
+    "Linear superposition applies",
+    "Waves are coherent",
+    "Medium is linear",
+    "No nonlinear effects",
+    "Wave equation is linear",
+    "Superposition principle applies",
+    "Waves propagate in same medium",
+    "No boundary effects"
   ],
   "derivation": [
     {
@@ -211,5 +169,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "wave_equation",
+    "superposition_principle"
+  ]
 }

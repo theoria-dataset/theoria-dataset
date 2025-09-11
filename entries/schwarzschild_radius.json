@@ -39,56 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Spherically symmetric, non-rotating black hole.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "General relativity is the correct theory of gravity.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The mass M is concentrated within the Schwarzschild radius.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation applies in the classical derivation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The speed of light is the maximum possible velocity.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "General relativity provides the correct spacetime geometry.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "The Schwarzschild solution is the appropriate metric.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "einstein_field_equations"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "gravitational_force"
-    }
+    "Spherically symmetric, non-rotating black hole.",
+    "No electric charge (Schwarzschild solution, not Reissner-Nordström).",
+    "General relativity is the correct theory of gravity.",
+    "The mass M is concentrated within the Schwarzschild radius.",
+    "Energy conservation applies in the classical derivation.",
+    "The speed of light is the maximum possible velocity.",
+    "General relativity provides the correct spacetime geometry.",
+    "The Schwarzschild solution is the appropriate metric."
   ],
   "derivation": [
     {
@@ -238,5 +196,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "einstein_field_equations",
+    "gravitational_force"
+  ]
 }

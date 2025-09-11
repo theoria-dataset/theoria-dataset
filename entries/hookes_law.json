@@ -55,46 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Small displacements from equilibrium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Linear elastic regime",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "No plastic deformation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Constant spring constant",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative force field",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Potential energy is well-defined",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Force derivable from potential",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Quadratic potential energy",
-      "type": "unclassified"
-    }
+    "Small displacements from equilibrium",
+    "Linear elastic regime",
+    "No plastic deformation",
+    "Constant spring constant",
+    "Conservative force field",
+    "Potential energy is well-defined",
+    "Force derivable from potential",
+    "Quadratic potential energy"
   ],
   "derivation": [
     {
@@ -217,5 +185,6 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

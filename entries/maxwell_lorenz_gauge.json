@@ -55,41 +55,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Sources are represented by smooth charge density `rho` and current density `vec J`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Fields and sources are sufficiently smooth to permit interchange of derivatives.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    }
+    "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`.",
+    "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`.",
+    "Sources are represented by smooth charge density `rho` and current density `vec J`.",
+    "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`.",
+    "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`).",
+    "Fields and sources are sufficiently smooth to permit interchange of derivatives."
   ],
   "derivation": [
     {
@@ -188,5 +159,8 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "maxwell_equations"
+  ]
 }

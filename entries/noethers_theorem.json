@@ -51,20 +51,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency2",
-      "type": "dependency",
-      "dependency_id": {
-        "result_id": "least_action_principle",
-        "relationship": "foundation",
-        "description": "Noether's theorem relies on the principle of stationary action and the resulting Euler-Lagrange equations to establish the connection between symmetries and conservation laws."
-      }
-    }
+    "stationary_action_principle"
+  ],
+  "dependencies": [
+    "least_action_principle"
   ],
   "derivation": [
     {

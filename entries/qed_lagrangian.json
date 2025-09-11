@@ -59,56 +59,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Natural units are used, setting `c = hbar = 1`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The space-time metric is Minkowskian with signature (+,−,−,−).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Local U(1) gauge invariance dictates the interaction structure.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Flat Minkowski space-time with metric `g_(mu nu)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Natural units `c = hbar = 1` are employed.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "dirac_equation_em"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "noethers_theorem"
-    }
+    "Natural units are used, setting `c = hbar = 1`.",
+    "The space-time metric is Minkowskian with signature (+,−,−,−).",
+    "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`.",
+    "Local U(1) gauge invariance dictates the interaction structure.",
+    "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions.",
+    "Flat Minkowski space-time with metric `g_(mu nu)`.",
+    "Natural units `c = hbar = 1` are employed."
   ],
   "derivation": [
     {
@@ -220,5 +177,10 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
+  ]
 }

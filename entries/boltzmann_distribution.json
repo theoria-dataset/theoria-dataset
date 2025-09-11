@@ -39,46 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is in thermal equilibrium at constant temperature.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can exchange energy with a thermal reservoir but particle number is fixed.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Quantum states are discrete and non-degenerate (or degeneracies are included in the sum).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The system follows classical or quantum statistical mechanics.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The fundamental thermodynamic relation `dS = dE/T` applies to the system.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The system is weakly coupled to a much larger thermal reservoir.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "The number of microstates is proportional to probability in thermal equilibrium.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Energy levels are well-defined and the system can be described by statistical mechanics.",
-      "type": "unclassified"
-    }
+    "The system is in thermal equilibrium at constant temperature.",
+    "The system can exchange energy with a thermal reservoir but particle number is fixed.",
+    "Quantum states are discrete and non-degenerate (or degeneracies are included in the sum).",
+    "The system follows classical or quantum statistical mechanics.",
+    "The fundamental thermodynamic relation `dS = dE/T` applies to the system.",
+    "The system is weakly coupled to a much larger thermal reservoir.",
+    "The number of microstates is proportional to probability in thermal equilibrium.",
+    "Energy levels are well-defined and the system can be described by statistical mechanics."
   ],
   "derivation": [
     {
@@ -265,5 +233,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

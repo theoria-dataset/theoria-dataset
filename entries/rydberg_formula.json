@@ -43,51 +43,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The atom has a single electron (hydrogen-like).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Electronic transitions occur between well-defined energy levels.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The nucleus is infinitely massive (reduced mass approximation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Fine structure effects are neglected.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy levels follow the Bohr model: E ∝ -1/n².",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Photon energy equals the energy difference between levels.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Conservation of energy applies to electronic transitions.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "bohr_model_energy_levels"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electromagnetic_waves"
-    }
+    "The atom has a single electron (hydrogen-like).",
+    "Electronic transitions occur between well-defined energy levels.",
+    "The nucleus is infinitely massive (reduced mass approximation).",
+    "Fine structure effects are neglected.",
+    "Energy levels follow the Bohr model: E ∝ -1/n².",
+    "Photon energy equals the energy difference between levels.",
+    "Conservation of energy applies to electronic transitions."
   ],
   "derivation": [
     {
@@ -198,5 +160,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "bohr_model_energy_levels",
+    "electromagnetic_waves"
+  ]
 }

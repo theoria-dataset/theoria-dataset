@@ -43,41 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Particles are non-interacting (ideal Fermi gas).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Maximum entropy principle applies at thermal equilibrium.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Particle number and energy are conserved (grand canonical ensemble).",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "pauli_exclusion_principle"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "partition_function"
-    }
+    "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle.",
+    "The system is in thermal equilibrium at temperature T.",
+    "Particles are non-interacting (ideal Fermi gas).",
+    "Maximum entropy principle applies at thermal equilibrium.",
+    "Particle number and energy are conserved (grand canonical ensemble)."
   ],
   "derivation": [
     {
@@ -190,5 +160,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "pauli_exclusion_principle",
+    "partition_function"
+  ]
 }

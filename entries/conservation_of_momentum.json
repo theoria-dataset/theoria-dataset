@@ -47,51 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Closed system (no external forces)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Newton's laws apply",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Inertial reference frame",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics regime",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's third law",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "No external forces",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Constant mass",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_laws"
-    }
+    "Closed system (no external forces)",
+    "Newton's laws apply",
+    "Inertial reference frame",
+    "Classical mechanics regime",
+    "Newton's third law",
+    "No external forces",
+    "Constant mass",
+    "Classical mechanics"
   ],
   "derivation": [
     {
@@ -220,5 +183,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws"
+  ]
 }

@@ -59,36 +59,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "type": "fundamental",
-      "reference": "classical_mechanics_framework"
-    },
-    {
-      "id": "assumption2",
-      "type": "fundamental",
-      "reference": "point_mass_approximation"
-    },
-    {
-      "id": "assumption3",
-      "type": "validity_regime",
-      "reference": "two_body_system"
-    },
-    {
-      "id": "assumption4",
-      "type": "validity_regime",
-      "reference": "non_relativistic_velocities"
-    },
-    {
-      "id": "assumption5",
-      "type": "dependency",
-      "dependency_id": "newtonian_mechanics"
-    },
-    {
-      "id": "assumption6",
-      "type": "dependency",
-      "dependency_id": "conservation_laws"
-    }
+    "classical_mechanics_framework",
+    "point_mass_approximation",
+    "two_body_system"
+  ],
+  "dependencies": [
+    "newtonian_mechanics",
+    "conservation_laws"
   ],
   "derivation": [
     {

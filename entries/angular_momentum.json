@@ -59,51 +59,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Well-defined rotation axis",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Rigid body approximation (for I×ω form)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Inertial reference frame",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Position vector is measured from fixed point",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Cross product properties",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "newtons_laws"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "conservation_of_momentum"
-    }
+    "Classical mechanics",
+    "Well-defined rotation axis",
+    "Rigid body approximation (for I×ω form)",
+    "Inertial reference frame",
+    "Newton's second law applies",
+    "Position vector is measured from fixed point",
+    "Cross product properties"
   ],
   "derivation": [
     {
@@ -250,5 +212,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws",
+    "conservation_of_momentum"
+  ]
 }

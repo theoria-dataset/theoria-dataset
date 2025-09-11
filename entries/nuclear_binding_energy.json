@@ -47,31 +47,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The nucleus can be separated into individual protons and neutrons.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Mass-energy equivalence (E = mc²) applies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The mass of separated nucleons is greater than the bound nucleus mass.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Electron binding energies are negligible compared to nuclear binding energy.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "mass_energy_equivalence"
-    }
+    "The nucleus can be separated into individual protons and neutrons.",
+    "Mass-energy equivalence (E = mc²) applies.",
+    "The mass of separated nucleons is greater than the bound nucleus mass.",
+    "Electron binding energies are negligible compared to nuclear binding energy."
   ],
   "derivation": [
     {
@@ -164,5 +143,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "mass_energy_equivalence"
+  ]
 }

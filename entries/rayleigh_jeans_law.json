@@ -39,51 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical statistical mechanics applies (equipartition theorem).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The radiation is in thermal equilibrium with the blackbody.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "The transformation from frequency to wavelength space preserves the total energy.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "The spectral radiance relates to energy density through geometric factors.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "planck_radiation_law"
-    }
+    "Classical statistical mechanics applies (equipartition theorem).",
+    "The electromagnetic field can be treated as a collection of harmonic oscillators.",
+    "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`).",
+    "The radiation is in thermal equilibrium with the blackbody.",
+    "The density of electromagnetic modes in frequency space follows from wave equation in a cavity.",
+    "Each mode has average energy `k_B*T` according to classical equipartition theorem.",
+    "The transformation from frequency to wavelength space preserves the total energy.",
+    "The spectral radiance relates to energy density through geometric factors."
   ],
   "derivation": [
     {
@@ -233,5 +196,8 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ]
 }

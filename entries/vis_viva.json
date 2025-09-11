@@ -31,36 +31,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "type": "fundamental",
-      "reference": "point_mass_approximation"
-    },
-    {
-      "id": "assumption2",
-      "type": "fundamental",
-      "reference": "conservation_laws_valid"
-    },
-    {
-      "id": "assumption3",
-      "type": "validity_regime",
-      "reference": "isolated_system"
-    },
-    {
-      "id": "assumption4",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    },
-    {
-      "id": "assumption5",
-      "type": "dependency",
-      "dependency_id": "angular_momentum"
-    },
-    {
-      "id": "assumption6",
-      "type": "dependency",
-      "dependency_id": "gravitational_force"
-    }
+    "point_mass_approximation",
+    "conservation_laws_valid",
+    "isolated_system"
+  ],
+  "dependencies": [
+    "conservation_of_energy",
+    "angular_momentum",
+    "gravitational_force"
   ],
   "derivation": [
     {

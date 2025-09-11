@@ -55,51 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Photons behave as discrete energy packets",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "One photon interacts with one electron",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Energy conservation applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Quantum mechanical description",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation in photon-electron interaction",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Einstein's photon hypothesis",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Work function is material-dependent constant",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Instantaneous emission process",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "plancks_quantum_hypothesis"
-    }
+    "Photons behave as discrete energy packets",
+    "One photon interacts with one electron",
+    "Energy conservation applies",
+    "Quantum mechanical description",
+    "Energy conservation in photon-electron interaction",
+    "Einstein's photon hypothesis",
+    "Work function is material-dependent constant",
+    "Instantaneous emission process"
   ],
   "derivation": [
     {
@@ -204,5 +167,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "plancks_quantum_hypothesis"
+  ]
 }

@@ -39,21 +39,9 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Density is constant, so `nabla cdot vec v = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Fluid is Newtonian; bulk-viscosity term vanishes via incompressibility.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Dynamic viscosity `mu` is spatially uniform and constant in time.",
-      "type": "unclassified"
-    }
+    "Density is constant, so `nabla cdot vec v = 0`.",
+    "Fluid is Newtonian; bulk-viscosity term vanishes via incompressibility.",
+    "Dynamic viscosity `mu` is spatially uniform and constant in time."
   ],
   "derivation": [
     {
@@ -124,5 +112,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

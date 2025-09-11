@@ -51,46 +51,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "euler_lagrange_equation"
-    }
+    "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`.",
+    "Conservative forces are derivable from a potential function `V(q_i, t)`.",
+    "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities.",
+    "The system is holonomic, meaning constraints can be expressed as equations relating coordinates.",
+    "The Lagrangian is twice differentiable with respect to coordinates and velocities.",
+    "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`.",
+    "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
   ],
   "derivation": [
     {
@@ -203,5 +170,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "euler_lagrange_equation"
+  ]
 }

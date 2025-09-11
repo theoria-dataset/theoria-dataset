@@ -43,46 +43,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The charges are point charges (or can be treated as such).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The charges are at rest (electrostatic case).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The medium between charges is vacuum or can be approximated as such.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The distance between charges is much larger than their size.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The force between charges is directly proportional to each charge magnitude.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The force follows an inverse square law with distance, analogous to Newton's law of gravitation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "The force acts along the line connecting the two charges.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "The principle of superposition applies to electric forces.",
-      "type": "unclassified"
-    }
+    "The charges are point charges (or can be treated as such).",
+    "The charges are at rest (electrostatic case).",
+    "The medium between charges is vacuum or can be approximated as such.",
+    "The distance between charges is much larger than their size.",
+    "The force between charges is directly proportional to each charge magnitude.",
+    "The force follows an inverse square law with distance, analogous to Newton's law of gravitation.",
+    "The force acts along the line connecting the two charges.",
+    "The principle of superposition applies to electric forces."
   ],
   "derivation": [
     {
@@ -191,5 +159,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

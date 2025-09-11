@@ -75,61 +75,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Steady flow: all fluid properties are independent of time at any fixed point, partial/partial t = 0.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Incompressible fluid: density rho remains constant throughout the flow field and along streamlines.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Inviscid flow: viscous forces are negligible compared to pressure and inertial forces (mu = 0 or Re >> 1).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Flow along streamlines: analysis applies to fluid particles moving along well-defined streamlines.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative body forces: gravitational field is conservative with potential Phi such that vec g = - del Phi.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "No work addition or heat transfer: no external energy input (pumps, compressors) or dissipation along the streamline.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "For irrotational flow derivation: vorticity vec omega = del xx vec v = 0 allowing velocity potential vec v = del phi.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_laws_of_motion"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "continuity_equation"
-    },
-    {
-      "id": "dependency11",
-      "type": "dependency",
-      "dependency_id": "navier_stokes_incompressible"
-    }
+    "Steady flow: all fluid properties are independent of time at any fixed point, partial/partial t = 0.",
+    "Incompressible fluid: density rho remains constant throughout the flow field and along streamlines.",
+    "Inviscid flow: viscous forces are negligible compared to pressure and inertial forces (mu = 0 or Re >> 1).",
+    "Flow along streamlines: analysis applies to fluid particles moving along well-defined streamlines.",
+    "Conservative body forces: gravitational field is conservative with potential Phi such that vec g = - del Phi.",
+    "No work addition or heat transfer: no external energy input (pumps, compressors) or dissipation along the streamline.",
+    "For irrotational flow derivation: vorticity vec omega = del xx vec v = 0 allowing velocity potential vec v = del phi."
   ],
   "derivation": [
     {
@@ -373,5 +325,11 @@
       "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_energy",
+    "newtons_laws_of_motion",
+    "continuity_equation",
+    "navier_stokes_incompressible"
+  ]
 }

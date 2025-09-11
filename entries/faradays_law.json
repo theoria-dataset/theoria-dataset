@@ -27,31 +27,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The magnetic field `vec B` and loop area can vary with time.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The loop forms a closed path for current flow.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations apply, specifically Faraday's law in differential form.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The surface is simply connected and the loop bounds a well-defined surface.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    }
+    "The magnetic field `vec B` and loop area can vary with time.",
+    "The loop forms a closed path for current flow.",
+    "Maxwell's equations apply, specifically Faraday's law in differential form.",
+    "The surface is simply connected and the loop bounds a well-defined surface."
   ],
   "derivation": [
     {
@@ -133,5 +112,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "maxwell_equations"
+  ]
 }

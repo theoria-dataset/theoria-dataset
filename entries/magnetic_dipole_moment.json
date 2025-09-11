@@ -59,56 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The current loop is small compared to distances of interest (dipole approximation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Steady currents (no time-varying fields).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear, isotropic, and homogeneous medium (or vacuum).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Far-field approximation for magnetic field calculation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The current distribution is localized (dipole approximation valid).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Magnetostatic conditions (∂B/∂t = 0).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Far-field limit (r >> size of current distribution).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Linear superposition of fields applies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "magnetic_field"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "amperes_law"
-    }
+    "The current loop is small compared to distances of interest (dipole approximation).",
+    "Steady currents (no time-varying fields).",
+    "Linear, isotropic, and homogeneous medium (or vacuum).",
+    "Far-field approximation for magnetic field calculation.",
+    "The current distribution is localized (dipole approximation valid).",
+    "Magnetostatic conditions (∂B/∂t = 0).",
+    "Far-field limit (r >> size of current distribution).",
+    "Linear superposition of fields applies."
   ],
   "derivation": [
     {
@@ -289,5 +247,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "magnetic_field",
+    "amperes_law"
+  ]
 }

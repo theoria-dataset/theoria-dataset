@@ -59,51 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Observations are made from inertial reference frames.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Classical mechanics applies (non-relativistic velocities).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "For the Second Law constant-mass form, mass remains constant during motion.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Forces are well-defined and can be measured or calculated.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The concept of inertial reference frames can be defined operationally.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Force can be defined as the rate of change of momentum.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Mass is an intrinsic property that may be constant or variable.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "For isolated systems, total momentum is conserved.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "conservation_of_momentum"
-    }
+    "Observations are made from inertial reference frames.",
+    "Classical mechanics applies (non-relativistic velocities).",
+    "For the Second Law constant-mass form, mass remains constant during motion.",
+    "Forces are well-defined and can be measured or calculated.",
+    "The concept of inertial reference frames can be defined operationally.",
+    "Force can be defined as the rate of change of momentum.",
+    "Mass is an intrinsic property that may be constant or variable.",
+    "For isolated systems, total momentum is conserved."
   ],
   "derivation": [
     {
@@ -239,5 +202,8 @@
       "identifier": "Not provided"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_momentum"
+  ]
 }

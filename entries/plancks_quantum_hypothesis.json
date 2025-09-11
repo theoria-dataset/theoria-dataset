@@ -31,51 +31,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy exchange between matter and electromagnetic radiation occurs in discrete packets.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The energy of each quantum is proportional to the frequency of the radiation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "For equation `eq2`, `n` is a positive integer representing the number of quanta.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Planck's constant `h` is a universal constant of nature.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Classical electromagnetic field theory correctly describes the density of modes in frequency space.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "The system is in thermal equilibrium and follows Boltzmann statistics.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "planck_radiation_law"
-    }
+    "Energy exchange between matter and electromagnetic radiation occurs in discrete packets.",
+    "The energy of each quantum is proportional to the frequency of the radiation.",
+    "For equation `eq2`, `n` is a positive integer representing the number of quanta.",
+    "Planck's constant `h` is a universal constant of nature.",
+    "Classical electromagnetic field theory correctly describes the density of modes in frequency space.",
+    "The ultraviolet catastrophe indicates that classical equipartition theorem fails for electromagnetic radiation.",
+    "Energy levels of harmonic oscillators are quantized in integer multiples of `hf`.",
+    "The system is in thermal equilibrium and follows Boltzmann statistics."
   ],
   "derivation": [
     {
@@ -241,5 +204,8 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ]
 }

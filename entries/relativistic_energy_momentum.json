@@ -59,27 +59,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy and momentum conservation hold in relativistic mechanics.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The speed of light in vacuum is constant and represents the universal speed limit.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Spacetime is flat (no gravitational effects considered).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Particles have well-defined rest masses.",
-      "type": "unclassified"
-    }
+    "conservation_laws_valid",
+    "light_speed_constant",
+    "flat_spacetime",
+    "well_defined_rest_mass"
   ],
+  "dependencies": [],
   "derivation": [
     {
       "step": 1,

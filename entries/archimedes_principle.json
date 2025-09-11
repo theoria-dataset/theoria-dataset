@@ -71,51 +71,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Hydrostatic equilibrium: the fluid is at rest with no bulk motion or acceleration.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Incompressible fluid: fluid density `rho_(fluid)` remains constant throughout the region of interest.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Uniform gravitational field: gravitational acceleration `vec g` is constant over the object’s dimensions.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Continuous fluid medium: the fluid completely surrounds the submerged portions of the object with no cavities or discontinuities.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Hydrostatic pressure distribution: pressure in the fluid follows `P(h) = P_0 + rho_(fluid) * g * h` where `h` is measured downward from the surface.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Rigid object approximation: the object does not deform significantly under the pressure variations in the fluid.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "hydrostatic_pressure"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "fluid_statics"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "divergence_theorem"
-    }
+    "Hydrostatic equilibrium: the fluid is at rest with no bulk motion or acceleration.",
+    "Incompressible fluid: fluid density `rho_(fluid)` remains constant throughout the region of interest.",
+    "Uniform gravitational field: gravitational acceleration `vec g` is constant over the object’s dimensions.",
+    "Continuous fluid medium: the fluid completely surrounds the submerged portions of the object with no cavities or discontinuities.",
+    "Hydrostatic pressure distribution: pressure in the fluid follows `P(h) = P_0 + rho_(fluid) * g * h` where `h` is measured downward from the surface.",
+    "Rigid object approximation: the object does not deform significantly under the pressure variations in the fluid."
   ],
   "derivation": [
     {
@@ -340,5 +301,10 @@
       "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "hydrostatic_pressure",
+    "fluid_statics",
+    "divergence_theorem"
+  ]
 }

@@ -31,51 +31,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The crystal consists of parallel planes of atoms with uniform spacing d.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "X-rays are treated as waves with well-defined wavelength λ.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Elastic scattering (no energy loss) occurs at each lattice plane.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The crystal is perfect with no defects or thermal motion considered.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "X-rays reflect specularly from each crystal plane.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The incident beam is monochromatic with single wavelength.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Crystal planes are perfectly flat and parallel.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "electromagnetic_waves"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "waves_interference"
-    }
+    "The crystal consists of parallel planes of atoms with uniform spacing d.",
+    "X-rays are treated as waves with well-defined wavelength λ.",
+    "Elastic scattering (no energy loss) occurs at each lattice plane.",
+    "The crystal is perfect with no defects or thermal motion considered.",
+    "X-rays reflect specularly from each crystal plane.",
+    "The incident beam is monochromatic with single wavelength.",
+    "Crystal planes are perfectly flat and parallel."
   ],
   "derivation": [
     {
@@ -182,5 +144,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electromagnetic_waves",
+    "waves_interference"
+  ]
 }

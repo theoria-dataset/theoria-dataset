@@ -43,41 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle is described by a wavefunction satisfying the Schrödinger equation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The potential barrier has a well-defined shape and finite extent.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The particle energy E is less than the barrier height V_0.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The barrier is rectangular with constant potential V_0 in the barrier region.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The particle approaches from the left with no reflection from the right.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "schroedingen_equation"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "particle_in_a_box"
-    }
+    "The particle is described by a wavefunction satisfying the Schrödinger equation.",
+    "The potential barrier has a well-defined shape and finite extent.",
+    "The particle energy E is less than the barrier height V_0.",
+    "The barrier is rectangular with constant potential V_0 in the barrier region.",
+    "The particle approaches from the left with no reflection from the right."
   ],
   "derivation": [
     {
@@ -193,5 +163,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "schroedingen_equation",
+    "particle_in_a_box"
+  ]
 }

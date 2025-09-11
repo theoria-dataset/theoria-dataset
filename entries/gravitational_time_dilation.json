@@ -47,46 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The gravitational field is weak (`GM/(c²r) << 1`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The mass distribution is spherically symmetric (Schwarzschild metric).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The observer is at a much larger distance from the gravitational source than the emitter.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Special relativistic effects from relative motion are negligible.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The Schwarzschild metric accurately describes spacetime around a spherically symmetric mass.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The weak field approximation applies (`GM/(c²r) << 1`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Proper time corresponds to the time measured by a local clock at rest.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Coordinate time corresponds to time measured by an observer at spatial infinity.",
-      "type": "unclassified"
-    }
+    "The gravitational field is weak (`GM/(c²r) << 1`).",
+    "The mass distribution is spherically symmetric (Schwarzschild metric).",
+    "The observer is at a much larger distance from the gravitational source than the emitter.",
+    "Special relativistic effects from relative motion are negligible.",
+    "The Schwarzschild metric accurately describes spacetime around a spherically symmetric mass.",
+    "The weak field approximation applies (`GM/(c²r) << 1`).",
+    "Proper time corresponds to the time measured by a local clock at rest.",
+    "Coordinate time corresponds to time measured by an observer at spatial infinity."
   ],
   "derivation": [
     {
@@ -256,5 +224,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

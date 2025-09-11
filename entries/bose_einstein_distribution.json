@@ -43,41 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particles are bosons (integer spin) with no restriction on state occupancy.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Particles are non-interacting (ideal Bose gas).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Maximum entropy principle applies at thermal equilibrium.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Bosons can occupy the same quantum state without restriction.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "partition_function"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "planck_radiation_law"
-    }
+    "The particles are bosons (integer spin) with no restriction on state occupancy.",
+    "The system is in thermal equilibrium at temperature T.",
+    "Particles are non-interacting (ideal Bose gas).",
+    "Maximum entropy principle applies at thermal equilibrium.",
+    "Bosons can occupy the same quantum state without restriction."
   ],
   "derivation": [
     {
@@ -191,5 +161,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "partition_function",
+    "planck_radiation_law"
+  ]
 }

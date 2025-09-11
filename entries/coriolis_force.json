@@ -27,26 +27,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No actual force corresponds to these terms; they are apparent forces due to frame rotation.",
-      "type": "unclassified"
-    }
+    "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth).",
+    "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale).",
+    "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear.",
+    "No actual force corresponds to these terms; they are apparent forces due to frame rotation."
   ],
   "derivation": [
     {
@@ -126,5 +110,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

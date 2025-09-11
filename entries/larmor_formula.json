@@ -39,56 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Non-relativistic motion (v << c).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charge approximation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Far-field radiation (observation distance >> wavelength).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical electrodynamics applies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The charge undergoes non-relativistic motion.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Radiation is observed in the far-field zone.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Classical electromagnetic theory is valid.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "The charge is a point source.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electromagnetic_waves"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "poynting_vector"
-    }
+    "Non-relativistic motion (v << c).",
+    "Point charge approximation.",
+    "Far-field radiation (observation distance >> wavelength).",
+    "Classical electrodynamics applies.",
+    "The charge undergoes non-relativistic motion.",
+    "Radiation is observed in the far-field zone.",
+    "Classical electromagnetic theory is valid.",
+    "The charge is a point source."
   ],
   "derivation": [
     {
@@ -252,5 +210,9 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electromagnetic_waves",
+    "poynting_vector"
+  ]
 }

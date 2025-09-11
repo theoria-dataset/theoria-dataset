@@ -20,6 +20,19 @@ jobs:
       - name: Install Python dependencies
         run: pip install sympy==1.12.0 jsonschema
 
+      - name: Validate global assumptions schema
+        run: |
+          echo "Validating globals/assumptions.json"
+          python -c "
+          import json, jsonschema
+          with open('schemas/assumptions.schema.json') as f:
+              schema = json.load(f)
+          with open('globals/assumptions.json') as f:
+              data = json.load(f)
+          jsonschema.validate(data, schema)
+          print('✅ Global assumptions schema validation passed!')
+          " || exit 1
+
       - name: Validate JSON entries
         run: |
           for file in entries/*.json; do

@@ -35,36 +35,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is in thermal equilibrium with a heat reservoir at temperature T.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The number of particles is fixed (canonical ensemble).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Boltzmann distribution applies to the probability of each microstate.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical thermodynamic relations hold for ensemble averages.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "boltzmann_distribution"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    }
+    "The system is in thermal equilibrium with a heat reservoir at temperature T.",
+    "The number of particles is fixed (canonical ensemble).",
+    "Boltzmann distribution applies to the probability of each microstate.",
+    "Classical thermodynamic relations hold for ensemble averages."
   ],
   "derivation": [
     {
@@ -168,5 +142,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "boltzmann_distribution",
+    "first_law_thermodynamics"
+  ]
 }

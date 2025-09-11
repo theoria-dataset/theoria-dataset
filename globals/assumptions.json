@@ -1,0 +1,202 @@
+{
+  "assumptions": [
+    {
+      "id": "classical_mechanics_framework",
+      "text": "Classical mechanics framework: relativistic effects negligible (v << c), quantum effects negligible for macroscopic bodies",
+      "type": "simplification",
+      "mathematical_expressions": [
+        "v << c",
+        "lambda_dB << L"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "v",
+          "definition": "Characteristic velocity of the system"
+        },
+        {
+          "symbol": "c", 
+          "definition": "Speed of light in vacuum"
+        },
+        {
+          "symbol": "lambda_(dB)",
+          "definition": "de Broglie wavelength of particles in the system"
+        },
+        {
+          "symbol": "L",
+          "definition": "Characteristic length scale of the system"
+        }
+      ]
+    },
+    {
+      "id": "point_mass_approximation",
+      "text": "Both bodies can be treated as point masses with spherically symmetric mass distributions",
+      "type": "simplification"
+    },
+    {
+      "id": "inertial_reference_frame",
+      "text": "Observations are made from an inertial (non-accelerating) reference frame",
+      "type": "fundamental"
+    },
+    {
+      "id": "conservation_laws_valid",
+      "text": "Conservation laws (energy, momentum, angular momentum) hold for the system",
+      "type": "empirical",
+      "mathematical_expressions": [
+        "dE/dt = 0",
+        "dvec{p}/dt = 0", 
+        "dvec{L}/dt = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "E",
+          "definition": "Total energy of the system"
+        },
+        {
+          "symbol": "vec{p}",
+          "definition": "Total momentum vector of the system"
+        },
+        {
+          "symbol": "vec{L}",
+          "definition": "Total angular momentum vector of the system"
+        },
+        {
+          "symbol": "t",
+          "definition": "Time"
+        }
+      ]
+    },
+    {
+      "id": "two_body_system",
+      "text": "Two-body gravitational systems with negligible external perturbations",
+      "type": "simplification"
+    },
+    {
+      "id": "weak_gravitational_field",
+      "text": "Gravitational field strength allows for Newtonian approximation",
+      "type": "simplification"
+    },
+    {
+      "id": "isolated_system",
+      "text": "System is sufficiently isolated from external influences",
+      "type": "simplification"
+    },
+    {
+      "id": "perfect_blackbody",
+      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`",
+      "type": "simplification"
+    },
+    {
+      "id": "thermal_equilibrium",
+      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
+      "type": "regime"
+    },
+    {
+      "id": "electromagnetic_field_quantization",
+      "text": "The electromagnetic field is quantized into discrete energy levels for each mode",
+      "type": "empirical",
+      "mathematical_expressions": [
+        "E_n = n*h*nu"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "E_n",
+          "definition": "Energy of the nth quantum state"
+        },
+        {
+          "symbol": "n",
+          "definition": "Occupation number (non-negative integer)"
+        },
+        {
+          "symbol": "h",
+          "definition": "Planck's constant"
+        },
+        {
+          "symbol": "nu",
+          "definition": "Frequency of the electromagnetic mode"
+        }
+      ]
+    },
+    {
+      "id": "electromagnetic_polarization",
+      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)",
+      "type": "empirical"
+    },
+    {
+      "id": "light_speed_constant",
+      "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
+      "type": "empirical",
+      "mathematical_expressions": [
+        "c = 299792458 text{ m/s}"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "c",
+          "definition": "Speed of light in vacuum, exact value by definition in SI units."
+        }
+      ]
+    },
+    {
+      "id": "constant_relative_velocity",
+      "text": "Reference frames move with constant relative velocity (no acceleration)",
+      "type": "regime",
+      "mathematical_expressions": [
+        "dv/dt = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "v",
+          "definition": "Relative velocity between reference frames"
+        },
+        {
+          "symbol": "t",
+          "definition": "Time"
+        }
+      ]
+    },
+    {
+      "id": "generalized_coordinates_system",
+      "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`",
+      "type": "fundamental"
+    },
+    {
+      "id": "lagrangian_well_defined",
+      "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time",
+      "type": "fundamental"
+    },
+    {
+      "id": "lagrangian_differentiable",
+      "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments",
+      "type": "fundamental"
+    },
+    {
+      "id": "smooth_path",
+      "text": "The trajectory of the system in configuration space is smooth and differentiable throughout the time interval of interest",
+      "type": "fundamental"
+    },
+    {
+      "id": "fixed_endpoints", 
+      "text": "The initial and final configurations of the system are held fixed during variational analysis",
+      "type": "fundamental"
+    },
+    {
+      "id": "small_arbitrary_variations",
+      "text": "Small, arbitrary variations of the system's trajectory are permitted in the interior of the time interval for variational analysis",
+      "type": "fundamental"
+    },
+    {
+      "id": "stationary_action_principle",
+      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
+      "type": "fundamental"
+    },
+    {
+      "id": "flat_spacetime",
+      "text": "Spacetime is flat, no gravitational effects considered",
+      "type": "regime"
+    },
+    {
+      "id": "well_defined_rest_mass",
+      "text": "Particles have well-defined rest masses",
+      "type": "empirical"
+    }
+  ]
+}

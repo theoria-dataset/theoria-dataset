@@ -43,31 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The fluid is Newtonian with constant density and viscosity.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "There is a characteristic velocity and length scale for the flow.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The Navier-Stokes equations apply for the fluid flow.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Characteristic scales can be identified for the flow problem.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "navier_stokes_incompressible"
-    }
+    "The fluid is Newtonian with constant density and viscosity.",
+    "There is a characteristic velocity and length scale for the flow.",
+    "The Navier-Stokes equations apply for the fluid flow.",
+    "Characteristic scales can be identified for the flow problem."
   ],
   "derivation": [
     {
@@ -174,5 +153,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "navier_stokes_incompressible"
+  ]
 }

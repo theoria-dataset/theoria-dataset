@@ -39,41 +39,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Spin is an intrinsic property independent of particle motion.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The quantum numbers s and m_s take discrete values.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Angular momentum operators form a Lie algebra SU(2).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The Hilbert space is finite-dimensional for each spin value.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "quantum_angular_momentum"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "pauli_exclusion_principle"
-    }
+    "Quantum mechanical angular momentum operators satisfy SU(2) algebra.",
+    "Spin is an intrinsic property independent of particle motion.",
+    "The quantum numbers s and m_s take discrete values.",
+    "Angular momentum operators form a Lie algebra SU(2).",
+    "The Hilbert space is finite-dimensional for each spin value."
   ],
   "derivation": [
     {
@@ -187,5 +157,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "quantum_angular_momentum",
+    "pauli_exclusion_principle"
+  ]
 }

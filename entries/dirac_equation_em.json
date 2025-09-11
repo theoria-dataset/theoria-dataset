@@ -67,56 +67,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Desire for a first-order linear differential equation preserving probability density.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "dirac_equation_free"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    }
+    "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`.",
+    "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected.",
+    "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
+    "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
+    "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`.",
+    "Desire for a first-order linear differential equation preserving probability density.",
+    "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form.",
+    "Minimal coupling prescription to ensure local U(1) gauge invariance."
   ],
   "derivation": [
     {
@@ -224,5 +182,9 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "dirac_equation_free",
+    "maxwell_equations"
+  ]
 }

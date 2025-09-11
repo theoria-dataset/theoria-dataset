@@ -59,56 +59,15 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Point particles (negligible molecular size)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "No intermolecular forces",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Elastic collisions only",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Thermal equilibrium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Kinetic theory of gases",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Statistical mechanics principles",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Perfect gas approximation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption9",
-      "text": "Maxwell-Boltzmann distribution",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "kinetic_theory"
-    }
+    "Point particles (negligible molecular size)",
+    "No intermolecular forces",
+    "Elastic collisions only",
+    "Classical mechanics applies",
+    "Thermal equilibrium",
+    "Kinetic theory of gases",
+    "Statistical mechanics principles",
+    "Perfect gas approximation",
+    "Maxwell-Boltzmann distribution"
   ],
   "derivation": [
     {
@@ -225,5 +184,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "kinetic_theory"
+  ]
 }

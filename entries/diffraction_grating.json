@@ -43,56 +43,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Plane wave incidence (or far-field conditions).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "All slits have the same width and spacing.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Normal incidence (angle modifications needed for oblique incidence).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Far-field observation (Fraunhofer diffraction).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Far-field diffraction (Fraunhofer conditions).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Uniform illumination of all slits.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Small angle approximation may apply for angular dispersion.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line).",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "waves_interference"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "young_double_slit"
-    }
+    "Plane wave incidence (or far-field conditions).",
+    "All slits have the same width and spacing.",
+    "Normal incidence (angle modifications needed for oblique incidence).",
+    "Far-field observation (Fraunhofer diffraction).",
+    "Far-field diffraction (Fraunhofer conditions).",
+    "Uniform illumination of all slits.",
+    "Small angle approximation may apply for angular dispersion.",
+    "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line)."
   ],
   "derivation": [
     {
@@ -259,5 +217,9 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "waves_interference",
+    "young_double_slit"
+  ]
 }

@@ -35,41 +35,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "System mass remains constant; no matter crosses the boundary.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Closed system: no mass crosses the boundary during the process.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Macroscopic potential energy change is negligible, so `dE_pot = 0`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system.",
-      "type": "unclassified"
-    }
+    "System mass remains constant; no matter crosses the boundary.",
+    "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system.",
+    "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary.",
+    "Closed system: no mass crosses the boundary during the process.",
+    "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`.",
+    "Macroscopic potential energy change is negligible, so `dE_pot = 0`.",
+    "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
   ],
   "derivation": [
     {
@@ -156,5 +128,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

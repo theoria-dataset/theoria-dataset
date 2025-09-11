@@ -23,36 +23,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle follows the principles of quantum mechanics and exhibits wave-particle duality.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The relation applies to both relativistic and non-relativistic particles when the correct momentum expression is used.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Planck's relation `E = hf` applies to all particles with wave character.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "For photons, the energy-momentum relation `E = pc` holds.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The wave relation `c = lambda*f` applies to electromagnetic waves.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "The symmetry principle suggests that if photons have particle properties, then matter particles should have wave properties.",
-      "type": "unclassified"
-    }
+    "The particle follows the principles of quantum mechanics and exhibits wave-particle duality.",
+    "The relation applies to both relativistic and non-relativistic particles when the correct momentum expression is used.",
+    "Planck's relation `E = hf` applies to all particles with wave character.",
+    "For photons, the energy-momentum relation `E = pc` holds.",
+    "The wave relation `c = lambda*f` applies to electromagnetic waves.",
+    "The symmetry principle suggests that if photons have particle properties, then matter particles should have wave properties."
   ],
   "derivation": [
     {
@@ -154,5 +130,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

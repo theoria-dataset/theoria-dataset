@@ -47,41 +47,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle is free (no external electromagnetic or gravitational fields).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "klein_gordon_equation"
-    }
+    "The particle is free (no external electromagnetic or gravitational fields).",
+    "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
+    "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
+    "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`.",
+    "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density.",
+    "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
   ],
   "derivation": [
     {
@@ -189,5 +160,8 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "klein_gordon_equation"
+  ]
 }

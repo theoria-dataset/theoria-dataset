@@ -55,56 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The lens is thin compared to object and image distances.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Light rays make small angles with the optical axis (paraxial approximation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The lens has uniform refractive index and spherical surfaces.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Monochromatic light (no chromatic aberration considered).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Paraxial rays (small angle approximation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Thin lens approximation (lens thickness negligible).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Spherical lens surfaces.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Homogeneous lens material.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "snells_law"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "electromagnetic_waves"
-    }
+    "The lens is thin compared to object and image distances.",
+    "Light rays make small angles with the optical axis (paraxial approximation).",
+    "The lens has uniform refractive index and spherical surfaces.",
+    "Monochromatic light (no chromatic aberration considered).",
+    "Paraxial rays (small angle approximation).",
+    "Thin lens approximation (lens thickness negligible).",
+    "Spherical lens surfaces.",
+    "Homogeneous lens material."
   ],
   "derivation": [
     {
@@ -252,5 +210,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "snells_law",
+    "electromagnetic_waves"
+  ]
 }

@@ -51,36 +51,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system can exchange work and heat with surroundings but maintains constant temperature and pressure.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Reversible processes are considered for maximum work calculations.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The first law of thermodynamics applies with chemical work included.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The system is in quasi-static equilibrium during the process.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "second_law_thermodynamics_clausius"
-    }
+    "The system can exchange work and heat with surroundings but maintains constant temperature and pressure.",
+    "Reversible processes are considered for maximum work calculations.",
+    "The first law of thermodynamics applies with chemical work included.",
+    "The system is in quasi-static equilibrium during the process."
   ],
   "derivation": [
     {
@@ -185,5 +159,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

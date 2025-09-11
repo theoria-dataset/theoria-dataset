@@ -59,56 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical electromagnetism (non-relativistic limit)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Steady currents (magnetostatics)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear, isotropic media",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No magnetic monopoles",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Maxwell's equations in magnetostatic limit",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Principle of superposition applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Current conservation (∇·J = 0)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "No time-varying electric fields",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electric_field"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "lorentz_force"
-    }
+    "Classical electromagnetism (non-relativistic limit)",
+    "Steady currents (magnetostatics)",
+    "Linear, isotropic media",
+    "No magnetic monopoles",
+    "Maxwell's equations in magnetostatic limit",
+    "Principle of superposition applies",
+    "Current conservation (∇·J = 0)",
+    "No time-varying electric fields"
   ],
   "derivation": [
     {
@@ -208,5 +166,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "lorentz_force"
+  ]
 }

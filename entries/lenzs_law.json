@@ -31,36 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The magnetic flux through a closed conducting loop is changing with time.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The conducting loop has finite resistance allowing current flow.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Energy conservation applies to the electromagnetic system.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The system can be treated using classical electromagnetism.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "faradays_law"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    }
+    "The magnetic flux through a closed conducting loop is changing with time.",
+    "The conducting loop has finite resistance allowing current flow.",
+    "Energy conservation applies to the electromagnetic system.",
+    "The system can be treated using classical electromagnetism."
   ],
   "derivation": [
     {
@@ -158,5 +132,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "faradays_law",
+    "conservation_of_energy"
+  ]
 }

@@ -63,51 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Static charges (electrostatics)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charges or continuous charge distributions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Vacuum or linear dielectric medium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical (non-quantum) treatment",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Coulomb's law is valid",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Test charge is small enough not to disturb the field",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Principle of superposition applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Electrostatic conditions",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "coulombs_law"
-    }
+    "Static charges (electrostatics)",
+    "Point charges or continuous charge distributions",
+    "Vacuum or linear dielectric medium",
+    "Classical (non-quantum) treatment",
+    "Coulomb's law is valid",
+    "Test charge is small enough not to disturb the field",
+    "Principle of superposition applies",
+    "Electrostatic conditions"
   ],
   "derivation": [
     {
@@ -266,5 +229,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "coulombs_law"
+  ]
 }

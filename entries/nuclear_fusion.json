@@ -47,46 +47,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The reaction products separate to infinite distance (complete energy release).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Conservation of energy, momentum, and nucleon number apply.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The reactant nuclei are initially at rest in the center-of-mass frame.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Non-relativistic kinematics apply for the reaction products.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "nuclear_binding_energy"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "quantum_tunneling"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "mass_energy_equivalence"
-    }
+    "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier.",
+    "The reaction products separate to infinite distance (complete energy release).",
+    "Conservation of energy, momentum, and nucleon number apply.",
+    "The reactant nuclei are initially at rest in the center-of-mass frame.",
+    "Non-relativistic kinematics apply for the reaction products."
   ],
   "derivation": [
     {
@@ -197,5 +162,10 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "nuclear_binding_energy",
+    "quantum_tunneling",
+    "mass_energy_equivalence"
+  ]
 }

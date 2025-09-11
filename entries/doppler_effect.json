@@ -51,56 +51,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics (non-relativistic)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Homogeneous medium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Straight-line motion",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Constant velocities",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Small velocities compared to wave speed",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Source and observer move along line connecting them",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Medium at rest",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Wave propagation is isotropic",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "wave_equation"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "waves_interference"
-    }
+    "Classical mechanics (non-relativistic)",
+    "Homogeneous medium",
+    "Straight-line motion",
+    "Constant velocities",
+    "Small velocities compared to wave speed",
+    "Source and observer move along line connecting them",
+    "Medium at rest",
+    "Wave propagation is isotropic"
   ],
   "derivation": [
     {
@@ -240,5 +198,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "wave_equation",
+    "waves_interference"
+  ]
 }

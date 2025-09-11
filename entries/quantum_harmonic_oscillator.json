@@ -43,36 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The particle is confined to one dimension and non-relativistic.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The Schrödinger equation applies with the harmonic oscillator potential.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Ladder operator algebra applies to find eigenvalues.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "schroedingen_equation"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "simple_harmonic_oscillator"
-    }
+    "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`.",
+    "The particle is confined to one dimension and non-relativistic.",
+    "The Schrödinger equation applies with the harmonic oscillator potential.",
+    "Ladder operator algebra applies to find eigenvalues."
   ],
   "derivation": [
     {
@@ -172,5 +146,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "schroedingen_equation",
+    "simple_harmonic_oscillator"
+  ]
 }

@@ -35,26 +35,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "A1",
-      "text": "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "A2",
-      "text": "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain).",
-      "type": "unclassified"
-    },
-    {
-      "id": "A3",
-      "text": "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian.",
-      "type": "unclassified"
-    },
-    {
-      "id": "A4",
-      "text": "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`.",
-      "type": "unclassified"
-    }
+    "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`).",
+    "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain).",
+    "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian.",
+    "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`."
   ],
   "derivation": [
     {
@@ -163,5 +147,6 @@
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

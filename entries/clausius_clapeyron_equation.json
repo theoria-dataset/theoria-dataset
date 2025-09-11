@@ -43,46 +43,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The transition occurs at thermodynamic equilibrium.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The latent heat and volume change are approximately constant near the transition.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The system is in a reversible process.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Thermodynamic equilibrium exists between phases.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "The transition is reversible.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Gibbs-Duhem relation applies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "second_law_thermodynamics_clausius"
-    }
+    "The transition occurs at thermodynamic equilibrium.",
+    "The latent heat and volume change are approximately constant near the transition.",
+    "The system is in a reversible process.",
+    "Thermodynamic equilibrium exists between phases.",
+    "The transition is reversible.",
+    "Gibbs-Duhem relation applies."
   ],
   "derivation": [
     {
@@ -234,5 +200,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

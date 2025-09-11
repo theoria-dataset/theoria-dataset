@@ -35,36 +35,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is in a time-averaged equilibrium or bound state.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Forces are derivable from a potential function.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The system is bound so that the moment of inertia is finite and time-averaged.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Forces are conservative and derivable from a potential.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "newtons_second_law"
-    }
+    "The system is in a time-averaged equilibrium or bound state.",
+    "Forces are derivable from a potential function.",
+    "The system is bound so that the moment of inertia is finite and time-averaged.",
+    "Forces are conservative and derivable from a potential."
   ],
   "derivation": [
     {
@@ -181,5 +155,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_energy",
+    "newtons_second_law"
+  ]
 }

@@ -31,36 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is a perfect crystal with no structural defects or disorder.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "All nuclear spins are aligned (no nuclear entropy contribution).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The system has a unique ground state (single microstate at T = 0).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Quantum statistical mechanics applies at low temperatures.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "second_law_thermodynamics_clausius"
-    }
+    "The system is a perfect crystal with no structural defects or disorder.",
+    "All nuclear spins are aligned (no nuclear entropy contribution).",
+    "The system has a unique ground state (single microstate at T = 0).",
+    "Quantum statistical mechanics applies at low temperatures."
   ],
   "derivation": [
     {
@@ -143,5 +117,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

@@ -39,46 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear, ohmic materials",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Constant temperature",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Steady-state conditions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Homogeneous material properties",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Drift velocity proportional to electric field",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Constant charge carrier density",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Uniform current distribution",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical electron transport",
-      "type": "unclassified"
-    }
+    "Linear, ohmic materials",
+    "Constant temperature",
+    "Steady-state conditions",
+    "Homogeneous material properties",
+    "Drift velocity proportional to electric field",
+    "Constant charge carrier density",
+    "Uniform current distribution",
+    "Classical electron transport"
   ],
   "derivation": [
     {
@@ -189,5 +157,6 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

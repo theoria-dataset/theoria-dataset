@@ -43,36 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The current is steady (time-independent).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The medium is non-magnetic (relative permeability = 1).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations apply for static magnetic fields.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The current flows in thin wires (line current approximation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "amperes_law"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    }
+    "The current is steady (time-independent).",
+    "The medium is non-magnetic (relative permeability = 1).",
+    "Maxwell's equations apply for static magnetic fields.",
+    "The current flows in thin wires (line current approximation)."
   ],
   "derivation": [
     {
@@ -166,5 +140,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "amperes_law",
+    "maxwell_equations"
+  ]
 }

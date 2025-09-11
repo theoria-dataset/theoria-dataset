@@ -63,56 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics framework",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point particle or rigid body",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Non-relativistic speeds",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Well-defined force and displacement",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Vector calculus relations",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Path independence for conservative forces",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Continuous force and motion",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_second_law"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    }
+    "Classical mechanics framework",
+    "Point particle or rigid body",
+    "Non-relativistic speeds",
+    "Well-defined force and displacement",
+    "Newton's second law applies",
+    "Vector calculus relations",
+    "Path independence for conservative forces",
+    "Continuous force and motion"
   ],
   "derivation": [
     {
@@ -240,5 +198,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_second_law",
+    "conservation_of_energy"
+  ]
 }

@@ -63,61 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Free or loosely bound electrons",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Relativistic energy-momentum conservation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Point-like collision",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No other interactions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Relativistic energy-momentum relations",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Conservation of energy and momentum",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Photon as massless particle",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Initial electron at rest",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "photoelectric_effect"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    },
-    {
-      "id": "dependency11",
-      "type": "dependency",
-      "dependency_id": "conservation_of_momentum"
-    }
+    "Free or loosely bound electrons",
+    "Relativistic energy-momentum conservation",
+    "Point-like collision",
+    "No other interactions",
+    "Relativistic energy-momentum relations",
+    "Conservation of energy and momentum",
+    "Photon as massless particle",
+    "Initial electron at rest"
   ],
   "derivation": [
     {
@@ -250,5 +203,10 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "photoelectric_effect",
+    "conservation_of_energy",
+    "conservation_of_momentum"
+  ]
 }

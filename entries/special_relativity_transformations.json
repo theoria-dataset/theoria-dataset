@@ -79,27 +79,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "type": "fundamental",
-      "reference": "inertial_reference_frame"
-    },
-    {
-      "id": "assumption2",
-      "type": "unclassified",
-      "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer."
-    },
-    {
-      "id": "assumption3",
-      "type": "validity_regime",
-      "reference": "macroscopic_scales"
-    },
-    {
-      "id": "assumption4",
-      "type": "unclassified",
-      "text": "Reference frames move with constant relative velocity (no acceleration)."
-    }
+    "inertial_reference_frame",
+    "light_speed_constant",
+    "classical_mechanics_framework",
+    "constant_relative_velocity"
   ],
+  "dependencies": [],
   "derivation": [
     {
       "step": 1,

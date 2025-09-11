@@ -63,56 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Restoring force proportional to displacement",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "No damping or external forces",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Small oscillation approximation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Linear system response",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Hooke's law for restoring force",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "No energy dissipation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Constant mass system",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "hookes_law"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "newtons_second_law"
-    }
+    "Restoring force proportional to displacement",
+    "No damping or external forces",
+    "Small oscillation approximation",
+    "Linear system response",
+    "Newton's second law applies",
+    "Hooke's law for restoring force",
+    "No energy dissipation",
+    "Constant mass system"
   ],
   "derivation": [
     {
@@ -230,5 +188,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "hookes_law",
+    "newtons_second_law"
+  ]
 }

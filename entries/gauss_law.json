@@ -55,56 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Electrostatic conditions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Linear, isotropic media",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical field theory",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Continuous charge distributions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Superposition principle applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Solid angle subtended by closed surface",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Coulomb's law for point charges",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Charge conservation",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electric_field"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "coulombs_law"
-    }
+    "Electrostatic conditions",
+    "Linear, isotropic media",
+    "Classical field theory",
+    "Continuous charge distributions",
+    "Superposition principle applies",
+    "Solid angle subtended by closed surface",
+    "Coulomb's law for point charges",
+    "Charge conservation"
   ],
   "derivation": [
     {
@@ -204,5 +162,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "coulombs_law"
+  ]
 }

@@ -47,51 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Circuit elements are lumped (not distributed)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Quasi-static conditions (frequencies low enough)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Conservation of charge and energy",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No time-varying magnetic fields threading loops",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservation of electric charge",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Conservation of energy",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Electrostatic field is conservative",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "No accumulation of charge at nodes",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "ohms_law"
-    }
+    "Circuit elements are lumped (not distributed)",
+    "Quasi-static conditions (frequencies low enough)",
+    "Conservation of charge and energy",
+    "No time-varying magnetic fields threading loops",
+    "Conservation of electric charge",
+    "Conservation of energy",
+    "Electrostatic field is conservative",
+    "No accumulation of charge at nodes"
   ],
   "derivation": [
     {
@@ -203,5 +166,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "ohms_law"
+  ]
 }

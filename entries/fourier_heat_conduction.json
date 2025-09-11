@@ -59,36 +59,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Heat moves only by conduction; convection and radiation are absent.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Thermal conductivity `k` is constant and isotropic.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The system is in steady state (no time dependence).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Temperature varies linearly over small `Delta x`.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Material properties are uniform and isotropic.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    }
+    "Heat moves only by conduction; convection and radiation are absent.",
+    "Thermal conductivity `k` is constant and isotropic.",
+    "The system is in steady state (no time dependence).",
+    "Temperature varies linearly over small `Delta x`.",
+    "Material properties are uniform and isotropic."
   ],
   "derivation": [
     {
@@ -162,5 +137,8 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics"
+  ]
 }

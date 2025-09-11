@@ -43,36 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The magnetic field is uniform and perpendicular to the current direction.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The conductor has a single type of charge carrier with well-defined mobility.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Equilibrium is reached between magnetic and electric forces on charge carriers.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The conductor geometry is well-defined with uniform current distribution.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "ohms_law"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "lorentz_force"
-    }
+    "The magnetic field is uniform and perpendicular to the current direction.",
+    "The conductor has a single type of charge carrier with well-defined mobility.",
+    "Equilibrium is reached between magnetic and electric forces on charge carriers.",
+    "The conductor geometry is well-defined with uniform current distribution."
   ],
   "derivation": [
     {
@@ -177,5 +151,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "ohms_law",
+    "lorentz_force"
+  ]
 }

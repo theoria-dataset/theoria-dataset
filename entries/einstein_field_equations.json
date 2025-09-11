@@ -47,31 +47,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "General covariance: the laws of physics are the same in all coordinate systems.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The equivalence principle: gravitational and inertial effects are locally indistinguishable.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The action principle applies to spacetime geometry.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Minimal coupling between matter and geometry.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "special_relativity"
-    }
+    "General covariance: the laws of physics are the same in all coordinate systems.",
+    "The equivalence principle: gravitational and inertial effects are locally indistinguishable.",
+    "The action principle applies to spacetime geometry.",
+    "Minimal coupling between matter and geometry."
   ],
   "derivation": [
     {
@@ -159,5 +138,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "special_relativity"
+  ]
 }

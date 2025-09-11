@@ -39,31 +39,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The motion is circular with constant radius r.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "For uniform circular motion, the speed is constant.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The circular motion occurs in a plane with constant radius.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Newton's second law applies in the radial direction.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "newtons_second_law"
-    }
+    "The motion is circular with constant radius r.",
+    "For uniform circular motion, the speed is constant.",
+    "The circular motion occurs in a plane with constant radius.",
+    "Newton's second law applies in the radial direction."
   ],
   "derivation": [
     {
@@ -162,5 +141,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_second_law"
+  ]
 }

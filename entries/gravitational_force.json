@@ -59,51 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Point masses or spherically symmetric mass distributions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "No other forces acting (isolated system)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Non-relativistic regime (weak gravitational fields)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Static or slowly varying system",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Force is empirically observed to follow inverse square law",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Force is proportional to both masses",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Gravitational force is conservative",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Potential energy is zero at infinite separation",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_laws"
-    }
+    "Point masses or spherically symmetric mass distributions",
+    "No other forces acting (isolated system)",
+    "Non-relativistic regime (weak gravitational fields)",
+    "Static or slowly varying system",
+    "Force is empirically observed to follow inverse square law",
+    "Force is proportional to both masses",
+    "Gravitational force is conservative",
+    "Potential energy is zero at infinite separation"
   ],
   "derivation": [
     {
@@ -223,5 +186,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws"
+  ]
 }

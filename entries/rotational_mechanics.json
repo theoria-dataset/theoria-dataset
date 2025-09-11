@@ -83,61 +83,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Rigid body rotation (no deformation during rotation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Fixed axis of rotation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical mechanics applies (non-relativistic).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Moment of inertia is constant for rigid bodies.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Rigid body assumption (distances between particles remain constant).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Fixed axis of rotation perpendicular to motion plane.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "All particles have the same angular velocity ω.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics and Newtonian physics apply.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_laws_of_motion"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "angular_momentum"
-    },
-    {
-      "id": "dependency11",
-      "type": "dependency",
-      "dependency_id": "conservation_of_angular_momentum"
-    }
+    "Rigid body rotation (no deformation during rotation).",
+    "Fixed axis of rotation.",
+    "Classical mechanics applies (non-relativistic).",
+    "Moment of inertia is constant for rigid bodies.",
+    "Rigid body assumption (distances between particles remain constant).",
+    "Fixed axis of rotation perpendicular to motion plane.",
+    "All particles have the same angular velocity ω.",
+    "Classical mechanics and Newtonian physics apply."
   ],
   "derivation": [
     {
@@ -295,5 +248,10 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws_of_motion",
+    "angular_momentum",
+    "conservation_of_angular_momentum"
+  ]
 }

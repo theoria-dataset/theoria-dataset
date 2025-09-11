@@ -47,46 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear medium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Homogeneous medium",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Constant wave speed",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No dispersion",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Small amplitude approximation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Elastic medium properties",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "No energy loss",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Continuous medium",
-      "type": "unclassified"
-    }
+    "Linear medium",
+    "Homogeneous medium",
+    "Constant wave speed",
+    "No dispersion",
+    "Small amplitude approximation",
+    "Elastic medium properties",
+    "No energy loss",
+    "Continuous medium"
   ],
   "derivation": [
     {
@@ -206,5 +174,6 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

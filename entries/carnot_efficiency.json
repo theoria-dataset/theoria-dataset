@@ -39,36 +39,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "All processes in the Carnot cycle are reversible (quasi-static and frictionless).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The second law of thermodynamics applies (entropy of universe cannot decrease).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The reservoirs are large enough that their temperatures remain constant.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "second_law_thermodynamics_clausius"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "first_law_thermodynamics"
-    }
+    "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C.",
+    "All processes in the Carnot cycle are reversible (quasi-static and frictionless).",
+    "The second law of thermodynamics applies (entropy of universe cannot decrease).",
+    "The reservoirs are large enough that their temperatures remain constant."
   ],
   "derivation": [
     {
@@ -181,5 +155,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "second_law_thermodynamics_clausius",
+    "first_law_thermodynamics"
+  ]
 }

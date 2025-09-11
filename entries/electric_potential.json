@@ -63,56 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Electrostatic conditions (time-independent)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charges or continuous charge distributions",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear medium or vacuum",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Reference potential at infinity is zero",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative electric field",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Work is path-independent",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Point charge field formula",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Integration along radial path",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electric_field"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "coulombs_law"
-    }
+    "Electrostatic conditions (time-independent)",
+    "Point charges or continuous charge distributions",
+    "Linear medium or vacuum",
+    "Reference potential at infinity is zero",
+    "Conservative electric field",
+    "Work is path-independent",
+    "Point charge field formula",
+    "Integration along radial path"
   ],
   "derivation": [
     {
@@ -279,5 +237,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "coulombs_law"
+  ]
 }

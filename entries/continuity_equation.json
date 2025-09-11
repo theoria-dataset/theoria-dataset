@@ -19,26 +19,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "No mass is created or destroyed within the flow (mass conservation).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`).",
-      "type": "unclassified"
-    }
+    "No mass is created or destroyed within the flow (mass conservation).",
+    "Fluid properties like density `rho` are well-defined and continuously varying (continuum hypothesis).",
+    "Apply conservation of mass to an arbitrary fixed control volume V: any mass increase inside comes from inflow across the boundary.",
+    "Convert the integral form to differential form using the divergence theorem (assuming sufficient smoothness of `rho` and `vec v`)."
   ],
   "derivation": [
     {
@@ -103,5 +87,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

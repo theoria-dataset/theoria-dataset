@@ -31,26 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The decay probability per unit time is constant for each nucleus.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Decay events are independent and random.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Each nucleus has the same probability λdt of decaying in time interval dt.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The large number limit applies (statistical behavior).",
-      "type": "unclassified"
-    }
+    "The decay probability per unit time is constant for each nucleus.",
+    "Decay events are independent and random.",
+    "Each nucleus has the same probability λdt of decaying in time interval dt.",
+    "The large number limit applies (statistical behavior)."
   ],
   "derivation": [
     {
@@ -149,5 +133,6 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

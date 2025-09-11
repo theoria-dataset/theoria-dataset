@@ -67,56 +67,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Closed system",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Conservative forces only (for mechanical energy)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "No non-conservative work (for mechanical energy conservation)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics regime",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative forces",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Work-energy theorem applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Potential energy is well-defined",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "newtons_laws"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "work_energy_theorem"
-    }
+    "Closed system",
+    "Conservative forces only (for mechanical energy)",
+    "No non-conservative work (for mechanical energy conservation)",
+    "Classical mechanics regime",
+    "Conservative forces",
+    "Work-energy theorem applies",
+    "Potential energy is well-defined",
+    "Classical mechanics"
   ],
   "derivation": [
     {
@@ -259,5 +217,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws",
+    "work_energy_theorem"
+  ]
 }

@@ -23,26 +23,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`).",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The functions are sufficiently smooth to perform integration by parts.",
-      "type": "unclassified"
-    }
+    "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable.",
+    "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`).",
+    "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3.",
+    "The functions are sufficiently smooth to perform integration by parts."
   ],
   "derivation": [
     {
@@ -113,5 +97,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

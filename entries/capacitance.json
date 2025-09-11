@@ -63,56 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear dielectric materials",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Static electric fields",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Ideal conductors (infinite conductivity)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Neglect edge effects (for parallel plate)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Uniform electric field between plates",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Negligible fringing fields",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Plates are large compared to separation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Linear relationship between charge and voltage",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "electric_field"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "electric_potential"
-    }
+    "Linear dielectric materials",
+    "Static electric fields",
+    "Ideal conductors (infinite conductivity)",
+    "Neglect edge effects (for parallel plate)",
+    "Uniform electric field between plates",
+    "Negligible fringing fields",
+    "Plates are large compared to separation",
+    "Linear relationship between charge and voltage"
   ],
   "derivation": [
     {
@@ -253,5 +211,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "electric_potential"
+  ]
 }

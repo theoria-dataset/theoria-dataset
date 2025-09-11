@@ -51,56 +51,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Newtonian gravity applies (weak field, low velocity limit)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Mass distribution is continuous and well-defined",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Gravitational field is differentiable and well-behaved",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "No relativistic effects (general relativity corrections ignored)",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's law of universal gravitation applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Superposition principle holds for gravitational fields",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Divergence theorem can be applied",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "Mass distribution is localized and well-defined",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "gravitational_force"
-    },
-    {
-      "id": "dependency10",
-      "type": "dependency",
-      "dependency_id": "newtons_laws_of_motion"
-    }
+    "Newtonian gravity applies (weak field, low velocity limit)",
+    "Mass distribution is continuous and well-defined",
+    "Gravitational field is differentiable and well-behaved",
+    "No relativistic effects (general relativity corrections ignored)",
+    "Newton's law of universal gravitation applies",
+    "Superposition principle holds for gravitational fields",
+    "Divergence theorem can be applied",
+    "Mass distribution is localized and well-defined"
   ],
   "derivation": [
     {
@@ -236,5 +194,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "gravitational_force",
+    "newtons_laws_of_motion"
+  ]
 }

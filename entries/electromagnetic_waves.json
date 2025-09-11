@@ -47,31 +47,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The medium is free space (vacuum) with no charges or currents.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Electric and magnetic fields are perpendicular to each other and to the direction of propagation.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations apply in free space with no sources.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "The curl-curl vector identity is used for the electric field.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    }
+    "The medium is free space (vacuum) with no charges or currents.",
+    "Electric and magnetic fields are perpendicular to each other and to the direction of propagation.",
+    "Maxwell's equations apply in free space with no sources.",
+    "The curl-curl vector identity is used for the electric field."
   ],
   "derivation": [
     {
@@ -172,5 +151,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "maxwell_equations"
+  ]
 }

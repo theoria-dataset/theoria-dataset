@@ -65,10 +65,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ```
 
 - **`assumptions`:**
-  - Unified assumption system with typed references
-  - Each assumption must specify its type and appropriate reference
-  - Use sequential IDs like 'assumption1', 'assumption2'
-  - If there are math symbols or equations included in text fields, they must be enclosed in backticks (``) and written in AsciiMath format
+  - Array of assumptions - either assumption IDs that reference globals/assumptions
+  - json, or direct text for entry-specific assumptions
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
@@ -145,6 +143,10 @@ Each entry of the dataset should be a self contained relevant physics result. Th
       }
     ]
     ```
+
+- **`dependencies`:**
+  - Array of entry IDs that this derivation depends on
+  - Each dependency must reference an existing entry result_id
 
 - **`review_status`:**
   - Review status of the entry

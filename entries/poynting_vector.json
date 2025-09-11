@@ -43,36 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations apply and the fields are well-defined.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations hold throughout the region of interest.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Energy conservation applies to the electromagnetic field.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency5",
-      "type": "dependency",
-      "dependency_id": "maxwell_equations"
-    },
-    {
-      "id": "dependency6",
-      "type": "dependency",
-      "dependency_id": "electromagnetic_waves"
-    }
+    "Maxwell's equations apply and the fields are well-defined.",
+    "The medium is non-magnetic (μ = μ₀) unless otherwise specified.",
+    "Maxwell's equations hold throughout the region of interest.",
+    "Energy conservation applies to the electromagnetic field."
   ],
   "derivation": [
     {
@@ -175,5 +149,9 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "maxwell_equations",
+    "electromagnetic_waves"
+  ]
 }

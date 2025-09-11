@@ -55,51 +55,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical electromagnetic theory applies: no quantum effects, fields are continuous and differentiable.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "For the original Ampère's law: steady currents only ($$\\frac{\\partial \\vec{E}}{\\partial t} = 0$$) and no time-varying electric fields.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "The integration path (Amperian loop) is a closed curve in a simply-connected region of space.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "For practical applications: sufficient symmetry exists such that $$\\vec{B}$$ has constant magnitude and is parallel or perpendicular to $$\\mathrm{d}\\vec{l}$$ along the integration path.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Current sources are well-defined: current density $$\\vec{J}$$ is finite and integrable over the bounded surface.",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Linear, homogeneous, and isotropic medium: $$\\vec{B} = \\mu\\,\\vec{H}$$ with constant permeability $$\\mu$$.",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency7",
-      "type": "dependency",
-      "dependency_id": "conservation_of_charge"
-    },
-    {
-      "id": "dependency8",
-      "type": "dependency",
-      "dependency_id": "gauss_law"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "biot_savart_law"
-    }
+    "Classical electromagnetic theory applies: no quantum effects, fields are continuous and differentiable.",
+    "For the original Ampère's law: steady currents only ($$\\frac{\\partial \\vec{E}}{\\partial t} = 0$$) and no time-varying electric fields.",
+    "The integration path (Amperian loop) is a closed curve in a simply-connected region of space.",
+    "For practical applications: sufficient symmetry exists such that $$\\vec{B}$$ has constant magnitude and is parallel or perpendicular to $$\\mathrm{d}\\vec{l}$$ along the integration path.",
+    "Current sources are well-defined: current density $$\\vec{J}$$ is finite and integrable over the bounded surface.",
+    "Linear, homogeneous, and isotropic medium: $$\\vec{B} = \\mu\\,\\vec{H}$$ with constant permeability $$\\mu$$."
   ],
   "derivation": [
     {
@@ -285,5 +246,10 @@
       "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_charge",
+    "gauss_law",
+    "biot_savart_law"
+  ]
 }

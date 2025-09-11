@@ -59,51 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Isotropic, homogeneous material",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption2",
-      "text": "Constant thermal properties",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption3",
-      "text": "No internal heat generation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption4",
-      "text": "Fourier's law of heat conduction applies",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption6",
-      "text": "Fourier's law of heat conduction",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption7",
-      "text": "Constant material properties",
-      "type": "unclassified"
-    },
-    {
-      "id": "assumption8",
-      "text": "No internal heat sources",
-      "type": "unclassified"
-    },
-    {
-      "id": "dependency9",
-      "type": "dependency",
-      "dependency_id": "conservation_of_energy"
-    }
+    "Isotropic, homogeneous material",
+    "Constant thermal properties",
+    "No internal heat generation",
+    "Fourier's law of heat conduction applies",
+    "Energy conservation",
+    "Fourier's law of heat conduction",
+    "Constant material properties",
+    "No internal heat sources"
   ],
   "derivation": [
     {
@@ -223,5 +186,8 @@
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_energy"
+  ]
 }
