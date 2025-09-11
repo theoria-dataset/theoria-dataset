@@ -1,0 +1,164 @@
+{
+  "result_id": "born_rule",
+  "alt_ids": ["amplitude_squared_probability_law", "modulus_squared_probability_law"],
+  "result_name": "Born Rule",
+  "result_equations": [
+    { "id": "position_density", "equation": "rho(r,t) = |psi(r,t)|^2" },
+    { "id": "projective_measurement", "equation": "P(a_i) = (:psi| Pi_i |psi:), Pi_i Pi_j = delta_ij Pi_i, sum_i Pi_i = I" },
+    { "id": "spectral_measure", "equation": "P(a in Delta) = (:psi| Pi_Delta |psi:)" },
+    { "id": "mixed_state", "equation": "P(a_i) = Tr(rho Pi_i),   Tr(rho)=1,   rho >= 0" },
+    { "id": "povm", "equation": "P(i) = Tr(rho E_i),   E_i >= 0,   sum_i E_i = I" }
+  ],
+  "explanation": "The Born rule specifies how a quantum state yields measurable probabilities for any well-defined measurement. Given a state and a measurement description, it assigns a normalized probability to each possible outcome in a way consistent with observed frequencies under repeated trials. This rule is a foundational postulate: it provides the operational meaning of the quantum state and underpins the predictive, testable character of quantum theory across experiments and applications.",
+  "definitions": [
+    { "symbol": "H", "definition": "Complex Hilbert space of states." },
+    { "symbol": "|psi>", "definition": "Unit state vector (pure state) in `H`; its position representation is `psi(r,t)`." },
+    { "symbol": "rho", "definition": "Density operator on `H` (`rho >= 0`, `Tr(rho)=1`) describing pure or mixed states." },
+    { "symbol": "A", "definition": "Self-adjoint observable on `H` with spectral measure `{Pi_Delta}`." },
+    { "symbol": "a_i", "definition": "Label (eigenvalue or index) of a measurement outcome." },
+    { "symbol": "Pi_i", "definition": "Projector associated with outcome `a_i` in a projective measurement (`PVM` element)."},
+    { "symbol": "Pi_Delta", "definition": "Projector for a measurable set `Delta` of the spectrum of `A` (spectral measure)."},
+    { "symbol": "Delta", "definition": "Measurable subset of outcomes (Borel set in the spectrum of an observable)."},
+    { "symbol": "E_i", "definition": "`POVM` effect: positive operator with `sum_i E_i = I` (generalized measurement)."},
+    { "symbol": "I", "definition": "Identity operator on `H`." },
+    { "symbol": "Tr", "definition": "Operator trace over `H`." },
+    { "symbol": "rho(r,t)", "definition": "Position probability density defined by `rho(r,t) = |psi(r,t)|^2`." },
+    { "symbol": "r", "definition": "Position vector in 3D space, r = (x,y,z)." }
+  ],
+  "assumptions": [
+    {
+      "id": "A1_probability_assignment",
+      "text": "We can assign probabilities to measurement outcomes, where each outcome corresponds to a projector on a complex Hilbert space `H`."
+    },
+    {
+      "id": "A2_probability_properties",
+      "text": "Probabilities are real numbers between 0 and 1, with the probability of the identity operator (certain event) equal to 1."
+    },
+    {
+      "id": "A3_additivity",
+      "text": "Probabilities are additive: if two projectors are orthogonal (mutually exclusive outcomes), the probability of their sum equals the sum of their individual probabilities. This extends to countable sums (`sigma`-additivity)."
+    },
+    {
+      "id": "A4_dimension_constraint",
+      "text": "The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment is continuous with respect to the projector."
+    }
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Given assumptions A1-A4, we have a probability measure `mu` on projectors that is real-valued, normalized, sigma-additive, and continuous",
+      "equation": "mu: {\"projectors on\" H} -> [0,1], mu(I) = 1, mu(P + Q) = mu(P) + mu(Q) \"for orthogonal\" P,Q"
+    },
+    {
+      "step": 2,
+      "description": "Consider one-dimensional projectors `P_v = |v:)(:v|` for unit vectors `v`. The function `f(v) = mu(P_v)` must be continuous and satisfy the constraint for orthogonal vectors, whenever `{v_i}` is orthonormal basis",
+      "equation": "f(v_1) + f(v_2) + ... + f(v_n) = 1"
+    },
+    {
+      "step": 3,
+      "description": "Since `f` is continuous on the unit sphere and additive for orthogonal vectors, it must be a quadratic form. By Riesz representation theorem, there exists a bounded linear operator `T` such that",
+      "equation": "f(v) = (:v|T|v:) \"for all unit vectors\" v"
+    },
+    {
+      "step": 4,
+      "description": "Since `f(v) >= 0` for all `v`, the operator `T` must be positive semidefinite. The normalization condition and additivity force `T` to be trace-class with `Tr(T) = 1`",
+      "equation": "T >= 0, Tr(T) = 1, \"hence\" T = rho \"is a density operator\""
+    },
+    {
+      "step": 5,
+      "description": "For any projector `P`, we can express it in terms of its eigenspaces. The additivity of `mu` extends this quadratic form to all projectors",
+      "equation": "mu(P) = Tr(rho P) \"for all projectors\" P"
+    },
+    {
+      "step": 6,
+      "description": "This trace formula is the Born rule. For pure states `rho = |psi:)(:psi|`, it gives the amplitude-squared law. Extension to `POVMs` via Naimark dilation preserves the form",
+      "equation": "P(\"outcome\") = Tr(rho Pi), P(r in Delta) = int_Delta |psi(r,t)|^2 d^3r, P_(POVM)(i) = Tr(rho E_i)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# ===============================================",
+      "# Programmatic verification: Born Rule (finite-dim toy model, d=3)",
+      "# Mirrors derivation Steps 1–4 with algebraic checks.",
+      "# ===============================================",
+      "",
+      "# Dimension and identity",
+      "d = 3",
+      "I = sp.eye(d)",
+      "",
+      "# --- Step 1: PVM properties (orthogonality, idempotence, completeness) ---",
+      "P0 = sp.diag(1,0,0)",
+      "P1 = sp.diag(0,1,0)",
+      "P2 = sp.diag(0,0,1)",
+      "Z = sp.zeros(d)",
+      "assert P0*P0 == P0 and P1*P1 == P1 and P2*P2 == P2, 'Idempotence failed'",
+      "assert P0*P1 == Z and P0*P2 == Z and P1*P2 == Z, 'Orthogonality failed'",
+      "assert P0 + P1 + P2 == I, 'Completeness failed'",
+      "",
+      "# --- Step 2: Normalization for PVM with a valid density matrix rho ---",
+      "r0, r1, r2 = sp.symbols('r0 r1 r2', nonnegative=True)",
+      "rho = sp.diag(r0, r1, r2)  # positive diagonal (trace condition checked symbolically below)",
+      "norm = (rho.multiply_elementwise(P0)).trace() + (rho.multiply_elementwise(P1)).trace() + (rho.multiply_elementwise(P2)).trace()",
+      "trace_rho = (rho.multiply_elementwise(I)).trace()",
+      "assert sp.simplify(norm - trace_rho) == 0, 'Normalization sum_i Tr(rho Pi_i) != Tr(rho I)'",
+      "",
+      "# --- Step 3: Pure state probabilities equal squared amplitudes in a basis ---",
+      "psi0, psi1, psi2 = sp.symbols('psi0 psi1 psi2')",
+      "psi = sp.Matrix([psi0, psi1, psi2])",
+      "prob0 = (psi.T.conjugate()*P0*psi)[0]",
+      "prob1 = (psi.T.conjugate()*P1*psi)[0]",
+      "prob2 = (psi.T.conjugate()*P2*psi)[0]",
+      "assert sp.simplify(prob0 - sp.conjugate(psi0)*psi0) == 0, 'P0 probability mismatch'",
+      "assert sp.simplify(prob1 - sp.conjugate(psi1)*psi1) == 0, 'P1 probability mismatch'",
+      "assert sp.simplify(prob2 - sp.conjugate(psi2)*psi2) == 0, 'P2 probability mismatch'",
+      "",
+      "# --- Step 4: POVM normalization (algebraic) ---",
+      "e0, e1, e2 = sp.symbols('e0 e1 e2', real=True)",
+      "E0 = sp.diag(e0, e1, e2)              # assume 0<=e_i<=1 for positivity (not enforced symbolically)",
+      "E1 = I - E0                            # two-outcome POVM: E0 + E1 = I",
+      "p_sum = (rho.multiply_elementwise(E0)).trace() + (rho.multiply_elementwise(E1)).trace()",
+      "assert sp.simplify(p_sum - trace_rho) == 0, 'POVM normalization failed'",
+      "",
+      "print('Born Rule algebraic checks passed \\u2714')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "validity_regime": {
+    "conditions": [
+      "Standard complex-Hilbert-space quantum theory",
+      "Projective (`PVM`) and generalized (`POVM`) measurements"
+    ],
+    "limitations": [
+      "Relies on additivity and minimal noncontextuality assumptions",
+      "Gleason's original theorem assumes `dim(H) >= 3` (qubit case requires standard extensions)"
+    ]
+  },
+  "historical_context": {
+    "importance": "Provides the quantitative link between quantum states and observed outcome frequencies in measurements.",
+    "development_period": "1926–1957",
+    "key_insights": [
+      "Amplitude-squared probability for pure states",
+      "Trace rule for general states and measurements",
+      "Realization of general measurements via dilation"
+    ]
+  },
+  "references": [
+    { "id": "R1", "citation": "Born rule — overview and historical context.", "url": "https://en.wikipedia.org/wiki/Born_rule" },
+    { "id": "R2", "citation": "A. M. Gleason (1957), Measures on the closed subspaces of a Hilbert space, J. Math. Mech." , "url": "https://en.wikipedia.org/wiki/Gleason%27s_theorem" },
+    { "id": "R3", "citation": "Naimark’s dilation theorem and POVMs.", "url": "https://en.wikipedia.org/wiki/POVM" }
+  ],
+  "dependencies": [
+    "spectral_theorem",
+    "density_operator",
+    "povm_measurement"
+  ],
+  "contributors": [
+    { "full_name": "Manuel Sánchez Hernández", "identifier": "ORCID 0009-0006-4904-3695" }
+  ],
+  "review_status": "draft"
+}

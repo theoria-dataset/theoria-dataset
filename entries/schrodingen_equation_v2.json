@@ -1,0 +1,184 @@
+{
+    "result_id": "schrodingen_equation",
+    "alt_ids": ["schrodinger_equation"],
+    "result_name": "Schrödinger Equation from Symmetry Principles",
+    "result_equations": [
+      { "id": "tdse", "equation": "i*hbar*partial_t psi(x,t) = ( - (hbar^2)/(2*m) * nabla^2 + V(x,t) ) * psi(x,t)" },
+      { "id": "born_rule", "equation": "rho(x,t) = |psi(x,t)|^2" },
+      { "id": "continuity", "equation": "partial_t rho + nabla dot j = 0,  j = (hbar/m) * Im(psi^* * nabla psi)" },
+      { "id": "free_dispersion", "equation": "E = p^2/(2*m) = hbar^2*k^2/(2*m)" },
+      { "id": "operators", "equation": "E -> i*hbar*partial_t,   p -> -i*hbar*nabla" }
+    ],
+    "explanation": "The time-dependent Schrödinger equation governs the unitary time evolution of a nonrelativistic quantum state `psi(x,t)` under a Hamiltonian `H = p^2/(2m) + V(x,t)`. It specifies how probability amplitudes change in space and time, with measurement statistics given by ρ = |ψ|^2 (Born rule). This equation is the central dynamical law of nonrelativistic quantum mechanics and applies when velocities are small compared with c and spin/gauge effects are absent or handled by standard extensions.",
+
+    "definitions": [
+      { "symbol": "psi(x,t)", "definition": "Complex state amplitude (wavefunction). Its modulus squared is the position probability density." },
+      { "symbol": "rho(x,t)", "definition": "Probability density: rho = |psi|^2." },
+      { "symbol": "j(x,t)", "definition": "Probability current: j = (hbar/m) Im(psi^* nabla psi)." },
+      { "symbol": "V(x,t)", "definition": "Scalar potential energy (external or interaction term) compatible with Galilean symmetry." },
+      { "symbol": "m", "definition": "Particle mass (central charge in the projective Galilei representation)." },
+      { "symbol": "hbar", "definition": "Reduced Planck constant." },
+      { "symbol": "nabla^2", "definition": "Laplacian operator with respect to spatial coordinates." }
+    ],
+    "assumptions": [
+      {
+        "id": "A1_superposition_complex",
+        "text": "Superposition and phases: physical states add linearly and exhibit interference; therefore they are represented by complex amplitudes ψ (not real probabilities)."
+      },
+      {
+        "id": "A2_born_unitarity_first_order_time",
+        "text": "Probabilities are given by |ψ|^2 (Born rule) and are conserved in time. Hence time evolution is norm-preserving (unitary) and governed by a first-order-in-time equation iħ∂tψ = Hψ with H self-adjoint."
+      },
+      {
+        "id": "A3_local_homogeneous_isotropic",
+        "text": "Dynamics is local, space–time is homogeneous, and space is isotropic. For a free particle, the generator must be built from translationally and rotationally invariant local operators; the minimal nontrivial scalar is the Laplacian ∇²."
+      },
+      {
+        "id": "A4_galilean_invariance",
+        "text": "Nonrelativistic Galilean symmetry (translations, rotations, boosts) holds. In the projective unitary representation, mass m appears as a central charge; this fixes the free dispersion relation to E = p²/(2m)."
+      },
+      {
+        "id": "A5_correspondence_and_constants",
+        "text": "Correspondence with classical mechanics fixes overall constants so that H_free = p²/(2m) = −(ħ²/2m)∇²; interactions compatible with these symmetries enter as a scalar potential V(x,t)."
+      }
+    ],
+    "derivation": [
+      {
+        "step": 1,
+        "description": "States and observables",
+        "equation": "psi ∈ H,   ||psi||^2 = ∫|psi(x,t)|^2 dx = 1;   observables ↦ self-adjoint operators"
+      },
+      {
+        "step": 2,
+        "description": "Unitary time evolution (Stone’s theorem) implies a first-order-in-time law with a Hermitian generator H.",
+        "equation": "i*hbar*partial_t psi = H psi,   H^\\dagger = H"
+      },
+      {
+        "step": 3,
+        "description": "Locality + homogeneity + isotropy restrict the free generator to rotational scalars built from spatial derivatives; choose the lowest-order nontrivial term.",
+        "equation": "H_free = a * nabla^2 + b"
+      },
+      {
+        "step": 4,
+        "description": "Galilean covariance for plane waves fixes the dispersion relation and determines a.",
+        "equation": "psi_k = exp(i(k·x − omega t)),   omega = hbar*k^2/(2*m)  ⇒  a = − hbar^2/(2*m),  b = 0"
+      },
+      {
+        "step": 5,
+        "description": "Allow interactions consistent with the assumptions via a scalar potential.",
+        "equation": "H = − (hbar^2)/(2*m) * nabla^2 + V(x,t)"
+      },
+      {
+        "step": 6,
+        "description": "Time-dependent Schrödinger equation.",
+        "equation": "i*hbar*partial_t psi = ( − (hbar^2)/(2*m) * nabla^2 + V ) psi"
+      },
+      {
+        "step": 7,
+        "description": "Probability continuity from unitarity and locality.",
+        "equation": "partial_t |psi|^2 + nabla·( (hbar/m) Im(psi^* nabla psi) ) = 0"
+      },
+      {
+        "step": 8,
+        "description": "Classical limit (WKB) recovers Hamilton–Jacobi at leading order.",
+        "equation": "psi = R e^{iS/hbar} ⇒  ∂_t S + (|nabla S|^2)/(2*m) + V + O(hbar^2) = 0"
+      }
+    ],
+ "programmatic_verification": {
+  "language": "python 3.11.12",
+  "library": "sympy 1.12.0",
+  "code": [
+    "import sympy as sp",
+    "",
+    "# ===============================================",
+    "# Programmatic verification: Schrödinger (1D)",
+    "# Mirrors derivation Steps 2, 5–7, 8 with robust simplifications.",
+    "# Key choices to avoid false negatives:",
+    "#  - j uses antisymmetric form (no Im(...))",
+    "#  - V is declared real so conj(V)=V",
+    "# ===============================================",
+    "",
+    "# Symbols & functions",
+    "x, t, hbar, m = sp.symbols('x t hbar m', positive=True, real=True)",
+    "psi = sp.Function('psi')(x,t)",
+    "V = sp.Function('V', real=True)(x,t)   # real scalar potential ⇒ conj(V)=V",
+    "",
+    "# ---------- Step 5–6: TDSE ----------",
+    "tdse = sp.Eq(sp.I*hbar*sp.diff(psi, t), -hbar**2/(2*m)*sp.diff(psi, x, 2) + V*psi)",
+    "tdse_conj = sp.Eq(-sp.I*hbar*sp.diff(sp.conjugate(psi), t), -hbar**2/(2*m)*sp.diff(sp.conjugate(psi), x, 2) + V*sp.conjugate(psi))",
+    "",
+    "# ---------- Step 7: Continuity equation ----------",
+    "rho = sp.conjugate(psi)*psi",
+    "j = (hbar/(2*sp.I*m))*(sp.conjugate(psi)*sp.diff(psi, x) - psi*sp.diff(sp.conjugate(psi), x))",
+    "",
+    "# Replace time derivatives using TDSE and its conjugate",
+    "dpsi_t = sp.simplify((-sp.I/hbar)*(-hbar**2/(2*m)*sp.diff(psi, x, 2) + V*psi))",
+    "dpsic_t = sp.simplify(( sp.I/hbar)*(-hbar**2/(2*m)*sp.diff(sp.conjugate(psi), x, 2) + V*sp.conjugate(psi)))",
+    "rho_t = sp.diff(rho, t).subs({sp.diff(psi, t): dpsi_t, sp.diff(sp.conjugate(psi), t): dpsic_t})",
+    "",
+    "# Residual of continuity equation: ∂t rho + ∂x j",
+    "residual = sp.simplify(sp.together(rho_t + sp.diff(j, x)))",
+    "assert sp.simplify(residual) == 0",
+    "",
+    "# ---------- Step 8: WKB classical limit check (structure) ----------",
+    "R = sp.Function('R')(x,t)",
+    "S = sp.Function('S')(x,t)",
+    "psi_wkb = R*sp.exp(sp.I*S/hbar)",
+    "expr = sp.simplify(sp.I*hbar*sp.diff(psi_wkb,t) + hbar**2/(2*m)*sp.diff(psi_wkb,x,2) - V*psi_wkb)",
+    "expr = sp.simplify(expr*sp.exp(-sp.I*S/hbar))  # remove the global phase",
+    "Rx, Rxx = sp.diff(R,x), sp.diff(R,x,2)",
+    "St, Sx, Sxx = sp.diff(S,t), sp.diff(S,x), sp.diff(S,x,2)",
+    "HJ_quantum = St + Sx**2/(2*m) + V - (hbar**2/(2*m))*(Rxx/R)",
+    "Imag_part  = sp.diff(R,t) + (1/(2*m))*(2*Rx*Sx + R*Sxx)",
+    "recon = sp.simplify(R*HJ_quantum + sp.I*hbar*Imag_part)",
+    "assert sp.simplify(expr - recon) == 0",
+    "",
+    "# Continuity from Imag part: 2R*Imag_part = ∂t(R^2) + (1/m)∂x(R^2 Sx)",
+    "cont_from_imag = sp.simplify(2*R*Imag_part - (sp.diff(R**2, t) + (1/m)*sp.diff(R**2*Sx, x)))",
+    "assert sp.simplify(cont_from_imag) == 0",
+    "",
+    "print('Continuity and WKB checks passed ✔')"
+  ]},
+
+    "domain": "quant-ph",
+    "theory_status": "current",
+    "validity_regime": {
+      "conditions": [
+        "Nonrelativistic energies (v ≪ c)",
+        "Inertial frames (Galilean symmetry)",
+        "Single-particle wave mechanics or many-body without spin/gauge structure (see limitations)"
+      ],
+      "limitations": [
+        "Not relativistically covariant (use Dirac/Klein–Gordon at high velocities)",
+        "Spin and gauge fields require extensions (Pauli/Dirac; minimal coupling)",
+        "Born rule is assumed, not derived"
+      ]
+    },
+    "historical_context": {
+      "importance": "Foundational equation of nonrelativistic quantum mechanics; accounts for interference, spectra, and atomic stability.",
+      "development_period": "1926",
+      "key_insights": [
+        "Complex amplitudes with phase produce interference",
+        "Projective Galilean symmetry introduces mass as central charge",
+        "Unitarity implies probability continuity"
+      ]
+    },
+    "references": [
+      { "id": "R1", "citation": "E. Schrödinger (1926), \"Quantisierung als Eigenwertproblem\" (I–IV), Annalen der Physik." },
+      { "id": "R2", "citation": "M. Born (1926), \"Zur Quantenmechanik der Stoßvorgänge\", Zeitschrift für Physik." },
+      { "id": "R3", "citation": "V. Bargmann (1954), \"On Unitary Ray Representations of Continuous Groups\", Annals of Mathematics." },
+      { "id": "R4", "citation": "J.-M. Lévy-Leblond (1963), \"Galilean Quantum Mechanics\", Dialectica." },
+      { "id": "R5", "citation": "L. E. Ballentine (1998), Quantum Mechanics: A Modern Development, World Scientific." }
+    ],
+    "dependencies": [
+      "born_rule",
+      "probability_current",
+      "hamilton_jacobi",
+      "galilean_group"
+    ],
+    "contributors": [
+      { "full_name": "Manuel Sánchez Hernández", "identifier": "ORCID 0009-0006-4904-3695" }
+    ],
+    "review_status": "draft"
+  }
+  
