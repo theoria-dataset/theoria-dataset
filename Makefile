@@ -40,17 +40,14 @@ test-entry:
 
 pre-push:
 	@echo "🚀 Running all build steps and tests before push..."
-	@echo "📋 Step 1/4: Rebuilding requirements..."
+	@echo "📋 Step 1/5: Rebuilding requirements..."
 	docker-compose run --rm theoria-tests python scripts/build_requirements.py
-	@echo "📔 Step 2/4: Generating notebooks..."
+	@echo "📔 Step 2/5: Generating notebooks..."
 	docker-compose run --rm theoria-tests python scripts/generate_notebooks.py
-	@echo "🏗️ Step 3/4: Generating index..."
+	@echo "🏗️ Step 3/5: Generating index..."
 	docker-compose run --rm theoria-tests python scripts/generate_index.py
-	@echo "🧪 Step 4/4: Running tests..."
+	@echo "📐 Step 4/5: Validating schemas..."
+	docker-compose run --rm theoria-tests python scripts/validate_all_schemas.py
+	@echo "🧪 Step 5/5: Running tests..."
 	docker-compose run --rm theoria-tests python scripts/test_entry.py
 	@echo "✅ All pre-push steps completed successfully!"
-
-# Legacy support for original verification
-verify:
-	@echo "🔬 Running programmatic verification..."
-	docker-compose run --rm theoria-tests python scripts/verify_programmatic.py
