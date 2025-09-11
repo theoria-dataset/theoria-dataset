@@ -63,10 +63,7 @@
     "point_mass_approximation",
     "two_body_system"
   ],
-  "dependencies": [
-    "newtonian_mechanics",
-    "conservation_laws"
-  ],
+  "dependencies": ["gravitational_force", "angular_momentum"],
   "derivation": [
     {
       "step": 1,
