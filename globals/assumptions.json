@@ -6,7 +6,7 @@
       "type": "simplification",
       "mathematical_expressions": [
         "v << c",
-        "lambda_dB << L"
+        "lambda_(dB) << L"
       ],
       "symbol_definitions": [
         {
@@ -14,7 +14,7 @@
           "definition": "Characteristic velocity of the system"
         },
         {
-          "symbol": "c", 
+          "symbol": "c",
           "definition": "Speed of light in vacuum"
         },
         {
@@ -25,17 +25,28 @@
           "symbol": "L",
           "definition": "Characteristic length scale of the system"
         }
+      ],
+      "used_in": [
+        "keplers_laws",
+        "special_relativity_transformations"
       ]
     },
     {
       "id": "point_mass_approximation",
       "text": "Both bodies can be treated as point masses with spherically symmetric mass distributions",
-      "type": "simplification"
+      "type": "simplification",
+      "used_in": [
+        "keplers_laws",
+        "vis_viva"
+      ]
     },
     {
       "id": "inertial_reference_frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "special_relativity_transformations"
+      ]
     },
     {
       "id": "conservation_laws_valid",
@@ -43,7 +54,7 @@
       "type": "empirical",
       "mathematical_expressions": [
         "dE/dt = 0",
-        "dvec{p}/dt = 0", 
+        "dvec{p}/dt = 0",
         "dvec{L}/dt = 0"
       ],
       "symbol_definitions": [
@@ -63,32 +74,49 @@
           "symbol": "t",
           "definition": "Time"
         }
+      ],
+      "used_in": [
+        "vis_viva",
+        "relativistic_energy_momentum"
       ]
     },
     {
       "id": "two_body_system",
       "text": "Two-body gravitational systems with negligible external perturbations",
-      "type": "simplification"
+      "type": "simplification",
+      "used_in": [
+        "keplers_laws"
+      ]
     },
     {
       "id": "weak_gravitational_field",
       "text": "Gravitational field strength allows for Newtonian approximation",
-      "type": "simplification"
+      "type": "simplification",
+      "used_in": []
     },
     {
       "id": "isolated_system",
       "text": "System is sufficiently isolated from external influences",
-      "type": "simplification"
+      "type": "simplification",
+      "used_in": [
+        "vis_viva"
+      ]
     },
     {
       "id": "perfect_blackbody",
       "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`",
-      "type": "simplification"
+      "type": "simplification",
+      "used_in": [
+        "blackbody_radiation"
+      ]
     },
     {
       "id": "thermal_equilibrium",
       "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
-      "type": "regime"
+      "type": "regime",
+      "used_in": [
+        "blackbody_radiation"
+      ]
     },
     {
       "id": "electromagnetic_field_quantization",
@@ -114,12 +142,18 @@
           "symbol": "nu",
           "definition": "Frequency of the electromagnetic mode"
         }
+      ],
+      "used_in": [
+        "blackbody_radiation"
       ]
     },
     {
       "id": "electromagnetic_polarization",
       "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)",
-      "type": "empirical"
+      "type": "empirical",
+      "used_in": [
+        "blackbody_radiation"
+      ]
     },
     {
       "id": "light_speed_constant",
@@ -133,6 +167,10 @@
           "symbol": "c",
           "definition": "Speed of light in vacuum, exact value by definition in SI units."
         }
+      ],
+      "used_in": [
+        "relativistic_energy_momentum",
+        "special_relativity_transformations"
       ]
     },
     {
@@ -151,52 +189,82 @@
           "symbol": "t",
           "definition": "Time"
         }
+      ],
+      "used_in": [
+        "special_relativity_transformations"
       ]
     },
     {
       "id": "generalized_coordinates_system",
       "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
       "id": "lagrangian_well_defined",
       "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
       "id": "lagrangian_differentiable",
       "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
       "id": "smooth_path",
       "text": "The trajectory of the system in configuration space is smooth and differentiable throughout the time interval of interest",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
-      "id": "fixed_endpoints", 
+      "id": "fixed_endpoints",
       "text": "The initial and final configurations of the system are held fixed during variational analysis",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
       "id": "small_arbitrary_variations",
       "text": "Small, arbitrary variations of the system's trajectory are permitted in the interior of the time interval for variational analysis",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "least_action_principle"
+      ]
     },
     {
       "id": "stationary_action_principle",
       "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
-      "type": "fundamental"
+      "type": "fundamental",
+      "used_in": [
+        "noethers_theorem"
+      ]
     },
     {
       "id": "flat_spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
-      "type": "regime"
+      "type": "simplification",
+      "used_in": [
+        "relativistic_energy_momentum"
+      ]
     },
     {
       "id": "well_defined_rest_mass",
-      "text": "Particles have well-defined rest masses",
-      "type": "empirical"
+      "text": "Particles have well-defined rest masses that do not depend on the reference frame",
+      "type": "empirical",
+      "used_in": [
+        "relativistic_energy_momentum"
+      ]
     }
   ]
 }
