@@ -78,7 +78,7 @@
     },
     {
       "step": 7,
-      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR.",
+      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell, hence the number of lattice points are `N_(sphere)`",
       "equation": "N_(sphere) = (1/8) * (4*pi*R^2) * dR = 1/2*pi*R^2*dR"
     },
     {
@@ -89,7 +89,7 @@
     {
       "step": 9,
       "description": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`.",
-      "equation": "N_(all) = pi*(2*L*nu/c)^2*(2*L*dnu/c) = 8*pi*L^3*nu^2*dnu/c^3"
+      "equation": "N_(all) = pi*(2*L*nu/c)^2*((2*L*dnu)/(c)) = (8*pi*L^3*nu^2*dnu)/(c^3)"
     },
     {
       "step": 10,
