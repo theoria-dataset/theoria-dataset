@@ -77,6 +77,15 @@
                 }
               }
             }
+          },
+          "used_in": {
+            "type": "array",
+            "description": "Array of entry IDs that reference this assumption. This field tracks which dataset entries use this assumption in their derivations or explanations.",
+            "items": {
+              "type": "string",
+              "description": "Entry ID (result_id) that uses this assumption"
+            },
+            "example": ["blackbody_radiation", "planck_law"]
           }
         }
       }
