@@ -61,7 +61,7 @@
   "assumptions": [
     "classical_mechanics_framework",
     "point_mass_approximation",
-    "two_body_system"
+    "system_isolation"
   ],
   "dependencies": ["gravitational_force", "angular_momentum"],
   "derivation": [

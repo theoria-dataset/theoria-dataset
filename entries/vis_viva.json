@@ -33,7 +33,7 @@
   "assumptions": [
     "point_mass_approximation",
     "conservation_laws_valid",
-    "isolated_system"
+    "system_isolation"
   ],
   "dependencies": [
     "conservation_of_energy",

@@ -81,24 +81,11 @@
       ]
     },
     {
-      "id": "two_body_system",
-      "text": "Two-body gravitational systems with negligible external perturbations",
+      "id": "system_isolation",
+      "text": "System is sufficiently isolated from external influences (for gravitational systems: negligible external perturbations)",
       "type": "simplification",
       "used_in": [
-        "keplers_laws"
-      ]
-    },
-    {
-      "id": "weak_gravitational_field",
-      "text": "Gravitational field strength allows for Newtonian approximation",
-      "type": "simplification",
-      "used_in": []
-    },
-    {
-      "id": "isolated_system",
-      "text": "System is sufficiently isolated from external influences",
-      "type": "simplification",
-      "used_in": [
+        "keplers_laws",
         "vis_viva"
       ]
     },
@@ -114,35 +101,6 @@
       "id": "thermal_equilibrium",
       "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
       "type": "regime",
-      "used_in": [
-        "blackbody_radiation"
-      ]
-    },
-    {
-      "id": "electromagnetic_field_quantization",
-      "text": "The electromagnetic field is quantized into discrete energy levels for each mode",
-      "type": "empirical",
-      "mathematical_expressions": [
-        "E_n = n*h*nu"
-      ],
-      "symbol_definitions": [
-        {
-          "symbol": "E_n",
-          "definition": "Energy of the nth quantum state"
-        },
-        {
-          "symbol": "n",
-          "definition": "Occupation number (non-negative integer)"
-        },
-        {
-          "symbol": "h",
-          "definition": "Planck's constant"
-        },
-        {
-          "symbol": "nu",
-          "definition": "Frequency of the electromagnetic mode"
-        }
-      ],
       "used_in": [
         "blackbody_radiation"
       ]
@@ -195,49 +153,40 @@
       ]
     },
     {
-      "id": "generalized_coordinates_system",
-      "text": "The system can be described by a finite number of generalized coordinates `q_i(t)` and their time derivatives `dot q_i(t)`",
+      "id": "variational_calculus_framework",
+      "text": "System describable by generalized coordinates `q_i(t)` with well-defined, twice-differentiable Lagrangian `L(q_i, dot q_i, t)`, smooth trajectories, and suitable boundary conditions for variational analysis (fixed endpoints, allowable interior variations)",
       "type": "fundamental",
-      "used_in": [
-        "least_action_principle"
-      ]
-    },
-    {
-      "id": "lagrangian_well_defined",
-      "text": "The Lagrangian `L(q_i, dot q_i, t)` is a well-defined function of the generalized coordinates, velocities, and possibly time",
-      "type": "fundamental",
-      "used_in": [
-        "least_action_principle"
-      ]
-    },
-    {
-      "id": "lagrangian_differentiable",
-      "text": "The Lagrangian is at least twice continuously differentiable with respect to all its arguments",
-      "type": "fundamental",
-      "used_in": [
-        "least_action_principle"
-      ]
-    },
-    {
-      "id": "smooth_path",
-      "text": "The trajectory of the system in configuration space is smooth and differentiable throughout the time interval of interest",
-      "type": "fundamental",
-      "used_in": [
-        "least_action_principle"
-      ]
-    },
-    {
-      "id": "fixed_endpoints",
-      "text": "The initial and final configurations of the system are held fixed during variational analysis",
-      "type": "fundamental",
-      "used_in": [
-        "least_action_principle"
-      ]
-    },
-    {
-      "id": "small_arbitrary_variations",
-      "text": "Small, arbitrary variations of the system's trajectory are permitted in the interior of the time interval for variational analysis",
-      "type": "fundamental",
+      "mathematical_expressions": [
+        "q_i = q_i(t)",
+        "L = L(q_i, dot q_i, t)",
+        "delta q_i(t_1) = delta q_i(t_2) = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "q_i",
+          "definition": "Generalized coordinates describing the system configuration"
+        },
+        {
+          "symbol": "dot q_i",
+          "definition": "Time derivatives of generalized coordinates (generalized velocities)"
+        },
+        {
+          "symbol": "L",
+          "definition": "Lagrangian function of the system"
+        },
+        {
+          "symbol": "t",
+          "definition": "Time parameter"
+        },
+        {
+          "symbol": "delta q_i",
+          "definition": "Variation of generalized coordinates"
+        },
+        {
+          "symbol": "t_1, t_2",
+          "definition": "Initial and final times (fixed endpoints)"
+        }
+      ],
       "used_in": [
         "least_action_principle"
       ]

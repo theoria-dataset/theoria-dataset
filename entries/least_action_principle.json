@@ -43,12 +43,7 @@
     }
   ],
   "assumptions": [
-    "generalized_coordinates_system",
-    "lagrangian_well_defined",
-    "lagrangian_differentiable",
-    "smooth_path",
-    "fixed_endpoints",
-    "small_arbitrary_variations"
+    "variational_calculus_framework"
   ],
   "dependencies": [],
   "derivation": [
