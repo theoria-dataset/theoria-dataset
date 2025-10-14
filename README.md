@@ -26,7 +26,7 @@ Each entry in TheorIA represents a theoretical physics result – for example, t
 
 - **Domain tags**: ArXiv‑style categories (e.g., gr-qc, hep-th) for easy filtering.
 
-- **Global manifest & changelog**: `manifest.json` tracks versions, file list, covered domains, and updates.
+- **Global manifest**: `manifest.json` tracks versions, covered domains, and dataset metadata.
 
 - **Open license**: `CC‑BY 4.0`—use it, remix it, teach with it.
 
@@ -44,7 +44,8 @@ theoretical-physics-dataset/
 │   ├── generate_contributing.py       # Generates CONTRIBUTING.md from schema
 │   └── generate_form_requirements.py  # Generates form requirements JavaScript
 ├── docs/                              # Web interface for viewing the dataset
-├── manifest.json                      # Global metadata, dataset version, changelog, and entry list
+├── manifest.json                      # Global metadata, dataset version, and domain information
+├── CHANGELOG.md                       # Version history and release notes
 ├── CONTRIBUTING.md                    # Detailed guidelines for contributors (auto-generated)
 └── README.md                          # Project overview and usage instructions (this file)
 ```
