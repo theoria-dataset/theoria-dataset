@@ -116,15 +116,15 @@
             </p>
           </div>
           <div class="feature-card">
-            <h3>🏷️ Domain Tags</h3>
+            <h3>🧠 Centralized Assumptions</h3>
             <p>
-              ArXiv‑style categories (e.g., gr-qc, hep-th) for easy filtering.
+              Standardized database of physics assumptions ensuring consistent terminology across all entries.
             </p>
           </div>
           <div class="feature-card">
             <h3>📚 Rich Context</h3>
             <p>
-              Entries include regime validity, historical context, dependencies between results, and other relevant metadata for comprehensive understanding.
+              Entries include unified assumptions, historical context, cross-entry dependencies, and domain classifications (ArXiv-style tags) for comprehensive understanding.
             </p>
           </div>
           <div class="feature-card">
@@ -174,7 +174,7 @@
         </div>
 
         <details>
-          <summary><strong>Advanced: Direct Development</strong></summary>
+          <summary><strong>For Coders: Direct Development</strong></summary>
           <div class="advanced-method">
             <div class="feature-card">
               <h3><span class="step-number">1</span>Fork and Clone</h3>
@@ -203,11 +203,15 @@
       <section>
         <h2>Using TheorIA for Machine Learning</h2>
         <p>
-          You can either use the individual JSON files or automatically generate a single merged file using a script (e.g., with <code class="inline">jq</code>):
+          Generate a complete ML-ready dataset with resolved assumptions using our built-in script:
         </p>
-        <pre><code>jq -s '.' entries/*.json > dataset.json</code></pre>
+        <pre><code># Generate dataset with only reviewed entries (recommended)
+python scripts/build_ml_dataset.py
+
+# Include draft entries (for larger dataset)
+python scripts/build_ml_dataset.py --include-drafts</code></pre>
         <p>
-          Feed <code class="inline">dataset.json</code> (or per‑entry files) straight into your training pipeline.
+          This creates <code class="inline">dataset.json</code> with all entries, resolved assumption text, and metadata ready for your ML pipeline.
         </p>
       </section>
 

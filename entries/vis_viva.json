@@ -35,11 +35,7 @@
     "conservation_laws_valid",
     "system_isolation"
   ],
-  "dependencies": [
-    "conservation_of_energy",
-    "angular_momentum",
-    "gravitational_force"
-  ],
+  "dependencies": ["angular_momentum", "gravitational_force"],
   "derivation": [
     {
       "step": 1,
@@ -128,10 +124,7 @@
   "historical_context": {
     "importance": "Heavily used in astrophysics and astrodynamics to calculate the velocities of orbiting objects. From this equation one can easily derive other equations such as the formula for escape velocity.",
     "development_period": "1676–1689",
-    "key_insights": [
-      "Orbital velocities",
-      "Conservation of energy in orbits"
-    ]
+    "key_insights": ["Orbital velocities", "Conservation of energy in orbits"]
   },
   "references": [
     {

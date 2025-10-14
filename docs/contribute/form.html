@@ -79,6 +79,70 @@
         border-color: #4a7c4a;
         color: #a8d4a8;
     }
+
+
+    /* Assumption items styling */
+    .assumption-item {
+        position: relative;
+        background: rgba(0, 0, 0, 0.02);
+        border-left: 3px solid var(--shade-light);
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 4px;
+    }
+
+    .dark .assumption-item {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .assumption-item.global {
+        border-left-color: var(--primary);
+        background: rgba(0, 122, 204, 0.05);
+    }
+
+    .dark .assumption-item.global {
+        background: rgba(100, 149, 237, 0.1);
+    }
+
+    .assumption-item.fundamental {
+        border-left-color: #22c55e;
+        background: rgba(34, 197, 94, 0.05);
+    }
+
+    .assumption-item.empirical {
+        border-left-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.05);
+    }
+
+    .assumption-item.simplification {
+        border-left-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.05);
+    }
+
+    .assumption-item.regime {
+        border-left-color: #8b5cf6;
+        background: rgba(139, 92, 246, 0.05);
+    }
+
+    .assumption-preview {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+
+    .assumption-math-preview {
+        margin: 0.3rem 0;
+        padding: 0.2rem 0.5rem;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        font-family: monospace;
+        border-left: 2px solid var(--primary);
+    }
+
+    .dark .assumption-math-preview {
+        background: rgba(255, 255, 255, 0.08);
+    }
     </style>
     <!-- Google tag (gtag.js) -->
     <script>
@@ -163,17 +227,26 @@
                 </div>
             </div>
 
-            <!-- Equations Assumptions Section -->
+            <!-- Assumptions Section -->
             <div class="form-section">
-                <h3>📋 Equations Assumptions</h3>
+                <h3>📋 Assumptions</h3>
                 <div class="guidelines">
-                    <strong>Guidelines:</strong> Focus on assumptions specific to the equations themselves. Use backticks for math symbols in AsciiMath format
+                    <strong>Guidelines:</strong> Select from standardized global assumptions or add custom assumptions. Global assumptions provide consistent terminology and automatic mathematical expressions.
                 </div>
-                
-                <div id="equations_assumptions_container">
+
+                <div class="form-group">
+                    <label>Global Assumptions Browser</label>
+                    <select id="global-assumptions-select" onchange="addGlobalAssumption()">
+                        <option value="">Select a global assumption to add...</option>
+                    </select>
+                    <div class="help-text">Choose from 17 standardized physics assumptions</div>
+                </div>
+
+
+                <div id="assumptions_container">
                     <!-- Assumptions will be populated here -->
                 </div>
-                <button type="button" class="btn btn-secondary" onclick="addEquationAssumption()">+ Add Assumption</button>
+                <button type="button" class="btn btn-secondary" onclick="addCustomAssumption()">+ Add Custom Assumption</button>
             </div>
 
             <!-- Definitions Section -->
@@ -202,18 +275,6 @@
                 <button type="button" class="btn btn-secondary" onclick="addDerivationStep()">+ Add Derivation Step</button>
             </div>
 
-            <!-- Derivation Assumptions Section -->
-            <div class="form-section">
-                <h3>📝 Derivation Assumptions</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (<code>``</code>) and written in AsciiMath format.
-                </div>
-                
-                <div id="derivation_assumptions_container">
-                    <!-- Derivation assumptions will be populated here -->
-                </div>
-                <button type="button" class="btn btn-secondary" onclick="addDerivationAssumption()">+ Add Assumption</button>
-            </div>
 
 
             <!-- Programmatic Verification Section -->
@@ -282,31 +343,6 @@
                 </div>
             </div>
 
-            <!-- Validity Regime Section -->
-            <div class="form-section">
-                <h3>⚖️ Validity Regime</h3>
-                <div class="guidelines">
-                    <strong>Guidelines:</strong> Use for theories with specific applicability ranges. Include both conditions where valid and limitations
-                </div>
-                
-                <div class="form-group">
-                    <label>Conditions</label>
-                    <div class="help-text">Physical conditions where this theory applies</div>
-                    <div id="validity_conditions_container">
-                        <!-- Validity conditions will be populated here -->
-                    </div>
-                    <button type="button" class="btn btn-secondary" onclick="addValidityCondition()">+ Add Condition</button>
-                </div>
-                
-                <div class="form-group">
-                    <label>Limitations</label>
-                    <div class="help-text">Limitations or boundaries of this theory</div>
-                    <div id="validity_limitations_container">
-                        <!-- Validity limitations will be populated here -->
-                    </div>
-                    <button type="button" class="btn btn-secondary" onclick="addValidityLimitation()">+ Add Limitation</button>
-                </div>
-            </div>
 
             <!-- Dependencies Section -->
             <div class="form-section">

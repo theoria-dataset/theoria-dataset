@@ -50,12 +50,12 @@
     },
     {
       "id": "conservation_laws_valid",
-      "text": "Conservation laws (energy, momentum, angular momentum) hold for the system",
-      "type": "empirical",
+      "text": "Total energy, linear momentum and angular momentum are conserved.",
+      "type": "fundamental",
       "mathematical_expressions": [
-        "dE/dt = 0",
-        "dvec{p}/dt = 0",
-        "dvec{L}/dt = 0"
+        "(dE)/(dt) = 0",
+        "(dvec{p})/(dt) = 0",
+        "(dvec{L})/(dt) = 0"
       ],
       "symbol_definitions": [
         {

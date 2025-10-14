@@ -51,5 +51,6 @@ pre-push:
 	@echo "[STEP 5/6] Validating dependencies..."
 	docker-compose run --rm theoria-tests python scripts/validate_dependencies.py
 	@echo "[STEP 6/6] Running tests..."
+	docker-compose run --rm theoria-tests python scripts/test_ml_dataset.py
 	docker-compose run --rm theoria-tests python scripts/test_entry.py
 	@echo "[SUCCESS] All pre-push steps completed successfully!"

@@ -220,27 +220,36 @@ function renderPrerequisites(data) {
       const resolved = resolveAssumption(assumptionString);
 
       let displayText = '';
-      if (resolved.type === 'global') {
-        // Create a badge for the assumption type - positioned at the end
-        const typeBadge = `<span class="assumption-type-badge assumption-${resolved.assumptionType}">${resolved.assumptionType}</span>`;
-        displayText = `${resolved.text}`;
+      let tooltip = '';
 
-        // Add mathematical expressions if available
+      if (resolved.type === 'global') {
+        displayText = resolved.text;
+        tooltip = `Assumption type: ${resolved.assumptionType}`;
+
+        // Add mathematical expressions on new lines if available
         if (resolved.mathematicalExpressions && resolved.mathematicalExpressions.length > 0) {
-          const mathExpr = resolved.mathematicalExpressions.map(expr => `\`${expr}\``).join(', ');
-          displayText += ` (${mathExpr})`;
+          const mathExpressions = resolved.mathematicalExpressions.map(expr => `<div class="assumption-math">\`${expr}\`</div>`).join('');
+          displayText += mathExpressions;
         }
 
-        // Add badge at the end
-        displayText += ` ${typeBadge}`;
+        // Add symbol definitions if available
+        if (resolved.symbolDefinitions && resolved.symbolDefinitions.length > 0) {
+          const symbolDefs = resolved.symbolDefinitions.map(def =>
+            `<div class="assumption-symbol-def"><span class="symbol">\`${def.symbol}\`</span>: ${def.definition}</div>`
+          ).join('');
+          displayText += `<div class="assumption-symbols">${symbolDefs}</div>`;
+        }
       } else {
         // Direct text assumption
         displayText = resolved.text;
+        tooltip = 'Direct assumption';
       }
 
       prerequisitesList.push({
         type: 'assumption',
-        html: displayText
+        html: displayText,
+        tooltip: tooltip,
+        cssClass: resolved.type === 'global' ? `assumption-${resolved.assumptionType}` : 'assumption-unspecified'
       });
     });
   }
@@ -253,7 +262,9 @@ function renderPrerequisites(data) {
 
       prerequisitesList.push({
         type: 'dependency',
-        html: `<span class="dependency-badge">builds upon</span> ${dependencyLink}`
+        html: dependencyLink,
+        tooltip: `Builds upon: ${dependencyName}`,
+        cssClass: 'dependency-type'
       });
     });
   }
@@ -267,9 +278,49 @@ function renderPrerequisites(data) {
       prerequisitesContainer.innerHTML = "<li><em>No specific prerequisites</em></li>";
     } else {
       prerequisitesList.forEach(item => {
-        prerequisitesContainer.insertAdjacentHTML("beforeend", `<li>${item.html}</li>`);
+        const tooltip = item.tooltip ? ` title="${item.tooltip}"` : '';
+        const cssClass = item.cssClass ? ` class="${item.cssClass}"` : '';
+        prerequisitesContainer.insertAdjacentHTML("beforeend", `<li${cssClass}${tooltip}>${item.html}</li>`);
       });
     }
+  }
+
+  // Add color legend
+  const assumptionsSection = qs("#assumptions");
+  if (assumptionsSection) {
+    // Remove existing legend if any
+    const existingLegend = assumptionsSection.querySelector('.assumption-legend');
+    if (existingLegend) {
+      existingLegend.remove();
+    }
+
+    // Create legend HTML
+    const legendHTML = `
+      <div class="assumption-legend">
+        <div class="legend-item">
+          <span class="legend-color assumption-fundamental"></span>
+          <span class="legend-label">Fundamental</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color assumption-empirical"></span>
+          <span class="legend-label">Empirical</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color assumption-simplification"></span>
+          <span class="legend-label">Simplification</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color assumption-regime"></span>
+          <span class="legend-label">Regime</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color dependency-type"></span>
+          <span class="legend-label">Builds upon</span>
+        </div>
+      </div>
+    `;
+
+    assumptionsSection.insertAdjacentHTML('beforeend', legendHTML);
   }
 }
 
