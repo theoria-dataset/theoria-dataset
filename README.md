@@ -3,7 +3,6 @@
 [![Latest Release](https://img.shields.io/github/v/release/theoria-dataset/theoria-dataset)](https://github.com/theoria-dataset/theoria-dataset/releases)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Validation](https://github.com/theoria-dataset/theoria-dataset/actions/workflows/validate_entries.yaml/badge.svg)](https://github.com/theoria-dataset/theoria-dataset/actions/workflows/validate_entries.yaml)
-[![Dataset Entries](https://img.shields.io/badge/entries-100-blue.svg)](https://theoria-dataset.github.io/theoria-dataset/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 TheorIA stands for Theoretical Physics Intelligent Anthology
