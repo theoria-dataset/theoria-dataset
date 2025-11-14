@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.5.0] - Consolidation of assumptions - 2025-01-14
 
+Instead of having assumptions, regime and dependencies on each entry, we are consolidating them into one single place. All assumptions and regimes will be in one json file, and the entry will refer to them using tags.
+
+We also classify the assumptions into different types: undamental, empirical, simplification, regime.
+
 ### Added
 - Script to build the whole dataset for training ML models using the entries and the assumptions and its testing
 - Centralized assumptions system (globals/assumptions.json) with four standardized types: fundamental, empirical, simplification, regime
-- Color-coded visual hierarchy and enhanced mathematical expression rendering for assumptions
+- In the html: Color-coded visual hierarchy and enhanced mathematical expression rendering for assumptions
 
 ### Changed
 - Unified assumptions into centralized system, integrating regimes and dependencies into unified assumptions display
@@ -18,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified all reviewed entries to use new centralized assumption system with consistent terminology and mathematical expressions
 - Updated all frontend code - HTML display, forms, and JavaScript logic for new assumptions system
 - Updated documentation and contribution guidelines to reflect new assumptions structure and usage
+- New change log moved from the manifest json to changelog.md and automatically feed the github release information.
 
 ## [0.4.8] - 2025-08-19
 
