@@ -13,7 +13,7 @@
   "properties": {
     "assumptions": {
       "type": "array",
-      "description": "Array of global assumptions that can be referenced by entries. Each assumption represents a fundamental principle, empirical fact, regime condition, or simplifying approximation used in physics derivations.",
+      "description": "Array of global assumptions that can be referenced by entries. Each assumption represents a core principle, empirical fact, or approximation used in physics derivations.",
       "minItems": 1,
       "items": {
         "type": "object",
@@ -47,8 +47,8 @@
           },
           "type": {
             "type": "string",
-            "enum": ["fundamental", "empirical", "regime", "simplification"],
-            "description": "Type of assumption: fundamental (mathematical/theoretical principles), empirical (experimentally established facts), regime (validity conditions), simplification (modeling approximations)"
+            "enum": ["principle", "empirical", "approximation"],
+            "description": "Type of assumption: principle (core mathematical/theoretical principles postulated or derived from basic theories), empirical (experimentally established facts and measured constants), approximation (modeling assumptions that restrict validity or simplify analysis, including regime restrictions and simplifying approximations)"
           },
           "mathematical_expressions": {
             "type": "array",

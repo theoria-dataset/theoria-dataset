@@ -2,12 +2,9 @@
   "assumptions": [
     {
       "id": "classical_mechanics_framework",
-      "text": "Classical mechanics framework: relativistic effects negligible (v << c), quantum effects negligible for macroscopic bodies",
-      "type": "simplification",
-      "mathematical_expressions": [
-        "v << c",
-        "lambda_(dB) << L"
-      ],
+      "text": "Classical mechanics framework: relativistic effects negligible (`v < < c`), quantum effects negligible for macroscopic bodies",
+      "type": "approximation",
+      "mathematical_expressions": ["v < < c", "lambda_(dB) < < L"],
       "symbol_definitions": [
         {
           "symbol": "v",
@@ -26,32 +23,24 @@
           "definition": "Characteristic length scale of the system"
         }
       ],
-      "used_in": [
-        "keplers_laws",
-        "special_relativity_transformations"
-      ]
+      "used_in": ["keplers_laws", "special_relativity_transformations"]
     },
     {
       "id": "point_mass_approximation",
       "text": "Both bodies can be treated as point masses with spherically symmetric mass distributions",
-      "type": "simplification",
-      "used_in": [
-        "keplers_laws",
-        "vis_viva"
-      ]
+      "type": "approximation",
+      "used_in": ["keplers_laws", "vis_viva"]
     },
     {
       "id": "inertial_reference_frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
-      "type": "fundamental",
-      "used_in": [
-        "special_relativity_transformations"
-      ]
+      "type": "principle",
+      "used_in": ["special_relativity_transformations"]
     },
     {
       "id": "conservation_laws_valid",
       "text": "Total energy, linear momentum and angular momentum are conserved.",
-      "type": "fundamental",
+      "type": "principle",
       "mathematical_expressions": [
         "(dE)/(dt) = 0",
         "(dvec{p})/(dt) = 0",
@@ -75,51 +64,37 @@
           "definition": "Time"
         }
       ],
-      "used_in": [
-        "vis_viva",
-        "relativistic_energy_momentum"
-      ]
+      "used_in": ["vis_viva", "relativistic_energy_momentum"]
     },
     {
       "id": "system_isolation",
       "text": "System is sufficiently isolated from external influences (for gravitational systems: negligible external perturbations)",
-      "type": "simplification",
-      "used_in": [
-        "keplers_laws",
-        "vis_viva"
-      ]
+      "type": "approximation",
+      "used_in": ["keplers_laws", "vis_viva"]
     },
     {
       "id": "perfect_blackbody",
       "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`",
-      "type": "simplification",
-      "used_in": [
-        "blackbody_radiation"
-      ]
+      "type": "approximation",
+      "used_in": ["blackbody_radiation"]
     },
     {
       "id": "thermal_equilibrium",
       "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
-      "type": "regime",
-      "used_in": [
-        "blackbody_radiation"
-      ]
+      "type": "approximation",
+      "used_in": ["blackbody_radiation"]
     },
     {
       "id": "electromagnetic_polarization",
       "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)",
       "type": "empirical",
-      "used_in": [
-        "blackbody_radiation"
-      ]
+      "used_in": ["blackbody_radiation"]
     },
     {
       "id": "light_speed_constant",
       "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
       "type": "empirical",
-      "mathematical_expressions": [
-        "c = 299792458 text{ m/s}"
-      ],
+      "mathematical_expressions": ["c = 299792458 text{ m/s}"],
       "symbol_definitions": [
         {
           "symbol": "c",
@@ -134,10 +109,8 @@
     {
       "id": "constant_relative_velocity",
       "text": "Reference frames move with constant relative velocity (no acceleration)",
-      "type": "regime",
-      "mathematical_expressions": [
-        "dv/dt = 0"
-      ],
+      "type": "approximation",
+      "mathematical_expressions": ["(dv)/(dt) = 0"],
       "symbol_definitions": [
         {
           "symbol": "v",
@@ -148,14 +121,12 @@
           "definition": "Time"
         }
       ],
-      "used_in": [
-        "special_relativity_transformations"
-      ]
+      "used_in": ["special_relativity_transformations"]
     },
     {
       "id": "variational_calculus_framework",
       "text": "System describable by generalized coordinates `q_i(t)` with well-defined, twice-differentiable Lagrangian `L(q_i, dot q_i, t)`, smooth trajectories, and suitable boundary conditions for variational analysis (fixed endpoints, allowable interior variations)",
-      "type": "fundamental",
+      "type": "principle",
       "mathematical_expressions": [
         "q_i = q_i(t)",
         "L = L(q_i, dot q_i, t)",
@@ -187,33 +158,25 @@
           "definition": "Initial and final times (fixed endpoints)"
         }
       ],
-      "used_in": [
-        "least_action_principle"
-      ]
+      "used_in": ["least_action_principle"]
     },
     {
       "id": "stationary_action_principle",
       "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
-      "type": "fundamental",
-      "used_in": [
-        "noethers_theorem"
-      ]
+      "type": "principle",
+      "used_in": ["noethers_theorem"]
     },
     {
       "id": "flat_spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
-      "type": "simplification",
-      "used_in": [
-        "relativistic_energy_momentum"
-      ]
+      "type": "approximation",
+      "used_in": ["relativistic_energy_momentum"]
     },
     {
       "id": "well_defined_rest_mass",
       "text": "Particles have well-defined rest masses that do not depend on the reference frame",
       "type": "empirical",
-      "used_in": [
-        "relativistic_energy_momentum"
-      ]
+      "used_in": ["relativistic_energy_momentum"]
     }
   ]
 }

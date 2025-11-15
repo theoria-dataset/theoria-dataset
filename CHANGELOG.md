@@ -13,7 +13,7 @@ We also classify the assumptions into different types: undamental, empirical, si
 
 ### Added
 - Script to build the whole dataset for training ML models using the entries and the assumptions and its testing
-- Centralized assumptions system (globals/assumptions.json) with four standardized types: fundamental, empirical, simplification, regime
+- Centralized assumptions system (globals/assumptions.json) with three standardized types: principle, empirical, approximation
 - In the html: Color-coded visual hierarchy and enhanced mathematical expression rendering for assumptions
 
 ### Changed

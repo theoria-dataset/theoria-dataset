@@ -27,7 +27,7 @@ Each entry in TheorIA represents a theoretical physics result – for example, t
 
 - **Formal derivations and annotated proofs**: AsciiMath step by step, annotated for easier understanding and programmatic formalization to guarantee correctness.
 
-- **Self‑contained JSON files**: One entry per file under `entries/` folder, so you can fork, version, and collaborate without conflicts.
+- **One JSON per entry**: Individual JSON files under `entries/` folder: one file per physics result, enabling parallel contributions, clean version control, and conflict-free collaboration.
 
 - **Domain tags**: ArXiv‑style categories (e.g., gr-qc, hep-th) for easy filtering.
 

@@ -139,10 +139,11 @@ const FIELD_REQUIREMENTS = {
     },
     "assumptions": {
       "type": "array",
-      "description": "Array of assumptions - either assumption IDs that reference globals/assumptions.json, or direct text for entry-specific assumptions.",
+      "description": "Reference global assumptions by ID from globals/assumptions.json (e.g., 'classical_mechanics_framework'). First check if a suitable assumption already exists to avoid duplication. Global assumptions are categorized into three types: principle (core theoretical/mathematical postulates), empirical (experimentally established facts), and approximation (validity restrictions and simplifying modeling choices). If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry. See schemas/assumptions.schema.json for the complete structure and browse globals/assumptions.json for existing assumptions.",
       "items": {
         "type": "string",
-        "description": "Either an assumption ID from globals/assumptions.json (must match pattern ^[a-z0-9_]+$) or direct assumption text"
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Assumption ID from globals/assumptions.json (must match pattern ^[a-z0-9_]+$)"
       }
     },
     "dependencies": {

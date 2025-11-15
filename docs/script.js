@@ -298,20 +298,16 @@ function renderPrerequisites(data) {
     const legendHTML = `
       <div class="assumption-legend">
         <div class="legend-item">
-          <span class="legend-color assumption-fundamental"></span>
-          <span class="legend-label">Fundamental</span>
+          <span class="legend-color assumption-principle"></span>
+          <span class="legend-label">Principle</span>
         </div>
         <div class="legend-item">
           <span class="legend-color assumption-empirical"></span>
           <span class="legend-label">Empirical</span>
         </div>
         <div class="legend-item">
-          <span class="legend-color assumption-simplification"></span>
-          <span class="legend-label">Simplification</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-color assumption-regime"></span>
-          <span class="legend-label">Regime</span>
+          <span class="legend-color assumption-approximation"></span>
+          <span class="legend-label">Approximation</span>
         </div>
         <div class="legend-item">
           <span class="legend-color dependency-type"></span>

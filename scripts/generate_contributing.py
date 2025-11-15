@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate CONTRIBUTING.md from entry_requirements.json
+Generate CONTRIBUTING.md from the entry.schema.json file.
 
-This script reads the structured requirements from entry_requirements.json
+This script reads the structured requirements from entry.schema.json
 and generates the CONTRIBUTING.md file with all field guidelines, examples,
 and instructions.
 """
@@ -34,17 +34,27 @@ def format_field_section(field_name, field_data, is_required=False):
     """Format a field section for the markdown"""
     lines = []
 
-    # Field header
-    required_marker = "**" if is_required else ""
-    lines.append(f"- {required_marker}`{field_name}`:{required_marker}")
+    # Field header - always with dash and bold if required
+    if is_required:
+        lines.append(f"- **`{field_name}`:**")
+    else:
+        lines.append(f"- `{field_name}`:")
 
     # Description (now contains both description and guidelines)
     if 'description' in field_data:
-        # Split the combined description by sentences for better formatting
         description = field_data['description']
-        sentences = [s.strip() for s in description.split('.') if s.strip()]
+
+        # Split by periods to create bullet points, but be smart about it
+        import re
+        # Split on ". " followed by a word (but not on periods in filenames like .json)
+        sentences = re.split(r'\.\s+(?=[a-zA-Z(])', description)
+
         for sentence in sentences:
+            sentence = sentence.strip()
             if sentence:
+                # Remove trailing period if exists
+                if sentence.endswith('.'):
+                    sentence = sentence[:-1]
                 lines.append(f"  - {sentence}")
 
     # Example
@@ -142,7 +152,8 @@ def generate_contributing_md(requirements_file, output_file):
     ])
 
     # Add hardcoded example reference since we removed x-examples from schema for strict mode compatibility
-    lines.append("See `entries/special_relativity.json` for a complete, compliant example.")
+    lines.append(
+        "See `entries/special_relativity.json` for a complete, compliant example.")
 
     lines.extend([
         "",

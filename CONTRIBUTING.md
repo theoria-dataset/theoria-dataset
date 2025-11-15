@@ -10,8 +10,7 @@ IMPORTANT: this CONTRIBUTING.md file is auotmatically generated based on the `en
 Each entry of the dataset should be a self contained relevant physics result. They are expressed in JSON format, and the following fields are required in each entry. All entries should be valid according to the schema defined in `schemas/entry.schema.json`.
 
 - **`result_id`:**
-  - Unique identifier that must exactly match the filename (without
-  - json extension)
+  - Unique identifier that must exactly match the filename (without .json extension)
   - Use lowercase letters, numbers, and underscores only
   - Choose descriptive names that clearly identify the physics concept
   - Example:
@@ -24,9 +23,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - **`result_equations`:**
   - List of equations in AsciiMath format
-  - Provide each equation with a unique ID (e
-  - g
-  - , 'eq1', 'eq2')
+  - Provide each equation with a unique ID (e.g., 'eq1', 'eq2')
   - Use AsciiMath format for all equations
   - Example:
     ```json
@@ -43,9 +40,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Assume the reader has a graduate-level understanding of physics
   - Use clear and concise language to explain the significance, usage, and context of the theoretical result
   - Content should include: Definition or main concept, Why it matters in physics, How it's used or where it appears
-  - Avoid derivation steps (covered in the derivation section), dense notation or inline math, empty generalities (e
-  - g
-  - , "This is important in physics"), or overly technical jargon
+  - Avoid derivation steps (covered in the derivation section), dense notation or inline math, empty generalities (e.g., "This is important in physics"), or overly technical jargon
   - If, exceptionally, there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format
   - Example:
     `Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction.`
@@ -65,8 +60,11 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ```
 
 - **`assumptions`:**
-  - Array of assumptions - either assumption IDs that reference globals/assumptions
-  - json, or direct text for entry-specific assumptions
+  - Reference global assumptions by ID from the file globals/assumptions.json (e.g., 'classical_mechanics_framework')
+  - First check if a suitable assumption already exists to avoid duplication
+  - Global assumptions are categorized into three types: (1) principle - core theoretical/mathematical postulates (e.g., 'conservation_laws_valid', 'stationary_action_principle'); (2) empirical - experimentally established facts and measured constants (e.g., 'light_speed_constant', 'electromagnetic_polarization'); (3) approximation - validity restrictions and simplifying modeling choices (e.g., 'classical_mechanics_framework', 'point_mass_approximation')
+  - If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry
+  - See schemas/assumptions.schema.json for the complete structure and browse the file globals/assumptions.json for all existing assumptions
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
@@ -98,10 +96,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Use assert statements to ensure correctnesss
 
 - **`domain`:**
-  - ArXiv category identifier (e
-  - g
-  - , 'gr-qc', 'hep-th') from https://arxiv
-  - org/category_taxonomy
+  - ArXiv category identifier (e.g., 'gr-qc', 'hep-th') from https://arxiv.org/category_taxonomy
   - Use official arXiv taxonomy identifiers
 
 - **`theory_status`:**
@@ -114,14 +109,12 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - `superseded_by`:
   - Theories that supersede or generalize this result
-  - Use exact result_id values (without
-  - json extension)
+  - Use exact result_id values (without .json extension)
   - Must reference existing entries in the dataset
 
 - `approximation_of`:
   - The more general theory this approximates
-  - Use exact result_id value (without
-  - json extension)
+  - Use exact result_id value (without .json extension)
 
 - `historical_context`:
   - Educational context about theory's development

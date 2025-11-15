@@ -783,7 +783,7 @@ select option {
 }
 
 .status-draft {
-  background: #f59e0b;
+  background: #8b5cf6;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -810,19 +810,19 @@ select option {
 
 /* Color-coded backgrounds for AI entries */
 .entry-card-draft {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
-  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+  border-left: 4px solid #8b5cf6;
 }
 
 .latex-dark .entry-card-draft {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-left: 4px solid #8b5cf6;
 }
 
 /* AI Disclaimer Banner */
 .ai-disclaimer-banner {
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-bottom: 1px solid #f59e0b;
+  border-bottom: 1px solid #8b5cf6;
   padding: 0.75rem 1rem;
   position: sticky;
   top: 0;
@@ -832,7 +832,7 @@ select option {
 
 .latex-dark .ai-disclaimer-banner {
   background: linear-gradient(135deg, #92400e 0%, #78350f 100%);
-  border-bottom: 1px solid #f59e0b;
+  border-bottom: 1px solid #8b5cf6;
 }
 
 .ai-disclaimer-content {
@@ -1314,7 +1314,7 @@ select option {
   flex-shrink: 0;
 }
 
-.legend-color.assumption-fundamental {
+.legend-color.assumption-principle {
   background: #22c55e;
 }
 
@@ -1322,11 +1322,7 @@ select option {
   background: #3b82f6;
 }
 
-.legend-color.assumption-simplification {
-  background: #f59e0b;
-}
-
-.legend-color.assumption-regime {
+.legend-color.assumption-approximation {
   background: #8b5cf6;
 }
 
@@ -1358,7 +1354,7 @@ select option {
   background: rgba(6, 182, 212, 0.08);
 }
 
-#assumptions li.assumption-fundamental {
+#assumptions li.assumption-principle {
   border-left-color: #22c55e;
   background: rgba(34, 197, 94, 0.08);
 }
@@ -1368,12 +1364,7 @@ select option {
   background: rgba(59, 130, 246, 0.08);
 }
 
-#assumptions li.assumption-simplification {
-  border-left-color: #f59e0b;
-  background: rgba(245, 158, 11, 0.08);
-}
-
-#assumptions li.assumption-regime {
+#assumptions li.assumption-approximation {
   border-left-color: #8b5cf6;
   background: rgba(139, 92, 246, 0.08);
 }
@@ -1383,7 +1374,7 @@ select option {
   background: rgba(6, 182, 212, 0.12);
 }
 
-.latex-dark #assumptions li.assumption-fundamental {
+.latex-dark #assumptions li.assumption-principle {
   background: rgba(34, 197, 94, 0.12);
 }
 
@@ -1391,10 +1382,6 @@ select option {
   background: rgba(59, 130, 246, 0.12);
 }
 
-.latex-dark #assumptions li.assumption-simplification {
-  background: rgba(245, 158, 11, 0.12);
-}
-
-.latex-dark #assumptions li.assumption-regime {
+.latex-dark #assumptions li.assumption-approximation {
   background: rgba(139, 92, 246, 0.12);
 }

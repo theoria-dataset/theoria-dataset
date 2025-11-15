@@ -279,7 +279,7 @@ class NewEntryForm {
         }
 
         // Add options grouped by type
-        const types = ['fundamental', 'empirical', 'simplification', 'regime'];
+        const types = ['principle', 'empirical', 'approximation'];
         types.forEach(type => {
             const optgroup = document.createElement('optgroup');
             optgroup.label = type.charAt(0).toUpperCase() + type.slice(1) + ' Assumptions';
