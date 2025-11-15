@@ -84,7 +84,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "approximation_of": "general_relativity",
   "historical_context": {
     "importance": "Explains atmospheric and oceanic circulation patterns, important for meteorology and ballistics",
     "development_period": "1835",

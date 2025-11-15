@@ -62,7 +62,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 - **`assumptions`:**
   - Reference global assumptions by ID from the file globals/assumptions.json (e.g., 'classical_mechanics_framework')
   - First check if a suitable assumption already exists to avoid duplication
-  - Global assumptions are categorized into three types: (1) principle - core theoretical/mathematical postulates (e.g., 'conservation_laws_valid', 'stationary_action_principle'); (2) empirical - experimentally established facts and measured constants (e.g., 'light_speed_constant', 'electromagnetic_polarization'); (3) approximation - validity restrictions and simplifying modeling choices (e.g., 'classical_mechanics_framework', 'point_mass_approximation')
+  - Global assumptions are categorized into three types: (1) principle: core theoretical/mathematical postulates (e.g., 'conservation_laws_valid', 'stationary_action_principle'); (2) empirical: experimentally established facts and measured constants (e.g., 'light_speed_constant', 'electromagnetic_polarization'); (3) approximation: validity restrictions and simplifying modeling choices (e.g., 'classical_mechanics_framework', 'point_mass_approximation')
   - If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry
   - See schemas/assumptions.schema.json for the complete structure and browse the file globals/assumptions.json for all existing assumptions
 
@@ -111,10 +111,6 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Theories that supersede or generalize this result
   - Use exact result_id values (without .json extension)
   - Must reference existing entries in the dataset
-
-- `approximation_of`:
-  - The more general theory this approximates
-  - Use exact result_id value (without .json extension)
 
 - `historical_context`:
   - Educational context about theory's development

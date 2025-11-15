@@ -119,7 +119,6 @@
   },
   "domain": "astro-ph",
   "theory_status": "current",
-  "approximation_of": "planck_radiation_law",
   "historical_context": {
     "importance": "Fundamental law of thermal radiation, crucial for stellar physics and thermal engineering",
     "development_period": "1879-1884",

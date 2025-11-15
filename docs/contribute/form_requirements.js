@@ -208,11 +208,6 @@ const FIELD_REQUIREMENTS = {
         "pattern": "^[a-z0-9_]+$"
       }
     },
-    "approximation_of": {
-      "type": "string",
-      "pattern": "^[a-z0-9_]+$",
-      "description": "The more general theory this approximates. Use exact result_id value (without .json extension)."
-    },
     "historical_context": {
       "type": "object",
       "description": "Educational context about theory's development. Provide importance, development period, and key insights.",

@@ -129,7 +129,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "approximation_of": "maxwell_equations",
   "historical_context": {
     "importance": "Useful gauge choice for electromagnetic calculations, simplifies wave equations",
     "development_period": "1895-1900",

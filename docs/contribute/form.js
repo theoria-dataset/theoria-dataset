@@ -247,11 +247,6 @@ class NewEntryForm {
                 document.getElementById('development_period').value = entry.historical_context.development_period;
             }
         }
-
-        // Populate approximation_of
-        if (entry.approximation_of && document.getElementById('approximation_of')) {
-            document.getElementById('approximation_of').value = entry.approximation_of;
-        }
     }
 
     setupEventListeners() {

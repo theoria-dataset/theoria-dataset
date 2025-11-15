@@ -294,7 +294,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "approximation",
-  "approximation_of": "navier_stokes_incompressible",
   "historical_context": {
     "importance": "Cornerstone of fluid mechanics providing the fundamental energy conservation principle for fluid flow; enables analysis of flight, hydraulic systems, and flow measurement devices",
     "development_period": "1738",

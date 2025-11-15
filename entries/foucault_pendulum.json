@@ -56,7 +56,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "limiting_case",
-  "approximation_of": "coriolis_force",
   "historical_context": {
     "importance": "First direct demonstration of Earth's rotation, important for understanding rotating reference frames",
     "development_period": "1851",
