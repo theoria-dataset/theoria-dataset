@@ -177,6 +177,48 @@
       "text": "Particles have well-defined rest masses that do not depend on the reference frame",
       "type": "empirical",
       "used_in": ["relativistic_energy_momentum"]
+    },
+    {
+      "id": "hilbert_space_probability_structure",
+      "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^dagger`. Probabilities can be assigned to these projectors via a probability measure `mu`",
+      "type": "principle",
+      "mathematical_expressions": ["P^2 = P = P^dagger", "mu: {P} -> [0,1]"],
+      "symbol_definitions": [
+        {
+          "symbol": "H",
+          "definition": "Complex Hilbert space of quantum states"
+        },
+        {
+          "symbol": "P",
+          "definition": "Projector (orthogonal projection operator) on `H`, satisfying idempotence and self-adjointness"
+        },
+        {
+          "symbol": "mu",
+          "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
+        }
+      ],
+      "used_in": ["born_rule"]
+    },
+    {
+      "id": "gleason_theorem_conditions",
+      "text": "The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^dagger`) is continuous",
+      "type": "principle",
+      "mathematical_expressions": ["dim(H) >= 3"],
+      "symbol_definitions": [
+        {
+          "symbol": "H",
+          "definition": "Complex Hilbert space of quantum states"
+        },
+        {
+          "symbol": "dim(H)",
+          "definition": "Dimension of the Hilbert space"
+        },
+        {
+          "symbol": "P",
+          "definition": "Projector (orthogonal projection operator) on `H`, satisfying idempotence and self-adjointness"
+        }
+      ],
+      "used_in": ["born_rule"]
     }
   ]
 }
