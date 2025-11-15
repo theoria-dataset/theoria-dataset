@@ -59,34 +59,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics"
-    },
-    {
-      "id": "assumption2",
-      "text": "Well-defined rotation axis"
-    },
-    {
-      "id": "assumption3",
-      "text": "Rigid body approximation (for I×ω form)"
-    },
-    {
-      "id": "assumption4",
-      "text": "Inertial reference frame"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "assumption6",
-      "text": "Position vector is measured from fixed point"
-    },
-    {
-      "id": "assumption7",
-      "text": "Cross product properties"
-    }
+    "Classical mechanics",
+    "Well-defined rotation axis",
+    "Rigid body approximation (for I×ω form)",
+    "Inertial reference frame",
+    "Newton's second law applies",
+    "Position vector is measured from fixed point",
+    "Cross product properties"
   ],
   "derivation": [
     {
@@ -208,20 +187,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics",
-      "Well-defined rotation axes",
-      "Rigid body approximation",
-      "Non-relativistic speeds"
-    ],
-    "limitations": [
-      "Relativistic corrections needed at high speeds",
-      "Quantum angular momentum is quantized",
-      "Deformable body complications",
-      "Precession in non-inertial frames"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th century",
     "importance": "Fundamental conservation law; essential for understanding rotational motion, planetary dynamics, and quantum mechanics",
@@ -241,12 +206,15 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": ["newtons_laws", "conservation_of_momentum"],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws",
+    "conservation_of_momentum"
+  ]
 }

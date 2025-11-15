@@ -43,26 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "assumption3",
-      "text": "Particles are non-interacting (ideal Fermi gas)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Maximum entropy principle applies at thermal equilibrium."
-    },
-    {
-      "id": "assumption5",
-      "text": "Particle number and energy are conserved (grand canonical ensemble)."
-    }
+    "The particles are fermions (half-integer spin) obeying the Pauli exclusion principle.",
+    "The system is in thermal equilibrium at temperature T.",
+    "Particles are non-interacting (ideal Fermi gas).",
+    "Maximum entropy principle applies at thermal equilibrium.",
+    "Particle number and energy are conserved (grand canonical ensemble)."
   ],
   "derivation": [
     {
@@ -149,20 +134,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum statistical mechanics",
-      "Fermions (half-integer spin particles)",
-      "Non-interacting or weakly interacting particles",
-      "Thermal equilibrium"
-    ],
-    "limitations": [
-      "Limited to non-interacting fermions",
-      "Requires quantum mechanical treatment",
-      "May need corrections for strong correlations",
-      "Assumes well-defined chemical potential"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of solid state physics, explains electronic properties of metals and semiconductors",
     "development_period": "1926-1927",
@@ -183,15 +154,15 @@
       "citation": "Dirac, P. A. M. (1926). On the theory of quantum mechanics. *Proceedings of the Royal Society of London*, 112(762), 661-677."
     }
   ],
-  "dependencies": [
-    "pauli_exclusion_principle",
-    "partition_function"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "pauli_exclusion_principle",
+    "partition_function"
+  ]
 }

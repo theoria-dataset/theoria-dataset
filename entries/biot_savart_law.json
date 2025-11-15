@@ -43,22 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The current is steady (time-independent)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The medium is non-magnetic (relative permeability = 1)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations apply for static magnetic fields."
-    },
-    {
-      "id": "assumption4",
-      "text": "The current flows in thin wires (line current approximation)."
-    }
+    "The current is steady (time-independent).",
+    "The medium is non-magnetic (relative permeability = 1).",
+    "Maxwell's equations apply for static magnetic fields.",
+    "The current flows in thin wires (line current approximation)."
   ],
   "derivation": [
     {
@@ -127,20 +115,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Static or quasi-static magnetic fields",
-      "Steady currents",
-      "Classical electromagnetism",
-      "Non-magnetic media"
-    ],
-    "limitations": [
-      "Limited to steady currents (no time-varying fields)",
-      "Classical electromagnetic theory only",
-      "May be difficult to integrate for complex geometries",
-      "Requires extension for magnetic materials"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental law for calculating magnetic fields, complements Ampère's law",
     "development_period": "1820",
@@ -160,15 +134,15 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "amperes_law",
-    "maxwell_equations"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "amperes_law",
+    "maxwell_equations"
+  ]
 }

@@ -35,30 +35,15 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`."
-    },
-    {
-      "id": "assumption2",
-      "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent."
-    },
-    {
-      "id": "assumption3",
-      "text": "The electromagnetic field is quantized into discrete energy levels `E_n = n*h*nu` for each mode, where `n` is the occupation number and `h*nu` is the fundamental quantum of energy."
-    },
-    {
-      "id": "assumption4",
-      "text": "Maxwell's equations govern electromagnetic wave propagation, giving the wave equation and dispersion relation `omega^2 = c^2*k^2`."
-    },
-    {
-      "id": "assumption5",
-      "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Photons are indistinguishable bosonic particles, following Bose-Einstein statistics."
-    }
+    "perfect_blackbody",
+    "thermal_equilibrium",
+    "electromagnetic_field_quantization",
+    "electromagnetic_polarization"
+  ],
+  "dependencies": [
+    "maxwell_equations",
+    "partition_function",
+    "spin_statistics_theorem"
   ],
   "derivation": [
     {
@@ -93,7 +78,7 @@
     },
     {
       "step": 7,
-      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell. Number of lattice points approx (1/8) * 4*pi * R^2 * dR.",
+      "description": "Count modes with frequencies between `nu` and `nu+dnu`: this corresponds to integer points `(n_x, n_y, n_z)` in a spherical shell with `R < sqrt(n_x^2 + n_y^2 + n_z^2) < R+dR`. We use a shell (not full sphere) because we want modes in a specific frequency range, not all modes up to frequency `nu`. Since all `n_i` must be positive integers, we only use 1/8 of the shell, hence the number of lattice points are `N_(sphere)`",
       "equation": "N_(sphere) = (1/8) * (4*pi*R^2) * dR = 1/2*pi*R^2*dR"
     },
     {
@@ -104,7 +89,7 @@
     {
       "step": 9,
       "description": "Substitute `R = 2*L*nu/c` and `dR = (2*L/c)*dnu` from step 6 back into the expression for `N_(all)`.",
-      "equation": "N_(all) = pi*(2*L*nu/c)^2*(2*L*dnu/c) = 8*pi*L^3*nu^2*dnu/c^3"
+      "equation": "N_(all) = pi*(2*L*nu/c)^2*((2*L*dnu)/(c)) = (8*pi*L^3*nu^2*dnu)/(c^3)"
     },
     {
       "step": 10,
@@ -235,20 +220,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Thermal equilibrium",
-      "Black body radiation",
-      "Quantum statistical mechanics regime",
-      "Well-defined temperature and frequency"
-    ],
-    "limitations": [
-      "Limited to ideal black bodies",
-      "Assumes thermal equilibrium",
-      "Classical electromagnetic field treatment",
-      "May need corrections for very high frequencies"
-    ]
-  },
   "historical_context": {
     "importance": "Founded quantum theory, resolved ultraviolet catastrophe, basis of thermal radiation",
     "development_period": "1900-1901",
@@ -265,7 +236,6 @@
       "citation": "Planck, M. (1901). On the Law of Distribution of Energy in the Normal Spectrum. Annalen der Physik, 309(3), 553-563."
     }
   ],
-  "dependencies": ["maxwell_equations", "partition_function"],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

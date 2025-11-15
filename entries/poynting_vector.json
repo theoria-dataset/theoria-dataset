@@ -43,22 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Maxwell's equations apply and the fields are well-defined."
-    },
-    {
-      "id": "assumption2",
-      "text": "The medium is non-magnetic (μ = μ₀) unless otherwise specified."
-    },
-    {
-      "id": "assumption3",
-      "text": "Maxwell's equations hold throughout the region of interest."
-    },
-    {
-      "id": "assumption4",
-      "text": "Energy conservation applies to the electromagnetic field."
-    }
+    "Maxwell's equations apply and the fields are well-defined.",
+    "The medium is non-magnetic (μ = μ₀) unless otherwise specified.",
+    "Maxwell's equations hold throughout the region of interest.",
+    "Energy conservation applies to the electromagnetic field."
   ],
   "derivation": [
     {
@@ -135,20 +123,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Maxwell's equations apply",
-      "Well-defined electric and magnetic fields",
-      "Macroscopic electromagnetic phenomena"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "May need quantum corrections for single photons",
-      "Assumes well-defined local fields",
-      "Limited to continuous media approximation"
-    ]
-  },
   "historical_context": {
     "importance": "Describes electromagnetic energy flow, fundamental for understanding radiation and power transmission",
     "development_period": "1884",
@@ -169,15 +143,15 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "maxwell_equations",
-    "electromagnetic_waves"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "maxwell_equations",
+    "electromagnetic_waves"
+  ]
 }

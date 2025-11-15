@@ -23,22 +23,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable."
-    },
-    {
-      "id": "assumption2",
-      "text": "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3."
-    },
-    {
-      "id": "assumption4",
-      "text": "The functions are sufficiently smooth to perform integration by parts."
-    }
+    "The configuration is described by generalized coordinates `q_i` and Lagrangian `L(q_i, dot q_i, t)` is differentiable.",
+    "Variations of coordinates at the boundary times are zero (`delta q_i(t1) = delta q_i(t2) = 0`).",
+    "Fixed endpoints: `delta q_i(t1) = delta q_i(t2) = 0`, so the boundary term vanishes in step 3.",
+    "The functions are sufficiently smooth to perform integration by parts."
   ],
   "derivation": [
     {
@@ -83,20 +71,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Well-defined Lagrangian exists",
-      "System describable by generalized coordinates",
-      "Smooth functions and classical mechanics",
-      "Variational principle applies"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum effects)",
-      "Requires existence of Lagrangian formulation",
-      "May become complex for constrained systems",
-      "Does not apply to dissipative systems without modification"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of analytical mechanics and field theory, connects symmetries to conservation laws",
     "development_period": "1750-1788",
@@ -123,5 +97,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

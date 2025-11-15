@@ -51,34 +51,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`."
-    },
-    {
-      "id": "assumption2",
-      "text": "Conservative forces are derivable from a potential function `V(q_i, t)`."
-    },
-    {
-      "id": "assumption3",
-      "text": "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities."
-    },
-    {
-      "id": "assumption4",
-      "text": "The system is holonomic, meaning constraints can be expressed as equations relating coordinates."
-    },
-    {
-      "id": "assumption5",
-      "text": "The Lagrangian is twice differentiable with respect to coordinates and velocities."
-    },
-    {
-      "id": "assumption6",
-      "text": "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`."
-    },
-    {
-      "id": "assumption7",
-      "text": "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
-    }
+    "The system can be described by generalized coordinates `q_i` and their time derivatives `dot q_i`.",
+    "Conservative forces are derivable from a potential function `V(q_i, t)`.",
+    "The kinetic energy `T` and potential energy `V` are well-defined functions of the system's coordinates and velocities.",
+    "The system is holonomic, meaning constraints can be expressed as equations relating coordinates.",
+    "The Lagrangian is twice differentiable with respect to coordinates and velocities.",
+    "Variations `delta q_i` vanish at the endpoints: `delta q_i(t_1) = delta q_i(t_2) = 0`.",
+    "The principle of stationary action applies, meaning physical paths are those that make `delta S = 0`."
   ],
   "derivation": [
     {
@@ -161,20 +140,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanical systems",
-      "Well-defined kinetic and potential energies",
-      "Holonomic constraints (if any)",
-      "Differentiable coordinate transformations"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum effects)",
-      "Requires conservative forces or generalized forces from constraints",
-      "May be complex for non-holonomic systems",
-      "Does not naturally handle dissipative forces"
-    ]
-  },
   "historical_context": {
     "importance": "Reformulation of classical mechanics providing deeper insights into symmetries and conservation laws",
     "development_period": "1788-1834",
@@ -199,14 +164,14 @@
       "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann."
     }
   ],
-  "dependencies": [
-    "euler_lagrange_equation"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "euler_lagrange_equation"
+  ]
 }

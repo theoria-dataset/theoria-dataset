@@ -31,27 +31,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The orbiting body behaves as a point mass"
-    },
-    {
-      "id": "assumption2",
-      "text": "The sum of the Kinetic energy and Gravitational Potential energy of the particle remains constant"
-    },
-    {
-      "id": "assumption3",
-      "text": "The only force acting on the particle is the force due to Gravity"
-    },
-    {
-      "id": "assumption4",
-      "text": "The massses of all the bodies in the system remains constant"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservation of angular momentum holds"
-    }
+    "point_mass_approximation",
+    "conservation_laws_valid",
+    "system_isolation"
   ],
+  "dependencies": ["angular_momentum", "gravitational_force"],
   "derivation": [
     {
       "step": 1,
@@ -137,34 +121,16 @@
   },
   "domain": "astro-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic situation",
-      "Orbit is stable",
-      "Orbiting body behaves as a point particle"
-    ],
-    "limitations": [
-      "Limited to non-relativistic situations"
-    ]
-  },
   "historical_context": {
     "importance": "Heavily used in astrophysics and astrodynamics to calculate the velocities of orbiting objects. From this equation one can easily derive other equations such as the formula for escape velocity.",
     "development_period": "1676–1689",
-    "key_insights": [
-      "Orbital velocities",
-      "Conservation of energy in orbits"
-    ]
+    "key_insights": ["Orbital velocities", "Conservation of energy in orbits"]
   },
   "references": [
     {
       "id": "R1",
       "citation": "Logsdon, Thomas S.; Logsdon, Tom (1998). Orbital mechanics: theory and applications."
     }
-  ],
-  "dependencies": [
-    "conservation_of_energy",
-    "angular_momentum",
-    "gravitational_force"
   ],
   "contributors": [
     {

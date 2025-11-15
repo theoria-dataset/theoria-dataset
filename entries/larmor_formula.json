@@ -39,38 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Non-relativistic motion (v << c)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charge approximation."
-    },
-    {
-      "id": "assumption3",
-      "text": "Far-field radiation (observation distance >> wavelength)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical electrodynamics applies."
-    },
-    {
-      "id": "assumption5",
-      "text": "The charge undergoes non-relativistic motion."
-    },
-    {
-      "id": "assumption6",
-      "text": "Radiation is observed in the far-field zone."
-    },
-    {
-      "id": "assumption7",
-      "text": "Classical electromagnetic theory is valid."
-    },
-    {
-      "id": "assumption8",
-      "text": "The charge is a point source."
-    }
+    "Non-relativistic motion (v << c).",
+    "Point charge approximation.",
+    "Far-field radiation (observation distance >> wavelength).",
+    "Classical electrodynamics applies.",
+    "The charge undergoes non-relativistic motion.",
+    "Radiation is observed in the far-field zone.",
+    "Classical electromagnetic theory is valid.",
+    "The charge is a point source."
   ],
   "derivation": [
     {
@@ -208,20 +184,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic motion (v << c)",
-      "Point charge approximation",
-      "Classical electrodynamics",
-      "Far-field observation"
-    ],
-    "limitations": [
-      "Relativistic corrections needed for high velocities",
-      "Finite size effects for extended charges",
-      "Quantum effects ignored",
-      "Radiation reaction effects not included"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental formula for electromagnetic radiation, explains classical electron instability and forms basis for antenna theory and synchrotron radiation",
     "development_period": "1897",
@@ -242,15 +204,15 @@
       "citation": "Jackson, J. D. (1998). *Classical Electrodynamics* (3rd ed.). Wiley."
     }
   ],
-  "dependencies": [
-    "electromagnetic_waves",
-    "poynting_vector"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electromagnetic_waves",
+    "poynting_vector"
+  ]
 }

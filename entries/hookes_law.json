@@ -55,38 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Small displacements from equilibrium"
-    },
-    {
-      "id": "assumption2",
-      "text": "Linear elastic regime"
-    },
-    {
-      "id": "assumption3",
-      "text": "No plastic deformation"
-    },
-    {
-      "id": "assumption4",
-      "text": "Constant spring constant"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative force field"
-    },
-    {
-      "id": "assumption6",
-      "text": "Potential energy is well-defined"
-    },
-    {
-      "id": "assumption7",
-      "text": "Force derivable from potential"
-    },
-    {
-      "id": "assumption8",
-      "text": "Quadratic potential energy"
-    }
+    "Small displacements from equilibrium",
+    "Linear elastic regime",
+    "No plastic deformation",
+    "Constant spring constant",
+    "Conservative force field",
+    "Potential energy is well-defined",
+    "Force derivable from potential",
+    "Quadratic potential energy"
   ],
   "derivation": [
     {
@@ -183,20 +159,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Small deformations (elastic regime)",
-      "Linear elastic materials",
-      "Constant temperature",
-      "Static or quasi-static loading"
-    ],
-    "limitations": [
-      "Breaks down for large deformations",
-      "Not applicable in plastic regime",
-      "Fails for viscoelastic materials",
-      "May not hold at very high frequencies"
-    ]
-  },
   "historical_context": {
     "development_period": "17th century",
     "importance": "Foundation of elasticity theory and mechanical engineering; enables understanding of springs, structural materials, and oscillatory systems",
@@ -217,12 +179,12 @@
       "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": [],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

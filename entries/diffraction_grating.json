@@ -43,38 +43,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Plane wave incidence (or far-field conditions)."
-    },
-    {
-      "id": "assumption2",
-      "text": "All slits have the same width and spacing."
-    },
-    {
-      "id": "assumption3",
-      "text": "Normal incidence (angle modifications needed for oblique incidence)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Far-field observation (Fraunhofer diffraction)."
-    },
-    {
-      "id": "assumption5",
-      "text": "Far-field diffraction (Fraunhofer conditions)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Uniform illumination of all slits."
-    },
-    {
-      "id": "assumption7",
-      "text": "Small angle approximation may apply for angular dispersion."
-    },
-    {
-      "id": "assumption8",
-      "text": "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line)."
-    }
+    "Plane wave incidence (or far-field conditions).",
+    "All slits have the same width and spacing.",
+    "Normal incidence (angle modifications needed for oblique incidence).",
+    "Far-field observation (Fraunhofer diffraction).",
+    "Far-field diffraction (Fraunhofer conditions).",
+    "Uniform illumination of all slits.",
+    "Small angle approximation may apply for angular dispersion.",
+    "Rayleigh criterion for resolution (principal maximum of one line coincides with first minimum of adjacent line)."
   ],
   "derivation": [
     {
@@ -215,20 +191,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Far-field (Fraunhofer) diffraction conditions",
-      "Uniform grating with identical slits",
-      "Coherent monochromatic illumination",
-      "Plane wave incidence"
-    ],
-    "limitations": [
-      "Near-field effects for close observation",
-      "Finite slit width effects",
-      "Non-uniform illumination",
-      "Oblique incidence requires modified equations"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental tool for spectroscopy and wavelength measurement, enabling precise analysis of light composition and atomic spectra",
     "development_period": "1785-1821",
@@ -249,15 +211,15 @@
       "citation": "Born, M., & Wolf, E. (1999). *Principles of Optics* (7th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "waves_interference",
-    "young_double_slit"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "waves_interference",
+    "young_double_slit"
+  ]
 }

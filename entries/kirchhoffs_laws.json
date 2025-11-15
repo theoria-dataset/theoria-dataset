@@ -47,38 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Circuit elements are lumped (not distributed)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Quasi-static conditions (frequencies low enough)"
-    },
-    {
-      "id": "assumption3",
-      "text": "Conservation of charge and energy"
-    },
-    {
-      "id": "assumption4",
-      "text": "No time-varying magnetic fields threading loops"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservation of electric charge"
-    },
-    {
-      "id": "assumption6",
-      "text": "Conservation of energy"
-    },
-    {
-      "id": "assumption7",
-      "text": "Electrostatic field is conservative"
-    },
-    {
-      "id": "assumption8",
-      "text": "No accumulation of charge at nodes"
-    }
+    "Circuit elements are lumped (not distributed)",
+    "Quasi-static conditions (frequencies low enough)",
+    "Conservation of charge and energy",
+    "No time-varying magnetic fields threading loops",
+    "Conservation of electric charge",
+    "Conservation of energy",
+    "Electrostatic field is conservative",
+    "No accumulation of charge at nodes"
   ],
   "derivation": [
     {
@@ -164,20 +140,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Lumped parameter circuits",
-      "DC or low frequency AC analysis",
-      "No distributed effects",
-      "Conservation of charge and energy apply"
-    ],
-    "limitations": [
-      "High frequency circuits (transmission line effects)",
-      "Distributed parameter systems",
-      "Quantum circuits",
-      "Very fast transients"
-    ]
-  },
   "historical_context": {
     "development_period": "1845",
     "importance": "Fundamental laws for electrical circuit analysis; enables systematic solution of complex networks",
@@ -198,14 +160,14 @@
       "citation": "Alexander, C. K., & Sadiku, M. N. O. (2016). Fundamentals of Electric Circuits. McGraw-Hill Education."
     }
   ],
-  "dependencies": [
-    "ohms_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "ohms_law"
+  ]
 }

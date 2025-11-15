@@ -67,38 +67,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Closed system"
-    },
-    {
-      "id": "assumption2",
-      "text": "Conservative forces only (for mechanical energy)"
-    },
-    {
-      "id": "assumption3",
-      "text": "No non-conservative work (for mechanical energy conservation)"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics regime"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative forces"
-    },
-    {
-      "id": "assumption6",
-      "text": "Work-energy theorem applies"
-    },
-    {
-      "id": "assumption7",
-      "text": "Potential energy is well-defined"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics"
-    }
+    "Closed system",
+    "Conservative forces only (for mechanical energy)",
+    "No non-conservative work (for mechanical energy conservation)",
+    "Classical mechanics regime",
+    "Conservative forces",
+    "Work-energy theorem applies",
+    "Potential energy is well-defined",
+    "Classical mechanics"
   ],
   "derivation": [
     {
@@ -215,20 +191,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Closed system",
-      "Classical mechanics regime",
-      "Well-defined energy forms",
-      "Time-independent Hamiltonian"
-    ],
-    "limitations": [
-      "Open systems require energy accounting",
-      "Relativistic corrections needed at high speeds",
-      "Quantum mechanics may show energy-time uncertainty",
-      "Non-conservative forces cause mechanical energy loss"
-    ]
-  },
   "historical_context": {
     "development_period": "19th century",
     "importance": "Fundamental principle underlying thermodynamics, mechanics, and all of physics; led to understanding of heat as energy",
@@ -249,15 +211,15 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (2013). The Feynman Lectures on Physics. Basic Books."
     }
   ],
-  "dependencies": [
-    "newtons_laws",
-    "work_energy_theorem"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws",
+    "work_energy_theorem"
+  ]
 }

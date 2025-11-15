@@ -47,38 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear medium"
-    },
-    {
-      "id": "assumption2",
-      "text": "Homogeneous medium"
-    },
-    {
-      "id": "assumption3",
-      "text": "Constant wave speed"
-    },
-    {
-      "id": "assumption4",
-      "text": "No dispersion"
-    },
-    {
-      "id": "assumption5",
-      "text": "Small amplitude approximation"
-    },
-    {
-      "id": "assumption6",
-      "text": "Elastic medium properties"
-    },
-    {
-      "id": "assumption7",
-      "text": "No energy loss"
-    },
-    {
-      "id": "assumption8",
-      "text": "Continuous medium"
-    }
+    "Linear medium",
+    "Homogeneous medium",
+    "Constant wave speed",
+    "No dispersion",
+    "Small amplitude approximation",
+    "Elastic medium properties",
+    "No energy loss",
+    "Continuous medium"
   ],
   "derivation": [
     {
@@ -172,19 +148,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Linear systems",
-      "Homogeneous media",
-      "Non-dispersive media",
-      "Small amplitude approximation"
-    ],
-    "limitations": [
-      "Breaks down for large amplitudes",
-      "Not applicable to nonlinear media",
-      "Ignores dispersion effects"
-    ]
-  },
   "historical_context": {
     "development_period": "18th century",
     "importance": "Fundamental equation describing wave propagation; foundation for acoustics, electromagnetism, and quantum mechanics",
@@ -205,12 +168,12 @@
       "citation": "Strauss, W. A. (2007). Partial Differential Equations: An Introduction. Wiley."
     }
   ],
-  "dependencies": [],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

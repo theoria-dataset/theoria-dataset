@@ -47,22 +47,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The nucleus can be separated into individual protons and neutrons."
-    },
-    {
-      "id": "assumption2",
-      "text": "Mass-energy equivalence (E = mc²) applies."
-    },
-    {
-      "id": "assumption3",
-      "text": "The mass of separated nucleons is greater than the bound nucleus mass."
-    },
-    {
-      "id": "assumption4",
-      "text": "Electron binding energies are negligible compared to nuclear binding energy."
-    }
+    "The nucleus can be separated into individual protons and neutrons.",
+    "Mass-energy equivalence (E = mc²) applies.",
+    "The mass of separated nucleons is greater than the bound nucleus mass.",
+    "Electron binding energies are negligible compared to nuclear binding energy."
   ],
   "derivation": [
     {
@@ -129,20 +117,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Nuclear physics regime",
-      "Well-defined nuclear masses",
-      "Relativistic mass-energy relation applies",
-      "Collective nuclear properties"
-    ],
-    "limitations": [
-      "Semi-empirical models for complex nuclei",
-      "Does not explain detailed nuclear structure",
-      "Classical treatment of nuclear binding",
-      "May need quantum corrections for light nuclei"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of nuclear physics, explains nuclear stability and energy release",
     "development_period": "1920-1935",
@@ -163,14 +137,14 @@
       "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
     }
   ],
-  "dependencies": [
-    "mass_energy_equivalence"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "mass_energy_equivalence"
+  ]
 }

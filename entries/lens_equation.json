@@ -55,38 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The lens is thin compared to object and image distances."
-    },
-    {
-      "id": "assumption2",
-      "text": "Light rays make small angles with the optical axis (paraxial approximation)."
-    },
-    {
-      "id": "assumption3",
-      "text": "The lens has uniform refractive index and spherical surfaces."
-    },
-    {
-      "id": "assumption4",
-      "text": "Monochromatic light (no chromatic aberration considered)."
-    },
-    {
-      "id": "assumption5",
-      "text": "Paraxial rays (small angle approximation)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Thin lens approximation (lens thickness negligible)."
-    },
-    {
-      "id": "assumption7",
-      "text": "Spherical lens surfaces."
-    },
-    {
-      "id": "assumption8",
-      "text": "Homogeneous lens material."
-    }
+    "The lens is thin compared to object and image distances.",
+    "Light rays make small angles with the optical axis (paraxial approximation).",
+    "The lens has uniform refractive index and spherical surfaces.",
+    "Monochromatic light (no chromatic aberration considered).",
+    "Paraxial rays (small angle approximation).",
+    "Thin lens approximation (lens thickness negligible).",
+    "Spherical lens surfaces.",
+    "Homogeneous lens material."
   ],
   "derivation": [
     {
@@ -208,20 +184,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Paraxial approximation (small angles)",
-      "Thin lens (thickness << object/image distances)",
-      "Monochromatic light",
-      "Homogeneous lens material"
-    ],
-    "limitations": [
-      "Spherical aberration for large apertures",
-      "Chromatic aberration for white light",
-      "Thick lens effects for large thickness",
-      "Non-paraxial rays show aberrations"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of geometric optics, enabling design of optical instruments and understanding of human vision",
     "development_period": "17th century",
@@ -242,15 +204,15 @@
       "citation": "Born, M., & Wolf, E. (1999). *Principles of Optics* (7th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "snells_law",
-    "electromagnetic_waves"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "snells_law",
+    "electromagnetic_waves"
+  ]
 }

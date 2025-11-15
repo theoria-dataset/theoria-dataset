@@ -31,34 +31,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The crystal consists of parallel planes of atoms with uniform spacing d."
-    },
-    {
-      "id": "assumption2",
-      "text": "X-rays are treated as waves with well-defined wavelength λ."
-    },
-    {
-      "id": "assumption3",
-      "text": "Elastic scattering (no energy loss) occurs at each lattice plane."
-    },
-    {
-      "id": "assumption4",
-      "text": "The crystal is perfect with no defects or thermal motion considered."
-    },
-    {
-      "id": "assumption5",
-      "text": "X-rays reflect specularly from each crystal plane."
-    },
-    {
-      "id": "assumption6",
-      "text": "The incident beam is monochromatic with single wavelength."
-    },
-    {
-      "id": "assumption7",
-      "text": "Crystal planes are perfectly flat and parallel."
-    }
+    "The crystal consists of parallel planes of atoms with uniform spacing d.",
+    "X-rays are treated as waves with well-defined wavelength λ.",
+    "Elastic scattering (no energy loss) occurs at each lattice plane.",
+    "The crystal is perfect with no defects or thermal motion considered.",
+    "X-rays reflect specularly from each crystal plane.",
+    "The incident beam is monochromatic with single wavelength.",
+    "Crystal planes are perfectly flat and parallel."
   ],
   "derivation": [
     {
@@ -139,20 +118,6 @@
   },
   "domain": "physics.atom-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "X-ray wavelength comparable to interatomic spacing",
-      "Perfect crystal structure with well-defined planes",
-      "Elastic scattering (no inelastic effects)",
-      "Kinematic diffraction (weak scattering)"
-    ],
-    "limitations": [
-      "Fails for highly defected or amorphous materials",
-      "Dynamic diffraction effects in thick crystals",
-      "Thermal motion reduces diffraction intensity",
-      "Multiple scattering in complex structures"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of X-ray crystallography, enabling determination of crystal structures and revolutionizing materials science and structural biology",
     "development_period": "1912-1913",
@@ -173,15 +138,15 @@
       "citation": "Warren, B. E. (1990). *X-ray Diffraction*. Dover Publications."
     }
   ],
-  "dependencies": [
-    "electromagnetic_waves",
-    "waves_interference"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electromagnetic_waves",
+    "waves_interference"
+  ]
 }

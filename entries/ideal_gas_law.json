@@ -59,42 +59,15 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Point particles (negligible molecular size)"
-    },
-    {
-      "id": "assumption2",
-      "text": "No intermolecular forces"
-    },
-    {
-      "id": "assumption3",
-      "text": "Elastic collisions only"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics applies"
-    },
-    {
-      "id": "assumption5",
-      "text": "Thermal equilibrium"
-    },
-    {
-      "id": "assumption6",
-      "text": "Kinetic theory of gases"
-    },
-    {
-      "id": "assumption7",
-      "text": "Statistical mechanics principles"
-    },
-    {
-      "id": "assumption8",
-      "text": "Perfect gas approximation"
-    },
-    {
-      "id": "assumption9",
-      "text": "Maxwell-Boltzmann distribution"
-    }
+    "Point particles (negligible molecular size)",
+    "No intermolecular forces",
+    "Elastic collisions only",
+    "Classical mechanics applies",
+    "Thermal equilibrium",
+    "Kinetic theory of gases",
+    "Statistical mechanics principles",
+    "Perfect gas approximation",
+    "Maxwell-Boltzmann distribution"
   ],
   "derivation": [
     {
@@ -185,20 +158,6 @@
   },
   "domain": "physics.cond-mat",
   "theory_status": "approximation",
-  "validity_regime": {
-    "conditions": [
-      "Low pressure (P << critical pressure)",
-      "High temperature (T >> critical temperature)",
-      "Non-polar gases",
-      "Dilute gas approximation"
-    ],
-    "limitations": [
-      "Fails at high pressures due to finite molecular size",
-      "Fails at low temperatures due to intermolecular forces",
-      "Polar molecules show deviations",
-      "Phase transitions not described"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th centuries",
     "importance": "Fundamental equation in thermodynamics and statistical mechanics; basis for understanding gas behavior and kinetic theory",
@@ -219,14 +178,14 @@
       "citation": "Maxwell, J. C. (1867). 'On the dynamical theory of gases.' Philosophical Transactions of the Royal Society, 157, 49-88."
     }
   ],
-  "dependencies": [
-    "kinetic_theory"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "kinetic_theory"
+  ]
 }

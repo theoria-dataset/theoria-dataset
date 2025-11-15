@@ -59,38 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical electromagnetism (non-relativistic limit)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Steady currents (magnetostatics)"
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear, isotropic media"
-    },
-    {
-      "id": "assumption4",
-      "text": "No magnetic monopoles"
-    },
-    {
-      "id": "assumption5",
-      "text": "Maxwell's equations in magnetostatic limit"
-    },
-    {
-      "id": "assumption6",
-      "text": "Principle of superposition applies"
-    },
-    {
-      "id": "assumption7",
-      "text": "Current conservation (∇·J = 0)"
-    },
-    {
-      "id": "assumption8",
-      "text": "No time-varying electric fields"
-    }
+    "Classical electromagnetism (non-relativistic limit)",
+    "Steady currents (magnetostatics)",
+    "Linear, isotropic media",
+    "No magnetic monopoles",
+    "Maxwell's equations in magnetostatic limit",
+    "Principle of superposition applies",
+    "Current conservation (∇·J = 0)",
+    "No time-varying electric fields"
   ],
   "derivation": [
     {
@@ -164,20 +140,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Magnetostatic regime (steady currents)",
-      "Classical treatment (no quantum effects)",
-      "Linear magnetic media or vacuum",
-      "Non-relativistic velocities"
-    ],
-    "limitations": [
-      "Time-varying fields require Maxwell's equations",
-      "Relativistic effects ignored at high velocities",
-      "Quantum magnetic effects neglected",
-      "Breakdown in nonlinear magnetic materials"
-    ]
-  },
   "historical_context": {
     "development_period": "19th century",
     "importance": "Fundamental field in electromagnetism; essential for understanding electromagnetic phenomena and applications",
@@ -198,15 +160,15 @@
       "citation": "Griffiths, D. J. (2017). Introduction to Electrodynamics. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "electric_field",
-    "lorentz_force"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "lorentz_force"
+  ]
 }

@@ -39,22 +39,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C."
-    },
-    {
-      "id": "assumption2",
-      "text": "All processes in the Carnot cycle are reversible (quasi-static and frictionless)."
-    },
-    {
-      "id": "assumption3",
-      "text": "The second law of thermodynamics applies (entropy of universe cannot decrease)."
-    },
-    {
-      "id": "assumption4",
-      "text": "The reservoirs are large enough that their temperatures remain constant."
-    }
+    "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C.",
+    "All processes in the Carnot cycle are reversible (quasi-static and frictionless).",
+    "The second law of thermodynamics applies (entropy of universe cannot decrease).",
+    "The reservoirs are large enough that their temperatures remain constant."
   ],
   "derivation": [
     {
@@ -141,20 +129,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical thermodynamics",
-      "Well-defined thermal reservoirs",
-      "Reversible processes (theoretical limit)",
-      "Temperature difference between reservoirs"
-    ],
-    "limitations": [
-      "Theoretical maximum (real engines have additional losses)",
-      "Requires reversible processes (impossible in practice)",
-      "Classical thermodynamics only",
-      "Assumes ideal thermal reservoirs"
-    ]
-  },
   "historical_context": {
     "importance": "Establishes fundamental limit on heat engine efficiency, cornerstone of thermodynamics",
     "development_period": "1824",
@@ -175,15 +149,15 @@
       "citation": "Clausius, R. (1850). Ueber die bewegende Kraft der Wärme. *Annalen der Physik*, 155(3), 368-397."
     }
   ],
-  "dependencies": [
-    "second_law_thermodynamics_clausius",
-    "first_law_thermodynamics"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "second_law_thermodynamics_clausius",
+    "first_law_thermodynamics"
+  ]
 }

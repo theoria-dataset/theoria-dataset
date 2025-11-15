@@ -43,26 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The equation describes a free spinless particle in flat spacetime."
-    },
-    {
-      "id": "assumption2",
-      "text": "The wave function `phi` represents a scalar field."
-    },
-    {
-      "id": "assumption3",
-      "text": "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity."
-    },
-    {
-      "id": "assumption4",
-      "text": "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`."
-    },
-    {
-      "id": "assumption5",
-      "text": "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
-    }
+    "The equation describes a free spinless particle in flat spacetime.",
+    "The wave function `phi` represents a scalar field.",
+    "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity.",
+    "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`.",
+    "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
   ],
   "derivation": [
     {
@@ -166,20 +151,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Relativistic quantum mechanics",
-      "Spin-0 particles",
-      "Free particles or in external fields",
-      "Single particle approximation"
-    ],
-    "limitations": [
-      "Does not account for particle creation/annihilation",
-      "Single particle interpretation problematic",
-      "Negative energy solutions require field quantization",
-      "Superseded by quantum field theory for multi-particle systems"
-    ]
-  },
   "superseded_by": [
     "qed_lagrangian"
   ],
@@ -212,5 +183,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

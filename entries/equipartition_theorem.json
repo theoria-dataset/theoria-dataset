@@ -35,38 +35,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "assumption2",
-      "text": "Classical statistical mechanics applies (no quantum effects)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Each degree of freedom appears quadratically in the Hamiltonian."
-    },
-    {
-      "id": "assumption4",
-      "text": "The potential energy has no infinite barriers or singular behavior."
-    },
-    {
-      "id": "assumption5",
-      "text": "The canonical ensemble describes the system in thermal equilibrium."
-    },
-    {
-      "id": "assumption6",
-      "text": "Integration by parts can be applied and boundary terms vanish."
-    },
-    {
-      "id": "assumption7",
-      "text": "The Hamiltonian is quadratic in each degree of freedom."
-    },
-    {
-      "id": "assumption8",
-      "text": "The system has sufficient degrees of freedom for statistical treatment."
-    }
+    "The system is in thermal equilibrium at temperature T.",
+    "Classical statistical mechanics applies (no quantum effects).",
+    "Each degree of freedom appears quadratically in the Hamiltonian.",
+    "The potential energy has no infinite barriers or singular behavior.",
+    "The canonical ensemble describes the system in thermal equilibrium.",
+    "Integration by parts can be applied and boundary terms vanish.",
+    "The Hamiltonian is quadratic in each degree of freedom.",
+    "The system has sufficient degrees of freedom for statistical treatment."
   ],
   "derivation": [
     {
@@ -239,5 +215,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

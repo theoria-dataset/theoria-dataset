@@ -59,34 +59,13 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Natural units are used, setting `c = hbar = 1`."
-    },
-    {
-      "id": "assumption2",
-      "text": "The space-time metric is Minkowskian with signature (+,−,−,−)."
-    },
-    {
-      "id": "assumption3",
-      "text": "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`."
-    },
-    {
-      "id": "assumption4",
-      "text": "Local U(1) gauge invariance dictates the interaction structure."
-    },
-    {
-      "id": "assumption5",
-      "text": "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions."
-    },
-    {
-      "id": "assumption6",
-      "text": "Flat Minkowski space-time with metric `g_(mu nu)`."
-    },
-    {
-      "id": "assumption7",
-      "text": "Natural units `c = hbar = 1` are employed."
-    }
+    "Natural units are used, setting `c = hbar = 1`.",
+    "The space-time metric is Minkowskian with signature (+,−,−,−).",
+    "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`.",
+    "Local U(1) gauge invariance dictates the interaction structure.",
+    "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions.",
+    "Flat Minkowski space-time with metric `g_(mu nu)`.",
+    "Natural units `c = hbar = 1` are employed."
   ],
   "derivation": [
     {
@@ -167,20 +146,6 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum field theory regime",
-      "Electromagnetic interactions",
-      "Relativistic energies",
-      "Perturbative regime (weak coupling)"
-    ],
-    "limitations": [
-      "Perturbative approach may fail at strong coupling",
-      "Does not include weak or strong nuclear forces",
-      "Renormalization required for loop calculations",
-      "Classical gravity not included"
-    ]
-  },
   "historical_context": {
     "importance": "Most precisely tested theory in physics, foundation of quantum field theory",
     "development_period": "1940-1950",
@@ -206,16 +171,16 @@
       "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
     }
   ],
-  "dependencies": [
-    "dirac_equation_em",
-    "maxwell_equations",
-    "noethers_theorem"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
+  ]
 }

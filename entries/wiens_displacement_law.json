@@ -27,30 +27,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The object behaves as an ideal blackbody (perfect absorber and emitter)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The object is in thermodynamic equilibrium."
-    },
-    {
-      "id": "assumption3",
-      "text": "The emission spectrum follows Planck's blackbody radiation law."
-    },
-    {
-      "id": "assumption4",
-      "text": "Planck's law for blackbody radiation accurately describes the spectral energy distribution."
-    },
-    {
-      "id": "assumption5",
-      "text": "The maximum of the spectral radiance occurs where the derivative with respect to wavelength equals zero."
-    },
-    {
-      "id": "assumption6",
-      "text": "The transcendental equation `e^x*(5 - x) = 5` has a solution at `x ≈ 4.965`."
-    }
+    "The object behaves as an ideal blackbody (perfect absorber and emitter).",
+    "The object is in thermodynamic equilibrium.",
+    "The emission spectrum follows Planck's blackbody radiation law.",
+    "Planck's law for blackbody radiation accurately describes the spectral energy distribution.",
+    "The maximum of the spectral radiance occurs where the derivative with respect to wavelength equals zero.",
+    "The transcendental equation `e^x*(5 - x) = 5` has a solution at `x ≈ 4.965`."
   ],
   "derivation": [
     {
@@ -204,5 +186,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

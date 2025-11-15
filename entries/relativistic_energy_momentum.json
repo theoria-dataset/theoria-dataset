@@ -59,23 +59,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Energy and momentum conservation hold in relativistic mechanics."
-    },
-    {
-      "id": "assumption2",
-      "text": "The speed of light in vacuum is constant and represents the universal speed limit."
-    },
-    {
-      "id": "assumption3",
-      "text": "Spacetime is flat (no gravitational effects considered)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Particles have well-defined rest masses."
-    }
+    "conservation_laws_valid",
+    "light_speed_constant",
+    "flat_spacetime",
+    "well_defined_rest_mass"
   ],
+  "dependencies": [],
   "derivation": [
     {
       "step": 1,
@@ -269,20 +258,9 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Inertial reference frames (no acceleration)",
-      "Flat spacetime (negligible gravitational effects)",
-      "Velocities comparable to speed of light",
-      "Well-defined rest masses"
-    ],
-    "limitations": [
-      "Does not account for gravitational effects",
-      "Limited to inertial frames",
-      "Superseded by general relativity in curved spacetime"
-    ]
-  },
-  "superseded_by": ["einstein_field_equations"],
+  "superseded_by": [
+    "einstein_field_equations"
+  ],
   "historical_context": {
     "importance": "Revolutionary unification of mass and energy, foundation of modern physics",
     "development_period": "1905",

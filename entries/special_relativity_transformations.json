@@ -79,23 +79,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The principle of relativity: the laws of physics are the same in all inertial reference frames."
-    },
-    {
-      "id": "assumption2",
-      "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer."
-    },
-    {
-      "id": "assumption3",
-      "text": "Spacetime is flat (no gravitational effects considered)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Reference frames move with constant relative velocity (no acceleration)."
-    }
+    "inertial_reference_frame",
+    "light_speed_constant",
+    "classical_mechanics_framework",
+    "constant_relative_velocity"
   ],
+  "dependencies": [],
   "derivation": [
     {
       "step": 1,
@@ -264,18 +253,6 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Inertial reference frames (no acceleration)",
-      "Flat spacetime (negligible gravitational effects)",
-      "Velocities comparable to speed of light"
-    ],
-    "limitations": [
-      "Does not account for gravitational effects",
-      "Limited to inertial frames",
-      "Superseded by general relativity in curved spacetime"
-    ]
-  },
   "superseded_by": ["einstein_field_equations"],
   "historical_context": {
     "importance": "Revolutionary unification of space and time into spacetime",

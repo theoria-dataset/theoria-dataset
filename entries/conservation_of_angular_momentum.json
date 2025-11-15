@@ -39,22 +39,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "No external torques act on the system (`vec tau_ext = 0`)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can be treated as a collection of particles or rigid bodies."
-    },
-    {
-      "id": "assumption3",
-      "text": "Newton's laws apply to each particle in the system."
-    },
-    {
-      "id": "assumption4",
-      "text": "Internal forces between particles obey Newton's third law."
-    }
+    "No external torques act on the system (`vec tau_ext = 0`).",
+    "The system can be treated as a collection of particles or rigid bodies.",
+    "Newton's laws apply to each particle in the system.",
+    "Internal forces between particles obey Newton's third law."
   ],
   "derivation": [
     {
@@ -120,20 +108,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics",
-      "Well-defined rotation axis",
-      "No external torques or known external torques",
-      "Inertial reference frame"
-    ],
-    "limitations": [
-      "Classical mechanics only (relativistic corrections needed at high speeds)",
-      "Requires well-defined rotation axis",
-      "May be complex for deformable bodies",
-      "Quantum mechanical corrections needed for microscopic systems"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental conservation law, explains planetary motion and rotational dynamics",
     "development_period": "1600s-1700s",
@@ -154,15 +128,15 @@
       "citation": "Taylor, J. R. (2005). *Classical Mechanics*. University Science Books."
     }
   ],
-  "dependencies": [
-    "conservation_of_momentum",
-    "newtons_second_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_momentum",
+    "newtons_second_law"
+  ]
 }

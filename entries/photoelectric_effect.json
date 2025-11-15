@@ -55,38 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Photons behave as discrete energy packets"
-    },
-    {
-      "id": "assumption2",
-      "text": "One photon interacts with one electron"
-    },
-    {
-      "id": "assumption3",
-      "text": "Energy conservation applies"
-    },
-    {
-      "id": "assumption4",
-      "text": "Quantum mechanical description"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation in photon-electron interaction"
-    },
-    {
-      "id": "assumption6",
-      "text": "Einstein's photon hypothesis"
-    },
-    {
-      "id": "assumption7",
-      "text": "Work function is material-dependent constant"
-    },
-    {
-      "id": "assumption8",
-      "text": "Instantaneous emission process"
-    }
+    "Photons behave as discrete energy packets",
+    "One photon interacts with one electron",
+    "Energy conservation applies",
+    "Quantum mechanical description",
+    "Energy conservation in photon-electron interaction",
+    "Einstein's photon hypothesis",
+    "Work function is material-dependent constant",
+    "Instantaneous emission process"
   ],
   "derivation": [
     {
@@ -165,20 +141,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum regime (individual photons)",
-      "Non-relativistic electrons",
-      "Single-photon processes",
-      "Weak-field approximation"
-    ],
-    "limitations": [
-      "Multi-photon effects at high intensity",
-      "Relativistic effects for high-energy photons",
-      "Band structure effects in semiconductors",
-      "Surface effects and contamination"
-    ]
-  },
   "historical_context": {
     "development_period": "1905",
     "importance": "Key evidence for quantum nature of light; led to development of quantum mechanics",
@@ -199,14 +161,14 @@
       "citation": "Millikan, R. A. (1916). 'A direct photoelectric determination of Planck's \"h\".' Physical Review, 7, 355-388."
     }
   ],
-  "dependencies": [
-    "plancks_quantum_hypothesis"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "plancks_quantum_hypothesis"
+  ]
 }

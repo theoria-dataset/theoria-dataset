@@ -47,30 +47,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle is free (no external electromagnetic or gravitational fields)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
-    },
-    {
-      "id": "assumption3",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
-    },
-    {
-      "id": "assumption4",
-      "text": "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`."
-    },
-    {
-      "id": "assumption5",
-      "text": "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density."
-    },
-    {
-      "id": "assumption6",
-      "text": "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
-    }
+    "The particle is free (no external electromagnetic or gravitational fields).",
+    "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
+    "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
+    "Special relativity's energy–momentum relation `E^2 = p^2*c^2 + m^2*c^4`.",
+    "Desire for a first-order (linear) differential equation in both time and space derivatives to ensure positive-definite probability density.",
+    "Existence of matrices `alpha_i` and `beta` acting on an internal spinor space such that their algebra reproduces the quadratic relation in step 1 when squared."
   ],
   "derivation": [
     {
@@ -145,20 +127,6 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Relativistic quantum mechanics",
-      "Single particle approximation",
-      "Spin-1/2 fermions",
-      "Free particles (no interactions)"
-    ],
-    "limitations": [
-      "Single particle theory (no field quantization)",
-      "Does not describe particle creation/annihilation",
-      "Limited to free particles without interactions",
-      "Superseded by quantum field theory for multi-particle systems"
-    ]
-  },
   "superseded_by": [
     "qed_lagrangian"
   ],
@@ -186,14 +154,14 @@
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
   ],
-  "dependencies": [
-    "klein_gordon_equation"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "klein_gordon_equation"
+  ]
 }

@@ -59,38 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Point masses or spherically symmetric mass distributions"
-    },
-    {
-      "id": "assumption2",
-      "text": "No other forces acting (isolated system)"
-    },
-    {
-      "id": "assumption3",
-      "text": "Non-relativistic regime (weak gravitational fields)"
-    },
-    {
-      "id": "assumption4",
-      "text": "Static or slowly varying system"
-    },
-    {
-      "id": "assumption5",
-      "text": "Force is empirically observed to follow inverse square law"
-    },
-    {
-      "id": "assumption6",
-      "text": "Force is proportional to both masses"
-    },
-    {
-      "id": "assumption7",
-      "text": "Gravitational force is conservative"
-    },
-    {
-      "id": "assumption8",
-      "text": "Potential energy is zero at infinite separation"
-    }
+    "Point masses or spherically symmetric mass distributions",
+    "No other forces acting (isolated system)",
+    "Non-relativistic regime (weak gravitational fields)",
+    "Static or slowly varying system",
+    "Force is empirically observed to follow inverse square law",
+    "Force is proportional to both masses",
+    "Gravitational force is conservative",
+    "Potential energy is zero at infinite separation"
   ],
   "derivation": [
     {
@@ -181,20 +157,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "approximation",
-  "validity_regime": {
-    "conditions": [
-      "Weak gravitational fields (Newtonian limit)",
-      "Non-relativistic velocities (v << c)",
-      "Large-scale systems (>> Planck length)",
-      "Classical treatment"
-    ],
-    "limitations": [
-      "Fails in strong gravitational fields",
-      "Invalid at relativistic speeds",
-      "Quantum gravitational effects ignored",
-      "Does not explain gravitational lensing or time dilation"
-    ]
-  },
   "superseded_by": [
     "general_relativity"
   ],
@@ -218,14 +180,14 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": [
-    "newtons_laws"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws"
+  ]
 }

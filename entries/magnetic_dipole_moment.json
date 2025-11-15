@@ -59,38 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The current loop is small compared to distances of interest (dipole approximation)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Steady currents (no time-varying fields)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear, isotropic, and homogeneous medium (or vacuum)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Far-field approximation for magnetic field calculation."
-    },
-    {
-      "id": "assumption5",
-      "text": "The current distribution is localized (dipole approximation valid)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Magnetostatic conditions (∂B/∂t = 0)."
-    },
-    {
-      "id": "assumption7",
-      "text": "Far-field limit (r >> size of current distribution)."
-    },
-    {
-      "id": "assumption8",
-      "text": "Linear superposition of fields applies."
-    }
+    "The current loop is small compared to distances of interest (dipole approximation).",
+    "Steady currents (no time-varying fields).",
+    "Linear, isotropic, and homogeneous medium (or vacuum).",
+    "Far-field approximation for magnetic field calculation.",
+    "The current distribution is localized (dipole approximation valid).",
+    "Magnetostatic conditions (∂B/∂t = 0).",
+    "Far-field limit (r >> size of current distribution).",
+    "Linear superposition of fields applies."
   ],
   "derivation": [
     {
@@ -245,20 +221,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Magnetostatic conditions (steady currents)",
-      "Dipole approximation (small current loops)",
-      "Far-field for external field calculations",
-      "Linear, homogeneous media"
-    ],
-    "limitations": [
-      "Near-field effects for close distances",
-      "Time-varying fields require full Maxwell equations",
-      "Quantum effects in atomic/molecular magnetism",
-      "Nonlinear magnetic materials"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental concept for understanding magnetism from atomic scale to macroscopic magnets, essential for magnetic materials and devices",
     "development_period": "1820s-1860s",
@@ -279,15 +241,15 @@
       "citation": "Jackson, J. D. (1998). *Classical Electrodynamics* (3rd ed.). Wiley."
     }
   ],
-  "dependencies": [
-    "magnetic_field",
-    "amperes_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "magnetic_field",
+    "amperes_law"
+  ]
 }

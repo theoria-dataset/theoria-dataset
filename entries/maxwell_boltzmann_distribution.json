@@ -39,26 +39,15 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The gas is ideal with no intermolecular interactions."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system is in thermal equilibrium at temperature T."
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical mechanics applies (non-relativistic and non-quantum)."
-    },
-    {
-      "id": "assumption4",
-      "text": "The probability follows Boltzmann distribution with kinetic energy."
-    },
-    {
-      "id": "assumption5",
-      "text": "Velocity components are independent and isotropic."
-    }
+    "The gas is ideal with no intermolecular interactions.",
+    "The system is in thermal equilibrium at temperature T.",
+    "Classical mechanics applies (non-relativistic and non-quantum).",
+    "The probability follows Boltzmann distribution with kinetic energy.",
+    "Velocity components are independent and isotropic."
+  ],
+  "dependencies": [
+    "boltzmann_distribution",
+    "ideal_gas_law"
   ],
   "derivation": [
     {
@@ -129,20 +118,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical ideal gas",
-      "Thermal equilibrium",
-      "Non-relativistic particles",
-      "No quantum effects (high temperature limit)"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum statistics)",
-      "Ideal gas approximation (no interactions)",
-      "Non-relativistic speeds only",
-      "Breaks down at very low temperatures"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of kinetic theory and statistical mechanics, explains gas properties",
     "development_period": "1860-1879",
@@ -161,10 +136,6 @@
       "id": "R2",
       "citation": "Boltzmann, L. (1872). Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen. *Wiener Berichte*, 66, 275-370."
     }
-  ],
-  "dependencies": [
-    "boltzmann_distribution",
-    "ideal_gas_law"
   ],
   "contributors": [
     {

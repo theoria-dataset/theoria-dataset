@@ -89,6 +89,53 @@ blockquote strong {
   text-align: center;
 }
 
+/* Contributor badge styling */
+.contributor-badge {
+  display: block;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15), rgba(var(--primary-rgb), 0.08));
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contributor-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.contributor-badge .badge-icon {
+  font-size: 1.2rem;
+}
+
+.contributor-badge strong {
+  color: var(--primary);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contributor-badge p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.latex-dark .contributor-badge {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.2), rgba(var(--primary-rgb), 0.1));
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.latex-dark .contributor-badge:hover {
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+}
+
 /* Contribution methods styling */
 .contribution-methods {
   display: grid;
@@ -736,7 +783,7 @@ select option {
 }
 
 .status-draft {
-  background: #f59e0b;
+  background: #8b5cf6;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -763,19 +810,19 @@ select option {
 
 /* Color-coded backgrounds for AI entries */
 .entry-card-draft {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
-  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+  border-left: 4px solid #8b5cf6;
 }
 
 .latex-dark .entry-card-draft {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-  border-left: 4px solid #f59e0b;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-left: 4px solid #8b5cf6;
 }
 
 /* AI Disclaimer Banner */
 .ai-disclaimer-banner {
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-bottom: 1px solid #f59e0b;
+  border-bottom: 1px solid #8b5cf6;
   padding: 0.75rem 1rem;
   position: sticky;
   top: 0;
@@ -785,7 +832,7 @@ select option {
 
 .latex-dark .ai-disclaimer-banner {
   background: linear-gradient(135deg, #92400e 0%, #78350f 100%);
-  border-bottom: 1px solid #f59e0b;
+  border-bottom: 1px solid #8b5cf6;
 }
 
 .ai-disclaimer-content {
@@ -1161,13 +1208,180 @@ select option {
     padding: 1rem;
     margin: 1rem 0;
   }
-  
+
   .ai-toggle-label {
     font-size: 1rem;
   }
-  
+
   .entry-count-display {
     font-size: 0.9rem;
     text-align: center;
   }
+}
+
+
+/* Assumptions section styling */
+#assumptions ol {
+  padding-left: 1.5rem;
+}
+
+/* Assumption mathematical expressions styling */
+.assumption-math {
+  margin: 0.3rem 0;
+  padding: 0.2rem 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  font-family: monospace;
+  border-left: 2px solid var(--primary);
+}
+
+.latex-dark .assumption-math {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Symbol definitions styling */
+.assumption-symbols {
+  margin-top: 0.5rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.latex-dark .assumption-symbols {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.assumption-symbol-def {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.assumption-symbol-def .symbol {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+#assumptions li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.04);
+  border-left: 3px solid var(--shade-light);
+  position: relative;
+  overflow: hidden;
+  min-height: 2rem;
+}
+
+.latex-dark #assumptions li {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Assumption color legend */
+.assumption-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 1rem 0 0;
+  padding: 0.4rem 0.6rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.latex-dark .assumption-legend {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-color.assumption-principle {
+  background: #22c55e;
+}
+
+.legend-color.assumption-empirical {
+  background: #3b82f6;
+}
+
+.legend-color.assumption-approximation {
+  background: #8b5cf6;
+}
+
+.legend-color.dependency-type {
+  background: #06b6d4;
+}
+
+.legend-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+/* Responsive legend */
+@media (max-width: 768px) {
+  .assumption-legend {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .legend-item {
+    font-size: 0.75rem;
+  }
+}
+
+/* Enhanced visual separation for different assumption types */
+#assumptions li.dependency-type {
+  border-left-color: #06b6d4;
+  background: rgba(6, 182, 212, 0.08);
+}
+
+#assumptions li.assumption-principle {
+  border-left-color: #22c55e;
+  background: rgba(34, 197, 94, 0.08);
+}
+
+#assumptions li.assumption-empirical {
+  border-left-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+#assumptions li.assumption-approximation {
+  border-left-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* Dark mode adjustments */
+.latex-dark #assumptions li.dependency-type {
+  background: rgba(6, 182, 212, 0.12);
+}
+
+.latex-dark #assumptions li.assumption-principle {
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.latex-dark #assumptions li.assumption-empirical {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.latex-dark #assumptions li.assumption-approximation {
+  background: rgba(139, 92, 246, 0.12);
 }

@@ -1,4 +1,4 @@
-// Auto-generated from schemas/entry.schema.json
+// Auto-generated from /app/schemas/entry.schema.json
 // Do not edit manually - regenerate using scripts/generate_form_requirements.py
 
 const FIELD_REQUIREMENTS = {
@@ -15,6 +15,7 @@ const FIELD_REQUIREMENTS = {
     "explanation",
     "definitions",
     "assumptions",
+    "dependencies",
     "derivation",
     "programmatic_verification",
     "domain",
@@ -138,22 +139,20 @@ const FIELD_REQUIREMENTS = {
     },
     "assumptions": {
       "type": "array",
-      "description": "Assumptions that lead to the result equations, which usually are either first principles, results from another entry specified in 'dependencies' or empirical results. List all assumptions required for the derivation. Use sequential IDs like 'assumption1', 'assumption2'. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format.",
+      "description": "Reference global assumptions by ID from globals/assumptions.json (e.g., 'classical_mechanics_framework'). First check if a suitable assumption already exists to avoid duplication. Global assumptions are categorized into three types: principle (core theoretical/mathematical postulates), empirical (experimentally established facts), and approximation (validity restrictions and simplifying modeling choices). If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry. See schemas/assumptions.schema.json for the complete structure and browse globals/assumptions.json for existing assumptions.",
       "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "text"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "text": {
-            "type": "string"
-          }
-        }
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Assumption ID from globals/assumptions.json (must match pattern ^[a-z0-9_]+$)"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Array of entry IDs that this derivation depends on. Each dependency must reference an existing entry result_id.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "description": "Entry result_id that this entry depends on for its derivation"
       }
     },
     "programmatic_verification": {
@@ -201,25 +200,6 @@ const FIELD_REQUIREMENTS = {
       ],
       "description": "Current scientific status of the theory. current: Modern theories widely accepted by scientific community. historical: Important for development but superseded by better theories. approximation: Valid simplifications of more general theories. limiting_case: Special cases with restricted applicability. superseded: Completely replaced by more accurate theories."
     },
-    "validity_regime": {
-      "type": "object",
-      "description": "Physical conditions where theory applies and limitations. Use for theories with specific applicability ranges. Include both conditions where valid and limitations.",
-      "additionalProperties": false,
-      "properties": {
-        "conditions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "limitations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "superseded_by": {
       "type": "array",
       "description": "Theories that supersede or generalize this result. Use exact result_id values (without .json extension). Must reference existing entries in the dataset.",
@@ -227,11 +207,6 @@ const FIELD_REQUIREMENTS = {
         "type": "string",
         "pattern": "^[a-z0-9_]+$"
       }
-    },
-    "approximation_of": {
-      "type": "string",
-      "pattern": "^[a-z0-9_]+$",
-      "description": "The more general theory this approximates. Use exact result_id value (without .json extension)."
     },
     "historical_context": {
       "type": "object",
@@ -278,14 +253,6 @@ const FIELD_REQUIREMENTS = {
             "type": "string"
           }
         }
-      }
-    },
-    "dependencies": {
-      "type": "array",
-      "description": "Other entries this result relies on. Use exact result_id values (without .json extension). Only include direct dependencies.",
-      "items": {
-        "type": "string",
-        "pattern": "^[a-z0-9_]+$"
       }
     },
     "contributors": {

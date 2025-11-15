@@ -31,26 +31,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The crystal has perfect translational periodicity (ideal crystal)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Atomic positions are well-defined and static (neglecting thermal motion)."
-    },
-    {
-      "id": "assumption3",
-      "text": "The crystal extends infinitely in all directions."
-    },
-    {
-      "id": "assumption4",
-      "text": "The crystal structure can be described by discrete translational symmetry."
-    },
-    {
-      "id": "assumption5",
-      "text": "Basis vectors are linearly independent and span 3D space."
-    }
+    "The crystal has perfect translational periodicity (ideal crystal).",
+    "Atomic positions are well-defined and static (neglecting thermal motion).",
+    "The crystal extends infinitely in all directions.",
+    "The crystal structure can be described by discrete translational symmetry.",
+    "Basis vectors are linearly independent and span 3D space."
   ],
   "derivation": [
     {
@@ -143,20 +128,6 @@
   },
   "domain": "cond-mat.mtrl-sci",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Crystalline materials",
-      "Long-range periodic order",
-      "Well-defined atomic positions",
-      "Solid state systems"
-    ],
-    "limitations": [
-      "Does not apply to amorphous materials",
-      "Neglects defects and disorder",
-      "Static lattice approximation",
-      "May need modifications for quasicrystals"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of solid state physics, materials science, and crystallography",
     "development_period": "1912-1920",
@@ -177,15 +148,15 @@
       "citation": "Kittel, C. (2004). *Introduction to Solid State Physics* (8th ed.). Wiley."
     }
   ],
-  "dependencies": [
-    "x_ray_diffraction",
-    "crystal_symmetry"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "x_ray_diffraction",
+    "crystal_symmetry"
+  ]
 }

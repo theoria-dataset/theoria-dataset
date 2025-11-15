@@ -1,5 +1,10 @@
 # TheorIA dataset, a curated, high quality dataset of Theoretical Physics equations
 
+[![Latest Release](https://img.shields.io/github/v/release/theoria-dataset/theoria-dataset)](https://github.com/theoria-dataset/theoria-dataset/releases)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Validation](https://github.com/theoria-dataset/theoria-dataset/actions/workflows/validate_entries.yaml/badge.svg)](https://github.com/theoria-dataset/theoria-dataset/actions/workflows/validate_entries.yaml)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 TheorIA stands for Theoretical Physics Intelligent Anthology
 
 > **🚀 Jump in!** We've kicked off THEORIA with a handful of entries, and we need your help to grow it. If you're into physics—researcher, educator, or enthusiast—now's the time to contribute your favorite equations, crisp derivations, and clear explanations.
@@ -22,11 +27,11 @@ Each entry in TheorIA represents a theoretical physics result – for example, t
 
 - **Formal derivations and annotated proofs**: AsciiMath step by step, annotated for easier understanding and programmatic formalization to guarantee correctness.
 
-- **Self‑contained JSON files**: One entry per file under `entries/` folder, so you can fork, version, and collaborate without conflicts.
+- **One JSON per entry**: Individual JSON files under `entries/` folder: one file per physics result, enabling parallel contributions, clean version control, and conflict-free collaboration.
 
 - **Domain tags**: ArXiv‑style categories (e.g., gr-qc, hep-th) for easy filtering.
 
-- **Global manifest & changelog**: `manifest.json` tracks versions, file list, covered domains, and updates.
+- **Global manifest**: `manifest.json` tracks versions, covered domains, and dataset metadata.
 
 - **Open license**: `CC‑BY 4.0`—use it, remix it, teach with it.
 
@@ -44,7 +49,8 @@ theoretical-physics-dataset/
 │   ├── generate_contributing.py       # Generates CONTRIBUTING.md from schema
 │   └── generate_form_requirements.py  # Generates form requirements JavaScript
 ├── docs/                              # Web interface for viewing the dataset
-├── manifest.json                      # Global metadata, dataset version, changelog, and entry list
+├── manifest.json                      # Global metadata, dataset version, and domain information
+├── CHANGELOG.md                       # Version history and release notes
 ├── CONTRIBUTING.md                    # Detailed guidelines for contributors (auto-generated)
 └── README.md                          # Project overview and usage instructions (this file)
 ```

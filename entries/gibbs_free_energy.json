@@ -51,22 +51,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system can exchange work and heat with surroundings but maintains constant temperature and pressure."
-    },
-    {
-      "id": "assumption2",
-      "text": "Reversible processes are considered for maximum work calculations."
-    },
-    {
-      "id": "assumption3",
-      "text": "The first law of thermodynamics applies with chemical work included."
-    },
-    {
-      "id": "assumption4",
-      "text": "The system is in quasi-static equilibrium during the process."
-    }
+    "The system can exchange work and heat with surroundings but maintains constant temperature and pressure.",
+    "Reversible processes are considered for maximum work calculations.",
+    "The first law of thermodynamics applies with chemical work included.",
+    "The system is in quasi-static equilibrium during the process."
   ],
   "derivation": [
     {
@@ -145,20 +133,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Thermodynamic equilibrium or quasi-static processes",
-      "Well-defined temperature and pressure",
-      "Classical thermodynamics regime",
-      "Reversible or near-reversible processes"
-    ],
-    "limitations": [
-      "Classical thermodynamics only",
-      "Requires well-defined intensive variables",
-      "May need quantum corrections at low temperatures",
-      "Limited to systems in thermal contact with reservoirs"
-    ]
-  },
   "historical_context": {
     "importance": "Central concept in chemical thermodynamics, determines reaction spontaneity and equilibrium",
     "development_period": "1873-1878",
@@ -179,15 +153,15 @@
       "citation": "Lewis, G. N., & Randall, M. (1923). *Thermodynamics and the Free Energy of Chemical Substances*. McGraw-Hill."
     }
   ],
-  "dependencies": [
-    "first_law_thermodynamics",
-    "second_law_thermodynamics_clausius"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

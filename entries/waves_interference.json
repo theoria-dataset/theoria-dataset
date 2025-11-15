@@ -55,38 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear superposition applies"
-    },
-    {
-      "id": "assumption2",
-      "text": "Waves are coherent"
-    },
-    {
-      "id": "assumption3",
-      "text": "Medium is linear"
-    },
-    {
-      "id": "assumption4",
-      "text": "No nonlinear effects"
-    },
-    {
-      "id": "assumption5",
-      "text": "Wave equation is linear"
-    },
-    {
-      "id": "assumption6",
-      "text": "Superposition principle applies"
-    },
-    {
-      "id": "assumption7",
-      "text": "Waves propagate in same medium"
-    },
-    {
-      "id": "assumption8",
-      "text": "No boundary effects"
-    }
+    "Linear superposition applies",
+    "Waves are coherent",
+    "Medium is linear",
+    "No nonlinear effects",
+    "Wave equation is linear",
+    "Superposition principle applies",
+    "Waves propagate in same medium",
+    "No boundary effects"
   ],
   "derivation": [
     {
@@ -167,20 +143,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Linear wave equation",
-      "Coherent wave sources",
-      "Small amplitude approximation",
-      "Homogeneous medium"
-    ],
-    "limitations": [
-      "Nonlinear effects at large amplitudes",
-      "Incoherent sources reduce interference",
-      "Dispersion affects different frequencies",
-      "Scattering in inhomogeneous media"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th centuries",
     "importance": "Fundamental wave phenomenon; essential for understanding optics, acoustics, and quantum mechanics",
@@ -201,15 +163,15 @@
       "citation": "Born, M., & Wolf, E. (1999). Principles of Optics. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "wave_equation",
-    "superposition_principle"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "wave_equation",
+    "superposition_principle"
+  ]
 }

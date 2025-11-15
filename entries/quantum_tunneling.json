@@ -43,26 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle is described by a wavefunction satisfying the Schrödinger equation."
-    },
-    {
-      "id": "assumption2",
-      "text": "The potential barrier has a well-defined shape and finite extent."
-    },
-    {
-      "id": "assumption3",
-      "text": "The particle energy E is less than the barrier height V_0."
-    },
-    {
-      "id": "assumption4",
-      "text": "The barrier is rectangular with constant potential V_0 in the barrier region."
-    },
-    {
-      "id": "assumption5",
-      "text": "The particle approaches from the left with no reflection from the right."
-    }
+    "The particle is described by a wavefunction satisfying the Schrödinger equation.",
+    "The potential barrier has a well-defined shape and finite extent.",
+    "The particle energy E is less than the barrier height V_0.",
+    "The barrier is rectangular with constant potential V_0 in the barrier region.",
+    "The particle approaches from the left with no reflection from the right."
   ],
   "derivation": [
     {
@@ -152,20 +137,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum mechanical systems",
-      "Well-defined potential barriers",
-      "Non-relativistic particles",
-      "One-dimensional treatment (can be extended to 3D)"
-    ],
-    "limitations": [
-      "Non-relativistic quantum mechanics only",
-      "May need many-body corrections for dense systems",
-      "Classical barriers (not quantum field barriers)",
-      "Assumes coherent quantum states"
-    ]
-  },
   "historical_context": {
     "importance": "Demonstrates pure quantum effect with no classical analog, enables modern electronics",
     "development_period": "1926-1928",
@@ -186,15 +157,15 @@
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "schroedingen_equation",
-    "particle_in_a_box"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "schroedingen_equation",
+    "particle_in_a_box"
+  ]
 }

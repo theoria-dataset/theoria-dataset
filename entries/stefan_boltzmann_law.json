@@ -23,18 +23,9 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Emitter behaves as an ideal black body (`epsilon = 1`)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Radiation is isotropic, allowing conversion of energy density `u(T)` to radiant exitance `j^*` by the factor `c/4`."
-    },
-    {
-      "id": "assumption3",
-      "text": "The emitter is an ideal black body in thermal equilibrium, whose spectral energy density is described by Planck's law."
-    }
+    "Emitter behaves as an ideal black body (`epsilon = 1`).",
+    "Radiation is isotropic, allowing conversion of energy density `u(T)` to radiant exitance `j^*` by the factor `c/4`.",
+    "The emitter is an ideal black body in thermal equilibrium, whose spectral energy density is described by Planck's law."
   ],
   "derivation": [
     {
@@ -128,21 +119,6 @@
   },
   "domain": "astro-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Black body radiation (perfect absorber and emitter)",
-      "Thermal equilibrium",
-      "Macroscopic objects with well-defined temperature",
-      "Classical electromagnetic radiation"
-    ],
-    "limitations": [
-      "Limited to ideal black bodies (real objects have emissivity < 1)",
-      "Assumes thermal equilibrium",
-      "Classical treatment of electromagnetic radiation",
-      "May need quantum corrections for very low temperatures"
-    ]
-  },
-  "approximation_of": "planck_radiation_law",
   "historical_context": {
     "importance": "Fundamental law of thermal radiation, crucial for stellar physics and thermal engineering",
     "development_period": "1879-1884",
@@ -158,14 +134,14 @@
       "citation": "Boltzmann, L. (1884). *Ableitung des Stefan'schen Gesetzes…* Annalen der Physik, 22, 291–294."
     }
   ],
-  "dependencies": [
-    "planck_radiation_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ]
 }

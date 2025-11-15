@@ -55,30 +55,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical electromagnetic theory applies: no quantum effects, fields are continuous and differentiable."
-    },
-    {
-      "id": "assumption2",
-      "text": "For the original Ampère's law: steady currents only ($$\\frac{\\partial \\vec{E}}{\\partial t} = 0$$) and no time-varying electric fields."
-    },
-    {
-      "id": "assumption3",
-      "text": "The integration path (Amperian loop) is a closed curve in a simply-connected region of space."
-    },
-    {
-      "id": "assumption4",
-      "text": "For practical applications: sufficient symmetry exists such that $$\\vec{B}$$ has constant magnitude and is parallel or perpendicular to $$\\mathrm{d}\\vec{l}$$ along the integration path."
-    },
-    {
-      "id": "assumption5",
-      "text": "Current sources are well-defined: current density $$\\vec{J}$$ is finite and integrable over the bounded surface."
-    },
-    {
-      "id": "assumption6",
-      "text": "Linear, homogeneous, and isotropic medium: $$\\vec{B} = \\mu\\,\\vec{H}$$ with constant permeability $$\\mu$$."
-    }
+    "Classical electromagnetic theory applies: no quantum effects, fields are continuous and differentiable.",
+    "For the original Ampère's law: steady currents only ($$\\frac{\\partial \\vec{E}}{\\partial t} = 0$$) and no time-varying electric fields.",
+    "The integration path (Amperian loop) is a closed curve in a simply-connected region of space.",
+    "For practical applications: sufficient symmetry exists such that $$\\vec{B}$$ has constant magnitude and is parallel or perpendicular to $$\\mathrm{d}\\vec{l}$$ along the integration path.",
+    "Current sources are well-defined: current density $$\\vec{J}$$ is finite and integrable over the bounded surface.",
+    "Linear, homogeneous, and isotropic medium: $$\\vec{B} = \\mu\\,\\vec{H}$$ with constant permeability $$\\mu$$."
   ],
   "derivation": [
     {
@@ -231,23 +213,9 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetic theory (non-quantum regime)",
-      "Well-defined, finite current distributions",
-      "For original Ampère's law: steady currents (\\partial E/\\partial t = 0)",
-      "For practical calculations: sufficient symmetry in current geometry",
-      "Linear, homogeneous, isotropic media"
-    ],
-    "limitations": [
-      "Original form fails for time-varying electric fields (requires Maxwell's displacement current)",
-      "Requires high symmetry for analytical solutions",
-      "Classical theory only — no quantum or relativistic effects",
-      "Assumes continuous current distributions",
-      "Limited to macroscopic scale where classical electromagnetism applies"
-    ]
-  },
-  "superseded_by": ["maxwell_equations"],
+  "superseded_by": [
+    "maxwell_equations"
+  ],
   "historical_context": {
     "importance": "Fundamental law establishing relationship between electric current and magnetic field; key step toward unified electromagnetic theory",
     "development_period": "1826-1865",
@@ -272,12 +240,16 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": ["conservation_of_charge", "gauss_law", "biot_savart_law"],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_charge",
+    "gauss_law",
+    "biot_savart_law"
+  ]
 }

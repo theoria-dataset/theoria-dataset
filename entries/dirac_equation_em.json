@@ -67,38 +67,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`."
-    },
-    {
-      "id": "assumption2",
-      "text": "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected."
-    },
-    {
-      "id": "assumption3",
-      "text": "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`."
-    },
-    {
-      "id": "assumption4",
-      "text": "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit."
-    },
-    {
-      "id": "assumption5",
-      "text": "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`."
-    },
-    {
-      "id": "assumption6",
-      "text": "Desire for a first-order linear differential equation preserving probability density."
-    },
-    {
-      "id": "assumption7",
-      "text": "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form."
-    },
-    {
-      "id": "assumption8",
-      "text": "Minimal coupling prescription to ensure local U(1) gauge invariance."
-    }
+    "Interaction is introduced via minimal coupling: `partial_mu -> partial_mu + i*(q/(hbar*c))*A_mu`.",
+    "The electromagnetic field is treated as a classical external field; back-reaction of the fermion is neglected.",
+    "Space-time is flat and described by the Minkowski metric with signature `(+, -, -, -)`.",
+    "Natural units are *not* assumed; the fundamental constants `hbar` and `c` are kept explicit.",
+    "Classical relativistic energy–momentum relation in an electromagnetic field: `(E - q*phi)^2 = (p - (q/c)*A)^2*c^2 + m^2*c^4`.",
+    "Desire for a first-order linear differential equation preserving probability density.",
+    "Existence of matrices `alpha_i` and `beta` obeying the Dirac algebra to linearize the quadratic form.",
+    "Minimal coupling prescription to ensure local U(1) gauge invariance."
   ],
   "derivation": [
     {
@@ -174,20 +150,6 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Relativistic quantum mechanics with electromagnetic interactions",
-      "Single particle approximation",
-      "Classical electromagnetic fields",
-      "Spin-1/2 charged particles"
-    ],
-    "limitations": [
-      "Single particle theory (no field quantization)",
-      "Classical treatment of electromagnetic field",
-      "Does not include quantum field fluctuations",
-      "Superseded by full QED for quantum electromagnetic effects"
-    ]
-  },
   "superseded_by": [
     "qed_lagrangian"
   ],
@@ -214,15 +176,15 @@
       "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
     }
   ],
-  "dependencies": [
-    "dirac_equation_free",
-    "maxwell_equations"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "dirac_equation_free",
+    "maxwell_equations"
+  ]
 }

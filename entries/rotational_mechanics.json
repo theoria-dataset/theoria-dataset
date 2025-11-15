@@ -83,38 +83,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Rigid body rotation (no deformation during rotation)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Fixed axis of rotation."
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical mechanics applies (non-relativistic)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Moment of inertia is constant for rigid bodies."
-    },
-    {
-      "id": "assumption5",
-      "text": "Rigid body assumption (distances between particles remain constant)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Fixed axis of rotation perpendicular to motion plane."
-    },
-    {
-      "id": "assumption7",
-      "text": "All particles have the same angular velocity ω."
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics and Newtonian physics apply."
-    }
+    "Rigid body rotation (no deformation during rotation).",
+    "Fixed axis of rotation.",
+    "Classical mechanics applies (non-relativistic).",
+    "Moment of inertia is constant for rigid bodies.",
+    "Rigid body assumption (distances between particles remain constant).",
+    "Fixed axis of rotation perpendicular to motion plane.",
+    "All particles have the same angular velocity ω.",
+    "Classical mechanics and Newtonian physics apply."
   ],
   "derivation": [
     {
@@ -246,20 +222,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Rigid body motion",
-      "Fixed axis of rotation",
-      "Classical mechanics (non-relativistic)",
-      "Constant moment of inertia"
-    ],
-    "limitations": [
-      "Breaks down for deformable bodies",
-      "Fixed axis assumption may not hold",
-      "Relativistic corrections needed at high speeds",
-      "Gyroscopic effects in 3D rotation"
-    ]
-  },
   "historical_context": {
     "importance": "Essential for understanding rotating machinery, planetary motion, and spinning objects; foundation for angular momentum conservation",
     "development_period": "17th-18th centuries",
@@ -280,16 +242,16 @@
       "citation": "Taylor, J. R. (2005). *Classical Mechanics*. University Science Books."
     }
   ],
-  "dependencies": [
-    "newtons_laws_of_motion",
-    "angular_momentum",
-    "conservation_of_angular_momentum"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws_of_motion",
+    "angular_momentum",
+    "conservation_of_angular_momentum"
+  ]
 }

@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics framework"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point particle or rigid body"
-    },
-    {
-      "id": "assumption3",
-      "text": "Non-relativistic speeds"
-    },
-    {
-      "id": "assumption4",
-      "text": "Well-defined force and displacement"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "assumption6",
-      "text": "Vector calculus relations"
-    },
-    {
-      "id": "assumption7",
-      "text": "Path independence for conservative forces"
-    },
-    {
-      "id": "assumption8",
-      "text": "Continuous force and motion"
-    }
+    "Classical mechanics framework",
+    "Point particle or rigid body",
+    "Non-relativistic speeds",
+    "Well-defined force and displacement",
+    "Newton's second law applies",
+    "Vector calculus relations",
+    "Path independence for conservative forces",
+    "Continuous force and motion"
   ],
   "derivation": [
     {
@@ -196,20 +172,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics (non-relativistic)",
-      "Well-defined forces and paths",
-      "Inertial reference frames",
-      "Particle or rigid body systems"
-    ],
-    "limitations": [
-      "Relativistic corrections needed at high speeds",
-      "Quantum effects ignored at microscopic scales",
-      "May not apply to dissipative systems without careful accounting",
-      "Assumes point particle or rigid body"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-19th centuries",
     "importance": "Fundamental principle connecting force and energy concepts; essential for understanding mechanical systems",
@@ -230,15 +192,15 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": [
-    "newtons_second_law",
-    "conservation_of_energy"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_second_law",
+    "conservation_of_energy"
+  ]
 }

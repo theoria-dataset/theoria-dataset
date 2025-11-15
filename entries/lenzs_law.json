@@ -31,22 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The magnetic flux through a closed conducting loop is changing with time."
-    },
-    {
-      "id": "assumption2",
-      "text": "The conducting loop has finite resistance allowing current flow."
-    },
-    {
-      "id": "assumption3",
-      "text": "Energy conservation applies to the electromagnetic system."
-    },
-    {
-      "id": "assumption4",
-      "text": "The system can be treated using classical electromagnetism."
-    }
+    "The magnetic flux through a closed conducting loop is changing with time.",
+    "The conducting loop has finite resistance allowing current flow.",
+    "Energy conservation applies to the electromagnetic system.",
+    "The system can be treated using classical electromagnetism."
   ],
   "derivation": [
     {
@@ -119,20 +107,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Conducting materials with finite resistance",
-      "Time-varying magnetic fields or moving conductors",
-      "Energy conservation applies"
-    ],
-    "limitations": [
-      "Classical electromagnetic theory only",
-      "Requires conducting materials",
-      "May need relativistic treatment for high speeds",
-      "Assumes linear response in materials"
-    ]
-  },
   "historical_context": {
     "importance": "Establishes direction of electromagnetic induction, ensures energy conservation",
     "development_period": "1834",
@@ -152,15 +126,15 @@
       "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "faradays_law",
-    "conservation_of_energy"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "faradays_law",
+    "conservation_of_energy"
+  ]
 }

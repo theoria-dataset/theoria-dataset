@@ -55,38 +55,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Electrostatic conditions"
-    },
-    {
-      "id": "assumption2",
-      "text": "Linear, isotropic media"
-    },
-    {
-      "id": "assumption3",
-      "text": "Classical field theory"
-    },
-    {
-      "id": "assumption4",
-      "text": "Continuous charge distributions"
-    },
-    {
-      "id": "assumption5",
-      "text": "Superposition principle applies"
-    },
-    {
-      "id": "assumption6",
-      "text": "Solid angle subtended by closed surface"
-    },
-    {
-      "id": "assumption7",
-      "text": "Coulomb's law for point charges"
-    },
-    {
-      "id": "assumption8",
-      "text": "Charge conservation"
-    }
+    "Electrostatic conditions",
+    "Linear, isotropic media",
+    "Classical field theory",
+    "Continuous charge distributions",
+    "Superposition principle applies",
+    "Solid angle subtended by closed surface",
+    "Coulomb's law for point charges",
+    "Charge conservation"
   ],
   "derivation": [
     {
@@ -160,20 +136,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism",
-      "Static or quasi-static fields",
-      "Linear, isotropic media",
-      "Macroscopic charge distributions"
-    ],
-    "limitations": [
-      "Time-varying fields require full Maxwell equations",
-      "Quantum effects ignored at microscopic scales",
-      "Relativistic corrections needed at high speeds",
-      "Breakdown in strongly nonlinear media"
-    ]
-  },
   "historical_context": {
     "development_period": "1835-1867",
     "importance": "One of Maxwell's equations; fundamental to understanding electromagnetism and enables calculation of electric fields with high symmetry",
@@ -194,15 +156,15 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "electric_field",
-    "coulombs_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "coulombs_law"
+  ]
 }

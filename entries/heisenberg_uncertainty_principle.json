@@ -23,30 +23,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particle is described by a quantum mechanical wavefunction."
-    },
-    {
-      "id": "assumption2",
-      "text": "Position and momentum are represented by non-commuting Hermitian operators."
-    },
-    {
-      "id": "assumption3",
-      "text": "The uncertainties are defined as standard deviations of the observables."
-    },
-    {
-      "id": "assumption4",
-      "text": "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators."
-    },
-    {
-      "id": "assumption5",
-      "text": "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values."
-    },
-    {
-      "id": "assumption6",
-      "text": "The wavefunction is normalized: `<psi|psi> = 1`."
-    }
+    "The particle is described by a quantum mechanical wavefunction.",
+    "Position and momentum are represented by non-commuting Hermitian operators.",
+    "The uncertainties are defined as standard deviations of the observables.",
+    "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators.",
+    "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values.",
+    "The wavefunction is normalized: `<psi|psi> = 1`."
   ],
   "derivation": [
     {
@@ -156,5 +138,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

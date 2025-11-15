@@ -39,38 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Spherically symmetric, non-rotating black hole."
-    },
-    {
-      "id": "assumption2",
-      "text": "No electric charge (Schwarzschild solution, not Reissner-Nordström)."
-    },
-    {
-      "id": "assumption3",
-      "text": "General relativity is the correct theory of gravity."
-    },
-    {
-      "id": "assumption4",
-      "text": "The mass M is concentrated within the Schwarzschild radius."
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation applies in the classical derivation."
-    },
-    {
-      "id": "assumption6",
-      "text": "The speed of light is the maximum possible velocity."
-    },
-    {
-      "id": "assumption7",
-      "text": "General relativity provides the correct spacetime geometry."
-    },
-    {
-      "id": "assumption8",
-      "text": "The Schwarzschild solution is the appropriate metric."
-    }
+    "Spherically symmetric, non-rotating black hole.",
+    "No electric charge (Schwarzschild solution, not Reissner-Nordström).",
+    "General relativity is the correct theory of gravity.",
+    "The mass M is concentrated within the Schwarzschild radius.",
+    "Energy conservation applies in the classical derivation.",
+    "The speed of light is the maximum possible velocity.",
+    "General relativity provides the correct spacetime geometry.",
+    "The Schwarzschild solution is the appropriate metric."
   ],
   "derivation": [
     {
@@ -194,20 +170,6 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "General relativity is correct",
-      "Spherically symmetric mass distribution",
-      "Non-rotating black hole (Schwarzschild case)",
-      "No electric charge"
-    ],
-    "limitations": [
-      "Rotating black holes require Kerr metric",
-      "Charged black holes need Reissner-Nordström metric",
-      "Quantum effects ignored near the horizon",
-      "Classical general relativity may break down at singularity"
-    ]
-  },
   "historical_context": {
     "importance": "Defines black hole event horizons, crucial for understanding gravitational collapse, Hawking radiation, and modern astrophysics",
     "development_period": "1916",
@@ -228,15 +190,15 @@
       "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
     }
   ],
-  "dependencies": [
-    "einstein_field_equations",
-    "gravitational_force"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "einstein_field_equations",
+    "gravitational_force"
+  ]
 }

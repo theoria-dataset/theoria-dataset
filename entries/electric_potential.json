@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Electrostatic conditions (time-independent)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charges or continuous charge distributions"
-    },
-    {
-      "id": "assumption3",
-      "text": "Linear medium or vacuum"
-    },
-    {
-      "id": "assumption4",
-      "text": "Reference potential at infinity is zero"
-    },
-    {
-      "id": "assumption5",
-      "text": "Conservative electric field"
-    },
-    {
-      "id": "assumption6",
-      "text": "Work is path-independent"
-    },
-    {
-      "id": "assumption7",
-      "text": "Point charge field formula"
-    },
-    {
-      "id": "assumption8",
-      "text": "Integration along radial path"
-    }
+    "Electrostatic conditions (time-independent)",
+    "Point charges or continuous charge distributions",
+    "Linear medium or vacuum",
+    "Reference potential at infinity is zero",
+    "Conservative electric field",
+    "Work is path-independent",
+    "Point charge field formula",
+    "Integration along radial path"
   ],
   "derivation": [
     {
@@ -236,20 +212,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Electrostatic regime (time-independent fields)",
-      "Classical treatment",
-      "Linear media or vacuum",
-      "Well-defined charge distributions"
-    ],
-    "limitations": [
-      "Time-varying fields require electromagnetic potentials",
-      "Quantum effects ignored at microscopic scales",
-      "Relativistic effects neglected",
-      "Breakdown in nonlinear materials"
-    ]
-  },
   "historical_context": {
     "development_period": "18th-19th century",
     "importance": "Introduced scalar potential concept; simplified electrostatics calculations and laid foundation for circuit theory",
@@ -269,15 +231,15 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "electric_field",
-    "coulombs_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "coulombs_law"
+  ]
 }

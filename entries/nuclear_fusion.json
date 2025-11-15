@@ -47,26 +47,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier."
-    },
-    {
-      "id": "assumption2",
-      "text": "The reaction products separate to infinite distance (complete energy release)."
-    },
-    {
-      "id": "assumption3",
-      "text": "Conservation of energy, momentum, and nucleon number apply."
-    },
-    {
-      "id": "assumption4",
-      "text": "The reactant nuclei are initially at rest in the center-of-mass frame."
-    },
-    {
-      "id": "assumption5",
-      "text": "Non-relativistic kinematics apply for the reaction products."
-    }
+    "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier.",
+    "The reaction products separate to infinite distance (complete energy release).",
+    "Conservation of energy, momentum, and nucleon number apply.",
+    "The reactant nuclei are initially at rest in the center-of-mass frame.",
+    "Non-relativistic kinematics apply for the reaction products."
   ],
   "derivation": [
     {
@@ -151,20 +136,6 @@
   },
   "domain": "nucl-th",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Light nuclei (A ≤ 60 approximately)",
-      "Sufficient energy to overcome Coulomb barrier",
-      "Non-relativistic nuclear reaction kinematics",
-      "Well-separated reaction products"
-    ],
-    "limitations": [
-      "Requires very high temperatures for significant reaction rates",
-      "Quantum tunneling probability affects cross-section",
-      "May require consideration of electron screening in plasma",
-      "Three-body reactions need more complex treatment"
-    ]
-  },
   "historical_context": {
     "importance": "Powers stars, potential clean energy source, key to nucleosynthesis and cosmology",
     "development_period": "1920-1950",
@@ -185,16 +156,16 @@
       "citation": "Bosch, H. S., & Hale, G. M. (1992). Improved formulas for fusion cross-sections and thermal reactivities. *Nuclear Fusion*, 32(4), 611-631."
     }
   ],
-  "dependencies": [
-    "nuclear_binding_energy",
-    "quantum_tunneling",
-    "mass_energy_equivalence"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "nuclear_binding_energy",
+    "quantum_tunneling",
+    "mass_energy_equivalence"
+  ]
 }

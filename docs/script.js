@@ -150,6 +150,176 @@ const baseUrl = isGitHubPages
 
 console.log("Base URL:", baseUrl, "GitHub Pages:", isGitHubPages);
 
+// Global assumptions cache
+let globalAssumptions = null;
+
+// Load global assumptions from globals/assumptions.json
+async function loadGlobalAssumptions() {
+  if (globalAssumptions !== null) {
+    return globalAssumptions; // Return cached version
+  }
+
+  try {
+    const assumptionsUrl = `${baseUrl}/globals/assumptions.json`;
+    console.log("Loading global assumptions from:", assumptionsUrl);
+
+    const response = await fetch(assumptionsUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    globalAssumptions = {};
+
+    // Create a lookup map by assumption ID
+    data.assumptions.forEach(assumption => {
+      globalAssumptions[assumption.id] = assumption;
+    });
+
+    console.log("Loaded", Object.keys(globalAssumptions).length, "global assumptions");
+    return globalAssumptions;
+  } catch (error) {
+    console.error('Error loading global assumptions:', error);
+    globalAssumptions = {}; // Set to empty object to avoid repeated failures
+    return globalAssumptions;
+  }
+}
+
+// Resolve an assumption string to its full details
+function resolveAssumption(assumptionString) {
+  // Check if it matches the assumption ID pattern
+  const assumptionIdPattern = /^[a-z0-9_]+$/;
+
+  if (assumptionIdPattern.test(assumptionString) && globalAssumptions && globalAssumptions[assumptionString]) {
+    const assumption = globalAssumptions[assumptionString];
+    return {
+      type: 'global',
+      id: assumption.id,
+      text: assumption.text,
+      assumptionType: assumption.type,
+      mathematicalExpressions: assumption.mathematical_expressions || [],
+      symbolDefinitions: assumption.symbol_definitions || []
+    };
+  } else {
+    // Treat as direct text assumption
+    return {
+      type: 'direct',
+      text: assumptionString,
+      assumptionType: 'unspecified'
+    };
+  }
+}
+
+// Render prerequisites section (assumptions + dependencies)
+function renderPrerequisites(data) {
+  const prerequisitesList = [];
+
+  // Process assumptions
+  if (data.assumptions && data.assumptions.length > 0) {
+    data.assumptions.forEach(assumptionString => {
+      const resolved = resolveAssumption(assumptionString);
+
+      let displayText = '';
+      let tooltip = '';
+
+      if (resolved.type === 'global') {
+        displayText = resolved.text;
+        tooltip = `Assumption type: ${resolved.assumptionType}`;
+
+        // Add mathematical expressions on new lines if available
+        if (resolved.mathematicalExpressions && resolved.mathematicalExpressions.length > 0) {
+          const mathExpressions = resolved.mathematicalExpressions.map(expr => `<div class="assumption-math">\`${expr}\`</div>`).join('');
+          displayText += mathExpressions;
+        }
+
+        // Add symbol definitions if available
+        if (resolved.symbolDefinitions && resolved.symbolDefinitions.length > 0) {
+          const symbolDefs = resolved.symbolDefinitions.map(def =>
+            `<div class="assumption-symbol-def"><span class="symbol">\`${def.symbol}\`</span>: ${def.definition}</div>`
+          ).join('');
+          displayText += `<div class="assumption-symbols">${symbolDefs}</div>`;
+        }
+      } else {
+        // Direct text assumption
+        displayText = resolved.text;
+        tooltip = 'Direct assumption';
+      }
+
+      prerequisitesList.push({
+        type: 'assumption',
+        html: displayText,
+        tooltip: tooltip,
+        cssClass: resolved.type === 'global' ? `assumption-${resolved.assumptionType}` : 'assumption-unspecified'
+      });
+    });
+  }
+
+  // Process dependencies
+  if (data.dependencies && data.dependencies.length > 0) {
+    data.dependencies.forEach(dependencyId => {
+      const dependencyName = dependencyId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const dependencyLink = `<a href="entries.html?entry=${dependencyId}.json">${dependencyName}</a>`;
+
+      prerequisitesList.push({
+        type: 'dependency',
+        html: dependencyLink,
+        tooltip: `Builds upon: ${dependencyName}`,
+        cssClass: 'dependency-type'
+      });
+    });
+  }
+
+  // Render the list
+  const prerequisitesContainer = qs("#assumptions ol");
+  if (prerequisitesContainer) {
+    prerequisitesContainer.innerHTML = "";
+
+    if (prerequisitesList.length === 0) {
+      prerequisitesContainer.innerHTML = "<li><em>No specific prerequisites</em></li>";
+    } else {
+      prerequisitesList.forEach(item => {
+        const tooltip = item.tooltip ? ` title="${item.tooltip}"` : '';
+        const cssClass = item.cssClass ? ` class="${item.cssClass}"` : '';
+        prerequisitesContainer.insertAdjacentHTML("beforeend", `<li${cssClass}${tooltip}>${item.html}</li>`);
+      });
+    }
+  }
+
+  // Add color legend
+  const assumptionsSection = qs("#assumptions");
+  if (assumptionsSection) {
+    // Remove existing legend if any
+    const existingLegend = assumptionsSection.querySelector('.assumption-legend');
+    if (existingLegend) {
+      existingLegend.remove();
+    }
+
+    // Create legend HTML
+    const legendHTML = `
+      <div class="assumption-legend">
+        <div class="legend-item">
+          <span class="legend-color assumption-principle"></span>
+          <span class="legend-label">Principle</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color assumption-empirical"></span>
+          <span class="legend-label">Empirical</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color assumption-approximation"></span>
+          <span class="legend-label">Approximation</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color dependency-type"></span>
+          <span class="legend-label">Builds upon</span>
+        </div>
+      </div>
+    `;
+
+    assumptionsSection.insertAdjacentHTML('beforeend', legendHTML);
+  }
+}
+
 // Handle direct entry loading via URL parameter in entries.html only
 function initializeEntryPage() {
   if (!window.location.pathname.includes("entries.html")) return;
@@ -218,8 +388,10 @@ function loadEntry(filename) {
       }
       return r.json();
     })
-    .then((data) => {
+    .then(async (data) => {
       console.log("Entry data loaded successfully:", data.result_name);
+      // Load global assumptions before rendering
+      await loadGlobalAssumptions();
       render(data);
     })
     .catch((error) => {
@@ -331,7 +503,8 @@ function render(data) {
     .map((eq) => `<p>${formatLongEquation(eq.equation)}</p>`)
     .join("");
   safeTypesetMathJax([eqDiv]);
-  renderList("#assumptions ol", data.assumptions, (a) => a.text);
+  // Render prerequisites (assumptions + dependencies) with unified structure
+  renderPrerequisites(data);
   safeTypesetMathJax([qs("#assumptions")]);
 
   // Ensure derivation sections are visible
@@ -388,19 +561,7 @@ function render(data) {
   safeTypesetMathJax([qs("#references")]);
 
   // Render validity regime
-  if (data.validity_regime) {
-    renderList(
-      "#validity-conditions ul",
-      data.validity_regime.conditions || [],
-      (c) => c
-    );
-    renderList(
-      "#validity-limitations ul",
-      data.validity_regime.limitations || [],
-      (l) => l
-    );
-    safeTypesetMathJax([qs("#validityRegime")]);
-  }
+  // validity_regime section removed - now integrated into assumptions
 
   // Render historical context
   if (data.historical_context) {
@@ -422,18 +583,8 @@ function render(data) {
     safeTypesetMathJax([qs("#historicalContext")]);
   }
 
-  // Dependencies section - only show if data exists
-  if (data.dependencies && data.dependencies.length > 0) {
-    renderList(
-      "#dependencies ul",
-      data.dependencies,
-      (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
-      true
-    );
-    safeTypesetMathJax([qs("#dependencies")]);
-  } else {
-    qs("#dependencies").style.display = "none";
-  }
+  // Dependencies section - now integrated into prerequisites section
+  qs("#dependencies").style.display = "none";
 
   // Superseded by section - only show if data exists
   if (data.superseded_by && data.superseded_by.length > 0) {

@@ -59,38 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Observations are made from inertial reference frames."
-    },
-    {
-      "id": "assumption2",
-      "text": "Classical mechanics applies (non-relativistic velocities)."
-    },
-    {
-      "id": "assumption3",
-      "text": "For the Second Law constant-mass form, mass remains constant during motion."
-    },
-    {
-      "id": "assumption4",
-      "text": "Forces are well-defined and can be measured or calculated."
-    },
-    {
-      "id": "assumption5",
-      "text": "The concept of inertial reference frames can be defined operationally."
-    },
-    {
-      "id": "assumption6",
-      "text": "Force can be defined as the rate of change of momentum."
-    },
-    {
-      "id": "assumption7",
-      "text": "Mass is an intrinsic property that may be constant or variable."
-    },
-    {
-      "id": "assumption8",
-      "text": "For isolated systems, total momentum is conserved."
-    }
+    "Observations are made from inertial reference frames.",
+    "Classical mechanics applies (non-relativistic velocities).",
+    "For the Second Law constant-mass form, mass remains constant during motion.",
+    "Forces are well-defined and can be measured or calculated.",
+    "The concept of inertial reference frames can be defined operationally.",
+    "Force can be defined as the rate of change of momentum.",
+    "Mass is an intrinsic property that may be constant or variable.",
+    "For isolated systems, total momentum is conserved."
   ],
   "derivation": [
     {
@@ -196,20 +172,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Inertial reference frames",
-      "Classical mechanics (non-relativistic speeds)",
-      "Macroscopic objects with well-defined mass",
-      "Forces that can be operationally defined"
-    ],
-    "limitations": [
-      "Fails at relativistic speeds (requires relativistic mechanics)",
-      "Not applicable in non-inertial frames without fictitious forces",
-      "Classical limit only (quantum effects ignored)",
-      "Requires precise definition of inertial frames and forces"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of classical mechanics, enables prediction of motion and understanding of force interactions",
     "development_period": "1687",
@@ -234,14 +196,14 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1963). *The Feynman Lectures on Physics* (Vol. 1). Addison-Wesley."
     }
   ],
-  "dependencies": [
-    "conservation_of_momentum"
-  ],
   "contributors": [
     {
       "full_name": "Consolidated from individual Newton's law entries",
       "identifier": "Not provided"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_momentum"
+  ]
 }

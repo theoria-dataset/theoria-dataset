@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Restoring force proportional to displacement"
-    },
-    {
-      "id": "assumption2",
-      "text": "No damping or external forces"
-    },
-    {
-      "id": "assumption3",
-      "text": "Small oscillation approximation"
-    },
-    {
-      "id": "assumption4",
-      "text": "Linear system response"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's second law applies"
-    },
-    {
-      "id": "assumption6",
-      "text": "Hooke's law for restoring force"
-    },
-    {
-      "id": "assumption7",
-      "text": "No energy dissipation"
-    },
-    {
-      "id": "assumption8",
-      "text": "Constant mass system"
-    }
+    "Restoring force proportional to displacement",
+    "No damping or external forces",
+    "Small oscillation approximation",
+    "Linear system response",
+    "Newton's second law applies",
+    "Hooke's law for restoring force",
+    "No energy dissipation",
+    "Constant mass system"
   ],
   "derivation": [
     {
@@ -186,19 +162,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Small amplitude oscillations",
-      "Linear restoring force",
-      "No damping",
-      "Constant system parameters"
-    ],
-    "limitations": [
-      "Large amplitude oscillations show nonlinear behavior",
-      "Real systems have damping",
-      "Frequency may depend on amplitude for nonlinear systems"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-18th centuries",
     "importance": "Fundamental model for oscillatory systems; basis for understanding waves, vibrations, and quantum mechanics",
@@ -219,15 +182,15 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": [
-    "hookes_law",
-    "newtons_second_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "hookes_law",
+    "newtons_second_law"
+  ]
 }

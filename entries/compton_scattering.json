@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Free or loosely bound electrons"
-    },
-    {
-      "id": "assumption2",
-      "text": "Relativistic energy-momentum conservation"
-    },
-    {
-      "id": "assumption3",
-      "text": "Point-like collision"
-    },
-    {
-      "id": "assumption4",
-      "text": "No other interactions"
-    },
-    {
-      "id": "assumption5",
-      "text": "Relativistic energy-momentum relations"
-    },
-    {
-      "id": "assumption6",
-      "text": "Conservation of energy and momentum"
-    },
-    {
-      "id": "assumption7",
-      "text": "Photon as massless particle"
-    },
-    {
-      "id": "assumption8",
-      "text": "Initial electron at rest"
-    }
+    "Free or loosely bound electrons",
+    "Relativistic energy-momentum conservation",
+    "Point-like collision",
+    "No other interactions",
+    "Relativistic energy-momentum relations",
+    "Conservation of energy and momentum",
+    "Photon as massless particle",
+    "Initial electron at rest"
   ],
   "derivation": [
     {
@@ -202,20 +178,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "High-energy photons (X-ray, γ-ray)",
-      "Free or weakly bound electrons",
-      "Single scattering events",
-      "Non-relativistic electron treatment"
-    ],
-    "limitations": [
-      "Bound electron effects in inner shells",
-      "Multiple scattering in thick materials",
-      "Relativistic electron effects",
-      "Quantum field theory corrections"
-    ]
-  },
   "historical_context": {
     "development_period": "1923",
     "importance": "Provided definitive evidence for photon particle nature; confirmed quantum mechanics and earned Compton the 1927 Nobel Prize",
@@ -235,16 +197,16 @@
       "citation": "Klein, O., & Nishina, Y. (1929). Über die Streuung von Strahlung durch freie Elektronen nach der neuen relativistischen Quantendynamik von Dirac. Zeitschrift für Physik, 52(11-12), 853-868."
     }
   ],
-  "dependencies": [
-    "photoelectric_effect",
-    "conservation_of_energy",
-    "conservation_of_momentum"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "photoelectric_effect",
+    "conservation_of_energy",
+    "conservation_of_momentum"
+  ]
 }

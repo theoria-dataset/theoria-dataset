@@ -43,22 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The fluid is Newtonian with constant density and viscosity."
-    },
-    {
-      "id": "assumption2",
-      "text": "There is a characteristic velocity and length scale for the flow."
-    },
-    {
-      "id": "assumption3",
-      "text": "The Navier-Stokes equations apply for the fluid flow."
-    },
-    {
-      "id": "assumption4",
-      "text": "Characteristic scales can be identified for the flow problem."
-    }
+    "The fluid is Newtonian with constant density and viscosity.",
+    "There is a characteristic velocity and length scale for the flow.",
+    "The Navier-Stokes equations apply for the fluid flow.",
+    "Characteristic scales can be identified for the flow problem."
   ],
   "derivation": [
     {
@@ -139,20 +127,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Newtonian fluid behavior",
-      "Well-defined characteristic scales",
-      "Continuum fluid mechanics",
-      "Incompressible or compressible flows"
-    ],
-    "limitations": [
-      "Requires Newtonian fluid assumption",
-      "May not apply to non-continuum flows",
-      "Characteristic scales must be well-defined",
-      "Transition region may be complex"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental parameter in fluid mechanics, critical for engineering design and flow prediction",
     "development_period": "1883",
@@ -173,14 +147,14 @@
       "citation": "White, F. M. (2011). *Fluid Mechanics* (7th ed.). McGraw-Hill."
     }
   ],
-  "dependencies": [
-    "navier_stokes_incompressible"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "navier_stokes_incompressible"
+  ]
 }

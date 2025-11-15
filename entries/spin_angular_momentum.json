@@ -39,26 +39,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Quantum mechanical angular momentum operators satisfy SU(2) algebra."
-    },
-    {
-      "id": "assumption2",
-      "text": "Spin is an intrinsic property independent of particle motion."
-    },
-    {
-      "id": "assumption3",
-      "text": "The quantum numbers s and m_s take discrete values."
-    },
-    {
-      "id": "assumption4",
-      "text": "Angular momentum operators form a Lie algebra SU(2)."
-    },
-    {
-      "id": "assumption5",
-      "text": "The Hilbert space is finite-dimensional for each spin value."
-    }
+    "Quantum mechanical angular momentum operators satisfy SU(2) algebra.",
+    "Spin is an intrinsic property independent of particle motion.",
+    "The quantum numbers s and m_s take discrete values.",
+    "Angular momentum operators form a Lie algebra SU(2).",
+    "The Hilbert space is finite-dimensional for each spin value."
   ],
   "derivation": [
     {
@@ -146,20 +131,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum mechanical systems",
-      "Well-defined particle states",
-      "Non-relativistic or relativistic quantum mechanics",
-      "Discrete quantum number spectrum"
-    ],
-    "limitations": [
-      "Classical analog does not exist",
-      "Requires quantum mechanical framework",
-      "May need relativistic treatment for high-energy particles",
-      "Composite particle spin involves coupling rules"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental quantum property, explains Pauli exclusion principle and particle statistics",
     "development_period": "1925-1928",
@@ -180,15 +151,15 @@
       "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "quantum_angular_momentum",
-    "pauli_exclusion_principle"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "quantum_angular_momentum",
+    "pauli_exclusion_principle"
+  ]
 }

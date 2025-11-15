@@ -43,30 +43,12 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The transition occurs at thermodynamic equilibrium."
-    },
-    {
-      "id": "assumption2",
-      "text": "The latent heat and volume change are approximately constant near the transition."
-    },
-    {
-      "id": "assumption3",
-      "text": "The system is in a reversible process."
-    },
-    {
-      "id": "assumption4",
-      "text": "Thermodynamic equilibrium exists between phases."
-    },
-    {
-      "id": "assumption5",
-      "text": "The transition is reversible."
-    },
-    {
-      "id": "assumption6",
-      "text": "Gibbs-Duhem relation applies."
-    }
+    "The transition occurs at thermodynamic equilibrium.",
+    "The latent heat and volume change are approximately constant near the transition.",
+    "The system is in a reversible process.",
+    "Thermodynamic equilibrium exists between phases.",
+    "The transition is reversible.",
+    "Gibbs-Duhem relation applies."
   ],
   "derivation": [
     {
@@ -192,20 +174,6 @@
   },
   "domain": "physics.cond-mat",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Near phase transition temperature",
-      "Constant latent heat approximation",
-      "Thermodynamic equilibrium",
-      "Single component system"
-    ],
-    "limitations": [
-      "Latent heat temperature dependence ignored",
-      "Critical point behavior not captured",
-      "Multi-component systems require modification",
-      "Far from transition point may be inaccurate"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental equation for phase transitions, enables prediction of phase diagrams and understanding of pressure-temperature relationships",
     "development_period": "1834-1850",
@@ -226,15 +194,15 @@
       "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
     }
   ],
-  "dependencies": [
-    "first_law_thermodynamics",
-    "second_law_thermodynamics_clausius"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

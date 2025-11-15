@@ -1,0 +1,152 @@
+{
+  "result_id": "schrodinger_equation",
+  "result_name": "Schrödinger Equation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "i hbar partial_t psi = -(hbar^2/(2 m)) nabla^2 psi + V psi"
+    }
+  ],
+  "explanation": "The Schrödinger equation explains how the wavefunction of a particle evolves in time and how energy levels arise from the system’s Hamiltonian. Its solutions describe atomic and molecular structure, chemical bonding, and the behavior of matter at small scales. By replacing deterministic classical motion with probabilistic wave dynamics, it provides the framework that underpins much of modern physics, chemistry, and technology.",
+  "definitions": [
+    {
+      "symbol": "psi",
+      "definition": "Wavefunction psi(x,t), a complex function of space and time, |psi(x,t)|^2 represents the probability density, and it must be square‑integrable with proper boundary conditions."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant (`hbar = h/(2 pi)`)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Particle mass."
+    },
+    {
+      "symbol": "partial_t",
+      "definition": "Partial derivative with respect to time t."
+    },
+    {
+      "symbol": "nabla^2",
+      "definition": "Laplacian in 3D: `partial_(x x) + partial_(y y) + partial_(z z)`."
+    },
+    {
+      "symbol": "V",
+      "definition": "Potential energy `V(x,t)`, acting as a multiplication operator."
+    }
+  ],
+  "assumptions": [
+    "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`).",
+    "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain).",
+    "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian.",
+    "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Begin with the classical Hamiltonian for a particle in a potential.",
+      "equation": "H_classical = p^2/(2 m) + V(x,t)"
+    },
+    {
+      "step": 2,
+      "description": "Quantize energy and momentum via operator substitutions acting on psi.",
+      "equation": "E -> i*hbar*partial_t, p -> -i*hbar*nabla"
+    },
+    {
+      "step": 3,
+      "description": "Build the Hamiltonian operator from p^2 -> (-i*hbar*nabla)^2 = -hbar^2*nabla^2.",
+      "equation": "H = -(hbar^2/(2*m))*nabla^2 + V"
+    },
+    {
+      "step": 4,
+      "description": "Equate energy operator action to H acting on psi to obtain the time‑dependent Schrödinger equation.",
+      "equation": "i*hbar*partial_t psi = H*psi"
+    },
+    {
+      "step": 5,
+      "description": "If V is time‑independent, separate variables psi(x,t) = phi(x)*T(t) to get the stationary eigenvalue problem.",
+      "equation": "H*phi = E*phi"
+    },
+    {
+      "step": 6,
+      "description": "For a constant potential V_0, a plane wave psi ~ exp(i*(k·x - omega*t)) satisfies the equation with dispersion relation hbar*omega = (hbar^2*k^2)/(2*m) + V_0.",
+      "equation": "E = (hbar^2*k^2)/(2*m) + V_0"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "# Symbols and functions",
+      "x, y, z, t = sp.symbols('x y z t', real=True)",
+      "m, hbar = sp.symbols('m hbar', positive=True, real=True)",
+      "k_x, k_y, k_z, V0, omega = sp.symbols('k_x k_y k_z V0 omega', real=True)",
+      "psi = sp.Function('psi')(x, y, z, t)",
+      "V = sp.Function('V')(x, y, z, t)",
+      "",
+      "# 3D Laplacian",
+      "lap = sp.diff(psi, x, 2) + sp.diff(psi, y, 2) + sp.diff(psi, z, 2)",
+      "",
+      "# Momentum-squared operator identity: (-i*hbar)^2 * nabla^2 psi = -hbar^2 * nabla^2 psi",
+      "p2psi = (-sp.I*hbar)**2 * lap",
+      "assert sp.simplify(p2psi + hbar**2*lap) == 0",
+      "",
+      "# TDSE building blocks (symbolic forms)",
+      "Hpsi = -(hbar**2/(2*m))*lap + V*psi",
+      "Epsi = sp.I*hbar*sp.diff(psi, t)",
+      "",
+      "# Plane-wave check in constant potential V0",
+      "r = sp.Matrix([x, y, z])",
+      "k = sp.Matrix([k_x, k_y, k_z])",
+      "psi_pw = sp.exp(sp.I*(k.dot(r) - omega*t))",
+      "lap_pw = sp.diff(psi_pw, x, 2) + sp.diff(psi_pw, y, 2) + sp.diff(psi_pw, z, 2)",
+      "Epsi_pw = sp.I*hbar*sp.diff(psi_pw, t)",
+      "Hpsi_pw = -(hbar**2/(2*m))*lap_pw + V0*psi_pw",
+      "k2 = (k_x**2 + k_y**2 + k_z**2)",
+      "",
+      "# Dispersion pieces",
+      "assert sp.simplify(Epsi_pw/psi_pw - hbar*omega) == 0",
+      "assert sp.simplify(Hpsi_pw/psi_pw - (hbar**2*k2)/(2*m) - V0) == 0",
+      "",
+      "# TDSE satisfied when omega matches the dispersion relation",
+      "residual = sp.simplify((Epsi_pw - Hpsi_pw).subs(omega, (hbar*k2)/(2*m) + V0/hbar))",
+      "assert residual == 0",
+      "",
+      "print('All Schrödinger verifications passed')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "superseded_by": [
+    "pauli_equation",
+    "dirac_equation_free",
+    "qed_lagrangian"
+  ],
+  "historical_context": {
+    "importance": "Foundational equation of non‑relativistic quantum mechanics; enables quantitative predictions for spectra, bonding, transport, and nanoscale phenomena",
+    "development_period": "1925–1926",
+    "key_insights": [
+      "Linear wave dynamics with probabilistic interpretation",
+      "Operator correspondence links classical and quantum descriptions",
+      "Boundary conditions lead to quantization of energy levels"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Schrödinger, E. (1926). Quantisierung als Eigenwertproblem. Annalen der Physik, 79(4), 361–376."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "draft",
+  "dependencies": []
+}

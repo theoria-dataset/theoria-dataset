@@ -47,38 +47,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Closed system (no external forces)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Newton's laws apply"
-    },
-    {
-      "id": "assumption3",
-      "text": "Inertial reference frame"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical mechanics regime"
-    },
-    {
-      "id": "assumption5",
-      "text": "Newton's third law"
-    },
-    {
-      "id": "assumption6",
-      "text": "No external forces"
-    },
-    {
-      "id": "assumption7",
-      "text": "Constant mass"
-    },
-    {
-      "id": "assumption8",
-      "text": "Classical mechanics"
-    }
+    "Closed system (no external forces)",
+    "Newton's laws apply",
+    "Inertial reference frame",
+    "Classical mechanics regime",
+    "Newton's third law",
+    "No external forces",
+    "Constant mass",
+    "Classical mechanics"
   ],
   "derivation": [
     {
@@ -182,19 +158,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Closed system",
-      "No external forces",
-      "Classical mechanics regime (v << c)",
-      "Inertial reference frame"
-    ],
-    "limitations": [
-      "Requires modification for relativistic speeds",
-      "Not applicable with external forces",
-      "May need quantum corrections for microscopic systems"
-    ]
-  },
   "historical_context": {
     "development_period": "17th-18th century",
     "importance": "One of the fundamental conservation laws, essential for understanding collisions, rocket propulsion, and many other phenomena",
@@ -214,14 +177,14 @@
       "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
     }
   ],
-  "dependencies": [
-    "newtons_laws"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "newtons_laws"
+  ]
 }

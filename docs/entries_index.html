@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 102 Physics Entries (7 Reviewed, 95 AI-Generated) • Version 0.4.8</p>
+      <p class="subtitle">Browse All 103 Physics Entries (7 Reviewed, 96 AI-Generated) • Version 0.5.0</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -45,7 +45,7 @@
         <a href="#physics-cond-mat" class="nav-link">Condensed Matter Physics (3)</a>
         <a href="#physics-flu-dyn" class="nav-link">Fluid Dynamics (5)</a>
         <a href="#gr-qc" class="nav-link">General Relativity and Quantum Cosmology (5)</a>
-        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (3)</a>
+        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (4)</a>
         <a href="#cond-mat-mtrl-sci" class="nav-link">Materials Science (1)</a>
         <a href="#math-ph" class="nav-link">Mathematical Physics (1)</a>
         <a href="#cond-mat-mes-hall" class="nav-link">Mesoscale and Nanoscale Physics (1)</a>
@@ -814,6 +814,17 @@
       </div>
     </a>
   
+      
+    <a href="entries.html?entry=spin_statistics_theorem.json" class="entry-card-link ai-entry">
+      <div class="entry-card entry-card-draft">
+        <h3 class="entry-title">
+          Spin-Statistics Theorem
+        </h3>
+        <p class="entry-description">The spin-statistics theorem establishes a fundamental connection in relativistic quantum field theory between a particle's intrinsic angular momentum (spin) and the statistical behavior of identical particles.  Particles with integer spin must be bosons and follow Bose-Einstein statistics, while particles with half-integer spin must be fermions and follow Fermi-Dirac statistics.</p>
+        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
+      </div>
+    </a>
+  
       </div>
     </section>
   
@@ -1116,12 +1127,12 @@
     </a>
   
       
-    <a href="entries.html?entry=schroedingen_equation.json" class="entry-card-link ai-entry">
+    <a href="entries.html?entry=schrodinger_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Schrödinger Equation
         </h3>
-        <p class="entry-description">The time-dependent Schrödinger equation governs the non-relativistic evolution of a quantum particle's wavefunction ψ(x,t).  By promoting energy and momentum to differential operators, it relates the temporal derivative of ψ to the kinetic (−ħ²/2m∇²) and potential (V) terms.</p>
+        <p class="entry-description">The Schrödinger equation explains how the wavefunction of a particle evolves in time and how energy levels arise from the system’s Hamiltonian.  Its solutions describe atomic and molecular structure, chemical bonding, and the behavior of matter at small scales.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
@@ -1414,7 +1425,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.4.8`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.5.0`;
     </script>
   </body>
 </html>

@@ -51,38 +51,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics (non-relativistic)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Homogeneous medium"
-    },
-    {
-      "id": "assumption3",
-      "text": "Straight-line motion"
-    },
-    {
-      "id": "assumption4",
-      "text": "Constant velocities"
-    },
-    {
-      "id": "assumption5",
-      "text": "Small velocities compared to wave speed"
-    },
-    {
-      "id": "assumption6",
-      "text": "Source and observer move along line connecting them"
-    },
-    {
-      "id": "assumption7",
-      "text": "Medium at rest"
-    },
-    {
-      "id": "assumption8",
-      "text": "Wave propagation is isotropic"
-    }
+    "Classical mechanics (non-relativistic)",
+    "Homogeneous medium",
+    "Straight-line motion",
+    "Constant velocities",
+    "Small velocities compared to wave speed",
+    "Source and observer move along line connecting them",
+    "Medium at rest",
+    "Wave propagation is isotropic"
   ],
   "derivation": [
     {
@@ -197,20 +173,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanics for low velocities",
-      "Uniform medium",
-      "Constant velocities",
-      "Linear wave propagation"
-    ],
-    "limitations": [
-      "Relativistic effects at high speeds",
-      "Medium motion affects results",
-      "Transverse Doppler effect",
-      "Nonlinear propagation effects"
-    ]
-  },
   "historical_context": {
     "development_period": "1842",
     "importance": "Fundamental wave phenomenon; enables velocity measurements and astronomical discoveries including cosmic expansion",
@@ -230,15 +192,15 @@
       "citation": "Resnick, R., Eisberg, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
     }
   ],
-  "dependencies": [
-    "wave_equation",
-    "waves_interference"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "wave_equation",
+    "waves_interference"
+  ]
 }

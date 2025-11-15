@@ -39,38 +39,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical statistical mechanics applies (equipartition theorem)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The electromagnetic field can be treated as a collection of harmonic oscillators."
-    },
-    {
-      "id": "assumption3",
-      "text": "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`)."
-    },
-    {
-      "id": "assumption4",
-      "text": "The radiation is in thermal equilibrium with the blackbody."
-    },
-    {
-      "id": "assumption5",
-      "text": "The density of electromagnetic modes in frequency space follows from wave equation in a cavity."
-    },
-    {
-      "id": "assumption6",
-      "text": "Each mode has average energy `k_B*T` according to classical equipartition theorem."
-    },
-    {
-      "id": "assumption7",
-      "text": "The transformation from frequency to wavelength space preserves the total energy."
-    },
-    {
-      "id": "assumption8",
-      "text": "The spectral radiance relates to energy density through geometric factors."
-    }
+    "Classical statistical mechanics applies (equipartition theorem).",
+    "The electromagnetic field can be treated as a collection of harmonic oscillators.",
+    "The wavelength is much larger than the characteristic quantum scale (`hf << k_B*T`).",
+    "The radiation is in thermal equilibrium with the blackbody.",
+    "The density of electromagnetic modes in frequency space follows from wave equation in a cavity.",
+    "Each mode has average energy `k_B*T` according to classical equipartition theorem.",
+    "The transformation from frequency to wavelength space preserves the total energy.",
+    "The spectral radiance relates to energy density through geometric factors."
   ],
   "derivation": [
     {
@@ -214,14 +190,14 @@
       "citation": "Jeans, J. H. (1905). 'On the Partition of Energy between Matter and Æther.' Philosophical Magazine, 10, 91-98."
     }
   ],
-  "dependencies": [
-    "planck_radiation_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "planck_radiation_law"
+  ]
 }

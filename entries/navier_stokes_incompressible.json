@@ -39,18 +39,9 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Density is constant, so `nabla cdot vec v = 0`."
-    },
-    {
-      "id": "assumption2",
-      "text": "Fluid is Newtonian; bulk-viscosity term vanishes via incompressibility."
-    },
-    {
-      "id": "assumption3",
-      "text": "Dynamic viscosity `mu` is spatially uniform and constant in time."
-    }
+    "Density is constant, so `nabla cdot vec v = 0`.",
+    "Fluid is Newtonian; bulk-viscosity term vanishes via incompressibility.",
+    "Dynamic viscosity `mu` is spatially uniform and constant in time."
   ],
   "derivation": [
     {
@@ -100,20 +91,6 @@
   },
   "domain": "physics.flu-dyn",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Incompressible Newtonian fluids",
-      "Continuum approximation (fluid much larger than molecular scale)",
-      "Viscous flow regime",
-      "Well-defined boundary conditions"
-    ],
-    "limitations": [
-      "Limited to incompressible flows (constant density)",
-      "Newtonian fluid assumption may fail for complex fluids",
-      "Continuum assumption breaks down at molecular scales",
-      "Difficult to solve analytically except in simple geometries"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental equation of fluid mechanics, governs most fluid flows in engineering and nature",
     "development_period": "1822-1845",
@@ -135,5 +112,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

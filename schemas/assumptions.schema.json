@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://theoria-dataset.org/schemas/assumptions.schema.json",
+  "title": "THEORIA dataset global assumptions",
+  "description": "Schema for the global assumptions file that contains centralized physics assumptions referenced by entries.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "assumptions"
+  ],
+
+  "properties": {
+    "assumptions": {
+      "type": "array",
+      "description": "Array of global assumptions that can be referenced by entries. Each assumption represents a core principle, empirical fact, or approximation used in physics derivations.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "type"],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "mathematical_expressions": {
+              "type": "array",
+              "minItems": 1
+            }
+          },
+          "required": ["mathematical_expressions"]
+        },
+        "then": {
+          "required": ["symbol_definitions"]
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Unique identifier for the assumption. Use lowercase letters, numbers, and underscores only. Choose descriptive names that clearly identify the assumption.",
+            "example": "classical_mechanics_framework"
+          },
+          "text": {
+            "type": "string", 
+            "minLength": 10,
+            "maxLength": 500,
+            "description": "Clear, concise description of the assumption. If there are math symbols or equations, they must be enclosed in backticks (``) and written in AsciiMath format.",
+            "example": "Classical mechanics framework: relativistic effects negligible (v << c), quantum effects negligible for macroscopic bodies"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["principle", "empirical", "approximation"],
+            "description": "Type of assumption: principle (core mathematical/theoretical principles postulated or derived from basic theories), empirical (experimentally established facts and measured constants), approximation (modeling assumptions that restrict validity or simplify analysis, including regime restrictions and simplifying approximations)"
+          },
+          "mathematical_expressions": {
+            "type": "array",
+            "description": "Optional array of mathematical expressions that formalize this assumption using AsciiMath format.",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Mathematical expression in AsciiMath format"
+            }
+          },
+          "symbol_definitions": {
+            "type": "array",
+            "description": "Definitions for all symbols used in mathematical_expressions. Required if mathematical_expressions is provided.",
+            "items": {
+              "type": "object",
+              "required": ["symbol", "definition"],
+              "additionalProperties": false,
+              "properties": {
+                "symbol": {
+                  "type": "string",
+                  "description": "Mathematical symbol in AsciiMath format"
+                },
+                "definition": {
+                  "type": "string",
+                  "description": "Clear definition of what the symbol represents"
+                }
+              }
+            }
+          },
+          "used_in": {
+            "type": "array",
+            "description": "Array of entry IDs that reference this assumption. This field tracks which dataset entries use this assumption in their derivations or explanations.",
+            "items": {
+              "type": "string",
+              "description": "Entry ID (result_id) that uses this assumption"
+            },
+            "example": ["blackbody_radiation", "planck_law"]
+          }
+        }
+      }
+    }
+  }
+}

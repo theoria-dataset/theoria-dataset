@@ -47,26 +47,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The proton is infinitely massive compared to the electron (fixed nucleus approximation)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Only Coulomb interaction between electron and proton is considered."
-    },
-    {
-      "id": "assumption3",
-      "text": "Relativistic effects and spin-orbit coupling are neglected."
-    },
-    {
-      "id": "assumption4",
-      "text": "The Schrödinger equation applies with Coulomb potential."
-    },
-    {
-      "id": "assumption5",
-      "text": "Separation of variables in spherical coordinates is possible."
-    }
+    "The proton is infinitely massive compared to the electron (fixed nucleus approximation).",
+    "Only Coulomb interaction between electron and proton is considered.",
+    "Relativistic effects and spin-orbit coupling are neglected.",
+    "The Schrödinger equation applies with Coulomb potential.",
+    "Separation of variables in spherical coordinates is possible."
   ],
   "derivation": [
     {
@@ -145,20 +130,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Non-relativistic quantum mechanics",
-      "Pure Coulomb potential",
-      "Single electron system",
-      "Fixed nucleus approximation"
-    ],
-    "limitations": [
-      "Non-relativistic treatment (ignores fine structure)",
-      "Neglects spin-orbit coupling",
-      "Fixed nucleus approximation",
-      "Does not include quantum field theory corrections"
-    ]
-  },
   "historical_context": {
     "importance": "First successful quantum mechanical solution, foundation of atomic physics",
     "development_period": "1913-1926",
@@ -179,15 +150,15 @@
       "citation": "Bethe, H. A., & Salpeter, E. E. (1957). *Quantum Mechanics of One- and Two-Electron Atoms*. Academic Press."
     }
   ],
-  "dependencies": [
-    "schroedingen_equation",
-    "coulombs_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "schroedingen_equation",
+    "coulombs_law"
+  ]
 }

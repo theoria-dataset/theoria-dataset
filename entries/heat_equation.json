@@ -59,38 +59,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Isotropic, homogeneous material"
-    },
-    {
-      "id": "assumption2",
-      "text": "Constant thermal properties"
-    },
-    {
-      "id": "assumption3",
-      "text": "No internal heat generation"
-    },
-    {
-      "id": "assumption4",
-      "text": "Fourier's law of heat conduction applies"
-    },
-    {
-      "id": "assumption5",
-      "text": "Energy conservation"
-    },
-    {
-      "id": "assumption6",
-      "text": "Fourier's law of heat conduction"
-    },
-    {
-      "id": "assumption7",
-      "text": "Constant material properties"
-    },
-    {
-      "id": "assumption8",
-      "text": "No internal heat sources"
-    }
+    "Isotropic, homogeneous material",
+    "Constant thermal properties",
+    "No internal heat generation",
+    "Fourier's law of heat conduction applies",
+    "Energy conservation",
+    "Fourier's law of heat conduction",
+    "Constant material properties",
+    "No internal heat sources"
   ],
   "derivation": [
     {
@@ -184,20 +160,6 @@
   },
   "domain": "physics.cond-mat",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Continuous media",
-      "Fourier heat conduction regime",
-      "Constant material properties",
-      "No phase transitions"
-    ],
-    "limitations": [
-      "Ballistic transport at very small scales",
-      "Non-Fourier effects at short time scales",
-      "Nonlinear effects at extreme temperatures",
-      "Radiative heat transfer dominance"
-    ]
-  },
   "historical_context": {
     "development_period": "1822",
     "importance": "Foundation of heat transfer analysis; first major application of partial differential equations to physics",
@@ -218,14 +180,14 @@
       "citation": "Carslaw, H. S., & Jaeger, J. C. (1959). Conduction of Heat in Solids. Oxford University Press."
     }
   ],
-  "dependencies": [
-    "conservation_of_energy"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "conservation_of_energy"
+  ]
 }

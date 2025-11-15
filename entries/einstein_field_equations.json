@@ -47,22 +47,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "General covariance: the laws of physics are the same in all coordinate systems."
-    },
-    {
-      "id": "assumption2",
-      "text": "The equivalence principle: gravitational and inertial effects are locally indistinguishable."
-    },
-    {
-      "id": "assumption3",
-      "text": "The action principle applies to spacetime geometry."
-    },
-    {
-      "id": "assumption4",
-      "text": "Minimal coupling between matter and geometry."
-    }
+    "General covariance: the laws of physics are the same in all coordinate systems.",
+    "The equivalence principle: gravitational and inertial effects are locally indistinguishable.",
+    "The action principle applies to spacetime geometry.",
+    "Minimal coupling between matter and geometry."
   ],
   "derivation": [
     {
@@ -124,20 +112,6 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "General relativistic regime",
-      "Large-scale spacetime geometry",
-      "Classical gravitational fields",
-      "Smooth spacetime manifolds"
-    ],
-    "limitations": [
-      "Classical treatment of gravity (no quantum gravity)",
-      "Smooth spacetime assumption",
-      "May break down at Planck scale",
-      "Requires quantum field theory in curved spacetime for matter"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of modern cosmology and gravitational physics",
     "development_period": "1915-1917",
@@ -158,14 +132,14 @@
       "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
     }
   ],
-  "dependencies": [
-    "special_relativity"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "special_relativity"
+  ]
 }

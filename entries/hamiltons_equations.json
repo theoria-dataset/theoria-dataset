@@ -31,22 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The Hamiltonian `H(q_i, p_i, t)` is obtained from a Legendre transform of a Lagrangian with non-degenerate kinetic energy."
-    },
-    {
-      "id": "assumption2",
-      "text": "Coordinates `q_i` and momenta `p_i` are canonical conjugates (independent variables in phase space)."
-    },
-    {
-      "id": "assumption3",
-      "text": "One can solve for `dot q_i(q,p)` in step 2 (Legendre transform requires `det(del^2 L/del dot q_i del dot q_j) != 0`)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Lagrange's equations hold, allowing substitution of `del L/del q_i` in step 4."
-    }
+    "The Hamiltonian `H(q_i, p_i, t)` is obtained from a Legendre transform of a Lagrangian with non-degenerate kinetic energy.",
+    "Coordinates `q_i` and momenta `p_i` are canonical conjugates (independent variables in phase space).",
+    "One can solve for `dot q_i(q,p)` in step 2 (Legendre transform requires `det(del^2 L/del dot q_i del dot q_j) != 0`).",
+    "Lagrange's equations hold, allowing substitution of `del L/del q_i` in step 4."
   ],
   "derivation": [
     {
@@ -100,20 +88,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical mechanical systems",
-      "Well-defined Hamiltonian exists",
-      "Canonical coordinates and momenta",
-      "Conservative or time-dependent systems"
-    ],
-    "limitations": [
-      "Classical mechanics only (no quantum effects)",
-      "Requires Hamiltonian formulation",
-      "May be complex for constrained systems",
-      "Does not include dissipative effects without modification"
-    ]
-  },
   "historical_context": {
     "importance": "Alternative formulation of mechanics, foundation for statistical mechanics and quantum mechanics",
     "development_period": "1833-1835",
@@ -140,5 +114,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

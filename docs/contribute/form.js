@@ -7,12 +7,12 @@
 class NewEntryForm {
     constructor() {
         this.formData = {};
+        this.globalAssumptions = null;
         this.counters = {
             equations: 0,
-            equations_assumptions: 0,
+            assumptions: 0,
             definitions: 0,
             derivation: 0,
-            derivation_assumptions: 0,
             references: 0,
             contributors: 0
         };
@@ -20,10 +20,13 @@ class NewEntryForm {
     }
 
     async init() {
+        // Load global assumptions first
+        await this.loadGlobalAssumptions();
+
         // Check if we're editing an existing entry
         const urlParams = new URLSearchParams(window.location.search);
         const entryId = urlParams.get('entry');
-        
+
         if (entryId) {
             await this.loadExistingEntry(entryId);
         } else {
@@ -33,8 +36,45 @@ class NewEntryForm {
             this.addReference();
             this.addContributor();
         }
-        
+
         this.setupEventListeners();
+        this.populateGlobalAssumptionsSelect();
+    }
+
+    async loadGlobalAssumptions() {
+        if (this.globalAssumptions !== null) {
+            return this.globalAssumptions;
+        }
+
+        try {
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            const baseUrl = isGitHubPages
+                ? 'https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/main'
+                : '../..';
+
+            const assumptionsUrl = `${baseUrl}/globals/assumptions.json`;
+            console.log('Loading global assumptions from:', assumptionsUrl);
+
+            const response = await fetch(assumptionsUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            this.globalAssumptions = {};
+
+            // Create a lookup map by assumption ID
+            data.assumptions.forEach(assumption => {
+                this.globalAssumptions[assumption.id] = assumption;
+            });
+
+            console.log('Loaded', Object.keys(this.globalAssumptions).length, 'global assumptions');
+            return this.globalAssumptions;
+        } catch (error) {
+            console.error('Error loading global assumptions:', error);
+            this.globalAssumptions = {};
+            return this.globalAssumptions;
+        }
     }
 
     async loadExistingEntry(entryId) {
@@ -44,31 +84,31 @@ class NewEntryForm {
             const baseUrl = isGitHubPages
                 ? 'https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/main'
                 : '../..';
-            
+
             const entryUrl = `${baseUrl}/entries/${entryId}.json`;
             console.log('Fetching entry from:', entryUrl);
-            
+
             const response = await fetch(entryUrl);
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
-            
+
             const entry = await response.json();
-            
+
             // Update page title and description
             document.getElementById('page-title').textContent = `Edit Entry: ${entry.result_name}`;
             document.getElementById('page-description').textContent = 'Modify this theoretical physics entry';
-            
+
             // Update reassuring message
             document.querySelector('.reassuring-message h3').textContent = '💡 Making improvements? Great!';
             document.querySelector('.reassuring-message p').textContent = 'You only need to modify the fields you want to change. Leave everything else as-is, and focus on your specific improvements.';
-            
+
             // Show change summary section for editing
             document.getElementById('change-summary-section').style.display = 'block';
-            
+
             // Populate all form fields
             this.populateForm(entry);
-            
+
         } catch (error) {
             console.error('Error loading entry:', error);
             alert('Could not load entry. Please check the URL or try again.');
@@ -125,18 +165,40 @@ class NewEntryForm {
             this.addReference(); // Add one empty reference if none exist
         }
         
-        // Populate other arrays (derivation, assumptions, etc.)
+        // Populate assumptions (handle both new and legacy formats)
+        this.populateAssumptions(entry);
+
+        // Populate other arrays (derivation, etc.)
         this.populateArrayFields(entry);
     }
 
-    populateArrayFields(entry) {
-        // Populate equations assumptions
-        if (entry.equations_assumptions && entry.equations_assumptions.length > 0) {
-            entry.equations_assumptions.forEach((assumption, index) => {
-                this.addEquationAssumption(assumption.id || '', assumption.text || '');
+    populateAssumptions(entry) {
+        // Handle new unified assumptions format
+        if (entry.assumptions && entry.assumptions.length > 0) {
+            entry.assumptions.forEach((assumption) => {
+                this.addAssumption(assumption);
             });
-        }
+        } else {
+            // Handle legacy format - merge equations_assumptions and derivation_assumptions
+            const legacyAssumptions = [];
 
+            if (entry.equations_assumptions) {
+                legacyAssumptions.push(...entry.equations_assumptions.map(a => a.text || a));
+            }
+
+            if (entry.derivation_assumptions) {
+                legacyAssumptions.push(...entry.derivation_assumptions.map(a => a.text || a));
+            }
+
+            if (legacyAssumptions.length > 0) {
+                legacyAssumptions.forEach((assumption) => {
+                    this.addAssumption(assumption);
+                });
+            }
+        }
+    }
+
+    populateArrayFields(entry) {
         // Populate derivation steps
         if (entry.derivation && entry.derivation.length > 0) {
             entry.derivation.forEach((step, index) => {
@@ -144,27 +206,7 @@ class NewEntryForm {
             });
         }
 
-        // Populate derivation assumptions
-        if (entry.derivation_assumptions && entry.derivation_assumptions.length > 0) {
-            entry.derivation_assumptions.forEach((assumption, index) => {
-                this.addDerivationAssumption(assumption.id || '', assumption.text || '');
-            });
-        }
 
-
-        // Populate validity conditions
-        if (entry.validity_regime && entry.validity_regime.conditions) {
-            entry.validity_regime.conditions.forEach((condition, index) => {
-                this.addValidityCondition(condition);
-            });
-        }
-
-        // Populate validity limitations
-        if (entry.validity_regime && entry.validity_regime.limitations) {
-            entry.validity_regime.limitations.forEach((limitation, index) => {
-                this.addValidityLimitation(limitation);
-            });
-        }
 
         // Populate dependencies
         if (entry.dependencies && entry.dependencies.length > 0) {
@@ -205,11 +247,6 @@ class NewEntryForm {
                 document.getElementById('development_period').value = entry.historical_context.development_period;
             }
         }
-
-        // Populate approximation_of
-        if (entry.approximation_of && document.getElementById('approximation_of')) {
-            document.getElementById('approximation_of').value = entry.approximation_of;
-        }
     }
 
     setupEventListeners() {
@@ -224,6 +261,51 @@ class NewEntryForm {
 
         // Set default review status
         document.getElementById('review_status').value = 'draft';
+    }
+
+    // Global assumptions interface methods
+    populateGlobalAssumptionsSelect() {
+        const select = document.getElementById('global-assumptions-select');
+        if (!select || !this.globalAssumptions) return;
+
+        // Clear existing options except the first one
+        while (select.children.length > 1) {
+            select.removeChild(select.lastChild);
+        }
+
+        // Add options grouped by type
+        const types = ['principle', 'empirical', 'approximation'];
+        types.forEach(type => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = type.charAt(0).toUpperCase() + type.slice(1) + ' Assumptions';
+
+            Object.values(this.globalAssumptions)
+                .filter(assumption => assumption.type === type)
+                .forEach(assumption => {
+                    const option = document.createElement('option');
+                    option.value = assumption.id;
+                    option.textContent = `${assumption.id}: ${assumption.text.substring(0, 60)}...`;
+                    optgroup.appendChild(option);
+                });
+
+            if (optgroup.children.length > 0) {
+                select.appendChild(optgroup);
+            }
+        });
+    }
+
+
+    addGlobalAssumption() {
+        const select = document.getElementById('global-assumptions-select');
+        const assumptionId = select.value;
+
+        if (!assumptionId || !this.globalAssumptions[assumptionId]) return;
+
+        // Add the global assumption
+        this.addAssumption(assumptionId);
+
+        // Reset the select
+        select.value = '';
     }
 
     // Dynamic item creation methods (copied from edit-entry-structured.js)
@@ -253,29 +335,74 @@ class NewEntryForm {
         this.setupMathPreview(div.querySelector('.eq-equation'), div.querySelector('.math-preview'));
     }
 
-    addEquationAssumption(id = '', text = '') {
-        const container = document.getElementById('equations_assumptions_container');
-        const index = ++this.counters.equations_assumptions;
-        
+    addAssumption(assumptionString = '') {
+        const container = document.getElementById('assumptions_container');
+        const index = ++this.counters.assumptions;
+
+        // Check if it's a global assumption ID
+        const assumptionIdPattern = /^[a-z0-9_]+$/;
+        const isGlobalAssumption = assumptionIdPattern.test(assumptionString) &&
+                                   this.globalAssumptions &&
+                                   this.globalAssumptions[assumptionString];
+
+        let displayText = assumptionString;
+        let assumptionType = 'custom';
+        let mathExpressions = '';
+        let symbolDefs = '';
+
+        if (isGlobalAssumption) {
+            const assumption = this.globalAssumptions[assumptionString];
+            displayText = assumption.text;
+            assumptionType = assumption.type;
+
+            // Add mathematical expressions preview
+            if (assumption.mathematical_expressions && assumption.mathematical_expressions.length > 0) {
+                mathExpressions = assumption.mathematical_expressions.map(expr =>
+                    `<div class="assumption-math-preview">\`${expr}\`</div>`
+                ).join('');
+            }
+
+            // Add symbol definitions preview
+            if (assumption.symbol_definitions && assumption.symbol_definitions.length > 0) {
+                symbolDefs = assumption.symbol_definitions.map(def =>
+                    `<div class="assumption-symbol-def"><strong>\`${def.symbol}\`</strong>: ${def.definition}</div>`
+                ).join('');
+            }
+        }
+
         const div = document.createElement('div');
-        div.className = 'dynamic-item';
+        div.className = `dynamic-item assumption-item ${isGlobalAssumption ? 'global ' + assumptionType : 'custom'}`;
         div.innerHTML = `
             <div class="dynamic-item-header">
-                <h4>Assumption ${index}</h4>
+                <h4>Assumption ${index} ${isGlobalAssumption ? `(Global: ${assumptionString})` : '(Custom)'}</h4>
                 <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
             </div>
             <div class="form-group">
-                <label>Assumption ID</label>
-                <input type="text" class="assumption-id" value="${id}" placeholder="e.g., assumption1">
+                <label>Assumption Value</label>
+                <input type="text" class="assumption-value" value="${assumptionString}" ${isGlobalAssumption ? 'readonly' : 'placeholder="Enter custom assumption text or global assumption ID"'}>
+                <div class="help-text">${isGlobalAssumption ? 'Global assumption (read-only)' : 'Enter assumption text or global assumption ID'}</div>
             </div>
-            <div class="form-group">
-                <label>Assumption Text</label>
-                <textarea class="assumption-text" rows="2" placeholder="Describe the assumption...">${text}</textarea>
-            </div>
+            ${isGlobalAssumption ? `
+                <div class="assumption-preview">
+                    <strong>Preview:</strong> ${displayText}
+                    ${mathExpressions}
+                    ${symbolDefs}
+                </div>
+            ` : ''}
         `;
-        
+
         container.appendChild(div);
+
+        // Render math if present
+        if (isGlobalAssumption && (mathExpressions || symbolDefs)) {
+            this.safeTypesetMathJax([div]);
+        }
     }
+
+    addCustomAssumption() {
+        this.addAssumption('');
+    }
+
 
     addDefinition(symbol = '', definition = '') {
         const container = document.getElementById('definitions_container');
@@ -331,68 +458,8 @@ class NewEntryForm {
         this.setupMathPreview(div.querySelector('.step-equation'), div.querySelector('.math-preview'));
     }
 
-    addDerivationAssumption(id = '', text = '') {
-        const container = document.getElementById('derivation_assumptions_container');
-        const index = ++this.counters.derivation_assumptions;
-        
-        const div = document.createElement('div');
-        div.className = 'dynamic-item';
-        div.innerHTML = `
-            <div class="dynamic-item-header">
-                <h4>Derivation Assumption ${index}</h4>
-                <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
-            </div>
-            <div class="form-group">
-                <label>Assumption ID</label>
-                <input type="text" class="deriv-assumption-id" value="${id}" placeholder="e.g., assumption1">
-            </div>
-            <div class="form-group">
-                <label>Assumption Text</label>
-                <textarea class="deriv-assumption-text" rows="2" placeholder="Describe the derivation assumption...">${text}</textarea>
-            </div>
-        `;
-        
-        container.appendChild(div);
-    }
 
 
-    addValidityCondition(condition = '') {
-        const container = document.getElementById('validity_conditions_container');
-        
-        const div = document.createElement('div');
-        div.className = 'dynamic-item';
-        div.innerHTML = `
-            <div class="dynamic-item-header">
-                <h4>Condition</h4>
-                <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
-            </div>
-            <div class="form-group">
-                <label>Condition</label>
-                <textarea class="validity-condition" rows="2" placeholder="Physical condition where this theory applies...">${condition}</textarea>
-            </div>
-        `;
-        
-        container.appendChild(div);
-    }
-    
-    addValidityLimitation(limitation = '') {
-        const container = document.getElementById('validity_limitations_container');
-        
-        const div = document.createElement('div');
-        div.className = 'dynamic-item';
-        div.innerHTML = `
-            <div class="dynamic-item-header">
-                <h4>Limitation</h4>
-                <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
-            </div>
-            <div class="form-group">
-                <label>Limitation</label>
-                <textarea class="validity-limitation" rows="2" placeholder="Limitation or boundary of this theory...">${limitation}</textarea>
-            </div>
-        `;
-        
-        container.appendChild(div);
-    }
     
     addDependency(entry = '') {
         const container = document.getElementById('dependencies_container');
@@ -737,14 +804,12 @@ Submitted via TheorIA new entry form`;
             result_name: document.getElementById('result_name').value || '',
             result_equations: this.collectEquations(),
             explanation: document.getElementById('explanation').value || '',
-            equations_assumptions: this.collectEquationsAssumptions(),
+            assumptions: this.collectAssumptions(),
             definitions: this.collectDefinitions(),
             derivation: this.collectDerivation(),
-            derivation_assumptions: this.collectDerivationAssumptions(),
             programmatic_verification: this.collectProgrammaticVerification(),
             domain: document.getElementById('domain').value || '',
             theory_status: document.getElementById('theory_status').value || '',
-            validity_regime: this.collectValidityRegime(),
             dependencies: this.collectDependencies(),
             superseded_by: this.collectSupersededBy(),
             historical_context: this.collectHistoricalContext(),
@@ -766,13 +831,12 @@ Submitted via TheorIA new entry form`;
         return equations.length > 0 ? equations : undefined;
     }
 
-    collectEquationsAssumptions() {
+    collectAssumptions() {
         const assumptions = [];
-        document.querySelectorAll('#equations_assumptions_container .dynamic-item').forEach(item => {
-            const id = item.querySelector('.assumption-id').value;
-            const text = item.querySelector('.assumption-text').value;
-            if (text) {
-                assumptions.push({ id: id || `assumption${assumptions.length + 1}`, text });
+        document.querySelectorAll('#assumptions_container .dynamic-item').forEach(item => {
+            const value = item.querySelector('.assumption-value').value.trim();
+            if (value) {
+                assumptions.push(value);
             }
         });
         return assumptions.length > 0 ? assumptions : undefined;
@@ -803,17 +867,6 @@ Submitted via TheorIA new entry form`;
         return derivation.length > 0 ? derivation.sort((a, b) => a.step - b.step) : undefined;
     }
 
-    collectDerivationAssumptions() {
-        const assumptions = [];
-        document.querySelectorAll('#derivation_assumptions_container .dynamic-item').forEach(item => {
-            const id = item.querySelector('.deriv-assumption-id').value;
-            const text = item.querySelector('.deriv-assumption-text').value;
-            if (text) {
-                assumptions.push({ id: id || `assumption${assumptions.length + 1}`, text });
-            }
-        });
-        return assumptions.length > 0 ? assumptions : undefined;
-    }
 
 
     collectProgrammaticVerification() {
@@ -831,31 +884,6 @@ Submitted via TheorIA new entry form`;
         return undefined;
     }
 
-    collectValidityRegime() {
-        const conditions = [];
-        document.querySelectorAll('#validity_conditions_container .dynamic-item').forEach(item => {
-            const condition = item.querySelector('.validity-condition').value;
-            if (condition.trim()) {
-                conditions.push(condition);
-            }
-        });
-        
-        const limitations = [];
-        document.querySelectorAll('#validity_limitations_container .dynamic-item').forEach(item => {
-            const limitation = item.querySelector('.validity-limitation').value;
-            if (limitation.trim()) {
-                limitations.push(limitation);
-            }
-        });
-        
-        if (conditions.length > 0 || limitations.length > 0) {
-            return {
-                conditions: conditions.length > 0 ? conditions : undefined,
-                limitations: limitations.length > 0 ? limitations : undefined
-            };
-        }
-        return undefined;
-    }
     
     collectDependencies() {
         const entries = [];
@@ -958,11 +986,18 @@ function addEquation() {
     }
 }
 
-function addEquationAssumption() {
+function addGlobalAssumption() {
     if (window.newEntryForm) {
-        window.newEntryForm.addEquationAssumption();
+        window.newEntryForm.addGlobalAssumption();
     }
 }
+
+function addCustomAssumption() {
+    if (window.newEntryForm) {
+        window.newEntryForm.addCustomAssumption();
+    }
+}
+
 
 function addDefinition() {
     if (window.newEntryForm) {
@@ -976,24 +1011,8 @@ function addDerivationStep() {
     }
 }
 
-function addDerivationAssumption() {
-    if (window.newEntryForm) {
-        window.newEntryForm.addDerivationAssumption();
-    }
-}
 
 
-function addValidityCondition() {
-    if (window.newEntryForm) {
-        window.newEntryForm.addValidityCondition();
-    }
-}
-
-function addValidityLimitation() {
-    if (window.newEntryForm) {
-        window.newEntryForm.addValidityLimitation();
-    }
-}
 
 function addDependency() {
     if (window.newEntryForm) {

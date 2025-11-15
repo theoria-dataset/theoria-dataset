@@ -55,46 +55,16 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`."
-    },
-    {
-      "id": "assumption2",
-      "text": "Fields and sources are continuously differentiable so vector-calculus theorems apply."
-    },
-    {
-      "id": "assumption3",
-      "text": "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`."
-    },
-    {
-      "id": "assumption4",
-      "text": "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`."
-    },
-    {
-      "id": "assumption5",
-      "text": "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Empirical: Magnetic monopoles have never been observed."
-    },
-    {
-      "id": "assumption7",
-      "text": "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments)."
-    },
-    {
-      "id": "assumption8",
-      "text": "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments)."
-    },
-    {
-      "id": "assumption9",
-      "text": "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`."
-    },
-    {
-      "id": "assumption10",
-      "text": "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
-    }
+    "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`.",
+    "Fields and sources are continuously differentiable so vector-calculus theorems apply.",
+    "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`.",
+    "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`.",
+    "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law).",
+    "Empirical: Magnetic monopoles have never been observed.",
+    "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments).",
+    "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments).",
+    "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`.",
+    "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
   ],
   "derivation": [
     {
@@ -230,18 +200,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Classical electromagnetism (non-quantum regime)",
-      "Length scales much larger than atomic dimensions",
-      "Field strengths below quantum electrodynamic effects"
-    ],
-    "limitations": [
-      "Does not account for quantum effects",
-      "Breaks down at very high field strengths",
-      "Does not include weak and strong nuclear forces"
-    ]
-  },
   "historical_context": {
     "importance": "Unification of electricity, magnetism, and light; foundation of electromagnetic theory",
     "development_period": "1860-1873",
@@ -267,5 +225,6 @@
       "identifier": "Not provided"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

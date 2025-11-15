@@ -43,26 +43,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The light source is coherent (constant phase relationship between waves from both slits)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The screen distance L is much larger than slit separation d and slit width."
-    },
-    {
-      "id": "assumption3",
-      "text": "Small angle approximation applies (sin θ ≈ tan θ ≈ θ)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Plane wave approximation applies at the observation screen."
-    },
-    {
-      "id": "assumption5",
-      "text": "The slits act as coherent point sources (Huygens' principle)."
-    }
+    "The light source is coherent (constant phase relationship between waves from both slits).",
+    "The screen distance L is much larger than slit separation d and slit width.",
+    "Small angle approximation applies (sin θ ≈ tan θ ≈ θ).",
+    "Plane wave approximation applies at the observation screen.",
+    "The slits act as coherent point sources (Huygens' principle)."
   ],
   "derivation": [
     {
@@ -150,20 +135,6 @@
   },
   "domain": "physics.optics",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Wave optics regime (wavelength comparable to slit separation)",
-      "Coherent light source",
-      "Far-field observation (L >> d)",
-      "Classical or quantum wave description"
-    ],
-    "limitations": [
-      "Requires coherent illumination",
-      "Small angle approximation limits observation range",
-      "Finite slit width effects not included in simple model",
-      "Classical treatment does not explain single-particle interference"
-    ]
-  },
   "historical_context": {
     "importance": "Established wave nature of light, fundamental to quantum mechanics and wave-particle duality",
     "development_period": "1801-1909",
@@ -184,15 +155,15 @@
       "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1965). *The Feynman Lectures on Physics, Volume III: Quantum Mechanics*. Addison-Wesley."
     }
   ],
-  "dependencies": [
-    "wave_interference",
-    "de_broglie_wavelength"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "wave_interference",
+    "de_broglie_wavelength"
+  ]
 }

@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Linear dielectric materials"
-    },
-    {
-      "id": "assumption2",
-      "text": "Static electric fields"
-    },
-    {
-      "id": "assumption3",
-      "text": "Ideal conductors (infinite conductivity)"
-    },
-    {
-      "id": "assumption4",
-      "text": "Neglect edge effects (for parallel plate)"
-    },
-    {
-      "id": "assumption5",
-      "text": "Uniform electric field between plates"
-    },
-    {
-      "id": "assumption6",
-      "text": "Negligible fringing fields"
-    },
-    {
-      "id": "assumption7",
-      "text": "Plates are large compared to separation"
-    },
-    {
-      "id": "assumption8",
-      "text": "Linear relationship between charge and voltage"
-    }
+    "Linear dielectric materials",
+    "Static electric fields",
+    "Ideal conductors (infinite conductivity)",
+    "Neglect edge effects (for parallel plate)",
+    "Uniform electric field between plates",
+    "Negligible fringing fields",
+    "Plates are large compared to separation",
+    "Linear relationship between charge and voltage"
   ],
   "derivation": [
     {
@@ -210,20 +186,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Linear dielectric materials",
-      "Static or slowly varying fields",
-      "Classical electromagnetism",
-      "Ideal conductors"
-    ],
-    "limitations": [
-      "Breakdown at high voltages",
-      "Frequency-dependent behavior at high frequencies",
-      "Nonlinear effects in some dielectrics",
-      "Parasitic effects in real capacitors"
-    ]
-  },
   "historical_context": {
     "development_period": "18th-19th century",
     "importance": "Fundamental for understanding energy storage in electric fields; essential component in electronics and power systems",
@@ -243,15 +205,15 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "electric_field",
-    "electric_potential"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "electric_field",
+    "electric_potential"
+  ]
 }

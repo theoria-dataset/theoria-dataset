@@ -63,38 +63,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Static charges (electrostatics)"
-    },
-    {
-      "id": "assumption2",
-      "text": "Point charges or continuous charge distributions"
-    },
-    {
-      "id": "assumption3",
-      "text": "Vacuum or linear dielectric medium"
-    },
-    {
-      "id": "assumption4",
-      "text": "Classical (non-quantum) treatment"
-    },
-    {
-      "id": "assumption5",
-      "text": "Coulomb's law is valid"
-    },
-    {
-      "id": "assumption6",
-      "text": "Test charge is small enough not to disturb the field"
-    },
-    {
-      "id": "assumption7",
-      "text": "Principle of superposition applies"
-    },
-    {
-      "id": "assumption8",
-      "text": "Electrostatic conditions"
-    }
+    "Static charges (electrostatics)",
+    "Point charges or continuous charge distributions",
+    "Vacuum or linear dielectric medium",
+    "Classical (non-quantum) treatment",
+    "Coulomb's law is valid",
+    "Test charge is small enough not to disturb the field",
+    "Principle of superposition applies",
+    "Electrostatic conditions"
   ],
   "derivation": [
     {
@@ -228,20 +204,6 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Electrostatic regime (no time-varying fields)",
-      "Classical treatment (no quantum effects)",
-      "Linear media or vacuum",
-      "Point charges or continuous distributions"
-    ],
-    "limitations": [
-      "Relativistic effects ignored at high velocities",
-      "Quantum effects neglected for small scales",
-      "Breakdown in nonlinear media",
-      "Requires modification for time-varying fields"
-    ]
-  },
   "historical_context": {
     "development_period": "18th-19th century",
     "importance": "Foundation of electromagnetism; introduced the concept of field as a fundamental physical entity",
@@ -261,14 +223,14 @@
       "citation": "Purcell, E. M., & Morin, D. J. (2013). Electricity and Magnetism. Cambridge University Press."
     }
   ],
-  "dependencies": [
-    "coulombs_law"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "coulombs_law"
+  ]
 }

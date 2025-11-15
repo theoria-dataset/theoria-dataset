@@ -50,18 +50,11 @@
       "definition": "The conserved quantity, also known as the Noether charge or Noether current, associated with the continuous symmetry."
     }
   ],
-  "dependencies": [
-    {
-      "result_id": "least_action_principle",
-      "relationship": "foundation",
-      "description": "Noether's theorem relies on the principle of stationary action and the resulting Euler-Lagrange equations to establish the connection between symmetries and conservation laws."
-    }
-  ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations."
-    }
+    "stationary_action_principle"
+  ],
+  "dependencies": [
+    "least_action_principle"
   ],
   "derivation": [
     {
@@ -187,20 +180,6 @@
   },
   "domain": "math-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Systems with well-defined Lagrangian formulation",
-      "Continuous symmetry transformations",
-      "Classical field theory or mechanics",
-      "Differentiable symmetry groups"
-    ],
-    "limitations": [
-      "Requires existence of Lagrangian description",
-      "Limited to continuous symmetries",
-      "Classical framework (quantum generalizations exist)",
-      "May be complex for gauge theories"
-    ]
-  },
   "historical_context": {
     "importance": "Fundamental theorem connecting symmetries to conservation laws, foundation of modern physics",
     "development_period": "1915-1918",

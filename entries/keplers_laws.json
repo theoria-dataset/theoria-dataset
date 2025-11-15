@@ -59,31 +59,11 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "Classical mechanics framework: relativistic effects are negligible for typical planetary orbital velocities `v < < c`, and quantum effects are negligible for macroscopic celestial bodies, allowing application of Newton's laws."
-    },
-    {
-      "id": "assumption2",
-      "text": "Newton's law of universal gravitation: the gravitational force between two point masses is `F = G*M*m/r^2` directed along the line connecting them, where `G` is the gravitational constant."
-    },
-    {
-      "id": "assumption3",
-      "text": "Two-body problem: only gravitational interaction between the central body and orbiting body is considered, neglecting all other gravitational perturbations from other celestial bodies."
-    },
-    {
-      "id": "assumption4",
-      "text": "Point mass approximation: both the central body and orbiting body can be treated as point masses located at their centers of mass, with spherically symmetric mass distributions."
-    },
-    {
-      "id": "assumption5",
-      "text": "Central body dominance: the central body (Sun) mass `M > > m` where `m` is the planet mass, allowing treatment of the central body as effectively fixed at the origin (reduced mass approximation)."
-    },
-    {
-      "id": "assumption6",
-      "text": "Rotational dynamics relation: the time rate of change of angular momentum equals the applied torque, `dot(vec(L)) = vec(tau)`."
-    }
+    "classical_mechanics_framework",
+    "point_mass_approximation",
+    "system_isolation"
   ],
+  "dependencies": ["gravitational_force", "angular_momentum"],
   "derivation": [
     {
       "step": 1,
@@ -357,20 +337,6 @@
   },
   "domain": "astro-ph",
   "theory_status": "historical",
-  "validity_regime": {
-    "conditions": [
-      "Two-body gravitational systems",
-      "Central massive body much larger than orbiting body",
-      "Elliptical orbits in inverse-square force field",
-      "No relativistic effects"
-    ],
-    "limitations": [
-      "Empirical laws without underlying force explanation",
-      "Limited to two-body problems",
-      "Does not account for perturbations from other bodies",
-      "No relativistic corrections included"
-    ]
-  },
   "superseded_by": ["newtonian_gravitation", "general_relativity"],
   "historical_context": {
     "importance": "First accurate description of planetary motion, led to Newton's universal gravitation",
@@ -391,7 +357,6 @@
       "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
     }
   ],
-  "dependencies": ["newtonian_mechanics", "conservation_laws"],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

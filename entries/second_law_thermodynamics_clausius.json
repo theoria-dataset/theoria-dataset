@@ -31,38 +31,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system undergoes a thermodynamic cycle (returns to initial state)."
-    },
-    {
-      "id": "assumption2",
-      "text": "Temperature `T` is the absolute temperature of the heat reservoir."
-    },
-    {
-      "id": "assumption3",
-      "text": "Heat exchange `dQ` represents heat absorbed by the system from the reservoir."
-    },
-    {
-      "id": "assumption4",
-      "text": "The equality holds for reversible processes, inequality for irreversible ones."
-    },
-    {
-      "id": "assumption5",
-      "text": "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures."
-    },
-    {
-      "id": "assumption6",
-      "text": "The system can be connected to arbitrary combinations of heat reservoirs."
-    },
-    {
-      "id": "assumption7",
-      "text": "Entropy is a state function, so its integral over a closed cycle is zero."
-    },
-    {
-      "id": "assumption8",
-      "text": "The analysis can be extended from two-reservoir cycles to arbitrary cycles."
-    }
+    "The system undergoes a thermodynamic cycle (returns to initial state).",
+    "Temperature `T` is the absolute temperature of the heat reservoir.",
+    "Heat exchange `dQ` represents heat absorbed by the system from the reservoir.",
+    "The equality holds for reversible processes, inequality for irreversible ones.",
+    "No heat engine can be more efficient than a reversible Carnot engine operating between the same temperatures.",
+    "The system can be connected to arbitrary combinations of heat reservoirs.",
+    "Entropy is a state function, so its integral over a closed cycle is zero.",
+    "The analysis can be extended from two-reservoir cycles to arbitrary cycles."
   ],
   "derivation": [
     {
@@ -203,5 +179,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }

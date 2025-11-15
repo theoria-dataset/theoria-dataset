@@ -43,22 +43,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`."
-    },
-    {
-      "id": "assumption2",
-      "text": "The particle is confined to one dimension and non-relativistic."
-    },
-    {
-      "id": "assumption3",
-      "text": "The Schrödinger equation applies with the harmonic oscillator potential."
-    },
-    {
-      "id": "assumption4",
-      "text": "Ladder operator algebra applies to find eigenvalues."
-    }
+    "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`.",
+    "The particle is confined to one dimension and non-relativistic.",
+    "The Schrödinger equation applies with the harmonic oscillator potential.",
+    "Ladder operator algebra applies to find eigenvalues."
   ],
   "derivation": [
     {
@@ -132,20 +120,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Quantum mechanics regime",
-      "Harmonic potential (small oscillations)",
-      "Non-relativistic particles",
-      "Well-defined quantum states"
-    ],
-    "limitations": [
-      "Limited to harmonic potentials (small oscillation approximation)",
-      "Non-relativistic quantum mechanics only",
-      "Single particle treatment",
-      "May need field quantization for many-body systems"
-    ]
-  },
   "historical_context": {
     "importance": "Foundation of quantum mechanics, model for molecular vibrations and phonons",
     "development_period": "1925-1926",
@@ -166,15 +140,15 @@
       "citation": "Shankar, R. (1994). *Principles of Quantum Mechanics* (2nd ed.). Springer."
     }
   ],
-  "dependencies": [
-    "schroedingen_equation",
-    "simple_harmonic_oscillator"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "schroedingen_equation",
+    "simple_harmonic_oscillator"
+  ]
 }

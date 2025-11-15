@@ -31,22 +31,10 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The system is a perfect crystal with no structural defects or disorder."
-    },
-    {
-      "id": "assumption2",
-      "text": "All nuclear spins are aligned (no nuclear entropy contribution)."
-    },
-    {
-      "id": "assumption3",
-      "text": "The system has a unique ground state (single microstate at T = 0)."
-    },
-    {
-      "id": "assumption4",
-      "text": "Quantum statistical mechanics applies at low temperatures."
-    }
+    "The system is a perfect crystal with no structural defects or disorder.",
+    "All nuclear spins are aligned (no nuclear entropy contribution).",
+    "The system has a unique ground state (single microstate at T = 0).",
+    "Quantum statistical mechanics applies at low temperatures."
   ],
   "derivation": [
     {
@@ -103,20 +91,6 @@
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Very low temperatures approaching absolute zero",
-      "Perfect crystalline systems",
-      "Quantum statistical mechanics regime",
-      "Well-defined ground state"
-    ],
-    "limitations": [
-      "May not apply to amorphous solids or glasses",
-      "Nuclear entropy may provide residual entropy",
-      "Requires perfect crystalline order",
-      "Limited to systems with unique ground states"
-    ]
-  },
   "historical_context": {
     "importance": "Provides absolute reference for entropy, explains unattainability of absolute zero",
     "development_period": "1906-1912",
@@ -137,15 +111,15 @@
       "citation": "Planck, M. (1911). Zur Hypothese der Quantenelemente. *Annalen der Physik*, 34(4), 419-440."
     }
   ],
-  "dependencies": [
-    "first_law_thermodynamics",
-    "second_law_thermodynamics_clausius"
-  ],
   "contributors": [
     {
       "full_name": "Synthetic entry",
       "identifier": "AI created. May have mistakes, looking for contributors to this entry."
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
 }

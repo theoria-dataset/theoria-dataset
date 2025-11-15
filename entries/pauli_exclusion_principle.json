@@ -27,38 +27,14 @@
     }
   ],
   "assumptions": [
-    {
-      "id": "assumption1",
-      "text": "The particles are identical fermions (half-integer spin)."
-    },
-    {
-      "id": "assumption2",
-      "text": "The system can be described by quantum mechanics."
-    },
-    {
-      "id": "assumption3",
-      "text": "Particle interactions can be neglected in the independent particle approximation."
-    },
-    {
-      "id": "assumption4",
-      "text": "The particles are non-relativistic (for atomic physics applications)."
-    },
-    {
-      "id": "assumption5",
-      "text": "Identical particles are truly indistinguishable in quantum mechanics."
-    },
-    {
-      "id": "assumption6",
-      "text": "The total wavefunction must be either symmetric or antisymmetric under particle exchange."
-    },
-    {
-      "id": "assumption7",
-      "text": "Fermions have half-integer spin and antisymmetric wavefunctions."
-    },
-    {
-      "id": "assumption8",
-      "text": "Each quantum state is characterized by a complete set of quantum numbers."
-    }
+    "The particles are identical fermions (half-integer spin).",
+    "The system can be described by quantum mechanics.",
+    "Particle interactions can be neglected in the independent particle approximation.",
+    "The particles are non-relativistic (for atomic physics applications).",
+    "Identical particles are truly indistinguishable in quantum mechanics.",
+    "The total wavefunction must be either symmetric or antisymmetric under particle exchange.",
+    "Fermions have half-integer spin and antisymmetric wavefunctions.",
+    "Each quantum state is characterized by a complete set of quantum numbers."
   ],
   "derivation": [
     {
@@ -235,5 +211,6 @@
       "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
     }
   ],
-  "review_status": "draft"
+  "review_status": "draft",
+  "dependencies": []
 }
