@@ -180,9 +180,9 @@
     },
     {
       "id": "hilbert_space_probability_structure",
-      "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^dagger`. Probabilities can be assigned to these projectors via a probability measure `mu`",
+      "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu`",
       "type": "principle",
-      "mathematical_expressions": ["P^2 = P = P^dagger", "mu: {P} -> [0,1]"],
+      "mathematical_expressions": ["P^2 = P = P^ast", "mu: {P} -> [0,1]"],
       "symbol_definitions": [
         {
           "symbol": "H",
@@ -201,7 +201,7 @@
     },
     {
       "id": "gleason_theorem_conditions",
-      "text": "The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^dagger`) is continuous",
+      "text": "The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^ast`) is continuous",
       "type": "principle",
       "mathematical_expressions": ["dim(H) >= 3"],
       "symbol_definitions": [

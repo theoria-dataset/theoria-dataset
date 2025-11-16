@@ -24,11 +24,11 @@
       "equation": "P(i) = Tr(rho E_i),   E_i >= 0,   sum_i E_i = I"
     }
   ],
-  "explanation": "The Born rule specifies how a quantum state yields measurable probabilities for any well-defined measurement. Given a state and a measurement description, it assigns a normalized probability to each possible outcome in a way consistent with observed frequencies under repeated trials. This rule is a foundational postulate: it provides the operational meaning of the quantum state and underpins the predictive, testable character of quantum theory across experiments and applications.",
+  "explanation": "The Born rule specifies how a quantum state yields measurable probabilities for any well-defined measurement. Given a state and a measurement description, it assigns a normalized probability to each possible outcome in a way consistent with observed frequencies under repeated trials. This rule provides the operational meaning of the quantum state and sets the predictive, testable character of quantum theory across experiments and applications.",
   "definitions": [
     { "symbol": "H", "definition": "Complex Hilbert space of states." },
     {
-      "symbol": "|psi>",
+      "symbol": "|psi:)",
       "definition": "Unit state vector (pure state) in `H`; its position representation is `psi(r,t)`."
     },
     {
@@ -67,11 +67,14 @@
     },
     { "symbol": "r", "definition": "Position vector in 3D space, r = (x,y,z)." }
   ],
-  "assumptions": ["hilbert_space_probability_structure", "gleason_theorem_conditions"],
+  "assumptions": [
+    "hilbert_space_probability_structure",
+    "gleason_theorem_conditions"
+  ],
   "derivation": [
     {
       "step": 1,
-      "description": "From the assumptions, we have a probability measure `mu` on projectors. We assume `mu` satisfies the Kolmogorov axioms (standard probability theory): values in `[0,1]`, normalization, and sigma-additivity. These properties, with continuity and `dim(H) >= 3`, uniquely determine the form of `mu` (Gleason's theorem)",
+      "description": "From the assumptions, we have a probability measure `mu` on projectors. We assume `mu` satisfies the Kolmogorov axioms (standard probability theory): values in `[0,1]`, normalization, and sigma-additivity. These properties, with continuity and `dim(H) >= 3`, uniquely determine the form of `mu`",
       "equation": "mu: {\"projectors on\" H} -> [0,1], mu(I) = 1, mu(P + Q) = mu(P) + mu(Q) \"for orthogonal\" P,Q"
     },
     {
@@ -153,16 +156,6 @@
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "validity_regime": {
-    "conditions": [
-      "Standard complex-Hilbert-space quantum theory",
-      "Projective (`PVM`) and generalized (`POVM`) measurements"
-    ],
-    "limitations": [
-      "Relies on additivity and minimal noncontextuality assumptions",
-      "Gleason's original theorem assumes `dim(H) >= 3` (qubit case requires standard extensions)"
-    ]
-  },
   "historical_context": {
     "importance": "Provides the quantitative link between quantum states and observed outcome frequencies in measurements.",
     "development_period": "1926–1957",
@@ -189,7 +182,6 @@
       "url": "https://en.wikipedia.org/wiki/POVM"
     }
   ],
-  "dependencies": ["spectral_theorem", "density_operator", "povm_measurement"],
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",

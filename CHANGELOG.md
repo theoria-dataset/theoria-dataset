@@ -5,6 +5,17 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - 2025-01-15
+
+### Added
+
+- CLAUDE.md file with comprehensive guidance for Claude Code (AI coding assistant) when working in this repository
+- Born rule entry for quantum mechanics measurement postulate
+
+### Changed
+
+- Automated release workflow to trigger on CHANGELOG.md updates to main branch instead of manual tag creation
+
 ## [0.5.0] - Consolidation of assumptions - 2025-01-14
 
 Instead of having assumptions, regime and dependencies on each entry, we are consolidating them into one single place. All assumptions and regimes will be in one json file, and the entry will refer to them using tags.
