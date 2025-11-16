@@ -205,7 +205,7 @@ function resolveAssumption(assumptionString, data) {
   }
 
   // Check if it's a dependency (entry reference)
-  if (assumptionIdPattern.test(assumptionString) && data && data.dependencies && data.dependencies.includes(assumptionString)) {
+  if (assumptionIdPattern.test(assumptionString) && data && data.depends_on && data.depends_on.includes(assumptionString)) {
     const dependencyName = assumptionString.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     return {
       type: 'dependency',
@@ -271,8 +271,8 @@ function renderPrerequisites(data) {
   }
 
   // Process dependencies
-  if (data.dependencies && data.dependencies.length > 0) {
-    data.dependencies.forEach(dependencyId => {
+  if (data.depends_on && data.depends_on.length > 0) {
+    data.depends_on.forEach(dependencyId => {
       const dependencyName = dependencyId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
       const dependencyLink = `<a href="entries.html?entry=${dependencyId}.json">${dependencyName}</a>`;
 
