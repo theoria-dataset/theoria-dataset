@@ -204,7 +204,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "photoelectric_effect",
     "conservation_of_energy",
     "conservation_of_momentum"

@@ -133,7 +133,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "faradays_law",
     "conservation_of_energy"
   ]

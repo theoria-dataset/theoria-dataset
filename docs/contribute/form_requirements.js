@@ -15,7 +15,7 @@ const FIELD_REQUIREMENTS = {
     "explanation",
     "definitions",
     "assumptions",
-    "dependencies",
+    "depends_on",
     "derivation",
     "programmatic_verification",
     "domain",
@@ -101,7 +101,7 @@ const FIELD_REQUIREMENTS = {
     "derivation": {
       "type": "array",
       "minItems": 1,
-      "description": "Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions. Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following.",
+      "description": "Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions. Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'depends_on' field. Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following.",
       "example": [
         {
           "step": 1,
@@ -133,20 +133,25 @@ const FIELD_REQUIREMENTS = {
           },
           "equation": {
             "type": "string"
+          },
+          "assumption": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Optional reference to either: (1) a global assumption ID from globals/assumptions.json, or (2) a dependency entry ID that is specifically applied or invoked in this particular derivation step. Use this to link individual steps to the assumptions or foundational results they rely on, making the logical structure of the derivation more explicit."
           }
         }
       }
     },
     "assumptions": {
       "type": "array",
-      "description": "Reference global assumptions by ID from globals/assumptions.json (e.g., 'classical_mechanics_framework'). First check if a suitable assumption already exists to avoid duplication. Global assumptions are categorized into three types: principle (core theoretical/mathematical postulates), empirical (experimentally established facts), and approximation (validity restrictions and simplifying modeling choices). If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry. See schemas/assumptions.schema.json for the complete structure and browse globals/assumptions.json for existing assumptions.",
+      "description": "Reference global assumptions by ID from the file globals/assumptions.json (e.g., 'classical_mechanics_framework'). First check if a suitable assumption already exists to avoid duplication. Global assumptions are categorized into three types: (1) principle: core theoretical/mathematical postulates (e.g., 'conservation_laws_valid', 'stationary_action_principle'); (2) empirical: experimentally established facts and measured constants (e.g., 'light_speed_constant', 'electromagnetic_polarization'); (3) approximation: validity restrictions and simplifying modeling choices (e.g., 'classical_mechanics_framework', 'point_mass_approximation'). If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry. See schemas/assumptions.schema.json for the complete structure and browse the file globals/assumptions.json for all existing assumptions.",
       "items": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$",
         "description": "Assumption ID from globals/assumptions.json (must match pattern ^[a-z0-9_]+$)"
       }
     },
-    "dependencies": {
+    "depends_on": {
       "type": "array",
       "description": "Array of entry IDs that this derivation depends on. Each dependency must reference an existing entry result_id.",
       "items": {

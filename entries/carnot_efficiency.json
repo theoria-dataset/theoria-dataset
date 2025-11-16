@@ -156,7 +156,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "second_law_thermodynamics_clausius",
     "first_law_thermodynamics"
   ]

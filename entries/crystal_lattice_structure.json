@@ -155,7 +155,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "x_ray_diffraction",
     "crystal_symmetry"
   ]

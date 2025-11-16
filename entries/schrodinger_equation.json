@@ -148,5 +148,5 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": []
+  "depends_on": []
 }

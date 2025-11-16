@@ -150,7 +150,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "maxwell_equations",
     "electromagnetic_waves"
   ]

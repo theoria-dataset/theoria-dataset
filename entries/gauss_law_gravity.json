@@ -195,7 +195,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "gravitational_force",
     "newtons_laws_of_motion"
   ]

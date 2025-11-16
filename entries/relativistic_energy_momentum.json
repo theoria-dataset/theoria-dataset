@@ -23,7 +23,7 @@
       "equation": "gamma = 1/sqrt(1 - (v^2/c^2))"
     }
   ],
-  "explanation": "Einstein's special relativity revolutionizes our understanding of energy and momentum at high velocities. By redefining force as the rate of change of relativistic momentum and calculating the work done to accelerate a particle, the theory derives the famous relativistic energy formula E = γmc². This unifies mass and energy, revealing that mass is a form of energy (rest energy E₀ = mc²). The theory also establishes the fundamental energy-momentum relation E² = (pc)² + (mc²)², which reduces to the classical expressions at low velocities and forms the basis for particle physics and modern cosmology.",
+  "explanation": "Einstein's special relativity revolutionizes our understanding of energy and momentum at high velocities. By redefining force as the rate of change of relativistic momentum and calculating the work done to accelerate a particle, the theory derives the famous relativistic energy formula E = \u03b3mc\u00b2. This unifies mass and energy, revealing that mass is a form of energy (rest energy E\u2080 = mc\u00b2). The theory also establishes the fundamental energy-momentum relation E\u00b2 = (pc)\u00b2 + (mc\u00b2)\u00b2, which reduces to the classical expressions at low velocities and forms the basis for particle physics and modern cosmology.",
   "definitions": [
     {
       "symbol": "E",
@@ -64,27 +64,31 @@
     "flat_spacetime",
     "well_defined_rest_mass"
   ],
-  "dependencies": [],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
       "description": "Redefine force as the rate of change of relativistic momentum.",
-      "equation": "vec F = (d vec p)/(dt)"
+      "equation": "vec F = (d vec p)/(dt)",
+      "assumption": "flat_spacetime"
     },
     {
       "step": 2,
+      "assumption": "light_speed_constant",
       "description": "Define relativistic momentum to preserve conservation laws.",
       "equation": "vec p = gamma*m*vec v"
     },
     {
       "step": 3,
       "description": "Calculate work done to accelerate a particle, leading to relativistic energy.",
-      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
+      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt",
+      "assumption": "well_defined_rest_mass"
     },
     {
       "step": 4,
       "description": "Rewrite the work integral using the relation between force and momentum.",
-      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p"
+      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p",
+      "assumption": "conservation_laws_valid"
     },
     {
       "step": 5,
@@ -214,20 +218,20 @@
       "assert sp.simplify(p_rel.subs(v, 0)) == 0",
       "",
       "# ------------------------------",
-      "# Step 8: dγ/dv identity",
+      "# Step 8: d\u03b3/dv identity",
       "# ------------------------------",
       "dgamma_dv = sp.simplify(sp.diff(gamma_v, v))",
       "assert sp.simplify(dgamma_dv - (v/c_pos**2)*gamma_v**3) == 0",
       "",
       "# ------------------------------",
-      "# Step 11: Identity v^2 γ^2 / c^2 + 1 = γ^2",
+      "# Step 11: Identity v^2 \u03b3^2 / c^2 + 1 = \u03b3^2",
       "# ------------------------------",
       "lhs = v**2*gamma_v**2/c_pos**2 + 1",
       "rhs = gamma_v**2",
       "assert sp.simplify(lhs - rhs) == 0",
       "",
       "# ------------------------------",
-      "# Steps 17-23: Energy–momentum relation",
+      "# Steps 17-23: Energy\u2013momentum relation",
       "# ------------------------------",
       "E2_minus_p2c2 = sp.simplify(E_rel**2 - (p_rel*c_pos)**2)",
       "assert sp.simplify(E2_minus_p2c2 - (m_pos*c_pos**2)**2) == 0",
@@ -235,11 +239,11 @@
       "# ------------------------------",
       "# Extra sanity checks",
       "# ------------------------------",
-      "# γ at v = 0.6c is 1.25:",
+      "# \u03b3 at v = 0.6c is 1.25:",
       "gamma_test = sp.simplify(gamma_v.subs(v, sp.Rational(3,5)*c_pos))",
       "assert sp.simplify(gamma_test - sp.Rational(5,4)) == 0",
       "",
-      "# Low-velocity expansion: E ≈ mc^2 + (1/2) m v^2 + O(v^4)",
+      "# Low-velocity expansion: E \u2248 mc^2 + (1/2) m v^2 + O(v^4)",
       "series = sp.series(E_rel.expand(), v, 0, 3).removeO()",
       "expected_series = m_pos*c_pos**2 + sp.Rational(1,2)*m_pos*v**2",
       "assert sp.simplify(series - expected_series) == 0",
@@ -248,12 +252,12 @@
       "rest_energy = sp.simplify(E_rel.subs(v, 0))",
       "assert sp.simplify(rest_energy - m_pos*c_pos**2) == 0",
       "",
-      "# At high velocities, E ≈ γmc^2 and p ≈ γmv",
+      "# At high velocities, E \u2248 \u03b3mc^2 and p \u2248 \u03b3mv",
       "# Check that E/c approaches p as v approaches c",
       "ratio_limit = sp.limit(E_rel/(p_rel*c_pos), v, c_pos)",
-      "# This should approach c/v = 1 as v → c",
+      "# This should approach c/v = 1 as v \u2192 c",
       "",
-      "print('All relativistic energy-momentum verifications passed ✔')"
+      "print('All relativistic energy-momentum verifications passed \u2714')"
     ]
   },
   "domain": "gr-qc",
@@ -274,7 +278,7 @@
   "references": [
     {
       "id": "R1",
-      "citation": "Einstein, A. (1905). 'Zur Elektrodynamik bewegter Körper.' Annalen der Physik, 17, 891-921."
+      "citation": "Einstein, A. (1905). 'Zur Elektrodynamik bewegter K\u00f6rper.' Annalen der Physik, 17, 891-921."
     },
     {
       "id": "R2",
@@ -283,7 +287,7 @@
   ],
   "contributors": [
     {
-      "full_name": "Manuel Sánchez Hernández",
+      "full_name": "Manuel S\u00e1nchez Hern\u00e1ndez",
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],

@@ -185,29 +185,43 @@ async function loadGlobalAssumptions() {
   }
 }
 
-// Resolve an assumption string to its full details
-function resolveAssumption(assumptionString) {
+// Resolve an assumption or dependency string to its full details
+function resolveAssumption(assumptionString, data) {
   // Check if it matches the assumption ID pattern
   const assumptionIdPattern = /^[a-z0-9_]+$/;
 
+  // First check if it's a global assumption
   if (assumptionIdPattern.test(assumptionString) && globalAssumptions && globalAssumptions[assumptionString]) {
     const assumption = globalAssumptions[assumptionString];
     return {
       type: 'global',
       id: assumption.id,
+      title: assumption.title || assumption.id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
       text: assumption.text,
       assumptionType: assumption.type,
       mathematicalExpressions: assumption.mathematical_expressions || [],
       symbolDefinitions: assumption.symbol_definitions || []
     };
-  } else {
-    // Treat as direct text assumption
+  }
+
+  // Check if it's a dependency (entry reference)
+  if (assumptionIdPattern.test(assumptionString) && data && data.dependencies && data.dependencies.includes(assumptionString)) {
+    const dependencyName = assumptionString.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     return {
-      type: 'direct',
-      text: assumptionString,
-      assumptionType: 'unspecified'
+      type: 'dependency',
+      id: assumptionString,
+      title: dependencyName,
+      text: `Builds upon: ${dependencyName}`,
+      assumptionType: 'dependency'
     };
   }
+
+  // Treat as direct text assumption
+  return {
+    type: 'direct',
+    text: assumptionString,
+    assumptionType: 'unspecified'
+  };
 }
 
 // Render prerequisites section (assumptions + dependencies)
@@ -217,13 +231,14 @@ function renderPrerequisites(data) {
   // Process assumptions
   if (data.assumptions && data.assumptions.length > 0) {
     data.assumptions.forEach(assumptionString => {
-      const resolved = resolveAssumption(assumptionString);
+      const resolved = resolveAssumption(assumptionString, data);
 
       let displayText = '';
       let tooltip = '';
 
       if (resolved.type === 'global') {
-        displayText = resolved.text;
+        // Display title prominently, then text
+        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong>: ${resolved.text}`;
         tooltip = `Assumption type: ${resolved.assumptionType}`;
 
         // Add mathematical expressions on new lines if available
@@ -249,6 +264,7 @@ function renderPrerequisites(data) {
         type: 'assumption',
         html: displayText,
         tooltip: tooltip,
+        id: resolved.id,
         cssClass: resolved.type === 'global' ? `assumption-${resolved.assumptionType}` : 'assumption-unspecified'
       });
     });
@@ -519,6 +535,16 @@ function render(data) {
   ol.innerHTML = "";
   (data.derivation || []).forEach((step) => {
     let html = "";
+
+    // Add assumption reference if present
+    if (step.assumption) {
+      const resolved = resolveAssumption(step.assumption, data);
+      if (resolved.type === 'global' || resolved.type === 'dependency') {
+        const assumptionBadge = `<strong class="step-assumption-label">Use</strong> <a href="#assumption-${resolved.id}" class="step-assumption-ref assumption-${resolved.assumptionType}" title="${resolved.text}">${resolved.title}</a>`;
+        html += `<div class='step-assumption'>${assumptionBadge}</div>`;
+      }
+    }
+
     if (step.description) {
       html += `<div class='step-expl'>${step.description}</div>`;
     }

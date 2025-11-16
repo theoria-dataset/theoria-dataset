@@ -5,6 +5,30 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - `assumption` field added to each derivation steps - 2025-01-16
+
+### Added
+
+- Step-level assumption references: Derivation steps can now reference specific assumptions or dependencies using an optional `assumption` field
+- Global assumptions now have required `title` field for better UI display and step-level references
+- New validation script `validate_assumptions_usage.py` that checks:
+  - No ID conflicts between assumption IDs and entry IDs
+  - All prerequisites are used in derivation steps (ERROR for reviewed entries, WARNING for drafts)
+- Web viewer enhancements:
+  - Step-level assumption badges with "Use: [Assumption Title]" format
+  - Color-coded badges by type (green=principle, blue=empirical, purple=approximation, cyan=dependencies)
+  - Clickable badges that scroll to prerequisite section with smooth animations
+  - Assumptions display with prominent titles in Prerequisites section
+- CI/CD integration: Assumption usage validation now runs in GitHub Actions workflow
+- Added to `make pre-push` workflow as validation step 6/7
+
+### Changed
+
+- Renamed `dependencies` field to `depends_on` across all entries, schema, and scripts for improved clarity and consistency
+- Updated all 8 reviewed entries to include step-level assumption references
+- Validation script returns exit code 1 for reviewed entries with unused prerequisites (fails CI/CD)
+- Prerequisites section now unified, displaying both assumptions and dependencies with color-coded badges
+
 ## [0.5.1] - 2025-01-15
 
 ### Added

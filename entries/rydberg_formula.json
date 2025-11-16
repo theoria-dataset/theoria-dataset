@@ -161,7 +161,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "bohr_model_energy_levels",
     "electromagnetic_waves"
   ]

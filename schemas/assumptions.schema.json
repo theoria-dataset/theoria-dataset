@@ -17,7 +17,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "text", "type"],
+        "required": ["id", "title", "text", "type"],
         "additionalProperties": false,
         "if": {
           "properties": {
@@ -38,8 +38,15 @@
             "description": "Unique identifier for the assumption. Use lowercase letters, numbers, and underscores only. Choose descriptive names that clearly identify the assumption.",
             "example": "classical_mechanics_framework"
           },
+          "title": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 100,
+            "description": "Short, human-readable title for the assumption that will be displayed in the UI and used as a reference in derivation steps. Should be concise and descriptive.",
+            "example": "Classical Mechanics Framework"
+          },
           "text": {
-            "type": "string", 
+            "type": "string",
             "minLength": 10,
             "maxLength": 500,
             "description": "Clear, concise description of the assumption. If there are math symbols or equations, they must be enclosed in backticks (``) and written in AsciiMath format.",

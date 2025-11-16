@@ -84,30 +84,35 @@
     "classical_mechanics_framework",
     "constant_relative_velocity"
   ],
-  "dependencies": [],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
+      "assumption": "classical_mechanics_framework",
       "description": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime).",
       "equation": "x' = A*x + B*t; t' = D*x + E*t"
     },
     {
       "step": 2,
-      "description": "Impose that the spatial origin of S' (x' = 0) moves as x = v·t in S.",
+      "assumption": "constant_relative_velocity",
+      "description": "Impose that the spatial origin of S' (x' = 0) moves as x = v\u00b7t in S.",
       "equation": "0 = A*v*t + B*t"
     },
     {
       "step": 3,
       "description": "Get the relationship between coefficients A and B.",
-      "equation": "B = -A*v"
+      "equation": "B = -A*v",
+      "assumption": "inertial_reference_frame"
     },
     {
       "step": 4,
+      "assumption": "light_speed_constant",
       "description": "Apply light-speed invariance: demand that any right-moving light pulse x=+c*t in S also satisfies x'=+c*t' in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3.",
       "equation": "(c - v)*A = (D*c + E)*c"
     },
     {
       "step": 5,
+      "assumption": "light_speed_constant",
       "description": "Apply light-speed invariance for left-moving pulse: repeat for x=-c*t in S and x'=-c*t' in S' to get a second constraint from the constancy of light speed.",
       "equation": "(-c - v)*A = (D*c - E)*c"
     },
@@ -133,7 +138,7 @@
     },
     {
       "step": 10,
-      "description": "Collect terms to obtain A²(1 - v²/c²) = 1.",
+      "description": "Collect terms to obtain A\u00b2(1 - v\u00b2/c\u00b2) = 1.",
       "equation": "A^2*(1 - v^2/c^2) = 1"
     },
     {
@@ -148,12 +153,12 @@
     },
     {
       "step": 13,
-      "description": "Time dilation: time intervals are longer in the moving frame. For events at the same spatial location in S (Δx = 0), the time interval in S' is dilated.",
+      "description": "Time dilation: time intervals are longer in the moving frame. For events at the same spatial location in S (\u0394x = 0), the time interval in S' is dilated.",
       "equation": "Delta t' = gamma*Delta t"
     },
     {
       "step": 14,
-      "description": "Length contraction: spatial intervals are shorter in the moving frame. For simultaneous events in S' (Δt' = 0), the spatial interval contracts.",
+      "description": "Length contraction: spatial intervals are shorter in the moving frame. For simultaneous events in S' (\u0394t' = 0), the spatial interval contracts.",
       "equation": "Delta x' = (Delta x)/(gamma)"
     }
   ],
@@ -187,7 +192,7 @@
       "# ------------------------------",
       "# Steps 4-7: Light-speed invariance for right- and left-moving pulses",
       "# ------------------------------",
-      "# For x = ± c t, demand x' = ± c t'",
+      "# For x = \u00b1 c t, demand x' = \u00b1 c t'",
       "eq_plus  = sp.Eq(x_p.subs({x: c*t, B: B_sol}),  c * t_p.subs({x: c*t, B: B_sol}))",
       "eq_minus = sp.Eq(x_p.subs({x: -c*t, B: B_sol}), -c * t_p.subs({x: -c*t, B: B_sol}))",
       "sol_DE = sp.solve([eq_plus, eq_minus], (D, E), dict=True)[0]",
@@ -202,16 +207,16 @@
       "t_p2 = sp.simplify(t_p.subs({B: B_sol, D: D_sol, E: E_sol}))   # A (t - v x / c^2)",
       "",
       "# ------------------------------",
-      "# Steps 9-12: Interval invariance ⇒ solve for A = γ",
+      "# Steps 9-12: Interval invariance \u21d2 solve for A = \u03b3",
       "# ------------------------------",
       "# 1D invariant interval: x'^2 - c^2 t'^2 = x^2 - c^2 t^2",
       "interval_expr = sp.simplify(x_p2**2 - c**2*t_p2**2)",
       "factorized = sp.simplify(interval_expr/(x**2 - c**2*t**2))",
       "",
-      "# Enforce factorized = 1 to preserve the interval ⇒ A^2 (1 - v^2/c^2) = 1",
+      "# Enforce factorized = 1 to preserve the interval \u21d2 A^2 (1 - v^2/c^2) = 1",
       "A_candidates = sp.solve(sp.Eq(factorized, 1), A)",
-      "# From derivation: A^2 (1 - v^2/c^2) = 1, so A = ± 1/sqrt(1 - v^2/c^2)",
-      "# Choose positive root A = 1/sqrt(1 - v^2/c^2) = γ",
+      "# From derivation: A^2 (1 - v^2/c^2) = 1, so A = \u00b1 1/sqrt(1 - v^2/c^2)",
+      "# Choose positive root A = 1/sqrt(1 - v^2/c^2) = \u03b3",
       "gamma = 1/sp.sqrt(1 - v**2/c_pos**2)",
       "",
       "# Final coordinate transformation:",
@@ -229,14 +234,14 @@
       "# ------------------------------",
       "# Steps 13-14: Time dilation and length contraction",
       "# ------------------------------",
-      "# Time dilation: for Δx = 0 ⇒ Δt' = γ Δt",
+      "# Time dilation: for \u0394x = 0 \u21d2 \u0394t' = \u03b3 \u0394t",
       "dt, dx = sp.symbols('dt dx', real=True)",
       "dtp = sp.simplify(gamma*(dt - v*dx/c_pos**2))",
       "assert sp.simplify(dtp.subs(dx, 0) - gamma*dt) == 0",
       "",
-      "# Length contraction: measure length of rod at rest in S, with Δx (endpoints simultaneous in S').",
-      "# Simultaneity in S': Δt' = 0 ⇒ 0 = γ (Δt - v Δx / c^2) ⇒ Δt = v Δx / c^2.",
-      "# Then Δx' = γ (Δx - v Δt) = γ (Δx - v*(v Δx / c^2)) = Δx / γ.",
+      "# Length contraction: measure length of rod at rest in S, with \u0394x (endpoints simultaneous in S').",
+      "# Simultaneity in S': \u0394t' = 0 \u21d2 0 = \u03b3 (\u0394t - v \u0394x / c^2) \u21d2 \u0394t = v \u0394x / c^2.",
+      "# Then \u0394x' = \u03b3 (\u0394x - v \u0394t) = \u03b3 (\u0394x - v*(v \u0394x / c^2)) = \u0394x / \u03b3.",
       "dt_simul = sp.simplify(v*dx/c_pos**2)",
       "dxp = sp.simplify(gamma*(dx - v*dt_simul))",
       "assert sp.simplify(dxp - dx/gamma) == 0",
@@ -244,16 +249,18 @@
       "# ------------------------------",
       "# Extra sanity checks",
       "# ------------------------------",
-      "# γ at v = 0.6c is 1.25:",
+      "# \u03b3 at v = 0.6c is 1.25:",
       "gamma_test = sp.simplify(gamma.subs(v, sp.Rational(3,5)*c_pos))",
       "assert sp.simplify(gamma_test - sp.Rational(5,4)) == 0",
       "",
-      "print('All special relativity transformation verifications passed ✔')"
+      "print('All special relativity transformation verifications passed \u2714')"
     ]
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "superseded_by": ["einstein_field_equations"],
+  "superseded_by": [
+    "einstein_field_equations"
+  ],
   "historical_context": {
     "importance": "Revolutionary unification of space and time into spacetime",
     "development_period": "1905",
@@ -267,7 +274,7 @@
   "references": [
     {
       "id": "R1",
-      "citation": "Einstein, A. (1905). 'Zur Elektrodynamik bewegter Körper.' Annalen der Physik, 17, 891-921."
+      "citation": "Einstein, A. (1905). 'Zur Elektrodynamik bewegter K\u00f6rper.' Annalen der Physik, 17, 891-921."
     },
     {
       "id": "R2",
@@ -276,7 +283,7 @@
   ],
   "contributors": [
     {
-      "full_name": "Manuel Sánchez Hernández",
+      "full_name": "Manuel S\u00e1nchez Hern\u00e1ndez",
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],

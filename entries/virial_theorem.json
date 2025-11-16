@@ -156,7 +156,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "conservation_of_energy",
     "newtons_second_law"
   ]

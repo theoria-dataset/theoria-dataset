@@ -189,7 +189,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "hookes_law",
     "newtons_second_law"
   ]

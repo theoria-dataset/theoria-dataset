@@ -183,7 +183,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "dirac_equation_free",
     "maxwell_equations"
   ]

@@ -99,7 +99,7 @@ def generate_contributing_md(requirements_file, output_file):
         'definitions', 'assumptions', 'derivation',
         'derivation_explanation', 'programmatic_verification', 'domain',
         'theory_status', 'validity_regime', 'superseded_by', 'approximation_of',
-        'historical_context', 'references', 'dependencies', 'created_by', 'review_status'
+        'historical_context', 'references', 'depends_on', 'created_by', 'review_status'
     ]
 
     # Add field sections

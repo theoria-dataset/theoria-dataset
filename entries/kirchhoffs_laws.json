@@ -167,7 +167,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "ohms_law"
   ]
 }

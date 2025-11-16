@@ -68,7 +68,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
-  - Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field
+  - Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'depends_on' field
   - Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields
   - Include all steps for complete derivation
   - Use very explicit detail level for easy following
@@ -133,7 +133,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     ]
     ```
 
-- **`dependencies`:**
+- **`depends_on`:**
   - Array of entry IDs that this derivation depends on
   - Each dependency must reference an existing entry result_id
 

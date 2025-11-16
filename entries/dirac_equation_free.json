@@ -161,7 +161,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "klein_gordon_equation"
   ]
 }

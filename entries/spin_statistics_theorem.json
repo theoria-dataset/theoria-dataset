@@ -38,7 +38,7 @@
     "The vacuum state is Lorentz invariant",
     "Cluster decomposition principle holds for scattering amplitudes"
   ],
-  "dependencies": [],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,

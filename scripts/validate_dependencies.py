@@ -31,7 +31,7 @@ def load_all_entries():
                     entries[result_id] = {
                         'data': data,
                         'filename': json_file.name,
-                        'dependencies': data.get('dependencies', []),
+                        'dependencies': data.get('depends_on', []),
                         'review_status': data.get('review_status', 'draft')
                     }
         except (json.JSONDecodeError, FileNotFoundError) as e:

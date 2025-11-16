@@ -213,7 +213,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "newtons_laws",
     "conservation_of_momentum"
   ]

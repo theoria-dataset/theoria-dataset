@@ -142,7 +142,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "newtons_second_law"
   ]
 }
