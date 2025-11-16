@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Maxwell equations entry: reviewed.
+- Removed magnetic_field.json and electric_field.json as they are redundant.
 
 ### Fixed
 
