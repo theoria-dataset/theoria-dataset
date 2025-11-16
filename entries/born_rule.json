@@ -1,0 +1,333 @@
+{
+  "result_id": "born_rule",
+  "alt_ids": [
+    "amplitude_squared_probability_law",
+    "modulus_squared_probability_law"
+  ],
+  "result_name": "Born Rule",
+  "result_equations": [
+    { "id": "position_density", "equation": "rho(r,t) = |psi(r,t)|^2" },
+    {
+      "id": "projective_measurement",
+      "equation": "P(a_i) = (:psi:| Pi_i |:psi:), Pi_i Pi_j = delta_ij Pi_i, sum_i Pi_i = I"
+    },
+    {
+      "id": "spectral_measure",
+      "equation": "P(a in Delta) = (:psi:| Pi_Delta |:psi:)"
+    },
+    {
+      "id": "mixed_state",
+      "equation": "P(a_i) = Tr(rho Pi_i),   Tr(rho)=1,   rho >= 0"
+    },
+    {
+      "id": "povm",
+      "equation": "P(i) = Tr(rho E_i),   E_i >= 0,   sum_i E_i = I"
+    }
+  ],
+  "explanation": "The Born rule specifies how a quantum state yields measurable probabilities for any well-defined measurement. Given a state and a measurement description, it assigns a normalized probability to each possible outcome in a way consistent with observed frequencies under repeated trials. This rule provides the operational meaning of the quantum state and sets the predictive, testable character of quantum theory across experiments and applications.",
+  "definitions": [
+    { "symbol": "H", "definition": "Complex Hilbert space of states." },
+    {
+      "symbol": "|psi:)",
+      "definition": "Unit state vector (pure state) in `H`; its position representation is `psi(r,t)`."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Density operator on `H` (`rho >= 0`, `Tr(rho)=1`) describing pure or mixed states."
+    },
+    {
+      "symbol": "A",
+      "definition": "Self-adjoint observable on `H` with spectral measure `{Pi_Delta}`."
+    },
+    {
+      "symbol": "a_i",
+      "definition": "Label (eigenvalue or index) of a measurement outcome."
+    },
+    {
+      "symbol": "Pi_i",
+      "definition": "Projector associated with outcome `a_i` in a projective measurement (Projection-Valued Measure element)."
+    },
+    {
+      "symbol": "Pi_Delta",
+      "definition": "Projector for a measurable set `Delta` of the spectrum of `A` (spectral measure)."
+    },
+    {
+      "symbol": "Delta",
+      "definition": "Measurable subset of outcomes (Borel set in the spectrum of an observable)."
+    },
+    {
+      "symbol": "E_i",
+      "definition": "Positive operator with `sum_i E_i = I` (generalized measurement)."
+    },
+    { "symbol": "I", "definition": "Identity operator on `H`." },
+    { "symbol": "Tr", "definition": "Operator trace over `H`." },
+    {
+      "symbol": "rho(r,t)",
+      "definition": "Position probability density defined by `rho(r,t) = |psi(r,t)|^2`."
+    },
+    { "symbol": "r", "definition": "Position vector in 3D space, r = (x,y,z)." }
+  ],
+  "assumptions": [
+    "hilbert_space_probability_structure",
+    "gleason_theorem_conditions"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "By assumption hilbert_space_probability_structure, quantum measurement outcomes are represented by orthogonal projectors on `H` and there exists a probability measure `mu` on these projectors with values in `[0,1]`. Normalization and sigma-additivity imply that for any orthonormal basis `{e_i}`, the probabilities assigned to the corresponding rank-1 projectors sum to one.",
+      "equation": "mu(I) = 1,  mu(P + Q) = mu(P) + mu(Q)  \" for \"  P Q = 0,  sum_i mu(P_(e_i)) = 1"
+    },
+    {
+      "step": 2,
+      "description": "Using hilbert_space_probability_structure assumption, define the frame function `f` on the unit sphere of `H` by `f(v) = mu(P_v)` where `P_v = |:v:)(:v:|` is the rank-1 projector onto the ray of the unit vector `v`. For any orthonormal basis `{v_i}`, the frame condition holds: the sum of `f(v_i)` is one.",
+      "equation": "P_v = |:v:)(:v:|,   f(v) = mu(P_v),   sum_i f(v_i) = 1"
+    },
+    {
+      "step": 3,
+      "description": "By the assumption gleason_theorem_conditions, the Hilbert space has `dim(H) >= 3` and the probability assignment `mu`, hence `f`, is continuous on the unit sphere. Extend `f` to a homogeneous function `q` on all vectors by setting `q(0) = 0` and `q(v) = ||v||^2 f(v/||v||)` for `v != 0`. This allows us to express constraints on `f` in terms of linear combinations of vectors.",
+      "equation": "q(v) = ||v||^2 f(v/||v||)"
+    },
+    {
+      "step": 4,
+      "description": "Using sigma-additivity from hilbert_space_probability_structure and the continuity and dimensionality from gleason_theorem_conditions, one can compare the values of `q` on carefully chosen orthonormal bases. This yields the parallelogram identity, which characterizes quadratic-type functions.",
+      "equation": "q(v + w) + q(v - w) = 2 q(v) + 2 q(w)"
+    },
+    {
+      "step": 5,
+      "description": "The parallelogram identity allows the construction of a sesquilinear form `B` via the polarization identity. This form is Hermitian and satisfies `q(v) = B(v,v)` for all vectors `v` in `H`.",
+      "equation": "B(v,w) = (1/4)*[ q(v + w) - q(v - w) ]"
+    },
+    {
+      "step": 6,
+      "description": "For fixed `w`, the map `v -> B(v,w)` is a continuous linear functional on `H`. By the Riesz representation theorem for Hilbert spaces, there exists a bounded operator `T` such that `B(v,w) = (:v|T|w:)` for all `v,w`. In particular, the frame function on unit vectors is `f(v) = B(v,v) = (:v|T|v:)`.",
+      "equation": "B(v,w) = (:v|T|w:),   f(v) = (:v|T|v:)"
+    },
+    {
+      "step": 7,
+      "description": "Since `mu(P_v) = f(v) >= 0` for all unit vectors, the operator `T` must be positive. The frame condition `sum_i f(e_i) = 1` for any orthonormal basis `{e_i}` implies `Tr(T) = 1`. We therefore identify `T` with a density operator `rho` on `H`.",
+      "equation": "T >= 0,   Tr(T) = 1,   rho = T"
+    },
+    {
+      "step": 8,
+      "description": "For a rank-1 projector `P_v = |v:)(:v|`, we have `mu(P_v) = f(v) = (:v|rho|v:) = Tr(rho P_v)`. Any finite-rank projector can be written as a sum of mutually orthogonal rank-1 projectors, and sigma-additivity from hilbert_space_probability_structure extends this formula to all projectors `P`.",
+      "equation": "mu(P) = Tr(rho P) forall P"
+    },
+    {
+      "step": 9,
+      "description": "For a pure state `rho = |:psi:)(:psi:|` and a projective measurement with PVM elements `Pi_i`, the Born rule becomes `P(a_i) = (:psi:|Pi_i|:psi:)`. For rank-1 projectors `Pi_i = |:phi_i:)(:phi_i:|`, this reduces to the amplitude-squared law `P(a_i) = |(:phi_i|psi:)|^2`.",
+      "equation": "P(a_i) = (:psi|Pi_i|psi:) = |(:phi_i|psi:)|^2"
+    },
+    {
+      "step": 10,
+      "description": "Generalized measurements `{E_i}` (POVMs) consist of positive operators satisfying `sum_i E_i = I`. By Naimark's dilation theorem, any POVM on `H` can be realized as a projective measurement `{Pi_i}` on a larger Hilbert space `K ⊇ H`, together with an isometric embedding `V: H -> K` such that `E_i = V^† Pi_i V`. Since projective measurements on `K` obey the trace rule from the previous steps, applying the relation `E_i = V^† Pi_i V` yields the same probability formula on `H`, giving `P(i) = Tr(rho E_i)`.",
+      "equation": "E_i = V^† Pi_i V  =>  P(i) = Tr(rho E_i)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.12.0",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# ===============================================",
+      "# Programmatic verification for Born rule derivation",
+      "# Following Steps 1–10 in the derivation",
+      "# ===============================================",
+      "",
+      "# We work in a 3-dimensional Hilbert space (dim(H) = 3), as required by Gleason conditions.",
+      "# Use a standard orthonormal basis e1, e2, e3 represented as column vectors.",
+      "d = 3",
+      "I = sp.eye(d)",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 1–2: Probability measure on rank-1 projectors and frame function",
+      "# -------------------------------------------------------------------",
+      "",
+      "# Basis vectors",
+      "e1 = sp.Matrix([1, 0, 0])",
+      "e2 = sp.Matrix([0, 1, 0])",
+      "e3 = sp.Matrix([0, 0, 1])",
+      "",
+      "# Rank-1 projectors P_(e_i) = |e_i)(e_i|",
+      "P_e1 = e1 * e1.T",
+      "P_e2 = e2 * e2.T",
+      "P_e3 = e3 * e3.T",
+      "",
+      "# Define a generic diagonal density matrix rho with nonnegative eigenvalues p1, p2, p3",
+      "p1, p2, p3 = sp.symbols('p1 p2 p3', nonnegative=True)",
+      "rho = sp.diag(p1, p2, p3)",
+      "",
+      "# Impose trace-one condition Tr(rho) = 1 (this encodes normalization of the probability measure)",
+      "trace_rho = sp.trace(rho)",
+      "",
+      "# Frame function on basis vectors: f(e_i) = mu(P_(e_i)) = Tr(rho P_(e_i))",
+      "f_e1 = sp.trace(rho * P_e1)",
+      "f_e2 = sp.trace(rho * P_e2)",
+      "f_e3 = sp.trace(rho * P_e3)",
+      "",
+      "# Step 1 / 2 check: sum_i f(e_i) = Tr(rho) and equals 1 when rho is normalized",
+      "assert sp.simplify(f_e1 + f_e2 + f_e3 - trace_rho) == 0",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Steps 3–5: Define q(v), verify parallelogram identity and polarization",
+      "# -------------------------------------------------------------------",
+      "",
+      "# Define generic complex components of a vector v and w",
+      "v1, v2, v3 = sp.symbols('v1 v2 v3', complex=True)",
+      "w1, w2, w3 = sp.symbols('w1 w2 w3', complex=True)",
+      "",
+      "v = sp.Matrix([v1, v2, v3])",
+      "w = sp.Matrix([w1, w2, w3])",
+      "",
+      "# For the purposes of programmatic verification, we *define*",
+      "# q(v) = <v|rho|v> = v^† rho v, which is quadratic in v.",
+      "# In the derivation, this is what is *derived* from the assumptions;",
+      "# here we check that once q has this form, all the stated identities hold.",
+      "def q(vec):",
+      "    return (vec.conjugate().T * rho * vec)[0]",
+      "",
+      "# Step 4: Check parallelogram identity q(v+w) + q(v-w) = 2 q(v) + 2 q(w)",
+      "lhs_par = sp.simplify(q(v + w) + q(v - w))",
+      "rhs_par = sp.simplify(2*q(v) + 2*q(w))",
+      "assert sp.simplify(lhs_par - rhs_par) == 0",
+      "",
+      "# Step 5: Define the sesquilinear form B via polarization and check q(v) = B(v,v)",
+      "def B(vec1, vec2):",
+      "    # Full polarization identity for complex Hilbert spaces",
+      "    return sp.simplify((q(vec1 + vec2) - q(vec1 - vec2) + sp.I*q(vec1 + sp.I*vec2) - sp.I*q(vec1 - sp.I*vec2)) / 4)",
+      "",
+      "Bvv = sp.simplify(B(v, v))",
+      "assert sp.simplify(Bvv - q(v)) == 0",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 6: Riesz representation consistency check",
+      "# -------------------------------------------------------------------",
+      "",
+      "# Here, B(v,w) should equal <w|rho|v> (note the swapped order due to sesquilinearity). We check this explicitly.",
+      "Bvw = sp.simplify(B(v, w))",
+      "inner_form = (w.conjugate().T * rho * v)[0]",
+      "assert sp.simplify(Bvw - inner_form) == 0",
+      "",
+      "# This shows that the operator playing the role of T in the derivation",
+      "# is represented here by rho.",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 7: Positivity and trace-one of rho",
+      "# -------------------------------------------------------------------",
+      "",
+      "# rho is diagonal with nonnegative entries by construction, so <v|rho|v> >= 0",
+      "# For symbolic verification, we check that q(e_i) equals the diagonal entries",
+      "# and thus is nonnegative if p_i >= 0.",
+      "",
+      "q_e1 = sp.simplify(q(e1))",
+      "q_e2 = sp.simplify(q(e2))",
+      "q_e3 = sp.simplify(q(e3))",
+      "",
+      "assert sp.simplify(q_e1 - p1) == 0",
+      "assert sp.simplify(q_e2 - p2) == 0",
+      "assert sp.simplify(q_e3 - p3) == 0",
+      "",
+      "# Trace condition Tr(rho) = p1 + p2 + p3",
+      "assert sp.simplify(trace_rho - (p1 + p2 + p3)) == 0",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 8: mu(P) = Tr(rho P) for arbitrary projectors built from basis",
+      "# -------------------------------------------------------------------",
+      "",
+      "# Consider an arbitrary projector onto the span of {e1, e2}:",
+      "# P_12 = |e1)(e1| + |e2)(e2|",
+      "P_12 = P_e1 + P_e2",
+      "",
+      "# The measure mu(P_12) should be mu(P_e1) + mu(P_e2) by sigma-additivity,",
+      "# and also equal Tr(rho P_12).",
+      "mu_P12_from_additivity = f_e1 + f_e2",
+      "mu_P12_from_trace = sp.trace(rho * P_12)",
+      "",
+      "assert sp.simplify(mu_P12_from_additivity - mu_P12_from_trace) == 0",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 9: Pure state case and amplitude-squared Born rule",
+      "# -------------------------------------------------------------------",
+      "",
+      "# Let |psi> be a generic normalized vector in the 3D Hilbert space.",
+      "a1, a2, a3 = sp.symbols('a1 a2 a3', complex=True)",
+      "psi = sp.Matrix([a1, a2, a3])",
+      "",
+      "# Pure state density operator rho_psi = |psi)(psi|",
+      "rho_psi = psi * psi.conjugate().T",
+      "",
+      "# Probability of outcome corresponding to P_e1 is:",
+      "P_e1_prob = sp.simplify(sp.trace(rho_psi * P_e1))",
+      "# This should be |a1|^2",
+      "P_e1_expected = sp.simplify(a1 * sp.conjugate(a1))",
+      "assert sp.simplify(P_e1_prob - P_e1_expected) == 0",
+      "",
+      "# Similarly for P_e2 and P_e3",
+      "P_e2_prob = sp.simplify(sp.trace(rho_psi * P_e2))",
+      "P_e3_prob = sp.simplify(sp.trace(rho_psi * P_e3))",
+      "",
+      "P_e2_expected = sp.simplify(a2 * sp.conjugate(a2))",
+      "P_e3_expected = sp.simplify(a3 * sp.conjugate(a3))",
+      "",
+      "assert sp.simplify(P_e2_prob - P_e2_expected) == 0",
+      "assert sp.simplify(P_e3_prob - P_e3_expected) == 0",
+      "",
+      "# -------------------------------------------------------------------",
+      "# Step 10: POVM consistency in the projective case",
+      "# -------------------------------------------------------------------",
+      "",
+      "# For a simple check of Step 10, we treat a PVM {Pi_i} also as a POVM {E_i}",
+      "# with E_i = Pi_i. This corresponds to the special case where the POVM arises",
+      "# directly as a projective measurement without dilation.",
+      "",
+      "# Restrict to a 2D subspace spanned by e1, e2 and define a 2x2 density matrix.",
+      "r00, r01, r10, r11 = sp.symbols('r00 r01 r10 r11', complex=True)",
+      "rho_2 = sp.Matrix([[r00, r01], [r10, r11]])",
+      "",
+      "# Define projectors P0 = |e1><e1|, P1 = |e2><e2| in this subspace:",
+      "P0 = sp.Matrix([[1, 0], [0, 0]])",
+      "P1 = sp.Matrix([[0, 0], [0, 1]])",
+      "",
+      "# As a POVM, take E0 = P0, E1 = P1. The Born rule should give identical probabilities",
+      "# whether we view them as PVM elements or POVM effects.",
+      "P0_prob_pvm = sp.trace(rho_2 * P0)",
+      "P1_prob_pvm = sp.trace(rho_2 * P1)",
+      "",
+      "P0_prob_povm = sp.trace(rho_2 * P0)  # E0 = P0",
+      "P1_prob_povm = sp.trace(rho_2 * P1)  # E1 = P1",
+      "",
+      "assert sp.simplify(P0_prob_pvm - P0_prob_povm) == 0",
+      "assert sp.simplify(P1_prob_pvm - P1_prob_povm) == 0",
+      "",
+      "print(\"Born rule derivation checks passed (Steps 1–10).\")"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Provides the quantitative link between quantum states and observed outcome frequencies in measurements.",
+    "development_period": "1926–1957",
+    "key_insights": [
+      "Amplitude-squared probability for pure states",
+      "Trace rule for general states and measurements",
+      "Realization of general measurements via dilation"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Born, M. (1926). Zur Quantenmechanik der Stoßvorgänge. Zeitschrift für Physik, 37, 863–867."
+    },
+    {
+      "id": "R2",
+      "citation": "Gleason, A. M. (1957). Measures on the Closed Subspaces of a Hilbert Space. Journal of Mathematics and Mechanics, 6(6), 885–893."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

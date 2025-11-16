@@ -2,8 +2,10 @@ name: Create Release
 
 on:
   push:
-    tags:
-      - 'v*'  # Trigger on version tags like v0.5.0, v1.0.0, etc.
+    branches:
+      - main
+    paths:
+      - 'CHANGELOG.md'
 
 permissions:
   contents: write
@@ -15,30 +17,50 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for changelog extraction
+          fetch-depth: 0  # Fetch all history for tag creation
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11.12'
 
-      - name: Extract version from tag
+      - name: Extract latest version from CHANGELOG
         id: version
         run: |
-          # Remove 'v' prefix from tag to get version number
-          VERSION=${GITHUB_REF#refs/tags/v}
+          # Extract the first version number from CHANGELOG.md (format: ## [X.Y.Z] - Date)
+          VERSION=$(grep -m 1 -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+(?=\])' CHANGELOG.md)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Version: $VERSION"
+          echo "Latest version in CHANGELOG: $VERSION"
+
+          # Check if this version tag already exists
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "Tag v$VERSION already exists, skipping release creation"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Extract changelog for this version
+        if: steps.version.outputs.skip == 'false'
         id: changelog
         run: |
           python3 scripts/extract_changelog.py ${{ steps.version.outputs.version }} > release_notes.md
           cat release_notes.md
 
+      - name: Create and push tag
+        if: steps.version.outputs.skip == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ steps.version.outputs.version }}" -m "Release v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
+
       - name: Create GitHub Release
+        if: steps.version.outputs.skip == 'false'
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
           body_path: release_notes.md
           draft: false
           prerelease: false
