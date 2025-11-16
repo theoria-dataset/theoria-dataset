@@ -2,6 +2,7 @@
   "assumptions": [
     {
       "id": "classical_mechanics_framework",
+      "title": "Classical Mechanics Framework",
       "text": "Classical mechanics framework: relativistic effects negligible (`v < < c`), quantum effects negligible for macroscopic bodies",
       "type": "approximation",
       "mathematical_expressions": ["v < < c", "lambda_(dB) < < L"],
@@ -27,18 +28,21 @@
     },
     {
       "id": "point_mass_approximation",
+      "title": "Point Mass Approximation",
       "text": "Both bodies can be treated as point masses with spherically symmetric mass distributions",
       "type": "approximation",
       "used_in": ["keplers_laws", "vis_viva"]
     },
     {
       "id": "inertial_reference_frame",
+      "title": "Inertial Reference Frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
       "type": "principle",
       "used_in": ["special_relativity_transformations"]
     },
     {
       "id": "conservation_laws_valid",
+      "title": "Conservation Laws",
       "text": "Total energy, linear momentum and angular momentum are conserved.",
       "type": "principle",
       "mathematical_expressions": [
@@ -68,30 +72,35 @@
     },
     {
       "id": "system_isolation",
+      "title": "System Isolation",
       "text": "System is sufficiently isolated from external influences (for gravitational systems: negligible external perturbations)",
       "type": "approximation",
       "used_in": ["keplers_laws", "vis_viva"]
     },
     {
       "id": "perfect_blackbody",
+      "title": "Perfect Blackbody",
       "text": "The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`",
       "type": "approximation",
       "used_in": ["blackbody_radiation"]
     },
     {
       "id": "thermal_equilibrium",
+      "title": "Thermal Equilibrium",
       "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
       "type": "approximation",
       "used_in": ["blackbody_radiation"]
     },
     {
       "id": "electromagnetic_polarization",
+      "title": "Electromagnetic Polarization",
       "text": "Electromagnetic waves have two independent polarization directions (transverse to propagation direction)",
       "type": "empirical",
       "used_in": ["blackbody_radiation"]
     },
     {
       "id": "light_speed_constant",
+      "title": "Light Speed Constant",
       "text": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
       "type": "empirical",
       "mathematical_expressions": ["c = 299792458 text{ m/s}"],
@@ -108,6 +117,7 @@
     },
     {
       "id": "constant_relative_velocity",
+      "title": "Constant Relative Velocity",
       "text": "Reference frames move with constant relative velocity (no acceleration)",
       "type": "approximation",
       "mathematical_expressions": ["(dv)/(dt) = 0"],
@@ -125,6 +135,7 @@
     },
     {
       "id": "variational_calculus_framework",
+      "title": "Variational Calculus Framework",
       "text": "System describable by generalized coordinates `q_i(t)` with well-defined, twice-differentiable Lagrangian `L(q_i, dot q_i, t)`, smooth trajectories, and suitable boundary conditions for variational analysis (fixed endpoints, allowable interior variations)",
       "type": "principle",
       "mathematical_expressions": [
@@ -162,24 +173,28 @@
     },
     {
       "id": "stationary_action_principle",
+      "title": "Stationary Action Principle",
       "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
       "type": "principle",
       "used_in": ["noethers_theorem"]
     },
     {
       "id": "flat_spacetime",
+      "title": "Flat Spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
       "type": "approximation",
       "used_in": ["relativistic_energy_momentum"]
     },
     {
       "id": "well_defined_rest_mass",
+      "title": "Well-Defined Rest Mass",
       "text": "Particles have well-defined rest masses that do not depend on the reference frame",
       "type": "empirical",
       "used_in": ["relativistic_energy_momentum"]
     },
     {
       "id": "hilbert_space_probability_structure",
+      "title": "Hilbert Space Probability Structure",
       "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu`",
       "type": "principle",
       "mathematical_expressions": ["P^2 = P = P^ast", "mu: {P} -> [0,1]"],
@@ -201,6 +216,7 @@
     },
     {
       "id": "gleason_theorem_conditions",
+      "title": "Gleason Theorem Conditions",
       "text": "The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^ast`) is continuous",
       "type": "principle",
       "mathematical_expressions": ["dim(H) >= 3"],

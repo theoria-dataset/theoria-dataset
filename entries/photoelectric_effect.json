@@ -168,7 +168,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "plancks_quantum_hypothesis"
   ]
 }

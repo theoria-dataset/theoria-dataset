@@ -152,7 +152,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "maxwell_equations"
   ]
 }

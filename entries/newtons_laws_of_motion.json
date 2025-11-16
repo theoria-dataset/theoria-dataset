@@ -203,7 +203,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "conservation_of_momentum"
   ]
 }

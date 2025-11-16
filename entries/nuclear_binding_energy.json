@@ -144,7 +144,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "mass_energy_equivalence"
   ]
 }

@@ -20,7 +20,7 @@ To:
 "assumptions": [
   "Some assumption text"
 ],
-"dependencies": [
+"depends_on": [
   "some_entry"
 ]
 """
@@ -84,7 +84,7 @@ def update_entry_assumptions(entry_path):
     
     # Update the data structure
     data['assumptions'] = new_assumptions
-    data['dependencies'] = new_dependencies
+    data['depends_on'] = new_dependencies
     
     # Write back to file
     try:

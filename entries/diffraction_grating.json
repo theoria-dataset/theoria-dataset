@@ -218,7 +218,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "waves_interference",
     "young_double_slit"
   ]

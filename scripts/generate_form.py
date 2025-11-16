@@ -76,12 +76,12 @@ def update_form_guidelines(form_content, schema_data):
     # Map current form text to schema fields
     form_to_schema_mapping = {
         'definitions': 'definitions',
-        'assumptions': 'assumptions', 
+        'assumptions': 'assumptions',
         'derivation': 'derivation',
         'programmatic_verification': 'programmatic_verification',
         'domain': 'domain',
         'validity_regime': 'validity_regime',
-        'dependencies': 'dependencies',
+        'dependencies': 'depends_on',
         'superseded_by': 'superseded_by',
         'historical_context': 'historical_context',
         'references': 'references',
@@ -127,7 +127,7 @@ def update_form_guidelines(form_content, schema_data):
                 elif 'Validity Regime' in heading:
                     schema_field = 'validity_regime'
                 elif 'Dependencies' in heading:
-                    schema_field = 'dependencies'
+                    schema_field = 'depends_on'
                 elif 'Superseded By' in heading:
                     schema_field = 'superseded_by'
                 elif 'Historical Context' in heading:

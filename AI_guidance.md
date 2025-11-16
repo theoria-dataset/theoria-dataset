@@ -63,7 +63,7 @@ Example Fix:
 
 5. MISSING METADATA
 
-- Add dependencies: List other entries this derivation relies on
+- Add depends_on: List other entries this derivation relies on
 - Include validity_regime: Specify physical conditions and limitations
 - Update contributors: Replace "Synthetic entry" with proper attribution
 - Set review_status: Keep as "draft" until human review

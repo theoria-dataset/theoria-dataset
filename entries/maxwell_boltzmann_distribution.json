@@ -45,7 +45,7 @@
     "The probability follows Boltzmann distribution with kinetic energy.",
     "Velocity components are independent and isotropic."
   ],
-  "dependencies": [
+  "depends_on": [
     "boltzmann_distribution",
     "ideal_gas_law"
   ],

@@ -141,7 +141,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "amperes_law",
     "maxwell_equations"
   ]

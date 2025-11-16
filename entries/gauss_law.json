@@ -163,7 +163,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "electric_field",
     "coulombs_law"
   ]

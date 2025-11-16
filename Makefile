@@ -40,17 +40,19 @@ test-entry:
 
 pre-push:
 	@echo "[PRE-PUSH] Running all build steps and tests before push..."
-	@echo "[STEP 1/6] Rebuilding requirements..."
+	@echo "[STEP 1/7] Rebuilding requirements..."
 	docker-compose run --rm theoria-tests python scripts/build_requirements.py
-	@echo "[STEP 2/6] Generating notebooks..."
+	@echo "[STEP 2/7] Generating notebooks..."
 	docker-compose run --rm theoria-tests python scripts/generate_notebooks.py
-	@echo "[STEP 3/6] Generating index..."
+	@echo "[STEP 3/7] Generating index..."
 	docker-compose run --rm theoria-tests python scripts/generate_index.py
-	@echo "[STEP 4/6] Validating schemas..."
+	@echo "[STEP 4/7] Validating schemas..."
 	docker-compose run --rm theoria-tests python scripts/validate_all_schemas.py
-	@echo "[STEP 5/6] Validating dependencies..."
+	@echo "[STEP 5/7] Validating dependencies..."
 	docker-compose run --rm theoria-tests python scripts/validate_dependencies.py
-	@echo "[STEP 6/6] Running tests..."
+	@echo "[STEP 6/7] Validating assumption usage..."
+	docker-compose run --rm theoria-tests python scripts/validate_assumptions_usage.py
+	@echo "[STEP 7/7] Running tests..."
 	docker-compose run --rm theoria-tests python scripts/test_ml_dataset.py
 	docker-compose run --rm theoria-tests python scripts/test_entry.py
 	@echo "[SUCCESS] All pre-push steps completed successfully!"

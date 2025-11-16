@@ -302,7 +302,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "hydrostatic_pressure",
     "fluid_statics",
     "divergence_theorem"

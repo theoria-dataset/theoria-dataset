@@ -211,7 +211,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "snells_law",
     "electromagnetic_waves"
   ]

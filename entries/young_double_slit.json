@@ -162,7 +162,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "wave_interference",
     "de_broglie_wavelength"
   ]

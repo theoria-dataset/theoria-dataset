@@ -43,6 +43,9 @@ jobs:
       - name: Run programmatic verifications
         run: python scripts/verify_programmatic.py
 
+      - name: Validate assumption usage
+        run: python scripts/validate_assumptions_usage.py
+
       - name: Test ML Dataset Script
         run: python scripts/test_ml_dataset.py
 

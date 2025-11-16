@@ -170,7 +170,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "wave_equation",
     "superposition_principle"
   ]

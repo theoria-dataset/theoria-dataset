@@ -147,7 +147,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "schroedingen_equation",
     "simple_harmonic_oscillator"
   ]

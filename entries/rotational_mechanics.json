@@ -249,7 +249,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "newtons_laws_of_motion",
     "angular_momentum",
     "conservation_of_angular_momentum"

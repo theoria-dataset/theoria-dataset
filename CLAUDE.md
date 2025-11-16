@@ -79,6 +79,9 @@ docker-compose run --rm theoria-tests python scripts/validate_all_schemas.py
 
 # Validate entry dependencies
 docker-compose run --rm theoria-tests python scripts/validate_dependencies.py
+
+# Validate assumption usage (check ID conflicts and step references)
+docker-compose run --rm theoria-tests python scripts/validate_assumptions_usage.py
 ```
 
 ### ML Dataset Generation
@@ -124,7 +127,7 @@ docker-compose build
 - Text in equations: `text{constant}` NOT `text(constant)`
 
 ### Derivation Quality Standards
-1. **Completeness**: Start from first principles or dependencies, show ALL intermediate steps
+1. **Completeness**: Start from first principles or entry dependencies (in `depends_on`), show ALL intermediate steps
 2. **Assumptions**: Reference global assumption IDs from `globals/assumptions.json`
 3. **Logical independence**: Each assumption should be genuinely independent (not derivable from others)
 4. **Verification**: Python code using SymPy that validates EACH step with assert statements
@@ -141,6 +144,7 @@ docker-compose build
 - `validate_schema.py` - Validates single entry against schema
 - `validate_all_schemas.py` - Validates all entries and global assumptions
 - `validate_dependencies.py` - Checks entry dependency graph
+- `validate_assumptions_usage.py` - Validates assumption ID uniqueness and step-level usage
 
 **Content Generation:**
 - `generate_index.py` - Creates docs/entries_index.html from all entries

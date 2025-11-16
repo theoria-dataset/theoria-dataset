@@ -211,7 +211,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "electromagnetic_waves",
     "poynting_vector"
   ]

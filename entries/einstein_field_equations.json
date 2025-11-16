@@ -139,7 +139,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "special_relativity"
   ]
 }

@@ -164,7 +164,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "schroedingen_equation",
     "particle_in_a_box"
   ]

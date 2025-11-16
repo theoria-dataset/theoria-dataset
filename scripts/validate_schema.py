@@ -181,14 +181,14 @@ def validate_entry_schema(entry_path):
         elif len(assumption) > 500:
             errors.append(f"[WARNING] assumptions[{i}] is very long ({len(assumption)} chars) - consider moving to global assumptions")
     
-    # Validate dependencies array (if present)
-    dependencies = data.get('dependencies', [])
-    if dependencies:
-        for i, dep_id in enumerate(dependencies):
+    # Validate depends_on array (if present)
+    depends_on = data.get('depends_on', [])
+    if depends_on:
+        for i, dep_id in enumerate(depends_on):
             if not isinstance(dep_id, str):
-                errors.append(f"[ERROR] dependencies[{i}] must be a string (entry ID)")
+                errors.append(f"[ERROR] depends_on[{i}] must be a string (entry ID)")
             elif not dep_id.strip():
-                errors.append(f"[ERROR] dependencies[{i}] cannot be empty string")
+                errors.append(f"[ERROR] depends_on[{i}] cannot be empty string")
             # Note: We can't validate if dependency_id exists without loading all entries
     
     # Validate programmatic_verification

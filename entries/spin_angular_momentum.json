@@ -158,7 +158,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "quantum_angular_momentum",
     "pauli_exclusion_principle"
   ]

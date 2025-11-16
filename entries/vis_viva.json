@@ -35,26 +35,30 @@
     "conservation_laws_valid",
     "system_isolation"
   ],
-  "dependencies": ["angular_momentum", "gravitational_force"],
+  "depends_on": ["angular_momentum", "gravitational_force"],
   "derivation": [
     {
       "step": 1,
-      "description": "Apply conservation of energy to equate the energies at the apoapsis and periapsis",
+      "assumption": "gravitational_force",
+      "description": "Apply conservation of energy to equate the energies at the apoapsis and periapsis using gravitational potential energy",
       "equation": "1/2 mv_a^2 - (GMm)/r_a = 1/2mv_p^2-(GMm)/r_p"
     },
     {
       "step": 2,
-      "description": "Rearrange and simplify the expression in step one",
+      "assumption": "point_mass_approximation",
+      "description": "Rearrange and simplify, treating bodies as point masses with spherically symmetric mass distributions",
       "equation": "v_a^2/2 - v_p^2/2 = (GM)/r_a - (GM)/r_p"
     },
     {
       "step": 3,
+      "assumption": "angular_momentum",
       "description": "Use conservation of angular momentum to obtain an expression for `v_p` in terms of `r_a`, `r_p` and `v_a`",
       "equation": "L=const=v_ar_a=v_pr_p => v_p = (r_av_a)/r_p"
     },
     {
       "step": 4,
-      "description": "Substitute this expression into the energy equation from step 2",
+      "assumption": "conservation_laws_valid",
+      "description": "Substitute the angular momentum expression into the energy equation from step 2, using conservation laws",
       "equation": "1/2(1-(r_a/r_p)^2)v_a^2 = (GM)/r_a - (GM)/r_p"
     },
     {
@@ -69,7 +73,8 @@
     },
     {
       "step": 7,
-      "description": "Equate the total energy at any point in the orbit where the particle's velocity is v with the velocity at the apoapsis and use the expression from step 6 to eliminate `r_a` and `v_a`",
+      "assumption": "system_isolation",
+      "description": "Equate the total energy at any point in the orbit where the particle's velocity is v with the velocity at the apoapsis, assuming the system is isolated from external perturbations",
       "equation": "v^2/2 - (GM)/r = v_a^2/2 - (GM)/r_a = -(GM)/(2a)"
     },
     {

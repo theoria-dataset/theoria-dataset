@@ -13,7 +13,7 @@
     "explanation",
     "definitions",
     "assumptions",
-    "dependencies",
+    "depends_on",
     "derivation",
     "programmatic_verification",
     "domain",
@@ -95,7 +95,7 @@
     "derivation": {
       "type": "array",
       "minItems": 1,
-      "description": "Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions. Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'dependencies' field. Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following.",
+      "description": "Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions. Derivation should start from either first principles (listed in the field 'assumptions') or from other results derived in another entry, which should be specified in the 'depends_on' field. Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields. Include all steps for complete derivation. Use very explicit detail level for easy following.",
       "example": [
         {
           "step": 1,
@@ -121,7 +121,12 @@
             "type": "string",
             "description": "Textual description for this derivation step. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
           },
-          "equation": { "type": "string" }
+          "equation": { "type": "string" },
+          "assumption": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Optional reference to either: (1) a global assumption ID from globals/assumptions.json, or (2) a dependency entry ID that is specifically applied or invoked in this particular derivation step. Use this to link individual steps to the assumptions or foundational results they rely on, making the logical structure of the derivation more explicit."
+          }
         }
       }
     },
@@ -136,7 +141,7 @@
       }
     },
 
-    "dependencies": {
+    "depends_on": {
       "type": "array",
       "description": "Array of entry IDs that this derivation depends on. Each dependency must reference an existing entry result_id.",
       "items": {

@@ -163,7 +163,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "nuclear_binding_energy",
     "quantum_tunneling",
     "mass_energy_equivalence"

@@ -157,7 +157,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "schroedingen_equation",
     "coulombs_law"
   ]

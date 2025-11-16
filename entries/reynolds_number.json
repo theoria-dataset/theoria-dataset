@@ -154,7 +154,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "navier_stokes_incompressible"
   ]
 }

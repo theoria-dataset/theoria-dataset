@@ -143,7 +143,7 @@
     }
   ],
   "review_status": "draft",
-  "dependencies": [
+  "depends_on": [
     "boltzmann_distribution",
     "first_law_thermodynamics"
   ]
