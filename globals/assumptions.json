@@ -246,13 +246,9 @@
     {
       "id": "vacuum_linear_isotropic",
       "title": "Linear Isotropic Vacuum",
-      "text": "The medium is vacuum (free space) characterized by constants `epsilon_0` (electric permittivity) and `mu_0` (magnetic permeability), but may contain charge density `rho(r,t)` and current density `J(r,t)`. The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E` and `H = B / mu_0`, implying `c^2 = 1 / (epsilon_0 * mu_0)`.",
+      "text": "The medium is vacuum (free space) characterized by constants `epsilon_0` (electric permittivity) and `mu_0` (magnetic permeability), but may contain charge density `rho(r,t)` and current density `J(r,t)`. The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E` and `H = B / mu_0`.",
       "type": "approximation",
-      "mathematical_expressions": [
-        "D = epsilon_0 * E",
-        "H = B / mu_0",
-        "c^2 = 1 / (epsilon_0 * mu_0)"
-      ],
+      "mathematical_expressions": ["D = epsilon_0 * E", "H = B / mu_0"],
       "symbol_definitions": [
         {
           "symbol": "epsilon_0",
@@ -277,10 +273,6 @@
         {
           "symbol": "B",
           "definition": "Magnetic flux density"
-        },
-        {
-          "symbol": "c",
-          "definition": "Speed of light in vacuum"
         }
       ],
       "used_in": ["maxwell_equations"]
@@ -304,7 +296,9 @@
       "title": "Coulomb's Law",
       "text": "Electric charges interact via an inverse-square force law. A point charge `q` produces an electric field `E(r) = q / (4 * pi * epsilon_0 * r^2) * hat(r)` where `hat(r)` is the radial unit vector.",
       "type": "empirical",
-      "mathematical_expressions": ["E(r) = q / (4 * pi * epsilon_0 * r^2) * hat(r)"],
+      "mathematical_expressions": [
+        "E(r) = q / (4 * pi * epsilon_0 * r^2) * hat(r)"
+      ],
       "symbol_definitions": [
         {
           "symbol": "E",
@@ -334,9 +328,7 @@
       "title": "Faraday's Law of Electromagnetic Induction",
       "text": "A time-varying magnetic flux through a closed circuit induces an electromotive force (emf) in that circuit. The induced emf equals the negative rate of change of magnetic flux.",
       "type": "empirical",
-      "mathematical_expressions": [
-        "text{emf} = -(d Phi_B)/(dt)"
-      ],
+      "mathematical_expressions": ["text{emf} = -(d Phi_B)/(dt)"],
       "symbol_definitions": [
         {
           "symbol": "text{emf}",
@@ -354,9 +346,7 @@
       "title": "Ampère-Biot-Savart Law",
       "text": "Steady electric currents generate magnetic fields that circulate around them. The line integral of magnetic field around a closed loop equals `mu_0` times the enclosed current.",
       "type": "empirical",
-      "mathematical_expressions": [
-        "oint_C B cdot dl = mu_0 * I_(enc)"
-      ],
+      "mathematical_expressions": ["oint_C B cdot dl = mu_0 * I_(enc)"],
       "symbol_definitions": [
         {
           "symbol": "B",
