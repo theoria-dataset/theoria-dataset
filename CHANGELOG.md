@@ -5,6 +5,31 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.2] - Enhanced assumption validation and `used_in` bidirectional checks - 2025-01-18
+
+### Added
+
+- New global assumption for quantum field theory:
+  - `electromagnetic_field_quantization` (principle): Electromagnetic field quantization with discrete energy levels `E_n = n*h*nu`
+- Enhanced `validate_dependencies.py` with three new validation checks:
+  - **Assumption ID validation (Section 4)**: Strictly enforces that all assumption references must be valid global assumption IDs from `globals/assumptions.json`
+    - ERROR for reviewed entries with invalid assumption IDs
+    - WARNING for draft entries with invalid assumption IDs (old inline format)
+  - **Step-level assumption validation (Section 5)**: Ensures all assumptions referenced in derivation steps are declared in entry's `assumptions` or `depends_on` fields
+    - ERROR for reviewed entries with undeclared step assumptions
+    - WARNING for draft entries with undeclared step assumptions
+  - **`used_in` field validation (Section 6)**: Bidirectional validation between assumptions and entries
+    - ERROR if reviewed entry uses assumption but isn't listed in assumption's `used_in` field
+    - ERROR if assumption's `used_in` lists reviewed entry that doesn't reference it
+    - WARNING for similar issues with draft entries
+- Added `validate_dependencies.py` to CI/CD workflow (`validate_entries.yaml`)
+
+### Fixed
+
+- Fixed invalid assumption reference in `blackbody_radiation.json` (now uses `electromagnetic_field_quantization` global assumption)
+- Reviewed entries now strictly validated for assumption reference correctness
+- Prevents reviewed entries from being merged with invalid assumption IDs or missing `used_in` declarations
+
 ## [0.6.1] - Maxwell equations review and global assumptions consolidation - 2025-01-17
 
 ### Added

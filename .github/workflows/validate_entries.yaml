@@ -46,6 +46,9 @@ jobs:
       - name: Validate assumption usage
         run: python scripts/validate_assumptions_usage.py
 
+      - name: Validate dependencies and references
+        run: python scripts/validate_dependencies.py
+
       - name: Test ML Dataset Script
         run: python scripts/test_ml_dataset.py
 

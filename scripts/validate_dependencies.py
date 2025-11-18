@@ -180,26 +180,119 @@ def validate_dependencies_and_references():
     
     # 4. Check assumption references
     print("\n4. Checking assumption references...")
-    invalid_assumption_refs = []
+    invalid_assumption_errors = []
+    invalid_assumption_warnings = []
+
     for entry_id, entry_info in entries.items():
         assumptions = entry_info['data'].get('assumptions', [])
+        is_reviewed = entry_info['review_status'] == 'reviewed'
+
         for i, assumption in enumerate(assumptions):
             if isinstance(assumption, str):
                 # Check if it's a reference to a global assumption
                 if assumption in global_assumptions:
                     continue  # Valid reference
-                elif len(assumption.strip()) < 10:
-                    # Short string that might be intended as a reference
-                    warnings.append(f"[WARNING] Entry '{entry_id}' assumption[{i}] '{assumption}' might be an invalid global reference")
-                # Otherwise it's treated as direct text, which is valid
-    
-    if invalid_assumption_refs:
-        print(f"  Found {len(invalid_assumption_refs)} invalid assumption references")
+                else:
+                    # Invalid assumption reference
+                    error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) has invalid assumption ID '{assumption}' at index {i}"
+
+                    if is_reviewed:
+                        invalid_assumption_errors.append((entry_id, assumption, i))
+                        errors.append(f"[ERROR] {error_msg} - reviewed entries must only reference global assumption IDs")
+                    else:
+                        invalid_assumption_warnings.append((entry_id, assumption, i))
+                        warnings.append(f"[WARNING] {error_msg} - should reference global assumption IDs from globals/assumptions.json")
+
+    total_invalid = len(invalid_assumption_errors) + len(invalid_assumption_warnings)
+    if total_invalid > 0:
+        print(f"  Found {total_invalid} invalid assumption references ({len(invalid_assumption_errors)} errors, {len(invalid_assumption_warnings)} warnings)")
     else:
         print("  [OK] All assumption references are valid")
-    
-    # 5. Summary statistics
-    print("\n5. Dependency statistics...")
+
+    # 5. Check step-level assumption references
+    print("\n5. Checking step-level assumption references...")
+    undeclared_step_assumptions_errors = []
+    undeclared_step_assumptions_warnings = []
+
+    for entry_id, entry_info in entries.items():
+        # Get declared prerequisites (assumptions + dependencies)
+        declared_prerequisites = set(entry_info['data'].get('assumptions', []))
+        declared_prerequisites.update(entry_info['data'].get('depends_on', []))
+
+        # Get step-level assumption references
+        derivation = entry_info['data'].get('derivation', [])
+        is_reviewed = entry_info['review_status'] == 'reviewed'
+
+        for step in derivation:
+            step_assumption = step.get('assumption')
+            if step_assumption and step_assumption not in declared_prerequisites:
+                step_num = step.get('step', '?')
+                error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) step {step_num} references '{step_assumption}' which is not in assumptions or depends_on fields"
+
+                if is_reviewed:
+                    undeclared_step_assumptions_errors.append((entry_id, step_num, step_assumption))
+                    errors.append(f"[ERROR] {error_msg}")
+                else:
+                    undeclared_step_assumptions_warnings.append((entry_id, step_num, step_assumption))
+                    warnings.append(f"[WARNING] {error_msg}")
+
+    total_undeclared = len(undeclared_step_assumptions_errors) + len(undeclared_step_assumptions_warnings)
+    if total_undeclared > 0:
+        print(f"  Found {total_undeclared} undeclared step-level assumptions ({len(undeclared_step_assumptions_errors)} errors, {len(undeclared_step_assumptions_warnings)} warnings)")
+    else:
+        print("  [OK] All step-level assumptions are declared in entry prerequisites")
+
+    # 6. Validate 'used_in' field in global assumptions
+    print("\n6. Checking 'used_in' field accuracy in global assumptions...")
+    used_in_errors = []
+    used_in_warnings = []
+
+    # Build actual usage map: which entries actually use each assumption
+    actual_usage = defaultdict(set)
+    for entry_id, entry_info in entries.items():
+        for assumption_id in entry_info['data'].get('assumptions', []):
+            if assumption_id in global_assumptions:
+                actual_usage[assumption_id].add(entry_id)
+
+    # Check each assumption's used_in field
+    for assumption_id, assumption_data in global_assumptions.items():
+        declared_used_in = set(assumption_data.get('used_in', []))
+        actual_users = actual_usage.get(assumption_id, set())
+
+        # Check for entries in used_in that don't actually use the assumption
+        false_positives = declared_used_in - actual_users
+        for entry_id in false_positives:
+            if entry_id in entries:
+                is_reviewed = entries[entry_id]['review_status'] == 'reviewed'
+                error_msg = f"Assumption '{assumption_id}' lists '{entry_id}' in used_in, but '{entry_id}' doesn't reference it"
+                if is_reviewed:
+                    used_in_errors.append((assumption_id, entry_id, 'false_positive'))
+                    errors.append(f"[ERROR] {error_msg}")
+                else:
+                    used_in_warnings.append((assumption_id, entry_id, 'false_positive'))
+                    warnings.append(f"[WARNING] {error_msg}")
+
+        # Check for reviewed entries that use the assumption but aren't in used_in
+        false_negatives = actual_users - declared_used_in
+        for entry_id in false_negatives:
+            if entry_id in entries and entries[entry_id]['review_status'] == 'reviewed':
+                error_msg = f"Reviewed entry '{entry_id}' uses assumption '{assumption_id}' but is not listed in its used_in field"
+                used_in_errors.append((assumption_id, entry_id, 'false_negative'))
+                errors.append(f"[ERROR] {error_msg}")
+            elif entry_id in entries:
+                # Draft entry - just a warning
+                warning_msg = f"Draft entry '{entry_id}' uses assumption '{assumption_id}' but is not listed in its used_in field"
+                used_in_warnings.append((assumption_id, entry_id, 'false_negative'))
+                warnings.append(f"[WARNING] {warning_msg}")
+
+    total_used_in_issues = len(used_in_errors) + len(used_in_warnings)
+    if total_used_in_issues > 0:
+        print(f"  Found {total_used_in_issues} used_in field issues ({len(used_in_errors)} errors, {len(used_in_warnings)} warnings)")
+    else:
+        print("  [OK] All used_in fields are accurate")
+
+    # 7. Summary statistics
+    print("\n7. Dependency statistics...")
     reviewed_entries = [e for e in entries.values() if e['review_status'] == 'reviewed']
     draft_entries = [e for e in entries.values() if e['review_status'] == 'draft']
     
