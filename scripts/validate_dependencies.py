@@ -224,17 +224,18 @@ def validate_dependencies_and_references():
         is_reviewed = entry_info['review_status'] == 'reviewed'
 
         for step in derivation:
-            step_assumption = step.get('assumption')
-            if step_assumption and step_assumption not in declared_prerequisites:
-                step_num = step.get('step', '?')
-                error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) step {step_num} references '{step_assumption}' which is not in assumptions or depends_on fields"
+            step_assumptions = step.get('assumptions', [])
+            for step_assumption in step_assumptions:
+                if step_assumption and step_assumption not in declared_prerequisites:
+                    step_num = step.get('step', '?')
+                    error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) step {step_num} references '{step_assumption}' which is not in assumptions or depends_on fields"
 
-                if is_reviewed:
-                    undeclared_step_assumptions_errors.append((entry_id, step_num, step_assumption))
-                    errors.append(f"[ERROR] {error_msg}")
-                else:
-                    undeclared_step_assumptions_warnings.append((entry_id, step_num, step_assumption))
-                    warnings.append(f"[WARNING] {error_msg}")
+                    if is_reviewed:
+                        undeclared_step_assumptions_errors.append((entry_id, step_num, step_assumption))
+                        errors.append(f"[ERROR] {error_msg}")
+                    else:
+                        undeclared_step_assumptions_warnings.append((entry_id, step_num, step_assumption))
+                        warnings.append(f"[WARNING] {error_msg}")
 
     total_undeclared = len(undeclared_step_assumptions_errors) + len(undeclared_step_assumptions_warnings)
     if total_undeclared > 0:

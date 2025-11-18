@@ -48,7 +48,7 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "perfect_blackbody",
+      "assumptions": ["perfect_blackbody"],
       "description": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers.",
       "equation": "E_x = E_(0x) * sin(n_x*pi*x/L) * cos(omega*t); E_y = E_(0y) * sin(n_y*pi*y/L) * cos(omega*t); E_z = E_(0z) * sin(n_z*pi*z/L) * cos(omega*t)"
     },
@@ -64,9 +64,9 @@
     },
     {
       "step": 4,
+      "assumptions": ["maxwell_equations"],
       "description": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`.",
-      "equation": "omega = c*|k|",
-      "assumption": "maxwell_equations"
+      "equation": "omega = c*|k|"
     },
     {
       "step": 5,
@@ -85,9 +85,9 @@
     },
     {
       "step": 8,
+      "assumptions": ["electromagnetic_polarization"],
       "description": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count.",
-      "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR",
-      "assumption": "electromagnetic_polarization"
+      "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR"
     },
     {
       "step": 9,
@@ -101,27 +101,27 @@
     },
     {
       "step": 11,
+      "assumptions": ["electromagnetic_field_quantization"],
       "description": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number.",
-      "equation": "E_n = n*h*nu",
-      "assumption": "electromagnetic_field_quantization"
+      "equation": "E_n = n*h*nu"
     },
     {
       "step": 12,
+      "assumptions": ["partition_function"],
       "description": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`.",
-      "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))",
-      "assumption": "partition_function"
+      "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 13,
+      "assumptions": ["spin_statistics_theorem"],
       "description": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function.",
-      "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))",
-      "assumption": "spin_statistics_theorem"
+      "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 14,
+      "assumptions": ["thermal_equilibrium"],
       "description": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution.",
-      "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)",
-      "assumption": "thermal_equilibrium"
+      "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)"
     },
     {
       "step": 15,

@@ -68,27 +68,27 @@
   "derivation": [
     {
       "step": 1,
+      "assumptions": ["flat_spacetime"],
       "description": "Redefine force as the rate of change of relativistic momentum.",
-      "equation": "vec F = (d vec p)/(dt)",
-      "assumption": "flat_spacetime"
+      "equation": "vec F = (d vec p)/(dt)"
     },
     {
       "step": 2,
-      "assumption": "light_speed_constant",
+      "assumptions": ["light_speed_constant"],
       "description": "Define relativistic momentum to preserve conservation laws.",
       "equation": "vec p = gamma*m*vec v"
     },
     {
       "step": 3,
+      "assumptions": ["well_defined_rest_mass"],
       "description": "Calculate work done to accelerate a particle, leading to relativistic energy.",
-      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt",
-      "assumption": "well_defined_rest_mass"
+      "equation": "E = int vec F * d vec r = int (d vec p)/(dt) * vec v * dt"
     },
     {
       "step": 4,
+      "assumptions": ["conservation_laws_valid"],
       "description": "Rewrite the work integral using the relation between force and momentum.",
-      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p",
-      "assumption": "conservation_laws_valid"
+      "equation": "E = int vec F * vec v * dt = int (d vec p/dt) * vec v * dt = int vec v * d vec p"
     },
     {
       "step": 5,

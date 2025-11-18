@@ -5,13 +5,47 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.6.2] - Enhanced assumption validation and `used_in` bidirectional checks - 2025-01-18
+## [0.7.0] - Multiple assumptions per derivation step - 2025-01-19
+
+### Changed
+
+- **Breaking change**: Derivation step `assumption` field renamed to `assumptions` (array)
+  - Schema change in `schemas/entry.schema.json`: `assumption` (string) → `assumptions` (array of strings)
+  - Each derivation step can now reference multiple global assumptions or dependencies
+  - Format: `"assumptions": ["assumption_id_1", "assumption_id_2"]`
+  - All 11 existing entries with step-level assumptions migrated to new format
+  - Updated validation scripts: `validate_assumptions_usage.py`, `validate_dependencies.py`
+  - Updated frontend display: `docs/script.js` now renders multiple assumption badges per step
+  - Auto-generated documentation updated: `CONTRIBUTING.md`, `docs/contribute/form_requirements.js`
+
+### Migration Notes
+
+- Entries migrated: blackbody_radiation, born_rule, keplers_laws, least_action_principle, maxwell_equations, noethers_theorem, relativistic_energy_momentum, schrodinger_equation, special_relativity_transformations, speed_of_light, vis_viva
+- Old format: `"assumption": "id"` → New format: `"assumptions": ["id"]`
+- All entries pass schema validation with new structure
+
+### Fixed
+
+- **hbar rendering**: Fixed rendering of reduced Planck constant symbol (ℏ) across all pages
+  - Centralized MathJax configuration in `docs/mathjax-config.js`
+  - Added hbar → ℏ replacement in `docs/script.js` for equations, derivations, definitions, and assumptions
+  - Added hbar → ℏ replacement in `scripts/generate_assumptions_page.py` for static HTML generation
+  - Now renders correctly in: equations, derivation steps, step descriptions, definitions table, assumptions boxes, and assumptions page
+
+## [0.6.2] - New assumption page and better checks for integration - 2025-01-18
 
 ### Added
 
+- New assumptions browser page (`docs/assumptions.html`):
+  - Browse all global assumptions organized by type (Principles, Empirical, Approximations)
+  - View mathematical expressions, symbol definitions, and explanatory text for each assumption
+  - Clickable cross-references showing which entries use each assumption
+  - Integrated into main navigation from homepage and entries index
+  - Automatically generated via `scripts/generate_assumptions_page.py`
+  - Added to `make pre-push` workflow for automatic updates
 - New global assumption for quantum field theory:
   - `electromagnetic_field_quantization` (principle): Electromagnetic field quantization with discrete energy levels `E_n = n*h*nu`
-- Enhanced `validate_dependencies.py` with three new validation checks:
+- Enhanced `validate_dependencies.py` with three new validation checks for CI:
   - **Assumption ID validation (Section 4)**: Strictly enforces that all assumption references must be valid global assumption IDs from `globals/assumptions.json`
     - ERROR for reviewed entries with invalid assumption IDs
     - WARNING for draft entries with invalid assumption IDs (old inline format)
@@ -23,13 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - ERROR if assumption's `used_in` lists reviewed entry that doesn't reference it
     - WARNING for similar issues with draft entries
 - Added `validate_dependencies.py` to CI/CD workflow (`validate_entries.yaml`)
-- New assumptions browser page (`docs/assumptions.html`):
-  - Browse all 24 global assumptions organized by type (Principles, Empirical, Approximations)
-  - View mathematical expressions, symbol definitions, and explanatory text for each assumption
-  - Clickable cross-references showing which entries use each assumption
-  - Integrated into main navigation from homepage and entries index
-  - Automatically generated via `scripts/generate_assumptions_page.py`
-  - Added to `make pre-push` workflow for automatic updates
 
 ### Fixed
 

@@ -55,8 +55,9 @@ def get_step_assumptions(derivation: List[Dict[str, Any]]) -> Set[str]:
     """Extract all assumption references from derivation steps."""
     step_assumptions = set()
     for step in derivation:
-        if 'assumption' in step and step['assumption']:
-            step_assumptions.add(step['assumption'])
+        if 'assumptions' in step and step['assumptions']:
+            for assumption in step['assumptions']:
+                step_assumptions.add(assumption)
     return step_assumptions
 
 

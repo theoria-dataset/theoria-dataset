@@ -5,6 +5,9 @@ const qs = (sel) => document.querySelector(sel);
 
 // Format long equations by breaking them at logical points
 function formatLongEquation(equation) {
+  // Replace hbar with Unicode ℏ for correct rendering
+  equation = equation.replace(/\bhbar\b/g, "ℏ");
+
   // If equation is short enough, return as is
   if (equation.length <= 80) {
     return `\`${equation}\``;
@@ -238,20 +241,26 @@ function renderPrerequisites(data) {
 
       if (resolved.type === 'global') {
         // Display title prominently, then text
-        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong>: ${resolved.text}`;
+        const textFixed = resolved.text.replace(/\bhbar\b/g, "ℏ");
+        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong>: ${textFixed}`;
         tooltip = `Assumption type: ${resolved.assumptionType}`;
 
         // Add mathematical expressions on new lines if available
         if (resolved.mathematicalExpressions && resolved.mathematicalExpressions.length > 0) {
-          const mathExpressions = resolved.mathematicalExpressions.map(expr => `<div class="assumption-math">\`${expr}\`</div>`).join('');
+          const mathExpressions = resolved.mathematicalExpressions.map(expr => {
+            const exprFixed = expr.replace(/\bhbar\b/g, "ℏ");
+            return `<div class="assumption-math">\`${exprFixed}\`</div>`;
+          }).join('');
           displayText += mathExpressions;
         }
 
         // Add symbol definitions if available
         if (resolved.symbolDefinitions && resolved.symbolDefinitions.length > 0) {
-          const symbolDefs = resolved.symbolDefinitions.map(def =>
-            `<div class="assumption-symbol-def"><span class="symbol">\`${def.symbol}\`</span>: ${def.definition}</div>`
-          ).join('');
+          const symbolDefs = resolved.symbolDefinitions.map(def => {
+            const symbolFixed = def.symbol.replace(/\bhbar\b/g, "ℏ");
+            const definitionFixed = def.definition.replace(/\bhbar\b/g, "ℏ");
+            return `<div class="assumption-symbol-def"><span class="symbol">\`${symbolFixed}\`</span>: ${definitionFixed}</div>`;
+          }).join('');
           displayText += `<div class="assumption-symbols">${symbolDefs}</div>`;
         }
       } else {
@@ -536,24 +545,28 @@ function render(data) {
   (data.derivation || []).forEach((step) => {
     let html = "";
 
-    // Add assumption reference if present
-    if (step.assumption) {
-      const resolved = resolveAssumption(step.assumption, data);
-      if (resolved.type === 'global' || resolved.type === 'dependency') {
-        const assumptionBadge = `<strong class="step-assumption-label">Use</strong> <a href="#assumption-${resolved.id}" class="step-assumption-ref assumption-${resolved.assumptionType}" title="${resolved.text}">${resolved.title}</a>`;
-        html += `<div class='step-assumption'>${assumptionBadge}</div>`;
-      }
+    // Add assumption references if present
+    if (step.assumptions && step.assumptions.length > 0) {
+      step.assumptions.forEach((assumptionId) => {
+        const resolved = resolveAssumption(assumptionId, data);
+        if (resolved.type === 'global' || resolved.type === 'dependency') {
+          const assumptionBadge = `<strong class="step-assumption-label">Use</strong> <a href="#assumption-${resolved.id}" class="step-assumption-ref assumption-${resolved.assumptionType}" title="${resolved.text}">${resolved.title}</a>`;
+          html += `<div class='step-assumption'>${assumptionBadge}</div>`;
+        }
+      });
     }
 
     if (step.description) {
-      html += `<div class='step-expl'>${step.description}</div>`;
+      const descriptionFixed = step.description.replace(/\bhbar\b/g, "ℏ");
+      html += `<div class='step-expl'>${descriptionFixed}</div>`;
     }
     if (step.equation) {
       // Break long equations at logical points
       const formattedEquation = formatLongEquation(step.equation);
       html += `<div class='step-eq'>${formattedEquation}</div>`;
     } else if (step.text) {
-      html += `<div class='step-text'>${step.text}</div>`;
+      const textFixed = step.text.replace(/\bhbar\b/g, "ℏ");
+      html += `<div class='step-text'>${textFixed}</div>`;
     }
     ol.insertAdjacentHTML("beforeend", `<li>${html}</li>`);
   });
@@ -562,11 +575,14 @@ function render(data) {
   const tbody = qs("#definitions tbody");
   tbody.innerHTML = "";
   data.definitions.forEach((d) => {
+    // Replace hbar with Unicode ℏ for correct rendering
+    const symbolFixed = d.symbol.replace(/\bhbar\b/g, "ℏ");
+    const definitionFixed = d.definition.replace(/\bhbar\b/g, "ℏ");
     // Ensure symbol is wrapped in backticks if it's not already
-    const symbol = d.symbol.startsWith("`") ? d.symbol : `\`${d.symbol}\``;
+    const symbol = symbolFixed.startsWith("`") ? symbolFixed : `\`${symbolFixed}\``;
     tbody.insertAdjacentHTML(
       "beforeend",
-      `<tr><td>${symbol}</td><td>${d.definition}</td></tr>`
+      `<tr><td>${symbol}</td><td>${definitionFixed}</td></tr>`
     );
   });
   safeTypesetMathJax([qs("#definitions")]);
