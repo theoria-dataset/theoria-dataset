@@ -23,6 +23,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - ERROR if assumption's `used_in` lists reviewed entry that doesn't reference it
     - WARNING for similar issues with draft entries
 - Added `validate_dependencies.py` to CI/CD workflow (`validate_entries.yaml`)
+- New assumptions browser page (`docs/assumptions.html`):
+  - Browse all 24 global assumptions organized by type (Principles, Empirical, Approximations)
+  - View mathematical expressions, symbol definitions, and explanatory text for each assumption
+  - Clickable cross-references showing which entries use each assumption
+  - Integrated into main navigation from homepage and entries index
+  - Automatically generated via `scripts/generate_assumptions_page.py`
+  - Added to `make pre-push` workflow for automatic updates
 
 ### Fixed
 
