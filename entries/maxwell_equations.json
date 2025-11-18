@@ -160,7 +160,6 @@
     },
     {
       "step": 18,
-      "assumption": "light_speed",
       "description": "Equate integrands.",
       "equation": "grad xx bbB = mu_0*bbJ + epsilon_0*mu_0*(del bbE)/(del t)"
     }

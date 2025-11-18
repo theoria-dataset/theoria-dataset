@@ -362,6 +362,32 @@
         }
       ],
       "used_in": ["maxwell_equations"]
+    },
+    {
+      "id": "electromagnetic_field_quantization",
+      "title": "Electromagnetic Field Quantization",
+      "text": "The electromagnetic field is quantized, with each mode having discrete energy levels. Each mode of frequency `nu` can only have energies that are integer multiples of `h*nu`, where `h` is Planck's constant and the integer represents the photon occupation number.",
+      "type": "principle",
+      "mathematical_expressions": ["E_n = n*h*nu"],
+      "symbol_definitions": [
+        {
+          "symbol": "E_n",
+          "definition": "Energy of mode with occupation number n"
+        },
+        {
+          "symbol": "n",
+          "definition": "Photon occupation number (non-negative integer)"
+        },
+        {
+          "symbol": "h",
+          "definition": "Planck's constant"
+        },
+        {
+          "symbol": "nu",
+          "definition": "Frequency of the electromagnetic mode"
+        }
+      ],
+      "used_in": ["blackbody_radiation"]
     }
   ]
 }
