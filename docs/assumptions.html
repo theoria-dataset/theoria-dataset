@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" class="text-justify latex-dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>TheorIA — Browse All Assumptions</title>
+    <!-- LaTeX.css dark theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css"
+    />
+    <!-- MathJax for AsciiMath -->
+    <script>
+      window.MathJax = {
+        loader: { load: ["input/asciimath", "output/chtml"] },
+        asciimath: { delimiters: [["`", "`"]] },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"
+      async
+    ></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+
+    <header class="main-header">
+      <h1>TheorIA Dataset</h1>
+      <p class="subtitle">Browse All 24 Assumptions • Version 0.6.2</p>
+      <div class="header-actions">
+        <a href="index.html" class="cta-button">← Back to Home</a>
+        <a href="entries_index.html" class="cta-button">Browse Entries</a>
+      </div>
+    </header>
+
+    <section style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+      <h2>About Assumptions</h2>
+      <p>
+        Every physics derivation rests on a foundation of assumptions. The TheorIA dataset maintains a <strong>centralized database of assumptions</strong> that are referenced across all entries, ensuring consistent terminology and clear logical dependencies.
+      </p>
+      <p>
+        Assumptions are categorized into three types:
+      </p>
+      <ul>
+        <li><strong>Principles</strong>: Core theoretical and mathematical postulates that form the foundation of physical theories (e.g., conservation laws, variational principles)</li>
+        <li><strong>Empirical</strong>: Experimentally established facts and measured constants validated by observation (e.g., speed of light, Coulomb's law)</li>
+        <li><strong>Approximations</strong>: Validity restrictions and simplifying modeling choices that define the regime of applicability (e.g., nonrelativistic regime, point mass approximation)</li>
+      </ul>
+      <p>
+        Each assumption can be referenced by multiple entries, and clicking on the "Used in" links shows which physics results depend on that particular assumption.
+      </p>
+    </section>
+
+    
+    <nav class="domain-navigation">
+      <h2>Assumption Types</h2>
+      <div class="nav-links">
+                <a href="#principle" class="nav-link">Principles (8)</a>
+        <a href="#empirical" class="nav-link">Empirical (7)</a>
+        <a href="#approximation" class="nav-link">Approximations (9)</a>
+      </div>
+    </nav>
+  
+
+    <main class="entries-browser">
+      
+    <section id="principle" class="domain-section">
+      <h2 class="domain-title">Principles</h2>
+      <div class="entry-grid">
+        
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Classical Electromagnetism Framework
+      </h3>
+      <p class="entry-description">Fields and sources are classical, smooth (continuously differentiable, `C^1` or better), and defined on flat Minkowski spacetime. Vector calculus theorems (divergence theorem, Stokes' theorem) apply. Quantum and gravitational effects are negligible.</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Conservation Laws
+      </h3>
+      <p class="entry-description">Total energy, linear momentum and angular momentum are conserved.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`(dE)/(dt) = 0`</div>
+            <div class="assumption-math">`(dvec{p})/(dt) = 0`</div>
+            <div class="assumption-math">`(dvec{L})/(dt) = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`E`</strong>: Total energy of the system</div>
+            <div class="assumption-symbol-def"><strong>`vec{p}`</strong>: Total momentum vector of the system</div>
+            <div class="assumption-symbol-def"><strong>`vec{L}`</strong>: Total angular momentum vector of the system</div>
+            <div class="assumption-symbol-def"><strong>`t`</strong>: Time</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=vis_viva.json">Vis Viva</a>, <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Electromagnetic Field Quantization
+      </h3>
+      <p class="entry-description">The electromagnetic field is quantized, with each mode having discrete energy levels. Each mode of frequency `nu` can only have energies that are integer multiples of `h*nu`, where `h` is Planck's constant and the integer represents the photon occupation number.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`E_n = n*h*nu`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`E_n`</strong>: Energy of mode with occupation number n</div>
+            <div class="assumption-symbol-def"><strong>`n`</strong>: Photon occupation number (non-negative integer)</div>
+            <div class="assumption-symbol-def"><strong>`h`</strong>: Planck's constant</div>
+            <div class="assumption-symbol-def"><strong>`nu`</strong>: Frequency of the electromagnetic mode</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Gleason Theorem Conditions
+      </h3>
+      <p class="entry-description">The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^ast`) is continuous</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`dim(H) >= 3`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`H`</strong>: Complex Hilbert space of quantum states</div>
+            <div class="assumption-symbol-def"><strong>`dim(H)`</strong>: Dimension of the Hilbert space</div>
+            <div class="assumption-symbol-def"><strong>`P`</strong>: Projector (orthogonal projection operator) on `H`, satisfying idempotence and self-adjointness</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Hilbert Space Probability Structure
+      </h3>
+      <p class="entry-description">Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu`</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`P^2 = P = P^ast`</div>
+            <div class="assumption-math">`mu: {P} -> [0,1]`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`H`</strong>: Complex Hilbert space of quantum states</div>
+            <div class="assumption-symbol-def"><strong>`P`</strong>: Projector (orthogonal projection operator) on `H`, satisfying idempotence and self-adjointness</div>
+            <div class="assumption-symbol-def"><strong>`mu`</strong>: Probability measure mapping projectors to real numbers in `[0,1]`</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Inertial Reference Frame
+      </h3>
+      <p class="entry-description">Observations are made from an inertial (non-accelerating) reference frame</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Stationary Action Principle
+      </h3>
+      <p class="entry-description">The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=noethers_theorem.json">Noethers Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Variational Calculus Framework
+      </h3>
+      <p class="entry-description">System describable by generalized coordinates `q_i(t)` with well-defined, twice-differentiable Lagrangian `L(q_i, dot q_i, t)`, smooth trajectories, and suitable boundary conditions for variational analysis (fixed endpoints, allowable interior variations)</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`q_i = q_i(t)`</div>
+            <div class="assumption-math">`L = L(q_i, dot q_i, t)`</div>
+            <div class="assumption-math">`delta q_i(t_1) = delta q_i(t_2) = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`q_i`</strong>: Generalized coordinates describing the system configuration</div>
+            <div class="assumption-symbol-def"><strong>`dot q_i`</strong>: Time derivatives of generalized coordinates (generalized velocities)</div>
+            <div class="assumption-symbol-def"><strong>`L`</strong>: Lagrangian function of the system</div>
+            <div class="assumption-symbol-def"><strong>`t`</strong>: Time parameter</div>
+            <div class="assumption-symbol-def"><strong>`delta q_i`</strong>: Variation of generalized coordinates</div>
+            <div class="assumption-symbol-def"><strong>`t_1, t_2`</strong>: Initial and final times (fixed endpoints)</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=least_action_principle.json">Least Action Principle</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    
+    <section id="empirical" class="domain-section">
+      <h2 class="domain-title">Empirical</h2>
+      <div class="entry-grid">
+        
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Ampère-Biot-Savart Law
+      </h3>
+      <p class="entry-description">Steady electric currents generate magnetic fields that circulate around them. The line integral of magnetic field around a closed loop equals `mu_0` times the enclosed current.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`oint_C B cdot dl = mu_0 * I_(enc)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`B`</strong>: Magnetic field</div>
+            <div class="assumption-symbol-def"><strong>`mu_0`</strong>: Magnetic permeability of free space</div>
+            <div class="assumption-symbol-def"><strong>`I_(enc)`</strong>: Current enclosed by the loop</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Coulomb's Law
+      </h3>
+      <p class="entry-description">Electric charges interact via an inverse-square force law. A point charge `q` produces an electric field `E(r) = q / (4 * pi * epsilon_0 * r^2) * hat(r)` where `hat(r)` is the radial unit vector.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`E(r) = q / (4 * pi * epsilon_0 * r^2) * hat(r)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`E`</strong>: Electric field vector</div>
+            <div class="assumption-symbol-def"><strong>`q`</strong>: Electric point charge</div>
+            <div class="assumption-symbol-def"><strong>`epsilon_0`</strong>: Electric permittivity of free space</div>
+            <div class="assumption-symbol-def"><strong>`r`</strong>: Distance from the point charge</div>
+            <div class="assumption-symbol-def"><strong>`hat(r)`</strong>: Radial unit vector</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Electromagnetic Polarization
+      </h3>
+      <p class="entry-description">Electromagnetic waves have two independent polarization directions (transverse to propagation direction)</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Faraday's Law of Electromagnetic Induction
+      </h3>
+      <p class="entry-description">A time-varying magnetic flux through a closed circuit induces an electromotive force (emf) in that circuit. The induced emf equals the negative rate of change of magnetic flux.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`text{emf} = -(d Phi_B)/(dt)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`text{emf}`</strong>: Electromotive force</div>
+            <div class="assumption-symbol-def"><strong>`Phi_B`</strong>: Magnetic flux through a surface</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Light Speed Constant
+      </h3>
+      <p class="entry-description">The speed of light in vacuum is constant and independent of the motion of the source or observer</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`c = 299792458 text{ m/s}`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`c`</strong>: Speed of light in vacuum, exact value by definition in SI units.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        No Magnetic Monopoles
+      </h3>
+      <p class="entry-description">Magnetic monopoles (isolated magnetic charges) have never been observed experimentally. As a consequence, the net magnetic flux through any closed surface is zero. (no free magnetic charge density exists).</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`oint_S B * dA = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`B`</strong>: Magnetic flux density</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-empirical">
+      <h3 class="entry-title">
+        Well-Defined Rest Mass
+      </h3>
+      <p class="entry-description">Particles have well-defined rest masses that do not depend on the reference frame</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>
+        </div>
+      <span class="entry-status status-empirical">EMPIRICAL</span>
+    </div>
+  
+      </div>
+    </section>
+  
+
+    
+    <section id="approximation" class="domain-section">
+      <h2 class="domain-title">Approximations</h2>
+      <div class="entry-grid">
+        
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Classical Macroscopic Limit
+      </h3>
+      <p class="entry-description">For macroscopic bodies with de Broglie wavelength λ_(dB) << L, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`lambda_(dB) < < L`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`lambda_(dB)`</strong>: De Broglie wavelength of the body</div>
+            <div class="assumption-symbol-def"><strong>`L`</strong>: Characteristic length scale of the system or apparatus</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Constant Relative Velocity
+      </h3>
+      <p class="entry-description">Reference frames move with constant relative velocity (no acceleration)</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`(dv)/(dt) = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`v`</strong>: Relative velocity between reference frames</div>
+            <div class="assumption-symbol-def"><strong>`t`</strong>: Time</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Flat Spacetime
+      </h3>
+      <p class="entry-description">Spacetime is flat, no gravitational effects considered</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Linear Isotropic Vacuum
+      </h3>
+      <p class="entry-description">The medium is vacuum (free space) characterized by constants `epsilon_0` (electric permittivity) and `mu_0` (magnetic permeability), but may contain charge density `rho(r,t)` and current density `J(r,t)`. The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E` and `H = B / mu_0`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`D = epsilon_0 * E`</div>
+            <div class="assumption-math">`H = B / mu_0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`epsilon_0`</strong>: Electric permittivity of free space</div>
+            <div class="assumption-symbol-def"><strong>`mu_0`</strong>: Magnetic permeability of free space</div>
+            <div class="assumption-symbol-def"><strong>`D`</strong>: Electric displacement field</div>
+            <div class="assumption-symbol-def"><strong>`E`</strong>: Electric field</div>
+            <div class="assumption-symbol-def"><strong>`H`</strong>: Magnetic field intensity</div>
+            <div class="assumption-symbol-def"><strong>`B`</strong>: Magnetic flux density</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Nonrelativistic Regime
+      </h3>
+      <p class="entry-description">Particle velocities satisfy v << c so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by E ≃ p^2/(2*m).</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`v < < c`</div>
+            <div class="assumption-math">`E ≃ p^2/(2*m)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`v`</strong>: Characteristic particle velocity</div>
+            <div class="assumption-symbol-def"><strong>`c`</strong>: Speed of light in vacuum</div>
+            <div class="assumption-symbol-def"><strong>`E`</strong>: Particle energy</div>
+            <div class="assumption-symbol-def"><strong>`p`</strong>: Magnitude of particle momentum</div>
+            <div class="assumption-symbol-def"><strong>`m`</strong>: Particle mass</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=keplers_laws.json">Keplers Laws</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Perfect Blackbody
+      </h3>
+      <p class="entry-description">The spectral energy density `u(nu,T)` describes radiation from a perfect black body - an idealized emitter that absorbs all incident radiation and re-emits it purely based on temperature `T`</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Point Mass Approximation
+      </h3>
+      <p class="entry-description">Both bodies can be treated as point masses with spherically symmetric mass distributions</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=keplers_laws.json">Keplers Laws</a>, <a href="entries.html?entry=vis_viva.json">Vis Viva</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        System Isolation
+      </h3>
+      <p class="entry-description">System is sufficiently isolated from external influences (for gravitational systems: negligible external perturbations)</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=keplers_laws.json">Keplers Laws</a>, <a href="entries.html?entry=vis_viva.json">Vis Viva</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Thermal Equilibrium
+      </h3>
+      <p class="entry-description">The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent</p>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      </div>
+    </section>
+  
+    </main>
+
+    <footer class="main-footer">
+      <p>
+        <strong>License:</strong>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.en"
+           target="_blank" rel="noopener">CC-BY 4.0</a>
+      </p>
+      <p>
+        Want to contribute? Check our
+        <a href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md"
+           target="_blank" rel="noopener">contribution guidelines</a>
+      </p>
+    </footer>
+
+    <script>
+      // Dark mode toggle (same as entries_index.html)
+      const btn = document.getElementById('themeToggle');
+      const htmlEl = document.documentElement;
+
+      function enableDark() {
+        htmlEl.classList.add('latex-dark');
+        btn.textContent = '☀︎';
+        localStorage.setItem('theme', 'dark');
+      }
+
+      function enableLight() {
+        htmlEl.classList.remove('latex-dark');
+        btn.textContent = '☾';
+        localStorage.setItem('theme', 'light');
+      }
+
+      // Initialize theme
+      (localStorage.getItem('theme') === 'light' ? enableLight : enableDark)();
+      btn.addEventListener('click', () => {
+        htmlEl.classList.contains('latex-dark') ? enableLight() : enableDark();
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

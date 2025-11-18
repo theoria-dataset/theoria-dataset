@@ -81,14 +81,14 @@
   "assumptions": [
     "inertial_reference_frame",
     "light_speed_constant",
-    "classical_mechanics_framework",
+    "classical_macroscopic_limit",
     "constant_relative_velocity"
   ],
   "depends_on": [],
   "derivation": [
     {
       "step": 1,
-      "assumption": "classical_mechanics_framework",
+      "assumption": "classical_macroscopic_limit",
       "description": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime).",
       "equation": "x' = A*x + B*t; t' = D*x + E*t"
     },

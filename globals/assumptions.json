@@ -1,30 +1,61 @@
 {
   "assumptions": [
     {
-      "id": "classical_mechanics_framework",
-      "title": "Classical Mechanics Framework",
-      "text": "Classical mechanics framework: relativistic effects negligible (`v < < c`), quantum effects negligible for macroscopic bodies",
+      "id": "nonrelativistic_regime",
+      "title": "Nonrelativistic Regime",
+      "text": "Particle velocities satisfy v << c so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by E ≃ p^2/(2*m).",
       "type": "approximation",
-      "mathematical_expressions": ["v < < c", "lambda_(dB) < < L"],
+      "mathematical_expressions": [
+        "v < < c",
+        "E ≃ p^2/(2*m)"
+      ],
       "symbol_definitions": [
         {
           "symbol": "v",
-          "definition": "Characteristic velocity of the system"
+          "definition": "Characteristic particle velocity"
         },
         {
           "symbol": "c",
           "definition": "Speed of light in vacuum"
         },
         {
+          "symbol": "E",
+          "definition": "Particle energy"
+        },
+        {
+          "symbol": "p",
+          "definition": "Magnitude of particle momentum"
+        },
+        {
+          "symbol": "m",
+          "definition": "Particle mass"
+        }
+      ],
+      "used_in": [
+        "keplers_laws"
+      ]
+    },
+    {
+      "id": "classical_macroscopic_limit",
+      "title": "Classical Macroscopic Limit",
+      "text": "For macroscopic bodies with de Broglie wavelength λ_(dB) << L, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.",
+      "type": "approximation",
+      "mathematical_expressions": [
+        "lambda_(dB) < < L"
+      ],
+      "symbol_definitions": [
+        {
           "symbol": "lambda_(dB)",
-          "definition": "de Broglie wavelength of particles in the system"
+          "definition": "De Broglie wavelength of the body"
         },
         {
           "symbol": "L",
-          "definition": "Characteristic length scale of the system"
+          "definition": "Characteristic length scale of the system or apparatus"
         }
       ],
-      "used_in": ["keplers_laws", "special_relativity_transformations"]
+      "used_in": [
+        "special_relativity_transformations"
+      ]
     },
     {
       "id": "point_mass_approximation",

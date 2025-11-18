@@ -59,7 +59,7 @@
     }
   ],
   "assumptions": [
-    "classical_mechanics_framework",
+    "nonrelativistic_regime",
     "point_mass_approximation",
     "system_isolation"
   ],
@@ -76,7 +76,7 @@
     },
     {
       "step": 2,
-      "assumption": "classical_mechanics_framework",
+      "assumption": "nonrelativistic_regime",
       "description": "Calculate torque in classical mechanics framework: since `vec(F)` is parallel to `vec(r)` (both along radial direction), their cross product `vec(tau) = vec(r) times vec(F)` is zero.",
       "equation": "vec(tau) = vec(r) times vec(F) = vec(r) times (-G*M*m/r^2 * hat(r)) = 0"
     },
