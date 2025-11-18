@@ -1,6 +1,6 @@
 {
-  "dataset_name": "Theoretical Physics Inference Dataset",
-  "dataset_version": "0.5.0",
+  "dataset_name": "TheorIA Dataset",
+  "dataset_version": "0.6.1",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-20",
   "license": "CC-BY 4.0",
