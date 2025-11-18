@@ -58,7 +58,7 @@ The Docker environment includes:
 
 - **Python 3.11.12** (exact CI version)
 - **Node.js 14** with **ajv-cli** for JSON validation
-- **SymPy 1.12.0** (exact CI version)
+- **SymPy 1.13.1** (exact CI version)
 - **pytest** for unit testing
 
 ## Troubleshooting

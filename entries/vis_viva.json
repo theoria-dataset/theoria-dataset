@@ -85,7 +85,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.12.0",
+    "library": "sympy 1.13.1",
     "code": [
       "# imports",
       "import sympy as sp",

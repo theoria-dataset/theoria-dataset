@@ -5,6 +5,32 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - Maxwell equations review and global assumptions consolidation - 2025-01-17
+
+### Added
+
+- New global assumptions for electromagnetism:
+  - `classical_electromagnetism_framework` (principle): Classical field theory framework with vector calculus theorems
+  - `vacuum_linear_isotropic` (approximation): Linear, homogeneous, isotropic vacuum properties with constitutive relations
+  - `no_magnetic_monopoles` (empirical): Empirical absence of isolated magnetic charges
+  - `coulomb_law` (empirical): Coulomb's inverse-square law for electric charges
+  - `faraday_induction` (empirical): Faraday's law of electromagnetic induction
+  - `ampere_biot_savart` (empirical): Ampère-Biot-Savart law for steady currents
+- New entry: `speed_of_light` - Speed of light in vacuum
+
+### Changed
+
+- Maxwell equations entry: reviewed.
+- Removed magnetic_field.json and electric_field.json as they are redundant.
+- Upgraded SymPy from 1.12.0 to 1.13.1 across all infrastructure (Dockerfile, CI, documentation, entries, and notebooks)
+- Fixed reynolds_number.json programmatic verification for SymPy 1.13.1 compatibility (stricter type comparison between sympy.Float and Python int)
+- Deleted the Faraday's law, Gauss law, sthe Ampere's law and the Coulomb law entries as they are now part of the Mazwell law entry.
+
+### Fixed
+
+- Logical separation between fundamental empirical statements (in global assumptions) and their mathematical consequences (in entry derivations)
+- Eliminated redundancy in electromagnetic assumptions across the dataset
+
 ## [0.6.0] - `assumption` field added to each derivation steps - 2025-01-16
 
 ### Added

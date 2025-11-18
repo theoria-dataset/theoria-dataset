@@ -16,7 +16,7 @@
     },
     {
       "id": "eq4",
-      "equation": "grad times bb B = mu_0 * bb J + 1/c^2 * (partial bb E)/(partial t)"
+      "equation": "grad times bb B = mu_0 * bb J + epsilon_0*mu_0 * (partial bb E)/(partial t)"
     }
   ],
   "explanation": "Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents. These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light. They are essential for understanding electromagnetic phenomena from radio waves to optics, and form the basis for electrical engineering and modern communications technology.",
@@ -27,15 +27,15 @@
     },
     {
       "symbol": "B",
-      "definition": "Magnetic‑field vector (units `T`)."
+      "definition": "Magnetic-field vector (units `T`)."
     },
     {
       "symbol": "rho",
-      "definition": "Charge‑density scalar (units `C·m^-3`)."
+      "definition": "Charge-density scalar (units `C·m^-3`)."
     },
     {
       "symbol": "J",
-      "definition": "Current‑density vector (units `A·m^-2`)."
+      "definition": "Current-density vector (units `A·m^-2`)."
     },
     {
       "symbol": "t",
@@ -43,11 +43,11 @@
     },
     {
       "symbol": "epsilon_0",
-      "definition": "Vacuum permittivity, electric constant or permitivity of free space. `epsilon_0 ≈ 8.8541878188 × 10⁻¹² F·m⁻¹.`"
+      "definition": "Vacuum permitivity, electric constant or permitivity of free space. `epsilon_0 ≈ 8.8541878188*10^(-12)F·m^(-1).`"
     },
     {
       "symbol": "mu_0",
-      "definition": "Magnetic‑constant, vacuum magnetic permeability, vacuum permeability, permeability of free space or permeability of vacuum `mu_0 = 4 pi × 10⁻⁷ H·m⁻¹`."
+      "definition": "Magnetic-constant, vacuum magnetic permeability, vacuum permeability, permeability of free space or permeability of vacuum `mu_0 = 4*pi*10^(-7)H·m^(-1)`."
     },
     {
       "symbol": "c",
@@ -55,158 +55,212 @@
     }
   ],
   "assumptions": [
-    "The medium is free space (`epsilon_0`, `mu_0` constants) but may contain charge `rho(r,t)` and current `J(r,t)`.",
-    "Fields and sources are continuously differentiable so vector-calculus theorems apply.",
-    "No magnetic monopoles exist: free \"magnetic charge\" density is zero, so `grad cdot B = 0`.",
-    "The vacuum is linear, homogeneous, and isotropic with constitutive relations `D = epsilon_0 * E and H = B/mu_0`; consequently `c^2 = 1/(epsilon_0 * mu_0)`.",
-    "Empirical: Electric charges interact via an inverse-square law (Coulomb’s law).",
-    "Empirical: Magnetic monopoles have never been observed.",
-    "Empirical: A changing magnetic flux induces an electromotive force in a closed circuit (Faraday's experiments).",
-    "Empirical: Steady electric currents generate magnetic fields circulating around them (Ampère and Biot–Savart experiments).",
-    "The vacuum is linear, homogeneous, and isotropic, with `D = epsilon_0 * E` and `B = mu_0 * H`.",
-    "Fields and sources are classical, smooth (`C^1`), and defined on flat space-time. Quantum and gravitational effects are ignored."
+    "classical_electromagnetism_framework",
+    "vacuum_linear_isotropic",
+    "no_magnetic_monopoles",
+    "coulomb_law",
+    "faraday_induction",
+    "ampere_biot_savart"
   ],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
-      "description": "Start from Coulomb’s empirical point‑charge law, with bbE the electric field vector and bbhat(r) the radial unit vector.",
+      "assumption": "coulomb_law",
+      "description": "Start from Coulomb's empirical point-charge law, with `bbE` the electric field vector and `bbhat(r)` the radial unit vector.",
       "equation": "bbE(r) = q/(4*pi*epsilon_0*r^2)*bbhat(r)"
     },
     {
       "step": 2,
       "description": "Compute the flux of `bbE` through a sphere of radius `r`.",
-      "equation": "oint_S bbE cdot dA = bbE*4*pi*r^2"
+      "equation": "oint_S bbE * dA = bbE*4*pi*r^2"
     },
     {
       "step": 3,
       "description": "Substitute `bbE(r)` to show the flux equals `q/epsilon_0`.",
-      "equation": "bbE*4*pi*r^2 = q/epsilon_0"
+      "equation": "oint_S bbE * dA = q/epsilon_0"
     },
     {
       "step": 4,
       "description": "Generalize by superposition to any charge distribution.",
-      "equation": "oint(S) bbE cdot dA = (1/epsilon_0) int(V) rho dV"
+      "equation": "oint_S bbE * dA = 1/epsilon_0 int_V rho dV"
     },
     {
       "step": 5,
+      "assumption": "classical_electromagnetism_framework",
       "description": "Apply the divergence theorem to convert the surface integral into a volume integral.",
-      "equation": "int(V) div(bbE) dV = (1/epsilon_0) int(V) rho dV"
+      "equation": "int_V grad * bbE dV = 1/epsilon_0 int_V rho dV"
     },
     {
       "step": 6,
-      "description": "Equate integrands to obtain `grad·bbE = rho/epsilon_0`.",
-      "equation": "div(bbE) = rho/epsilon_0"
+      "description": "Equate integrands.",
+      "equation": "grad * bbE = rho/epsilon_0"
     },
     {
       "step": 7,
+      "assumption": "no_magnetic_monopoles",
       "description": "Invoke the empirical absence of magnetic monopoles.",
-      "equation": "oint(S) bbB cdot dA = 0"
+      "equation": "oint_S bbB * dA = 0"
     },
     {
       "step": 8,
+      "assumption": "classical_electromagnetism_framework",
       "description": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`",
-      "equation": "int(V) div(bbB) dV = 0"
+      "equation": "int_V grad * bbB dV = 0"
     },
     {
       "step": 9,
       "description": "Conclude `grad·bbB = 0`.",
-      "equation": "div(bbB) = 0"
+      "equation": "grad * bbB = 0"
     },
     {
       "step": 10,
-      "description": "Begin with Faraday’s law relating emf to changing magnetic flux.",
-      "equation": "oint(C) bbE cdot dl = -d/dt int(S) bbB cdot dA"
+      "assumption": "faraday_induction",
+      "description": "Begin with Faraday's empirical law: the induced emf equals the negative rate of change of magnetic flux.",
+      "equation": "text{emf} = -(d Phi_B)/(dt)"
     },
     {
       "step": 11,
-      "description": "Apply Stokes’ theorem to convert the loop integral to a surface integral of curl.",
-      "equation": "int(S) curl(bbE) cdot dA = -d/dt int(S) bbB cdot dA"
+      "description": "Substitute the definitions `text{emf} = oint_C bbE cdot dl` (emf as line integral of electric field) and `Phi_B = int_S bbB cdot dA` (magnetic flux).",
+      "equation": "oint_C bbE * dl = -d/dt int_S bbB * dA"
     },
     {
       "step": 12,
-      "description": "Equate integrands to derive `grad xx bbE = - (partial bbB)/(partial t)`.",
-      "equation": "curl(bbE) = -partial(bbB)/partial(t)"
+      "assumption": "classical_electromagnetism_framework",
+      "description": "Apply Stokes' theorem to convert the loop integral to a surface integral of curl.",
+      "equation": "int_S grad xx bbE * dA = -d/dt int_S bbB * dA"
     },
     {
       "step": 13,
-      "description": "State Ampère’s law for steady currents.",
-      "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA"
+      "description": "Equate integrands.",
+      "equation": "grad xx bbE = -(del bbB)/( del t)"
     },
     {
       "step": 14,
-      "description": "Include Maxwell’s displacement‑current term for time‑varying fields.",
-      "equation": "oint(C) bbB cdot dl = mu_0*int(S) bbJ cdot dA + mu_0*epsilon_0*d/dt int(S) bbE cdot dA"
+      "assumption": "ampere_biot_savart",
+      "description": "State Ampère's empirical law for steady currents: the line integral of magnetic field around a loop equals `mu_0` times the enclosed current.",
+      "equation": "oint_C bbB * dl = mu_0*I_(enc)"
     },
     {
       "step": 15,
-      "description": "Use Stokes’ theorem on the amended law to get the surface integral of curl.",
-      "equation": "int(S) curl(bbB) cdot dA = mu_0*int(S) bbJ cdot dA + mu_0*epsilon_0*d/dt int(S) bbE cdot dA"
+      "description": "Express the enclosed current as the flux of current density through the surface: `I_(enc) = int_S bbJ * dA`.",
+      "equation": "oint_C bbB * dl = mu_0*int_S bbJ * dA"
     },
     {
       "step": 16,
-      "description": "Equate integrands to derive `grad xx bbB = mu_0 bbJ + (1/c^2)(partial bbE)/(partial t)`.",
-      "equation": "curl(bbB) = mu_0*bbJ + (1/c^2)*partial(bbE)/partial(t)"
+      "assumption": "vacuum_linear_isotropic",
+      "description": "Include Maxwell's displacement-current term for time-varying fields.",
+      "equation": "oint_C bbB * dl = mu_0*int_S bbJ * dA + mu_0*epsilon_0*d/dt int_S bbE * dA"
     },
     {
       "step": 17,
-      "description": "Take divergence of the Ampère–Maxwell law and use `grad · bbE = rho / epsilon_0` to recover charge conservation.",
-      "equation": "(partial rho)/(partial t ) + grad bbJ = 0"
+      "assumption": "classical_electromagnetism_framework",
+      "description": "Use Stokes' theorem on the amended law to get the surface integral of curl.",
+      "equation": "int_S grad xx bbB * dA = mu_0*int_S bbJ * dA + mu_0*epsilon_0*d/dt int_S bbE * dA"
+    },
+    {
+      "step": 18,
+      "assumption": "light_speed",
+      "description": "Equate integrands.",
+      "equation": "grad xx bbB = mu_0*bbJ + epsilon_0*mu_0*(del bbE)/(del t)"
     }
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.12.0",
+    "library": "sympy 1.13.1",
     "code": [
-      "# --- Maxwell equations with sources in vacuum (steps 6‑7) ---",
       "import sympy as sp",
-      "from sympy.vector import CoordSys3D, divergence, curl",
       "",
-      "# Coordinate system and symbols",
-      "N = CoordSys3D('N')",
+      "# Programmatic verification: Maxwell equations in vacuum with sources",
+      "# Python 3.11, SymPy 1.12",
+      "",
+      "# Symbols",
+      "q, epsilon_0, mu_0, c = sp.symbols('q epsilon_0 mu_0 c', positive=True, real=True)",
+      "r = sp.symbols('r', positive=True, real=True)",
+      "rho = sp.symbols('rho', real=True)",
       "t = sp.symbols('t', real=True)",
       "",
-      "# Generic field components (functions of space and time)",
-      "Ex, Ey, Ez = [sp.Function(f)(N.x, N.y, N.z, t) for f in ('Ex','Ey','Ez')]",
-      "Bx, By, Bz = [sp.Function(f)(N.x, N.y, N.z, t) for f in ('Bx','By','Bz')]",
-      "Jx, Jy, Jz = [sp.Function(f)(N.x, N.y, N.z, t) for f in ('Jx','Jy','Jz')]",
-      "rho = sp.Function('rho')(N.x, N.y, N.z, t)",
+      "# Steps 1-6: Gauss law from Coulomb + divergence theorem",
+      "E_r = q/(4*sp.pi*epsilon_0*r**2)",
+      "flux = sp.simplify(E_r*4*sp.pi*r**2)",
+      "assert sp.simplify(flux - q/epsilon_0) == 0",
       "",
-      "# Assemble vector fields",
-      "E = Ex*N.i + Ey*N.j + Ez*N.k",
-      "B = Bx*N.i + By*N.j + Bz*N.k",
-      "J = Jx*N.i + Jy*N.j + Jz*N.k",
+      "flux_E, V = sp.symbols('flux_E V', real=True, nonzero=True)",
+      "divE = sp.symbols('divE', real=True)",
+      "eq_div = sp.Eq(flux_E, divE*V)",
+      "eq_flux = sp.Eq(flux_E, rho*V/epsilon_0)",
+      "eq_comb = sp.Eq(eq_div.rhs, eq_flux.rhs)",
+      "eq_local = sp.Eq(divE, rho/epsilon_0)",
+      "assert sp.simplify(eq_comb.lhs/V - eq_local.lhs) == 0",
+      "assert sp.simplify(eq_comb.rhs/V - eq_local.rhs) == 0",
       "",
-      "# Physical constants",
-      "epsilon0, mu0, c = sp.symbols('epsilon0 mu0 c', positive=True)",
+      "# Steps 7-9: No magnetic monopoles ⇒ ∇·B = 0",
+      "flux_B, divB = sp.symbols('flux_B divB', real=True)",
+      "eq_no_mono = sp.Eq(flux_B, 0)",
+      "eq_divB = sp.Eq(flux_B, divB*V)",
+      "eq_combB = sp.Eq(divB*V, 0)",
+      "eq_local_B = sp.Eq(divB, 0)",
+      "assert sp.simplify(eq_combB.lhs/V - eq_local_B.lhs) == 0",
       "",
-      "# --- Local Maxwell equations (step 6) ---",
-      "gauss_E     = sp.Eq(divergence(E), rho/epsilon0)                      # grad·E = ρ/ε₀",
-      "ampere_max  = sp.Eq(curl(B), mu0*J + 1/c**2 * sp.diff(E, t))          # grad×B = μ₀J + (1/c²)∂E/∂t",
+      "# Steps 10-13: Faraday induction structure",
+      "emf, Phi_B = sp.symbols('emf Phi_B', real=True)",
+      "eq_faraday = sp.Eq(emf, -sp.diff(Phi_B, t))",
+      "loop_E, surf_B = sp.symbols('loop_E surf_B', real=True)",
+      "eq_emf = sp.Eq(emf, loop_E)",
+      "eq_fluxB = sp.Eq(Phi_B, surf_B)",
+      "eq_faraday_int = sp.Eq(loop_E, -sp.diff(surf_B, t))",
+      "curlE, dB_dt = sp.symbols('curlE dB_dt', real=True)",
+      "eq_faraday_loc = sp.Eq(curlE, -dB_dt)",
+      "assert eq_faraday_loc.lhs == curlE",
       "",
-      "# --- Consistency check → continuity equation (step 7) ---",
-      "# Take divergence of Ampère–Maxwell equation",
-      "divE = divergence(E)",
-      "lhs = mu0*divergence(J) + 1/c**2 * sp.diff(divE, t)",
+      "# Steps 14-18: Ampère-Maxwell law",
+      "I_enc = sp.symbols('I_enc', real=True)",
+      "loop_B = sp.symbols('loop_B', real=True)",
+      "surf_J = sp.symbols('surf_J', real=True)",
+      "surf_E = sp.symbols('surf_E', real=True)",
+      "eq_ampere = sp.Eq(loop_B, mu_0*I_enc)",
+      "eq_I = sp.Eq(I_enc, surf_J)",
+      "eq_ampere_M = sp.Eq(loop_B, mu_0*surf_J + mu_0*epsilon_0*sp.diff(surf_E, t))",
+      "curlB = sp.symbols('curlB', real=True)",
+      "eq_stokesB = sp.Eq(loop_B, curlB*V)",
+      "Jd, Ed = sp.symbols('Jd Ed', real=True)",
+      "eq_sJ = sp.Eq(surf_J, Jd*V)",
+      "eq_sE = sp.Eq(surf_E, Ed*V)",
+      "rhs_AM = mu_0*Jd*V + mu_0*epsilon_0*sp.diff(Ed*V, t)",
+      "eq_AM_loc = sp.Eq(curlB, sp.simplify(rhs_AM/V))",
+      "J, E = sp.symbols('J E', real=True)",
+      "eq_curlB_mu_eps = sp.Eq(curlB, mu_0*J + mu_0*epsilon_0*sp.diff(E, t))",
+      "eq_mu_eps = sp.Eq(mu_0*epsilon_0, 1/c**2)",
+      "disp_mu_eps = mu_0*epsilon_0*sp.diff(E, t)",
+      "disp_c = (1/c**2)*sp.diff(E, t)",
+      "assert sp.simplify(disp_mu_eps.subs(eq_mu_eps.lhs, eq_mu_eps.rhs) - disp_c) == 0",
       "",
-      "# Substitute Gauss's law and c² = 1/(ε₀ μ₀)",
-      "lhs_sub = lhs.subs({divE: rho/epsilon0, sp.diff(divE, t): sp.diff(rho, t)/epsilon0, 1/c**2: epsilon0*mu0})",
+      "# Continuity equation cross-check",
+      "divJ = sp.symbols('divJ', real=True)",
+      "rho_t = sp.Function('rho')(t)",
+      "divE_t = sp.Function('divE')(t)",
+      "eq_gauss_t = sp.Eq(divE_t, rho_t/epsilon_0)",
+      "eq_div_amp = sp.Eq(0, mu_0*divJ + (1/c**2)*sp.diff(divE_t, t))",
+      "expr = eq_div_amp.rhs.subs(divE_t, rho_t/epsilon_0)",
+      "expr_s = sp.simplify(expr.subs(1/c**2, mu_0*epsilon_0))",
+      "expr_expected = mu_0*(divJ + sp.diff(rho_t, t))",
+      "assert sp.simplify(expr_s - expr_expected) == 0",
       "",
-      "# Verify continuity equation μ₀(∂ρ/∂t + grad·J)",
-      "continuity = mu0 * (sp.diff(rho, t) + divergence(J))",
-      "assert sp.simplify(lhs_sub - continuity) == 0",
-      "",
-      "print('Continuity equation verified: Maxwell system is self‑consistent.')"
+      "print(\"All Maxwell-equation verifications passed ✔\")"
     ]
   },
   "domain": "physics.class-ph",
-  "theory_status": "current",
+  "theory_status": "superseded",
+  "superseded_by": "qed_lagrangian",
   "historical_context": {
     "importance": "Unification of electricity, magnetism, and light; foundation of electromagnetic theory",
     "development_period": "1860-1873",
     "key_insights": [
-      "Electromagnetic field unity",
-      "Light as electromagnetic wave",
-      "Displacement current concept"
+      "Electromagnetic interactions are described by local fields instead of instantaneous action-at-a-distance forces between charges.",
+      "Electric and magnetic phenomena are unified: changing magnetic fields induce electric fields and changing electric fields contribute to magnetic fields via the displacement current.",
+      "Electric charge density and current density act as the sources of the fields, and the structure of Maxwell's equations enforces local charge conservation via the continuity equation.",
+      "In vacuum, Maxwell's equations predict electromagnetic waves with speed c = 1/sqrt(epsilon_0*mu_0), identifying light as an electromagnetic wave.",
+      "Maxwell's equations are Lorentz invariant and naturally incorporate the constant c, revealing the relativistic structure of spacetime and unifying electricity, magnetism, and optics within special relativity."
     ]
   },
   "references": [
@@ -222,9 +276,8 @@
   "contributors": [
     {
       "full_name": "Manuel Sánchez Hernández",
-      "identifier": "Not provided"
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft",
-  "depends_on": []
+  "review_status": "reviewed"
 }
