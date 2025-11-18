@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Maxwell equations entry: reviewed.
 - Removed magnetic_field.json and electric_field.json as they are redundant.
+- Upgraded SymPy from 1.12.0 to 1.13.1 across all infrastructure (Dockerfile, CI, documentation, entries, and notebooks)
+- Fixed reynolds_number.json programmatic verification for SymPy 1.13.1 compatibility (stricter type comparison between sympy.Float and Python int)
 
 ### Fixed
 

@@ -177,7 +177,7 @@ docker-compose build
 ## Environment Details
 
 - **Python**: 3.11.12
-- **SymPy**: 1.12.0 (exact version for consistency)
+- **SymPy**: 1.13.1 (exact version for consistency)
 - **Node.js**: 14 with ajv-cli for JSON Schema validation
 - **Docker**: Ensures CI/local parity
 

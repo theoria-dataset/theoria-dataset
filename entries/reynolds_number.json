@@ -92,7 +92,7 @@
   ],
   "programmatic_verification": {
     "language": "python 3.11.12",
-    "library": "sympy 1.12.0",
+    "library": "sympy 1.13.1",
     "code": [
       "import sympy as sp",
       "# Define symbols",
@@ -122,7 +122,7 @@
       "assert abs(Re_air - 6667) < 1  # Also high Re",
       "# Verify that Re is dimensionless",
       "Re_numeric = Re.subs([(rho, rho_water), (v, v_test), (L, L_test), (mu, mu_water)])",
-      "assert Re_numeric == 100000"
+      "assert float(Re_numeric) == 100000"
     ]
   },
   "domain": "physics.flu-dyn",

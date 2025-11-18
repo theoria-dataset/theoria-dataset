@@ -20,7 +20,7 @@ RUN npm install -g ajv-cli && \
 WORKDIR /app
 
 # Install Python dependencies
-RUN pip install sympy==1.12.0 pytest
+RUN pip install sympy==1.13.1 pytest
 
 # Copy project files
 COPY . .
