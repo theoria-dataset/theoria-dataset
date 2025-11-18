@@ -21,7 +21,7 @@ TheorIA (Theoretical Physics Intelligent Anthology) is a curated dataset of theo
 2. **empirical**: Experimentally established facts and measured constants
 3. **approximation**: Validity restrictions and simplifying modeling choices
 
-**Manifest**: `manifest.json` tracks dataset version and metadata.
+**Manifest**: `manifest.json` tracks dataset version and metadata. Version is automatically synced from CHANGELOG.md when generating docs.
 
 ### Requirements System (Source of Truth)
 
@@ -68,7 +68,7 @@ make pre-push
 # Rebuild requirements from schema
 docker-compose run --rm theoria-tests python scripts/build_requirements.py
 
-# Generate entry index page for docs
+# Generate entry index page for docs (auto-syncs version from CHANGELOG.md)
 docker-compose run --rm theoria-tests python scripts/generate_index.py
 
 # Generate Jupyter notebooks from entries

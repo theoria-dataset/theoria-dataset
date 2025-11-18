@@ -117,56 +117,108 @@ def generate_domain_section(domain, group):
   '''
 
 
+def get_version_from_changelog(changelog_path):
+    """
+    Extract the latest version from CHANGELOG.md
+
+    Parses CHANGELOG.md following the Keep a Changelog format
+    Returns the first version found in format: ## [X.Y.Z]
+    """
+    try:
+        with open(changelog_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Match version in format: ## [X.Y.Z] - Description - Date
+        pattern = r'^##\s+\[(\d+\.\d+\.\d+)\]'
+        matches = re.findall(pattern, content, re.MULTILINE)
+
+        if matches:
+            return matches[0]  # Return the first (most recent) version
+        else:
+            raise ValueError("No version found in CHANGELOG.md")
+
+    except FileNotFoundError:
+        raise ValueError(f"CHANGELOG.md not found at {changelog_path}")
+    except Exception as e:
+        raise ValueError(f"Error reading CHANGELOG.md: {e}")
+
+
+def sync_manifest_version(project_root, version):
+    """Update manifest.json with the version from CHANGELOG"""
+    manifest_path = project_root / 'manifest.json'
+
+    try:
+        with open(manifest_path, 'r', encoding='utf-8') as f:
+            manifest = json.load(f)
+
+        old_version = manifest.get('dataset_version', 'Unknown')
+
+        if old_version != version:
+            manifest['dataset_version'] = version
+            with open(manifest_path, 'w', encoding='utf-8') as f:
+                json.dump(manifest, f, indent=2, ensure_ascii=False)
+                f.write('\n')  # Add trailing newline
+            print(f"Updated manifest.json version: {old_version} → {version}")
+        else:
+            print(f"Manifest version already up to date: {version}")
+
+    except Exception as error:
+        print(f"Warning: Could not update manifest.json: {error}")
+
+
 def generate_index_page():
     """Main function to generate the index page"""
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
     entries_dir = project_root / 'entries'
     docs_dir = project_root / 'docs'
-    
+
+    # Get version from CHANGELOG.md (single source of truth)
+    try:
+        changelog_path = project_root / 'CHANGELOG.md'
+        version = get_version_from_changelog(changelog_path)
+        print(f"Using version from CHANGELOG.md: {version}")
+
+        # Sync manifest.json with CHANGELOG version
+        sync_manifest_version(project_root, version)
+    except ValueError as error:
+        print(f"Warning: Could not parse version from CHANGELOG.md: {error}")
+        version = 'Unknown'
+
     # Read all entry files
     entry_files = [f for f in entries_dir.glob('*.json')]
-    
+
     # Group entries by domain
     domain_groups = {}
-    
+
     for entry_file in entry_files:
         try:
             with open(entry_file, 'r', encoding='utf-8') as f:
                 entry_data = json.load(f)
-            
+
             domain = entry_data.get('domain', 'physics')
             display_name = DOMAIN_CATEGORIES.get(domain, domain)
-            
+
             if domain not in domain_groups:
                 domain_groups[domain] = {
                     'displayName': display_name,
                     'entries': []
                 }
-            
+
             domain_groups[domain]['entries'].append({
                 'entry': entry_data,
                 'filename': entry_file.name
             })
         except Exception as error:
             print(f"Error processing {entry_file.name}: {error}")
-    
+
     # Generate HTML sections
     navigation = generate_navigation(domain_groups)
-    
+
     domain_sections = '\n\n    '.join(
         generate_domain_section(domain, group)
         for domain, group in sorted(domain_groups.items(), key=lambda x: x[1]['displayName'])
     )
-    
-    # Read manifest for version info
-    version = 'Unknown'
-    try:
-        with open(project_root / 'manifest.json', 'r', encoding='utf-8') as f:
-            manifest = json.load(f)
-            version = manifest.get('dataset_version', 'Unknown')
-    except Exception as error:
-        print(f"Could not read manifest version: {error}")
     
     # Generate complete HTML
     total_entries = sum(len(group['entries']) for group in domain_groups.values())
