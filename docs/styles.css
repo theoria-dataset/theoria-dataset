@@ -1486,3 +1486,67 @@ html {
     box-shadow: none;
   }
 }
+
+/* Assumptions page specific styles */
+.assumption-math-section {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.assumption-math-section h4 {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.assumption-math {
+  margin: 0.25rem 0;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--code-bg);
+  border-radius: 3px;
+  font-family: 'Latin Modern Mono', monospace;
+}
+
+.assumption-symbols {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.assumption-symbols h4 {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.assumption-symbol-def {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.assumption-usage {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.assumption-usage a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.assumption-usage a:hover {
+  text-decoration: underline;
+}
+
+/* Assumption type badge colors */
+.status-principle {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-empirical {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-approximation {
+  background-color: #6f42c1;
+  color: white;
+}
