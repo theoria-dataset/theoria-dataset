@@ -70,31 +70,31 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "gravitational_force",
+      "assumptions": ["gravitational_force"],
       "description": "Start with Newton's law of gravitation as the central force. Here `vec(F)` is the force vector, `vec(r)` is the position vector from Sun to planet, `r = |vec(r)|` is the distance, and `hat(r) = vec(r)/r` is the unit vector in the radial direction.",
       "equation": "vec(F) = -G*M*m/r^2 * hat(r)"
     },
     {
       "step": 2,
-      "assumption": "nonrelativistic_regime",
+      "assumptions": ["nonrelativistic_regime"],
       "description": "Calculate torque in classical mechanics framework: since `vec(F)` is parallel to `vec(r)` (both along radial direction), their cross product `vec(tau) = vec(r) times vec(F)` is zero.",
       "equation": "vec(tau) = vec(r) times vec(F) = vec(r) times (-G*M*m/r^2 * hat(r)) = 0"
     },
     {
       "step": 3,
-      "assumption": "angular_momentum",
+      "assumptions": ["angular_momentum"],
       "description": "Apply the fundamental relation `dot(vec(L)) = vec(tau)` from rotational dynamics and substitute `vec(tau) = 0` from step 2: since torque is zero, the time derivative of angular momentum is zero.",
       "equation": "dot(vec(L)) = vec(tau) = 0"
     },
     {
       "step": 4,
-      "assumption": "system_isolation",
+      "assumptions": ["system_isolation"],
       "description": "Since `dot(vec(L)) = 0` and the system is isolated from external perturbations, integrating with respect to time gives `vec(L) = text{constant}` - this proves conservation of angular momentum for central forces.",
       "equation": "vec(L) = vec(r) times vec(p) = text{constant}"
     },
     {
       "step": 5,
-      "assumption": "point_mass_approximation",
+      "assumptions": ["point_mass_approximation"],
       "description": "Use the definition of angular momentum magnitude for a point mass: `L = m*r^2*dot(theta)` where `dot(theta)` is the angular velocity.",
       "equation": "L = m*r^2*dot(theta)"
     },

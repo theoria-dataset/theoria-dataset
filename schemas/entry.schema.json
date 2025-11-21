@@ -122,10 +122,13 @@
             "description": "Textual description for this derivation step. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
           },
           "equation": { "type": "string" },
-          "assumption": {
-            "type": "string",
-            "pattern": "^[a-z0-9_]+$",
-            "description": "Optional reference to either: (1) a global assumption ID from globals/assumptions.json, or (2) a dependency entry ID that is specifically applied or invoked in this particular derivation step. Use this to link individual steps to the assumptions or foundational results they rely on, making the logical structure of the derivation more explicit."
+          "assumptions": {
+            "type": "array",
+            "description": "Optional references to global assumption IDs from globals/assumptions.json or dependency entry IDs that are specifically applied or invoked in this particular derivation step. Use this to link individual steps to the assumptions or foundational results they rely on, making the logical structure of the derivation more explicit.",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$"
+            }
           }
         }
       }

@@ -28,6 +28,8 @@ TYPE_CATEGORIES = {
 
 def format_math_expression(expr):
     """Format mathematical expression for display with backticks for MathJax"""
+    # Replace hbar with Unicode ℏ for correct rendering
+    expr = expr.replace('hbar', 'ℏ')
     return f'`{expr}`'
 
 
@@ -35,7 +37,7 @@ def generate_assumption_card(assumption):
     """Generate assumption card HTML reusing entry card structure"""
     assumption_id = assumption.get('id', '')
     title = assumption.get('title', '')
-    text = assumption.get('text', '')
+    text = assumption.get('text', '').replace('hbar', 'ℏ')  # Replace hbar with Unicode ℏ
     assumption_type = assumption.get('type', 'principle')
     math_expressions = assumption.get('mathematical_expressions', [])
     symbol_definitions = assumption.get('symbol_definitions', [])
@@ -62,7 +64,7 @@ def generate_assumption_card(assumption):
     symbols_section = ''
     if symbol_definitions:
         symbol_items = '\n            '.join(
-            f'<div class="assumption-symbol-def"><strong>{format_math_expression(sym.get("symbol", ""))}</strong>: {sym.get("definition", "")}</div>'
+            f'<div class="assumption-symbol-def"><strong>{format_math_expression(sym.get("symbol", ""))}</strong>: {sym.get("definition", "").replace("hbar", "ℏ")}</div>'
             for sym in symbol_definitions
         )
         symbols_section = f'''
@@ -231,12 +233,7 @@ def generate_assumptions_page():
       href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css"
     />
     <!-- MathJax for AsciiMath -->
-    <script>
-      window.MathJax = {{
-        loader: {{ load: ["input/asciimath", "output/chtml"] }},
-        asciimath: {{ delimiters: [["`", "`"]] }},
-      }};
-    </script>
+    <script src="mathjax-config.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"
       async

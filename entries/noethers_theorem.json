@@ -59,13 +59,13 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "least_action_principle",
+      "assumptions": ["least_action_principle"],
       "description": "Starting from the principle of least action, assume the action is invariant under an infinitesimal continuous symmetry with variations `delta q_i` and `delta t`.",
       "equation": "delta S = delta( int L(q_i, dot q_i, t) dt ) = 0"
     },
     {
       "step": 2,
-      "assumption": "stationary_action_principle",
+      "assumptions": ["stationary_action_principle"],
       "description": "Using the stationary action principle, specify the infinitesimal transformation with parameter `epsilon` and generators `X_(q_i)` and `X_t`.",
       "equation": "delta q_i = epsilon * X_(q_i); delta t = epsilon * X_t"
     },

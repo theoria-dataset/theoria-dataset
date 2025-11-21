@@ -9,12 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css"
     />
     <!-- MathJax for AsciiMath -->
-    <script>
-      window.MathJax = {
-        loader: { load: ["input/asciimath", "output/chtml"] },
-        asciimath: { delimiters: [["`", "`"]] },
-      };
-    </script>
+    <script src="mathjax-config.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"
       async
@@ -27,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 24 Assumptions • Version 0.6.2</p>
+      <p class="subtitle">Browse All 25 Assumptions • Version 0.6.2</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -56,7 +51,7 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (8)</a>
+                <a href="#principle" class="nav-link">Principles (9)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
         <a href="#approximation" class="nav-link">Approximations (9)</a>
       </div>
@@ -181,6 +176,31 @@
       <p class="entry-description">Observations are made from an inertial (non-accelerating) reference frame</p>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Planck-de Broglie Relations
+      </h3>
+      <p class="entry-description">Energy and momentum of matter waves are related to frequency and wavevector by `E = ℏ*omega` and `p = ℏ*k`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`E = ℏ*omega`</div>
+            <div class="assumption-math">`p = ℏ*k`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`E`</strong>: Energy of the quantum state</div>
+            <div class="assumption-symbol-def"><strong>`p`</strong>: Magnitude of particle momentum</div>
+            <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant</div>
+            <div class="assumption-symbol-def"><strong>`omega`</strong>: Angular frequency of the matter wave</div>
+            <div class="assumption-symbol-def"><strong>`k`</strong>: Magnitude of wavevector of the matter wave</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -456,7 +476,7 @@
       <h3 class="entry-title">
         Nonrelativistic Regime
       </h3>
-      <p class="entry-description">Particle velocities satisfy v << c so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by E ≃ p^2/(2*m).</p>
+      <p class="entry-description">Particle velocities satisfy `v < < c` so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by `E ≃ p^2/(2*m)`.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
           <div class="assumption-math">`v < < c`</div>
@@ -471,7 +491,7 @@
             <div class="assumption-symbol-def"><strong>`m`</strong>: Particle mass</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=keplers_laws.json">Keplers Laws</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=keplers_laws.json">Keplers Laws</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>

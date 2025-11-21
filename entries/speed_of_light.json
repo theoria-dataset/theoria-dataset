@@ -39,7 +39,7 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "maxwell_equations",
+      "assumptions": ["maxwell_equations"],
       "description": "Start from Maxwell's equations in vacuum (no free charges or currents), in concrete with the Faraday's law and the Ampère–Maxwell law with `rho = 0` and `J = 0`.",
       "equation": "grad xx bbE = -(partial bbB)/(partial t),   grad xx bbB = mu_0*epsilon_0*(partial bbE)/(partial t)"
     },

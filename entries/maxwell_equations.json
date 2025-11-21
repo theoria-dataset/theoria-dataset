@@ -66,7 +66,7 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "coulomb_law",
+      "assumptions": ["coulomb_law"],
       "description": "Start from Coulomb's empirical point-charge law, with `bbE` the electric field vector and `bbhat(r)` the radial unit vector.",
       "equation": "bbE(r) = q/(4*pi*epsilon_0*r^2)*bbhat(r)"
     },
@@ -87,7 +87,7 @@
     },
     {
       "step": 5,
-      "assumption": "classical_electromagnetism_framework",
+      "assumptions": ["classical_electromagnetism_framework"],
       "description": "Apply the divergence theorem to convert the surface integral into a volume integral.",
       "equation": "int_V grad * bbE dV = 1/epsilon_0 int_V rho dV"
     },
@@ -98,13 +98,13 @@
     },
     {
       "step": 7,
-      "assumption": "no_magnetic_monopoles",
+      "assumptions": ["no_magnetic_monopoles"],
       "description": "Invoke the empirical absence of magnetic monopoles.",
       "equation": "oint_S bbB * dA = 0"
     },
     {
       "step": 8,
-      "assumption": "classical_electromagnetism_framework",
+      "assumptions": ["classical_electromagnetism_framework"],
       "description": "Use the divergence theorem to show zero net flux of `bbB` implies `grad·bbB = 0.`",
       "equation": "int_V grad * bbB dV = 0"
     },
@@ -115,7 +115,7 @@
     },
     {
       "step": 10,
-      "assumption": "faraday_induction",
+      "assumptions": ["faraday_induction"],
       "description": "Begin with Faraday's empirical law: the induced emf equals the negative rate of change of magnetic flux.",
       "equation": "text{emf} = -(d Phi_B)/(dt)"
     },
@@ -126,7 +126,7 @@
     },
     {
       "step": 12,
-      "assumption": "classical_electromagnetism_framework",
+      "assumptions": ["classical_electromagnetism_framework"],
       "description": "Apply Stokes' theorem to convert the loop integral to a surface integral of curl.",
       "equation": "int_S grad xx bbE * dA = -d/dt int_S bbB * dA"
     },
@@ -137,7 +137,7 @@
     },
     {
       "step": 14,
-      "assumption": "ampere_biot_savart",
+      "assumptions": ["ampere_biot_savart"],
       "description": "State Ampère's empirical law for steady currents: the line integral of magnetic field around a loop equals `mu_0` times the enclosed current.",
       "equation": "oint_C bbB * dl = mu_0*I_(enc)"
     },
@@ -148,13 +148,13 @@
     },
     {
       "step": 16,
-      "assumption": "vacuum_linear_isotropic",
+      "assumptions": ["vacuum_linear_isotropic"],
       "description": "Include Maxwell's displacement-current term for time-varying fields.",
       "equation": "oint_C bbB * dl = mu_0*int_S bbJ * dA + mu_0*epsilon_0*d/dt int_S bbE * dA"
     },
     {
       "step": 17,
-      "assumption": "classical_electromagnetism_framework",
+      "assumptions": ["classical_electromagnetism_framework"],
       "description": "Use Stokes' theorem on the amended law to get the surface integral of curl.",
       "equation": "int_S grad xx bbB * dA = mu_0*int_S bbJ * dA + mu_0*epsilon_0*d/dt int_S bbE * dA"
     },

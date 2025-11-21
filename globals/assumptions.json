@@ -3,12 +3,9 @@
     {
       "id": "nonrelativistic_regime",
       "title": "Nonrelativistic Regime",
-      "text": "Particle velocities satisfy v << c so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by E ≃ p^2/(2*m).",
+      "text": "Particle velocities satisfy `v < < c` so that relativistic corrections to the kinetic energy and dynamics can be neglected. In this limit the kinetic energy is well approximated by `E ≃ p^2/(2*m)`.",
       "type": "approximation",
-      "mathematical_expressions": [
-        "v < < c",
-        "E ≃ p^2/(2*m)"
-      ],
+      "mathematical_expressions": ["v < < c", "E ≃ p^2/(2*m)"],
       "symbol_definitions": [
         {
           "symbol": "v",
@@ -31,18 +28,14 @@
           "definition": "Particle mass"
         }
       ],
-      "used_in": [
-        "keplers_laws"
-      ]
+      "used_in": ["keplers_laws", "schrodinger_equation"]
     },
     {
       "id": "classical_macroscopic_limit",
       "title": "Classical Macroscopic Limit",
       "text": "For macroscopic bodies with de Broglie wavelength λ_(dB) << L, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.",
       "type": "approximation",
-      "mathematical_expressions": [
-        "lambda_(dB) < < L"
-      ],
+      "mathematical_expressions": ["lambda_(dB) < < L"],
       "symbol_definitions": [
         {
           "symbol": "lambda_(dB)",
@@ -53,9 +46,7 @@
           "definition": "Characteristic length scale of the system or apparatus"
         }
       ],
-      "used_in": [
-        "special_relativity_transformations"
-      ]
+      "used_in": ["special_relativity_transformations"]
     },
     {
       "id": "point_mass_approximation",
@@ -419,6 +410,94 @@
         }
       ],
       "used_in": ["blackbody_radiation"]
+    },
+    {
+      "id": "planck_de_broglie_relations",
+      "title": "Planck-de Broglie Relations",
+      "text": "Energy and momentum of matter waves are related to frequency and wavevector by `E = hbar*omega` and `p = hbar*k`.",
+      "type": "principle",
+      "mathematical_expressions": ["E = hbar*omega", "p = hbar*k"],
+      "symbol_definitions": [
+        {
+          "symbol": "E",
+          "definition": "Energy of the quantum state"
+        },
+        {
+          "symbol": "p",
+          "definition": "Magnitude of particle momentum"
+        },
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant"
+        },
+        {
+          "symbol": "omega",
+          "definition": "Angular frequency of the matter wave"
+        },
+        {
+          "symbol": "k",
+          "definition": "Magnitude of wavevector of the matter wave"
+        }
+      ],
+      "used_in": ["schrodinger_equation"]
+    },
+    {
+      "id": "correspondence_principle",
+      "title": "Correspondence Principle",
+      "text": "Quantum mechanics must reproduce classical mechanics in the appropriate limit (large quantum numbers, macroscopic scales, or formally `hbar -> 0`). In particular, the quantum Hamiltonian operator is chosen so that its spectrum and dynamics reduce to those of the classical Hamiltonian `H_(\"classical\")(p, r, t)` when quantum effects become negligible.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "lim_{hbar -> 0} (\"quantum predictions\") = (\"classical predictions\")",
+        "H_(\"classical\")(p, r, t) = p^2/(2*m) + V(r, t)"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant"
+        },
+        {
+          "symbol": "H_(\"classical\")",
+          "definition": "Classical Hamiltonian function built from position, momentum and potential energy"
+        },
+        {
+          "symbol": "p",
+          "definition": "Classical particle momentum"
+        },
+        {
+          "symbol": "r",
+          "definition": "Classical position"
+        },
+        {
+          "symbol": "V(r, t)",
+          "definition": "Classical scalar potential energy as a function of position and time"
+        }
+      ],
+      "used_in": ["schrodinger_equation"]
+    },
+    {
+      "id": "quantum_superposition_linear_dynamics",
+      "title": "Quantum Superposition and Linear Dynamics",
+      "text": "Quantum states form a complex vector space and physically allowed time evolutions act linearly on this space. If `psi_1` and `psi_2` are solutions of the evolution equation, any complex linear combination `alpha*psi_1 + beta*psi_2` is also a solution.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "psi(t) in H",
+        "psi(t) = alpha*psi_1(t) + beta*psi_2(t)  =>  psi(t) \" solves the same evolution equation\""
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "H",
+          "definition": "Complex Hilbert space of quantum states"
+        },
+        {
+          "symbol": "psi",
+          "definition": "Quantum state (e.g. wavefunction in a chosen representation)"
+        },
+        {
+          "symbol": "alpha, beta",
+          "definition": "Complex coefficients describing superpositions"
+        }
+      ],
+      "used_in": ["schrodinger_equation"]
     }
   ]
 }

@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 99 Physics Entries (10 Reviewed, 89 AI-Generated) • Version 0.6.2</p>
+      <p class="subtitle">Browse All 99 Physics Entries (10 Reviewed, 89 AI-Generated) • Version 0.7.0</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -1083,23 +1083,23 @@
     </a>
   
       
-    <a href="entries.html?entry=schrodinger_equation.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
-        <h3 class="entry-title">
-          Schrödinger Equation
-        </h3>
-        <p class="entry-description">The Schrödinger equation explains how the wavefunction of a particle evolves in time and how energy levels arise from the system’s Hamiltonian.  Its solutions describe atomic and molecular structure, chemical bonding, and the behavior of matter at small scales.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
-      </div>
-    </a>
-  
-      
     <a href="entries.html?entry=spin_angular_momentum.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Spin Angular Momentum
         </h3>
         <p class="entry-description">Spin angular momentum is an intrinsic quantum mechanical property of particles that has no classical analog.  Unlike orbital angular momentum arising from spatial motion, spin is an inherent characteristic like mass or charge.</p>
+        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
+      </div>
+    </a>
+  
+      
+    <a href="entries.html?entry=schrodinger_equation.json" class="entry-card-link ai-entry">
+      <div class="entry-card entry-card-draft">
+        <h3 class="entry-title">
+          Time-Dependent Schrödinger Equation
+        </h3>
+        <p class="entry-description">The Schrödinger equation gives the time evolution of the quantum state of a nonrelativistic particle.  In its time-dependent form it is a linear first-order equation in time relating the complex wavefunction `psi(bbr,t)` to the Hamiltonian operator built from kinetic and potential energy.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
@@ -1381,7 +1381,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.6.2`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.0`;
     </script>
   </body>
 </html>

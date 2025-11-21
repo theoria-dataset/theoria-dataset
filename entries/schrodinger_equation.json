@@ -1,75 +1,97 @@
 {
   "result_id": "schrodinger_equation",
-  "result_name": "Schrödinger Equation",
+  "result_name": "Time-Dependent Schrödinger Equation",
   "result_equations": [
     {
       "id": "eq1",
-      "equation": "i hbar partial_t psi = -(hbar^2/(2 m)) nabla^2 psi + V psi"
+      "equation": "i*hbar*(partial psi(bbr,t))/(partial t) = (-(hbar^2)/(2*m)*nabla^2 + V(bbr,t))*psi(bbr,t)"
     }
   ],
-  "explanation": "The Schrödinger equation explains how the wavefunction of a particle evolves in time and how energy levels arise from the system’s Hamiltonian. Its solutions describe atomic and molecular structure, chemical bonding, and the behavior of matter at small scales. By replacing deterministic classical motion with probabilistic wave dynamics, it provides the framework that underpins much of modern physics, chemistry, and technology.",
+  "explanation": "The Schrödinger equation gives the time evolution of the quantum state of a nonrelativistic particle. In its time-dependent form it is a linear first-order equation in time relating the complex wavefunction `psi(bbr,t)` to the Hamiltonian operator built from kinetic and potential energy. For potentials `V(bbr,t)` it determines how probability amplitudes spread, interfere and tunnel, while total probability is conserved. For time-independent potentials `V(bbr)` one can separate variables to obtain an eigenvalue problem for the spatial part `phi(bbr)`, whose discrete eigenvalues `E` describe stationary states and explain phenomena such as the quantized spectra of atoms.",
   "definitions": [
     {
-      "symbol": "psi",
-      "definition": "Wavefunction psi(x,t), a complex function of space and time, |psi(x,t)|^2 represents the probability density, and it must be square‑integrable with proper boundary conditions."
+      "symbol": "psi(bbr,t)",
+      "definition": "Complex-valued wavefunction of a single nonrelativistic particle in position representation; `|psi(bbr,t)|^2` is interpreted as the probability density to find the particle near position bbr at time t."
     },
     {
-      "symbol": "hbar",
-      "definition": "Reduced Planck constant (`hbar = h/(2 pi)`)."
+      "symbol": "bbr",
+      "definition": "Position vector in three-dimensional space."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time variable."
     },
     {
       "symbol": "m",
-      "definition": "Particle mass."
+      "definition": "Mass of the particle."
     },
     {
-      "symbol": "partial_t",
-      "definition": "Partial derivative with respect to time t."
+      "symbol": "V(bbr,t)",
+      "definition": "Scalar potential energy as a function of position and time, acting as a multiplicative operator on the wavefunction in the position representation."
     },
     {
-      "symbol": "nabla^2",
-      "definition": "Laplacian in 3D: `partial_(x x) + partial_(y y) + partial_(z z)`."
+      "symbol": "E",
+      "definition": "Energy eigenvalue associated with a stationary state."
     },
     {
-      "symbol": "V",
-      "definition": "Potential energy `V(x,t)`, acting as a multiplication operator."
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant, hbar = h/(2*pi)."
+    },
+    {
+      "symbol": "i",
+      "definition": "Imaginary unit, satisfying i^2 = -1."
     }
   ],
   "assumptions": [
-    "Single, spin‑0 particle in the non‑relativistic regime (`v < < c`).",
-    "psi is sufficiently smooth, square-integrable, and obeys physical boundary conditions (e.g. vanishes at infinity for bound states or satisfies periodic conditions in a finite domain).",
-    "`V(x,t)` is real‑valued and sufficiently regular so that the Hamiltonian is Hermitian.",
-    "Canonical substitutions: `E -> i hbar partial_t`, `p -> -i hbar nabla`."
+    "nonrelativistic_regime",
+    "planck_de_broglie_relations",
+    "correspondence_principle",
+    "quantum_superposition_linear_dynamics",
+    "hilbert_space_probability_structure"
   ],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
-      "description": "Begin with the classical Hamiltonian for a particle in a potential.",
-      "equation": "H_classical = p^2/(2 m) + V(x,t)"
+      "assumptions": [
+        "hilbert_space_probability_structure",
+        "planck_de_broglie_relations"
+      ],
+      "description": "Quantum states form a complex Hilbert space, so free-particle states with definite momentum and energy can be represented as eigenstates of spatial translations and time evolution. In the position representation these eigenstates have wavefunctions that are complex exponentials (plane waves). Combining this with the Planck - De Broglie relations, a free particle with definite wavevector `bbk` and angular frequency omega is assigned energy `E = hbar*omega` and momentum `bbp = hbar*bbk`.",
+      "equation": "psi(bbr,t) = exp(i*(bbk cdot bbr - omega*t)),   E = hbar*omega,   bbp = hbar*bbk"
     },
     {
       "step": 2,
-      "description": "Quantize energy and momentum via operator substitutions acting on psi.",
-      "equation": "E -> i*hbar*partial_t, p -> -i*hbar*nabla"
+      "assumptions": ["nonrelativistic_regime", "planck_de_broglie_relations"],
+      "description": "In the nonrelativistic regime the kinetic energy of a free particle is well approximated by `E = p^2/(2*m)`, where `p^2 = bbp cdot bbp` is the squared magnitude of the momentum. Combining this with the de Broglie relation `bbp = hbar*bbk`, gives a dispersion relation between omega and `bbk`.",
+      "equation": "E = p^2/(2*m) = (bbp cdot bbp)/(2*m) = (hbar^2*|bbk|^2)/(2*m),   omega = E/hbar = (hbar*|bbk|^2)/(2*m)"
     },
     {
       "step": 3,
-      "description": "Build the Hamiltonian operator from p^2 -> (-i*hbar*nabla)^2 = -hbar^2*nabla^2.",
-      "equation": "H = -(hbar^2/(2*m))*nabla^2 + V"
+      "description": "Compute the time derivative of the plane wave and identify the action of the energy operator. Differentiating with respect to time gives `(partial psi)/(partial t) = -i*omega*psi`. Multiplying by `i*hbar` yields `i*hbar*(partial psi)/(partial t) = hbar*omega*psi = E*psi` using the Planck relation `E = hbar*omega`.",
+      "equation": "(partial psi)/(partial t) = -i*omega*psi,   i*hbar*(partial psi)/(partial t) = E*psi"
     },
     {
       "step": 4,
-      "description": "Equate energy operator action to H acting on psi to obtain the time‑dependent Schrödinger equation.",
-      "equation": "i*hbar*partial_t psi = H*psi"
+      "description": "Compute the spatial Laplacian of the plane wave to connect with kinetic energy. Using `|bbk|^2 = bbk cdot bbk`, one finds `nabla^2 psi = -|bbk|^2*psi`. Acting with the operator `-(hbar^2)/(2*m)*nabla^2` on psi then gives the same factor E as in the energy relation from step 2.",
+      "equation": "nabla^2 psi = -|bbk|^2*psi,   -(hbar^2)/(2*m)*nabla^2 psi = (hbar^2*|bbk|^2)/(2*m)*psi = E*psi"
     },
     {
       "step": 5,
-      "description": "If V is time‑independent, separate variables psi(x,t) = phi(x)*T(t) to get the stationary eigenvalue problem.",
-      "equation": "H*phi = E*phi"
+      "assumptions": ["quantum_superposition_linear_dynamics"],
+      "description": "Equate the two expressions for `E*psi` obtained in steps 3 and 4. This produces a local differential equation for the free-particle plane wave. Superpositions of plane-wave solutions are again solutions and the dynamics is linear in psi. Therefore the same differential equation must hold for an arbitrary free-particle wavefunction `psi(bbr,t)`, which can be expressed as a superposition of plane waves.",
+      "equation": "i*hbar*(partial psi(bbr,t))/(partial t) = -(hbar^2)/(2*m)*nabla^2 psi(bbr,t)"
     },
     {
       "step": 6,
-      "description": "For a constant potential V_0, a plane wave psi ~ exp(i*(k·x - omega*t)) satisfies the equation with dispersion relation hbar*omega = (hbar^2*k^2)/(2*m) + V_0.",
-      "equation": "E = (hbar^2*k^2)/(2*m) + V_0"
+      "assumptions": ["correspondence_principle"],
+      "description": "To include interactions, apply the correspondence principle: require that the quantum Hamiltonian operator reduce to the classical Hamiltonian `H_(\"classical\")(p, r, t) = p^2/(2*m) + V(r,t)` in the classical limit. In the position representation this leads to the operator `hat H = -(hbar^2)/(2*m)*nabla^2 + V(bbr,t)`, where `V(bbr,t)` acts by multiplication on the wavefunction.",
+      "equation": "hat H = -(hbar^2)/(2*m)*nabla^2 + V(bbr,t)"
+    },
+    {
+      "step": 7,
+      "description": "Promote the energy eigenvalue relation `E*psi = i*hbar*(partial psi)/(partial t)` from step 3 to an operator equation by replacing `E` with the Hamiltonian operator `hat H` from step 6. This yields the time-dependent Schrödinger equation for a particle in an external scalar potential `V(bbr,t)`.",
+      "equation": "i*hbar*(partial psi(bbr,t))/(partial t) = hat H*psi(bbr,t) = (-(hbar^2)/(2*m)*nabla^2 + V(bbr,t))*psi(bbr,t)"
     }
   ],
   "programmatic_verification": {
@@ -77,68 +99,96 @@
     "library": "sympy 1.13.1",
     "code": [
       "import sympy as sp",
-      "# Symbols and functions",
-      "x, y, z, t = sp.symbols('x y z t', real=True)",
+      "",
+      "# Programmatic verification of the time-dependent Schrödinger equation",
+      "# for a single nonrelativistic particle in 1D.",
+      "#",
+      "# We check:",
+      "# 1. Plane-wave free solutions with the nonrelativistic dispersion relation",
+      "#    satisfy the free-particle Schrödinger equation.",
+      "# 2. The Hamiltonian operator with a scalar potential has the form",
+      "#    H = -(hbar**2/(2*m))*d**2/dx**2 + V(x,t).",
+      "# 3. For time-independent V(x) and a stationary ansatz",
+      "#    psi(x,t) = phi(x)*exp(-I*E*t/hbar),",
+      "#    the time-dependent equation reduces to the time-independent",
+      "#    Schrödinger eigenvalue problem.",
+      "",
+      "# Symbols",
+      "x, t = sp.symbols('x t', real=True)",
       "m, hbar = sp.symbols('m hbar', positive=True, real=True)",
-      "k_x, k_y, k_z, V0, omega = sp.symbols('k_x k_y k_z V0 omega', real=True)",
-      "psi = sp.Function('psi')(x, y, z, t)",
-      "V = sp.Function('V')(x, y, z, t)",
+      "k = sp.symbols('k', real=True)",
+      "E = sp.symbols('E', real=True)",
       "",
-      "# 3D Laplacian",
-      "lap = sp.diff(psi, x, 2) + sp.diff(psi, y, 2) + sp.diff(psi, z, 2)",
+      "# 1. Free particle: plane-wave ansatz and nonrelativistic dispersion",
+      "omega_disp = (hbar*k**2)/(2*m)",
+      "psi_plane = sp.exp(sp.I*(k*x - omega_disp*t))",
       "",
-      "# Momentum-squared operator identity: (-i*hbar)^2 * nabla^2 psi = -hbar^2 * nabla^2 psi",
-      "p2psi = (-sp.I*hbar)**2 * lap",
-      "assert sp.simplify(p2psi + hbar**2*lap) == 0",
+      "# Nonrelativistic dispersion: E = p**2/(2*m), p = hbar*k",
+      "E_disp = (hbar**2 * k**2) / (2*m)",
+      "assert sp.simplify(E_disp - hbar*omega_disp) == 0",
       "",
-      "# TDSE building blocks (symbolic forms)",
-      "Hpsi = -(hbar**2/(2*m))*lap + V*psi",
-      "Epsi = sp.I*hbar*sp.diff(psi, t)",
+      "# Time derivative: i*hbar * ∂_t psi and kinetic term",
+      "dpsi_dt = sp.diff(psi_plane, t)",
+      "lhs_time = sp.I * hbar * dpsi_dt",
       "",
-      "# Plane-wave check in constant potential V0",
-      "r = sp.Matrix([x, y, z])",
-      "k = sp.Matrix([k_x, k_y, k_z])",
-      "psi_pw = sp.exp(sp.I*(k.dot(r) - omega*t))",
-      "lap_pw = sp.diff(psi_pw, x, 2) + sp.diff(psi_pw, y, 2) + sp.diff(psi_pw, z, 2)",
-      "Epsi_pw = sp.I*hbar*sp.diff(psi_pw, t)",
-      "Hpsi_pw = -(hbar**2/(2*m))*lap_pw + V0*psi_pw",
-      "k2 = (k_x**2 + k_y**2 + k_z**2)",
+      "d2psi_dx2 = sp.diff(psi_plane, x, 2)",
+      "kinetic = -(hbar**2) / (2*m) * d2psi_dx2",
       "",
-      "# Dispersion pieces",
-      "assert sp.simplify(Epsi_pw/psi_pw - hbar*omega) == 0",
-      "assert sp.simplify(Hpsi_pw/psi_pw - (hbar**2*k2)/(2*m) - V0) == 0",
+      "# Free-particle TDSE: i*hbar ∂_t psi = -(hbar**2/(2*m)) ∂_x**2 psi",
+      "tdse_free = sp.simplify(lhs_time - kinetic)",
+      "assert sp.simplify(tdse_free) == 0",
       "",
-      "# TDSE satisfied when omega matches the dispersion relation",
-      "residual = sp.simplify((Epsi_pw - Hpsi_pw).subs(omega, (hbar*k2)/(2*m) + V0/hbar))",
-      "assert residual == 0",
+      "# 2. General operator form with scalar potential V(x,t)",
+      "psi_xt = sp.Function('psi')(x, t)",
+      "V_xt = sp.Function('V')(x, t)",
       "",
-      "print('All Schrödinger verifications passed')"
+      "Hpsi = -(hbar**2) / (2*m) * sp.diff(psi_xt, x, 2) + V_xt * psi_xt",
+      "TDSE = sp.I * hbar * sp.diff(psi_xt, t) - Hpsi",
+      "# TDSE = 0 encodes i*hbar ∂_t psi = (-(hbar**2/(2*m)) ∂_x**2 + V) psi.",
+      "",
+      "# 3. Time-independent potential and stationary-state ansatz",
+      "phi = sp.Function('phi')(x)",
+      "V_x = sp.Function('V')(x)",
+      "psi_sep = phi * sp.exp(-sp.I * E * t / hbar)",
+      "",
+      "dpsi_sep_t = sp.diff(psi_sep, t)",
+      "d2psi_sep_x2 = sp.diff(psi_sep, x, 2)",
+      "Hpsi_sep = -(hbar**2) / (2*m) * d2psi_sep_x2 + V_x * psi_sep",
+      "TDSE_sep = sp.simplify(sp.I * hbar * dpsi_sep_t - Hpsi_sep)",
+      "",
+      "# Factor out the common time-dependent phase to obtain the stationary equation",
+      "factor = sp.simplify(TDSE_sep / sp.exp(-sp.I * E * t / hbar))",
+      "expected_stationary = E * phi + (hbar**2) / (2*m) * sp.diff(phi, x, 2) - V_x * phi",
+      "assert sp.simplify(factor - expected_stationary) == 0",
+      "",
+      "print(\"Schrödinger equation programmatic checks passed\")"
     ]
   },
   "domain": "quant-ph",
-  "theory_status": "current",
-  "superseded_by": [
-    "pauli_equation",
-    "dirac_equation_free",
-    "qed_lagrangian"
-  ],
+  "theory_status": "approximation",
+  "superseded_by": null,
   "historical_context": {
-    "importance": "Foundational equation of non‑relativistic quantum mechanics; enables quantitative predictions for spectra, bonding, transport, and nanoscale phenomena",
-    "development_period": "1925–1926",
+    "importance": "Provided the first successful wave-mechanical formulation of quantum theory, reproducing atomic spectra and establishing the central dynamical equation of nonrelativistic quantum mechanics.",
+    "development_period": "1925-1926",
     "key_insights": [
-      "Linear wave dynamics with probabilistic interpretation",
-      "Operator correspondence links classical and quantum descriptions",
-      "Boundary conditions lead to quantization of energy levels"
+      "Quantum states of particles can be represented by complex wavefunctions whose phases and amplitudes encode interference phenomena.",
+      "Dynamics is generated by a Hamiltonian operator built from kinetic and potential energy, leading to unitary time evolution.",
+      "Stationary states arise as energy eigenfunctions of the Hamiltonian, explaining discrete energy spectra.",
+      "The equation is a nonrelativistic limit of more general relativistic quantum field theories."
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Schrödinger, E. (1926). Quantisierung als Eigenwertproblem. Annalen der Physik, 79(4), 361–376."
+      "citation": "Schrödinger, E. (1926). Quantisierung als Eigenwertproblem. Annalen der Physik, 385(13), 437-490."
     },
     {
       "id": "R2",
-      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+      "citation": "Griffiths, D. J., & Schroeter, D. F. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Sakurai, J. J., & Napolitano, J. (2017). Modern Quantum Mechanics (3rd ed.). Cambridge University Press."
     }
   ],
   "contributors": [
@@ -147,6 +197,5 @@
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft",
-  "depends_on": []
+  "review_status": "draft"
 }

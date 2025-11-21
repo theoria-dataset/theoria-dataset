@@ -88,52 +88,52 @@
   "derivation": [
     {
       "step": 1,
-      "assumption": "classical_macroscopic_limit",
-      "description": "Set up coordinate frames: S' moves with velocity v along the common x-axis and origins coincide at t = t' = 0. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime).",
+      "assumptions": ["classical_macroscopic_limit"],
+      "description": "Set up coordinate frames: `S'` moves with velocity `v` along the common x-axis and origins coincide at `t = t' = 0`. Postulate the most general linear transformation between coordinates (linearity follows from homogeneity of flat spacetime).",
       "equation": "x' = A*x + B*t; t' = D*x + E*t"
     },
     {
       "step": 2,
-      "assumption": "constant_relative_velocity",
-      "description": "Impose that the spatial origin of S' (x' = 0) moves as x = v\u00b7t in S.",
+      "assumptions": ["constant_relative_velocity"],
+      "description": "Impose that the spatial origin of S' (`x' = 0`) moves as `x = v*t` in S.",
       "equation": "0 = A*v*t + B*t"
     },
     {
       "step": 3,
-      "description": "Get the relationship between coefficients A and B.",
-      "equation": "B = -A*v",
-      "assumption": "inertial_reference_frame"
+      "assumptions": ["inertial_reference_frame"],
+      "description": "Get the relationship between coefficients `A` and `B`.",
+      "equation": "B = -A*v"
     },
     {
       "step": 4,
-      "assumption": "light_speed_constant",
-      "description": "Apply light-speed invariance: demand that any right-moving light pulse x=+c*t in S also satisfies x'=+c*t' in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3.",
+      "assumptions": ["light_speed_constant"],
+      "description": "Apply light-speed invariance: demand that any right-moving light pulse `x=+c*t` in S also satisfies `x'=+c*t'` in S' (consequence of constant light speed). Substitute into equations from step 1 using step 3.",
       "equation": "(c - v)*A = (D*c + E)*c"
     },
     {
       "step": 5,
-      "assumption": "light_speed_constant",
-      "description": "Apply light-speed invariance for left-moving pulse: repeat for x=-c*t in S and x'=-c*t' in S' to get a second constraint from the constancy of light speed.",
+      "assumptions": ["light_speed_constant"],
+      "description": "Apply light-speed invariance for left-moving pulse: repeat for `x=-c*t` in S and `x'=-c*t'` in S' to get a second constraint from the constancy of light speed.",
       "equation": "(-c - v)*A = (D*c - E)*c"
     },
     {
       "step": 6,
-      "description": "Subtracting equation in step 4 from the one in step 5 gives a relationship between A and E.",
+      "description": "Subtracting equation in step 4 from the one in step 5 gives a relationship between `A` and `E`.",
       "equation": "E = A"
     },
     {
       "step": 7,
-      "description": "Adding equations in step 4 and step 5 gives a relationship between A and D.",
+      "description": "Adding equations in step 4 and step 5 gives a relationship between `A` and `D`.",
       "equation": "D = -A*v/c^2"
     },
     {
       "step": 8,
-      "description": "Substitute E = A, B = -A*v, and D = -A*v/c^2 into the equations from step 1.",
+      "description": "Substitute `E = A`, `B = -A*v`, and `D = -A*v/c^2` into the equations from step 1.",
       "equation": "x' = A*(x - v*t); t' = A*(t - v/c^2*x)"
     },
     {
       "step": 9,
-      "description": "Apply spacetime interval invariance: demand x'^2 - c^2*t'^2 = x^2 - c^2*t^2 (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames).",
+      "description": "Apply spacetime interval invariance: demand `x'^2 - c^2*t'^2 = x^2 - c^2*t^2` (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames).",
       "equation": "x'^2 - c^2*t'^2 = A^2*(x-v*t)^2-c^2*A^2*(t-v/c^2*x)^2 = A^2*(x^2 - 2*v*t*x + v^2*t^2 - c^2*t^2 + 2*v*x*t - v^2/c^2*x^2) = A^2*(1 - v^2/c^2)*(x^2 - c^2*t^2)"
     },
     {
