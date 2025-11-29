@@ -527,7 +527,7 @@ function render(data) {
   eqDiv.innerHTML = (data.result_equations || [])
     .map((eq) => {
       const titleSpan = eq.equation_title
-        ? `<span class='equation-result-title'>${eq.equation_title}:</span> `
+        ? `<span class='equation-result-title'>${eq.equation_title}</span> `
         : '';
       return `<p>${titleSpan}${formatLongEquation(eq.equation)}</p>`;
     })
