@@ -5,6 +5,17 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1] - Schrödinger equation review and UI improvements - 2025-01-30
+
+### Changed
+
+- **Schrödinger equation entry**: Reviewed and promoted to reviewed status
+- **Equation card UI**: Main result equations now display in subtle cards with improved visual hierarchy
+  - Equation titles positioned in top left corner (without colon)
+  - Equations centered within cards for better readability
+  - Hover effects with subtle elevation for improved interactivity
+  - Consistent styling across light and dark modes
+
 ## [0.7.0] - Multiple assumptions per derivation step, hbar fixes - 2025-01-19
 
 ### Added

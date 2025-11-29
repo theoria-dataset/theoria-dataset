@@ -1035,17 +1035,44 @@ select option {
   line-height: 1.8;
 }
 
-/* Ensure proper spacing for equations in main results */
+/* Equation cards for main results */
 #equations-content p {
   line-height: 1.6;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
-/* Equation title in main result section */
+#equations-content p:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.latex-dark #equations-content p:hover {
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
+}
+
+/* Equation title in main result section - top left of card */
 .equation-result-title {
+  display: block;
   font-weight: 600;
   color: var(--primary);
-  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  margin-right: 0;
   font-size: 1.05rem;
+  text-align: left;
+}
+
+/* Center the equation itself within the card */
+#equations-content p .mjx-container,
+#equations-content p mjx-container {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 
 #equations-content p br {
@@ -1323,10 +1350,21 @@ select option {
   position: relative;
   overflow: hidden;
   min-height: 2rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+#assumptions li:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
 }
 
 .latex-dark #assumptions li {
   background: rgba(255, 255, 255, 0.06);
+}
+
+.latex-dark #assumptions li:hover {
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
 }
 
 /* Assumption color legend */
@@ -1419,6 +1457,23 @@ select option {
   background: rgba(139, 92, 246, 0.08);
 }
 
+/* Hover effects for colored assumptions */
+#assumptions li.dependency-type:hover {
+  background: rgba(6, 182, 212, 0.12);
+}
+
+#assumptions li.assumption-principle:hover {
+  background: rgba(34, 197, 94, 0.12);
+}
+
+#assumptions li.assumption-empirical:hover {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+#assumptions li.assumption-approximation:hover {
+  background: rgba(139, 92, 246, 0.12);
+}
+
 /* Dark mode adjustments */
 .latex-dark #assumptions li.dependency-type {
   background: rgba(6, 182, 212, 0.12);
@@ -1434,6 +1489,23 @@ select option {
 
 .latex-dark #assumptions li.assumption-approximation {
   background: rgba(139, 92, 246, 0.12);
+}
+
+/* Dark mode hover effects */
+.latex-dark #assumptions li.dependency-type:hover {
+  background: rgba(6, 182, 212, 0.18);
+}
+
+.latex-dark #assumptions li.assumption-principle:hover {
+  background: rgba(34, 197, 94, 0.18);
+}
+
+.latex-dark #assumptions li.assumption-empirical:hover {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+.latex-dark #assumptions li.assumption-approximation:hover {
+  background: rgba(139, 92, 246, 0.18);
 }
 
 /* Assumption titles in prerequisites section */

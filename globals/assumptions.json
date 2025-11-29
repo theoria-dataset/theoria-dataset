@@ -234,7 +234,7 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule"]
+      "used_in": ["born_rule", "schrodinger_equation"]
     },
     {
       "id": "gleason_theorem_conditions",

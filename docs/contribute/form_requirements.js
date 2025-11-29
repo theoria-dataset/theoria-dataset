@@ -61,6 +61,10 @@ const FIELD_REQUIREMENTS = {
           "equation": {
             "type": "string",
             "description": "AsciiMath representation of the equation"
+          },
+          "equation_title": {
+            "type": "string",
+            "description": "Optional human-readable title for this equation (e.g., 'Newton's Second Law', 'Lorentz Transformation', 'Planck's Law'). Use this to identify well-known, named equations or laws. For reviewed entries, all result equations MUST have an equation_title. When an equation has an equation_title, at least one derivation step must reference it with equation_proven."
           }
         }
       }
@@ -133,6 +137,11 @@ const FIELD_REQUIREMENTS = {
           },
           "equation": {
             "type": "string"
+          },
+          "equation_proven": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Optional identifier marking this step as proving a specific equation. The value should reference an equation ID from the result_equations array (e.g., 'eq1', 'eq2'). This indicates that this derivation step proves the corresponding equation from the result_equations, and will be displayed with special visual emphasis in the rendered HTML. For reviewed entries, each equation that has an equation_title MUST have at least one derivation step with equation_proven pointing to that equation's ID."
           },
           "assumptions": {
             "type": "array",
