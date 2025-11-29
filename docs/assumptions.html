@@ -22,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 25 Assumptions • Version 0.6.2</p>
+      <p class="subtitle">Browse All 27 Assumptions • Version 0.7.1</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,7 +51,7 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (9)</a>
+                <a href="#principle" class="nav-link">Principles (11)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
         <a href="#approximation" class="nav-link">Approximations (9)</a>
       </div>
@@ -96,6 +96,31 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=vis_viva.json">Vis Viva</a>, <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Correspondence Principle
+      </h3>
+      <p class="entry-description">Quantum mechanics must reproduce classical mechanics in the appropriate limit (large quantum numbers, macroscopic scales, or formally `ℏ -> 0`). In particular, the quantum Hamiltonian operator is chosen so that its spectrum and dynamics reduce to those of the classical Hamiltonian `H_("classical")(p, r, t)` when quantum effects become negligible.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`lim_{ℏ -> 0} ("quantum predictions") = ("classical predictions")`</div>
+            <div class="assumption-math">`H_("classical")(p, r, t) = p^2/(2*m) + V(r, t)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant</div>
+            <div class="assumption-symbol-def"><strong>`H_("classical")`</strong>: Classical Hamiltonian function built from position, momentum and potential energy</div>
+            <div class="assumption-symbol-def"><strong>`p`</strong>: Classical particle momentum</div>
+            <div class="assumption-symbol-def"><strong>`r`</strong>: Classical position</div>
+            <div class="assumption-symbol-def"><strong>`V(r, t)`</strong>: Classical scalar potential energy as a function of position and time</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -163,7 +188,7 @@
             <div class="assumption-symbol-def"><strong>`mu`</strong>: Probability measure mapping projectors to real numbers in `[0,1]`</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -198,6 +223,29 @@
             <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant</div>
             <div class="assumption-symbol-def"><strong>`omega`</strong>: Angular frequency of the matter wave</div>
             <div class="assumption-symbol-def"><strong>`k`</strong>: Magnitude of wavevector of the matter wave</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Quantum Superposition and Linear Dynamics
+      </h3>
+      <p class="entry-description">Quantum states form a complex vector space and physically allowed time evolutions act linearly on this space. If `psi_1` and `psi_2` are solutions of the evolution equation, any complex linear combination `alpha*psi_1 + beta*psi_2` is also a solution.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`psi(t) in H`</div>
+            <div class="assumption-math">`psi(t) = alpha*psi_1(t) + beta*psi_2(t)  =>  psi(t) " solves the same evolution equation"`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`H`</strong>: Complex Hilbert space of quantum states</div>
+            <div class="assumption-symbol-def"><strong>`psi`</strong>: Quantum state (e.g. wavefunction in a chosen representation)</div>
+            <div class="assumption-symbol-def"><strong>`alpha, beta`</strong>: Complex coefficients describing superpositions</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
@@ -396,7 +444,7 @@
       <h3 class="entry-title">
         Classical Macroscopic Limit
       </h3>
-      <p class="entry-description">For macroscopic bodies with de Broglie wavelength λ_(dB) << L, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.</p>
+      <p class="entry-description">For macroscopic bodies with de Broglie wavelength `λ_(dB) < < L`, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
           <div class="assumption-math">`lambda_(dB) < < L`</div>
