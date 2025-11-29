@@ -4,31 +4,38 @@
   "result_equations": [
     {
       "id": "lorentz_time",
-      "equation": "t' = gamma*(t - (v/c^2)*x)"
+      "equation": "t' = gamma*(t - (v/c^2)*x)",
+      "equation_title": "Lorentz Transformation (Time)"
     },
     {
       "id": "lorentz_space",
-      "equation": "x' = gamma*(x - v*t)"
+      "equation": "x' = gamma*(x - v*t)",
+      "equation_title": "Lorentz Transformation (Space)"
     },
     {
       "id": "lorentz_y",
-      "equation": "y' = y"
+      "equation": "y' = y",
+      "equation_title": "Lorentz Transformation (Y-axis)"
     },
     {
       "id": "lorentz_z",
-      "equation": "z' = z"
+      "equation": "z' = z",
+      "equation_title": "Lorentz Transformation (Z-axis)"
     },
     {
       "id": "lorentz_factor",
-      "equation": "gamma = 1/sqrt(1 - (v^2/c^2))"
+      "equation": "gamma = 1/sqrt(1 - (v^2/c^2))",
+      "equation_title": "Lorentz Factor"
     },
     {
       "id": "time_dilation",
-      "equation": "Delta t' = gamma*Delta t"
+      "equation": "Delta t' = gamma*Delta t",
+      "equation_title": "Time Dilation"
     },
     {
       "id": "length_contraction",
-      "equation": "Delta x' = (Delta x)/(gamma)"
+      "equation": "Delta x' = (Delta x)/(gamma)",
+      "equation_title": "Length Contraction"
     }
   ],
   "explanation": "Einstein's special theory of relativity derives the coordinate transformations between inertial reference frames moving at constant relative velocity. Built on two fundamental postulates - the relativity principle and the constancy of light speed - the theory reveals that space and time are unified into spacetime. The transformations ensure the invariance of the speed of light and the spacetime interval, leading to the profound consequences of time dilation and length contraction. These transformations replace the classical Galilean transformations and form the foundation for understanding relativistic kinematics.",
@@ -143,21 +150,43 @@
     },
     {
       "step": 11,
-      "description": "Solve for A.",
+      "equation_proven": "lorentz_factor",
+      "description": "Solve for A to get the Lorentz factor gamma.",
       "equation": "A = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 12,
-      "description": "Substitute `gamma` back into the equations to obtain the Lorentz tranformation.",
-      "equation": "x' = gamma*(x - v*t); t' = gamma*(t - v/c^2*x); gamma = 1/sqrt(1 - v^2/c^2)"
+      "equation_proven": "lorentz_space",
+      "description": "Substitute `gamma` back into the equation to obtain the Lorentz tranformation for space (x-coordinate).",
+      "equation": "x' = gamma*(x - v*t); gamma = 1/sqrt(1 - v^2/c^2)"
     },
     {
       "step": 13,
+      "equation_proven": "lorentz_time",
+      "description": "Obtain the Lorentz transformation for time (t-coordinate).",
+      "equation": "t' = gamma*(t - v/c^2*x)"
+    },
+    {
+      "step": 14,
+      "equation_proven": "lorentz_y",
+      "description": "For coordinates perpendicular to motion (y-axis), there is no transformation.",
+      "equation": "y' = y"
+    },
+    {
+      "step": 15,
+      "equation_proven": "lorentz_z",
+      "description": "For coordinates perpendicular to motion (z-axis), there is no transformation.",
+      "equation": "z' = z"
+    },
+    {
+      "step": 16,
+      "equation_proven": "time_dilation",
       "description": "Time dilation: time intervals are longer in the moving frame. For events at the same spatial location in S (\u0394x = 0), the time interval in S' is dilated.",
       "equation": "Delta t' = gamma*Delta t"
     },
     {
-      "step": 14,
+      "step": 17,
+      "equation_proven": "length_contraction",
       "description": "Length contraction: spatial intervals are shorter in the moving frame. For simultaneous events in S' (\u0394t' = 0), the spatial interval contracts.",
       "equation": "Delta x' = (Delta x)/(gamma)"
     }

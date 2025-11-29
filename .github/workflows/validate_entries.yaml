@@ -49,6 +49,9 @@ jobs:
       - name: Validate dependencies and references
         run: python scripts/validate_dependencies.py
 
+      - name: Validate equation titles and equation_proven
+        run: python scripts/validate_equation_titles.py
+
       - name: Test ML Dataset Script
         run: python scripts/test_ml_dataset.py
 

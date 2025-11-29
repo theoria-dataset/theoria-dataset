@@ -988,6 +988,48 @@ select option {
   padding: 0.5rem 0;
 }
 
+/* Equation title styling */
+.step-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+}
+
+/* Equation proven badge */
+.equation-proven-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  color: black;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1.5px solid #16a34a;
+  vertical-align: middle;
+}
+
+/* Keep checkmark green */
+.proven-checkmark {
+  color: #16a34a;
+  margin-right: 0.3rem;
+}
+
+/* Dark mode styling */
+.latex-dark .equation-proven-badge {
+  color: white;
+  border-color: #4ade80;
+}
+
+.latex-dark .proven-checkmark {
+  color: #4ade80;
+}
+
 /* Spacing for multi-line equations */
 .step-eq br {
   line-height: 1.8;
@@ -996,6 +1038,14 @@ select option {
 /* Ensure proper spacing for equations in main results */
 #equations-content p {
   line-height: 1.6;
+}
+
+/* Equation title in main result section */
+.equation-result-title {
+  font-weight: 600;
+  color: var(--primary);
+  margin-right: 0.5rem;
+  font-size: 1.05rem;
 }
 
 #equations-content p br {

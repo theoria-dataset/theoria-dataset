@@ -3,12 +3,14 @@
   "result_name": "Noether's Theorem",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "J = sum_i ( (del L)/(del dot q_i) X_(q_i) ) - ( sum_i ( (del L)/(del dot q_i) dot q_i ) - L ) X_t"
+      "id": "noethers_theorem",
+      "equation": "J = sum_i ( (del L)/(del dot q_i) X_(q_i) ) - ( sum_i ( (del L)/(del dot q_i) dot q_i ) - L ) X_t",
+      "equation_title": "Noether's Theorem"
     },
     {
       "id": "eq2",
-      "equation": "(dJ)/(dt) = 0"
+      "equation": "(dJ)/(dt) = 0",
+      "equation_title": "Conservation Law"
     }
   ],
   "explanation": "Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities. For example, time translation symmetry leads to energy conservation, spatial translation symmetry to linear momentum conservation, and rotational symmetry to angular momentum conservation. It is a cornerstone of theoretical physics, providing deep insights into the structure of physical laws.",
@@ -59,13 +61,17 @@
   "derivation": [
     {
       "step": 1,
-      "assumptions": ["least_action_principle"],
+      "assumptions": [
+        "least_action_principle"
+      ],
       "description": "Starting from the principle of least action, assume the action is invariant under an infinitesimal continuous symmetry with variations `delta q_i` and `delta t`.",
       "equation": "delta S = delta( int L(q_i, dot q_i, t) dt ) = 0"
     },
     {
       "step": 2,
-      "assumptions": ["stationary_action_principle"],
+      "assumptions": [
+        "stationary_action_principle"
+      ],
       "description": "Using the stationary action principle, specify the infinitesimal transformation with parameter `epsilon` and generators `X_(q_i)` and `X_t`.",
       "equation": "delta q_i = epsilon * X_(q_i); delta t = epsilon * X_t"
     },
@@ -116,8 +122,15 @@
     },
     {
       "step": 12,
-      "description": "Define the Noether charge `J` and state its conservation.",
-      "equation": "J = sum_i( (del L)/(del dot q_i) * X_(q_i) ) - ( sum_i( (del L)/(del dot q_i) * dot q_i ) - L ) * X_t; (dJ)/(dt) = 0"
+      "description": "Define the Noether charge `J` and state its conservation law.",
+      "equation": "J = sum_i( (del L)/(del dot q_i) * X_(q_i) ) - ( sum_i( (del L)/(del dot q_i) * dot q_i ) - L ) * X_t; (dJ)/(dt) = 0",
+      "equation_proven": "noethers_theorem"
+    },
+    {
+      "step": 13,
+      "description": "The conservation law states that the time derivative of the Noether charge is zero.",
+      "equation": "(dJ)/(dt) = 0",
+      "equation_proven": "eq2"
     }
   ],
   "programmatic_verification": {

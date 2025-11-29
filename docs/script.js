@@ -522,10 +522,15 @@ function render(data) {
   document
     .querySelectorAll("#entryView h2")
     .forEach((h) => (h.style.display = ""));
-  // Render equations as <p> blocks, not as a list
+  // Render equations as <p> blocks, with titles if present
   const eqDiv = $("equations-content");
   eqDiv.innerHTML = (data.result_equations || [])
-    .map((eq) => `<p>${formatLongEquation(eq.equation)}</p>`)
+    .map((eq) => {
+      const titleSpan = eq.equation_title
+        ? `<span class='equation-result-title'>${eq.equation_title}:</span> `
+        : '';
+      return `<p>${titleSpan}${formatLongEquation(eq.equation)}</p>`;
+    })
     .join("");
   safeTypesetMathJax([eqDiv]);
   // Render prerequisites (assumptions + dependencies) with unified structure
@@ -545,6 +550,15 @@ function render(data) {
   (data.derivation || []).forEach((step) => {
     let html = "";
 
+    // Check if this step proves an equation from result_equations
+    let equationTitle = null;
+    if (step.equation_proven) {
+      const resultEq = (data.result_equations || []).find(eq => eq.id === step.equation_proven);
+      if (resultEq && resultEq.equation_title) {
+        equationTitle = resultEq.equation_title;
+      }
+    }
+
     // Add assumption references if present
     if (step.assumptions && step.assumptions.length > 0) {
       step.assumptions.forEach((assumptionId) => {
@@ -563,7 +577,12 @@ function render(data) {
     if (step.equation) {
       // Break long equations at logical points
       const formattedEquation = formatLongEquation(step.equation);
-      html += `<div class='step-eq'>${formattedEquation}</div>`;
+      // Add proven badge with equation title if applicable
+      let provenBadge = '';
+      if (step.equation_proven && equationTitle) {
+        provenBadge = `<span class='equation-proven-badge' title='Proven equation: ${equationTitle}'><span class='proven-checkmark'>✓</span> ${equationTitle}</span>`;
+      }
+      html += `<div class='step-eq'>${formattedEquation}${provenBadge}</div>`;
     } else if (step.text) {
       const textFixed = step.text.replace(/\bhbar\b/g, "ℏ");
       html += `<div class='step-text'>${textFixed}</div>`;

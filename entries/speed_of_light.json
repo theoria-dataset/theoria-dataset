@@ -3,12 +3,14 @@
   "result_name": "Speed of Light from Maxwell's Equations",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "nabla^2 bbE = mu_0*epsilon_0*(partial^2 bbE)/(partial t^2)"
+      "id": "em_wave_equation",
+      "equation": "nabla^2 bbE = mu_0*epsilon_0*(partial^2 bbE)/(partial t^2)",
+      "equation_title": "Electromagnetic Wave Equation"
     },
     {
-      "id": "eq2",
-      "equation": "c = 1/sqrt(epsilon_0*mu_0)"
+      "id": "speed_of_light",
+      "equation": "c = 1/sqrt(epsilon_0*mu_0)",
+      "equation_title": "Speed of Light from Maxwell's Equations"
     }
   ],
   "explanation": "In vacuum, Maxwell's equations imply that disturbances of the electromagnetic field propagate as waves whose speed is fixed by the electric permittivity and magnetic permeability of free space. Identifying this speed with the experimentally measured speed of light shows that light is an electromagnetic wave and sets the value of the universal constant `c` from purely electric and magnetic static measurements such as the force between charges or currents.",
@@ -65,6 +67,7 @@
     },
     {
       "step": 6,
+      "equation_proven": "em_wave_equation",
       "description": "Equate the two expressions for grad xx (grad xx bbE) obtained in steps 3 and 5 to obtain the wave equation for the electric field.",
       "equation": "-nabla^2 bbE = -mu_0*epsilon_0*(partial^2 bbE)/(partial t^2)  =>  nabla^2 bbE = mu_0*epsilon_0*(partial^2 bbE)/(partial t^2)"
     },
@@ -75,6 +78,7 @@
     },
     {
       "step": 8,
+      "equation_proven": "speed_of_light",
       "description": "Define c as the propagation speed of electromagnetic waves in vacuum and identify it with the experimentally measured speed of light.",
       "equation": "c = v = 1/sqrt(epsilon_0*mu_0)"
     }

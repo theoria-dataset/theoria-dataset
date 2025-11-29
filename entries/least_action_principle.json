@@ -3,16 +3,19 @@
   "result_name": "Principle of Least Action",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
+      "id": "action_functional",
+      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt",
+      "equation_title": "Action Functional"
     },
     {
-      "id": "eq2",
-      "equation": "delta S = 0"
+      "id": "stationary_action",
+      "equation": "delta S = 0",
+      "equation_title": "Principle of Stationary Action"
     },
     {
-      "id": "eq3",
-      "equation": "d/dt((del L)/(del dot q_i)) - (del L)/(del q_i) = 0"
+      "id": "euler_lagrange",
+      "equation": "d/dt((del L)/(del dot q_i)) - (del L)/(del q_i) = 0",
+      "equation_title": "Euler-Lagrange Equation"
     }
   ],
   "explanation": "The principle of least action states that the path taken by a physical system between two configurations is the one that makes the action stationary. The action is defined as the time integral of the Lagrangian function. This principle provides a unified foundation for classical mechanics and leads directly to the Euler-Lagrange equations of motion.",
@@ -49,12 +52,14 @@
   "derivation": [
     {
       "step": 1,
+      "equation_proven": "action_functional",
       "assumptions": ["variational_calculus_framework"],
       "description": "Define the action functional as the time integral of the Lagrangian along a path `q_i(t)` with `i = 1,...,n`.",
       "equation": "S[q] = int_(t_1)^(t_2) L(q_i(t), dot(q_i)(t), t) dt"
     },
     {
       "step": 2,
+      "equation_proven": "stationary_action",
       "description": "Embed the given path into a one-parameter family (the variation direction) and fix endpoints: `q_i^(epsilon)(t) = q_i(t) + epsilon eta_i(t)`, with `eta_i(t_1)=eta_i(t_2)=0`. Define `S(epsilon) = int L(q_i^(epsilon), dot(q_i)^(epsilon), t) dt`.",
       "equation": "q_i^(epsilon)(t) = q_i(t) + epsilon eta_i(t), eta_i(t_1)=eta_i(t_2)=0; S(epsilon) = int_(t_1)^(t_2) L(q_i^(epsilon)(t), dot(q_i)^(epsilon)(t), t) dt"
     },
@@ -90,6 +95,7 @@
     },
     {
       "step": 9,
+      "equation_proven": "euler_lagrange",
       "description": "By the fundamental lemma of the calculus of variations, `delta S = 0` for all independent `eta_i` with `eta_i(t_1)=eta_i(t_2)=0` implies the coefficients vanish.",
       "equation": "d/(dt)((del L)/(del dot(q_i))) - (del L)/(del q_i) = 0, i=1,...,n"
     }

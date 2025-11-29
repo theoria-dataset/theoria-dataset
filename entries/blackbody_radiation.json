@@ -3,8 +3,9 @@
   "result_name": "Blackbody Radiation",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3)*(1)/(e^((h*nu)/(k_B*T)) - 1)"
+      "id": "plancks_law",
+      "equation": "u(nu,T) = (8*pi*h*nu^3)/(c^3)*(1)/(e^((h*nu)/(k_B*T)) - 1)",
+      "equation_title": "Planck's Law"
     }
   ],
   "explanation": "Planck's law describes the spectral energy density of black-body radiation as a function of frequency and temperature. By quantizing electromagnetic modes with energy quanta `h*nu`, it resolves the ultraviolet catastrophe of classical physics and underpins modern quantum theory and thermal emission models.",
@@ -48,7 +49,9 @@
   "derivation": [
     {
       "step": 1,
-      "assumptions": ["perfect_blackbody"],
+      "assumptions": [
+        "perfect_blackbody"
+      ],
       "description": "Standing wave boundary conditions in a cubic cavity with side length `L`: electromagnetic field components must vanish at walls, requiring `E_x prop sin(n_x*pi*x/L)`, `E_y prop sin(n_y*pi*y/L)`, `E_z prop sin(n_z*pi*z/L)` where `n_x, n_y, n_z = 1,2,3,...` are positive integers.",
       "equation": "E_x = E_(0x) * sin(n_x*pi*x/L) * cos(omega*t); E_y = E_(0y) * sin(n_y*pi*y/L) * cos(omega*t); E_z = E_(0z) * sin(n_z*pi*z/L) * cos(omega*t)"
     },
@@ -64,7 +67,9 @@
     },
     {
       "step": 4,
-      "assumptions": ["maxwell_equations"],
+      "assumptions": [
+        "maxwell_equations"
+      ],
       "description": "Maxwell's equations (assumption 4) provide the dispersion relation for electromagnetic waves: `omega = c*|k|`.",
       "equation": "omega = c*|k|"
     },
@@ -85,7 +90,9 @@
     },
     {
       "step": 8,
-      "assumptions": ["electromagnetic_polarization"],
+      "assumptions": [
+        "electromagnetic_polarization"
+      ],
       "description": "Account for polarizations (assumption 5): multiply by 2 for the two independent polarization directions, giving total mode count.",
       "equation": "N_(all) = N_(sphere) * 2 = pi*R^2*dR"
     },
@@ -101,25 +108,33 @@
     },
     {
       "step": 11,
-      "assumptions": ["electromagnetic_field_quantization"],
+      "assumptions": [
+        "electromagnetic_field_quantization"
+      ],
       "description": "Energy quantization (assumption 3): each mode can only have energies `E_n = n*h*nu` where `n` is the occupation number.",
       "equation": "E_n = n*h*nu"
     },
     {
       "step": 12,
-      "assumptions": ["partition_function"],
+      "assumptions": [
+        "partition_function"
+      ],
       "description": "Thermal equilibrium (assumption 2): use the partition function (see dependency) for a single mode with Boltzmann weights `exp(-E_n/(k_B*T))`.",
       "equation": "Z = sum_(n=0)^infty exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 13,
-      "assumptions": ["spin_statistics_theorem"],
+      "assumptions": [
+        "spin_statistics_theorem"
+      ],
       "description": "Bose-Einstein statistics (assumption 6): define the average occupation number using the partition function.",
       "equation": "bar(n) = (1/Z) * sum_(n=0)^infty n * exp(-n*h*nu/(k_B*T))"
     },
     {
       "step": 14,
-      "assumptions": ["thermal_equilibrium"],
+      "assumptions": [
+        "thermal_equilibrium"
+      ],
       "description": "Evaluate both the partition function (geometric series) and average occupation number to get the Bose-Einstein distribution.",
       "equation": "Z = 1/(1 - exp(-h*nu/(k_B*T))); bar(n) = 1/(exp(h*nu/(k_B*T)) - 1)"
     },
@@ -131,7 +146,8 @@
     {
       "step": 16,
       "description": "Combine mode density with average energy to get spectral energy density (black body assumption 1 ensures this represents thermal emission).",
-      "equation": "u(nu,T) = rho(nu)*bar(E) = (8*pi*nu^2)/(c^3) * (h*nu)/(exp(h*nu/(k_B*T)) - 1) = (8*pi*h*nu^3)/(c^3) * (1)/(exp(h*nu/(k_B*T)) - 1)"
+      "equation": "u(nu,T) = rho(nu)*bar(E) = (8*pi*nu^2)/(c^3) * (h*nu)/(exp(h*nu/(k_B*T)) - 1) = (8*pi*h*nu^3)/(c^3) * (1)/(exp(h*nu/(k_B*T)) - 1)",
+      "equation_proven": "plancks_law"
     }
   ],
   "programmatic_verification": {
@@ -155,7 +171,7 @@
       "# ------------------------------",
       "R = 2*L*nu/c",
       "N_shell = sp.Rational(1,8) * 4*sp.pi*R**2 * dR     # 1/8 octant",
-      "N_all = sp.simplify(2 * N_shell)                    # \u00d72 polarizations",
+      "N_all = sp.simplify(2 * N_shell)                    # ×2 polarizations",
       "assert sp.simplify(N_all - sp.pi*R**2*dR) == 0",
       "N_all_freq = sp.simplify(N_all.subs({R: 2*L*nu/c, dR: 2*L*dnu/c}))",
       "rho_nu = sp.simplify(N_all_freq/(L**3 * dnu))",
@@ -163,7 +179,7 @@
       "assert sp.simplify(rho_nu - rho_nu_expected) == 0",
       "",
       "# ------------------------------",
-      "# Partition function and Bose\u2013Einstein occupancy via q-series",
+      "# Partition function and Bose–Einstein occupancy via q-series",
       "# ------------------------------",
       "x = sp.symbols('x', positive=True, real=True)                 # x = h nu / (k_B T)",
       "q = sp.symbols('q', real=True)",
@@ -182,7 +198,7 @@
       "assert sp.simplify(u_planck - u_expected) == 0",
       "",
       "# ------------------------------",
-      "# \u03c9\u2013\u03bd consistency (use \u0127 = h/(2\u03c0))",
+      "# ω–ν consistency (use ħ = h/(2π))",
       "# ------------------------------",
       "omega, hbar = sp.symbols('omega hbar', positive=True, real=True)",
       "u_omega = sp.simplify((omega**2)/(sp.pi**2*c**3) * (hbar*omega)/(sp.exp(hbar*omega/(k_B*T)) - 1))",
@@ -190,24 +206,24 @@
       "assert check_omega_to_nu == 0",
       "",
       "# ------------------------------",
-      "# Rayleigh\u2013Jeans (low-\u03bd) and Wien (high-\u03bd) limits",
+      "# Rayleigh–Jeans (low-ν) and Wien (high-ν) limits",
       "# ------------------------------",
       "u_in_x = sp.simplify((8*sp.pi*(k_B*T)**3)/(c**3*h**2) * x**3/(sp.exp(x) - 1))",
       "# RJ: need series to order >= 3 to capture x^2 term",
       "u_RJ_series = sp.simplify(sp.series(u_in_x, x, 0, 3).removeO().subs(x, h*nu/(k_B*T)))",
       "u_RJ_expected = sp.simplify(8*sp.pi*nu**2*k_B*T/c**3)",
       "assert sp.simplify(u_RJ_series - u_RJ_expected) == 0",
-      "# Wien: ratio \u2192 1 as \u03bd\u2192\u221e",
+      "# Wien: ratio → 1 as ν→∞",
       "ratio_Wien = sp.simplify(u_expected / ((8*sp.pi*h*nu**3)/(c**3) * sp.exp(-h*nu/(k_B*T))))",
       "assert sp.limit(ratio_Wien, nu, sp.oo) == 1",
       "",
       "# ------------------------------",
-      "# Stefan\u2013Boltzmann: \u222b_0^\u221e u(\u03bd,T) d\u03bd = a T^4, a = 8\u03c0^5 k_B^4 / (15 c^3 h^3)",
-      "# Use \u0393\u2013\u03b6 identity: \u222b_0^\u221e x^{s-1}/(e^x - 1) dx = \u0393(s) \u03b6(s), s=4 \u21d2 \u03c0^4/15",
+      "# Stefan–Boltzmann: ∫_0^∞ u(ν,T) dν = a T^4, a = 8π^5 k_B^4 / (15 c^3 h^3)",
+      "# Use Γ–ζ identity: ∫_0^∞ x^{s-1}/(e^x - 1) dx = Γ(s) ζ(s), s=4 ⇒ π^4/15",
       "# Also verify numerically to avoid unevaluated Integral",
       "# ------------------------------",
       "a_const = sp.simplify(8*sp.pi**5 * k_B**4 / (15 * c**3 * h**3))",
-      "I_closed = sp.gamma(4) * sp.zeta(4)                         # = \u03c0^4/15",
+      "I_closed = sp.gamma(4) * sp.zeta(4)                         # = π^4/15",
       "I_numeric = sp.N(sp.Integral(sp.Symbol('xx')**3/(sp.exp(sp.Symbol('xx'))-1), (sp.Symbol('xx'), 0, sp.oo)))",
       "assert abs(float(I_numeric - sp.N(I_closed))) < 1e-10",
       "u_total_from_x = sp.simplify((8*sp.pi*(k_B*T)**4)/(c**3*h**3) * I_closed)",
@@ -215,14 +231,14 @@
       "",
       "# ------------------------------",
       "# Wien's displacement (frequency form): maximize f(x)=x^3/(e^x-1)",
-      "# 3(1 - e^{-x}) - x = 0 \u21d2 x_peak \u2248 2.821439372...",
+      "# 3(1 - e^{-x}) - x = 0 ⇒ x_peak ≈ 2.821439372...",
       "# ------------------------------",
       "x_var = sp.symbols('x_var', positive=True)",
       "eq_wien = sp.Eq(3*(1 - sp.exp(-x_var)) - x_var, 0)",
       "x_peak = sp.nsolve(eq_wien, 3)     # good initial guess near 3",
       "assert abs(float(x_peak) - 2.821439372) < 1e-6",
       "",
-      "print('All blackbody verifications passed \u2714')"
+      "print('All blackbody verifications passed ✔')"
     ]
   },
   "domain": "quant-ph",
@@ -245,7 +261,7 @@
   ],
   "contributors": [
     {
-      "full_name": "Manuel S\u00e1nchez Hern\u00e1ndez",
+      "full_name": "Manuel Sánchez Hernández",
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],

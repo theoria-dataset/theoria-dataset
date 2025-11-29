@@ -3,8 +3,9 @@
   "result_name": "Vis-Viva Equation",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "v^2=GM(2/r-1/a)"
+      "id": "vis_viva_equation",
+      "equation": "v^2=GM(2/r-1/a)",
+      "equation_title": "Vis-Viva Equation"
     }
   ],
   "explanation": "The Vis-Viva equation relates the velocity of a particle in an elliptical, hyperbolic or parabolic orbit to the distance to the barycenter, mass of the body it's orbiting, and the semi-major axis of the orbit. This sets the basis for velocity calculations in non-circular orbits and allows us to later derive equations like the equation for escape velocity with ease.",
@@ -79,6 +80,7 @@
     },
     {
       "step": 8,
+      "equation_proven": "vis_viva_equation",
       "description": "Rearrange the expression `v^2/2 - GM/r = -(GM)/(2a)`",
       "equation": "v^2 = GM(2/r-1/a)"
     }

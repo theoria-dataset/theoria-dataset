@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.7.0] - Multiple assumptions per derivation step, hbar fixes - 2025-01-19
 
+### Added
+
+- **Equation titles and proven badges**: Visual indicators for named equations and derivation milestones with theme-adaptive styling
+- **Equation title validation**: New `validate_equation_titles.py` script enforcing that reviewed entries have `equation_title` for all equations, matching `equation_proven` references in derivation steps, and no steps after the last proof
+
 ### Changed
 
 - **Breaking change**: Derivation step `assumption` field renamed to `assumptions` (array)
