@@ -150,6 +150,18 @@
     },
     {
       "step": 10,
+      "description": "In position representation, the probability density for finding a particle at position `r` is given by the modulus squared of the wavefunction. This follows from the Born rule applied to position eigenstates.",
+      "equation": "rho(r,t) = |psi(r,t)|^2",
+      "equation_proven": "position_density"
+    },
+    {
+      "step": 11,
+      "description": "For observables with continuous spectra, the Born rule extends via the spectral measure. The probability that the observable `A` yields a value in the measurable set `Delta` is given by the expectation of the corresponding spectral projector `Pi_Delta`.",
+      "equation": "P(a in Delta) = (:psi:| Pi_Delta |:psi:)",
+      "equation_proven": "spectral_measure"
+    },
+    {
+      "step": 12,
       "description": "Generalized measurements `{E_i}` (POVMs) consist of positive operators satisfying `sum_i E_i = I`. By Naimark's dilation theorem, any POVM on `H` can be realized as a projective measurement `{Pi_i}` on a larger Hilbert space `K ⊇ H`, together with an isometric embedding `V: H -> K` such that `E_i = V^† Pi_i V`. Since projective measurements on `K` obey the trace rule from the previous steps, applying the relation `E_i = V^† Pi_i V` yields the same probability formula on `H`, giving `P(i) = Tr(rho E_i)`.",
       "equation": "E_i = V^† Pi_i V  =>  P(i) = Tr(rho E_i)",
       "equation_proven": "povm"

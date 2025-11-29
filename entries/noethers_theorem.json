@@ -9,7 +9,8 @@
     },
     {
       "id": "eq2",
-      "equation": "(dJ)/(dt) = 0"
+      "equation": "(dJ)/(dt) = 0",
+      "equation_title": "Conservation Law"
     }
   ],
   "explanation": "Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law. This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities. For example, time translation symmetry leads to energy conservation, spatial translation symmetry to linear momentum conservation, and rotational symmetry to angular momentum conservation. It is a cornerstone of theoretical physics, providing deep insights into the structure of physical laws.",
@@ -121,9 +122,15 @@
     },
     {
       "step": 12,
-      "description": "Define the Noether charge `J` and state its conservation.",
+      "description": "Define the Noether charge `J` and state its conservation law.",
       "equation": "J = sum_i( (del L)/(del dot q_i) * X_(q_i) ) - ( sum_i( (del L)/(del dot q_i) * dot q_i ) - L ) * X_t; (dJ)/(dt) = 0",
       "equation_proven": "noethers_theorem"
+    },
+    {
+      "step": 13,
+      "description": "The conservation law states that the time derivative of the Noether charge is zero.",
+      "equation": "(dJ)/(dt) = 0",
+      "equation_proven": "eq2"
     }
   ],
   "programmatic_verification": {

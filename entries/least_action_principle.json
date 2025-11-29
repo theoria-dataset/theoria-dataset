@@ -4,7 +4,8 @@
   "result_equations": [
     {
       "id": "action_functional",
-      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
+      "equation": "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt",
+      "equation_title": "Action Functional"
     },
     {
       "id": "stationary_action",
@@ -51,6 +52,7 @@
   "derivation": [
     {
       "step": 1,
+      "equation_proven": "action_functional",
       "assumptions": ["variational_calculus_framework"],
       "description": "Define the action functional as the time integral of the Lagrangian along a path `q_i(t)` with `i = 1,...,n`.",
       "equation": "S[q] = int_(t_1)^(t_2) L(q_i(t), dot(q_i)(t), t) dt"

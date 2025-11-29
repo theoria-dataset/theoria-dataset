@@ -40,21 +40,23 @@ test-entry:
 
 pre-push:
 	@echo "[PRE-PUSH] Running all build steps and tests before push..."
-	@echo "[STEP 1/8] Rebuilding requirements..."
+	@echo "[STEP 1/9] Rebuilding requirements..."
 	docker-compose run --rm theoria-tests python scripts/build_requirements.py
-	@echo "[STEP 2/8] Generating notebooks..."
+	@echo "[STEP 2/9] Generating notebooks..."
 	docker-compose run --rm theoria-tests python scripts/generate_notebooks.py
-	@echo "[STEP 3/8] Generating entries index..."
+	@echo "[STEP 3/9] Generating entries index..."
 	docker-compose run --rm theoria-tests python scripts/generate_index.py
-	@echo "[STEP 4/8] Generating assumptions page..."
+	@echo "[STEP 4/9] Generating assumptions page..."
 	docker-compose run --rm theoria-tests python scripts/generate_assumptions_page.py
-	@echo "[STEP 5/8] Validating schemas..."
+	@echo "[STEP 5/9] Validating schemas..."
 	docker-compose run --rm theoria-tests python scripts/validate_all_schemas.py
-	@echo "[STEP 6/8] Validating dependencies..."
+	@echo "[STEP 6/9] Validating dependencies..."
 	docker-compose run --rm theoria-tests python scripts/validate_dependencies.py
-	@echo "[STEP 7/8] Validating assumption usage..."
+	@echo "[STEP 7/9] Validating assumption usage..."
 	docker-compose run --rm theoria-tests python scripts/validate_assumptions_usage.py
-	@echo "[STEP 8/8] Running tests..."
+	@echo "[STEP 8/9] Validating equation titles..."
+	docker-compose run --rm theoria-tests python scripts/validate_equation_titles.py
+	@echo "[STEP 9/9] Running tests..."
 	docker-compose run --rm theoria-tests python scripts/test_ml_dataset.py
 	docker-compose run --rm theoria-tests python scripts/test_entry.py
 	@echo "[SUCCESS] All pre-push steps completed successfully!"

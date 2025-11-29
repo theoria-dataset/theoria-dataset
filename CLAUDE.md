@@ -62,7 +62,7 @@ docker-compose run --rm theoria-tests python scripts/verify_programmatic.py
 ### Building and Validation
 
 ```bash
-# Full pre-push check (requirements, notebooks, index, schemas, dependencies, tests)
+# Full pre-push check (requirements, notebooks, index, schemas, dependencies, equation titles, tests)
 make pre-push
 
 # Rebuild requirements from schema
@@ -82,6 +82,9 @@ docker-compose run --rm theoria-tests python scripts/validate_dependencies.py
 
 # Validate assumption usage (check ID conflicts and step references)
 docker-compose run --rm theoria-tests python scripts/validate_assumptions_usage.py
+
+# Validate equation titles and equation_proven matching
+docker-compose run --rm theoria-tests python scripts/validate_equation_titles.py
 ```
 
 ### ML Dataset Generation
