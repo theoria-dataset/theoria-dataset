@@ -1,95 +1,151 @@
 {
   "result_id": "heisenberg_uncertainty_principle",
+  "alt_ids": [
+    "heisenberg_uncertainty",
+    "robertson_schrodinger_uncertainty"
+  ],
   "result_name": "Heisenberg Uncertainty Principle",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "Delta x * Delta p >= hbar/2"
-    }
-  ],
-  "explanation": "The Heisenberg uncertainty principle states that the simultaneous precise measurement of position and momentum of a particle is fundamentally impossible. The product of their uncertainties has a quantum mechanical lower bound proportional to Planck's constant. This principle reflects the wave-particle duality and is a cornerstone of quantum mechanics, setting fundamental limits on measurement precision and enabling phenomena like quantum tunneling.",
-  "definitions": [
-    {
-      "symbol": "Delta x",
-      "definition": "Standard deviation (uncertainty) in position measurement."
+      "id": "robertson_relation",
+      "equation": "Delta A * Delta B >= (1/2)*|(:psi:|[A,B]|:psi:)|",
+      "equation_title": "Robertson Uncertainty Relation"
     },
     {
-      "symbol": "Delta p",
-      "definition": "Standard deviation (uncertainty) in momentum measurement."
+      "id": "heisenberg_xp",
+      "equation": "Delta x * Delta p_x >= hbar/2",
+      "equation_title": "Heisenberg Position-Momentum Uncertainty"
+    }
+  ],
+  "explanation": "The Heisenberg uncertainty principle states that for any pair of non-commuting observables their statistical spreads (standard deviations) in a given quantum state cannot both be made arbitrarily small. The general Robertson relation ties the product Delta A * Delta B to the expectation value of their commutator, while the canonical position–momentum case gives Delta x * Delta p_x >= hbar/2. This expresses a structural limitation imposed by the quantum operator algebra rather than by experimental imperfections.",
+  "definitions": [
+    {
+      "symbol": "A",
+      "definition": "Self-adjoint operator representing observable A on the Hilbert space."
+    },
+    {
+      "symbol": "B",
+      "definition": "Self-adjoint operator representing observable B on the Hilbert space."
+    },
+    {
+      "symbol": "|psi:)",
+      "definition": "Normalized state vector (pure state) in the Hilbert space H."
+    },
+    {
+      "symbol": "Delta A",
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable A in state |psi:)."
+    },
+    {
+      "symbol": "Delta B",
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable B in state |psi:)."
+    },
+    {
+      "symbol": "[A,B]",
+      "definition": "Commutator of A and B, defined by [A,B] = A*B - B*A."
+    },
+    {
+      "symbol": "x",
+      "definition": "Position operator (here taken along one spatial dimension)."
+    },
+    {
+      "symbol": "p_x",
+      "definition": "Momentum operator conjugate to x."
+    },
+    {
+      "symbol": "Delta x",
+      "definition": "Standard deviation of the position observable x in state |psi:)."
+    },
+    {
+      "symbol": "Delta p_x",
+      "definition": "Standard deviation of the momentum observable p_x in state |psi:)."
     },
     {
       "symbol": "hbar",
-      "definition": "Reduced Planck's constant (`h/(2*pi) = 1.055 × 10^-34 J⋅s`)."
+      "definition": "Reduced Planck constant, hbar = h/(2*pi)."
     }
   ],
   "assumptions": [
-    "The particle is described by a quantum mechanical wavefunction.",
-    "Position and momentum are represented by non-commuting Hermitian operators.",
-    "The uncertainties are defined as standard deviations of the observables.",
-    "The canonical commutation relation `[hat x, hat p] = i*hbar` holds for position and momentum operators.",
-    "The Cauchy-Schwarz inequality applies to quantum mechanical expectation values.",
-    "The wavefunction is normalized: `<psi|psi> = 1`."
+    "hilbert_space_probability_structure",
+    "quantum_observables_selfadjoint_operators",
+    "canonical_commutation_relations"
+  ],
+  "depends_on": [
+    "born_rule"
   ],
   "derivation": [
     {
       "step": 1,
-      "description": "Start with the canonical commutation relation for position and momentum operators.",
-      "equation": "[hat x, hat p] = hat x hat p - hat p hat x = i*hbar"
+      "assumptions": [
+        "hilbert_space_probability_structure",
+        "quantum_observables_selfadjoint_operators"
+      ],
+      "description": "Consider a normalized state |psi:) in a complex Hilbert space H and two observables represented by self-adjoint operators A and B. Define their expectation values in this state as the real numbers a_0 = (:psi:|A|psi:) and b_0 = (:psi:|B|psi:).",
+      "equation": "a_0 = (:psi:|A|psi:);  b_0 = (:psi:|B|psi:)"
     },
     {
       "step": 2,
-      "description": "Define the variance (uncertainty squared) of an observable as the expectation value of the squared deviation from the mean.",
-      "equation": "Delta A^2 = <(hat A - <hat A>)^2>"
+      "description": "Introduce the centered (fluctuation) operators A' = A - a_0*I and B' = B - b_0*I, where I is the identity. The variances (squared uncertainties) of A and B in the state |psi:) are then given by the expectation values of the squares of these centered operators.",
+      "equation": "A' = A - a_0*I;  B' = B - b_0*I;  (Delta A)^2 = (:psi:|A'^2|psi:);  (Delta B)^2 = (:psi:|B'^2|psi:)"
     },
     {
       "step": 3,
-      "description": "Define shifted operators that have zero expectation value.",
-      "equation": "hat A' = hat A - <hat A>"
+      "description": "Define two vectors in H by acting with the centered operators on the state: |alpha:) = A'|psi:) and |beta:) = B'|psi:). Their squared norms are exactly the variances of A and B, because the inner product is (:phi:|chi:) for any pair of vectors.",
+      "equation": "|alpha:) = A'|psi:);  |beta:) = B'|psi:);  (Delta A)^2 = (:alpha:|alpha:);  (Delta B)^2 = (:beta:|beta:)"
     },
     {
       "step": 4,
-      "description": "Express uncertainty in terms of shifted operators.",
-      "equation": "Delta A^2 = <hat A'^2>"
+      "description": "Apply the Cauchy–Schwarz inequality in the Hilbert space to the pair of vectors |alpha:) and |beta:). It states that the modulus of their inner product cannot exceed the product of their norms.",
+      "equation": "|(:alpha:|beta:)|^2 <= (:alpha:|alpha:)*(:beta:|beta:) = (Delta A)^2*(Delta B)^2"
     },
     {
       "step": 5,
-      "description": "The commutation relation is preserved under this shift.",
-      "equation": "[hat x', hat p'] = [hat x, hat p] = i*hbar"
+      "description": "Express the inner product (:alpha:|beta:) in terms of operators and the original state. Using the definitions of |alpha:) and |beta:), this inner product becomes an expectation value of a product of the centered operators.",
+      "equation": "(:alpha:|beta:) = (:psi:|A' B'|psi:)"
     },
     {
       "step": 6,
-      "description": "Apply the Cauchy-Schwarz inequality to the expectation value of the product of shifted operators.",
-      "equation": "|<psi|hat A' hat B'|psi>|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
+      "description": "Decompose the product A' B' into its Hermitian (anticommutator) and anti-Hermitian (commutator) parts. Define the anticommutator {A',B'} = A'*B' + B'*A' and the commutator [A',B'] = A'*B' - B'*A'. Then A' B' = (1/2)*{A',B'} + (1/2)*[A',B'].",
+      "equation": "{A',B'} = A'*B' + B'*A';  [A',B'] = A'*B' - B'*A';  A'*B' = (1/2)*{A',B'} + (1/2)*[A',B']"
     },
     {
       "step": 7,
-      "description": "Decompose the product into anticommutator and commutator parts.",
-      "equation": "<psi|hat A' hat B'|psi> = <psi|(hat A' hat B' + hat B' hat A')/2|psi> + <psi|(hat A' hat B' - hat B' hat A')/2|psi>"
+      "description": "Insert the decomposition of A' B' into the expectation value. Because A' and B' are self-adjoint, the expectation of the anticommutator {A',B'} is real, while the expectation of the commutator [A',B'] is purely imaginary. Writing z = (:alpha:|beta:) as a complex number, its real and imaginary parts are given by expectation values of the anticommutator and commutator respectively.",
+      "equation": "z = (:alpha:|beta:) = (1/2)*(:psi:|{A',B'}|psi:) + (1/2)*(:psi:|[A',B']|psi:);  Re(z) = (1/2)*(:psi:|{A',B'}|psi:);  Im(z) = (1/(2*i))*(:psi:|[A',B']|psi:)"
     },
     {
       "step": 8,
-      "description": "The anticommutator part is real, the commutator part is imaginary.",
-      "equation": "<psi|{hat A', hat B'}|psi>/2 + <psi|[hat A', hat B']|psi>/2"
+      "description": "Show that the commutator of the centered operators equals the commutator of the original observables. Since multiples of the identity commute with everything, subtracting the c-number expectation values does not change the commutator.",
+      "equation": "[A',B'] = [A - a_0*I, B - b_0*I] = [A,B] - a_0[I,B] - b_0[A,I] + a_0*b_0[I,I] = [A,B]"
     },
     {
       "step": 9,
-      "description": "For the inequality to be optimal, only the imaginary (commutator) part contributes.",
-      "equation": "|<psi|[hat A', hat B']|psi>/2|^2 <= <psi|hat A'^2|psi><psi|hat B'^2|psi>"
+      "description": "Use the previous step to express the imaginary part of z in terms of the commutator of A and B themselves. The expectation value of the commutator in the state |psi:) determines the imaginary part of (:alpha:|beta:).",
+      "equation": "Im(z) = (1/(2*i))*(:psi:|[A',B']|psi:) = (1/(2*i))*(:psi:|[A,B]|psi:)"
     },
     {
       "step": 10,
-      "description": "Substitute the commutation relation and express in terms of uncertainties.",
-      "equation": "|<psi|i*hbar|psi>/2|^2 <= Delta x^2 * Delta p^2"
+      "description": "Relate the modulus of z to its real and imaginary parts. For any complex number z, one has |z|^2 = (Re(z))^2 + (Im(z))^2 >= (Im(z))^2. Combining this with the Cauchy–Schwarz bound from step 4 gives a lower bound on the product of variances in terms of the imaginary part of z, and thus the commutator.",
+      "equation": "(Delta A)^2*(Delta B)^2 >= |z|^2 >= (Im(z))^2 = (1/4)*|(:psi:|[A,B]|psi:)|^2"
     },
     {
       "step": 11,
-      "description": "Simplify the magnitude squared.",
-      "equation": "hbar^2/4 <= Delta x^2 * Delta p^2"
+      "description": "Take square roots of the non-negative quantities on both sides of the inequality in step 10. This yields the Robertson uncertainty relation for the product of standard deviations of two observables in an arbitrary normalized state.",
+      "equation": "Delta A * Delta B >= (1/2)*|(:psi:|[A,B]|psi:)|",
+      "equation_proven": "robertson_relation"
     },
     {
       "step": 12,
-      "description": "Take the square root to obtain the uncertainty relation.",
-      "equation": "Delta x * Delta p >= hbar/2"
+      "assumptions": [
+        "canonical_commutation_relations"
+      ],
+      "description": "Specialize to the canonical pair of position and momentum along one axis by taking A = x and B = p_x. The canonical commutation relations state that their commutator is [x,p_x] = i*hbar*I, so its expectation value in any normalized state is (:psi:|[x,p_x]|psi:) = i*hbar.",
+      "equation": "[x,p_x] = i*hbar*I => (:psi:|[x,p_x]|psi:) = i*hbar"
+    },
+    {
+      "step": 13,
+      "description": "Insert the canonical commutator into the Robertson relation. The modulus of i*hbar is simply hbar, so the lower bound on the product of uncertainties becomes state-independent and equal to hbar/2.",
+      "equation": "Delta x * Delta p_x >= (1/2)*|(:psi:|[x,p_x]|psi:)| = (1/2)*|i*hbar| = hbar/2",
+      "equation_proven": "heisenberg_xp"
     }
   ],
   "programmatic_verification": {
@@ -97,47 +153,145 @@
     "library": "sympy 1.13.1",
     "code": [
       "import sympy as sp",
-      "import math",
-      "# Define symbols",
-      "hbar, x, p, Delta_x, Delta_p = sp.symbols('hbar x p Delta_x Delta_p', real=True, positive=True)",
-      "# For verification, we'll use a specific example: Gaussian wavepacket",
-      "# psi(x) = (2*sigma/pi)^(1/4) * exp(-(x-x0)^2/sigma^2 + i*p0*x/hbar)",
-      "sigma, x0, p0 = sp.symbols('sigma x0 p0', real=True, positive=True)",
-      "# Position uncertainty for Gaussian wavepacket",
-      "position_uncertainty = sigma/sp.sqrt(2)",
-      "# Momentum uncertainty for Gaussian wavepacket",
-      "momentum_uncertainty = hbar/(sigma*sp.sqrt(2))",
-      "# Calculate the product",
-      "uncertainty_product = position_uncertainty * momentum_uncertainty",
-      "# Simplify",
-      "simplified_product = sp.simplify(uncertainty_product)",
-      "# Verify that Delta_x * Delta_p = hbar/2 for this case",
-      "expected_minimum = hbar/2",
-      "# Check if the product equals the minimum (equality case)",
-      "assert sp.simplify(simplified_product - expected_minimum) == 0",
-      "# Verify the general inequality numerically for arbitrary sigma",
-      "# For any positive sigma, hbar/2 <= hbar/2 (equality)",
-      "assert simplified_product >= expected_minimum"
+      "",
+      "# ============================================================",
+      "# Programmatic verification for Heisenberg uncertainty entry",
+      "# We verify the Robertson relation for a concrete 2D example:",
+      "# A = sigma_x, B = sigma_y acting on a qubit Hilbert space.",
+      "# This checks the algebraic structure of the derivation.",
+      "# ============================================================",
+      "",
+      "# Step 1: Define real parameters for a generic normalized qubit state",
+      "theta, phi = sp.symbols('theta phi', real=True)",
+      "",
+      "# |psi> = cos(theta/2)|0> + e^{i phi} sin(theta/2)|1>",
+      "psi = sp.Matrix([",
+      "    sp.cos(theta/2),",
+      "    sp.exp(sp.I*phi) * sp.sin(theta/2)",
+      "])",
+      "",
+      "# Step 2: Define Pauli matrices and choose A = sigma_x, B = sigma_y",
+      "sigma_x = sp.Matrix([[0, 1], [1, 0]])",
+      "sigma_y = sp.Matrix([[0, -sp.I], [sp.I, 0]])",
+      "sigma_z = sp.Matrix([[1, 0], [0, -1]])",
+      "I2 = sp.eye(2)",
+      "",
+      "A = sigma_x",
+      "B = sigma_y",
+      "",
+      "# Check Hermiticity and squares A^2 = B^2 = I (used in derivation)",
+      "assert A.H == A",
+      "assert B.H == B",
+      "assert A**2 == I2",
+      "assert B**2 == I2",
+      "",
+      "# Step 3: Compute expectation values a0 = <A>, b0 = <B>",
+      "a0 = (psi.H * A * psi)[0]",
+      "b0 = (psi.H * B * psi)[0]",
+      "",
+      "a0_s = sp.simplify(a0)",
+      "b0_s = sp.simplify(b0)",
+      "",
+      "# Sanity check: expectations are real for Hermitian A,B on normalized psi",
+      "assert sp.simplify(a0_s - sp.conjugate(a0_s)) == 0",
+      "assert sp.simplify(b0_s - sp.conjugate(b0_s)) == 0",
+      "",
+      "# Step 4: Compute variances Delta A^2 and Delta B^2 via",
+      "# Delta A^2 = <(A - a0 I)^2> = <A^2> - 2 a0 <A> + a0^2 <I>",
+      "exp_A2 = (psi.H * (A**2) * psi)[0]",
+      "exp_B2 = (psi.H * (B**2) * psi)[0]",
+      "exp_I = (psi.H * I2 * psi)[0]",
+      "",
+      "DeltaA2 = sp.simplify(exp_A2 - 2*a0_s*a0_s + a0_s**2 * exp_I)",
+      "DeltaB2 = sp.simplify(exp_B2 - 2*b0_s*b0_s + b0_s**2 * exp_I)",
+      "",
+      "# For Pauli matrices A^2 = B^2 = I, so <A^2> = <B^2> = 1 and",
+      "# Delta A^2 = 1 - a0^2, Delta B^2 = 1 - b0^2.",
+      "DeltaA2_expected = sp.simplify(1 - a0_s**2)",
+      "DeltaB2_expected = sp.simplify(1 - b0_s**2)",
+      "",
+      "assert sp.simplify(DeltaA2 - DeltaA2_expected) == 0",
+      "assert sp.simplify(DeltaB2 - DeltaB2_expected) == 0",
+      "",
+      "# Step 5: Form commutator [A,B] and its expectation value",
+      "comm = A*B - B*A",
+      "comm_exp = sp.simplify((psi.H * comm * psi)[0])",
+      "",
+      "# For sigma_x, sigma_y one has [sigma_x, sigma_y] = 2 i sigma_z",
+      "comm_expected = sp.simplify(2*sp.I * (psi.H * sigma_z * psi)[0])",
+      "assert sp.simplify(comm_exp - comm_expected) == 0",
+      "",
+      "# Step 6: Compute LHS and RHS of Robertson inequality",
+      "lhs = sp.simplify(DeltaA2_expected * DeltaB2_expected)",
+      "rhs = sp.simplify((comm_exp * sp.conjugate(comm_exp)) / 4)",
+      "",
+      "# Verify that lhs - rhs simplifies to a manifestly non-negative expression",
+      "diff = sp.simplify(lhs - rhs)",
+      "",
+      "# Sympy yields diff = ((1 - cos(4 phi)) * (1 - cos(2 theta))^2) / 32",
+      "diff_expected = (1 - sp.cos(4*phi)) * (1 - sp.cos(2*theta))**2 / 32",
+      "",
+      "assert sp.simplify(diff - diff_expected) == 0",
+      "",
+      "# For real theta, phi we have 1 - cos(4 phi) >= 0 and (1 - cos(2 theta))^2 >= 0,",
+      "# hence diff >= 0 and thus",
+      "#   Delta A^2 Delta B^2 >= (1/4) |< [A,B] >|^2",
+      "# for this example, illustrating the Robertson relation.",
+      "",
+      "# Step 7: Specialization to canonical pair x, p_x.",
+      "# Symbolically check that inserting <[x,p_x]> = i hbar into the Robertson bound",
+      "# gives the standard Heisenberg inequality Delta x * Delta p_x >= hbar/2.",
+      "Dx, Dp, hbar = sp.symbols('Delta_x Delta_p_x hbar', positive=True, real=True)",
+      "",
+      "# Right-hand side from commutator expectation: (1/2) |< [x,p_x] >|",
+      "comm_xp = sp.I * hbar   # <[x,p_x]> = i hbar",
+      "rhs_xp = sp.simplify(sp.sqrt(comm_xp * sp.conjugate(comm_xp)) / 2)",
+      "",
+      "assert sp.simplify(rhs_xp - hbar/2) == 0",
+      "",
+      "# Encode the squared Heisenberg inequality:",
+      "#   (Delta x)^2 (Delta p_x)^2 >= (hbar^2)/4",
+      "lhs_xp = Dx**2 * Dp**2",
+      "rhs_xp_squared = (hbar**2) / 4",
+      "",
+      "# We cannot prove the inequality symbolically here, but we confirm the algebraic",
+      "# form of the lower bound.",
+      "expr_form = sp.simplify(rhs_xp_squared - (hbar**2)/4)",
+      "assert expr_form == 0",
+      "",
+      "print(\"Heisenberg / Robertson uncertainty checks passed.\")"
     ]
   },
   "domain": "quant-ph",
   "theory_status": "current",
+  "historical_context": {
+    "importance": "Expresses a fundamental limitation on the simultaneous sharpness of non-commuting observables, underpinning the operational meaning of quantum states and measurements and ruling out classical trajectory descriptions.",
+    "development_period": "1927–1930",
+    "key_insights": [
+      "Non-commuting observables cannot have arbitrarily sharp joint distributions.",
+      "Uncertainty arises from operator algebra and Hilbert-space structure, not from experimental disturbance alone.",
+      "Position–momentum uncertainty is a special case of a general commutator-based bound."
+    ]
+  },
   "references": [
     {
       "id": "R1",
-      "citation": "Heisenberg, W. (1927). 'Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.' Zeitschrift für Physik, 43, 172-198."
+      "citation": "Heisenberg, W. (1927). \"Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.\" Zeitschrift für Physik, 43, 172–198."
     },
     {
       "id": "R2",
-      "citation": "Griffiths, D. J. (2018). Introduction to Quantum Mechanics (3rd ed.). Cambridge University Press."
+      "citation": "Robertson, H. P. (1929). \"The Uncertainty Principle.\" Physical Review, 34(1), 163–164."
+    },
+    {
+      "id": "R3",
+      "citation": "Schrödinger, E. (1930). \"Zum Heisenbergschen Unschärfeprinzip.\" Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-mathematische Klasse, 296–303."
     }
   ],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft",
-  "depends_on": []
+  "review_status": "draft"
 }
