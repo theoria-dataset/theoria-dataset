@@ -1,6 +1,6 @@
 {
   "result_id": "schrodinger_equation",
-  "result_name": "Time-Dependent Schrödinger Equation",
+  "result_name": "Schrödinger Equation",
   "result_equations": [
     {
       "id": "eq1",
@@ -68,18 +68,19 @@
     },
     {
       "step": 3,
+      "assumptions": ["planck_de_broglie_relations"],
       "description": "Compute the time derivative of the plane wave and identify the action of the energy operator. Differentiating with respect to time gives `(partial psi)/(partial t) = -i*omega*psi`. Multiplying by `i*hbar` yields `i*hbar*(partial psi)/(partial t) = hbar*omega*psi = E*psi` using the Planck relation `E = hbar*omega`.",
       "equation": "(partial psi)/(partial t) = -i*omega*psi,   i*hbar*(partial psi)/(partial t) = E*psi"
     },
     {
       "step": 4,
-      "description": "Compute the spatial Laplacian of the plane wave to connect with kinetic energy. Using `|bbk|^2 = bbk cdot bbk`, one finds `nabla^2 psi = -|bbk|^2*psi`. Acting with the operator `-(hbar^2)/(2*m)*nabla^2` on psi then gives the same factor E as in the energy relation from step 2.",
+      "description": "Compute the spatial Laplacian of the plane wave to connect with kinetic energy. Using `|bbk|^2 = bbk cdot bbk`, one finds `nabla^2 psi = -|bbk|^2*psi`. Acting with the operator `-(hbar^2)/(2*m)*nabla^2` on `psi` then gives the same factor `E` as in the energy relation from step 2.",
       "equation": "nabla^2 psi = -|bbk|^2*psi,   -(hbar^2)/(2*m)*nabla^2 psi = (hbar^2*|bbk|^2)/(2*m)*psi = E*psi"
     },
     {
       "step": 5,
       "assumptions": ["quantum_superposition_linear_dynamics"],
-      "description": "Equate the two expressions for `E*psi` obtained in steps 3 and 4. This produces a local differential equation for the free-particle plane wave. Superpositions of plane-wave solutions are again solutions and the dynamics is linear in psi. Therefore the same differential equation must hold for an arbitrary free-particle wavefunction `psi(bbr,t)`, which can be expressed as a superposition of plane waves.",
+      "description": "Equate the two expressions for `E*psi` obtained in steps 3 and 4. This produces a local differential equation for the free-particle plane wave. Superpositions of plane-wave solutions are again solutions and the dynamics is linear in `psi`. Therefore the same differential equation must hold for an arbitrary free-particle wavefunction `psi(bbr,t)`, which can be expressed as a superposition of plane waves.",
       "equation": "i*hbar*(partial psi(bbr,t))/(partial t) = -(hbar^2)/(2*m)*nabla^2 psi(bbr,t)"
     },
     {
@@ -90,7 +91,7 @@
     },
     {
       "step": 7,
-      "description": "Promote the energy eigenvalue relation `E*psi = i*hbar*(partial psi)/(partial t)` from step 3 to an operator equation by replacing `E` with the Hamiltonian operator `hat H` from step 6. This yields the time-dependent Schrödinger equation for a particle in an external scalar potential `V(bbr,t)`.",
+      "description": "The relation in step 3 shows that the operator `i*hbar*(partial)/(partial t)` acts as the energy operator on energy eigenstates, while step 6 identifies the Hamiltonian operator `hat H` that represents the same energy observable via `hat H*psi = E*psi` with `hat H = -(hbar^2)/(2*m)*nabla^2 + V(bbr,t)`. Since both operators represent the same observable and agree on energy eigenstates, linearity and superposition imply they coincide as operators on the full Hilbert space, giving the time-dependent Schrödinger equation for arbitrary states in the potential `V(bbr,t)`.",
       "equation": "i*hbar*(partial psi(bbr,t))/(partial t) = hat H*psi(bbr,t) = (-(hbar^2)/(2*m)*nabla^2 + V(bbr,t))*psi(bbr,t)"
     }
   ],

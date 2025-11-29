@@ -4,19 +4,23 @@
   "result_equations": [
     {
       "id": "relativistic_energy",
-      "equation": "E = gamma*m*c^2"
+      "equation": "E = gamma*m*c^2",
+      "equation_title": "Relativistic Energy"
     },
     {
       "id": "relativistic_momentum",
-      "equation": "vec p = gamma*m*vec v"
+      "equation": "vec p = gamma*m*vec v",
+      "equation_title": "Relativistic Momentum"
     },
     {
       "id": "energy_momentum_relation",
-      "equation": "E^2 = (p*c)^2 + (m*c^2)^2"
+      "equation": "E^2 = (p*c)^2 + (m*c^2)^2",
+      "equation_title": "Energy-Momentum Relation"
     },
     {
       "id": "rest_energy",
-      "equation": "E_0 = m*c^2"
+      "equation": "E_0 = m*c^2",
+      "equation_title": "Mass-Energy Equivalence"
     },
     {
       "id": "lorentz_factor",
@@ -74,6 +78,7 @@
     },
     {
       "step": 2,
+      "equation_proven": "relativistic_momentum",
       "assumptions": ["light_speed_constant"],
       "description": "Define relativistic momentum to preserve conservation laws.",
       "equation": "vec p = gamma*m*vec v"
@@ -142,11 +147,13 @@
     },
     {
       "step": 15,
+      "equation_proven": "relativistic_energy",
       "description": "Final relativistic energy formula `E = gamma*m*c^2`.",
       "equation": "E = gamma*m*c^2"
     },
     {
       "step": 16,
+      "equation_proven": "rest_energy",
       "description": "Identify rest energy when velocity is zero.",
       "equation": "E_0 = m*c^2"
     },
@@ -182,6 +189,7 @@
     },
     {
       "step": 23,
+      "equation_proven": "energy_momentum_relation",
       "description": "Arrive at the fundamental energy-momentum-mass relation.",
       "equation": "E^2 - (p*c)^2 = m^2*c^4 = (m*c^2)^2"
     }

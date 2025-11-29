@@ -3,20 +3,24 @@
   "result_name": "Maxwell Equations",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "grad cdot bb E = rho/epsilon_0"
+      "id": "gauss_law_electric",
+      "equation": "grad cdot bb E = rho/epsilon_0",
+      "equation_title": "Gauss's Law (Differential Form)"
     },
     {
-      "id": "eq2",
-      "equation": "grad cdot bb B = 0"
+      "id": "gauss_law_magnetic",
+      "equation": "grad cdot bb B = 0",
+      "equation_title": "Gauss's Law for Magnetism"
     },
     {
-      "id": "eq3",
-      "equation": "grad times bb E = -(partial bb B)/(partial t)"
+      "id": "faraday_law",
+      "equation": "grad times bb E = -(partial bb B)/(partial t)",
+      "equation_title": "Faraday's Law of Induction (Differential Form)"
     },
     {
-      "id": "eq4",
-      "equation": "grad times bb B = mu_0 * bb J + epsilon_0*mu_0 * (partial bb E)/(partial t)"
+      "id": "ampere_maxwell_law",
+      "equation": "grad times bb B = mu_0 * bb J + epsilon_0*mu_0 * (partial bb E)/(partial t)",
+      "equation_title": "Ampère-Maxwell Law"
     }
   ],
   "explanation": "Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents. These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light. They are essential for understanding electromagnetic phenomena from radio waves to optics, and form the basis for electrical engineering and modern communications technology.",
@@ -93,6 +97,7 @@
     },
     {
       "step": 6,
+      "equation_proven": "gauss_law_electric",
       "description": "Equate integrands.",
       "equation": "grad * bbE = rho/epsilon_0"
     },
@@ -110,6 +115,7 @@
     },
     {
       "step": 9,
+      "equation_proven": "gauss_law_magnetic",
       "description": "Conclude `grad·bbB = 0`.",
       "equation": "grad * bbB = 0"
     },
@@ -132,6 +138,7 @@
     },
     {
       "step": 13,
+      "equation_proven": "faraday_law",
       "description": "Equate integrands.",
       "equation": "grad xx bbE = -(del bbB)/( del t)"
     },
@@ -160,6 +167,7 @@
     },
     {
       "step": 18,
+      "equation_proven": "ampere_maxwell_law",
       "description": "Equate integrands.",
       "equation": "grad xx bbB = mu_0*bbJ + epsilon_0*mu_0*(del bbE)/(del t)"
     }

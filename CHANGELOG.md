@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.7.0] - Multiple assumptions per derivation step, hbar fixes - 2025-01-19
 
+### Added
+
+- **Equation titles and proven badges**: New visual indicators for named equations and derivation milestones
+  - Added optional `equation_title` field to `result_equations` array in schema for human-readable equation names (e.g., "Gauss's Law (Differential Form)", "Faraday's Law of Induction")
+  - Added optional `equation_proven` field to derivation steps referencing the ID of the proven equation
+  - Equation titles now display inline with equations in the main results section
+  - Proven equation badges (✓ [Equation Name]) appear in derivation steps when an equation is proven
+  - Badge styling adapts to theme: light mode (black text, dark green border/checkmark #16a34a), dark mode (white text, light green border/checkmark #4ade80)
+  - Updated all 10 reviewed entries with descriptive equation IDs and titles (maxwell_equations, vis_viva, speed_of_light, special_relativity_transformations, relativistic_energy_momentum, noethers_theorem, least_action_principle, keplers_laws, born_rule, blackbody_radiation)
+  - Frontend rendering in `docs/script.js` (lines 526-585) and CSS styling in `docs/styles.css` (lines 1002-1049)
+
 ### Changed
 
 - **Breaking change**: Derivation step `assumption` field renamed to `assumptions` (array)

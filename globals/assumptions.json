@@ -33,7 +33,7 @@
     {
       "id": "classical_macroscopic_limit",
       "title": "Classical Macroscopic Limit",
-      "text": "For macroscopic bodies with de Broglie wavelength λ_(dB) << L, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.",
+      "text": "For macroscopic bodies with de Broglie wavelength `λ_(dB) < < L`, quantum effects such as interference and wave-particle duality are negligible and the motion can be described by classical trajectories.",
       "type": "approximation",
       "mathematical_expressions": ["lambda_(dB) < < L"],
       "symbol_definitions": [
