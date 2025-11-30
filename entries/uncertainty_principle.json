@@ -1,67 +1,63 @@
 {
-  "result_id": "heisenberg_uncertainty_principle",
-  "alt_ids": [
-    "heisenberg_uncertainty",
-    "robertson_schrodinger_uncertainty"
-  ],
-  "result_name": "Heisenberg Uncertainty Principle",
+  "result_id": "uncertainty_principle",
+  "result_name": "Uncertainty Principle",
   "result_equations": [
     {
       "id": "robertson_relation",
-      "equation": "Delta A * Delta B >= (1/2)*|(:psi:|[A,B]|:psi:)|",
+      "equation": "Delta A * Delta B >= 1/2*|(:psi:|[A,B]|:psi:)|",
       "equation_title": "Robertson Uncertainty Relation"
     },
     {
-      "id": "heisenberg_xp",
+      "id": "heisemberg_uncertainty_principle",
       "equation": "Delta x * Delta p_x >= hbar/2",
       "equation_title": "Heisenberg Position-Momentum Uncertainty"
     }
   ],
-  "explanation": "The Heisenberg uncertainty principle states that for any pair of non-commuting observables their statistical spreads (standard deviations) in a given quantum state cannot both be made arbitrarily small. The general Robertson relation ties the product Delta A * Delta B to the expectation value of their commutator, while the canonical position–momentum case gives Delta x * Delta p_x >= hbar/2. This expresses a structural limitation imposed by the quantum operator algebra rather than by experimental imperfections.",
+  "explanation": "The Heisenberg uncertainty principle states that for any pair of non-commuting observables their statistical spreads (standard deviations) in a given quantum state cannot both be made arbitrarily small. The general Robertson relation ties the product `Delta A * Delta B` to the expectation value of their commutator, while the canonical position-momentum case gives `Delta x * Delta p_x >= hbar/2`. This expresses a structural limitation imposed by the quantum operator algebra rather than by experimental imperfections.",
   "definitions": [
     {
       "symbol": "A",
-      "definition": "Self-adjoint operator representing observable A on the Hilbert space."
+      "definition": "Self-adjoint operator representing observable `A` on the Hilbert space."
     },
     {
       "symbol": "B",
-      "definition": "Self-adjoint operator representing observable B on the Hilbert space."
+      "definition": "Self-adjoint operator representing observable `B` on the Hilbert space."
     },
     {
-      "symbol": "|psi:)",
-      "definition": "Normalized state vector (pure state) in the Hilbert space H."
+      "symbol": "|:psi:)",
+      "definition": "Normalized state vector of a pure state in the Hilbert space `H`."
     },
     {
       "symbol": "Delta A",
-      "definition": "Standard deviation (root-mean-square uncertainty) of observable A in state |psi:)."
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable `A` in state `|:psi:)`."
     },
     {
       "symbol": "Delta B",
-      "definition": "Standard deviation (root-mean-square uncertainty) of observable B in state |psi:)."
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable `B` in state `|:psi:)`."
     },
     {
       "symbol": "[A,B]",
-      "definition": "Commutator of A and B, defined by [A,B] = A*B - B*A."
+      "definition": "Commutator of `A` and `B`, defined by `[A,B] = A*B - B*A`."
     },
     {
       "symbol": "x",
-      "definition": "Position operator (here taken along one spatial dimension)."
+      "definition": "Position operator, taken along one spatial dimension."
     },
     {
       "symbol": "p_x",
-      "definition": "Momentum operator conjugate to x."
+      "definition": "Momentum operator conjugate to `x`."
     },
     {
       "symbol": "Delta x",
-      "definition": "Standard deviation of the position observable x in state |psi:)."
+      "definition": "Standard deviation of the position observable `x` in state `|:psi:)`."
     },
     {
       "symbol": "Delta p_x",
-      "definition": "Standard deviation of the momentum observable p_x in state |psi:)."
+      "definition": "Standard deviation of the momentum observable `p_x` in state `|:psi:)`."
     },
     {
       "symbol": "hbar",
-      "definition": "Reduced Planck constant, hbar = h/(2*pi)."
+      "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
     }
   ],
   "assumptions": [
@@ -79,7 +75,7 @@
         "hilbert_space_probability_structure",
         "quantum_observables_selfadjoint_operators"
       ],
-      "description": "Consider a normalized state |psi:) in a complex Hilbert space H and two observables represented by self-adjoint operators A and B. Define their expectation values in this state as the real numbers a_0 = (:psi:|A|psi:) and b_0 = (:psi:|B|psi:).",
+      "description": "Consider a normalized state `|:psi:)` in a complex Hilbert space `H` and two observables represented by self-adjoint operators A and B. Define their expectation values in this state as the real numbers a_0 = (:psi:|A|psi:) and b_0 = (:psi:|B|psi:).",
       "equation": "a_0 = (:psi:|A|psi:);  b_0 = (:psi:|B|psi:)"
     },
     {
@@ -145,7 +141,7 @@
       "step": 13,
       "description": "Insert the canonical commutator into the Robertson relation. The modulus of i*hbar is simply hbar, so the lower bound on the product of uncertainties becomes state-independent and equal to hbar/2.",
       "equation": "Delta x * Delta p_x >= (1/2)*|(:psi:|[x,p_x]|psi:)| = (1/2)*|i*hbar| = hbar/2",
-      "equation_proven": "heisenberg_xp"
+      "equation_proven": "heisemberg_uncertainty_principle"
     }
   ],
   "programmatic_verification": {

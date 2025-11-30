@@ -242,7 +242,7 @@ function renderPrerequisites(data) {
       if (resolved.type === 'global') {
         // Display title prominently, then text
         const textFixed = resolved.text.replace(/\bhbar\b/g, "ℏ");
-        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong>: ${textFixed}`;
+        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong><br>${textFixed}`;
         tooltip = `Assumption type: ${resolved.assumptionType}`;
 
         // Add mathematical expressions on new lines if available
@@ -495,7 +495,7 @@ function render(data) {
   }
   titleElement.insertAdjacentElement('afterend', editButton);
   
-  $("explanation").innerHTML = data.explanation;
+  $("explanation").innerHTML = data.explanation.replace(/\bhbar\b/g, "ℏ");
   // Show all sections and their headings
   [
     "equations",
