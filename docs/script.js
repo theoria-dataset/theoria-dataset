@@ -8,110 +8,18 @@ function formatLongEquation(equation) {
   // Replace hbar with Unicode ℏ for correct rendering
   equation = equation.replace(/\bhbar\b/g, "ℏ");
 
-  // If equation is short enough, return as is
-  if (equation.length <= 80) {
-    return `\`${equation}\``;
-  }
-  
-  // Define break points in order of preference
-  const breakPatterns = [
-    /(\s*=\s*)/g,           // Equals signs (highest priority)
-    /(\s*\+\s*)/g,          // Plus signs
-    /(\s*-\s*)/g,           // Minus signs (but be careful with negative numbers)
-    /(\s*\*\s*)/g,          // Multiplication
-    /(\s*\/\s*)/g,          // Division
-    /(\s*\^\s*)/g,          // Exponentiation
-    /(\s*,\s*)/g,           // Commas (for function arguments)
-    /(\s*;\s*)/g,           // Semicolons
-    /(\s+and\s+)/g,         // Logical AND
-    /(\s+or\s+)/g,          // Logical OR
-    /(\s*\|\s*)/g,          // Pipes (for conditions)
-    /(\s*&\s*)/g,           // Ampersands
-  ];
-  
-  // Try each break pattern until we find one that works
-  for (const pattern of breakPatterns) {
-    const parts = equation.split(pattern);
-    
-    if (parts.length > 1) {
-      const lines = groupPartsIntoLines(parts);
-      if (lines.length > 1) {
-        return lines.map(line => `\`${line}\``).join('<br>');
-      }
-    }
-  }
-  
-  // If no good break points found, try breaking at parentheses or brackets
-  const parenParts = equation.split(/(\s*[\(\)\[\]]\s*)/);
-  if (parenParts.length > 1) {
-    const lines = groupPartsIntoLines(parenParts);
-    if (lines.length > 1) {
-      return lines.map(line => `\`${line}\``).join('<br>');
-    }
-  }
-  
-  // Last resort: break at word boundaries
-  const words = equation.split(/(\s+)/);
-  if (words.length > 1) {
-    const lines = groupWordsIntoLines(words, 80);
-    if (lines.length > 1) {
-      return lines.map(line => `\`${line}\``).join('<br>');
-    }
-  }
-  
-  // If all else fails, return original
-  return `\`${equation}\``;
-}
+  // Split at semicolons only, treating them as equation delimiters
+  const parts = equation.split(';')
+    .map(part => part.trim())  // Remove whitespace
+    .filter(part => part.length > 0);  // Remove empty parts
 
-// Helper function to group parts into lines with reasonable length
-function groupPartsIntoLines(parts) {
-  const lines = [];
-  let currentLine = parts[0] || '';
-  
-  for (let i = 1; i < parts.length; i += 2) {
-    const separator = parts[i] || '';
-    const nextPart = parts[i + 1] || '';
-    
-    // Check if adding the next part would make line too long
-    if (currentLine.length + separator.length + nextPart.length > 80) {
-      // Start new line
-      if (currentLine.trim()) {
-        lines.push(currentLine.trim());
-      }
-      currentLine = separator + nextPart;
-    } else {
-      // Add to current line
-      currentLine += separator + nextPart;
-    }
+  // If single equation, return as-is
+  if (parts.length === 1) {
+    return `\`${parts[0]}\``;
   }
-  
-  // Add the last line
-  if (currentLine.trim()) {
-    lines.push(currentLine.trim());
-  }
-  
-  return lines;
-}
 
-// Helper function to group words into lines
-function groupWordsIntoLines(words, maxLength) {
-  const lines = [];
-  let currentLine = '';
-  
-  for (const word of words) {
-    if (currentLine.length + word.length > maxLength && currentLine.trim()) {
-      lines.push(currentLine.trim());
-      currentLine = word;
-    } else {
-      currentLine += word;
-    }
-  }
-  
-  if (currentLine.trim()) {
-    lines.push(currentLine.trim());
-  }
-  
-  return lines;
+  // Multiple equations: render each on separate line
+  return parts.map(part => `\`${part}\``).join('<br>');
 }
 
 // View toggling
@@ -242,7 +150,7 @@ function renderPrerequisites(data) {
       if (resolved.type === 'global') {
         // Display title prominently, then text
         const textFixed = resolved.text.replace(/\bhbar\b/g, "ℏ");
-        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong>: ${textFixed}`;
+        displayText = `<strong class="assumption-title" id="assumption-${resolved.id}">${resolved.title}</strong><br>${textFixed}`;
         tooltip = `Assumption type: ${resolved.assumptionType}`;
 
         // Add mathematical expressions on new lines if available
@@ -495,7 +403,7 @@ function render(data) {
   }
   titleElement.insertAdjacentElement('afterend', editButton);
   
-  $("explanation").innerHTML = data.explanation;
+  $("explanation").innerHTML = data.explanation.replace(/\bhbar\b/g, "ℏ");
   // Show all sections and their headings
   [
     "equations",

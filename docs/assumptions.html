@@ -22,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 27 Assumptions • Version 0.7.1</p>
+      <p class="subtitle">Browse All 29 Assumptions • Version 0.7.2</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,7 +51,7 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (11)</a>
+                <a href="#principle" class="nav-link">Principles (13)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
         <a href="#approximation" class="nav-link">Approximations (9)</a>
       </div>
@@ -64,6 +64,31 @@
       <h2 class="domain-title">Principles</h2>
       <div class="entry-grid">
         
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Canonical Commutation Relations
+      </h3>
+      <p class="entry-description">Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*ℏ*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `ℏ`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`[q_i, p_j] = i*ℏ*delta_(ij)`</div>
+            <div class="assumption-math">`[q_i, q_j] = 0`</div>
+            <div class="assumption-math">`[p_i, p_j] = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`q_i`</strong>: Generalized coordinate operator for the `i`-th degree of freedom.</div>
+            <div class="assumption-symbol-def"><strong>`p_i`</strong>: Momentum operator canonically conjugate to `q_i`.</div>
+            <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant, `ℏ = h/(2*pi)`.</div>
+            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise).</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
     <div class="entry-card assumption-card assumption-principle">
       <h3 class="entry-title">
         Classical Electromagnetism Framework
@@ -175,7 +200,7 @@
       <h3 class="entry-title">
         Hilbert Space Probability Structure
       </h3>
-      <p class="entry-description">Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu`</p>
+      <p class="entry-description">Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu` mapping projectors to real numbers in `[0,1]`.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
           <div class="assumption-math">`P^2 = P = P^ast`</div>
@@ -188,7 +213,7 @@
             <div class="assumption-symbol-def"><strong>`mu`</strong>: Probability measure mapping projectors to real numbers in `[0,1]`</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>, <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -226,6 +251,28 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Quantum Observables as Self-Adjoint Operators
+      </h3>
+      <p class="entry-description">Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`a_0 = (:psi:|A|:psi:)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`A`</strong>: Self-adjoint operator representing a physical observable.</div>
+            <div class="assumption-symbol-def"><strong>`|:psi:)`</strong>: Normalized state vector in the quantum Hilbert space.</div>
+            <div class="assumption-symbol-def"><strong>`a_0`</strong>: Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>

@@ -1,0 +1,354 @@
+{
+  "result_id": "uncertainty_principle",
+  "result_name": "Uncertainty Principle",
+  "result_equations": [
+    {
+      "id": "robertson_relation",
+      "equation": "Delta A * Delta B >= 1/2*|(:psi:|[A,B]|:psi:)|",
+      "equation_title": "Robertson Uncertainty Relation"
+    },
+    {
+      "id": "heisenberg_canonical_pair",
+      "equation": "Delta q_i * Delta p_i >= hbar/2",
+      "equation_title": "Heisenberg Uncertainty for a Canonical Pair"
+    }
+  ],
+  "explanation": "The Heisenberg uncertainty principle states that for any pair of non-commuting observables their statistical spreads (standard deviations) `Delta A` and `Delta B` in a given quantum state cannot both be made arbitrarily small. The general Robertson relation ties the product `Delta A * Delta B` to the expectation value of their commutator, while canonical coordinate-momentum pairs `(q_i, p_i)` satisfy `Delta q_i * Delta p_i >= hbar/2`. For a single spatial coordinate `x` and its conjugate momentum `p_x` this reduces to the familiar `Delta x * Delta p_x >= hbar/2`. The limitation comes from the non-commuting operator algebra rather than experimental imperfections.",
+  "definitions": [
+    {
+      "symbol": "A",
+      "definition": "Self-adjoint operator representing observable `A` on the Hilbert space."
+    },
+    {
+      "symbol": "B",
+      "definition": "Self-adjoint operator representing observable `B` on the Hilbert space."
+    },
+    {
+      "symbol": "|:psi:)",
+      "definition": "Normalized state vector (pure state) `|psi:)` in the Hilbert space `H`."
+    },
+    {
+      "symbol": "Delta A",
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable `A` in state `|psi:)`."
+    },
+    {
+      "symbol": "Delta B",
+      "definition": "Standard deviation (root-mean-square uncertainty) of observable `B` in state `|psi:)`."
+    },
+    {
+      "symbol": "[A,B]",
+      "definition": "Commutator of `A` and `B`, defined by `[A,B] = A*B - B*A`."
+    },
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinate operator for the `i`-th canonical degree of freedom."
+    },
+    {
+      "symbol": "p_i",
+      "definition": "Momentum operator canonically conjugate to `q_i`."
+    },
+    {
+      "symbol": "Delta q_i",
+      "definition": "Standard deviation of the canonical coordinate `q_i` in state `|psi:)`."
+    },
+    {
+      "symbol": "Delta p_i",
+      "definition": "Standard deviation of the canonical momentum `p_i` in state `|psi:)`."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
+    }
+  ],
+  "assumptions": [
+    "hilbert_space_probability_structure",
+    "quantum_observables_selfadjoint_operators",
+    "canonical_commutation_relations"
+  ],
+  "depends_on": ["born_rule"],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": [
+        "hilbert_space_probability_structure",
+        "quantum_observables_selfadjoint_operators"
+      ],
+      "description": "Consider a normalized state `|:psi:)` in a complex Hilbert space `H` and two observables represented by self-adjoint operators `A` and `B`. The associated expectation values in this state are the real numbers `a_0 = (:psi:|A|:psi:)` and `b_0 = (:psi:|B|:psi:)`.",
+      "equation": "a_0 = (:psi:|A|:psi:);  b_0 = (:psi:|B|:psi:)"
+    },
+    {
+      "step": 2,
+      "assumptions": [
+        "hilbert_space_probability_structure",
+        "quantum_observables_selfadjoint_operators",
+        "born_rule"
+      ],
+      "description": "Use the Born rule to assign probabilities to the measurement outcomes of `A`. If the spectral decomposition of `A` is `A = sum_k a_k P_k`, with spectral projectors `P_k`, then the probability of obtaining outcome `a_k` in state `|:psi:)` is `p_k = (:psi:|P_k|:psi:)`.",
+      "equation": "A = sum_k a_k P_k;  p_k = (:psi:|P_k|:psi:)"
+    },
+    {
+      "step": 3,
+      "assumptions": ["born_rule"],
+      "description": "Define the statistical variance of the outcomes of `A` in state `|:psi:)` in the usual probabilistic way, as the average of the squared deviation from the mean `a_0`. This gives `Delta A^2 = sum_k (a_k - a_0)^2 p_k`. An entirely analogous construction, using the spectral decomposition of `B`, gives `Delta B^2` for the observable `B`.",
+      "equation": "Delta A^2 = sum_k (a_k - a_0)^2 p_k"
+    },
+    {
+      "step": 4,
+      "assumptions": ["quantum_observables_selfadjoint_operators"],
+      "description": "Rewrite the variance of `A` in operator form. Using the spectral decomposition, one has `(A - a_0*I)^2 = sum_k (a_k - a_0)^2 P_k`, so taking the expectation value in `|:psi:)` yields `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)`. The same reasoning leads to `Delta B^2 = (:psi:|(B - b_0)^2|:psi:)` for `B`.",
+      "equation": "Delta A^2 = (:psi:|(A - a_0)^2|:psi:);  Delta B^2 = (:psi:|(B - b_0)^2|:psi:)"
+    },
+    {
+      "step": 5,
+      "description": "Introduce the centered (fluctuation) operators `A' = A - a_0*I` and `B' = B - b_0*I`, where `I` is the identity. In terms of these operators, the variances are `Delta A^2 = (:psi:|A'^2|:psi:)` and `Delta B^2 = (:psi:|B'^2|:psi:)`.",
+      "equation": "A' = A - a_0*I;  B' = B - b_0*I;  (Delta A)^2 = (:psi:|A'^2|:psi:);  (Delta B)^2 = (:psi:|B'^2|:psi:)"
+    },
+    {
+      "step": 6,
+      "description": "Define two vectors in `H` by acting with the centered operators on the state: `|:alpha:) = A'|:psi:)` and `|:beta:) = B'|:psi:)`. Their squared norms are exactly the variances, so `Delta A^2 = (:alpha:|:alpha:)` and `Delta B^2 = (:beta:|:beta:)`.",
+      "equation": "|:alpha:) = A'|:psi:);  |:beta:) = B'|:psi:);  (Delta A)^2 = (:alpha:|:alpha:);  (Delta B)^2 = (:beta:|:beta:)"
+    },
+    {
+      "step": 7,
+      "description": "Apply the Cauchy-Schwarz inequality in the Hilbert space to the pair of vectors `|:alpha:)` and `|:beta:)`. It states that the modulus of their inner product cannot exceed the product of their norms.",
+      "equation": "|(:alpha:|:beta:)|^2 <= (:alpha:|:alpha:)*(:beta:|:beta:) = (Delta A)^2*(Delta B)^2"
+    },
+    {
+      "step": 8,
+      "description": "Express the inner product `(:alpha:|:beta:)` in terms of operators and the original state. Using the definitions of `|:alpha:)` and `|:beta:)`, this inner product becomes an expectation value of a product of the centered operators.",
+      "equation": "(:alpha:|:beta:) = (:psi:|A' B'|:psi:)"
+    },
+    {
+      "step": 9,
+      "description": "Decompose the product `A' B'` into its Hermitian (anticommutator) and anti-Hermitian (commutator) parts. Define the anticommutator `{A',B'} = A'*B' + B'*A'` and the commutator `[A',B'] = A'*B' - B'*A'`.",
+      "equation": "{A',B'} = A'*B' + B'*A';  [A',B'] = A'*B' - B'*A' =>  A'*B' = 1/2*{A',B'} + 1/2*[A',B']"
+    },
+    {
+      "step": 10,
+      "description": "Insert the decomposition of `A' B'` into the expectation value. The anticommutator `{A',B'}` is Hermitian, so its expectation value is real. The commutator `[A',B']` is anti-Hermitian, so its expectation value is purely imaginary. Therefore, if `z = (:alpha:|:beta:)`, its real part comes from the anticommutator term and its imaginary part comes from the commutator term.",
+      "equation": "z = (:alpha:|:beta:) = 1/2*(:psi:|{A',B'}|:psi:) + 1/2*(:psi:|[A',B']|:psi:);  Re(z) = 1/2*(:psi:|{A',B'}|:psi:);  Im(z) = 1/(2*i)*(:psi:|[A',B']|:psi:)"
+    },
+    {
+      "step": 11,
+      "description": "Show that the commutator of the centered operators equals the commutator of the original observables. Subtracting the scalar expectation values does not change the commutator because any multiple of the identity commutes with all operators.",
+      "equation": "[A',B'] = [A - a_0*I, B - b_0*I] = [A,B] - a_0[I,B] - b_0[A,I] + a_0*b_0[I,I] = [A,B]"
+    },
+    {
+      "step": 12,
+      "description": "Use the previous step to express the imaginary part of `z` in terms of the commutator of `A` and `B` themselves. The expectation value of the commutator in the state `|:psi:)` determines the imaginary part of `(:alpha:|:beta:)`.",
+      "equation": "Im(z) = 1/(2*i)*(:psi:|[A,B]|:psi:)"
+    },
+    {
+      "step": 13,
+      "description": "Relate the modulus of `z` to its real and imaginary parts. For any complex number `z`, one has `|z|^2 = (Re(z))^2 + (Im(z))^2 >= (Im(z))^2`. Combining this with the Cauchy-Schwarz bound from step 7 gives a lower bound on the product of variances in terms of the imaginary part of `z`, and thus the commutator.",
+      "equation": "(Delta A)^2*(Delta B)^2 >= |z|^2 >= (Im(z))^2 = 1/4*|(:psi:|[A,B]|:psi:)|^2"
+    },
+    {
+      "step": 14,
+      "description": "Take square roots of the non-negative quantities on both sides of the inequality in step 13. This yields the Robertson uncertainty relation for the product of standard deviations of two observables in an arbitrary normalized state.",
+      "equation": "Delta A * Delta B >= 1/2*|(:psi:|[A,B]|:psi:)|",
+      "equation_proven": "robertson_relation"
+    },
+    {
+      "step": 15,
+      "assumptions": ["canonical_commutation_relations"],
+      "description": "Specialize to a canonical pair by taking `A = q_i` and `B = p_i`, where `(q_i, p_i)` is one of the canonical coordinate-momentum pairs. The canonical commutation relations state that their commutator is `[q_i, p_i] = i*hbar*I`, so its expectation value in any normalized state is `(:psi:|[q_i, p_i]|:psi:) = i*hbar`. Inserting this into the Robertson relation gives `Delta q_i * Delta p_i >= (1/2)*|i*hbar| = hbar/2`. For a single spatial coordinate `x` and its conjugate momentum `p_x` this yields the familiar `Delta x * Delta p_x >= hbar/2`.",
+      "equation": "Delta q_i * Delta p_i >= 1/2*|(:psi:|[q_i, p_i]|:psi:)| = 1/2*|i*hbar| = hbar/2",
+      "equation_proven": "heisenberg_canonical_pair"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# ============================================================",
+      "# Programmatic verification for Heisenberg uncertainty entry",
+      "# We mirror the conceptual derivation steps 1-15 using a",
+      "# concrete 2D example with A = sigma_x, B = sigma_y.",
+      "# ============================================================",
+      "",
+      "# Step 0: symbols and generic normalized qubit state |:psi:)",
+      "theta, phi = sp.symbols('theta phi', real=True)",
+      "psi = sp.Matrix([",
+      "    sp.cos(theta/2),",
+      "    sp.exp(sp.I*phi) * sp.sin(theta/2)",
+      "])",
+      "",
+      "# Step 0b: Pauli matrices and identity (Hermitian test case for A, B)",
+      "sigma_x = sp.Matrix([[0, 1], [1, 0]])",
+      "sigma_y = sp.Matrix([[0, -sp.I], [sp.I, 0]])",
+      "sigma_z = sp.Matrix([[1, 0], [0, -1]])",
+      "I2 = sp.eye(2)",
+      "A = sigma_x",
+      "B = sigma_y",
+      "",
+      "# Sanity check: A and B are Hermitian and squares are identity",
+      "assert A.H == A",
+      "assert B.H == B",
+      "assert A**2 == I2",
+      "assert B**2 == I2",
+      "",
+      "# ------------------------------------------------------------",
+      "# Step 1 (derivation step 1): expectation values a_0, b_0",
+      "# ------------------------------------------------------------",
+      "a0 = (psi.H * A * psi)[0]",
+      "b0 = (psi.H * B * psi)[0]",
+      "a0_s = sp.simplify(a0)",
+      "b0_s = sp.simplify(b0)",
+      "",
+      "# Check that <A> and <B> are real for real theta, phi",
+      "assert sp.simplify(a0_s - sp.conjugate(a0_s)) == 0",
+      "assert sp.simplify(b0_s - sp.conjugate(b0_s)) == 0",
+      "",
+      "# ------------------------------------------------------------",
+      "# Steps 2-4 (derivation): variances and operator form",
+      "# Here we use that for Pauli matrices A^2 = B^2 = I, so",
+      "#   DeltaA^2 = 1 - a_0^2,  DeltaB^2 = 1 - b_0^2,",
+      "# which matches the operator expression DeltaA^2 = <(A - a_0 I)^2>.",
+      "# ------------------------------------------------------------",
+      "DeltaA2 = sp.simplify(1 - a0_s**2)",
+      "DeltaB2 = sp.simplify(1 - b0_s**2)",
+      "",
+      "# Compute the same variances directly from the centered operators",
+      "A_prime = A - a0_s * I2",
+      "B_prime = B - b0_s * I2",
+      "DeltaA2_from_op = sp.trigsimp(sp.simplify((psi.H * (A_prime**2) * psi)[0]))",
+      "DeltaB2_from_op = sp.trigsimp(sp.simplify((psi.H * (B_prime**2) * psi)[0]))",
+      "",
+      "# Check that the operator expression reproduces the same variances",
+      "assert sp.simplify(sp.expand(DeltaA2_from_op - DeltaA2, complex=True)) == 0",
+      "assert sp.simplify(sp.expand(DeltaB2_from_op - DeltaB2, complex=True)) == 0",
+      "",
+      "# ------------------------------------------------------------",
+      "# Steps 5-6 (derivation): define |:alpha:), |:beta:) and norms",
+      "# ------------------------------------------------------------",
+      "alpha = A_prime * psi   # |:alpha:) = A'|:psi:)",
+      "beta  = B_prime * psi   # |:beta:)  = B'|:psi:)",
+      "",
+      "DeltaA2_from_alpha = sp.simplify((alpha.H * alpha)[0])",
+      "DeltaB2_from_beta  = sp.simplify((beta.H * beta)[0])",
+      "",
+      "# Check ||alpha||^2 = DeltaA^2 and ||beta||^2 = DeltaB^2",
+      "assert sp.simplify(sp.expand(DeltaA2_from_alpha - DeltaA2, complex=True)) == 0",
+      "assert sp.simplify(sp.expand(DeltaB2_from_beta  - DeltaB2, complex=True)) == 0",
+      "",
+      "# ------------------------------------------------------------",
+      "# Step 7 (derivation): Cauchy-Schwarz inequality",
+      "# |<:alpha:|:beta:>|^2 <= ||alpha||^2 ||beta||^2",
+      "# ------------------------------------------------------------",
+      "z = (alpha.H * beta)[0]   # z = (:alpha:|:beta:)",
+      "",
+      "lhs_cs = sp.simplify(DeltaA2 * DeltaB2)",
+      "rhs_cs = sp.simplify(z * sp.conjugate(z))",
+      "diff_cs = sp.simplify(lhs_cs - rhs_cs)",
+      "",
+      "# The Cauchy-Schwarz inequality is satisfied (diff_cs >= 0)",
+      "# Verify non-negativity numerically at test points",
+      "for theta_val in [0, sp.pi/6, sp.pi/4, sp.pi/3, sp.pi/2]:",
+      "    for phi_val in [0, sp.pi/6, sp.pi/4, sp.pi/3, sp.pi/2]:",
+      "        val = complex(diff_cs.subs({theta: theta_val, phi: phi_val}))",
+      "        assert val.real >= -1e-10  # Allow small numerical error",
+      "        assert abs(val.imag) < 1e-10  # Should be real",
+      "",
+      "# ------------------------------------------------------------",
+      "# Steps 8-10 (derivation): anticommutator and commutator",
+      "# A' B' = 1/2 {A', B'} + 1/2 [A', B'] and decomposition of z",
+      "# ------------------------------------------------------------",
+      "anticom = A_prime * B_prime + B_prime * A_prime    # {A',B'}",
+      "comm   = A_prime * B_prime - B_prime * A_prime    # [A',B']",
+      "",
+      "# Rebuild z from anticommutator + commutator pieces",
+      "z_from_anticom_comm = sp.simplify(",
+      "    sp.Rational(1, 2) * (psi.H * anticom * psi)[0]",
+      "    + sp.Rational(1, 2) * (psi.H * comm * psi)[0]",
+      ")",
+      "assert sp.simplify(sp.expand(z_from_anticom_comm - z, complex=True)) == 0",
+      "",
+      "# Real and imaginary parts from anticommutator and commutator",
+      "Re_z = sp.simplify(sp.re(z))",
+      "Im_z = sp.simplify(sp.im(z))",
+      "",
+      "Re_z_from_anticom = sp.simplify(sp.Rational(1, 2) * (psi.H * anticom * psi)[0])",
+      "Im_z_from_comm    = sp.simplify((psi.H * comm * psi)[0] / (2*sp.I))",
+      "",
+      "assert sp.simplify(sp.expand(Re_z - Re_z_from_anticom, complex=True)) == 0",
+      "assert sp.simplify(sp.expand(Im_z - Im_z_from_comm, complex=True)) == 0",
+      "",
+      "# ------------------------------------------------------------",
+      "# Step 11 (derivation): [A', B'] = [A, B]",
+      "# ------------------------------------------------------------",
+      "comm_Ap_Bp = A_prime * B_prime - B_prime * A_prime",
+      "comm_A_B   = A * B - B * A",
+      "assert sp.simplify(comm_Ap_Bp - comm_A_B) == sp.zeros(2, 2)",
+      "",
+      "# ------------------------------------------------------------",
+      "# Steps 12-13 (derivation): Robertson inequality",
+      "# (DeltaA)^2 (DeltaB)^2 >= (1/4) |< [A,B] >|^2",
+      "# ------------------------------------------------------------",
+      "comm_exp = sp.simplify((psi.H * comm_A_B * psi)[0])",
+      "",
+      "lhs_uncert = sp.simplify(DeltaA2 * DeltaB2)",
+      "rhs_uncert = sp.simplify((comm_exp * sp.conjugate(comm_exp)) / 4)",
+      "diff_uncert = sp.simplify(lhs_uncert - rhs_uncert)",
+      "",
+      "# The Robertson inequality is satisfied (diff_uncert >= 0)",
+      "# Verify non-negativity numerically at test points",
+      "for theta_val in [0, sp.pi/6, sp.pi/4, sp.pi/3, sp.pi/2]:",
+      "    for phi_val in [0, sp.pi/6, sp.pi/4, sp.pi/3, sp.pi/2]:",
+      "        val = complex(diff_uncert.subs({theta: theta_val, phi: phi_val}))",
+      "        assert val.real >= -1e-10  # Allow small numerical error",
+      "        assert abs(val.imag) < 1e-10  # Should be real",
+      "",
+      "# ------------------------------------------------------------",
+      "# Steps 14-15 (derivation): abstract canonical pair (q_i, p_i)",
+      "# and Heisenberg bound Delta q_i Delta p_i >= hbar / 2",
+      "# ------------------------------------------------------------",
+      "Dq, Dp, hbar = sp.symbols('Delta_q Delta_p hbar', positive=True, real=True)",
+      "",
+      "# Canonical commutation relations imply <[q_i, p_i]> = i hbar in any state",
+      "comm_qp_expect = sp.I * hbar",
+      "",
+      "# Robertson bound for this pair: Delta q_i Delta p_i >= (1/2) |< [q_i, p_i] >|",
+      "rhs_canonical = sp.simplify(sp.sqrt(comm_qp_expect * sp.conjugate(comm_qp_expect)) / 2)",
+      "",
+      "# Check the algebraic form of the lower bound: |i hbar| / 2 = hbar / 2",
+      "assert sp.simplify(rhs_canonical - hbar/2) == 0",
+      "",
+      "print('Programmatic checks for the Heisenberg uncertainty derivation completed successfully.')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "States that there are intrinsic limits on how precisely certain quantities can be known at the same time, and explains why quantum systems cannot be described by definite classical trajectories.",
+    "development_period": "1927-1930",
+    "key_insights": [
+      "If two observables do not commute, you can never prepare a state where both are arbitrarily sharp at once.",
+      "The uncertainty is built into the quantum operator structure itself, rather than being just a side effect of noisy or disturbing measurements.",
+      "The familiar position-momentum relation is one example of a general uncertainty bound that holds for any canonical pair."
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Heisenberg, W. (1927). \"Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.\" Zeitschrift für Physik, 43, 172-198."
+    },
+    {
+      "id": "R2",
+      "citation": "Robertson, H. P. (1929). \"The Uncertainty Principle.\" Physical Review, 34(1), 163-164."
+    },
+    {
+      "id": "R3",
+      "citation": "Schrödinger, E. (1930). \"Zum Heisenbergschen Unschärfeprinzip.\" Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-mathematische Klasse, 296-303."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

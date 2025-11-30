@@ -217,7 +217,7 @@
     {
       "id": "hilbert_space_probability_structure",
       "title": "Hilbert Space Probability Structure",
-      "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu`",
+      "text": "Quantum measurement outcomes correspond to orthogonal projection operators (projectors) on a complex Hilbert space `H`, where projectors are self-adjoint operators satisfying `P^2 = P = P^ast`. Probabilities can be assigned to these projectors via a probability measure `mu` mapping projectors to real numbers in `[0,1]`.",
       "type": "principle",
       "mathematical_expressions": ["P^2 = P = P^ast", "mu: {P} -> [0,1]"],
       "symbol_definitions": [
@@ -234,7 +234,7 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule", "schrodinger_equation"]
+      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle"]
     },
     {
       "id": "gleason_theorem_conditions",
@@ -498,6 +498,58 @@
         }
       ],
       "used_in": ["schrodinger_equation"]
+    },
+    {
+      "id": "quantum_observables_selfadjoint_operators",
+      "title": "Quantum Observables as Self-Adjoint Operators",
+      "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.",
+      "type": "principle",
+      "mathematical_expressions": ["a_0 = (:psi:|A|:psi:)"],
+      "symbol_definitions": [
+        {
+          "symbol": "A",
+          "definition": "Self-adjoint operator representing a physical observable."
+        },
+        {
+          "symbol": "|:psi:)",
+          "definition": "Normalized state vector in the quantum Hilbert space."
+        },
+        {
+          "symbol": "a_0",
+          "definition": "Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
+    },
+    {
+      "id": "canonical_commutation_relations",
+      "title": "Canonical Commutation Relations",
+      "text": "Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*hbar*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `hbar`.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "[q_i, p_j] = i*hbar*delta_(ij)",
+        "[q_i, q_j] = 0",
+        "[p_i, p_j] = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "q_i",
+          "definition": "Generalized coordinate operator for the `i`-th degree of freedom."
+        },
+        {
+          "symbol": "p_i",
+          "definition": "Momentum operator canonically conjugate to `q_i`."
+        },
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
+        },
+        {
+          "symbol": "delta_(ij)",
+          "definition": "Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise)."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
     }
   ]
 }

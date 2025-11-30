@@ -5,6 +5,25 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.2] - Uncertainty principle review and equation rendering improvements - 2025-01-31
+
+### Added
+
+- New global assumptions for quantum mechanics:
+  - `hilbert_space_probability_structure` (principle): Complex Hilbert space structure with inner product and probability interpretation
+  - `quantum_observables_selfadjoint_operators` (principle): Observables as self-adjoint operators with spectral decomposition
+  - `cauchy_schwarz_inequality` (principle): Cauchy-Schwarz inequality for inner products in Hilbert spaces
+
+### Changed
+
+- **Uncertainty principle entry**: Reviewed and promoted to reviewed status
+- **Equation rendering**: Simplified equation line-breaking in entries.html
+  - Removed automatic smart breaking at operators (=, +, -, etc.) which often created awkward visual breaks
+  - Equations now only break at semicolons (;) which serve as explicit delimiters between separate equations
+  - Semicolons are removed from display after splitting
+  - Single equations without semicolons render on one line regardless of length
+  - Preserves mathematical notation integrity (commas in commutators, function arguments, etc.)
+
 ## [0.7.1] - Schrödinger equation review and UI improvements - 2025-01-30
 
 ### Changed
