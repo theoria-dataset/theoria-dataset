@@ -499,66 +499,57 @@
       ],
       "used_in": ["schrodinger_equation"]
     },
-  {
-    "id": "quantum_observables_selfadjoint_operators",
-    "title": "Quantum Observables as Self-Adjoint Operators",
-    "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.",
-    "type": "principle",
-    "mathematical_expressions": [
-      "a_0 = (:psi:|A|:psi:)",
-      "Delta A^2 = (:psi:|(A - a_0)^2|: psi:)"
-    ],
-    "symbol_definitions": [
-      {
-        "symbol": "A",
-        "definition": "Self-adjoint operator representing a physical observable."
-      },
-      {
-        "symbol": "|:psi:)",
-        "definition": "Normalized state vector in the quantum Hilbert space."
-      },
-      {
-        "symbol": "a_0",
-        "definition": "Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`."
-      },
-      {
-        "symbol": "Delta A^2",
-        "definition": "Variance (squared uncertainty) of `A` in state `|:psi:)`."
-      }
-    ],
-    "used_in": [
-      "uncertainty_principle"
-    ]
-  },
-  {
-    "id": "canonical_commutation_relations",
-    "title": "Canonical Commutation Relations for Position and Momentum",
-    "text": "Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*hbar*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `hbar`.",
-    "type": "principle",
-    "mathematical_expressions": [
-      "[x_i, p_j] = i*hbar*delta_(ij)"
-    ],
-    "symbol_definitions": [
-      {
-        "symbol": "x_i",
-        "definition": "Component `i` of the position operator."
-      },
-      {
-        "symbol": "p_j",
-        "definition": "Component `j` of the momentum operator conjugate to `x_j`."
-      },
-      {
-        "symbol": "hbar",
-        "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
-      },
-      {
-        "symbol": "delta_(ij)",
-        "definition": "Kronecker delta (`1` if `i = j`, `0` otherwise)."
-      }
-    ],
-    "used_in": [
-      "uncertainty_principle"
-    ]
-  }
-]
+    {
+      "id": "quantum_observables_selfadjoint_operators",
+      "title": "Quantum Observables as Self-Adjoint Operators",
+      "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.",
+      "type": "principle",
+      "mathematical_expressions": ["a_0 = (:psi:|A|:psi:)"],
+      "symbol_definitions": [
+        {
+          "symbol": "A",
+          "definition": "Self-adjoint operator representing a physical observable."
+        },
+        {
+          "symbol": "|:psi:)",
+          "definition": "Normalized state vector in the quantum Hilbert space."
+        },
+        {
+          "symbol": "a_0",
+          "definition": "Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
+    },
+    {
+      "id": "canonical_commutation_relations",
+      "title": "Canonical Commutation Relations",
+      "text": "Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*hbar*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `hbar`.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "[q_i, p_j] = i*hbar*delta_(ij)",
+        "[q_i, q_j] = 0",
+        "[p_i, p_j] = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "q_i",
+          "definition": "Generalized coordinate operator for the `i`-th degree of freedom."
+        },
+        {
+          "symbol": "p_i",
+          "definition": "Momentum operator canonically conjugate to `q_i`."
+        },
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
+        },
+        {
+          "symbol": "delta_(ij)",
+          "definition": "Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise)."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
+    }
+  ]
 }
