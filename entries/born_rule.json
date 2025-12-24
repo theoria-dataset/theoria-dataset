@@ -1,9 +1,5 @@
 {
   "result_id": "born_rule",
-  "alt_ids": [
-    "amplitude_squared_probability_law",
-    "modulus_squared_probability_law"
-  ],
   "result_name": "Born Rule",
   "result_equations": [
     {
@@ -94,25 +90,19 @@
   "derivation": [
     {
       "step": 1,
-      "assumptions": [
-        "hilbert_space_probability_structure"
-      ],
+      "assumptions": ["hilbert_space_probability_structure"],
       "description": "Quantum measurement outcomes are represented by orthogonal projectors on `H` and there exists a probability measure `mu` on these projectors with values in `[0,1]`. Normalization and sigma-additivity imply that for any orthonormal basis `{e_i}`, the probabilities assigned to the corresponding rank-1 projectors sum to one.",
       "equation": "mu(I) = 1,  mu(P + Q) = mu(P) + mu(Q)  \" for \"  P Q = 0,  sum_i mu(P_(e_i)) = 1"
     },
     {
       "step": 2,
-      "assumptions": [
-        "hilbert_space_probability_structure"
-      ],
+      "assumptions": ["hilbert_space_probability_structure"],
       "description": "Define the frame function `f` on the unit sphere of `H` by `f(v) = mu(P_v)` where `P_v = |:v:)(:v:|` is the rank-1 projector onto the ray of the unit vector `v`. For any orthonormal basis `{v_i}`, the frame condition holds: the sum of `f(v_i)` is one.",
       "equation": "P_v = |:v:)(:v:|,   f(v) = mu(P_v),   sum_i f(v_i) = 1"
     },
     {
       "step": 3,
-      "assumptions": [
-        "gleason_theorem_conditions"
-      ],
+      "assumptions": ["gleason_theorem_conditions"],
       "description": "By the assumption gleason_theorem_conditions, the Hilbert space has `dim(H) >= 3` and the probability assignment `mu`, hence `f`, is continuous on the unit sphere. Extend `f` to a homogeneous function `q` on all vectors by setting `q(0) = 0` and `q(v) = ||v||^2 f(v/||v||)` for `v != 0`. This allows us to express constraints on `f` in terms of linear combinations of vectors.",
       "equation": "q(v) = ||v||^2 f(v/||v||)"
     },

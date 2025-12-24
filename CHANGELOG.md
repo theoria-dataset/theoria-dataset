@@ -5,6 +5,16 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.3] - Adding new entries - 2025-12-24
+
+### Added
+
+- New entry: `partition_function` - Statistical mechanics partition function
+
+### Changed
+
+- **Born rule entry**: Removed legacy `alt_id` fields
+
 ## [0.7.2] - Uncertainty principle review and equation rendering improvements - 2025-01-31
 
 ### Added
