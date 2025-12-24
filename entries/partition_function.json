@@ -1,85 +1,118 @@
 {
   "result_id": "partition_function",
-  "result_name": "Partition Function (Canonical Ensemble)",
+  "result_name": "Canonical Partition Function (Canonical Ensemble)",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "Z = sum_i exp(-E_i/(k_B T))"
+      "id": "canonical_partition_function",
+      "equation": "Z(beta) = sum_i e^(-beta*E_i)",
+      "equation_title": "Canonical Partition Function"
     },
     {
-      "id": "eq2",
-      "equation": "F = -k_B T ln(Z)"
+      "id": "boltzmann_probabilities",
+      "equation": "p_i = e^(-beta*E_i)/(Z(beta))",
+      "equation_title": "Canonical (Boltzmann) Probabilities"
+    },
+    {
+      "id": "mean_energy",
+      "equation": "U = - (d(ln Z))/(d beta)",
+      "equation_title": "Mean Energy from Partition Function"
     }
   ],
-  "explanation": "The partition function is the central quantity in statistical mechanics that connects microscopic energy states to macroscopic thermodynamic properties. It represents the sum over all possible energy states weighted by their Boltzmann factors. All thermodynamic quantities can be derived from the partition function.",
+  "explanation": "The canonical partition function is the quantity that collects the statistical weight of all microstates of a system in thermal equilibrium. It is defined as a sum over microstates and acts as the normalization constant for the equilibrium probabilities. Once the partition function is known, many macroscopic quantities can be obtained from it; in particular, the mean energy follows directly from how the logarithm of the partition function changes with inverse temperature.",
   "definitions": [
     {
-      "symbol": "Z",
-      "definition": "Partition function (dimensionless)."
+      "symbol": "i",
+      "definition": "Index labeling microscopic configurations (microstates) of the system."
     },
     {
       "symbol": "E_i",
-      "definition": "Energy of the ith microstate."
+      "definition": "Energy of microstate `i`."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature of the heat bath."
     },
     {
       "symbol": "k_B",
       "definition": "Boltzmann constant."
     },
     {
-      "symbol": "T",
-      "definition": "Absolute temperature."
+      "symbol": "beta",
+      "definition": "Inverse temperature, `beta = 1/(k_B*T)`."
     },
     {
-      "symbol": "F",
-      "definition": "Helmholtz free energy."
+      "symbol": "Z(beta)",
+      "definition": "Canonical partition function at inverse temperature `beta`."
+    },
+    {
+      "symbol": "p_i",
+      "definition": "Canonical probability of microstate `i`."
+    },
+    {
+      "symbol": "U",
+      "definition": "Mean energy (internal energy) in the canonical ensemble, `U = sum_i p_i*E_i`."
     }
   ],
-  "assumptions": [
-    "The system is in thermal equilibrium with a heat reservoir at temperature T.",
-    "The number of particles is fixed (canonical ensemble).",
-    "Boltzmann distribution applies to the probability of each microstate.",
-    "Classical thermodynamic relations hold for ensemble averages."
-  ],
+  "assumptions": [],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
-      "description": "The probability of finding the system in state i follows the Boltzmann distribution.",
-      "equation": "P_i = exp(-E_i/(k_B T))/Z"
+      "description": "Introduce the inverse temperature for a system in equilibrium at temperature `T` by defining `beta = 1/(k_B*T)`.",
+      "equation": "beta = 1/(k_B*T)"
     },
     {
       "step": 2,
-      "description": "The sum of all probabilities must equal unity (normalization condition).",
-      "equation": "sum_i P_i = 1"
+      "description": "In the canonical ensemble, assign each microstate `i` with energy `E_i` a Boltzmann weight `e^(-beta*E_i)`. Write the corresponding probability with an (unknown) normalization constant `C`.",
+      "equation": "p_i = C*e^(-beta*E_i)"
     },
     {
       "step": 3,
-      "description": "Substitute the Boltzmann distribution into the normalization condition.",
-      "equation": "sum_i exp(-E_i/(k_B T))/Z = 1"
+      "description": "Impose probability normalization over all microstates: the probabilities must sum to one.",
+      "equation": "sum_i p_i = 1"
     },
     {
       "step": 4,
-      "description": "Solve for the partition function Z as the normalization constant.",
-      "equation": "Z = sum_i exp(-E_i/(k_B T))"
+      "description": "Substitute `p_i = C*e^(-beta*E_i)` into the normalization condition and solve for `C`.",
+      "equation": "C*sum_i e^(-beta*E_i) = 1   =>   C = 1/(sum_i e^(-beta*E_i))"
     },
     {
       "step": 5,
-      "description": "Define entropy using the statistical definition in terms of probabilities.",
-      "equation": "S = k_B sum_i P_i ln(1/P_i)"
+      "description": "Define the canonical partition function as the sum of Boltzmann weights. Substituting `C = 1/(Z(beta))` yields the normalized canonical probabilities.",
+      "equation": "Z(beta) = sum_i e^(-beta*E_i),   p_i = e^(-beta*E_i)/(Z(beta))",
+      "equation_proven": "boltzmann_probabilities"
     },
     {
       "step": 6,
-      "description": "Define internal energy as the ensemble average of energy.",
-      "equation": "U = sum_i P_i E_i"
+      "description": "State the partition function definition explicitly as the central object.",
+      "equation": "Z(beta) = sum_i e^(-beta*E_i)",
+      "equation_proven": "canonical_partition_function"
     },
     {
       "step": 7,
-      "description": "Use the thermodynamic definition of Helmholtz free energy.",
-      "equation": "F = U - T S"
+      "description": "Define the mean (ensemble-averaged) energy by weighting energies with the canonical probabilities.",
+      "equation": "U = sum_i p_i*E_i"
     },
     {
       "step": 8,
-      "description": "Show that free energy is related to the logarithm of the partition function.",
-      "equation": "F = -k_B T ln(Z)"
+      "description": "Substitute `p_i = e^(-beta*E_i)/(Z(beta))` into the definition of `U`.",
+      "equation": "U = 1/(Z(beta))*sum_i E_i*e^(-beta*E_i)"
+    },
+    {
+      "step": 9,
+      "description": "Differentiate the partition function with respect to `beta` to relate it to the weighted energy sum.",
+      "equation": "(d Z)/(d beta) = -sum_i E_i*e^(-beta*E_i)"
+    },
+    {
+      "step": 10,
+      "description": "Differentiate `ln Z` and use `(d(ln Z))/(d beta) = (1/Z)*(dZ)/(d beta)`.",
+      "equation": "(d(ln Z))/(d beta) = -1/(Z(beta))*sum_i E_i*e^(-beta*E_i)"
+    },
+    {
+      "step": 11,
+      "description": "Compare with the expression for `U` to obtain the generating relation between `Z` and the mean energy.",
+      "equation": "U = - (d(ln Z))/(d beta)",
+      "equation_proven": "mean_energy"
     }
   ],
   "programmatic_verification": {
@@ -87,64 +120,102 @@
     "library": "sympy 1.13.1",
     "code": [
       "import sympy as sp",
-      "# Define symbols",
-      "k_B, T, E1, E2, E3 = sp.symbols('k_B T E1 E2 E3', positive=True)",
-      "# Example: three-level system",
-      "Z = sp.exp(-E1/(k_B*T)) + sp.exp(-E2/(k_B*T)) + sp.exp(-E3/(k_B*T))",
-      "# Probabilities",
-      "P1 = sp.exp(-E1/(k_B*T))/Z",
-      "P2 = sp.exp(-E2/(k_B*T))/Z",
-      "P3 = sp.exp(-E3/(k_B*T))/Z",
-      "# Verify normalization",
-      "total_prob = P1 + P2 + P3",
-      "assert sp.simplify(total_prob) == 1",
-      "# Average energy",
-      "U = P1*E1 + P2*E2 + P3*E3",
-      "# Verify U = -dln(Z)/d(beta) where beta = 1/(k_B*T)",
-      "# Using chain rule: dln(Z)/d(beta) = dln(Z)/dT * dT/d(beta)",
-      "# Since beta = 1/(k_B*T), we have d(beta)/dT = -1/(k_B*T²)",
-      "# So dT/d(beta) = -k_B*T²",
-      "dlogZ_dT = sp.diff(sp.log(Z), T)",
-      "U_from_Z = -dlogZ_dT * (-k_B*T**2)  # U = -dln(Z)/d(beta)",
-      "U_from_Z_simplified = sp.simplify(U_from_Z)",
-      "assert sp.simplify(U - U_from_Z_simplified) == 0",
-      "# Helmholtz free energy",
-      "F = -k_B*T*sp.log(Z)",
-      "# Verify that U = F - T*dF/dT",
-      "U_from_F = F - T*sp.diff(F, T)",
-      "assert sp.simplify(U - U_from_F) == 0"
+      "",
+      "# ===============================================",
+      "# Programmatic verification: partition_function",
+      "# Each section below corresponds to a derivation step.",
+      "# ===============================================",
+      "",
+      "# Symbols",
+      "beta, k_B, T = sp.symbols('beta k_B T', positive=True, real=True)",
+      "E1, E2, E3 = sp.symbols('E1 E2 E3', real=True)",
+      "C = sp.symbols('C', real=True)",
+      "",
+      "# We verify identities on a finite microstate set {1,2,3}.",
+      "",
+      "# Step 1: beta = 1/(k_B*T)",
+      "eq_step1 = sp.Eq(beta, 1/(k_B*T))",
+      "assert sp.simplify(eq_step1.rhs - 1/(k_B*T)) == 0",
+      "",
+      "# Define Boltzmann weights for the finite set",
+      "w1, w2, w3 = sp.exp(-beta*E1), sp.exp(-beta*E2), sp.exp(-beta*E3)",
+      "",
+      "# Step 2: p_i = C * exp(-beta * E_i) (instantiate i=1,2,3)",
+      "p1, p2, p3 = C*w1, C*w2, C*w3",
+      "assert sp.simplify(p1 - C*sp.exp(-beta*E1)) == 0",
+      "assert sp.simplify(p2 - C*sp.exp(-beta*E2)) == 0",
+      "assert sp.simplify(p3 - C*sp.exp(-beta*E3)) == 0",
+      "",
+      "# Step 3: normalization sum_i p_i = 1",
+      "eq_step3 = sp.Eq(p1 + p2 + p3, 1)",
+      "assert sp.simplify((p1 + p2 + p3) - 1 - (eq_step3.lhs - eq_step3.rhs)) == 0  # tautology check",
+      "",
+      "# Step 4: solve for C from C * sum_i exp(-beta E_i) = 1",
+      "C_sol = sp.solve(eq_step3, C)[0]",
+      "Z_finite = sp.simplify(w1 + w2 + w3)",
+      "assert sp.simplify(C_sol - 1/Z_finite) == 0",
+      "",
+      "# Step 5: define Z(beta) and obtain normalized probabilities",
+      "# Z(beta) = sum_i exp(-beta E_i), p_i = exp(-beta E_i)/Z(beta)",
+      "p1n, p2n, p3n = sp.simplify(w1/Z_finite), sp.simplify(w2/Z_finite), sp.simplify(w3/Z_finite)",
+      "assert sp.simplify(p1.subs(C, C_sol) - p1n) == 0",
+      "assert sp.simplify(p2.subs(C, C_sol) - p2n) == 0",
+      "assert sp.simplify(p3.subs(C, C_sol) - p3n) == 0",
+      "assert sp.simplify(p1n + p2n + p3n - 1) == 0  # still normalized",
+      "",
+      "# Step 6: restate the partition function definition (finite-set proxy)",
+      "assert sp.simplify(Z_finite - (w1 + w2 + w3)) == 0",
+      "",
+      "# Step 7: define mean energy U = sum_i p_i * E_i",
+      "U_step7 = sp.simplify(p1n*E1 + p2n*E2 + p3n*E3)",
+      "",
+      "# Step 8: substitute p_i = exp(-beta E_i)/Z into U",
+      "U_step8_expected = sp.simplify((1/Z_finite) * (E1*w1 + E2*w2 + E3*w3))",
+      "assert sp.simplify(U_step7 - U_step8_expected) == 0",
+      "",
+      "# Step 9: differentiate Z with respect to beta",
+      "# dZ/dbeta = - sum_i E_i exp(-beta E_i)",
+      "dZ = sp.diff(Z_finite, beta)",
+      "dZ_expected = sp.simplify(-(E1*w1 + E2*w2 + E3*w3))",
+      "assert sp.simplify(dZ - dZ_expected) == 0",
+      "",
+      "# Step 10: differentiate ln Z: d(ln Z)/dbeta = (1/Z) dZ/dbeta",
+      "dlnZ = sp.simplify(sp.diff(sp.log(Z_finite), beta))",
+      "dlnZ_expected = sp.simplify(dZ / Z_finite)",
+      "assert sp.simplify(dlnZ - dlnZ_expected) == 0",
+      "",
+      "# Step 11: compare with U to get U = - d(ln Z)/dbeta",
+      "assert sp.simplify(U_step7 + dlnZ) == 0",
+      "",
+      "print('partition_function verification checks passed ✔')"
     ]
   },
   "domain": "cond-mat.stat-mech",
   "theory_status": "current",
   "historical_context": {
-    "importance": "Central concept in statistical mechanics, bridges microscopic and macroscopic physics",
-    "development_period": "1870-1900",
+    "importance": "Defines the central normalization and generating function of the canonical ensemble; thermodynamic quantities can be obtained from derivatives of `ln(Z)`.",
+    "development_period": "1870-1902",
     "key_insights": [
-      "Statistical interpretation of thermodynamics",
-      "Connection between entropy and probability",
-      "Foundation for ensemble theory"
+      "Equilibrium weights normalize via `Z`",
+      "Probabilities are weights divided by `Z`",
+      "Derivatives of `ln(Z)` generate ensemble averages such as the mean energy"
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Gibbs, J. W. (1902). *Elementary Principles in Statistical Mechanics*. Yale University Press."
+      "citation": "Darwin, C. G., & Fowler, R. H. (1922). On the partition of energy. The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science, Series 6, 44(261), 450-479. doi:10.1080/14786440908565189."
     },
     {
       "id": "R2",
-      "citation": "Pathria, R. K., & Beale, P. D. (2011). *Statistical Mechanics* (3rd ed.). Academic Press."
+      "citation": "Gibbs, J. W. (1902). Elementary Principles in Statistical Mechanics. Charles Scribner's Sons."
     }
   ],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft",
-  "depends_on": [
-    "boltzmann_distribution",
-    "first_law_thermodynamics"
-  ]
+  "review_status": "reviewed"
 }
