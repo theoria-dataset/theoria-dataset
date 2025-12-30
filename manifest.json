@@ -1,6 +1,6 @@
 {
   "dataset_name": "TheorIA Dataset",
-  "dataset_version": "0.7.2",
+  "dataset_version": "0.7.3",
   "description": "A curated dataset of self-contained theoretical physics derivations, equations, and explanations, designed for training and evaluating ML models.",
   "originally_published_at": "2025-04-20",
   "license": "CC-BY 4.0",

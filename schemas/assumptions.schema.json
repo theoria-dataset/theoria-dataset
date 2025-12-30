@@ -6,9 +6,7 @@
   "type": "object",
   "additionalProperties": false,
 
-  "required": [
-    "assumptions"
-  ],
+  "required": ["assumptions"],
 
   "properties": {
     "assumptions": {
@@ -48,7 +46,7 @@
           "text": {
             "type": "string",
             "minLength": 10,
-            "maxLength": 500,
+            "maxLength": 1000,
             "description": "Clear, concise description of the assumption. If there are math symbols or equations, they must be enclosed in backticks (``) and written in AsciiMath format.",
             "example": "Classical mechanics framework: relativistic effects negligible (v << c), quantum effects negligible for macroscopic bodies"
           },
