@@ -53,11 +53,12 @@
       "definition": "Mean energy (internal energy) in the canonical ensemble, `U = sum_i p_i*E_i`."
     }
   ],
-  "assumptions": [],
+  "assumptions": ["thermal_equilibrium"],
   "depends_on": [],
   "derivation": [
     {
       "step": 1,
+      "assumptions": ["thermal_equilibrium"],
       "description": "Introduce the inverse temperature for a system in equilibrium at temperature `T` by defining `beta = 1/(k_B*T)`.",
       "equation": "beta = 1/(k_B*T)"
     },

@@ -22,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 29 Assumptions • Version 0.7.2</p>
+      <p class="subtitle">Browse All 34 Assumptions • Version 0.7.3</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,9 +51,9 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (13)</a>
+                <a href="#principle" class="nav-link">Principles (17)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
-        <a href="#approximation" class="nav-link">Approximations (9)</a>
+        <a href="#approximation" class="nav-link">Approximations (10)</a>
       </div>
     </nav>
   
@@ -176,6 +176,27 @@
       
     <div class="entry-card assumption-card assumption-principle">
       <h3 class="entry-title">
+        Existence of a Poincaré-Invariant Vacuum
+      </h3>
+      <p class="entry-description">There exists a unique (up to phase) vacuum state `|0>` invariant under spacetime symmetries, from which particle states are obtained by acting with local fields.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`U(g)*|0> = |0>`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`|0>`</strong>: Vacuum state.</div>
+            <div class="assumption-symbol-def"><strong>`U(g)`</strong>: Unitary representation of a spacetime symmetry `g`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
         Gleason Theorem Conditions
       </h3>
       <p class="entry-description">The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^ast`) is continuous</p>
@@ -233,6 +254,51 @@
       
     <div class="entry-card assumption-card assumption-principle">
       <h3 class="entry-title">
+        Lorentz Covariance
+      </h3>
+      <p class="entry-description">Physical laws and local fields transform covariantly under proper orthochronous Lorentz transformations. For a field `Phi_a(x)`, there exists a unitary representation `U(Lambda)` and a finite-dimensional representation `D(Lambda)` such that `U(Lambda)*Phi_a(x)*U(Lambda)^(-1) = sum_b D(Lambda)_a^b*Phi_b(Lambda*x)`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`U(Lambda)*Phi_a(x)*U(Lambda)^(-1) = sum_b D(Lambda)_a^b*Phi_b(Lambda*x)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`Lambda`</strong>: Proper orthochronous Lorentz transformation.</div>
+            <div class="assumption-symbol-def"><strong>`U(Lambda)`</strong>: Unitary operator implementing `Lambda` on the Hilbert space.</div>
+            <div class="assumption-symbol-def"><strong>`Phi_a(x)`</strong>: Local field operator component labeled by index `a` at spacetime point `x`.</div>
+            <div class="assumption-symbol-def"><strong>`D(Lambda)_a^b`</strong>: Finite-dimensional Lorentz representation acting on field indices.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Microcausality (Locality)
+      </h3>
+      <p class="entry-description">Local observables associated with spacelike-separated regions are compatible measurements and commute. For local operators `O(x)` and `O(y)`, if `(x-y)^2 < 0` then `[O(x), O(y)] = 0`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`(x-y)^2 < 0  =>  [O(x), O(y)] = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`O(x)`</strong>: Local observable/operator localized near spacetime point `x`.</div>
+            <div class="assumption-symbol-def"><strong>`[A,B]`</strong>: Commutator `A*B - B*A`.</div>
+            <div class="assumption-symbol-def"><strong>`(x-y)^2`</strong>: Minkowski squared interval between `x` and `y`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
         Planck-de Broglie Relations
       </h3>
       <p class="entry-description">Energy and momentum of matter waves are related to frequency and wavevector by `E = ℏ*omega` and `p = ℏ*k`.</p>
@@ -251,6 +317,26 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Positive Energy Spectrum (Spectrum Condition)
+      </h3>
+      <p class="entry-description">The energy-momentum spectrum is bounded below and lies in the forward light cone: physical states have `p^0 >= 0`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`p^0 >= 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`p^0`</strong>: Energy component of the four-momentum.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -562,6 +648,32 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Non-interacting particle approximation
+      </h3>
+      <p class="entry-description">Particles are assumed not to interact. The total energy of a many-particle configuration is additive in the single-particle level occupations, and in the grand-canonical ensemble the partition function factorizes into independent contributions from each single-particle level.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`E({n_r}) = sum_r n_r*epsilon_r`</div>
+            <div class="assumption-math">`Z = prod_r Z_r`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`E({n_r})`</strong>: Total energy of a many-particle configuration specified by occupation numbers `{n_r}`.</div>
+            <div class="assumption-symbol-def"><strong>`n_r`</strong>: Number of particles occupying the single-particle level labeled by `r`.</div>
+            <div class="assumption-symbol-def"><strong>`epsilon_r`</strong>: Energy eigenvalue of the single-particle level labeled by `r`.</div>
+            <div class="assumption-symbol-def"><strong>`r`</strong>: Index labeling single-particle energy levels (modes).</div>
+            <div class="assumption-symbol-def"><strong>`Z`</strong>: Grand partition function of the full system.</div>
+            <div class="assumption-symbol-def"><strong>`Z_r`</strong>: Single-level contribution to the grand partition function associated with level `r`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>

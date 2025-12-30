@@ -1,150 +1,157 @@
 {
   "result_id": "spin_statistics_theorem",
-  "result_name": "Spin-Statistics Theorem",
+  "result_name": "Spin–Statistics Theorem",
   "result_equations": [
     {
+      "id": "exchange_symmetry",
+      "equation": "Psi(x_1,x_2) = (-1)^(2*s)*Psi(x_2,x_1)",
+      "equation_title": "Exchange Symmetry of Two-Particle States"
+    },
+    {
+      "id": "allowed_occupancies",
+      "equation": "n_B in {0,1,2,...},   n_F in {0,1}",
+      "equation_title": "Allowed Occupancies (Bosons vs Fermions)"
+    },
+    {
       "id": "bose_einstein_distribution",
-      "equation": "bar(n_B)(epsilon) = 1/(exp(beta*(epsilon - mu)) - 1)",
-      "equation_title": "Bose-Einstein Distribution (Mode Occupation)"
+      "equation": "bar(n_B)(epsilon) = 1/(e^(beta*(epsilon - mu)) - 1)",
+      "equation_title": "Bose–Einstein Distribution (Mode Occupation)"
     },
     {
       "id": "fermi_dirac_distribution",
-      "equation": "bar(n_F)(epsilon) = 1/(exp(beta*(epsilon - mu)) + 1)",
-      "equation_title": "Fermi-Dirac Distribution (Mode Occupation)"
+      "equation": "bar(n_F)(epsilon) = 1/(e^(beta*(epsilon - mu)) + 1)",
+      "equation_title": "Fermi–Dirac Distribution (Mode Occupation)"
     },
     {
       "id": "spin_statistics_correspondence",
-      "equation": "2*s in 2*ZZ  =>  text{boson: }bar(n)(epsilon) = bar(n_B)(epsilon);  2*s in 2*ZZ+1  =>  text{fermion: }bar(n)(epsilon) = bar(n_F)(epsilon)",
-      "equation_title": "Spin-Statistics Correspondence"
+      "equation": "2*s in 2*ZZ  =>  bar(n)(epsilon) = bar(n_B)(epsilon);  2*s in 2*ZZ+1  =>  bar(n)(epsilon) = bar(n_F)(epsilon)",
+      "equation_title": "Spin–Statistics Correspondence"
     }
   ],
-  "explanation": "The spin-statistics theorem links a particle's spin to the symmetry of its many-body quantum state and thus to the thermal occupation of single-particle levels. Integer-spin particles (bosons) occupy symmetric states and follow Bose-Einstein statistics with unlimited occupation per mode, while half-integer-spin particles (fermions) occupy antisymmetric states, obey Fermi-Dirac statistics, and satisfy the Pauli exclusion principle. In relativistic quantum field theory this connection follows from locality, Lorentz covariance, and positivity of energy.",
+  "explanation": "The spin–statistics theorem connects intrinsic spin with exchange symmetry of identical particles. Integer-spin particles have symmetric many-particle states under exchange, while half-integer-spin particles have antisymmetric states. This symmetry fixes the allowed single-level occupancies and implies Bose–Einstein statistics for integer spin and Fermi–Dirac statistics (with Pauli exclusion) for half-integer spin. In relativistic quantum field theory the exchange sign follows from Lorentz covariance, locality (microcausality), and positivity of energy.",
   "definitions": [
     {
-      "symbol": "bar(n_B)(epsilon)",
-      "definition": "Average occupation number of a single-particle state with energy `epsilon` for bosons (integer-spin particles) in thermal equilibrium."
+      "symbol": "Psi(x_1,x_2)",
+      "definition": "Two-particle wave function (state amplitude) as a function of the complete single-particle labels `x_1` and `x_2`."
     },
     {
-      "symbol": "bar(n_F)(epsilon)",
-      "definition": "Average occupation number of a single-particle state with energy `epsilon` for fermions (half-integer-spin particles) in thermal equilibrium."
-    },
-    {
-      "symbol": "bar(n)(epsilon)",
-      "definition": "Generic notation for the mean occupation number of a single-particle state with energy `epsilon`, chosen as `bar(n_B)` or `bar(n_F)` according to the particle's spin."
-    },
-    {
-      "symbol": "epsilon",
-      "definition": "Single-particle energy eigenvalue for the mode under consideration."
-    },
-    {
-      "symbol": "beta",
-      "definition": "Inverse temperature, `beta = 1/(k_B*T)`."
-    },
-    {
-      "symbol": "T",
-      "definition": "Absolute temperature of the thermal reservoir."
-    },
-    {
-      "symbol": "k_B",
-      "definition": "Boltzmann constant."
-    },
-    {
-      "symbol": "mu",
-      "definition": "Chemical potential controlling the average particle number in the grand-canonical ensemble."
+      "symbol": "x_1, x_2",
+      "definition": "Complete sets of single-particle labels (e.g., position and internal quantum numbers) for particle 1 and particle 2."
     },
     {
       "symbol": "s",
-      "definition": "Spin of the particle in units of `hbar` (integer or half-integer)."
+      "definition": "Intrinsic spin of the particle in units of `hbar` (integer or half-integer)."
+    },
+    {
+      "symbol": "n_B",
+      "definition": "Number of bosons occupying a given single-particle energy level."
+    },
+    {
+      "symbol": "n_F",
+      "definition": "Number of fermions occupying a given single-particle energy level."
+    },
+    {
+      "symbol": "bar(n_B)(epsilon)",
+      "definition": "Mean value of `n_B` for a single-particle level of energy `epsilon` in thermal equilibrium."
+    },
+    {
+      "symbol": "bar(n_F)(epsilon)",
+      "definition": "Mean value of `n_F` for a single-particle level of energy `epsilon` in thermal equilibrium."
+    },
+    {
+      "symbol": "bar(n)(epsilon)",
+      "definition": "Mean level occupancy at energy `epsilon`, equal to `bar(n_B)` for bosons and `bar(n_F)` for fermions."
+    },
+    {
+      "symbol": "epsilon",
+      "definition": "Single-particle energy eigenvalue for the level under consideration."
+    },
+    {
+      "symbol": "beta",
+      "definition": "Inverse temperature."
+    },
+    {
+      "symbol": "mu",
+      "definition": "Chemical potential."
     },
     {
       "symbol": "ZZ",
       "definition": "Set of all integers; `2*ZZ` denotes even integers and `2*ZZ+1` odd integers."
-    },
-    {
-      "symbol": "Z_B(epsilon)",
-      "definition": "Single-level grand-canonical partition function for a bosonic mode of energy `epsilon`."
-    },
-    {
-      "symbol": "Z_F(epsilon)",
-      "definition": "Single-level grand-canonical partition function for a fermionic mode of energy `epsilon`."
-    },
-    {
-      "symbol": "P_(12)",
-      "definition": "Operator that exchanges particles 1 and 2 in a two-particle state."
-    },
-    {
-      "symbol": "|:psi_s:)",
-      "definition": "Two-particle state with total spin `s` in the relativistic quantum field theory Hilbert space."
     }
   ],
   "assumptions": [
-    "thermal_equilibrium",
+    "hilbert_space_probability_structure",
     "quantum_superposition_linear_dynamics",
-    "canonical_commutation_relations",
-    "planck_de_broglie_relations",
+    "flat_spacetime",
     "light_speed_constant",
-    "flat_spacetime"
+    "lorentz_covariance",
+    "microcausality",
+    "positive_energy_spectrum",
+    "vacuum_state_exists",
+    "non_interacting_particles"
   ],
-  "depends_on": [
-    "partition_function",
-    "relativistic_energy_momentum"
-  ],
+  "depends_on": ["partition_function", "relativistic_energy_momentum"],
   "derivation": [
     {
       "step": 1,
-      "assumptions": [
-        "thermal_equilibrium",
-        "quantum_superposition_linear_dynamics"
-      ],
-      "description": "Consider a gas of identical particles in thermal and chemical equilibrium at temperature `T` and chemical potential `mu`, described in the grand-canonical ensemble. Single-particle energy eigenstates are labeled by an index `r` with energies `epsilon_r`, and a many-body microstate is specified by occupation numbers `n_r` giving how many particles occupy each level.",
-      "equation": "E({n_r}) = sum_r n_r*epsilon_r"
+      "description": "Work in the grand-canonical ensemble at inverse temperature `beta` and chemical potential `mu`. A microstate is specified by occupation numbers `{n_r}` for single-particle levels with energies `{epsilon_r}`. In this ensemble, a configuration `{n_r}` is assigned the weight `e^(-beta*(E - mu*N))`, where `E = sum_r n_r*epsilon_r` and `N = sum_r n_r`. The grand partition function `Z` is defined as the sum of these weights over all occupation-number configurations.",
+      "equation": "Z = sum_({n_r}) e^(-beta*sum_r n_r*(epsilon_r - mu))"
     },
     {
       "step": 2,
-      "assumptions": [
-        "thermal_equilibrium",
-        "partition_function"
-      ],
-      "description": "In the grand-canonical ensemble the probability weight of a configuration `{n_r}` is proportional to `exp(-beta*(E({n_r}) - mu*N))`, where `N = sum_r n_r` is the total particle number. The normalization factor is the grand partition function `Z`.",
-      "equation": "P({n_r}) = (1/Z)*exp(-beta*sum_r n_r*(epsilon_r - mu))"
+      "assumptions": ["non_interacting_particles"],
+      "description": "For non-interacting particles, the total energy is additive in the level occupations, `E = sum_r n_r*epsilon_r`. As a result, the grand partition function can be written as a product of independent contributions, one for each single-particle level. For each level `r`, define `Z_r` as the sum of the Boltzmann weights over all allowed occupation numbers of that level alone, keeping all other levels fixed.",
+      "equation": "Z = prod_r Z_r; Z_r = sum_(n_r) e^(-beta*(epsilon_r - mu)*n_r)"
     },
     {
       "step": 3,
-      "description": "Because the particles are non-interacting, the grand partition function factorizes into a product of independent contributions from each single-particle level. For a bosonic mode with energy `epsilon`, symmetric many-body states allow occupation numbers `n = 0,1,2,...` without restriction, so the single-mode partition function is a geometric series in `x = exp(-beta*(epsilon - mu))`.",
-      "equation": "Z_B(epsilon) = sum_(n=0)^infty exp(-beta*(epsilon - mu)*n) = 1/(1 - exp(-beta*(epsilon - mu)))"
+      "assumptions": ["microcausality", "vacuum_state_exists"],
+      "description": "Let `Phi_a(x)` be a local field operator. Microcausality requires that spacelike-separated observables are compatible (they commute). Since fields are not necessarily observables, locality is imposed at the field level as graded locality: for `(x-y)^2 < 0` the graded commutator `[A,B]_eta := A*B - eta*B*A` vanishes for some constant `eta in {+1,-1}`. Locality alone does not determine whether `eta` is `+1` (commutation) or `-1` (anticommutation); that sign is fixed later by Lorentz covariance and the spectrum condition.",
+      "equation": "(x-y)^2 < 0  =>  Phi_a(x)*Phi_b(y) - eta*Phi_b(y)*Phi_a(x) = 0"
     },
     {
       "step": 4,
-      "description": "The mean bosonic occupation number is obtained from the same geometric series by weighting each term with `n` and dividing by `Z_B(epsilon)`. Using the identity `sum_(n=0)^infty n*x^n = x/(1 - x)^2` for `|x| < 1`, with `x = exp(-beta*(epsilon - mu))`, gives the Bose-Einstein distribution.",
-      "equation": "bar(n_B)(epsilon) = (1/Z_B(epsilon))*sum_(n=0)^infty n*exp(-beta*(epsilon - mu)*n) = 1/(exp(beta*(epsilon - mu)) - 1)",
-      "equation_proven": "bose_einstein_distribution"
+      "assumptions": ["lorentz_covariance", "positive_energy_spectrum"],
+      "description": "Lorentz covariance and the spectrum condition imply that vacuum correlators such as `(:0:|Phi_a(x)*Phi_b(y)|:0:)` can be analytically continued when Lorentz transformations are extended to complex parameters. If `x` and `y` are spacelike separated, there exists a continuous path in the complexified Lorentz group that takes the separation vector `(x-y)` to `(y-x)`, which corresponds to exchanging the two field insertions `Phi_a(x)` and `Phi_b(y)` in the correlator. Along this path, the transformation acting on the spin-`s` field indices is equivalent to a `2*pi` rotation, so it contributes the phase `e^(i*2*pi*s) = (-1)^(2*s)`. Consistency with the graded locality relation of step 3 therefore fixes the graded exchange sign.",
+      "equation": "eta = (-1)^(2*s)"
     },
     {
       "step": 5,
-      "description": "For fermionic modes antisymmetry of the many-body wavefunction (Pauli exclusion) restricts the allowed occupancies to `n = 0` or `1`. The single-mode partition function is therefore a two-term sum.",
-      "equation": "Z_F(epsilon) = sum_(n=0)^1 exp(-beta*(epsilon - mu)*n) = 1 + exp(-beta*(epsilon - mu))"
+      "description": "Insert the value of `eta` from step 4 into the swap relation and translate it to the two-particle wave function amplitude: exchanging two identical particle labels multiplies the amplitude by `(-1)^(2*s)`. This yields the exchange symmetry relation.",
+      "equation": "Psi(x_1,x_2) = (-1)^(2*s)*Psi(x_2,x_1)",
+      "equation_proven": "exchange_symmetry"
     },
     {
       "step": 6,
-      "description": "The mean fermionic occupation number follows by weighting each allowed value of `n` by its Boltzmann factor and dividing by `Z_F(epsilon)`. This yields the Fermi-Dirac distribution.",
-      "equation": "bar(n_F)(epsilon) = (0*1 + 1*exp(-beta*(epsilon - mu)))/(1 + exp(-beta*(epsilon - mu))) = 1/(exp(beta*(epsilon - mu)) + 1)",
-      "equation_proven": "fermi_dirac_distribution"
+      "description": "From step 5, integer spin implies symmetric exchange and half-integer spin implies antisymmetric exchange. Symmetric exchange permits any non-negative integer occupancy of a single-particle level. Antisymmetric exchange forbids two identical particles occupying the same single-particle state (otherwise exchange would leave the state unchanged but must also flip its sign), so a level contains at most one fermion.",
+      "equation": "n_B in {0,1,2,...},   n_F in {0,1}",
+      "equation_proven": "allowed_occupancies"
     },
     {
       "step": 7,
-      "assumptions": [
-        "light_speed_constant",
-        "flat_spacetime",
-        "planck_de_broglie_relations",
-        "canonical_commutation_relations",
-        "relativistic_energy_momentum"
-      ],
-      "description": "In relativistic quantum field theory, locality (microcausality), Lorentz covariance, and the canonical commutation relations for field operators imply Pauli's spin-statistics connection: for integer spin `s` the two-particle state is symmetric under particle exchange, while for half-integer spin it is antisymmetric. Denoting by `P_(12)` the exchange operator, this can be summarized as an eigenvalue equation for two-particle states of definite spin.",
-      "equation": "P_(12)|:psi_s:) = +|:psi_s:)  \" for \"  2*s in 2*ZZ;  P_(12)|:psi_s:) = -|:psi_s:)  \" for \"  2*s in 2*ZZ+1"
+      "description": "For a bosonic level of energy `epsilon`, sum over the allowed occupancies from step 6: `n_B = 0,1,2,...`. The single-level contribution is the geometric series `sum_(n=0)^infty e^(-beta*(epsilon - mu)*n)`, which evaluates to `1/(1 - e^(-beta*(epsilon - mu)))` (for `epsilon > mu`).",
+      "equation": "sum_(n=0)^infty e^(-beta*(epsilon - mu)*n) = 1/(1 - e^(-beta*(epsilon - mu)))"
     },
     {
       "step": 8,
-      "description": "Symmetric states (integer spin) admit arbitrarily large occupation numbers of a given single-particle level and thus use the bosonic counting from steps 3-4, while antisymmetric states (half-integer spin) restrict each level to `n = 0` or `1` and use the fermionic counting from steps 5-6. Therefore the spin label `s` uniquely selects Bose-Einstein or Fermi-Dirac statistics for mode occupations.",
+      "description": "The mean bosonic occupation number is the weighted sum divided by the unweighted sum. Using `sum_(n=0)^infty n*x^n = x/(1 - x)^2` with `x = e^(-beta*(epsilon - mu))` yields the Bose–Einstein distribution.",
+      "equation": "bar(n_B)(epsilon) = (sum_(n=0)^infty n*e^(-beta*(epsilon - mu)*n)) / (sum_(n=0)^infty e^(-beta*(epsilon - mu)*n)) = 1/(e^(beta*(epsilon - mu)) - 1)",
+      "equation_proven": "bose_einstein_distribution"
+    },
+    {
+      "step": 9,
+      "description": "For a fermionic level of energy `epsilon`, sum over the allowed occupancies from step 6: `n_F = 0,1`. This gives `1 + e^(-beta*(epsilon - mu))`.",
+      "equation": "sum_(n=0)^1 e^(-beta*(epsilon - mu)*n) = 1 + e^(-beta*(epsilon - mu))"
+    },
+    {
+      "step": 10,
+      "description": "The mean fermionic occupation number is the weighted sum divided by the unweighted sum, giving the Fermi–Dirac distribution.",
+      "equation": "bar(n_F)(epsilon) = (0 + 1*e^(-beta*(epsilon - mu))) / (1 + e^(-beta*(epsilon - mu))) = 1/(e^(beta*(epsilon - mu)) + 1)",
+      "equation_proven": "fermi_dirac_distribution"
+    },
+    {
+      "step": 11,
+      "description": "Integer spin corresponds to symmetric exchange and therefore to the bosonic counting above; half-integer spin corresponds to antisymmetric exchange and therefore to the fermionic counting above. This selects Bose–Einstein or Fermi–Dirac mean occupations according to the parity of `2*s`.",
       "equation": "2*s in 2*ZZ  =>  bar(n)(epsilon) = bar(n_B)(epsilon);  2*s in 2*ZZ+1  =>  bar(n)(epsilon) = bar(n_F)(epsilon)",
       "equation_proven": "spin_statistics_correspondence"
     }
@@ -155,111 +162,103 @@
     "code": [
       "import sympy as sp",
       "",
-      "# ===============================================",
-      "# Programmatic verification for spin_statistics_theorem entry",
-      "# Focus: Bose-Einstein and Fermi-Dirac mode occupations (Steps 3\u20136)",
-      "# ===============================================",
+      "# Programmatic verification for spin_statistics_theorem",
+      "# Mirrors derivation step order where algebraic verification is meaningful.",
+      "# (Step 1 and the analytic-continuation content of Step 4 are not directly verifiable in SymPy.)",
+      "",
+      "def first_branch(expr):",
+      "    \"\"\"Extract the main closed-form branch from SymPy Piecewise results (typically the convergent branch).\"\"\"",
+      "    expr = sp.simplify(expr)",
+      "    if isinstance(expr, sp.Piecewise):",
+      "        return sp.simplify(expr.args[0][0])",
+      "    return expr",
       "",
       "# Symbols",
-      "epsilon, mu, beta = sp.symbols('epsilon mu beta', real=True)",
-      "x = sp.symbols('x', positive=True, real=True)  # x = beta*(epsilon - mu)",
-      "q = sp.symbols('q', real=True)",
+      "beta, epsilon, mu = sp.symbols('beta epsilon mu', real=True)",
+      "q = sp.symbols('q')",
       "n = sp.symbols('n', integer=True, nonnegative=True)",
       "",
-      "# -----------------------------------------------------------",
-      "# Steps 3\u20134: Bosonic geometric series and mean occupation",
-      "# -----------------------------------------------------------",
+      "# --------------------",
+      "# Step 2: factorization for independent levels (check a 2-level case)",
+      "q1, q2 = sp.symbols('q1 q2')",
+      "n1, n2 = sp.symbols('n1 n2', integer=True, nonnegative=True)",
       "",
-      "# Geometric series for single-mode bosonic partition function:",
-      "#   Z_B = sum_{n=0}^\\infty q^n = 1/(1 - q),  |q| < 1.",
+      "# Z = sum_{n1,n2>=0} q1^n1 q2^n2 should equal (sum_{n1>=0} q1^n1)*(sum_{n2>=0} q2^n2)",
+      "Z_double = sp.summation(sp.summation(q1**n1 * q2**n2, (n1, 0, sp.oo)), (n2, 0, sp.oo))",
+      "Z_double_branch = first_branch(Z_double)",
+      "",
+      "Z1 = sp.summation(q1**n1, (n1, 0, sp.oo))",
+      "Z2 = sp.summation(q2**n2, (n2, 0, sp.oo))",
+      "Z_prod_branch = sp.simplify(first_branch(Z1) * first_branch(Z2))",
+      "",
+      "assert sp.simplify(Z_double_branch - Z_prod_branch) == 0",
+      "",
+      "# --------------------",
+      "# Step 7: bosonic geometric series sum_{n=0}^∞ q^n = 1/(1-q) (convergent branch |q|<1)",
       "S = sp.summation(q**n, (n, 0, sp.oo))",
-      "Z_q = S.args[0][0]   # SymPy returns a Piecewise; take the analytic branch 1/(1-q).",
-      "assert sp.simplify(Z_q - 1/(1 - q)) == 0",
+      "S_branch = first_branch(S)",
+      "assert sp.simplify(S_branch - 1/(1 - q)) == 0",
       "",
-      "# Weighted geometric series:",
-      "#   sum_{n=0}^\\infty n q^n = q/(1 - q)^2.",
+      "# --------------------",
+      "# Step 8: weighted series sum_{n=0}^∞ n q^n = q/(1-q)^2 and BE mean occupation",
       "S_n = sp.summation(n*q**n, (n, 0, sp.oo))",
-      "S_n_branch = S_n.args[0][0]",
+      "S_n_branch = first_branch(S_n)",
       "assert sp.simplify(S_n_branch - q/(1 - q)**2) == 0",
       "",
-      "# Mean bosonic occupation number:",
-      "nbar_q = sp.simplify(S_n_branch / Z_q)",
+      "nbar_q = sp.simplify(S_n_branch / S_branch)  # should be q/(1-q)",
       "assert sp.simplify(nbar_q - q/(1 - q)) == 0",
       "",
-      "# Substitute q = exp(-x); this should give 1/(exp(x) - 1).",
-      "nbar_x = sp.simplify(nbar_q.subs(q, sp.exp(-x)))",
-      "nbar_BE_expected = 1/(sp.exp(x) - 1)",
-      "assert sp.simplify(nbar_x - nbar_BE_expected) == 0",
+      "# Substitute q = e^(-beta*(epsilon-mu))",
+      "q_sub = sp.exp(-beta*(epsilon - mu))",
+      "nbar_BE = sp.simplify(nbar_q.subs(q, q_sub))",
+      "assert sp.simplify(nbar_BE - 1/(sp.exp(beta*(epsilon - mu)) - 1)) == 0",
       "",
-      "# Now identify x = beta*(epsilon - mu) to match the published formula.",
-      "nbar_BE_energy = sp.simplify(nbar_x.subs(x, beta*(epsilon - mu)))",
-      "nbar_BE_energy_expected = 1/(sp.exp(beta*(epsilon - mu)) - 1)",
-      "assert sp.simplify(nbar_BE_energy - nbar_BE_energy_expected) == 0",
+      "# --------------------",
+      "# Step 9: fermionic finite sum sum_{n=0}^1 q^n = 1 + q",
+      "S_F = sp.summation(q**n, (n, 0, 1))",
+      "assert sp.simplify(S_F - (1 + q)) == 0",
       "",
-      "# -----------------------------------------------------------",
-      "# Steps 5\u20136: Fermionic two-term sum and mean occupation",
-      "# -----------------------------------------------------------",
-      "",
-      "# Single-mode fermionic partition function:",
-      "#   Z_F = 1 + q, with q = exp(-beta*(epsilon - mu)).",
-      "Z_F_q = 1 + q",
-      "",
-      "# Mean fermionic occupation:",
-      "#   n\u0304_F = (0*1 + 1*q) / (1 + q) = q/(1 + q).",
+      "# --------------------",
+      "# Step 10: FD mean occupation q/(1+q) -> 1/(e^(beta*(epsilon-mu)) + 1)",
       "nbar_F_q = sp.simplify(q/(1 + q))",
+      "nbar_F = sp.simplify(nbar_F_q.subs(q, q_sub))",
+      "assert sp.simplify(nbar_F - 1/(sp.exp(beta*(epsilon - mu)) + 1)) == 0",
       "",
-      "# Express in terms of x via q = exp(-x).",
-      "nbar_F_x = sp.simplify(nbar_F_q.subs(q, sp.exp(-x)))",
-      "nbar_F_expected_x = 1/(sp.exp(x) + 1)",
-      "assert sp.simplify(nbar_F_x - nbar_F_expected_x) == 0",
+      "# --------------------",
+      "# Steps 4/5/11 (algebraic part): (-1)^(2*s) yields +1 for integer s and -1 for half-integer s",
+      "s_int = [0, 1, 2, 3]",
+      "s_half = [sp.Rational(1, 2), sp.Rational(3, 2), sp.Rational(5, 2)]",
+      "for s in s_int:",
+      "    assert (-1)**(2*s) == 1",
+      "for s in s_half:",
+      "    assert (-1)**(2*s) == -1",
       "",
-      "# Substitute x = beta*(epsilon - mu) to obtain the standard Fermi-Dirac form.",
-      "nbar_F_energy = sp.simplify(nbar_F_x.subs(x, beta*(epsilon - mu)))",
-      "nbar_F_energy_expected = 1/(sp.exp(beta*(epsilon - mu)) + 1)",
-      "assert sp.simplify(nbar_F_energy - nbar_F_energy_expected) == 0",
-      "",
-      "# -----------------------------------------------------------",
-      "# Sanity checks: limiting behaviours",
-      "# -----------------------------------------------------------",
-      "",
-      "# High-temperature / classical limit x -> 0:",
-      "# Both distributions should reduce to n\u0304 \u2248 1/x for small x (up to first order),",
-      "# corresponding to the Maxwell-Boltzmann regime.",
-      "series_BE = sp.series(nbar_BE_expected, x, 0, 2).removeO()",
-      "series_FD = sp.series(nbar_F_expected_x, x, 0, 2).removeO()",
-      "",
-      "# In both cases the leading term is 1/x; subleading terms differ in sign.",
-      "leading_BE = sp.simplify(sp.limit(x*series_BE, x, 0))",
-      "leading_FD = sp.simplify(sp.limit(x*series_FD, x, 0))",
-      "assert leading_BE == 1",
-      "assert leading_FD == 1",
-      "",
-      "print(\"Spin\u2013statistics (BE/FD distributions) checks passed \u2714\")"
+      "print('spin_statistics_theorem programmatic checks passed')"
     ]
   },
   "domain": "hep-th",
   "theory_status": "current",
   "historical_context": {
-    "importance": "Establishes that integer-spin particles are bosons obeying Bose\u2013Einstein statistics while half-integer-spin particles are fermions obeying Fermi\u2013Dirac statistics and the Pauli exclusion principle. This underlies the structure of matter, stability of bulk systems, and the thermal properties of quantum fields.",
-    "development_period": "1940\u2013present",
+    "importance": "Connects intrinsic spin with exchange symmetry and quantum statistics, explaining Bose–Einstein and Fermi–Dirac behavior and the Pauli exclusion principle.",
+    "development_period": "1939–present",
     "key_insights": [
-      "Relativistic locality and positivity of energy tie the exchange symmetry of identical particles to their spin.",
-      "Bosons (integer spin) occupy symmetric states with unbounded mode occupancy, leading to Bose\u2013Einstein statistics and phenomena such as condensation and coherent radiation.",
-      "Fermions (half-integer spin) occupy antisymmetric states with at most one particle per single-particle state, leading to Fermi\u2013Dirac statistics and the stability and degeneracy pressure of matter."
+      "Locality implies a graded exchange relation for spacelike-separated fields.",
+      "Relativistic covariance and positive energy fix the graded sign to `(-1)^(2*s)`.",
+      "The resulting symmetry determines allowed single-level occupancies and the BE/FD distributions for non-interacting particles."
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Pauli, W. (1940). The Connection Between Spin and Statistics. Physical Review, 58(8), 716\u2013722."
+      "citation": "Fierz, M. (1939). Über die relativistische Theorie kräftefreier Teilchen mit beliebigem Spin. Helvetica Physica Acta, 12, 3–37."
     },
     {
       "id": "R2",
-      "citation": "Streater, R. F., & Wightman, A. S. (1964). PCT, Spin and Statistics, and All That. Princeton University Press."
+      "citation": "Pauli, W. (1940). The Connection Between Spin and Statistics. Physical Review, 58(8), 716–722."
     },
     {
       "id": "R3",
-      "citation": "Weinberg, S. (1995). The Quantum Theory of Fields, Vol. 1: Foundations. Cambridge University Press."
+      "citation": "Streater, R. F., & Wightman, A. S. (1964). PCT, Spin and Statistics, and All That. Princeton University Press."
     }
   ],
   "contributors": [
@@ -268,5 +267,5 @@
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
