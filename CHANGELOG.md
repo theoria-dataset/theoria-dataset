@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- New entry: `partition_function` - Statistical mechanics partition function
+- New entry: `partition_function`, statistical mechanics partition function
+- New entry: `spin_statistics_theorem`, spin-statistics connection in quantum field theory
+- New assumptions added for the new entries
+
 
 ### Changed
 
