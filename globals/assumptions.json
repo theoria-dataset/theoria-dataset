@@ -205,7 +205,21 @@
       "title": "Flat Spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
       "type": "approximation",
-      "used_in": ["relativistic_energy_momentum"]
+      "mathematical_expressions": ["g_(mu nu) = eta_(mu nu)"],
+      "symbol_definitions": [
+        {
+          "symbol": "g_(mu nu)",
+          "definition": "Spacetime metric tensor in general."
+        },
+        {
+          "symbol": "eta_(mu nu)",
+          "definition": "Minkowski metric components used in special relativity."
+        }
+      ],
+      "used_in": [
+        "relativistic_energy_momentum",
+        "lorentz_group_and_four_vectors"
+      ]
     },
     {
       "id": "well_defined_rest_mass",
@@ -499,66 +513,85 @@
       ],
       "used_in": ["schrodinger_equation"]
     },
-  {
-    "id": "quantum_observables_selfadjoint_operators",
-    "title": "Quantum Observables as Self-Adjoint Operators",
-    "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.",
-    "type": "principle",
-    "mathematical_expressions": [
-      "a_0 = (:psi:|A|:psi:)",
-      "Delta A^2 = (:psi:|(A - a_0)^2|: psi:)"
-    ],
-    "symbol_definitions": [
-      {
-        "symbol": "A",
-        "definition": "Self-adjoint operator representing a physical observable."
-      },
-      {
-        "symbol": "|:psi:)",
-        "definition": "Normalized state vector in the quantum Hilbert space."
-      },
-      {
-        "symbol": "a_0",
-        "definition": "Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`."
-      },
-      {
-        "symbol": "Delta A^2",
-        "definition": "Variance (squared uncertainty) of `A` in state `|:psi:)`."
-      }
-    ],
-    "used_in": [
-      "uncertainty_principle"
-    ]
-  },
-  {
-    "id": "canonical_commutation_relations",
-    "title": "Canonical Commutation Relations for Position and Momentum",
-    "text": "Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*hbar*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `hbar`.",
-    "type": "principle",
-    "mathematical_expressions": [
-      "[x_i, p_j] = i*hbar*delta_(ij)"
-    ],
-    "symbol_definitions": [
-      {
-        "symbol": "x_i",
-        "definition": "Component `i` of the position operator."
-      },
-      {
-        "symbol": "p_j",
-        "definition": "Component `j` of the momentum operator conjugate to `x_j`."
-      },
-      {
-        "symbol": "hbar",
-        "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
-      },
-      {
-        "symbol": "delta_(ij)",
-        "definition": "Kronecker delta (`1` if `i = j`, `0` otherwise)."
-      }
-    ],
-    "used_in": [
-      "uncertainty_principle"
-    ]
-  }
-]
+    {
+      "id": "quantum_observables_selfadjoint_operators",
+      "title": "Quantum Observables as Self-Adjoint Operators",
+      "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "a_0 = (:psi:|A|:psi:)",
+        "Delta A^2 = (:psi:|(A - a_0)^2|: psi:)"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "A",
+          "definition": "Self-adjoint operator representing a physical observable."
+        },
+        {
+          "symbol": "|:psi:)",
+          "definition": "Normalized state vector in the quantum Hilbert space."
+        },
+        {
+          "symbol": "a_0",
+          "definition": "Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`."
+        },
+        {
+          "symbol": "Delta A^2",
+          "definition": "Variance (squared uncertainty) of `A` in state `|:psi:)`."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
+    },
+    {
+      "id": "canonical_commutation_relations",
+      "title": "Canonical Commutation Relations for Position and Momentum",
+      "text": "Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*hbar*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `hbar`.",
+      "type": "principle",
+      "mathematical_expressions": ["[x_i, p_j] = i*hbar*delta_(ij)"],
+      "symbol_definitions": [
+        {
+          "symbol": "x_i",
+          "definition": "Component `i` of the position operator."
+        },
+        {
+          "symbol": "p_j",
+          "definition": "Component `j` of the momentum operator conjugate to `x_j`."
+        },
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
+        },
+        {
+          "symbol": "delta_(ij)",
+          "definition": "Kronecker delta (`1` if `i = j`, `0` otherwise)."
+        }
+      ],
+      "used_in": ["uncertainty_principle"]
+    },
+    {
+      "id": "minkowski_metric_signature",
+      "title": "Minkowski metric signature convention",
+      "text": "Convention: Minkowski metric signature is chosen as `(+,-,-,-)`, i.e. `eta = diag(1,-1,-1,-1)`. All Lorentz-invariant scalar products and index raising/lowering in special-relativistic calculations follow this choice consistently.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "eta = diag(1,-1,-1,-1)",
+        "V · W := eta_(mu nu) V^mu W^nu"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "eta",
+          "definition": "Minkowski metric (as a matrix) with signature `(+,-,-,-)`."
+        },
+        {
+          "symbol": "eta_(mu nu)",
+          "definition": "Components of the Minkowski metric tensor."
+        },
+        {
+          "symbol": "mu, nu",
+          "definition": "Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices)."
+        }
+      ],
+      "used_in": ["lorentz_group_and_four_vectors"]
+    }
+  ]
 }
