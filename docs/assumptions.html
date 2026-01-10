@@ -20,9 +20,9 @@
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
 
-    <header class="main-header">
+    <header clashttps://github.com/theoria-dataset/theoria-dataset/pull/122/conflict?name=docs%252Fentries_index.html&ancestor_oid=9147e88f312c80a084182bf2ff25185f69127c6b&base_oid=3468272d1e031cd45a59901d683c302d1df40daa&head_oid=da9a11f1f26570526cdab32792cf97ce60f97dfes="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 29 Assumptions • Version 0.7.2</p>
+      <p class="subtitle">Browse All 34 Assumptions • Version 0.7.3</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,9 +51,9 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (13)</a>
+                <a href="#principle" class="nav-link">Principles (17)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
-        <a href="#approximation" class="nav-link">Approximations (9)</a>
+        <a href="#approximation" class="nav-link">Approximations (10)</a>
       </div>
     </nav>
   
@@ -68,19 +68,17 @@
       <h3 class="entry-title">
         Canonical Commutation Relations
       </h3>
-      <p class="entry-description">Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*ℏ*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `ℏ`.</p>
+      <p class="entry-description">Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*ℏ*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `ℏ`.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
-          <div class="assumption-math">`[q_i, p_j] = i*ℏ*delta_(ij)`</div>
-            <div class="assumption-math">`[q_i, q_j] = 0`</div>
-            <div class="assumption-math">`[p_i, p_j] = 0`</div>
+          <div class="assumption-math">`[x_i, p_j] = i*ℏ*delta_(ij)`</div>
         </div>
         <div class="assumption-symbols">
           <h4>Symbols:</h4>
-          <div class="assumption-symbol-def"><strong>`q_i`</strong>: Generalized coordinate operator for the `i`-th degree of freedom.</div>
-            <div class="assumption-symbol-def"><strong>`p_i`</strong>: Momentum operator canonically conjugate to `q_i`.</div>
+          <div class="assumption-symbol-def"><strong>`x_i`</strong>: Component `i` of the position operator.</div>
+            <div class="assumption-symbol-def"><strong>`p_j`</strong>: Component `j` of the momentum operator conjugate to `x_j`.</div>
             <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant, `ℏ = h/(2*pi)`.</div>
-            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise).</div>
+            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`1` if `i = j`, `0` otherwise).</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
@@ -176,6 +174,27 @@
       
     <div class="entry-card assumption-card assumption-principle">
       <h3 class="entry-title">
+        Existence of a Poincaré-Invariant Vacuum
+      </h3>
+      <p class="entry-description">There exists a unique (up to phase) vacuum state `|:0:)` invariant under spacetime symmetries, from which particle states are obtained by acting with local fields.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`U(g)*|:0:) = |:0:), forall g`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`|:0:)`</strong>: Vacuum state.</div>
+            <div class="assumption-symbol-def"><strong>`U(g)`</strong>: Unitary representation of a spacetime symmetry `g`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
         Gleason Theorem Conditions
       </h3>
       <p class="entry-description">The Hilbert space has dimension at least 3 (`dim(H) >= 3`), and the probability assignment on projectors (orthogonal projection operators `P` satisfying `P^2 = P = P^ast`) is continuous</p>
@@ -225,7 +244,58 @@
       </h3>
       <p class="entry-description">Observations are made from an inertial (non-accelerating) reference frame</p>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Lorentz Covariance
+      </h3>
+      <p class="entry-description">Spacetime symmetries act consistently on both coordinates and quantum states. For every proper orthochronous Lorentz transformation `Lambda` (a linear map of spacetime that preserves the Minkowski interval), there exists a unitary operator `U(Lambda)` on the Hilbert space such that local fields transform covariantly: the field at point `x` in one frame is related to the field at the transformed point `Lambda*x` in the new frame, with its field indices rotated by the appropriate finite-dimensional Lorentz representation `D(Lambda)` (scalar/vector/spinor, etc.).</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`Lambda^T*eta*Lambda = eta`</div>
+            <div class="assumption-math">`det(Lambda) = 1`</div>
+            <div class="assumption-math">`Lambda_0^0 >= 1`</div>
+            <div class="assumption-math">`U(Lambda)*Phi_a(x)*U(Lambda)^(-1) = sum_b D(Lambda)_a^b*Phi_b(Lambda*x)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`x`</strong>: Spacetime point (4-vector), e.g. `x = (c*t, x, y, z)`.</div>
+            <div class="assumption-symbol-def"><strong>`eta`</strong>: Minkowski metric tensor.</div>
+            <div class="assumption-symbol-def"><strong>`Lambda`</strong>: Proper orthochronous Lorentz transformation (a real `4x4` matrix) preserving the Minkowski interval: `Lambda^T*eta*Lambda = eta`, with `det(Lambda)=1` and `Lambda_0^0 >= 1`.</div>
+            <div class="assumption-symbol-def"><strong>`U(Lambda)`</strong>: Unitary operator implementing the Lorentz transformation `Lambda` on the Hilbert space of states.</div>
+            <div class="assumption-symbol-def"><strong>`Phi_a(x)`</strong>: Local field operator evaluated at spacetime point `x`, with component/field index `a`.</div>
+            <div class="assumption-symbol-def"><strong>`D(Lambda)_a^b`</strong>: Finite-dimensional Lorentz representation acting on the field indices (e.g. `D=1` for a scalar, `D=Lambda` for a 4-vector, and `D=S(Lambda)` for a spinor).</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Microcausality (Locality)
+      </h3>
+      <p class="entry-description">Microcausality is the quantum-field-theoretic formulation of relativistic causality. It states that local observables associated with spacelike-separated spacetime points correspond to mutually compatible measurements. If two spacetime points cannot be connected by signals propagating at or below the speed of light, then operations performed at one point cannot influence physical outcomes at the other. This requirement forbids superluminal signaling and ensures causal consistency of relativistic quantum theories.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`(x - y)^2 < 0  =>  [O(x), O(y)] = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`O(x)`</strong>: Local observable or field operator localized at the spacetime point `x`, constructed from quantum fields and acting nontrivially only in an arbitrarily small neighborhood of `x`.</div>
+            <div class="assumption-symbol-def"><strong>`[A,B]`</strong>: Commutator of two operators, defined as `[A,B] = A*B - B*A`. Vanishing commutator implies that the corresponding measurements are compatible and order-independent.</div>
+            <div class="assumption-symbol-def"><strong>`(x - y)^2`</strong>: Minkowski squared spacetime interval between points `x` and `y`, defined in the `(+,-,-,-)` metric convention as `(x - y)^2 = c^2*(t_x - t_y)^2 - |x_vec - y_vec|^2`. A negative value indicates spacelike separation.</div>
+            <div class="assumption-symbol-def"><strong>`c`</strong>: Speed of light in vacuum, setting the maximum speed for causal signal propagation.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -258,18 +328,40 @@
       
     <div class="entry-card assumption-card assumption-principle">
       <h3 class="entry-title">
+        Positive Energy Spectrum (Spectrum Condition)
+      </h3>
+      <p class="entry-description">The energy-momentum spectrum is bounded below and lies in the forward light cone: physical states have `p^0 >= 0`.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`p^0 >= 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`p^0`</strong>: Energy component of the four-momentum.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
         Quantum Observables as Self-Adjoint Operators
       </h3>
-      <p class="entry-description">Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.</p>
+      <p class="entry-description">Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
           <div class="assumption-math">`a_0 = (:psi:|A|:psi:)`</div>
+            <div class="assumption-math">`Delta A^2 = (:psi:|(A - a_0)^2|: psi:)`</div>
         </div>
         <div class="assumption-symbols">
           <h4>Symbols:</h4>
           <div class="assumption-symbol-def"><strong>`A`</strong>: Self-adjoint operator representing a physical observable.</div>
             <div class="assumption-symbol-def"><strong>`|:psi:)`</strong>: Normalized state vector in the quantum Hilbert space.</div>
-            <div class="assumption-symbol-def"><strong>`a_0`</strong>: Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`.</div>
+            <div class="assumption-symbol-def"><strong>`a_0`</strong>: Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`.</div>
+            <div class="assumption-symbol-def"><strong>`Delta A^2`</strong>: Variance (squared uncertainty) of `A` in state `|:psi:)`.</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
@@ -441,7 +533,7 @@
           <div class="assumption-symbol-def"><strong>`c`</strong>: Speed of light in vacuum, exact value by definition in SI units.</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
         </div>
       <span class="entry-status status-empirical">EMPIRICAL</span>
     </div>
@@ -534,8 +626,18 @@
         Flat Spacetime
       </h3>
       <p class="entry-description">Spacetime is flat, no gravitational effects considered</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`g_(mu nu) = eta_(mu nu) = diag(+1,-1,-1,-1)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`g_(mu nu)`</strong>: Spacetime metric tensor in general.</div>
+            <div class="assumption-symbol-def"><strong>`eta_(mu nu)`</strong>: Minkowski metric components used in special relativity, with signature `(+,-,-,-)`.</div>
+            <div class="assumption-symbol-def"><strong>`mu, nu`</strong>: Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices).</div>
+        </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>
@@ -562,6 +664,32 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=maxwell_equations.json">Maxwell Equations</a>
+        </div>
+      <span class="entry-status status-approximation">APPROXIMATION</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-approximation">
+      <h3 class="entry-title">
+        Non-interacting particle approximation
+      </h3>
+      <p class="entry-description">Particles are assumed not to interact. The total energy of a many-particle configuration is additive in the single-particle level occupations, and in the grand-canonical ensemble the partition function factorizes into independent contributions from each single-particle level.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`E({n_r}) = sum_r n_r*epsilon_r`</div>
+            <div class="assumption-math">`Z = prod_r Z_r`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`r`</strong>: Index labeling single-particle energy levels (modes).</div>
+            <div class="assumption-symbol-def"><strong>`n_r`</strong>: Number of particles occupying the single-particle level labeled by `r`.</div>
+            <div class="assumption-symbol-def"><strong>`E({n_r})`</strong>: Total energy of a many-particle configuration specified by occupation numbers `{n_r}`.</div>
+            <div class="assumption-symbol-def"><strong>`epsilon_r`</strong>: Energy eigenvalue of the single-particle level labeled by `r`.</div>
+            <div class="assumption-symbol-def"><strong>`Z`</strong>: Grand partition function of the full system.</div>
+            <div class="assumption-symbol-def"><strong>`Z_r`</strong>: Single-level contribution to the grand partition function associated with level `r`.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>
@@ -634,7 +762,7 @@
       </h3>
       <p class="entry-description">The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent</p>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=blackbody_radiation.json">Blackbody Radiation</a>, <a href="entries.html?entry=partition_function.json">Partition Function</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>

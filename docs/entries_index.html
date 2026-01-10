@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 99 Physics Entries (12 Reviewed, 87 AI-Generated) • Version 0.7.2</p>
+      <p class="subtitle">Browse All 100 Physics Entries (15 Reviewed, 85 AI-Generated) • Version 0.7.3</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -45,7 +45,7 @@
         <a href="#physics-cond-mat" class="nav-link">Condensed Matter Physics (3)</a>
         <a href="#physics-flu-dyn" class="nav-link">Fluid Dynamics (5)</a>
         <a href="#gr-qc" class="nav-link">General Relativity and Quantum Cosmology (5)</a>
-        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (4)</a>
+        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (5)</a>
         <a href="#cond-mat-mtrl-sci" class="nav-link">Materials Science (1)</a>
         <a href="#math-ph" class="nav-link">Mathematical Physics (1)</a>
         <a href="#cond-mat-mes-hall" class="nav-link">Mesoscale and Nanoscale Physics (1)</a>
@@ -749,6 +749,17 @@
     </a>
   
       
+    <a href="entries.html?entry=lorentz_group_and_four_vectors.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Lorentz group and four-vectors
+        </h3>
+        <p class="entry-description">The Lorentz group is the set of linear transformations that preserve the Minkowski metric and therefore leave the spacetime interval invariant.  A four-vector is any object whose components transform with a Lorentz matrix, ensuring that Minkowski inner products are frame-independent.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
     <a href="entries.html?entry=qed_lagrangian.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
@@ -760,13 +771,13 @@
     </a>
   
       
-    <a href="entries.html?entry=spin_statistics_theorem.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
+    <a href="entries.html?entry=spin_statistics_theorem.json" class="entry-card-link">
+      <div class="entry-card">
         <h3 class="entry-title">
-          Spin-Statistics Theorem
+          Spin–Statistics Theorem
         </h3>
-        <p class="entry-description">The spin-statistics theorem establishes a fundamental connection in relativistic quantum field theory between a particle's intrinsic angular momentum (spin) and the statistical behavior of identical particles.  Particles with integer spin must be bosons and follow Bose-Einstein statistics, while particles with half-integer spin must be fermions and follow Fermi-Dirac statistics.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
+        <p class="entry-description">The spin–statistics theorem connects intrinsic spin with exchange symmetry of identical particles.  Integer-spin particles have symmetric many-particle states under exchange, while half-integer-spin particles have antisymmetric states.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
       </div>
     </a>
   
@@ -1146,6 +1157,17 @@
     </a>
   
       
+    <a href="entries.html?entry=partition_function.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Canonical Partition Function (Canonical Ensemble)
+        </h3>
+        <p class="entry-description">The canonical partition function is the quantity that collects the statistical weight of all microstates of a system in thermal equilibrium.  It is defined as a sum over microstates and acts as the normalization constant for the equilibrium probabilities.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
     <a href="entries.html?entry=carnot_efficiency.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
@@ -1207,17 +1229,6 @@
           Maxwell-Boltzmann Distribution
         </h3>
         <p class="entry-description">The Maxwell-Boltzmann distribution describes the probability distribution of particle speeds in a classical ideal gas at thermal equilibrium.  It shows that most particles have intermediate speeds, with exponentially fewer particles at very high speeds.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
-      </div>
-    </a>
-  
-      
-    <a href="entries.html?entry=partition_function.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
-        <h3 class="entry-title">
-          Partition Function (Canonical Ensemble)
-        </h3>
-        <p class="entry-description">The partition function is the central quantity in statistical mechanics that connects microscopic energy states to macroscopic thermodynamic properties.  It represents the sum over all possible energy states weighted by their Boltzmann factors.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
@@ -1381,7 +1392,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.2`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.3`;
     </script>
   </body>
 </html>
