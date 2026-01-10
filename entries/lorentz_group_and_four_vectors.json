@@ -82,7 +82,7 @@
       "step": 1,
       "description": "In special relativity, represent events by a 4-vector `x = (c*t, x, y, z)^T` and define the Minkowski metric `eta`. We use the spacetime interval, defined as `s^2 = c^2*t^2 - x^2 - y^2 - z^2`.",
       "equation": "s^2 = c^2*t^2 - x^2 - y^2 - z^2 = x^T * eta * x",
-      "equation_proven": "eq1",
+      "equation_proven": "minkowski_interval",
       "assumptions": [
         "flat_spacetime",
         "light_speed_constant",
@@ -93,7 +93,7 @@
       "step": 2,
       "description": "Between inertial frames, focus on the linear part of the coordinate change (translations do not affect intervals of differences). Write the transformation as a matrix acting on 4-vectors: `x' = Lambda*x`. Any four-vector `V` transforms the same way by definition: `V' = Lambda*V`.",
       "equation": "x' = Lambda * x;  V' = Lambda * V",
-      "equation_proven": "eq3",
+      "equation_proven": "four_vector_transformation",
       "assumptions": [
         "inertial_reference_frame",
         "special_relativity_transformations"
@@ -114,14 +114,14 @@
       "step": 5,
       "description": "Impose invariance of the interval for all events (equivalently, for all 4-vectors `x`): require `s'^2 = s^2`. Since this must hold for arbitrary `x`, the matrices multiplying the quadratic form must match, giving the Lorentz condition `Lambda^T*eta*Lambda = eta`.",
       "equation": "Lambda^T * eta * Lambda = eta",
-      "equation_proven": "eq2",
+      "equation_proven": "lorentz_condition",
       "assumptions": ["special_relativity_transformations"]
     },
     {
       "step": 6,
       "description": "The same algebra shows invariance of the Minkowski scalar product of any two four-vectors `V` and `W`. Using `V' = Lambda*V` and `W' = Lambda*W`, we get: using the Lorentz condition.",
       "equation": "(V')^T*eta*W' = V^T*(Lambda^T*eta*Lambda)*W = V^T*eta*W",
-      "equation_proven": "eq4",
+      "equation_proven": "lorentz_invariant_scalar_product",
       "assumptions": ["flat_spacetime"]
     },
     {
@@ -133,7 +133,8 @@
     {
       "step": 8,
       "description": "Define the (full) Lorentz group as the set of real invertible `4x4` matrices satisfying the Lorentz condition: `O(1,3) = {Lambda in GL(4,RR) : Lambda^T*eta*Lambda = eta}`. The group property follows from closure under matrix multiplication and the inverse formula above.",
-      "equation": "O(1,3) = {Lambda in GL(4,RR) : Lambda^T * eta * Lambda = eta}"
+      "equation": "O(1,3) = {Lambda in GL(4,RR) : Lambda^T * eta * Lambda = eta}",
+      "equation_proven": "lorentz_group_definition"
     }
   ],
   "programmatic_verification": {
@@ -226,7 +227,7 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "superseded_by": ["special_relativity_transformations"],
+  "superseded_by": ["einstein_field_equations"],
   "historical_context": {
     "importance": "Provides the symmetry structure of Minkowski spacetime and the transformation law for relativistic 4-vectors; foundational for relativistic kinematics and QFT.",
     "development_period": "1904–1908",

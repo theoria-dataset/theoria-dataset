@@ -60,7 +60,7 @@
       "title": "Inertial Reference Frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
       "type": "principle",
-      "used_in": ["special_relativity_transformations"]
+      "used_in": ["special_relativity_transformations", "lorentz_group_and_four_vectors"]
     },
     {
       "id": "conservation_laws_valid",
@@ -134,7 +134,8 @@
       ],
       "used_in": [
         "relativistic_energy_momentum",
-        "special_relativity_transformations"
+        "special_relativity_transformations",
+        "lorentz_group_and_four_vectors"
       ]
     },
     {
@@ -254,7 +255,7 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule", "schrodinger_equation"]
+      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle"]
     },
     {
       "id": "gleason_theorem_conditions",

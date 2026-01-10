@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 100 Physics Entries (11 Reviewed, 89 AI-Generated) • Version 0.7.1</p>
+      <p class="subtitle">Browse All 100 Physics Entries (12 Reviewed, 88 AI-Generated) • Version 0.7.3</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -749,13 +749,13 @@
     </a>
   
       
-    <a href="entries.html?entry=lorentz_group_and_four_vectors.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
+    <a href="entries.html?entry=lorentz_group_and_four_vectors.json" class="entry-card-link">
+      <div class="entry-card">
         <h3 class="entry-title">
           Lorentz group and four-vectors
         </h3>
         <p class="entry-description">The Lorentz group is the set of linear transformations that preserve the Minkowski metric and therefore leave the spacetime interval invariant.  A four-vector is any object whose components transform with a Lorentz matrix, ensuring that Minkowski inner products are frame-independent.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
+        <span class="entry-status status-reviewed">REVIEWED</span>
       </div>
     </a>
   
@@ -1392,7 +1392,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.1`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.3`;
     </script>
   </body>
 </html>

@@ -63,7 +63,8 @@
   "assumptions": [
     "hilbert_space_probability_structure",
     "quantum_observables_selfadjoint_operators",
-    "canonical_commutation_relations"
+    "canonical_commutation_relations",
+    "hilbert_space_probability_structure"
   ],
   "depends_on": [
     "born_rule"
