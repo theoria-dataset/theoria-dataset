@@ -140,8 +140,8 @@
     },
     {
       "step": 9,
-      "description": "Apply spacetime interval invariance: demand `x'^2 - c^2*t'^2 = x^2 - c^2*t^2` (consequence of the relativity principle and constant light speed ensuring the same physics in all inertial frames).",
-      "equation": "x'^2 - c^2*t'^2 = A^2*(x-v*t)^2-c^2*A^2*(t-v/c^2*x)^2 = A^2*(x^2 - 2*v*t*x + v^2*t^2 - c^2*t^2 + 2*v*x*t - v^2/c^2*x^2) = A^2*(1 - v^2/c^2)*(x^2 - c^2*t^2)"
+      "description": "Apply spacetime interval invariance: demand `c^2*t'^2 - x'^2 = c^2*t^2 - x^2` (consistent with signature `(+,-,-,-)`).",
+      "equation": "c^2*t'^2 - x'^2 = c^2*t^2 - x^2"
     },
     {
       "step": 10,
@@ -288,7 +288,8 @@
   "domain": "gr-qc",
   "theory_status": "current",
   "superseded_by": [
-    "einstein_field_equations"
+    "einstein_field_equations",
+    "lorentz_group_and_four_vectors"
   ],
   "historical_context": {
     "importance": "Revolutionary unification of space and time into spacetime",
@@ -312,7 +313,7 @@
   ],
   "contributors": [
     {
-      "full_name": "Manuel S\u00e1nchez Hern\u00e1ndez",
+      "full_name": "Manuel Sánchez Hernández",
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],

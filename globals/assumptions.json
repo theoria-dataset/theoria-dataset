@@ -205,7 +205,9 @@
       "title": "Flat Spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
       "type": "approximation",
-      "mathematical_expressions": ["g_(mu nu) = eta_(mu nu)"],
+      "mathematical_expressions": [
+        "g_(mu nu) = eta_(mu nu) = diag(+1,-1,-1,-1)"
+      ],
       "symbol_definitions": [
         {
           "symbol": "g_(mu nu)",
@@ -213,7 +215,11 @@
         },
         {
           "symbol": "eta_(mu nu)",
-          "definition": "Minkowski metric components used in special relativity."
+          "definition": "Minkowski metric components used in special relativity, with signature `(+,-,-,-)`."
+        },
+        {
+          "symbol": "mu, nu",
+          "definition": "Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices)."
         }
       ],
       "used_in": [
@@ -567,31 +573,6 @@
         }
       ],
       "used_in": ["uncertainty_principle"]
-    },
-    {
-      "id": "minkowski_metric_signature",
-      "title": "Minkowski metric signature convention",
-      "text": "Convention: Minkowski metric signature is chosen as `(+,-,-,-)`, i.e. `eta = diag(1,-1,-1,-1)`. All Lorentz-invariant scalar products and index raising/lowering in special-relativistic calculations follow this choice consistently.",
-      "type": "principle",
-      "mathematical_expressions": [
-        "eta = diag(1,-1,-1,-1)",
-        "V · W := eta_(mu nu) V^mu W^nu"
-      ],
-      "symbol_definitions": [
-        {
-          "symbol": "eta",
-          "definition": "Minkowski metric (as a matrix) with signature `(+,-,-,-)`."
-        },
-        {
-          "symbol": "eta_(mu nu)",
-          "definition": "Components of the Minkowski metric tensor."
-        },
-        {
-          "symbol": "mu, nu",
-          "definition": "Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices)."
-        }
-      ],
-      "used_in": ["lorentz_group_and_four_vectors"]
     }
   ]
 }
