@@ -551,18 +551,22 @@
     },
     {
       "id": "canonical_commutation_relations",
-      "title": "Canonical Commutation Relations for Position and Momentum",
-      "text": "Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*hbar*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `hbar`.",
+      "title": "Canonical Commutation Relations",
+      "text": "Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*hbar*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `hbar`.",
       "type": "principle",
-      "mathematical_expressions": ["[x_i, p_j] = i*hbar*delta_(ij)"],
+      "mathematical_expressions": [
+        "[q_i, p_j] = i*hbar*delta_(ij)",
+        "[q_i, q_j] = 0",
+        "[p_i, p_j] = 0"
+      ],
       "symbol_definitions": [
         {
-          "symbol": "x_i",
-          "definition": "Component `i` of the position operator."
+          "symbol": "q_i",
+          "definition": "Generalized coordinate operator for the `i`-th degree of freedom."
         },
         {
-          "symbol": "p_j",
-          "definition": "Component `j` of the momentum operator conjugate to `x_j`."
+          "symbol": "p_i",
+          "definition": "Momentum operator canonically conjugate to `q_i`."
         },
         {
           "symbol": "hbar",
@@ -570,10 +574,141 @@
         },
         {
           "symbol": "delta_(ij)",
-          "definition": "Kronecker delta (`1` if `i = j`, `0` otherwise)."
+          "definition": "Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise)."
         }
       ],
       "used_in": ["uncertainty_principle"]
+    },
+    {
+      "id": "non_interacting_particles",
+      "title": "Non-interacting particle approximation",
+      "text": "Particles are assumed not to interact. The total energy of a many-particle configuration is additive in the single-particle level occupations, and in the grand-canonical ensemble the partition function factorizes into independent contributions from each single-particle level.",
+      "type": "approximation",
+      "mathematical_expressions": [
+        "E({n_r}) = sum_r n_r*epsilon_r",
+        "Z = prod_r Z_r"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "r",
+          "definition": "Index labeling single-particle energy levels (modes)."
+        },
+        {
+          "symbol": "n_r",
+          "definition": "Number of particles occupying the single-particle level labeled by `r`."
+        },
+        {
+          "symbol": "E({n_r})",
+          "definition": "Total energy of a many-particle configuration specified by occupation numbers `{n_r}`."
+        },
+        {
+          "symbol": "epsilon_r",
+          "definition": "Energy eigenvalue of the single-particle level labeled by `r`."
+        },
+        {
+          "symbol": "Z",
+          "definition": "Grand partition function of the full system."
+        },
+        {
+          "symbol": "Z_r",
+          "definition": "Single-level contribution to the grand partition function associated with level `r`."
+        }
+      ],
+      "used_in": ["spin_statistics_theorem"]
+    },
+    {
+      "id": "lorentz_covariance",
+      "title": "Lorentz Covariance",
+      "text": "Spacetime symmetries act consistently on both coordinates and quantum states. For every proper orthochronous Lorentz transformation `Lambda` (a linear map of spacetime that preserves the Minkowski interval), there exists a unitary operator `U(Lambda)` on the Hilbert space such that local fields transform covariantly: the field at point `x` in one frame is related to the field at the transformed point `Lambda*x` in the new frame, with its field indices rotated by the appropriate finite-dimensional Lorentz representation `D(Lambda)` (scalar/vector/spinor, etc.).",
+      "type": "principle",
+      "mathematical_expressions": [
+        "Lambda^T*eta*Lambda = eta",
+        "det(Lambda) = 1",
+        "Lambda_0^0 >= 1",
+        "U(Lambda)*Phi_a(x)*U(Lambda)^(-1) = sum_b D(Lambda)_a^b*Phi_b(Lambda*x)"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "x",
+          "definition": "Spacetime point (4-vector), e.g. `x = (c*t, x, y, z)`."
+        },
+        {
+          "symbol": "eta",
+          "definition": "Minkowski metric tensor."
+        },
+        {
+          "symbol": "Lambda",
+          "definition": "Proper orthochronous Lorentz transformation (a real `4x4` matrix) preserving the Minkowski interval: `Lambda^T*eta*Lambda = eta`, with `det(Lambda)=1` and `Lambda_0^0 >= 1`."
+        },
+        {
+          "symbol": "U(Lambda)",
+          "definition": "Unitary operator implementing the Lorentz transformation `Lambda` on the Hilbert space of states."
+        },
+        {
+          "symbol": "Phi_a(x)",
+          "definition": "Local field operator evaluated at spacetime point `x`, with component/field index `a`."
+        },
+        {
+          "symbol": "D(Lambda)_a^b",
+          "definition": "Finite-dimensional Lorentz representation acting on the field indices (e.g. `D=1` for a scalar, `D=Lambda` for a 4-vector, and `D=S(Lambda)` for a spinor)."
+        }
+      ],
+      "used_in": ["spin_statistics_theorem"]
+    },
+    {
+      "id": "microcausality",
+      "title": "Microcausality (Locality)",
+      "text": "Microcausality is the quantum-field-theoretic formulation of relativistic causality. It states that local observables associated with spacelike-separated spacetime points correspond to mutually compatible measurements. If two spacetime points cannot be connected by signals propagating at or below the speed of light, then operations performed at one point cannot influence physical outcomes at the other. This requirement forbids superluminal signaling and ensures causal consistency of relativistic quantum theories.",
+      "type": "principle",
+      "mathematical_expressions": ["(x - y)^2 < 0  =>  [O(x), O(y)] = 0"],
+      "symbol_definitions": [
+        {
+          "symbol": "O(x)",
+          "definition": "Local observable or field operator localized at the spacetime point `x`, constructed from quantum fields and acting nontrivially only in an arbitrarily small neighborhood of `x`."
+        },
+        {
+          "symbol": "[A,B]",
+          "definition": "Commutator of two operators, defined as `[A,B] = A*B - B*A`. Vanishing commutator implies that the corresponding measurements are compatible and order-independent."
+        },
+        {
+          "symbol": "(x - y)^2",
+          "definition": "Minkowski squared spacetime interval between points `x` and `y`, defined in the `(+,-,-,-)` metric convention as `(x - y)^2 = c^2*(t_x - t_y)^2 - |x_vec - y_vec|^2`. A negative value indicates spacelike separation."
+        },
+        {
+          "symbol": "c",
+          "definition": "Speed of light in vacuum, setting the maximum speed for causal signal propagation."
+        }
+      ],
+      "used_in": ["spin_statistics_theorem"]
+    },
+    {
+      "id": "positive_energy_spectrum",
+      "title": "Positive Energy Spectrum (Spectrum Condition)",
+      "text": "The energy-momentum spectrum is bounded below and lies in the forward light cone: physical states have `p^0 >= 0`.",
+      "type": "principle",
+      "mathematical_expressions": ["p^0 >= 0"],
+      "symbol_definitions": [
+        {
+          "symbol": "p^0",
+          "definition": "Energy component of the four-momentum."
+        }
+      ],
+      "used_in": ["spin_statistics_theorem"]
+    },
+    {
+      "id": "vacuum_state_exists",
+      "title": "Existence of a Poincaré-Invariant Vacuum",
+      "text": "There exists a unique (up to phase) vacuum state `|:0:)` invariant under spacetime symmetries, from which particle states are obtained by acting with local fields.",
+      "type": "principle",
+      "mathematical_expressions": ["U(g)*|:0:) = |:0:), forall g"],
+      "symbol_definitions": [
+        { "symbol": "|:0:)", "definition": "Vacuum state." },
+        {
+          "symbol": "U(g)",
+          "definition": "Unitary representation of a spacetime symmetry `g`."
+        }
+      ],
+      "used_in": ["spin_statistics_theorem"]
     }
   ]
 }
