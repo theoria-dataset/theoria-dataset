@@ -60,7 +60,7 @@
       "title": "Inertial Reference Frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
       "type": "principle",
-      "used_in": ["special_relativity_transformations"]
+      "used_in": ["special_relativity_transformations", "lorentz_group_and_four_vectors"]
     },
     {
       "id": "conservation_laws_valid",
@@ -134,7 +134,8 @@
       ],
       "used_in": [
         "relativistic_energy_momentum",
-        "special_relativity_transformations"
+        "special_relativity_transformations",
+        "lorentz_group_and_four_vectors"
       ]
     },
     {
@@ -205,7 +206,27 @@
       "title": "Flat Spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
       "type": "approximation",
-      "used_in": ["relativistic_energy_momentum"]
+      "mathematical_expressions": [
+        "g_(mu nu) = eta_(mu nu) = diag(+1,-1,-1,-1)"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "g_(mu nu)",
+          "definition": "Spacetime metric tensor in general."
+        },
+        {
+          "symbol": "eta_(mu nu)",
+          "definition": "Minkowski metric components used in special relativity, with signature `(+,-,-,-)`."
+        },
+        {
+          "symbol": "mu, nu",
+          "definition": "Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices)."
+        }
+      ],
+      "used_in": [
+        "relativistic_energy_momentum",
+        "lorentz_group_and_four_vectors"
+      ]
     },
     {
       "id": "well_defined_rest_mass",
@@ -502,9 +523,12 @@
     {
       "id": "quantum_observables_selfadjoint_operators",
       "title": "Quantum Observables as Self-Adjoint Operators",
-      "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.",
+      "text": "Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.",
       "type": "principle",
-      "mathematical_expressions": ["a_0 = (:psi:|A|:psi:)"],
+      "mathematical_expressions": [
+        "a_0 = (:psi:|A|:psi:)",
+        "Delta A^2 = (:psi:|(A - a_0)^2|: psi:)"
+      ],
       "symbol_definitions": [
         {
           "symbol": "A",
@@ -516,7 +540,11 @@
         },
         {
           "symbol": "a_0",
-          "definition": "Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`."
+          "definition": "Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`."
+        },
+        {
+          "symbol": "Delta A^2",
+          "definition": "Variance (squared uncertainty) of `A` in state `|:psi:)`."
         }
       ],
       "used_in": ["uncertainty_principle"]

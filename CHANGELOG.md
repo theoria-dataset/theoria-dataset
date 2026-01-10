@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - New entry: `partition_function`, statistical mechanics partition function
 - New entry: `spin_statistics_theorem`, spin-statistics connection in quantum field theory
+- New entry: `lorentz_group_and_four_vectors`, Lorentz group and four-vectors in special relativity
 - New assumptions added for the new entries
 
 
