@@ -111,7 +111,7 @@
       "title": "Thermal Equilibrium",
       "text": "The radiation field is in thermal equilibrium at temperature `T`, meaning the emission and absorption rates are balanced and the energy distribution is time-independent",
       "type": "approximation",
-      "used_in": ["blackbody_radiation"]
+      "used_in": ["blackbody_radiation", "partition_function"]
     },
     {
       "id": "electromagnetic_polarization",
@@ -134,7 +134,8 @@
       ],
       "used_in": [
         "relativistic_energy_momentum",
-        "special_relativity_transformations"
+        "special_relativity_transformations",
+        "lorentz_group_and_four_vectors"
       ]
     },
     {
@@ -205,7 +206,10 @@
       "title": "Flat Spacetime",
       "text": "Spacetime is flat, no gravitational effects considered",
       "type": "approximation",
-      "used_in": ["relativistic_energy_momentum"]
+      "used_in": [
+        "relativistic_energy_momentum",
+        "lorentz_group_and_four_vectors"
+      ]
     },
     {
       "id": "well_defined_rest_mass",

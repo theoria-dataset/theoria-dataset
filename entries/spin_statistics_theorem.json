@@ -80,26 +80,23 @@
     }
   ],
   "assumptions": [
-    "hilbert_space_probability_structure",
-    "quantum_superposition_linear_dynamics",
-    "flat_spacetime",
-    "light_speed_constant",
     "lorentz_covariance",
     "microcausality",
     "positive_energy_spectrum",
     "vacuum_state_exists",
     "non_interacting_particles"
   ],
-  "depends_on": ["partition_function", "relativistic_energy_momentum"],
+  "depends_on": ["partition_function"],
   "derivation": [
     {
       "step": 1,
+      "assumptions": ["partition_function"],
       "description": "Work in the grand-canonical ensemble at inverse temperature `beta` and chemical potential `mu`. A microstate is specified by occupation numbers `{n_r}` for single-particle levels with energies `{epsilon_r}`. In this ensemble, a configuration `{n_r}` is assigned the weight `e^(-beta*(E - mu*N))`, where `E = sum_r n_r*epsilon_r` and `N = sum_r n_r`. The grand partition function `Z` is defined as the sum of these weights over all occupation-number configurations.",
       "equation": "Z = sum_({n_r}) e^(-beta*sum_r n_r*(epsilon_r - mu))"
     },
     {
       "step": 2,
-      "assumptions": ["non_interacting_particles"],
+      "assumptions": ["non_interacting_particles", "partition_function"],
       "description": "For non-interacting particles, the total energy is additive in the level occupations, `E = sum_r n_r*epsilon_r`. As a result, the grand partition function can be written as a product of independent contributions, one for each single-particle level. For each level `r`, define `Z_r` as the sum of the Boltzmann weights over all allowed occupation numbers of that level alone, keeping all other levels fixed.",
       "equation": "Z = prod_r Z_r; Z_r = sum_(n_r) e^(-beta*(epsilon_r - mu)*n_r)"
     },
