@@ -20,7 +20,7 @@
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
 
-    <header class="main-header">
+    <header clashttps://github.com/theoria-dataset/theoria-dataset/pull/122/conflict?name=docs%252Fentries_index.html&ancestor_oid=9147e88f312c80a084182bf2ff25185f69127c6b&base_oid=3468272d1e031cd45a59901d683c302d1df40daa&head_oid=da9a11f1f26570526cdab32792cf97ce60f97dfes="main-header">
       <h1>TheorIA Dataset</h1>
       <p class="subtitle">Browse All 34 Assumptions • Version 0.7.3</p>
       <div class="header-actions">
@@ -68,19 +68,17 @@
       <h3 class="entry-title">
         Canonical Commutation Relations
       </h3>
-      <p class="entry-description">Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*ℏ*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `ℏ`.</p>
+      <p class="entry-description">Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*ℏ*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `ℏ`.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
-          <div class="assumption-math">`[q_i, p_j] = i*ℏ*delta_(ij)`</div>
-            <div class="assumption-math">`[q_i, q_j] = 0`</div>
-            <div class="assumption-math">`[p_i, p_j] = 0`</div>
+          <div class="assumption-math">`[x_i, p_j] = i*ℏ*delta_(ij)`</div>
         </div>
         <div class="assumption-symbols">
           <h4>Symbols:</h4>
-          <div class="assumption-symbol-def"><strong>`q_i`</strong>: Generalized coordinate operator for the `i`-th degree of freedom.</div>
-            <div class="assumption-symbol-def"><strong>`p_i`</strong>: Momentum operator canonically conjugate to `q_i`.</div>
+          <div class="assumption-symbol-def"><strong>`x_i`</strong>: Component `i` of the position operator.</div>
+            <div class="assumption-symbol-def"><strong>`p_j`</strong>: Component `j` of the momentum operator conjugate to `x_j`.</div>
             <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant, `ℏ = h/(2*pi)`.</div>
-            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise).</div>
+            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`1` if `i = j`, `0` otherwise).</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
@@ -246,7 +244,7 @@
       </h3>
       <p class="entry-description">Observations are made from an inertial (non-accelerating) reference frame</p>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=special_relativity_transformations.json">Special Relativity Transformations</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -352,16 +350,18 @@
       <h3 class="entry-title">
         Quantum Observables as Self-Adjoint Operators
       </h3>
-      <p class="entry-description">Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space. The possible measurement values are identified with the (real) spectrum of `A`. For a normalized state `|:psi:)`, the quantity `a_0 = (:psi:|A|:psi:)` defines the expectation value of `A` in that state and is real.</p>
+      <p class="entry-description">Each physical observable is represented by a self-adjoint (Hermitian) operator `A` on the Hilbert space, so expectation values like `(:psi:|A|:psi:)` are real and variances defined as `Delta A^2 = (:psi:|(A - a_0)^2|:psi:)` with `a_0 = (:psi:|A|:psi:)` are non-negative.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
           <div class="assumption-math">`a_0 = (:psi:|A|:psi:)`</div>
+            <div class="assumption-math">`Delta A^2 = (:psi:|(A - a_0)^2|: psi:)`</div>
         </div>
         <div class="assumption-symbols">
           <h4>Symbols:</h4>
           <div class="assumption-symbol-def"><strong>`A`</strong>: Self-adjoint operator representing a physical observable.</div>
             <div class="assumption-symbol-def"><strong>`|:psi:)`</strong>: Normalized state vector in the quantum Hilbert space.</div>
-            <div class="assumption-symbol-def"><strong>`a_0`</strong>: Expectation value of observable `A` in state `|:psi:)`, defined by `a_0 = (:psi:|A|:psi:)`.</div>
+            <div class="assumption-symbol-def"><strong>`a_0`</strong>: Expectation value of observable `A` in state `|:psi:)`, `a_0 = (:psi:|A|:psi:)`.</div>
+            <div class="assumption-symbol-def"><strong>`Delta A^2`</strong>: Variance (squared uncertainty) of `A` in state `|:psi:)`.</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
@@ -626,6 +626,16 @@
         Flat Spacetime
       </h3>
       <p class="entry-description">Spacetime is flat, no gravitational effects considered</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`g_(mu nu) = eta_(mu nu) = diag(+1,-1,-1,-1)`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`g_(mu nu)`</strong>: Spacetime metric tensor in general.</div>
+            <div class="assumption-symbol-def"><strong>`eta_(mu nu)`</strong>: Minkowski metric components used in special relativity, with signature `(+,-,-,-)`.</div>
+            <div class="assumption-symbol-def"><strong>`mu, nu`</strong>: Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices).</div>
+        </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
         </div>
