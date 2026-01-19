@@ -82,7 +82,7 @@ def update_form_guidelines(form_content, schema_data):
         'domain': 'domain',
         'validity_regime': 'validity_regime',
         'dependencies': 'depends_on',
-        'superseded_by': 'superseded_by',
+        'generalized_by': 'generalized_by',
         'historical_context': 'historical_context',
         'references': 'references',
         'attribution': 'created_by'
@@ -128,8 +128,8 @@ def update_form_guidelines(form_content, schema_data):
                     schema_field = 'validity_regime'
                 elif 'Dependencies' in heading:
                     schema_field = 'depends_on'
-                elif 'Superseded By' in heading:
-                    schema_field = 'superseded_by'
+                elif 'Generalized By' in heading:
+                    schema_field = 'generalized_by'
                 elif 'Historical Context' in heading:
                     schema_field = 'historical_context'
                 elif 'References' in heading:

@@ -98,7 +98,7 @@ def generate_contributing_md(requirements_file, output_file):
         'result_id', 'result_name', 'result_equations', 'explanation',
         'definitions', 'assumptions', 'derivation',
         'derivation_explanation', 'programmatic_verification', 'domain',
-        'theory_status', 'validity_regime', 'superseded_by', 'approximation_of',
+        'theory_status', 'validity_regime', 'generalized_by', 'approximation_of',
         'historical_context', 'references', 'depends_on', 'created_by', 'review_status'
     ]
 

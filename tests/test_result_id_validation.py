@@ -73,12 +73,12 @@ def test_cross_references_use_result_ids():
                         f"{entry_file.name}: dependency '{dep}' should not include .json extension"
                     )
         
-        # Check superseded_by field
-        if "superseded_by" in data and data["superseded_by"]:
-            for sup in data["superseded_by"]:
+        # Check generalized_by field
+        if "generalized_by" in data and data["generalized_by"]:
+            for sup in data["generalized_by"]:
                 if sup.endswith(".json"):
                     errors.append(
-                        f"{entry_file.name}: superseded_by '{sup}' should not include .json extension"
+                        f"{entry_file.name}: generalized_by '{sup}' should not include .json extension"
                     )
         
         # Check approximation_of field

@@ -102,13 +102,13 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 - **`theory_status`:**
   - Current scientific status of the theory
   - current: Modern theories widely accepted by scientific community
-  - historical: Important for development but superseded by better theories
+  - historical: Important for development but generalized by more comprehensive theories
   - approximation: Valid simplifications of more general theories
   - limiting_case: Special cases with restricted applicability
-  - superseded: Completely replaced by more accurate theories
+  - generalized: Subsumed into a more general framework but remains valid in its regime
 
-- `superseded_by`:
-  - Theories that supersede or generalize this result
+- `generalized_by`:
+  - Theories that generalize or supersede this result
   - Use exact result_id values (without .json extension)
   - Must reference existing entries in the dataset
 

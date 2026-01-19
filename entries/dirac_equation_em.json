@@ -150,7 +150,7 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "superseded_by": [
+  "generalized_by": [
     "qed_lagrangian"
   ],
   "historical_context": {

@@ -227,7 +227,7 @@
   },
   "domain": "hep-th",
   "theory_status": "current",
-  "superseded_by": ["einstein_field_equations"],
+  "generalized_by": ["einstein_field_equations"],
   "historical_context": {
     "importance": "Provides the symmetry structure of Minkowski spacetime and the transformation law for relativistic 4-vectors; foundational for relativistic kinematics and QFT.",
     "development_period": "1904–1908",
