@@ -5,7 +5,7 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.0] - Terminology update: superseded → generalized - 2025-01-19
+## [0.8.0] - Terminology update: superseded → generalized, and two new entries added - 2025-01-19
 
 ### Added
 
@@ -43,7 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New entry: `spin_statistics_theorem`, spin-statistics connection in quantum field theory
 - New entry: `lorentz_group_and_four_vectors`, Lorentz group and four-vectors in special relativity
 - New assumptions added for the new entries
-
 
 ### Changed
 
