@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 100 Physics Entries (15 Reviewed, 85 AI-Generated) • Version 0.7.3</p>
+      <p class="subtitle">Browse All 99 Physics Entries (16 Reviewed, 83 AI-Generated) • Version 0.8.0</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -45,7 +45,7 @@
         <a href="#physics-cond-mat" class="nav-link">Condensed Matter Physics (3)</a>
         <a href="#physics-flu-dyn" class="nav-link">Fluid Dynamics (5)</a>
         <a href="#gr-qc" class="nav-link">General Relativity and Quantum Cosmology (5)</a>
-        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (5)</a>
+        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (4)</a>
         <a href="#cond-mat-mtrl-sci" class="nav-link">Materials Science (1)</a>
         <a href="#math-ph" class="nav-link">Mathematical Physics (1)</a>
         <a href="#cond-mat-mes-hall" class="nav-link">Mesoscale and Nanoscale Physics (1)</a>
@@ -727,23 +727,12 @@
       <h2 class="domain-title">High Energy Physics (Theory)</h2>
       <div class="entry-grid">
         
-    <a href="entries.html?entry=dirac_equation_free.json" class="entry-card-link ai-entry">
+    <a href="entries.html?entry=dirac_equation.json" class="entry-card-link ai-entry">
       <div class="entry-card entry-card-draft">
         <h3 class="entry-title">
           Dirac Equation
         </h3>
-        <p class="entry-description">The Dirac equation is a first-order relativistic wave equation that consistently describes spin-1/2 particles such as electrons.  By linearly combining space-time derivatives with the Dirac gamma matrices, it reconciles quantum mechanics with special relativity while predicting intrinsic spin and the existence of antiparticles.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
-      </div>
-    </a>
-  
-      
-    <a href="entries.html?entry=dirac_equation_em.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
-        <h3 class="entry-title">
-          Dirac Equation in an Electromagnetic Field
-        </h3>
-        <p class="entry-description">The Dirac equation with minimal coupling to the electromagnetic four-potential extends the free-particle equation to describe spin-1/2 fermions interacting with external fields.  By replacing space-time derivatives with gauge-covariant ones, it incorporates electric and magnetic interactions while preserving Lorentz covariance and gauge invariance, forming the quantum-mechanical cornerstone of quantum electrodynamics (QED).</p>
+        <p class="entry-description">The Dirac equation is the relativistic wave equation for spin-1/2 fermions.  It resolves the challenge of creating a quantum equation that is first-order in time, ensuring positive probability density, while being consistent with special relativity.</p>
         <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
       </div>
     </a>
@@ -1017,13 +1006,13 @@
     </a>
   
       
-    <a href="entries.html?entry=klein_gordon_equation.json" class="entry-card-link ai-entry">
-      <div class="entry-card entry-card-draft">
+    <a href="entries.html?entry=klein_gordon_equation.json" class="entry-card-link">
+      <div class="entry-card">
         <h3 class="entry-title">
           Klein-Gordon Equation
         </h3>
-        <p class="entry-description">The Klein-Gordon equation is a relativistic wave equation that describes spinless particles.  It was the first attempt to merge quantum mechanics with special relativity, predating the Dirac equation.</p>
-        <a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>
+        <p class="entry-description">The Klein-Gordon equation is the relativistic wave equation for spin-0 (scalar) particles.  It arises from applying quantum mechanical operator substitutions to the relativistic energy-momentum relation `E^2 = (p*c)^2 + (m*c^2)^2`.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
       </div>
     </a>
   
@@ -1392,7 +1381,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.7.3`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.8.0`;
     </script>
   </body>
 </html>

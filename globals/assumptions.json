@@ -135,7 +135,6 @@
       "used_in": [
         "relativistic_energy_momentum",
         "special_relativity_transformations",
-        "lorentz_group_and_four_vectors",
         "lorentz_group_and_four_vectors"
       ]
     },
@@ -226,7 +225,8 @@
       ],
       "used_in": [
         "relativistic_energy_momentum",
-        "lorentz_group_and_four_vectors"
+        "lorentz_group_and_four_vectors",
+        "klein_gordon_equation"
       ]
     },
     {
@@ -461,7 +461,7 @@
           "definition": "Magnitude of wavevector of the matter wave"
         }
       ],
-      "used_in": ["schrodinger_equation"]
+      "used_in": ["schrodinger_equation", "klein_gordon_equation"]
     },
     {
       "id": "correspondence_principle",

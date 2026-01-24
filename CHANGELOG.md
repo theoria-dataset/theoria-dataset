@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.8.0] - Terminology update: superseded → generalized - 2025-01-19
 
+### Added
+
+- New entry: `klein_gordon_equation`, relativistic wave equation for spin-0 particles
+
 ### Changed
 
 - **Breaking change**: Unified "generalized" terminology across schema

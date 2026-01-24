@@ -20,9 +20,9 @@
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
 
-    <header clashttps://github.com/theoria-dataset/theoria-dataset/pull/122/conflict?name=docs%252Fentries_index.html&ancestor_oid=9147e88f312c80a084182bf2ff25185f69127c6b&base_oid=3468272d1e031cd45a59901d683c302d1df40daa&head_oid=da9a11f1f26570526cdab32792cf97ce60f97dfes="main-header">
+    <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 34 Assumptions • Version 0.7.3</p>
+      <p class="subtitle">Browse All 34 Assumptions • Version 0.8.0</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -68,17 +68,19 @@
       <h3 class="entry-title">
         Canonical Commutation Relations
       </h3>
-      <p class="entry-description">Canonical position and momentum operators obey the commutation relations `[x_i, p_j] = i*ℏ*delta_(ij)`, expressing their fundamental non-commutativity and fixing the scale of quantum kinematics through `ℏ`.</p>
+      <p class="entry-description">Canonical variables `q_i` and `p_i`, representing generalized coordinates and their conjugate momenta for each degree of freedom, satisfy the commutation relations `[q_i, p_j] = i*ℏ*delta_(ij) `, `[q_i, q_j] = 0`, and `[p_i, p_j] = 0`. These relations encode the basic quantum kinematics of canonical pairs and fix the fundamental scale through `ℏ`.</p>
         <div class="assumption-math-section">
           <h4>Mathematical Form:</h4>
-          <div class="assumption-math">`[x_i, p_j] = i*ℏ*delta_(ij)`</div>
+          <div class="assumption-math">`[q_i, p_j] = i*ℏ*delta_(ij)`</div>
+            <div class="assumption-math">`[q_i, q_j] = 0`</div>
+            <div class="assumption-math">`[p_i, p_j] = 0`</div>
         </div>
         <div class="assumption-symbols">
           <h4>Symbols:</h4>
-          <div class="assumption-symbol-def"><strong>`x_i`</strong>: Component `i` of the position operator.</div>
-            <div class="assumption-symbol-def"><strong>`p_j`</strong>: Component `j` of the momentum operator conjugate to `x_j`.</div>
+          <div class="assumption-symbol-def"><strong>`q_i`</strong>: Generalized coordinate operator for the `i`-th degree of freedom.</div>
+            <div class="assumption-symbol-def"><strong>`p_i`</strong>: Momentum operator canonically conjugate to `q_i`.</div>
             <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant, `ℏ = h/(2*pi)`.</div>
-            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`1` if `i = j`, `0` otherwise).</div>
+            <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise).</div>
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>
@@ -320,7 +322,7 @@
             <div class="assumption-symbol-def"><strong>`k`</strong>: Magnitude of wavevector of the matter wave</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>, <a href="entries.html?entry=klein_gordon_equation.json">Klein Gordon Equation</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -637,7 +639,7 @@
             <div class="assumption-symbol-def"><strong>`mu, nu`</strong>: Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices).</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>, <a href="entries.html?entry=klein_gordon_equation.json">Klein Gordon Equation</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>
