@@ -202,14 +202,14 @@
         "historical",
         "approximation",
         "limiting_case",
-        "superseded"
+        "generalized"
       ],
-      "description": "Current scientific status of the theory. current: Modern theories widely accepted by scientific community. historical: Important for development but superseded by better theories. approximation: Valid simplifications of more general theories. limiting_case: Special cases with restricted applicability. superseded: Completely replaced by more accurate theories."
+      "description": "Current scientific status of the theory. current: Modern theories widely accepted by scientific community. historical: Important for development but generalized by more comprehensive theories. approximation: Valid simplifications of more general theories. limiting_case: Special cases with restricted applicability. generalized: Subsumed into a more general framework but remains valid in its regime."
     },
 
-    "superseded_by": {
+    "generalized_by": {
       "type": "array",
-      "description": "Theories that supersede or generalize this result. Use exact result_id values (without .json extension). Must reference existing entries in the dataset.",
+      "description": "Theories that generalize or supersede this result. Use exact result_id values (without .json extension). Must reference existing entries in the dataset.",
       "items": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$"

@@ -290,7 +290,7 @@ function loadEntry(filename) {
     "historicalContext",
     "references",
     "dependencies",
-    "supersededBy",
+    "generalizedBy",
     "meta-domain",
     "meta-created",
     "meta-status",
@@ -555,17 +555,17 @@ function render(data) {
   // Dependencies section - now integrated into prerequisites section
   qs("#dependencies").style.display = "none";
 
-  // Superseded by section - only show if data exists
-  if (data.superseded_by && data.superseded_by.length > 0) {
+  // Generalized by section - only show if data exists
+  if (data.generalized_by && data.generalized_by.length > 0) {
     renderList(
-      "#supersededBy ul",
-      data.superseded_by,
+      "#generalizedBy ul",
+      data.generalized_by,
       (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
       true
     );
-    safeTypesetMathJax([qs("#supersededBy")]);
+    safeTypesetMathJax([qs("#generalizedBy")]);
   } else {
-    qs("#supersededBy").style.display = "none";
+    qs("#generalizedBy").style.display = "none";
   }
 
   $("meta-domain").textContent = data.domain;

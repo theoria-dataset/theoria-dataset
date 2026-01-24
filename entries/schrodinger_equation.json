@@ -196,7 +196,7 @@
 },
   "domain": "quant-ph",
   "theory_status": "approximation",
-  "superseded_by": null,
+  "generalized_by": null,
   "historical_context": {
     "importance": "Provided the first successful wave-mechanical formulation of quantum theory, reproducing atomic spectra and establishing the central dynamical equation of nonrelativistic quantum mechanics.",
     "development_period": "1925-1926",

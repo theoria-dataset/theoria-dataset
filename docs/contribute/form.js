@@ -215,10 +215,10 @@ class NewEntryForm {
             });
         }
 
-        // Populate superseded by
-        if (entry.superseded_by && entry.superseded_by.length > 0) {
-            entry.superseded_by.forEach((superseded, index) => {
-                this.addSupersededBy(superseded);
+        // Populate generalized by
+        if (entry.generalized_by && entry.generalized_by.length > 0) {
+            entry.generalized_by.forEach((generalized, index) => {
+                this.addGeneralizedBy(generalized);
             });
         }
 
@@ -481,23 +481,23 @@ class NewEntryForm {
         container.appendChild(div);
     }
     
-    addSupersededBy(entry = '') {
-        const container = document.getElementById('superseded_by_container');
-        
+    addGeneralizedBy(entry = '') {
+        const container = document.getElementById('generalized_by_container');
+
         const div = document.createElement('div');
         div.className = 'dynamic-item';
         div.innerHTML = `
             <div class="dynamic-item-header">
-                <h4>Superseded By Entry</h4>
+                <h4>Generalized By Entry</h4>
                 <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
             </div>
             <div class="form-group">
                 <label>Entry ID</label>
-                <input type="text" class="superseded-entry" value="${entry}" placeholder="e.g., dirac_equation_free">
+                <input type="text" class="generalized-entry" value="${entry}" placeholder="e.g., dirac_equation_free">
                 <div class="help-text">Entry ID without .json extension</div>
             </div>
         `;
-        
+
         container.appendChild(div);
     }
     
@@ -811,7 +811,7 @@ Submitted via TheorIA new entry form`;
             domain: document.getElementById('domain').value || '',
             theory_status: document.getElementById('theory_status').value || '',
             dependencies: this.collectDependencies(),
-            superseded_by: this.collectSupersededBy(),
+            generalized_by: this.collectGeneralizedBy(),
             historical_context: this.collectHistoricalContext(),
             references: this.collectReferences(),
             contributors: this.collectContributors(),
@@ -896,10 +896,10 @@ Submitted via TheorIA new entry form`;
         return entries.length > 0 ? entries : undefined;
     }
     
-    collectSupersededBy() {
+    collectGeneralizedBy() {
         const entries = [];
-        document.querySelectorAll('#superseded_by_container .dynamic-item').forEach(item => {
-            const entry = item.querySelector('.superseded-entry').value;
+        document.querySelectorAll('#generalized_by_container .dynamic-item').forEach(item => {
+            const entry = item.querySelector('.generalized-entry').value;
             if (entry.trim()) {
                 entries.push(entry);
             }
@@ -1020,9 +1020,9 @@ function addDependency() {
     }
 }
 
-function addSupersededBy() {
+function addGeneralizedBy() {
     if (window.newEntryForm) {
-        window.newEntryForm.addSupersededBy();
+        window.newEntryForm.addGeneralizedBy();
     }
 }
 

@@ -361,7 +361,7 @@
   },
   "domain": "astro-ph",
   "theory_status": "historical",
-  "superseded_by": [
+  "generalized_by": [
     "newtonian_gravitation",
     "general_relativity"
   ],

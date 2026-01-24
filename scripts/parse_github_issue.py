@@ -152,8 +152,8 @@ def build_json_entry(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
         theory_status = 'approximation'
     elif 'limiting' in theory_status:
         theory_status = 'limiting_case'
-    elif 'superseded' in theory_status:
-        theory_status = 'superseded'
+    elif 'generalized' in theory_status or 'superseded' in theory_status:
+        theory_status = 'generalized'
     else:
         theory_status = 'current'  # default
     

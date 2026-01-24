@@ -1,0 +1,240 @@
+{
+  "result_id": "dirac_equation",
+  "result_name": "Dirac Equation",
+  "result_equations": [
+    {
+      "id": "dirac_covariant",
+      "equation_title": "Dirac Equation (Covariant Form)",
+      "equation": "(i*hbar*gamma^(mu)*partial_(mu) - m*c)*psi = 0"
+    },
+    {
+      "id": "clifford_algebra",
+      "equation_title": "Clifford Algebra Anticommutation Relation",
+      "equation": "{gamma^(mu), gamma^(nu)} = 2*eta^(mu nu)*I_4"
+    }
+  ],
+  "explanation": "The Dirac equation is the relativistic wave equation for spin-1/2 fermions. It resolves the challenge of creating a quantum equation that is first-order in time, ensuring positive probability density, while being consistent with special relativity. Dirac achieved this by linearizing the quadratic dispersion relation `E^2 = (pc)^2 + (mc^2)^2` using `4×4` gamma matrices satisfying a Clifford algebra. The equation naturally predicts electron spin, its magnetic moment, and antimatter (positrons). It is the foundation of quantum electrodynamics.",
+  "definitions": [
+    {
+      "symbol": "psi",
+      "definition": "Four-component Dirac spinor field representing the quantum state of a spin-1/2 particle."
+    },
+    {
+      "symbol": "gamma^(mu)",
+      "definition": "Dirac gamma matrices (4×4) with Lorentz index `mu = 0, 1, 2, 3`, satisfying the Clifford algebra."
+    },
+    {
+      "symbol": "partial_(mu)",
+      "definition": "Four-gradient `partial_(mu) = ((1/c)*(partial)/(partial t), (partial)/(partial x), (partial)/(partial y), (partial)/(partial z))`."
+    },
+    {
+      "symbol": "eta^(mu nu)",
+      "definition": "Minkowski metric tensor with signature `(+,-,-,-)`: `eta^(mu nu) = text{diag}(1, -1, -1, -1)`."
+    },
+    {
+      "symbol": "{A, B}",
+      "definition": "Anticommutator of matrices A and B: `{A, B} = A*B + B*A`."
+    },
+    {
+      "symbol": "I_4",
+      "definition": "4×4 identity matrix."
+    },
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the fermion."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
+    },
+    {
+      "symbol": "i",
+      "definition": "Imaginary unit satisfying `i^2 = -1`."
+    }
+  ],
+  "assumptions": [
+    "flat_spacetime",
+    "hilbert_space_probability_structure"
+  ],
+  "depends_on": [
+    "relativistic_energy_momentum",
+    "schrodinger_equation",
+    "klein_gordon_equation"
+  ],
+  "generalized_by": [
+    "qed_lagrangian"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": ["relativistic_energy_momentum"],
+      "description": "Recall the relativistic energy-momentum relation for a free particle with rest mass `m`.",
+      "equation": "E^2 = (p*c)^2 + (m*c^2)^2"
+    },
+    {
+      "step": 2,
+      "assumptions": [
+        "schrodinger_equation",
+        "hilbert_space_probability_structure"
+      ],
+      "description": "The Schrödinger equation is first-order in time, which ensures a positive-definite probability density `rho = |psi|^2`. A relativistic wave equation should preserve this for consistent probabilistic interpretation.",
+      "equation": "i*hbar*(partial psi)/(partial t) = hat{H}*psi"
+    },
+    {
+      "step": 3,
+      "description": "To maintain Lorentz covariance and first-order time derivative, seek a linear equation with matrix coefficients `A^(mu)` and scalar `B` to be determined.",
+      "equation": "(i*hbar*A^(mu)*partial_(mu) - B)*psi = 0"
+    },
+    {
+      "step": 4,
+      "assumptions": ["relativistic_energy_momentum"],
+      "description": "For consistency with special relativity, squaring our first-order equation should yield an operator corresponding to `E^2 = (p*c)^2 + (m*c^2)^2`. Apply the operator twice.",
+      "equation": "(i*hbar*A^(mu)*partial_(mu) - B)*(i*hbar*A^(nu)*partial_(nu) - B)*psi = 0"
+    },
+    {
+      "step": 5,
+      "description": "Expand the product. Since partial derivatives commute (`partial_(mu)*partial_(nu) = partial_(nu)*partial_(mu)`), only anticommutators `{A, B} = A*B + B*A` of the matrices appear.",
+      "equation": "-(hbar^2/2)*{A^(mu), A^(nu)}*partial_(mu)*partial_(nu) - i*hbar*{A^(mu), B}*partial_(mu) + B^2 = 0"
+    },
+    {
+      "step": 6,
+      "assumptions": ["flat_spacetime", "klein_gordon_equation"],
+      "description": "The Klein-Gordon operator for a particle of mass `m` in flat spacetime is `(hbar^2*square + (m*c)^2)` where `square = eta^(mu nu)*partial_(mu)*partial_(nu)` is the d'Alembertian with Minkowski metric.",
+      "equation": "-hbar^2*eta^(mu nu)*partial_(mu)*partial_(nu) + (m*c)^2 = 0"
+    },
+    {
+      "step": 7,
+      "assumptions": ["flat_spacetime"],
+      "description": "Comparing the expanded form (step 5) with the Klein-Gordon operator (step 6), match coefficients. This requires: (1) `{A^(mu), A^(nu)} = 2*eta^(mu nu)*I` (Clifford algebra), (2) `{A^(mu), B} = 0`, and (3) `B^2 = (m*c)^2*I`.",
+      "equation": "{A^(mu), A^(nu)} = 2*eta^(mu nu)*I,   {A^(mu), B} = 0,   B^2 = (m*c)^2*I"
+    },
+    {
+      "step": 8,
+      "description": "The Clifford algebra `{A^(mu), A^(nu)} = 2*eta^(mu nu)*I` in 3+1 dimensions requires matrices of minimum dimension 4×4. This follows from the representation theory of Clifford algebras Cl(1,3).",
+      "equation": "dim(A^(mu)) >= 4"
+    },
+    {
+      "step": 9,
+      "description": "Choose the standard normalization: define gamma matrices `gamma^(mu) = A^(mu)` and set `B = m*c`. The gamma matrices satisfy the Clifford algebra.",
+      "equation": "gamma^(mu) = A^(mu),   B = m*c,   {gamma^(mu), gamma^(nu)} = 2*eta^(mu nu)*I_4",
+      "equation_proven": "clifford_algebra"
+    },
+    {
+      "step": 10,
+      "description": "Substituting the gamma matrices into the first-order ansatz yields the Dirac equation in manifestly Lorentz-covariant form. Here `psi` is a four-component spinor (Dirac spinor).",
+      "equation": "(i*hbar*gamma^(mu)*partial_(mu) - m*c)*psi = 0",
+      "equation_proven": "dirac_covariant"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "from sympy import I, Matrix, eye, zeros, simplify",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Dirac Equation",
+      "#",
+      "# Sections:",
+      "#  1. Define gamma matrices (Dirac/standard representation)",
+      "#  2. Verify Clifford algebra {γ^μ, γ^ν} = 2η^{μν}I₄ (Steps 7, 9)",
+      "# =====================================================",
+      "",
+      "# ---------------------------",
+      "# Section 1: Define gamma matrices",
+      "# ---------------------------",
+      "# Dirac (standard) representation:",
+      "# γ^0 = diag(I₂, -I₂), γ^i = [[0, σ^i], [-σ^i, 0]]",
+      "",
+      "# Pauli matrices",
+      "sigma_1 = Matrix([[0, 1], [1, 0]])",
+      "sigma_2 = Matrix([[0, -I], [I, 0]])",
+      "sigma_3 = Matrix([[1, 0], [0, -1]])",
+      "I2 = eye(2)",
+      "Z2 = zeros(2)",
+      "",
+      "# Gamma matrices in Dirac representation",
+      "gamma_0 = Matrix([",
+      "    [1, 0, 0, 0],",
+      "    [0, 1, 0, 0],",
+      "    [0, 0, -1, 0],",
+      "    [0, 0, 0, -1]",
+      "])",
+      "",
+      "def block_matrix(A, B, C, D):",
+      "    \"\"\"Construct 4x4 matrix from 2x2 blocks [[A,B],[C,D]]\"\"\"",
+      "    top = A.row_join(B)",
+      "    bottom = C.row_join(D)",
+      "    return top.col_join(bottom)",
+      "",
+      "gamma_1 = block_matrix(Z2, sigma_1, -sigma_1, Z2)",
+      "gamma_2 = block_matrix(Z2, sigma_2, -sigma_2, Z2)",
+      "gamma_3 = block_matrix(Z2, sigma_3, -sigma_3, Z2)",
+      "",
+      "gamma = [gamma_0, gamma_1, gamma_2, gamma_3]",
+      "I4 = eye(4)",
+      "",
+      "# Minkowski metric η^{μν} = diag(+1, -1, -1, -1)",
+      "eta = Matrix([",
+      "    [1, 0, 0, 0],",
+      "    [0, -1, 0, 0],",
+      "    [0, 0, -1, 0],",
+      "    [0, 0, 0, -1]",
+      "])",
+      "",
+      "# ---------------------------",
+      "# Section 2: Verify Clifford algebra (Steps 7, 9)",
+      "# {γ^μ, γ^ν} = γ^μ γ^ν + γ^ν γ^μ = 2η^{μν} I₄",
+      "# ---------------------------",
+      "print('Section 2: Verifying Clifford algebra...')",
+      "for mu in range(4):",
+      "    for nu in range(4):",
+      "        anticomm = gamma[mu] * gamma[nu] + gamma[nu] * gamma[mu]",
+      "        expected = 2 * eta[mu, nu] * I4",
+      "        assert simplify(anticomm - expected) == zeros(4), f'Clifford algebra failed for μ={mu}, ν={nu}'",
+      "print('  {γ^μ, γ^ν} = 2η^{μν}I₄ verified for all μ,ν ∈ {0,1,2,3}')",
+      "",
+      "print('')",
+      "print('Dirac equation programmatic verification passed')"
+    ]
+  },
+  "domain": "hep-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "First successful relativistic quantum equation for spin-1/2 fermions; predicted antimatter and derived electron spin from first principles rather than adding it ad hoc.",
+    "development_period": "1928",
+    "key_insights": [
+      "Linearization of the relativistic energy-momentum relation requires matrix-valued coefficients, leading to spinor wavefunctions",
+      "The Clifford algebra structure emerges naturally from demanding both Lorentz covariance and first-order time derivatives",
+      "Intrinsic spin-1/2 angular momentum arises automatically from the spinor representation, not added by hand",
+      "Negative energy solutions, initially puzzling, were reinterpreted as antiparticles (positrons), confirmed experimentally in 1932",
+      "Forms the foundation of quantum electrodynamics and all relativistic quantum field theories of fermions"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Dirac, P. A. M. (1928). The Quantum Theory of the Electron. Proceedings of the Royal Society A, 117(778), 610-624."
+    },
+    {
+      "id": "R2",
+      "citation": "Bjorken, J. D., & Drell, S. D. (1964). Relativistic Quantum Mechanics. McGraw-Hill."
+    },
+    {
+      "id": "R3",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). An Introduction to Quantum Field Theory. Addison-Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

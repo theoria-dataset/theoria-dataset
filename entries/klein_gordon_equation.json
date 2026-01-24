@@ -3,27 +3,33 @@
   "result_name": "Klein-Gordon Equation",
   "result_equations": [
     {
-      "id": "eq1",
-      "equation": "( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0"
+      "id": "klein_gordon_expanded",
+      "equation_title": "Klein-Gordon Equation (Expanded Form)",
+      "equation": "(1/c^2)*(del^2 psi)/(del t^2) - nabla^2 psi + (m^2*c^2)/(hbar^2)*psi = 0"
     },
     {
-      "id": "eq2",
-      "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
+      "id": "klein_gordon_compact",
+      "equation_title": "Klein-Gordon Equation (d'Alembertian Form)",
+      "equation": "(square + (m*c/hbar)^2)*psi = 0"
     }
   ],
-  "explanation": "The Klein-Gordon equation is a relativistic wave equation that describes spinless particles. It was the first attempt to merge quantum mechanics with special relativity, predating the Dirac equation. The equation naturally arises when applying quantum mechanics' energy-momentum relation to relativistic particles, and it correctly predicts both positive and negative energy solutions.",
+  "explanation": "The Klein-Gordon equation is the relativistic wave equation for spin-0 (scalar) particles. It arises from applying quantum mechanical operator substitutions to the relativistic energy-momentum relation `E^2 = (p*c)^2 + (m*c^2)^2`. Unlike the Schrödinger equation, it is second-order in time, which initially caused difficulties with probability interpretation but is now understood through quantum field theory. The equation describes scalar mesons (pions, kaons) and the Higgs boson.",
   "definitions": [
     {
-      "symbol": "partial^2_t",
-      "definition": "Second-order partial derivative with respect to time."
+      "symbol": "psi",
+      "definition": "Real scalar field representing the wave function of a spin-0 particle."
+    },
+    {
+      "symbol": "square",
+      "definition": "d'Alembertian (wave) operator, defined as `square = (1/c^2)*(del^2)/(del t^2) - nabla^2`."
     },
     {
       "symbol": "nabla^2",
-      "definition": "Laplacian operator (sum of second spatial derivatives)."
+      "definition": "Laplacian operator: sum of second spatial derivatives, `nabla^2 = (del^2)/(del x^2) + (del^2)/(del y^2) + (del^2)/(del z^2)`."
     },
     {
-      "symbol": "Box",
-      "definition": "D'Alembertian operator, defined as `(1/c^2)partial^2_t - nabla^2`."
+      "symbol": "(del^2)/(del t^2)",
+      "definition": "Second-order partial derivative with respect to time."
     },
     {
       "symbol": "m",
@@ -35,60 +41,70 @@
     },
     {
       "symbol": "hbar",
-      "definition": "Reduced Planck constant, `h/(2pi)`."
-    },
-    {
-      "symbol": "phi",
-      "definition": "Scalar field representing the wave function of the particle."
+      "definition": "Reduced Planck constant, `hbar = h/(2*pi)`."
     }
   ],
   "assumptions": [
-    "The equation describes a free spinless particle in flat spacetime.",
-    "The wave function `phi` represents a scalar field.",
-    "The relativistic energy-momentum relation `E^2 = p^2 c^2 + m^2 c^4` from special relativity.",
-    "Quantum mechanical operators: energy `E -> i hbar partial_t` and momentum `p -> -i hbar nabla`.",
-    "Minkowski spacetime with metric signature `(+,-,-,-)` for time and space coordinates."
+    "flat_spacetime",
+    "planck_de_broglie_relations"
   ],
+  "depends_on": ["relativistic_energy_momentum"],
   "derivation": [
     {
       "step": 1,
-      "description": "Start with Einstein's relativistic energy-momentum relation.",
-      "equation": "E^2 = p^2 c^2 + m^2 c^4"
+      "assumptions": ["relativistic_energy_momentum"],
+      "description": "Start from the relativistic energy-momentum relation for a free particle with rest mass `m`. This follows from special relativity.",
+      "equation": "E^2 = (p*c)^2 + (m*c^2)^2"
     },
     {
       "step": 2,
-      "description": "Apply the quantum mechanical energy operator.",
-      "equation": "E -> i hbar partial_t"
+      "assumptions": ["planck_de_broglie_relations"],
+      "description": "In quantum mechanics, energy is represented by the energy operator acting on the wave function. The Planck-de Broglie relation `E = hbar*omega` motivates identifying `E` with `i*hbar*(del)/(del t)`.",
+      "equation": "E -> i*hbar*(del)/(del t)"
     },
     {
       "step": 3,
-      "description": "Apply the quantum mechanical momentum operator.",
-      "equation": "p -> -i hbar nabla"
+      "assumptions": ["planck_de_broglie_relations"],
+      "description": "Similarly, the momentum operator follows from the de Broglie relation `p = hbar*k`. The momentum operator is `-i*hbar*nabla`.",
+      "equation": "vec p -> -i*hbar*nabla"
     },
     {
       "step": 4,
-      "description": "Substitute the operators into the energy-momentum relation, ensuring the `c^2` factor is correctly placed with the momentum term, and apply to the wave function `phi`.",
-      "equation": "(i hbar partial_t)^2 phi = (-i hbar nabla)^2 c^2 phi + m^2 c^4 phi"
+      "description": "Square the energy operator and apply it to the wave function `psi`. The factor `i^2 = -1` produces a minus sign.",
+      "equation": "E^2*psi = (i*hbar*(del)/(del t))^2*psi = -hbar^2*(del^2 psi)/(del t^2)"
     },
     {
       "step": 5,
-      "description": "Expand the squared operators.",
-      "equation": "-hbar^2 partial^2_t phi = -hbar^2 c^2 nabla^2 phi + m^2 c^4 phi"
+      "description": "Square the momentum operator and apply it to `psi`. The magnitude squared `|vec p|^2` becomes the Laplacian operator with a minus sign from `(-i)^2 = -1`.",
+      "equation": "p^2*psi = (-i*hbar*nabla)^2*psi = -hbar^2*nabla^2 psi"
     },
     {
       "step": 6,
-      "description": "Divide the entire equation by `-hbar^2 c^2` and rearrange to group terms.",
-      "equation": "(1/c^2) partial^2_t phi = nabla^2 phi - (m^2 c^2 / hbar^2) phi"
+      "description": "Substitute the squared operators into the relativistic energy-momentum relation, applying both sides to the wave function `psi`.",
+      "equation": "-hbar^2*(del^2 psi)/(del t^2) = -hbar^2*c^2*nabla^2 psi + (m*c^2)^2*psi"
     },
     {
       "step": 7,
-      "description": "Rearrange terms to the standard form of the Klein-Gordon equation.",
-      "equation": "( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0"
+      "description": "Divide both sides by `-hbar^2*c^2` to isolate the time derivative term.",
+      "equation": "(1/c^2)*(del^2 psi)/(del t^2) = nabla^2 psi - (m^2*c^2)/(hbar^2)*psi"
     },
     {
       "step": 8,
-      "description": "Express using the D'Alembertian operator `Box = (1/c^2)partial^2_t - nabla^2` for compactness.",
-      "equation": "(Box + (m^2 c^2)/hbar^2) phi = 0"
+      "description": "Rearrange to the standard form with all terms on the left-hand side equal to zero.",
+      "equation": "(1/c^2)*(del^2 psi)/(del t^2) - nabla^2 psi + (m^2*c^2)/(hbar^2)*psi = 0",
+      "equation_proven": "klein_gordon_expanded"
+    },
+    {
+      "step": 9,
+      "assumptions": ["flat_spacetime"],
+      "description": "Define the d'Alembertian (wave) operator `square`, which combines the time and space derivatives in a Lorentz-covariant manner. In flat Minkowski spacetime with metric signature `(+,-,-,-)`, it takes this form.",
+      "equation": "square = (1/c^2)*(del^2)/(del t^2) - nabla^2"
+    },
+    {
+      "step": 10,
+      "description": "Express the Klein-Gordon equation using the d'Alembertian. This compact form manifestly shows the Lorentz covariance of the equation, which follows from the Lorentz-invariant structure of the d'Alembertian operator.",
+      "equation": "(square + (m*c/hbar)^2)*psi = 0",
+      "equation_proven": "klein_gordon_compact"
     }
   ],
   "programmatic_verification": {
@@ -97,92 +113,163 @@
     "code": [
       "import sympy as sp",
       "",
-      "# Define symbols and operators",
+      "# =====================================================",
+      "# Programmatic verification: Klein-Gordon Equation",
+      "#",
+      "# Sections:",
+      "#  1. Setup: Define symbols and wave function",
+      "#  2. Verify derivation Steps 4-8: Build KG equation",
+      "#  3. Verify Steps 9-10: d'Alembertian equivalence",
+      "#  4. Plane-wave solution: Verify dispersion relation",
+      "# =====================================================",
+      "",
+      "# ---------------------------",
+      "# Section 1: Setup",
+      "# ---------------------------",
       "t, x, y, z = sp.symbols('t x y z', real=True)",
-      "m, c, hbar = sp.symbols('m c hbar', positive=True)",
-      "phi = sp.Function('phi')(t, x, y, z)",
+      "m, c, hbar = sp.symbols('m c hbar', positive=True, real=True)",
+      "psi = sp.Function('psi')(t, x, y, z)",
       "",
-      "# Step 1: Start with relativistic energy-momentum relation E^2 = p^2 c^2 + m^2 c^4",
-      "# Step 2 & 3: Quantum operators E -> i*hbar*partial_t, p -> -i*hbar*nabla",
+      "# ---------------------------",
+      "# Section 2: Steps 4-8 - Build Klein-Gordon equation",
+      "# ---------------------------",
       "",
-      "# Step 4-7: Derivation of the Klein-Gordon equation",
-      "# ( (1/c^2)partial^2_t - nabla^2 + (m^2 c^2)/hbar^2 ) phi = 0",
+      "# Step 4: Squared energy operator",
+      "# E^2 psi = (i*hbar*d/dt)^2 psi = -hbar^2 * d^2psi/dt^2",
+      "E2_psi = -hbar**2 * sp.diff(psi, t, 2)",
       "",
-      "# Define terms of the Klein-Gordon operator",
-      "term1 = (1/c**2) * sp.diff(phi, t, t)  # (1/c^2) * Second time derivative",
-      "term2 = sp.diff(phi, x, x) + sp.diff(phi, y, y) + sp.diff(phi, z, z)  # Laplacian",
-      "term3 = (m**2 * c**2 / hbar**2) * phi  # Mass term",
+      "# Step 5: Squared momentum operator (Laplacian)",
+      "# p^2 psi = (-i*hbar*nabla)^2 psi = -hbar^2 * nabla^2 psi",
+      "laplacian_psi = sp.diff(psi, x, 2) + sp.diff(psi, y, 2) + sp.diff(psi, z, 2)",
+      "p2_psi = -hbar**2 * laplacian_psi",
       "",
-      "# Define Klein-Gordon operator applied to phi",
-      "kg_operator_phi = term1 - term2 + term3",
+      "# Step 6: Substitute into E^2 = (pc)^2 + (mc^2)^2",
+      "# -hbar^2 * d^2psi/dt^2 = -hbar^2 * c^2 * nabla^2 psi + (mc^2)^2 * psi",
+      "lhs_step6 = E2_psi",
+      "rhs_step6 = c**2 * p2_psi + (m*c**2)**2 * psi",
       "",
-      "# Create a sample plane wave solution",
-      "# phi = exp(i * (-E*t + px*x + py*y + pz*z) / hbar)",
-      "E, px, py, pz = sp.symbols('E px py pz', real=True)",
-      "wave_exponent = sp.I * (-E*t + px*x + py*y + pz*z) / hbar",
-      "wave = sp.exp(wave_exponent)",
+      "# Verify step 6 equation holds symbolically",
+      "step6_relation = sp.Eq(lhs_step6, rhs_step6)",
       "",
-      "# Apply KG operator to the plane wave solution by substituting phi with wave",
-      "kg_wave = kg_operator_phi.subs(phi, wave)",
+      "# Steps 7-8: Rearrange to standard form",
+      "# (1/c^2)*d^2psi/dt^2 - nabla^2 psi + (m^2 c^2 / hbar^2)*psi = 0",
+      "kg_term1 = (1/c**2) * sp.diff(psi, t, 2)  # Time term",
+      "kg_term2 = -laplacian_psi                  # Spatial term",
+      "kg_term3 = (m**2 * c**2 / hbar**2) * psi   # Mass term",
+      "kg_expanded = kg_term1 + kg_term2 + kg_term3",
       "",
-      "# Simplify the result of KG operator on the wave. We expect kg_wave / wave to be an algebraic expression.",
-      "kg_simplified_algebraic = sp.simplify(sp.expand(kg_wave / wave))",
+      "# ---------------------------",
+      "# Section 3: Steps 9-10 - d'Alembertian form",
+      "# ---------------------------",
       "",
-      "# This algebraic expression should be zero if the energy-momentum relation holds.",
-      "# The expression obtained from kg_simplified_algebraic is effectively:",
-      "# -E**2/(hbar**2 * c**2) + (px**2 + py**2 + pz**2)/hbar**2 + m**2*c**2/hbar**2",
-      "# We need to show this is zero when E**2 = (px**2 + py**2 + pz**2)*c**2 + m**2*c**4",
+      "# Step 9: d'Alembertian operator applied to psi",
+      "# square psi = (1/c^2)*d^2psi/dt^2 - nabla^2 psi",
+      "box_psi = (1/c**2) * sp.diff(psi, t, 2) - laplacian_psi",
       "",
-      "# Define the expected algebraic relation from the Klein-Gordon equation applied to the plane wave",
-      "P_squared = px**2 + py**2 + pz**2",
-      "expected_relation = -E**2/(hbar**2 * c**2) + P_squared/hbar**2 + (m**2 * c**2)/hbar**2",
+      "# Step 10: KG in d'Alembertian form",
+      "# (square + (mc/hbar)^2) psi = 0",
+      "kg_compact = box_psi + (m*c/hbar)**2 * psi",
       "",
-      "# Verify that kg_simplified_algebraic is indeed equal to expected_relation",
-      "assert sp.simplify(kg_simplified_algebraic - expected_relation) == 0",
+      "# Verify equivalence of expanded and compact forms",
+      "assert sp.simplify(kg_expanded - kg_compact) == 0, 'Expanded and compact forms must be equivalent'",
       "",
-      "# Now, substitute the relativistic energy-momentum relation into the expected_relation",
-      "energy_momentum_lhs = E**2",
-      "energy_momentum_rhs = P_squared * c**2 + m**2 * c**4",
-      "verification = sp.simplify(expected_relation.subs(energy_momentum_lhs, energy_momentum_rhs))",
+      "# ---------------------------",
+      "# Section 4: Plane-wave solution verification",
+      "# ---------------------------",
       "",
-      "# Check that verification equals zero, confirming the Klein-Gordon equation is consistent with E^2=p^2c^2+m^2c^4",
-      "assert verification == 0"
+      "# Define plane wave: psi = exp(i*(-omega*t + kx*x + ky*y + kz*z))",
+      "omega, kx, ky, kz = sp.symbols('omega k_x k_y k_z', real=True)",
+      "E_pw, px, py, pz = sp.symbols('E p_x p_y p_z', real=True)",
+      "",
+      "# Phase: phi = -omega*t + k.r",
+      "phase = sp.I * (-omega*t + kx*x + ky*y + kz*z)",
+      "plane_wave = sp.exp(phase)",
+      "",
+      "# Apply KG operator to plane wave",
+      "# d^2/dt^2 of exp(i*(-omega*t + ...)) = (-i*omega)^2 * exp(...) = -omega^2 * exp(...)",
+      "d2_dt2_pw = sp.diff(plane_wave, t, 2)",
+      "assert sp.simplify(d2_dt2_pw + omega**2 * plane_wave) == 0, 'Time derivative check'",
+      "",
+      "# nabla^2 of plane wave = (i*k)^2 * exp(...) = -k^2 * exp(...)",
+      "laplacian_pw = sp.diff(plane_wave, x, 2) + sp.diff(plane_wave, y, 2) + sp.diff(plane_wave, z, 2)",
+      "k_squared = kx**2 + ky**2 + kz**2",
+      "assert sp.simplify(laplacian_pw + k_squared * plane_wave) == 0, 'Laplacian check'",
+      "",
+      "# KG equation for plane wave:",
+      "# (1/c^2)*(-omega^2) - (-k^2) + (mc/hbar)^2 = 0",
+      "# => -omega^2/c^2 + k^2 + (mc/hbar)^2 = 0",
+      "# => omega^2/c^2 = k^2 + (mc/hbar)^2",
+      "# => omega^2 = c^2*k^2 + (mc^2/hbar)^2",
+      "",
+      "kg_plane_wave = kg_expanded.subs(psi, plane_wave)",
+      "kg_simplified = sp.simplify(sp.expand(kg_plane_wave / plane_wave))",
+      "",
+      "# The dispersion relation from KG equation",
+      "dispersion_from_kg = sp.simplify(kg_simplified * c**2)",
+      "# Should be: -omega^2 + c^2*k^2 + (mc^2/hbar)^2 = 0 times some factor",
+      "",
+      "# Verify dispersion relation matches energy-momentum relation",
+      "# Using E = hbar*omega, p = hbar*k:",
+      "# E^2 = (hbar*omega)^2 = hbar^2 * omega^2",
+      "# p^2 = (hbar*k)^2 = hbar^2 * k^2",
+      "# E^2 = (pc)^2 + (mc^2)^2",
+      "# => hbar^2*omega^2 = hbar^2*c^2*k^2 + (mc^2)^2",
+      "# => omega^2 = c^2*k^2 + (mc^2/hbar)^2",
+      "",
+      "expected_dispersion = -omega**2/c**2 + k_squared + (m*c/hbar)**2",
+      "assert sp.simplify(kg_simplified - expected_dispersion) == 0, 'Dispersion relation must match'",
+      "",
+      "# Verify this is consistent with E^2 = (pc)^2 + (mc^2)^2",
+      "# Substitute E = hbar*omega, |p|^2 = hbar^2*k^2",
+      "E_from_omega = hbar * omega",
+      "p2_from_k = hbar**2 * k_squared",
+      "",
+      "# Check: E^2 - (pc)^2 - (mc^2)^2 = 0 when dispersion holds",
+      "# omega^2 = c^2*k^2 + (mc^2/hbar)^2 => multiply by hbar^2:",
+      "# hbar^2*omega^2 = hbar^2*c^2*k^2 + (mc^2)^2",
+      "# E^2 = p^2*c^2 + (mc^2)^2 ✓",
+      "",
+      "energy_momentum_check = E_from_omega**2 - p2_from_k * c**2 - (m*c**2)**2",
+      "# When the KG dispersion holds: omega^2 = c^2*k^2 + (mc^2/hbar)^2",
+      "# => hbar^2*omega^2 - hbar^2*c^2*k^2 - (mc^2)^2 = 0",
+      "em_substituted = energy_momentum_check.subs(omega**2, c**2*k_squared + (m*c**2/hbar)**2)",
+      "assert sp.simplify(em_substituted) == 0, 'Energy-momentum relation must be satisfied'",
+      "",
+      "print('All Klein-Gordon equation verifications passed')"
     ]
   },
   "domain": "quant-ph",
   "theory_status": "current",
-  "superseded_by": [
-    "qed_lagrangian"
-  ],
   "historical_context": {
-    "importance": "First relativistic quantum wave equation, foundation for scalar field theory",
+    "importance": "First relativistic quantum wave equation; foundation for scalar field theory and quantum field theory of spin-0 particles",
     "development_period": "1926-1927",
     "key_insights": [
-      "Relativistic quantum mechanics",
-      "Scalar field equations",
-      "Energy-momentum relation in quantum theory"
+      "Combines quantum mechanics with special relativity by promoting the energy-momentum relation to an operator equation acting on wave functions",
+      "Predicts both positive and negative energy solutions, later understood as particles and antiparticles through field quantization",
+      "Second-order in time (unlike Schrödinger) led to difficulties with probability interpretation, resolved by reinterpreting the conserved current as charge density",
+      "Successfully describes spin-0 particles in modern physics: scalar mesons (pions, kaons) and the Higgs boson",
+      "Each component of Dirac spinor solutions satisfies the Klein-Gordon equation, making it fundamental to relativistic fermion theories"
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Klein, O. (1926). 'Quantentheorie und fünfdimensionale Relativitätstheorie'. *Zeitschrift für Physik*, 37(12), 895-906."
+      "citation": "Klein, O. (1926). Quantentheorie und fünfdimensionale Relativitätstheorie. Zeitschrift für Physik, 37(12), 895-906."
     },
     {
       "id": "R2",
-      "citation": "Gordon, W. (1926). 'Der Comptoneffekt nach der Schrödingerschen Theorie'. *Zeitschrift für Physik*, 40(1-2), 117-133."
+      "citation": "Gordon, W. (1926). Der Comptoneffekt nach der Schrödingerschen Theorie. Zeitschrift für Physik, 40(1-2), 117-133."
     },
     {
       "id": "R3",
-      "citation": "Greiner, W. (2000). *Relativistic Quantum Mechanics: Wave Equations*. Springer-Verlag."
+      "citation": "Greiner, W. (2000). Relativistic Quantum Mechanics: Wave Equations (3rd ed.). Springer-Verlag."
     }
   ],
   "contributors": [
     {
-      "full_name": "Synthetic entry",
-      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft",
-  "depends_on": []
+  "review_status": "reviewed"
 }

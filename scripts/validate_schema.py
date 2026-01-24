@@ -51,7 +51,7 @@ def validate_entry_schema(entry_path):
         'derivation': "Array of derivation steps with 'step', 'description', and 'equation'", 
         'programmatic_verification': "Object with 'language', 'library', and 'code'",
         'domain': "arXiv category (e.g., 'hep-th', 'gr-qc')",
-        'theory_status': "One of: current, historical, approximation, limiting_case, superseded",
+        'theory_status': "One of: current, historical, approximation, limiting_case, generalized",
         'references': "Array of 1-3 references with 'id' and 'citation'",
         'contributors': "Array of contributors with 'full_name' and 'identifier'",
         'review_status': "Either 'draft' or 'reviewed'"
@@ -136,7 +136,7 @@ def validate_entry_schema(entry_path):
                     errors.append(f"[ERROR] derivation[{i}] missing 'equation' field")
     
     # Validate theory_status
-    valid_statuses = ['current', 'historical', 'approximation', 'limiting_case', 'superseded']
+    valid_statuses = ['current', 'historical', 'approximation', 'limiting_case', 'generalized']
     if data.get('theory_status') not in valid_statuses:
         errors.append(f"[ERROR] Invalid theory_status: '{data.get('theory_status')}'")
         errors.append(f"   → Must be one of: {', '.join(valid_statuses)}")

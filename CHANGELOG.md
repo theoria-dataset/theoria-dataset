@@ -5,6 +5,36 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - Terminology update: superseded → generalized - 2025-01-19
+
+### Added
+
+- New entry: `klein_gordon_equation`, relativistic wave equation for spin-0 particles
+- New entry: `dirac_equation`, relativistic wave equation for spin-1/2 fermions
+
+### Changed
+
+- **Breaking change**: Unified "generalized" terminology across schema
+  - Schema change in `schemas/entry.schema.json`: `superseded_by` → `generalized_by` (relationship field)
+  - Schema change in `schemas/entry.schema.json`: `theory_status` enum value `"superseded"` → `"generalized"`
+  - Relationship field continues to represent both supersession and generalization relationships
+  - Status field now uses "generalized" to indicate theories subsumed into more general frameworks
+  - Updated description emphasizes "generalize" terminology while maintaining broad meaning
+  - All 10 existing entries with `superseded_by` field migrated to `generalized_by`
+  - 1 entry (`maxwell_equations`) with `theory_status: "superseded"` migrated to `"generalized"`
+  - Updated validation scripts: `tests/test_result_id_validation.py`, `scripts/validate_schema.py`, `scripts/parse_github_issue.py`
+  - Updated frontend display: `docs/script.js`, `docs/contribute/form.js`, `docs/contribute/form.html`, `docs/entries.html`
+  - Updated generation scripts: `scripts/generate_form.py`, `scripts/generate_contributing.py`
+  - Auto-generated documentation will be updated: `CONTRIBUTING.md`, `docs/contribute/form_requirements.js`
+
+### Migration Notes
+
+- **Relationship field**: `"superseded_by": [...]` → `"generalized_by": [...]`
+- **Status enum**: `"theory_status": "superseded"` → `"theory_status": "generalized"`
+- Entries with `superseded_by` migrated: dirac_equation_em, dirac_equation_free, gravitational_force, keplers_laws, klein_gordon_equation, lorentz_group_and_four_vectors, maxwell_equations, relativistic_energy_momentum, schrodinger_equation, special_relativity_transformations
+- Entries with `theory_status: "superseded"` migrated: maxwell_equations
+- Semantic meaning unchanged: represents cases where newer theories either generalize (special case → general theory) or supersede (replace/correct) older theories
+
 ## [0.7.3] - Adding new entries - 2025-12-24
 
 ### Added

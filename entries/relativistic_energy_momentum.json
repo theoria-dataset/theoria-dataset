@@ -288,7 +288,7 @@
   },
   "domain": "gr-qc",
   "theory_status": "current",
-  "superseded_by": [
+  "generalized_by": [
     "einstein_field_equations"
   ],
   "historical_context": {

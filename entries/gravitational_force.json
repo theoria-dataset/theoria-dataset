@@ -157,7 +157,7 @@
   },
   "domain": "physics.class-ph",
   "theory_status": "approximation",
-  "superseded_by": [
+  "generalized_by": [
     "general_relativity"
   ],
   "historical_context": {

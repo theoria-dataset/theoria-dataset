@@ -257,8 +257,8 @@
     ]
   },
   "domain": "physics.class-ph",
-  "theory_status": "superseded",
-  "superseded_by": ["qed_lagrangian"],
+  "theory_status": "generalized",
+  "generalized_by": ["qed_lagrangian"],
   "historical_context": {
     "importance": "Unification of electricity, magnetism, and light; foundation of electromagnetic theory",
     "development_period": "1860-1873",
