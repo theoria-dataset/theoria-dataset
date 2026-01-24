@@ -226,7 +226,8 @@
       "used_in": [
         "relativistic_energy_momentum",
         "lorentz_group_and_four_vectors",
-        "klein_gordon_equation"
+        "klein_gordon_equation",
+        "dirac_equation"
       ]
     },
     {
@@ -256,7 +257,7 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle"]
+      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle", "dirac_equation"]
     },
     {
       "id": "gleason_theorem_conditions",

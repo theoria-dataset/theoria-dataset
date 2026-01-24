@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - New entry: `klein_gordon_equation`, relativistic wave equation for spin-0 particles
+- New entry: `dirac_equation`, relativistic wave equation for spin-1/2 fermions
 
 ### Changed
 

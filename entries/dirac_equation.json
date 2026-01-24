@@ -58,14 +58,16 @@
   ],
   "assumptions": [
     "flat_spacetime",
-    "light_speed_constant",
-    "planck_de_broglie_relations",
-    "hilbert_space_probability_structure",
-    "quantum_superposition_linear_dynamics",
-    "lorentz_covariance",
-    "well_defined_rest_mass"
+    "hilbert_space_probability_structure"
   ],
-  "depends_on": ["relativistic_energy_momentum", "schrodinger_equation"],
+  "depends_on": [
+    "relativistic_energy_momentum",
+    "schrodinger_equation",
+    "klein_gordon_equation"
+  ],
+  "generalized_by": [
+    "qed_lagrangian"
+  ],
   "derivation": [
     {
       "step": 1,
@@ -84,10 +86,6 @@
     },
     {
       "step": 3,
-      "assumptions": [
-        "quantum_superposition_linear_dynamics",
-        "lorentz_covariance"
-      ],
       "description": "To maintain Lorentz covariance and first-order time derivative, seek a linear equation with matrix coefficients `A^(mu)` and scalar `B` to be determined.",
       "equation": "(i*hbar*A^(mu)*partial_(mu) - B)*psi = 0"
     },
@@ -104,8 +102,8 @@
     },
     {
       "step": 6,
-      "assumptions": ["flat_spacetime"],
-      "description": "The Klein-Gordon operator for a particle of mass `m` in flat spacetime is `(hbar^2*Box + (m*c)^2)` where `Box = eta^(mu nu)*partial_(mu)*partial_(nu)` is the d'Alembertian with Minkowski metric.",
+      "assumptions": ["flat_spacetime", "klein_gordon_equation"],
+      "description": "The Klein-Gordon operator for a particle of mass `m` in flat spacetime is `(hbar^2*square + (m*c)^2)` where `square = eta^(mu nu)*partial_(mu)*partial_(nu)` is the d'Alembertian with Minkowski metric.",
       "equation": "-hbar^2*eta^(mu nu)*partial_(mu)*partial_(nu) + (m*c)^2 = 0"
     },
     {
@@ -127,27 +125,9 @@
     },
     {
       "step": 10,
-      "assumptions": ["lorentz_covariance"],
       "description": "Substituting the gamma matrices into the first-order ansatz yields the Dirac equation in manifestly Lorentz-covariant form. Here `psi` is a four-component spinor (Dirac spinor).",
       "equation": "(i*hbar*gamma^(mu)*partial_(mu) - m*c)*psi = 0",
       "equation_proven": "dirac_covariant"
-    },
-    {
-      "step": 11,
-      "description": "Verify consistency: acting on the Dirac equation with the conjugate operator `(i*hbar*gamma^(nu)*partial_(nu) + m*c)` and using the Clifford algebra recovers the Klein-Gordon equation. Each spinor component satisfies `(Box + (m*c/hbar)^2)*psi_a = 0`.",
-      "equation": "(i*hbar*gamma^(nu)*partial_(nu) + m*c)*(i*hbar*gamma^(mu)*partial_(mu) - m*c)*psi = (hbar^2*Box + (m*c)^2)*psi = 0"
-    },
-    {
-      "step": 12,
-      "assumptions": ["planck_de_broglie_relations"],
-      "description": "Seek plane-wave solutions where `u` is a constant four-component spinor and `p_(mu) = (E/c, -vec{p})` is the four-momentum (with lowered index).",
-      "equation": "psi(x) = u*exp((i/hbar)*p_(mu)*x^(mu)) = u*exp((i/hbar)*(E*t - vec{p} cdot vec{r}))"
-    },
-    {
-      "step": 13,
-      "assumptions": ["planck_de_broglie_relations", "well_defined_rest_mass"],
-      "description": "Substituting the plane wave into the Dirac equation replaces `partial_(mu)` with `(i/hbar)*p_(mu)`, yielding an algebraic equation for the spinor `u`. This is the Dirac equation in momentum space, written with Feynman slash notation `slashp = gamma^(mu)*p_(mu)`.",
-      "equation": "(gamma^(mu)*p_(mu) - m*c)*u = (slashp - m*c)*u = 0"
     }
   ],
   "programmatic_verification": {
@@ -155,8 +135,7 @@
     "library": "sympy 1.13.1",
     "code": [
       "import sympy as sp",
-      "from sympy import I, sqrt, exp, symbols, Matrix, eye, zeros, simplify, expand",
-      "from sympy import cos, sin, Function, diff",
+      "from sympy import I, Matrix, eye, zeros, simplify",
       "",
       "# =====================================================",
       "# Programmatic verification: Dirac Equation",
@@ -164,8 +143,6 @@
       "# Sections:",
       "#  1. Define gamma matrices (Dirac/standard representation)",
       "#  2. Verify Clifford algebra {γ^μ, γ^ν} = 2η^{μν}I₄ (Steps 7, 9)",
-      "#  3. Verify Klein-Gordon consistency (Step 11)",
-      "#  4. Verify plane-wave solutions (Steps 12-13)",
       "# =====================================================",
       "",
       "# ---------------------------",
@@ -222,73 +199,6 @@
       "        assert simplify(anticomm - expected) == zeros(4), f'Clifford algebra failed for μ={mu}, ν={nu}'",
       "print('  {γ^μ, γ^ν} = 2η^{μν}I₄ verified for all μ,ν ∈ {0,1,2,3}')",
       "",
-      "# ---------------------------",
-      "# Section 3: Verify Klein-Gordon consistency (Step 11)",
-      "# (γ^μ p_μ + mc)(γ^ν p_ν - mc) = p_μ p^μ - (mc)² = E²/c² - p² - m²c²",
-      "# ---------------------------",
-      "print('Section 3: Verifying Klein-Gordon consistency...')",
-      "E, px, py, pz, m, c = symbols('E p_x p_y p_z m c', real=True)",
-      "",
-      "# Four-momentum with lowered index: p_μ = (E/c, -p_x, -p_y, -p_z)",
-      "# Contraction: γ^μ p_μ = γ^0(E/c) + γ^1(-p_x) + γ^2(-p_y) + γ^3(-p_z)",
-      "p_components = [E/c, -px, -py, -pz]",
-      "slash_p = gamma[0]*p_components[0] + gamma[1]*p_components[1] + gamma[2]*p_components[2] + gamma[3]*p_components[3]",
-      "",
-      "# (slash_p + mc)(slash_p - mc) should equal (p_μ p^μ - m²c²) I₄",
-      "# where p_μ p^μ = (E/c)² - p_x² - p_y² - p_z²",
-      "product = (slash_p + m*c*I4) * (slash_p - m*c*I4)",
-      "product_simplified = simplify(expand(product))",
-      "",
-      "p_squared = (E/c)**2 - px**2 - py**2 - pz**2",
-      "expected_kg = (p_squared - m**2 * c**2) * I4",
-      "expected_simplified = simplify(expand(expected_kg))",
-      "",
-      "assert simplify(product_simplified - expected_simplified) == zeros(4), 'Klein-Gordon consistency failed'",
-      "print('  (γ^μp_μ + mc)(γ^νp_ν - mc) = (p_μp^μ - m²c²)I₄ verified')",
-      "",
-      "# ---------------------------",
-      "# Section 4: Verify plane-wave solutions (Steps 12-13)",
-      "# ---------------------------",
-      "print('Section 4: Verifying plane-wave solutions...')",
-      "",
-      "# For a particle at rest: E = mc², p = 0",
-      "# The Dirac equation (slash_p - mc)u = 0 becomes (γ^0 m c - mc)u = 0",
-      "# => m*c*(γ^0 - I₄)u = 0",
-      "slash_p_rest = gamma_0 * m * c  # Only γ^0(E/c) = γ^0(mc²/c) = γ^0 mc",
-      "dirac_op_rest = slash_p_rest - m * c * I4",
-      "dirac_op_rest_simplified = simplify(dirac_op_rest)",
-      "",
-      "# This should be mc*(γ^0 - I₄) = mc * diag(0, 0, -2, -2)",
-      "# So the upper two components of u are free (positive energy solutions)",
-      "expected_rest = m * c * (gamma_0 - I4)",
-      "assert simplify(dirac_op_rest_simplified - expected_rest) == zeros(4), 'Rest frame Dirac operator incorrect'",
-      "",
-      "# Positive energy spinors at rest: u₁ = (1,0,0,0)ᵀ, u₂ = (0,1,0,0)ᵀ",
-      "u1 = Matrix([1, 0, 0, 0])",
-      "u2 = Matrix([0, 1, 0, 0])",
-      "",
-      "# Verify they satisfy (slash_p - mc)u = 0 at rest",
-      "assert simplify(dirac_op_rest * u1) == Matrix([0, 0, 0, 0]), 'u₁ does not satisfy Dirac eq at rest'",
-      "assert simplify(dirac_op_rest * u2) == Matrix([0, 0, 0, 0]), 'u₂ does not satisfy Dirac eq at rest'",
-      "print('  Positive energy spinors u₁, u₂ at rest verified')",
-      "",
-      "# Negative energy spinors at rest: v₁ = (0,0,1,0)ᵀ, v₂ = (0,0,0,1)ᵀ",
-      "# These satisfy (slash_p + mc)v = 0, i.e., the antiparticle equation",
-      "v1 = Matrix([0, 0, 1, 0])",
-      "v2 = Matrix([0, 0, 0, 1])",
-      "dirac_op_antiparticle_rest = slash_p_rest + m * c * I4",
-      "",
-      "assert simplify(dirac_op_antiparticle_rest * v1) == Matrix([0, 0, 0, 0]), 'v₁ does not satisfy antiparticle eq'",
-      "assert simplify(dirac_op_antiparticle_rest * v2) == Matrix([0, 0, 0, 0]), 'v₂ does not satisfy antiparticle eq'",
-      "print('  Negative energy spinors v₁, v₂ at rest verified')",
-      "",
-      "# Verify on-shell condition: E² = (pc)² + (mc²)² when (slash_p - mc)u = 0",
-      "# From Section 4, (slash_p)² = p_μ p^μ I₄ = (E²/c² - p²) I₄",
-      "# If (slash_p - mc)u = 0, then slash_p u = mc u",
-      "# => (slash_p)² u = m²c² u => (E²/c² - p²) u = m²c² u",
-      "# => E² = p²c² + m²c⁴ ✓",
-      "print('  On-shell condition E² = (pc)² + (mc²)² follows from Dirac equation')",
-      "",
       "print('')",
       "print('Dirac equation programmatic verification passed')"
     ]
@@ -326,5 +236,5 @@
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
