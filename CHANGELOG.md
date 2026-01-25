@@ -5,7 +5,7 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.1] - Scalar field quantization and QFT foundations - 2025-01-25
+## [0.8.1] - Scalar field quantization and QFT foundations new entries - 2025-01-26
 
 ### Added
 
@@ -14,9 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New entry: `fock_space`, multi-particle Hilbert space structure for quantum field theory
 - New entry: `scalar_field_quantization`, canonical quantization of the free real scalar field
 
-### Changed
-
-- Updated `used_in` fields in global assumptions for the new entries
 
 ## [0.8.0] - Terminology update: superseded → generalized, and two new entries added - 2025-01-19
 
