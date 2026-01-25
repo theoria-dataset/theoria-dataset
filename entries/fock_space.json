@@ -1,0 +1,238 @@
+{
+  "result_id": "fock_space",
+  "result_name": "Fock Space",
+  "result_equations": [
+    {
+      "id": "fock_space_definition",
+      "equation_title": "Fock Space as Direct Sum",
+      "equation": "cc F = oplus_(n=0)^oo cc H_n"
+    },
+    {
+      "id": "multimode_commutation",
+      "equation_title": "Multi-Mode Commutation Relations (Bosons)",
+      "equation": "[a_k, a_(k')^(**)] = delta_(k k'), [a_k, a_(k')] = 0, [a_k^(**), a_(k')^(**)] = 0"
+    },
+    {
+      "id": "number_state_construction",
+      "equation_title": "Number State Construction",
+      "equation": "|:n_1, n_2, ...:) = prod_k (1/sqrt(n_k !))*(a_k^(**))^(n_k) |:0:)"
+    }
+  ],
+  "explanation": "Fock space is the Hilbert space for systems with variable particle number, fundamental to quantum field theory. It is constructed as the direct sum of n-particle Hilbert spaces, starting from the vacuum which contains no particles. Creation operators add particles with a given quantum number, while annihilation operators remove them. For bosons, these satisfy canonical commutation relations. Fock space provides the natural arena for describing particle creation and annihilation in relativistic quantum theories.",
+  "definitions": [
+    {
+      "symbol": "cc F",
+      "definition": "Fock space, the complete Hilbert space for a quantum field theory with variable particle number."
+    },
+    {
+      "symbol": "cc H_n",
+      "definition": "The n-particle Hilbert space, the symmetric (for bosons) or antisymmetric (for fermions) subspace of the n-fold tensor product of single-particle spaces."
+    },
+    {
+      "symbol": "|:0:)",
+      "definition": "Vacuum state, the unique state with no particles. It is the ground state of the free field Hamiltonian."
+    },
+    {
+      "symbol": "a_k",
+      "definition": "Annihilation operator for a given mode, which removes one particle from that mode."
+    },
+    {
+      "symbol": "a_k^(**)",
+      "definition": "Creation operator for a given mode, which adds one particle to that mode."
+    },
+    {
+      "symbol": "k",
+      "definition": "Mode label, typically the momentum or wavevector of the particle."
+    },
+    {
+      "symbol": "delta_(k k')",
+      "definition": "Kronecker delta for discrete modes or Dirac delta for continuous modes."
+    },
+    {
+      "symbol": "n_k",
+      "definition": "Occupation number for a given mode, a non-negative integer representing the number of particles in that mode."
+    },
+    {
+      "symbol": "|:n_1, n_2, ...:)",
+      "definition": "Fock basis state specifying the occupation number for each mode."
+    }
+  ],
+  "assumptions": [
+    "vacuum_state_exists"
+  ],
+  "depends_on": ["ladder_operators"],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": ["ladder_operators"],
+      "description": "Start from the single-mode ladder operator algebra established for the harmonic oscillator.",
+      "equation": "[a, a^(**)] = 1, a|:n:) = sqrt(n)|:n-1:), a^(**)|:n:) = sqrt(n+1)|:n+1:)"
+    },
+    {
+      "step": 2,
+      "description": "Generalize to multiple independent modes labeled by index k, introducing creation and annihilation operators for each mode.",
+      "equation": "a_k, a_k^(**) text{ for each mode } k"
+    },
+    {
+      "step": 3,
+      "description": "Impose commutation relations for bosonic operators. Operators for different modes commute, while same-mode operators satisfy the canonical commutation relation.",
+      "equation": "[a_k, a_(k')^(**)] = delta_(k k'); [a_k, a_(k')] = 0; [a_k^(**), a_(k')^(**)] = 0",
+      "equation_proven": "multimode_commutation"
+    },
+    {
+      "step": 4,
+      "assumptions": ["vacuum_state_exists"],
+      "description": "The vacuum state is annihilated by all annihilation operators, representing the absence of any particles in all modes.",
+      "equation": "a_k |:0:) = 0, forall k"
+    },
+    {
+      "step": 5,
+      "description": "Construct single-particle states by applying a creation operator to the vacuum.",
+      "equation": "|:1_k:) = a_k^(**) |:0:)"
+    },
+    {
+      "step": 6,
+      "description": "Construct multi-particle states in a single mode by repeated application of the creation operator, with appropriate normalization.",
+      "equation": "|:n_k:) = (1/sqrt(n_k !))*(a_k^(**))^(n_k) |:0:)"
+    },
+    {
+      "step": 7,
+      "description": "For multiple modes, construct the general Fock state as the product of single-mode creation operators acting on the vacuum. The normalization ensures orthonormality.",
+      "equation": "|:n_1, n_2, ...:) = prod_k (1/sqrt(n_k !))*(a_k^(**))^(n_k) |:0:)",
+      "equation_proven": "number_state_construction"
+    },
+    {
+      "step": 8,
+      "description": "Verify orthonormality of Fock states using the commutation relations and the vacuum property.",
+      "equation": "(:m_1, m_2, ...:|:n_1, n_2, ...:) = prod_k delta_(m_k, n_k)"
+    },
+    {
+      "step": 9,
+      "description": "Define the n-particle Hilbert space as the span of all Fock states with fixed total particle number n.",
+      "equation": "cc H_n = text{span}{|:n_1, n_2, ...:) : sum_k n_k = n}"
+    },
+    {
+      "step": 10,
+      "description": "The full Fock space is the direct sum of all n-particle spaces. This structure allows superpositions of states with different particle numbers, essential for describing particle creation and annihilation processes.",
+      "equation": "cc F = oplus_(n=0)^oo cc H_n",
+      "equation_proven": "fock_space_definition"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "from sympy.physics.secondquant import B, Bd, Commutator, FockStateKet, FockStateBra, InnerProduct",
+      "from sympy import factorial",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Fock Space",
+      "#",
+      "# Using SymPy's secondquant module for bosonic operators:",
+      "#   B(k)  = annihilation operator for mode k",
+      "#   Bd(k) = creation operator for mode k",
+      "# =====================================================",
+      "",
+      "# ---------------------------",
+      "# Step 3: Multi-mode commutation relations",
+      "# [a_k, a_k'^dag] = delta_{k,k'}, [a_k, a_k'] = 0, [a_k^dag, a_k'^dag] = 0",
+      "# ---------------------------",
+      "",
+      "# Same mode: [a_k, a_k^dag] = 1",
+      "comm_same = Commutator(B(0), Bd(0)).doit()",
+      "assert comm_same == 1, 'Step 3: [a_k, a_k^dag] = 1'",
+      "",
+      "# Different modes: [a_k, a_k'^dag] = 0",
+      "comm_diff = Commutator(B(0), Bd(1)).doit()",
+      "assert comm_diff == 0, 'Step 3: [a_k, a_k\\'^dag] = 0 for k != k\\''",
+      "",
+      "# Annihilation operators commute: [a_k, a_k'] = 0",
+      "comm_aa = Commutator(B(0), B(1)).doit()",
+      "assert comm_aa == 0, 'Step 3: [a_k, a_k\\'] = 0'",
+      "",
+      "# Creation operators commute: [a_k^dag, a_k'^dag] = 0",
+      "comm_adad = Commutator(Bd(0), Bd(1)).doit()",
+      "assert comm_adad == 0, 'Step 3: [a_k^dag, a_k\\'^dag] = 0'",
+      "",
+      "# ---------------------------",
+      "# Steps 5-7: State construction and normalization",
+      "# |n_1, n_2, ...> = prod_k (1/sqrt(n_k!)) (a_k^dag)^{n_k} |0>",
+      "# ---------------------------",
+      "",
+      "# SymPy's FockStateKet is normalized by construction",
+      "# Verify normalization <n|n> = 1 for various occupation numbers",
+      "for n_val in range(5):",
+      "    state = FockStateKet([n_val])",
+      "    bra = FockStateBra([n_val])",
+      "    ip = InnerProduct(bra, state).doit()",
+      "    assert ip == 1, f'Step 7: <{n_val}|{n_val}> = 1'",
+      "",
+      "# Multi-mode states",
+      "state_21 = FockStateKet([2, 1])",
+      "bra_21 = FockStateBra([2, 1])",
+      "ip_21 = InnerProduct(bra_21, state_21).doit()",
+      "assert ip_21 == 1, 'Step 7: <2,1|2,1> = 1'",
+      "",
+      "# ---------------------------",
+      "# Step 8: Orthonormality of Fock states",
+      "# <m_1, m_2, ...|n_1, n_2, ...> = prod_k delta_{m_k, n_k}",
+      "# ---------------------------",
+      "",
+      "# Different occupation in same mode: orthogonal",
+      "state_1 = FockStateKet([1])",
+      "state_2 = FockStateKet([2])",
+      "bra_1 = FockStateBra([1])",
+      "ip_ortho = InnerProduct(bra_1, state_2).doit()",
+      "assert ip_ortho == 0, 'Step 8: <1|2> = 0'",
+      "",
+      "# Different modes: orthogonal",
+      "state_10 = FockStateKet([1, 0])",
+      "state_01 = FockStateKet([0, 1])",
+      "bra_10 = FockStateBra([1, 0])",
+      "ip_modes = InnerProduct(bra_10, state_01).doit()",
+      "assert ip_modes == 0, 'Step 8: <1,0|0,1> = 0'",
+      "",
+      "# Multi-mode orthogonality",
+      "state_21 = FockStateKet([2, 1])",
+      "state_12 = FockStateKet([1, 2])",
+      "bra_21 = FockStateBra([2, 1])",
+      "ip_multi = InnerProduct(bra_21, state_12).doit()",
+      "assert ip_multi == 0, 'Step 8: <2,1|1,2> = 0'",
+      "",
+      "print('Fock space verification passed')"
+    ]
+  },
+  "domain": "hep-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Fock space provides the mathematical foundation for quantum field theory, enabling rigorous treatment of particle creation and annihilation processes in relativistic quantum mechanics",
+    "development_period": "1932",
+    "key_insights": [
+      "Variable particle number requires extension beyond fixed-N Hilbert spaces",
+      "Direct sum structure naturally accommodates superpositions of different particle numbers",
+      "Creation/annihilation operators provide the algebraic structure for field operators",
+      "Vacuum state as ground state is fundamental to perturbation theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fock, V. (1932). Konfigurationsraum und zweite Quantelung. Zeitschrift fur Physik, 75(9-10), 622-647."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). The Quantum Theory of Fields, Vol. 1: Foundations. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Reed, M., & Simon, B. (1975). Methods of Modern Mathematical Physics, Vol. 2: Fourier Analysis, Self-Adjointness. Academic Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

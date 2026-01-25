@@ -199,7 +199,7 @@
       "title": "Stationary Action Principle",
       "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
       "type": "principle",
-      "used_in": ["noethers_theorem"]
+      "used_in": ["noethers_theorem", "klein_gordon_lagrangian"]
     },
     {
       "id": "flat_spacetime",
@@ -227,7 +227,9 @@
         "relativistic_energy_momentum",
         "lorentz_group_and_four_vectors",
         "klein_gordon_equation",
-        "dirac_equation"
+        "dirac_equation",
+        "klein_gordon_lagrangian",
+        "scalar_field_quantization"
       ]
     },
     {
@@ -257,7 +259,7 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle", "dirac_equation"]
+      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle", "dirac_equation", "ladder_operators", "fock_space"]
     },
     {
       "id": "gleason_theorem_conditions",
@@ -579,7 +581,7 @@
           "definition": "Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise)."
         }
       ],
-      "used_in": ["uncertainty_principle"]
+      "used_in": ["uncertainty_principle", "ladder_operators", "scalar_field_quantization"]
     },
     {
       "id": "non_interacting_particles",
@@ -655,7 +657,7 @@
           "definition": "Finite-dimensional Lorentz representation acting on the field indices (e.g. `D=1` for a scalar, `D=Lambda` for a 4-vector, and `D=S(Lambda)` for a spinor)."
         }
       ],
-      "used_in": ["spin_statistics_theorem"]
+      "used_in": ["spin_statistics_theorem", "klein_gordon_lagrangian", "scalar_field_quantization"]
     },
     {
       "id": "microcausality",
@@ -681,7 +683,7 @@
           "definition": "Speed of light in vacuum, setting the maximum speed for causal signal propagation."
         }
       ],
-      "used_in": ["spin_statistics_theorem"]
+      "used_in": ["spin_statistics_theorem", "scalar_field_quantization"]
     },
     {
       "id": "positive_energy_spectrum",
@@ -710,7 +712,7 @@
           "definition": "Unitary representation of a spacetime symmetry `g`."
         }
       ],
-      "used_in": ["spin_statistics_theorem"]
+      "used_in": ["spin_statistics_theorem", "fock_space", "scalar_field_quantization"]
     }
   ]
 }

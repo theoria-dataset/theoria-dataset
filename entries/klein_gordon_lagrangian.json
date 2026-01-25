@@ -1,0 +1,257 @@
+{
+  "result_id": "klein_gordon_lagrangian",
+  "result_name": "Klein-Gordon Lagrangian and Hamiltonian Density",
+  "result_equations": [
+    {
+      "id": "kg_lagrangian_density",
+      "equation_title": "Klein-Gordon Lagrangian Density",
+      "equation": "cc L = 1/2*del_mu phi*del^mu phi - 1/2*m^2*phi^2"
+    },
+    {
+      "id": "conjugate_momentum_density",
+      "equation_title": "Conjugate Momentum Density",
+      "equation": "pi = (del cc L)/(del (del_t phi)) = del_t phi"
+    },
+    {
+      "id": "kg_hamiltonian_density",
+      "equation_title": "Klein-Gordon Hamiltonian Density",
+      "equation": "cc H = 1/2*pi^2 + 1/2*(nabla phi)^2 + 1/2*m^2*phi^2"
+    }
+  ],
+  "explanation": "The Klein-Gordon Lagrangian density provides the classical field theory foundation for the relativistic scalar field. From this Lagrangian, the Klein-Gordon equation emerges via the Euler-Lagrange field equations. The conjugate momentum density `pi = del_t phi` and the Hamiltonian density `cc H` are essential for canonical quantization. The Hamiltonian density is manifestly positive-definite, ensuring bounded energy from below.",
+  "definitions": [
+    {
+      "symbol": "cc L",
+      "definition": "Lagrangian density, the Lagrangian per unit spatial volume. The total Lagrangian is `L = int cc L d^3 x`."
+    },
+    {
+      "symbol": "phi",
+      "definition": "Real scalar field `phi(x^mu) = phi(t, vec x)`, a function of spacetime coordinates."
+    },
+    {
+      "symbol": "del_mu",
+      "definition": "Four-gradient operator, `del_mu = (del)/(del x^mu) = (1/c*(del)/(del t), nabla)`."
+    },
+    {
+      "symbol": "del^mu",
+      "definition": "Contravariant four-gradient, `del^mu = eta^(mu nu)*del_nu = (1/c*(del)/(del t), -nabla)` in `(+,-,-,-)` signature."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass parameter of the scalar field (in natural units where `c = hbar = 1`, this has dimensions of inverse length)."
+    },
+    {
+      "symbol": "pi",
+      "definition": "Conjugate momentum density, canonically conjugate to the field `phi`."
+    },
+    {
+      "symbol": "cc H",
+      "definition": "Hamiltonian density, the Hamiltonian per unit spatial volume. The total Hamiltonian is `H = int cc H d^3 x`."
+    },
+    {
+      "symbol": "del_t phi",
+      "definition": "Partial time derivative of the field, `del_t phi = (del phi)/(del t)`."
+    },
+    {
+      "symbol": "nabla phi",
+      "definition": "Spatial gradient of the field, `nabla phi = ((del phi)/(del x), (del phi)/(del y), (del phi)/(del z))`."
+    },
+    {
+      "symbol": "eta^(mu nu)",
+      "definition": "Inverse Minkowski metric tensor with signature `(+,-,-,-)`, so `eta^(mu nu) = diag(1,-1,-1,-1)`."
+    }
+  ],
+  "assumptions": [
+    "flat_spacetime",
+    "lorentz_covariance",
+    "stationary_action_principle"
+  ],
+  "depends_on": ["klein_gordon_equation", "least_action_principle"],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": ["flat_spacetime", "klein_gordon_equation"],
+      "description": "Start from the Klein-Gordon equation in natural units (`c = hbar = 1`). The goal is to find the Lagrangian density that yields this equation via the Euler-Lagrange equations.",
+      "equation": "square phi + m^2*phi = 0"
+    },
+    {
+      "step": 2,
+      "assumptions": ["stationary_action_principle", "least_action_principle"],
+      "description": "For a scalar field theory, we seek the minimal Lagrangian that produces the Klein-Gordon equation. Minimal means: (i) depends only on first derivatives (to yield second-order equations of motion), and (ii) contains the fewest terms consistent with the symmetries. The Euler-Lagrange equation for fields is:",
+      "equation": "del_mu ((del cc L)/(del (del_mu phi))) - (del cc L)/(del phi) = 0"
+    },
+    {
+      "step": 3,
+      "assumptions": ["lorentz_covariance"],
+      "description": "Under a Lorentz transformation, a scalar field transforms such that its value at the transformed point equals its original value. Consequently, the derivative transforms as a covariant 4-vector.",
+      "equation": "phi'(x') = phi(x) => del_mu phi text{ transforms as a 4-vector}"
+    },
+    {
+      "step": 4,
+      "assumptions": ["lorentz_covariance"],
+      "description": "The contraction of the covariant derivative with its contravariant counterpart is a Lorentz scalar. This is the unique scalar (up to total derivatives) built from first derivatives of a scalar field.",
+      "equation": "del_mu phi*del^mu phi = eta^(mu nu)*del_mu phi*del_nu phi text{ (Lorentz scalar)}"
+    },
+    {
+      "step": 5,
+      "description": "We propose the kinetic term with a factor of 1/2 for canonical normalization.",
+      "equation": "cc L_k = 1/2*del_mu phi*del^mu phi"
+    },
+    {
+      "step": 6,
+      "description": "Verify the kinetic term yields the d'Alembertian in the Euler-Lagrange equation by computing the functional derivative and applying the divergence.",
+      "equation": "(del cc L_k)/(del (del_mu phi)) = del^mu phi => del_mu ((del cc L_k)/(del (del_mu phi))) = square phi"
+    },
+    {
+      "step": 7,
+      "description": "For the mass term, we need the Euler-Lagrange equation to contribute the mass term. The simplest Lorentz-invariant potential is quadratic in the field (a linear term would shift the vacuum).",
+      "equation": "-(del cc L_(pot))/(del phi) = m^2*phi => cc L_(pot) = -1/2*m^2*phi^2"
+    },
+    {
+      "step": 8,
+      "description": "Combine the kinetic and potential terms. This is the unique minimal Lagrangian density (up to total derivatives) for a free real scalar field that yields the Klein-Gordon equation via the Euler-Lagrange equations.",
+      "equation": "cc L = 1/2*del_mu phi*del^mu phi - 1/2*m^2*phi^2",
+      "equation_proven": "kg_lagrangian_density"
+    },
+    {
+      "step": 9,
+      "assumptions": ["flat_spacetime"],
+      "description": "Expand the kinetic term using the Minkowski metric with signature (+,-,-,-).",
+      "equation": "del_mu phi*del^mu phi = (del_t phi)^2 - (nabla phi)^2"
+    },
+    {
+      "step": 10,
+      "description": "Substitute the expanded kinetic term into the Lagrangian density to obtain the explicit form in terms of time and spatial derivatives.",
+      "equation": "cc L = 1/2*(del_t phi)^2 - 1/2*(nabla phi)^2 - 1/2*m^2*phi^2"
+    },
+    {
+      "step": 11,
+      "description": "Define the conjugate momentum density as the derivative of the Lagrangian density with respect to the time derivative of the field.",
+      "equation": "pi = (del cc L)/(del (del_t phi)) = del_t phi",
+      "equation_proven": "conjugate_momentum_density"
+    },
+    {
+      "step": 12,
+      "description": "Construct the Hamiltonian density via the Legendre transform, substituting the conjugate momentum from step 11 and the Lagrangian from step 10.",
+      "equation": "cc H = pi*del_t phi - cc L = pi^2 - 1/2*pi^2 + 1/2*(nabla phi)^2 + 1/2*m^2*phi^2"
+    },
+    {
+      "step": 13,
+      "description": "Simplify the Hamiltonian density. The result is manifestly positive-definite.",
+      "equation": "cc H = 1/2*pi^2 + 1/2*(nabla phi)^2 + 1/2*m^2*phi^2",
+      "equation_proven": "kg_hamiltonian_density"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Klein-Gordon Lagrangian",
+      "# =====================================================",
+      "",
+      "# Setup: Define symbols and field",
+      "t, x, y, z = sp.symbols('t x y z', real=True)",
+      "m = sp.symbols('m', positive=True, real=True)",
+      "phi = sp.Function('phi')(t, x, y, z)",
+      "",
+      "# Derivatives",
+      "phi_t = sp.diff(phi, t)",
+      "phi_x = sp.diff(phi, x)",
+      "phi_y = sp.diff(phi, y)",
+      "phi_z = sp.diff(phi, z)",
+      "phi_tt = sp.diff(phi, t, 2)",
+      "laplacian_phi = sp.diff(phi, x, 2) + sp.diff(phi, y, 2) + sp.diff(phi, z, 2)",
+      "grad_phi_squared = phi_x**2 + phi_y**2 + phi_z**2",
+      "",
+      "# Step 4: Verify kinetic contraction is Lorentz scalar",
+      "# del_mu phi*del^mu phi = eta^(mu nu)*del_mu phi*del_nu phi",
+      "# With signature (+,-,-,-): = (del_t phi)^2 - (nabla phi)^2",
+      "kinetic_contraction = phi_t**2 - grad_phi_squared",
+      "",
+      "# Step 5: Kinetic Lagrangian",
+      "L_kinetic = sp.Rational(1, 2) * kinetic_contraction",
+      "",
+      "# Step 6: Verify dL_k/d(del_mu phi) = del^mu phi",
+      "dLk_dphi_t = sp.diff(L_kinetic, phi_t)",
+      "assert sp.simplify(dLk_dphi_t - phi_t) == 0, 'Step 6: dL_k/d(del_t phi) = del_t phi'",
+      "",
+      "# Step 6: Verify del_mu(dL_k/d(del_mu phi)) = box phi",
+      "# d/dt(phi_t) - d/dx(phi_x) - d/dy(phi_y) - d/dz(phi_z) = phi_tt - laplacian",
+      "box_phi = phi_tt - laplacian_phi",
+      "dLk_dphi_x = sp.diff(L_kinetic, phi_x)",
+      "div_term = sp.diff(dLk_dphi_t, t) + sp.diff(dLk_dphi_x, x) + sp.diff(sp.diff(L_kinetic, phi_y), y) + sp.diff(sp.diff(L_kinetic, phi_z), z)",
+      "assert sp.simplify(div_term - box_phi) == 0, 'Step 6: del_mu(del^mu phi) = box phi'",
+      "",
+      "# Step 7: Potential Lagrangian for mass term",
+      "L_potential = -sp.Rational(1, 2) * m**2 * phi**2",
+      "dLpot_dphi = sp.diff(L_potential, phi)",
+      "assert sp.simplify(dLpot_dphi - (-m**2 * phi)) == 0, 'Step 7: dL_pot/dphi = -m^2*phi'",
+      "",
+      "# Step 8: Full Lagrangian density",
+      "L_density = L_kinetic + L_potential",
+      "",
+      "# Verify Euler-Lagrange yields Klein-Gordon equation (step 1)",
+      "# EL: del_mu(dL/d(del_mu phi)) - dL/dphi = 0",
+      "# => box phi + m^2 phi = 0",
+      "EL_result = div_term - sp.diff(L_density, phi)",
+      "KG_equation = box_phi + m**2 * phi",
+      "assert sp.simplify(EL_result - KG_equation) == 0, 'Step 8: Lagrangian yields KG equation'",
+      "",
+      "# Step 9: Expand kinetic term with Minkowski metric",
+      "L_expanded = sp.Rational(1, 2) * phi_t**2 - sp.Rational(1, 2) * grad_phi_squared - sp.Rational(1, 2) * m**2 * phi**2",
+      "assert sp.simplify(L_density - L_expanded) == 0, 'Step 9-10: Lagrangian expansion'",
+      "",
+      "# Step 11: Conjugate momentum density",
+      "pi = sp.diff(L_density, phi_t)",
+      "assert sp.simplify(pi - phi_t) == 0, 'Step 11: pi = del_t phi'",
+      "",
+      "# Step 12: Hamiltonian density via Legendre transform",
+      "# H = pi * del_t phi - L",
+      "H_legendre = pi * phi_t - L_density",
+      "",
+      "# Step 13: Simplify Hamiltonian density",
+      "# H = phi_t^2 - (1/2)*phi_t^2 + (1/2)*(nabla phi)^2 + (1/2)*m^2*phi^2",
+      "# H = (1/2)*phi_t^2 + (1/2)*(nabla phi)^2 + (1/2)*m^2*phi^2",
+      "H_expected = sp.Rational(1, 2) * phi_t**2 + sp.Rational(1, 2) * grad_phi_squared + sp.Rational(1, 2) * m**2 * phi**2",
+      "assert sp.simplify(H_legendre - H_expected) == 0, 'Step 12-13: Hamiltonian density'",
+      "",
+      "print('Klein-Gordon Lagrangian and Hamiltonian density verification passed')"
+    ]
+  },
+  "domain": "hep-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation for quantum field theory of scalar particles; the Lagrangian formulation enables systematic derivation of equations of motion and conservation laws via Noether's theorem",
+    "development_period": "1926-1930s",
+    "key_insights": [
+      "Lorentz-invariant action principle yields relativistic field equations",
+      "Conjugate momentum density enables canonical quantization",
+      "Positive-definite Hamiltonian ensures energy bounded from below",
+      "Field-theoretic extension of classical mechanics to infinite degrees of freedom"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). An Introduction to Quantum Field Theory. Westview Press."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). The Quantum Theory of Fields, Vol. 1: Foundations. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Srednicki, M. (2007). Quantum Field Theory. Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}
