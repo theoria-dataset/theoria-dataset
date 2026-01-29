@@ -160,7 +160,7 @@ For trained models, attribution must be provided in model documentation, dataset
 If you use it please cite it as:
 
 ```
-TheorIA Dataset, 2025, v0.2.5. Available at: https://github.com/theoria-dataset/theoria-dataset
+TheorIA Dataset, 2026, Available at: https://github.com/theoria-dataset/theoria-dataset
 ```
 
 ## Contact
