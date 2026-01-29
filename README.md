@@ -150,7 +150,14 @@ Feed `dataset.json` (or per‑entry files) straight into your training pipeline.
 
 ## License & Citation
 
-Licensed under [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode.en). If you use it please cite it as:
+Licensed under [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode.en). 
+
+Any use of the TheorIA Dataset, including the training of machine learning or
+foundation models, requires attribution to:
+
+For trained models, attribution must be provided in model documentation, dataset disclosures, or equivalent public-facing materials.
+
+If you use it please cite it as:
 
 ```
 TheorIA Dataset, 2025, v0.2.5. Available at: https://github.com/theoria-dataset/theoria-dataset
