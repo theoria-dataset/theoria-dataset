@@ -581,7 +581,37 @@
           "definition": "Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise)."
         }
       ],
-      "used_in": ["uncertainty_principle", "ladder_operators", "scalar_field_quantization"]
+      "used_in": ["uncertainty_principle", "ladder_operators"]
+    },
+    {
+      "id": "canonical_field_commutation_relations",
+      "title": "Canonical Field Commutation Relations",
+      "text": "For a scalar field `phi(vec x, t)` and its conjugate momentum density `pi(vec x, t)`, the equal-time commutation relations are `[phi(vec x, t), pi(vec y, t)] = i*hbar*delta^3(vec x - vec y)`, `[phi(vec x, t), phi(vec y, t)] = 0`, and `[pi(vec x, t), pi(vec y, t)] = 0`. This is the field-theoretic generalization of canonical commutation relations, where the Kronecker delta becomes a Dirac delta function in the continuum limit.",
+      "type": "principle",
+      "mathematical_expressions": [
+        "[phi(vec x, t), pi(vec y, t)] = i*hbar*delta^3(vec x - vec y)",
+        "[phi(vec x, t), phi(vec y, t)] = 0",
+        "[pi(vec x, t), pi(vec y, t)] = 0"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "phi(vec x, t)",
+          "definition": "Scalar field operator at position `vec x` and time `t`."
+        },
+        {
+          "symbol": "pi(vec x, t)",
+          "definition": "Conjugate momentum density operator."
+        },
+        {
+          "symbol": "delta^3(vec x - vec y)",
+          "definition": "Three-dimensional Dirac delta function."
+        },
+        {
+          "symbol": "hbar",
+          "definition": "Reduced Planck constant."
+        }
+      ],
+      "used_in": ["scalar_field_quantization"]
     },
     {
       "id": "non_interacting_particles",

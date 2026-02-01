@@ -57,9 +57,7 @@
       "definition": "Fock basis state specifying the occupation number for each mode."
     }
   ],
-  "assumptions": [
-    "vacuum_state_exists"
-  ],
+  "assumptions": ["vacuum_state_exists"],
   "depends_on": ["ladder_operators"],
   "derivation": [
     {
