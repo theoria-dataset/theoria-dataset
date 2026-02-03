@@ -13,6 +13,16 @@
       "equation": "phi(x) = int (d^3 k)/((2*pi)^3) * 1/sqrt(2*omega_k) * (a_(vec k)*e^(i*vec k cdot vec x - i*omega_k*t) + a_(vec k)^(**)*e^(-i*vec k cdot vec x + i*omega_k*t))"
     },
     {
+      "id": "ladder_action_eigenstates",
+      "equation_title": "Ladder Operator Action on Number Eigenstates",
+      "equation": "N_(vec k)*a_(vec k)^(**)|:n:) = (n+1)*a_(vec k)^(**)|:n:); N_(vec k)*a_(vec k)|:n:) = (n-1)*a_(vec k)|:n:)"
+    },
+    {
+      "id": "vacuum_state_definition",
+      "equation_title": "Vacuum State Definition",
+      "equation": "a_(vec k)|:0:) = 0, forall vec k"
+    },
+    {
       "id": "hamiltonian_normal_ordered",
       "equation_title": "Normal-Ordered Hamiltonian",
       "equation": "H = int (d^3 k)/((2*pi)^3) * omega_k * a_(vec k)^(**) * a_(vec k)"
@@ -25,8 +35,8 @@
       "definition": "Scalar field operator at spatial position `vec x` and time `t`."
     },
     {
-      "symbol": "pi(vec x, t)",
-      "definition": "Conjugate momentum density operator, canonically conjugate to `phi`."
+      "symbol": "vec k",
+      "definition": "Three-dimensional wave vector representing the momentum of a field mode in natural units where `hbar = 1`."
     },
     {
       "symbol": "a_(vec k)",
@@ -35,6 +45,10 @@
     {
       "symbol": "a_(vec k)^(**)",
       "definition": "Creation operator for mode with momentum `vec k`, which adds one particle to that mode."
+    },
+    {
+      "symbol": "N_(vec k)",
+      "definition": "Number operator for mode `vec k`, defined as `N_(vec k) = a_(vec k)^(**)*a_(vec k)`, which counts the number of particles in that mode."
     },
     {
       "symbol": "omega_k",
@@ -47,6 +61,10 @@
     {
       "symbol": "delta^3(vec x - vec y)",
       "definition": "Three-dimensional Dirac delta function."
+    },
+    {
+      "symbol": "|:n:)",
+      "definition": "Number eigenstate with `n` particles in a given mode, satisfying `N|:n:) = n|:n:)`."
     },
     {
       "symbol": "|:0:)",
@@ -173,13 +191,15 @@
     {
       "step": 19,
       "description": "Apply the ladder commutators from step 18 to a number eigenstate. The commutator relation shows that the adjoint operator raises the eigenvalue by one, and the non-adjoint lowers it by one.",
-      "equation": "N_(vec k)*a_(vec k)^(**)|:n:) = (n+1)*a_(vec k)^(**)|:n:); N_(vec k)*a_(vec k)|:n:) = (n-1)*a_(vec k)|:n:)"
+      "equation": "N_(vec k)*a_(vec k)^(**)|:n:) = a_(vec k)^(**)*N_(vec k)|:n:) + [N_(vec k), a_(vec k)^(**)]|:n:) = a_(vec k)^(**)*n|:n:) + a_(vec k)^(**)|:n:) = (n+1)*a_(vec k)^(**)|:n:); N_(vec k)*a_(vec k)|:n:) = a_(vec k)*N_(vec k)|:n:) + [N_(vec k), a_(vec k)]|:n:) = a_(vec k)*n|:n:) - a_(vec k)|:n:) = (n-1)*a_(vec k)|:n:)",
+      "equation_proven": "ladder_action_eigenstates"
     },
     {
       "step": 20,
       "assumptions": ["vacuum_state_exists"],
       "description": "The ground state is the state with zero particles in all modes. Since the annihilation operator lowers particle number, it must give zero when acting on this vacuum state.",
-      "equation": "a_(vec k)|:0:) = 0, forall vec k"
+      "equation": "a_(vec k)|:0:) = 0, forall vec k",
+      "equation_proven": "vacuum_state_definition"
     },
     {
       "step": 21,
