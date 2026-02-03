@@ -16,7 +16,7 @@
     
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 99 Physics Entries (17 Reviewed, 82 AI-Generated) • Version 0.8.0</p>
+      <p class="subtitle">Browse All 103 Physics Entries (21 Reviewed, 82 AI-Generated) • Version 0.8.1</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
       </div>
@@ -45,13 +45,13 @@
         <a href="#physics-cond-mat" class="nav-link">Condensed Matter Physics (3)</a>
         <a href="#physics-flu-dyn" class="nav-link">Fluid Dynamics (5)</a>
         <a href="#gr-qc" class="nav-link">General Relativity and Quantum Cosmology (5)</a>
-        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (4)</a>
+        <a href="#hep-th" class="nav-link">High Energy Physics (Theory) (7)</a>
         <a href="#cond-mat-mtrl-sci" class="nav-link">Materials Science (1)</a>
         <a href="#math-ph" class="nav-link">Mathematical Physics (1)</a>
         <a href="#cond-mat-mes-hall" class="nav-link">Mesoscale and Nanoscale Physics (1)</a>
         <a href="#nucl-th" class="nav-link">Nuclear Theory (4)</a>
         <a href="#physics-optics" class="nav-link">Optics (6)</a>
-        <a href="#quant-ph" class="nav-link">Quantum Physics (14)</a>
+        <a href="#quant-ph" class="nav-link">Quantum Physics (15)</a>
         <a href="#cond-mat-stat-mech" class="nav-link">Statistical Mechanics (12)</a>
       </div>
     </nav>
@@ -727,12 +727,45 @@
       <h2 class="domain-title">High Energy Physics (Theory)</h2>
       <div class="entry-grid">
         
+    <a href="entries.html?entry=scalar_field_quantization.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Canonical Quantization of the Free Scalar Field
+        </h3>
+        <p class="entry-description">Starting from the Klein-Gordon field and assuming canonical commutation relations, the mode operator algebra is derived and the Fock space of particle states is constructed.  The ladder algebra of the number operator shows that mode operators raise or lower particle number, justifying the names creation and annihilation operators.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
     <a href="entries.html?entry=dirac_equation.json" class="entry-card-link">
       <div class="entry-card">
         <h3 class="entry-title">
           Dirac Equation
         </h3>
         <p class="entry-description">The Dirac equation is the relativistic wave equation for spin-1/2 fermions.  It resolves the challenge of creating a quantum equation that is first-order in time, ensuring positive probability density, while being consistent with special relativity.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
+    <a href="entries.html?entry=fock_space.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Fock Space
+        </h3>
+        <p class="entry-description">Fock space is the Hilbert space for systems with variable particle number, fundamental to quantum field theory.  It is constructed as the direct sum of n-particle Hilbert spaces, starting from the vacuum which contains no particles.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
+    <a href="entries.html?entry=klein_gordon_lagrangian.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Klein-Gordon Lagrangian and Hamiltonian Density
+        </h3>
+        <p class="entry-description">The Klein-Gordon Lagrangian density provides the classical field theory foundation for the relativistic scalar field.  From this Lagrangian, the Klein-Gordon equation emerges via the Euler-Lagrange field equations.</p>
         <span class="entry-status status-reviewed">REVIEWED</span>
       </div>
     </a>
@@ -1012,6 +1045,17 @@
           Klein-Gordon Equation
         </h3>
         <p class="entry-description">The Klein-Gordon equation is the relativistic wave equation for spin-0 (scalar) particles.  It arises from applying quantum mechanical operator substitutions to the relativistic energy-momentum relation `E^2 = (p*c)^2 + (m*c^2)^2`.</p>
+        <span class="entry-status status-reviewed">REVIEWED</span>
+      </div>
+    </a>
+  
+      
+    <a href="entries.html?entry=ladder_operators.json" class="entry-card-link">
+      <div class="entry-card">
+        <h3 class="entry-title">
+          Ladder Operators for the Quantum Harmonic Oscillator
+        </h3>
+        <p class="entry-description">Ladder operators provide an algebraic method to solve the quantum harmonic oscillator without directly solving differential equations.  The annihilation operator `a` lowers the energy eigenstate by one quantum, while the creation operator `a^(**)` raises it.</p>
         <span class="entry-status status-reviewed">REVIEWED</span>
       </div>
     </a>
@@ -1381,7 +1425,7 @@
       // Update subtitle with dynamic count
       const subtitle = document.querySelector('.subtitle');
       const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.8.0`;
+      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.8.1`;
     </script>
   </body>
 </html>

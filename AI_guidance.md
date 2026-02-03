@@ -94,3 +94,10 @@ QUALITY CHECKLIST
 
 Apply these improvements systematically to transform the AI-generated entry into a rigorous, publication-quality physics derivation that meets the THEORIA
 dataset standards.
+
+
+## Planning prompt to create new entries
+
+Create the xxxxxxx entry. Take into account the assumptions that already exist in assumptions.json, and check if you need to create a new assumption. Read some entries with "status": "reviewed" as reference, read the CONTRIBUTING.md file, and also read the wikipedia page of the entry that you are creating before implementing it.
+
+You may need to create assumptions or maybe even other more foundational entries first. Do a plan.

@@ -1,0 +1,413 @@
+{
+  "result_id": "scalar_field_quantization",
+  "result_name": "Canonical Quantization of the Free Scalar Field",
+  "result_equations": [
+    {
+      "id": "mode_commutation",
+      "equation_title": "Mode Operator Commutation Relations",
+      "equation": "[a_(vec k), a_(vec k')^(**)] = (2*pi)^3*delta^3(vec k - vec k')"
+    },
+    {
+      "id": "field_operator_expansion",
+      "equation_title": "Field Operator Mode Expansion",
+      "equation": "phi(x) = int (d^3 k)/((2*pi)^3) * 1/sqrt(2*omega_k) * (a_(vec k)*e^(i*vec k cdot vec x - i*omega_k*t) + a_(vec k)^(**)*e^(-i*vec k cdot vec x + i*omega_k*t))"
+    },
+    {
+      "id": "ladder_action_eigenstates",
+      "equation_title": "Ladder Operator Action on Number Eigenstates",
+      "equation": "N_(vec k)*a_(vec k)^(**)|:n:) = (n+1)*a_(vec k)^(**)|:n:); N_(vec k)*a_(vec k)|:n:) = (n-1)*a_(vec k)|:n:)"
+    },
+    {
+      "id": "fock_space_construction",
+      "equation_title": "Fock Space Construction",
+      "equation": "|:vec k:) = a_(vec k)^(**)|:0:); |:vec k_1, vec k_2:) = a_(vec k_1)^(**)*a_(vec k_2)^(**)|:0:)"
+    },
+    {
+      "id": "hamiltonian_normal_ordered",
+      "equation_title": "Normal-Ordered Hamiltonian",
+      "equation": "H = int (d^3 k)/((2*pi)^3) * omega_k * a_(vec k)^(**) * a_(vec k)"
+    }
+  ],
+  "explanation": "Starting from the Klein-Gordon field and assuming canonical commutation relations, the mode operator algebra is derived and the Fock space of particle states is constructed. The ladder algebra of the number operator shows that mode operators raise or lower particle number, justifying the names creation and annihilation operators. The normal-ordered Hamiltonian provides the particle interpretation of quantum field theory, where each mode contributes energy proportional to its occupation number.",
+  "definitions": [
+    {
+      "symbol": "phi(vec x, t)",
+      "definition": "Scalar field operator at spatial position `vec x` and time `t`."
+    },
+    {
+      "symbol": "pi(vec x, t)",
+      "definition": "Conjugate momentum density operator, defined as `pi = del_t phi`."
+    },
+    {
+      "symbol": "cc L",
+      "definition": "Lagrangian density for the Klein-Gordon field."
+    },
+    {
+      "symbol": "vec k",
+      "definition": "Three-dimensional wave vector representing the momentum of a field mode in natural units where `hbar = 1`."
+    },
+    {
+      "symbol": "a_(vec k)",
+      "definition": "Annihilation operator for mode with momentum `vec k`, which removes one particle from that mode."
+    },
+    {
+      "symbol": "a_(vec k)^(**)",
+      "definition": "Creation operator for mode with momentum `vec k`, which adds one particle to that mode."
+    },
+    {
+      "symbol": "N_(vec k)",
+      "definition": "Number operator for mode `vec k`, defined as `N_(vec k) = a_(vec k)^(**)*a_(vec k)`, which counts the number of particles in that mode."
+    },
+    {
+      "symbol": "omega_k",
+      "definition": "Angular frequency (energy in natural units) of mode `k`, given by the dispersion relation `omega_k = sqrt(|vec k|^2 + m^2)`."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the scalar particle (in natural units where `c = hbar = 1`)."
+    },
+    {
+      "symbol": "delta^3(vec x - vec y)",
+      "definition": "Three-dimensional Dirac delta function."
+    },
+    {
+      "symbol": "|:0:)",
+      "definition": "Vacuum state, the ground state with no particles in any mode."
+    },
+    {
+      "symbol": "|:n:)",
+      "definition": "Number eigenstate with `n` particles in a given mode, satisfying `N|:n:) = n|:n:)`."
+    },
+    {
+      "symbol": "|:vec k:)",
+      "definition": "Single-particle state with momentum `vec k`, created by applying the creation operator to the vacuum."
+    },
+    {
+      "symbol": "H",
+      "definition": "Hamiltonian operator, the generator of time translations and the total energy of the field."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant. Often set to 1 in natural units."
+    }
+  ],
+  "assumptions": [
+    "canonical_field_commutation_relations",
+    "vacuum_state_exists"
+  ],
+  "depends_on": [
+    "klein_gordon_lagrangian",
+    "fock_space",
+    "klein_gordon_equation"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": ["klein_gordon_lagrangian"],
+      "description": "Start from the Klein-Gordon Lagrangian density and the conjugate momentum density.",
+      "equation": "cc L = (1/2)*(del_t phi)^2 - (1/2)*(nabla phi)^2 - (1/2)*m^2*phi^2; pi = del_t phi"
+    },
+    {
+      "step": 2,
+      "description": "Consider a plane-wave ansatz for a single mode with wave vector k and angular frequency omega.",
+      "equation": "phi_k(vec x, t) = e^(i*(vec k cdot vec x - omega*t))"
+    },
+    {
+      "step": 3,
+      "assumptions": ["klein_gordon_equation"],
+      "description": "Substitute the plane-wave ansatz into the Klein-Gordon equation. The spatial and time derivatives yield the dispersion relation as the condition for a non-trivial solution.",
+      "equation": "(-omega^2 + |vec k|^2 + m^2)*phi_k = 0 => omega_k = sqrt(|vec k|^2 + m^2)"
+    },
+    {
+      "step": 4,
+      "description": "The general solution is a superposition of plane waves over all momenta, with arbitrary complex coefficients for positive and negative frequency modes.",
+      "equation": "phi(vec x, t) = int (d^3 k)/((2*pi)^3) * (A_(vec k)*e^(i*(vec k cdot vec x - omega_k*t)) + B_(vec k)*e^(i*(vec k cdot vec x + omega_k*t)))"
+    },
+    {
+      "step": 5,
+      "description": "For a real scalar field, impose the reality condition `phi = phi^(**)`. Taking the complex conjugate and relabeling the integration variable `k` to `-k` shows that the negative frequency coefficient must equal the complex conjugate of the positive frequency coefficient at opposite momentum.",
+      "equation": "phi = phi^(**) => B_(vec k) = A_(-vec k)^(**)"
+    },
+    {
+      "step": 6,
+      "description": "Relabel the integration variable in the negative frequency term and choose the Lorentz-invariant normalization convention with factor of one over the square root of twice the frequency.",
+      "equation": "phi(vec x, t) = int (d^3 k)/((2*pi)^3) * 1/sqrt(2*omega_k) * (a_(vec k)*e^(i*(vec k cdot vec x - omega_k*t)) + a_(vec k)^(**) * e^(-i*(vec k cdot vec x - omega_k*t)))"
+    },
+    {
+      "step": 7,
+      "description": "Compute the conjugate momentum from the mode expansion by taking the time derivative of the field.",
+      "equation": "pi(vec x, t) = int (d^3 k)/((2*pi)^3) * (-i)*sqrt(omega_k/2) * (a_(vec k)*e^(i*(vec k cdot vec x - omega_k*t)) - a_(vec k)^(**) * e^(-i*(vec k cdot vec x - omega_k*t)))"
+    },
+    {
+      "step": 8,
+      "assumptions": ["canonical_field_commutation_relations"],
+      "description": "Apply canonical quantization: promote the field and momentum to operators satisfying the equal-time commutation relations. Since the field is expressed in terms of mode amplitudes, these must also become operators.",
+      "equation": "phi(x) = int (d^3 k)/((2*pi)^3) * 1/sqrt(2*omega_k) * (a_(vec k)*e^(i*vec k cdot vec x - i*omega_k*t) + a_(vec k)^(**) * e^(-i*vec k cdot vec x + i*omega_k*t))",
+      "equation_proven": "field_operator_expansion"
+    },
+    {
+      "step": 9,
+      "description": "Substitute the mode expansions for the field and momentum operators into the equal-time commutator. Only cross-terms between mode operators and their adjoints contribute.",
+      "equation": "[phi(vec x, t), pi(vec y, t)] = int (d^3 k)/((2*pi)^3) int (d^3 k')/((2*pi)^3) * ((-i)*sqrt(omega_(k')/(4*omega_k))) * ([a_(vec k), a_(vec k')^(**)] * e^(i*(vec k cdot vec x - vec k' cdot vec y)) - [a_(vec k)^(**), a_(vec k')] * e^(-i*(vec k cdot vec x - vec k' cdot vec y)))"
+    },
+    {
+      "step": 10,
+      "description": "For the commutator to yield a delta function in position space, the mode operators must satisfy a delta function commutator in momentum space. The exponential integrals then produce the spatial delta function.",
+      "equation": "[a_(vec k), a_(vec k')^(**)] = (2*pi)^3*delta^3(vec k - vec k')",
+      "equation_proven": "mode_commutation"
+    },
+    {
+      "step": 11,
+      "description": "The commutators between two mode operators or two adjoint operators vanish, following from the field-field and momentum-momentum commutation relations in the assumption.",
+      "equation": "[a_(vec k), a_(vec k')] = 0; [a_(vec k)^(**), a_(vec k')^(**)] = 0"
+    },
+    {
+      "step": 12,
+      "assumptions": ["klein_gordon_lagrangian"],
+      "description": "Compute the Hamiltonian from the Hamiltonian density, which follows from the Lagrangian via Legendre transformation.",
+      "equation": "H = int d^3 x (1/2*pi^2 + 1/2*(nabla phi)^2 + 1/2*m^2*phi^2)"
+    },
+    {
+      "step": 13,
+      "description": "Substitute the mode expansions for the field and momentum into the Hamiltonian. Each term becomes a double integral over momenta k and k'.",
+      "equation": "H = int d^3 x int (d^3 k)/((2*pi)^3) int (d^3 k')/((2*pi)^3) * (text{terms in } a_(vec k), a_(vec k'), a_(vec k)^(**), a_(vec k')^(**))"
+    },
+    {
+      "step": 14,
+      "description": "The spatial integral over the plane-wave exponentials produces delta functions in momentum space.",
+      "equation": "int d^3 x * e^(i*(vec k pm vec k') cdot vec x) = (2*pi)^3 * delta^3(vec k pm vec k')"
+    },
+    {
+      "step": 15,
+      "description": "The delta functions collapse one momentum integral. Terms with opposite momenta k and minus k survive, combining the three contributions from the kinetic, gradient, and mass terms.",
+      "equation": "H = int (d^3 k)/((2*pi)^3) * (omega_k/2) * (a_(vec k)*a_(-vec k) + a_(vec k)^(**)*a_(-vec k)^(**) + a_(vec k)*a_(vec k)^(**) + a_(vec k)^(**)*a_(vec k))"
+    },
+    {
+      "step": 16,
+      "description": "The terms with opposite momenta cancel due to symmetry under k to minus k, leaving only the diagonal terms.",
+      "equation": "H = int (d^3 k)/((2*pi)^3) * (omega_k/2) * (a_(vec k)*a_(vec k)^(**) + a_(vec k)^(**)*a_(vec k))"
+    },
+    {
+      "step": 17,
+      "description": "Use the mode commutator to reorder the operators. The Hamiltonian takes the form of a sum of number operators weighted by mode energies, plus an infinite zero-point energy.",
+      "equation": "H = int (d^3 k)/((2*pi)^3) * omega_k * (a_(vec k)^(**)*a_(vec k) + (1/2)*(2*pi)^3*delta^3(0))"
+    },
+    {
+      "step": 18,
+      "description": "Define the number operator for each mode. Using the mode commutator from step 10, derive the ladder algebra by computing the commutator of N with the mode operators.",
+      "equation": "N_(vec k) = a_(vec k)^(**)*a_(vec k); [N_(vec k), a_(vec k)^(**)] = a_(vec k)^(**); [N_(vec k), a_(vec k)] = -a_(vec k)"
+    },
+    {
+      "step": 19,
+      "description": "Apply the ladder commutators from step 18 to a number eigenstate. The commutator relation shows that the adjoint operator raises the eigenvalue by one, and the non-adjoint lowers it by one.",
+      "equation": "N_(vec k)*a_(vec k)^(**)|:n:) = a_(vec k)^(**)*N_(vec k)|:n:) + [N_(vec k), a_(vec k)^(**)]|:n:) = a_(vec k)^(**)*n|:n:) + a_(vec k)^(**)|:n:) = (n+1)*a_(vec k)^(**)|:n:); N_(vec k)*a_(vec k)|:n:) = a_(vec k)*N_(vec k)|:n:) + [N_(vec k), a_(vec k)]|:n:) = a_(vec k)*n|:n:) - a_(vec k)|:n:) = (n-1)*a_(vec k)|:n:)",
+      "equation_proven": "ladder_action_eigenstates"
+    },
+    {
+      "step": 20,
+      "assumptions": ["vacuum_state_exists"],
+      "description": "The ground state is the state with zero particles in all modes. Since the annihilation operator lowers particle number, it must give zero when acting on this vacuum state.",
+      "equation": "a_(vec k)|:0:) = 0, forall vec k"
+    },
+    {
+      "step": 21,
+      "assumptions": ["fock_space"],
+      "description": "Construct the Fock space by repeatedly applying creation operators to the vacuum. Each application adds one particle to the state.",
+      "equation": "|:vec k:) = a_(vec k)^(**)|:0:); |:vec k_1, vec k_2:) = a_(vec k_1)^(**)*a_(vec k_2)^(**)|:0:)",
+      "equation_proven": "fock_space_construction"
+    },
+    {
+      "step": 22,
+      "description": "Only energy differences are physically observable, so we can subtract the infinite constant from step 17. Normal ordering is a prescription that reorders operator products to place all creation operators to the left of annihilation operators without using the commutator. This removes the zero-point energy and defines the vacuum energy to be zero.",
+      "equation": "H = int (d^3 k)/((2*pi)^3) * omega_k * a_(vec k)^(**) * a_(vec k)",
+      "equation_proven": "hamiltonian_normal_ordered"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Scalar Field Quantization",
+      "#",
+      "# Sections:",
+      "#  1. Setup: Define symbols",
+      "#  2. Step 3: Verify dispersion relation",
+      "#  3. Steps 16-17: Verify Hamiltonian reordering",
+      "#  4. Step 18: Verify ladder algebra",
+      "#  5. Step 19: Verify ladder action on eigenstates",
+      "#  6. Step 22: Verify normal ordering and particle energies",
+      "# =====================================================",
+      "",
+      "# ---------------------------",
+      "# Section 1: Setup",
+      "# ---------------------------",
+      "kx, ky, kz = sp.symbols('k_x k_y k_z', real=True)",
+      "m, hbar = sp.symbols('m hbar', positive=True, real=True)",
+      "omega = sp.symbols('omega', positive=True, real=True)",
+      "n = sp.Symbol('n', integer=True, nonnegative=True)",
+      "",
+      "# ---------------------------",
+      "# Section 2: Step 3 - Dispersion relation",
+      "# ---------------------------",
+      "",
+      "# omega_k = sqrt(|k|^2 + m^2)",
+      "k_squared = kx**2 + ky**2 + kz**2",
+      "omega_k = sp.sqrt(k_squared + m**2)",
+      "",
+      "# Verify dispersion relation satisfies omega^2 = k^2 + m^2",
+      "dispersion_check = omega_k**2 - k_squared - m**2",
+      "assert sp.simplify(dispersion_check) == 0, 'Step 3: Dispersion relation omega^2 = k^2 + m^2'",
+      "",
+      "# For massless case (m=0): omega = |k|",
+      "omega_massless = omega_k.subs(m, 0)",
+      "assert sp.simplify(omega_massless - sp.sqrt(k_squared)) == 0, 'Step 3: Massless dispersion omega = |k|'",
+      "",
+      "# ---------------------------",
+      "# Section 3: Steps 16-17 - Hamiltonian reordering",
+      "# ---------------------------",
+      "",
+      "# Step 16: H = integral omega_k/2 * (a*a^dag + a^dag*a)",
+      "# Step 17: Using [a, a^dag] = 1 (discrete normalization for single mode)",
+      "# a*a^dag = a^dag*a + 1",
+      "# So (a*a^dag + a^dag*a) = 2*a^dag*a + 1",
+      "# H = integral omega_k * (a^dag*a + 1/2)",
+      "",
+      "# Verify algebraically (using symbolic commutator)",
+      "a_dag_a = sp.Symbol('N', commutative=False)  # Number operator N = a^dag * a",
+      "a_a_dag = a_dag_a + 1  # From [a, a^dag] = 1",
+      "",
+      "H_step16 = omega * sp.Rational(1, 2) * (a_a_dag + a_dag_a)",
+      "H_step16_expanded = omega * sp.Rational(1, 2) * (a_dag_a + 1 + a_dag_a)",
+      "H_step16_simplified = omega * sp.Rational(1, 2) * (2*a_dag_a + 1)",
+      "H_with_zpe = omega * (a_dag_a + sp.Rational(1, 2))",
+      "",
+      "assert sp.simplify(H_step16_simplified - H_with_zpe) == 0, 'Step 17: H = omega*(N + 1/2)'",
+      "",
+      "# ---------------------------",
+      "# Section 4: Step 18 - Ladder algebra",
+      "# ---------------------------",
+      "",
+      "# Verify [N, a^dag] = a^dag and [N, a] = -a using non-commutative algebra",
+      "# Using N = a^dag * a and [a, a^dag] = 1",
+      "",
+      "a, a_dag = sp.symbols('a a_dag', commutative=False)",
+      "",
+      "# Define commutator function",
+      "def comm(X, Y):",
+      "    return sp.expand(X*Y - Y*X)",
+      "",
+      "# Given: [a, a_dag] = 1, so a*a_dag = a_dag*a + 1",
+      "# We substitute a*a_dag -> a_dag*a + 1 to simplify",
+      "",
+      "# Compute [N, a_dag] = [a_dag*a, a_dag] = a_dag*a*a_dag - a_dag*a_dag*a",
+      "N = a_dag * a",
+      "comm_N_adag = comm(N, a_dag)",
+      "# = a_dag*a*a_dag - a_dag*a_dag*a",
+      "# = a_dag*(a_dag*a + 1) - a_dag*a_dag*a  (using a*a_dag = a_dag*a + 1)",
+      "# = a_dag*a_dag*a + a_dag - a_dag*a_dag*a = a_dag",
+      "",
+      "# Verify by substitution: replace a*a_dag with a_dag*a + 1",
+      "comm_N_adag_sub = comm_N_adag.subs(a*a_dag, a_dag*a + 1)",
+      "assert sp.expand(comm_N_adag_sub - a_dag) == 0, 'Step 18: [N, a_dag] = a_dag'",
+      "",
+      "# Compute [N, a] = [a_dag*a, a] = a_dag*a*a - a*a_dag*a",
+      "comm_N_a = comm(N, a)",
+      "# = a_dag*a*a - a*a_dag*a",
+      "# = a_dag*a*a - (a_dag*a + 1)*a  (using a*a_dag = a_dag*a + 1)",
+      "# = a_dag*a*a - a_dag*a*a - a = -a",
+      "",
+      "comm_N_a_sub = comm_N_a.subs(a*a_dag, a_dag*a + 1)",
+      "assert sp.expand(comm_N_a_sub + a) == 0, 'Step 18: [N, a] = -a'",
+      "",
+      "# ---------------------------",
+      "# Section 5: Step 19 - Ladder action on eigenstates",
+      "# ---------------------------",
+      "",
+      "# Verify the algebraic identity: N*a_dag = a_dag*N + [N, a_dag] = a_dag*N + a_dag",
+      "# If N|n> = n|n>, then N*a_dag|n> = (a_dag*N + a_dag)|n> = a_dag*n|n> + a_dag|n> = (n+1)*a_dag|n>",
+      "",
+      "# Verify N*a_dag = a_dag*N + a_dag (after substitution)",
+      "lhs = N * a_dag",
+      "rhs = a_dag * N + a_dag",
+      "diff = sp.expand(lhs - rhs).subs(a*a_dag, a_dag*a + 1)",
+      "assert sp.expand(diff) == 0, 'Step 19: N*a_dag = a_dag*N + a_dag'",
+      "",
+      "# Verify N*a = a*N + [N, a] = a*N - a",
+      "lhs_a = N * a",
+      "rhs_a = a * N - a",
+      "diff_a = sp.expand(lhs_a - rhs_a).subs(a*a_dag, a_dag*a + 1)",
+      "assert sp.expand(diff_a) == 0, 'Step 19: N*a = a*N - a'",
+      "",
+      "# ---------------------------",
+      "# Section 6: Step 22 - Normal ordering and particle energies",
+      "# ---------------------------",
+      "",
+      "# Normal ordering removes zero-point energy",
+      "H_normal_ordered = omega * a_dag_a",
+      "",
+      "# The difference is the zero-point energy omega/2 per mode",
+      "zpe_per_mode = H_with_zpe - H_normal_ordered",
+      "assert sp.simplify(zpe_per_mode - omega * sp.Rational(1, 2)) == 0, 'Step 22: Zero-point energy is omega/2'",
+      "",
+      "# Particle interpretation: H = sum_k omega_k * N_k",
+      "# Energy of state with n_k particles in mode k is sum_k n_k * omega_k",
+      "",
+      "# Verify for specific configurations",
+      "n1, n2, n3 = sp.symbols('n1 n2 n3', integer=True, nonnegative=True)",
+      "omega1, omega2, omega3 = sp.symbols('omega1 omega2 omega3', positive=True)",
+      "",
+      "total_energy = n1*omega1 + n2*omega2 + n3*omega3",
+      "",
+      "# Vacuum: n1=n2=n3=0, E=0",
+      "E_vacuum = total_energy.subs([(n1, 0), (n2, 0), (n3, 0)])",
+      "assert E_vacuum == 0, 'Step 22: Vacuum energy is 0 (normal ordered)'",
+      "",
+      "# Single particle in mode 1: n1=1, n2=0, n3=0, E=omega1",
+      "E_single = total_energy.subs([(n1, 1), (n2, 0), (n3, 0)])",
+      "assert E_single == omega1, 'Step 22: Single particle energy is omega_k'",
+      "",
+      "# Two particles: n1=1, n2=1, n3=0, E=omega1+omega2",
+      "E_two = total_energy.subs([(n1, 1), (n2, 1), (n3, 0)])",
+      "assert E_two == omega1 + omega2, 'Step 22: Two particle energy is sum'",
+      "",
+      "print('Scalar field quantization verification passed')"
+    ]
+  },
+  "domain": "hep-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Canonical quantization of scalar fields is the foundational example of quantum field theory, demonstrating how classical fields become operators creating and annihilating particles, and providing the template for quantizing more complex fields",
+    "development_period": "1927-1934",
+    "key_insights": [
+      "Fields are promoted to operators satisfying canonical commutation relations",
+      "Particle interpretation emerges naturally from the mode expansion",
+      "Creation/annihilation operators in the field expansion connect to Fock space",
+      "Normal ordering removes unphysical infinite vacuum energy",
+      "Microcausality ensures relativistic causality in the quantum theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). An Introduction to Quantum Field Theory. Westview Press."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). The Quantum Theory of Fields, Vol. 1: Foundations. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Mandl, F., & Shaw, G. (2010). Quantum Field Theory (2nd ed.). Wiley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

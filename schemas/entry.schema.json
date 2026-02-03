@@ -123,7 +123,7 @@
           },
           "description": {
             "type": "string",
-            "description": "Textual description for this derivation step. Define new symbols that appear. Provide concise and clear rationale. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
+            "description": "Textual description for this derivation step. Define new symbols that appear. Provide concise and clear rationale, and minimize the formulas, as they should go in the equation field. If there are math symbols or equations included, they must be enclosed in backticks (``) and written in AsciiMath format."
           },
           "equation": { "type": "string" },
           "equation_proven": {
