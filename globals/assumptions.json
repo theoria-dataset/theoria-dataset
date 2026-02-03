@@ -713,7 +713,7 @@
           "definition": "Speed of light in vacuum, setting the maximum speed for causal signal propagation."
         }
       ],
-      "used_in": ["spin_statistics_theorem", "scalar_field_quantization"]
+      "used_in": ["spin_statistics_theorem"]
     },
     {
       "id": "positive_energy_spectrum",
