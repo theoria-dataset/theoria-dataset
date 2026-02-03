@@ -22,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 34 Assumptions • Version 0.8.1</p>
+      <p class="subtitle">Browse All 35 Assumptions • Version 0.8.1</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,7 +51,7 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (17)</a>
+                <a href="#principle" class="nav-link">Principles (18)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
         <a href="#approximation" class="nav-link">Approximations (10)</a>
       </div>
@@ -83,7 +83,32 @@
             <div class="assumption-symbol-def"><strong>`delta_(ij)`</strong>: Kronecker delta (`delta_(ij) = 1` if `i = j`, `0` otherwise).</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>, <a href="entries.html?entry=ladder_operators.json">Ladder Operators</a>, <a href="entries.html?entry=scalar_field_quantization.json">Scalar Field Quantization</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>, <a href="entries.html?entry=ladder_operators.json">Ladder Operators</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Canonical Field Commutation Relations
+      </h3>
+      <p class="entry-description">For a scalar field `phi(vec x, t)` and its conjugate momentum density `pi(vec x, t)`, the equal-time commutation relations are `[phi(vec x, t), pi(vec y, t)] = i*ℏ*delta^3(vec x - vec y)`, `[phi(vec x, t), phi(vec y, t)] = 0`, and `[pi(vec x, t), pi(vec y, t)] = 0`. This is the field-theoretic generalization of canonical commutation relations, where the Kronecker delta becomes a Dirac delta function in the continuum limit.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`[phi(vec x, t), pi(vec y, t)] = i*ℏ*delta^3(vec x - vec y)`</div>
+            <div class="assumption-math">`[phi(vec x, t), phi(vec y, t)] = 0`</div>
+            <div class="assumption-math">`[pi(vec x, t), pi(vec y, t)] = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`phi(vec x, t)`</strong>: Scalar field operator at position `vec x` and time `t`.</div>
+            <div class="assumption-symbol-def"><strong>`pi(vec x, t)`</strong>: Conjugate momentum density operator.</div>
+            <div class="assumption-symbol-def"><strong>`delta^3(vec x - vec y)`</strong>: Three-dimensional Dirac delta function.</div>
+            <div class="assumption-symbol-def"><strong>`ℏ`</strong>: Reduced Planck constant.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=scalar_field_quantization.json">Scalar Field Quantization</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -234,7 +259,7 @@
             <div class="assumption-symbol-def"><strong>`mu`</strong>: Probability measure mapping projectors to real numbers in `[0,1]`</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>, <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>, <a href="entries.html?entry=dirac_equation.json">Dirac Equation</a>, <a href="entries.html?entry=ladder_operators.json">Ladder Operators</a>, <a href="entries.html?entry=fock_space.json">Fock Space</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=born_rule.json">Born Rule</a>, <a href="entries.html?entry=schrodinger_equation.json">Schrodinger Equation</a>, <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>, <a href="entries.html?entry=dirac_equation.json">Dirac Equation</a>, <a href="entries.html?entry=ladder_operators.json">Ladder Operators</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -274,7 +299,7 @@
             <div class="assumption-symbol-def"><strong>`D(Lambda)_a^b`</strong>: Finite-dimensional Lorentz representation acting on the field indices (e.g. `D=1` for a scalar, `D=Lambda` for a 4-vector, and `D=S(Lambda)` for a spinor).</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>, <a href="entries.html?entry=klein_gordon_lagrangian.json">Klein Gordon Lagrangian</a>, <a href="entries.html?entry=scalar_field_quantization.json">Scalar Field Quantization</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>, <a href="entries.html?entry=klein_gordon_lagrangian.json">Klein Gordon Lagrangian</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -297,7 +322,7 @@
             <div class="assumption-symbol-def"><strong>`c`</strong>: Speed of light in vacuum, setting the maximum speed for causal signal propagation.</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>, <a href="entries.html?entry=scalar_field_quantization.json">Scalar Field Quantization</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=spin_statistics_theorem.json">Spin Statistics Theorem</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
@@ -639,7 +664,7 @@
             <div class="assumption-symbol-def"><strong>`mu, nu`</strong>: Lorentz indices running over `0,1,2,3` (Einstein summation on repeated indices).</div>
         </div>
         <div class="assumption-usage">
-          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>, <a href="entries.html?entry=klein_gordon_equation.json">Klein Gordon Equation</a>, <a href="entries.html?entry=dirac_equation.json">Dirac Equation</a>, <a href="entries.html?entry=klein_gordon_lagrangian.json">Klein Gordon Lagrangian</a>, <a href="entries.html?entry=scalar_field_quantization.json">Scalar Field Quantization</a>
+          <strong>Used in:</strong> <a href="entries.html?entry=relativistic_energy_momentum.json">Relativistic Energy Momentum</a>, <a href="entries.html?entry=lorentz_group_and_four_vectors.json">Lorentz Group And Four Vectors</a>, <a href="entries.html?entry=klein_gordon_equation.json">Klein Gordon Equation</a>, <a href="entries.html?entry=dirac_equation.json">Dirac Equation</a>, <a href="entries.html?entry=klein_gordon_lagrangian.json">Klein Gordon Lagrangian</a>
         </div>
       <span class="entry-status status-approximation">APPROXIMATION</span>
     </div>

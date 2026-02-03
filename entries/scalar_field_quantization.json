@@ -92,8 +92,6 @@
     }
   ],
   "assumptions": [
-    "flat_spacetime",
-    "lorentz_covariance",
     "canonical_field_commutation_relations",
     "vacuum_state_exists"
   ],

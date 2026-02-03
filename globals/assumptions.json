@@ -60,7 +60,10 @@
       "title": "Inertial Reference Frame",
       "text": "Observations are made from an inertial (non-accelerating) reference frame",
       "type": "principle",
-      "used_in": ["special_relativity_transformations", "lorentz_group_and_four_vectors"]
+      "used_in": [
+        "special_relativity_transformations",
+        "lorentz_group_and_four_vectors"
+      ]
     },
     {
       "id": "conservation_laws_valid",
@@ -228,8 +231,7 @@
         "lorentz_group_and_four_vectors",
         "klein_gordon_equation",
         "dirac_equation",
-        "klein_gordon_lagrangian",
-        "scalar_field_quantization"
+        "klein_gordon_lagrangian"
       ]
     },
     {
@@ -259,7 +261,13 @@
           "definition": "Probability measure mapping projectors to real numbers in `[0,1]`"
         }
       ],
-      "used_in": ["born_rule", "schrodinger_equation", "uncertainty_principle", "dirac_equation", "ladder_operators", "fock_space"]
+      "used_in": [
+        "born_rule",
+        "schrodinger_equation",
+        "uncertainty_principle",
+        "dirac_equation",
+        "ladder_operators"
+      ]
     },
     {
       "id": "gleason_theorem_conditions",
@@ -687,7 +695,7 @@
           "definition": "Finite-dimensional Lorentz representation acting on the field indices (e.g. `D=1` for a scalar, `D=Lambda` for a 4-vector, and `D=S(Lambda)` for a spinor)."
         }
       ],
-      "used_in": ["spin_statistics_theorem", "klein_gordon_lagrangian", "scalar_field_quantization"]
+      "used_in": ["spin_statistics_theorem", "klein_gordon_lagrangian"]
     },
     {
       "id": "microcausality",
@@ -742,7 +750,11 @@
           "definition": "Unitary representation of a spacetime symmetry `g`."
         }
       ],
-      "used_in": ["spin_statistics_theorem", "fock_space", "scalar_field_quantization"]
+      "used_in": [
+        "spin_statistics_theorem",
+        "fock_space",
+        "scalar_field_quantization"
+      ]
     }
   ]
 }
