@@ -85,11 +85,11 @@ def generate_navigation(domain_groups):
     nav_items = []
     for domain, group in sorted(domain_groups.items(), key=lambda x: x[1]['displayName']):
         anchor = re.sub(r'[^a-zA-Z0-9]', '-', domain)
-        nav_items.append(f'<a href="#{anchor}" class="nav-link">{group["displayName"]} ({len(group["entries"])})</a>')
-    
+        nav_items.append(f'<a href="#{anchor}" class="nav-link"><span>{group["displayName"]} ({len(group["entries"])})</span></a>')
+
     return f'''
     <nav class="domain-navigation">
-      <h2>Domains</h2>
+      <h2>Quick Navigation</h2>
       <div class="nav-links">
         {chr(10).join(f"        {item}" for item in nav_items)}
       </div>
@@ -253,7 +253,7 @@ def generate_index_page():
       <h1>TheorIA Dataset</h1>
       <p class="subtitle">Browse All {total_entries} Physics Entries ({reviewed_count} Reviewed, {ai_count} AI-Generated) • Version {version}</p>
       <div class="header-actions">
-        <a href="index.html" class="cta-button">← Back to Home</a>
+        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
       </div>
     </header>
 

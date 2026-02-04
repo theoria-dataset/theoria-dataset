@@ -623,3 +623,55 @@ function renderList(sel, arr, fn, rawHtml = false) {
     el.insertAdjacentHTML("beforeend", `<li>${wrappedText}</li>`);
   });
 }
+
+// ============================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ============================================
+
+// Initialize fade-in animations for elements when they enter viewport
+if ('IntersectionObserver' in window) {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Observe elements that should fade in
+    document.querySelectorAll('.feature-card, .method-card, .stat-card').forEach(el => {
+      el.classList.add('fade-in-observer');
+      observer.observe(el);
+    });
+  });
+}
+
+// Smooth scroll with offset for fixed header
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
