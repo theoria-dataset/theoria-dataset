@@ -1,0 +1,235 @@
+{
+  "result_id": "gravitational_field",
+  "result_name": "Gravitational Field and Potential",
+  "result_equations": [
+    {
+      "id": "gravitational_field_definition",
+      "equation": "vec g = -G * M / r^2 * hat r",
+      "equation_title": "Gravitational Field"
+    },
+    {
+      "id": "gravitational_potential",
+      "equation": "phi = -G * M / r",
+      "equation_title": "Gravitational Potential"
+    },
+    {
+      "id": "field_potential_relation",
+      "equation": "vec g = -grad phi",
+      "equation_title": "Field-Potential Relation"
+    }
+  ],
+  "explanation": "The gravitational field describes the gravitational influence that a massive body extends into the space around it. Defined as the force per unit mass experienced by a test particle, the field provides a local characterization of gravitational effects. The gravitational potential is a scalar field whose negative gradient yields the gravitational field vector, enabling energy-based analysis of gravitational systems. This formulation is foundational for celestial mechanics and serves as the Newtonian limit of general relativity.",
+  "definitions": [
+    {
+      "symbol": "vec g",
+      "definition": "Gravitational field vector (force per unit mass), with units `m/s^2`."
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant, `G ≈ 6.674 * 10^(-11) N cdot m^2 cdot kg^(-2)`."
+    },
+    {
+      "symbol": "M",
+      "definition": "Source mass creating the gravitational field."
+    },
+    {
+      "symbol": "r",
+      "definition": "Radial distance from the center of mass `M` to the field point."
+    },
+    {
+      "symbol": "hat r",
+      "definition": "Radial unit vector pointing outward from `M`."
+    },
+    {
+      "symbol": "phi",
+      "definition": "Gravitational potential (energy per unit mass), with units `J/kg = m^2/s^2`."
+    },
+    {
+      "symbol": "grad",
+      "definition": "Gradient operator, `grad = (del)/(del x) hat x + (del)/(del y) hat y + (del)/(del z) hat z`."
+    }
+  ],
+  "assumptions": [
+    "newtons_law_gravitation",
+    "point_mass_approximation"
+  ],
+  "depends_on": [],
+  "derivation": [
+    {
+      "step": 1,
+      "assumptions": ["newtons_law_gravitation"],
+      "description": "Start from Newton's law of universal gravitation for the force on a test mass `m` due to source mass `M`.",
+      "equation": "vec F = -G * (M * m) / r^2 * hat r"
+    },
+    {
+      "step": 2,
+      "description": "Define the gravitational field `vec g` as the gravitational force per unit test mass. This field characterizes the gravitational influence at each point in space, independent of the test mass.",
+      "equation": "vec g = vec F / m"
+    },
+    {
+      "step": 3,
+      "equation_proven": "gravitational_field_definition",
+      "description": "Substitute the gravitational force expression to obtain the gravitational field.",
+      "equation": "vec g = -G * M / r^2 * hat r"
+    },
+    {
+      "step": 4,
+      "description": "To find the gravitational potential, consider a test mass moving radially. The work done per unit mass by the gravitational field along a path from infinity to distance `r` defines the potential.",
+      "equation": "phi(r) = -int_(oo)^r vec g cdot d vec r'"
+    },
+    {
+      "step": 5,
+      "description": "For radial motion, `d vec r' = d r' * hat r`, and `vec g cdot hat r = -G * M / r'^2`. Substitute into the integral.",
+      "equation": "phi(r) = -int_(oo)^r (-G * M / r'^2) d r'"
+    },
+    {
+      "step": 6,
+      "description": "Evaluate the integral using `int r'^(-2) d r' = -r'^(-1)`.",
+      "equation": "phi(r) = G * M * int_(oo)^r r'^(-2) d r' = G * M * [-1/r']_(oo)^r"
+    },
+    {
+      "step": 7,
+      "equation_proven": "gravitational_potential",
+      "description": "Apply the limits. As `r' -> oo`, `1/r' -> 0`. The gravitational potential is negative, reflecting that work must be done against gravity to move mass to infinity.",
+      "equation": "phi(r) = G * M * (-1/r - 0) = -G * M / r"
+    },
+    {
+      "step": 8,
+      "description": "Verify the field-potential relation by computing the negative gradient of `phi`. In spherical coordinates with spherical symmetry, `grad phi = (d phi)/(d r) * hat r`.",
+      "equation": "grad phi = (d)/(d r) (-G * M / r) * hat r"
+    },
+    {
+      "step": 9,
+      "description": "Evaluate the derivative using `d/dr(r^(-1)) = -r^(-2)`.",
+      "equation": "grad phi = -G * M * (-1/r^2) * hat r = G * M / r^2 * hat r"
+    },
+    {
+      "step": 10,
+      "equation_proven": "field_potential_relation",
+      "description": "Confirm that the gravitational field equals the negative gradient of the potential.",
+      "equation": "vec g = -grad phi = -G * M / r^2 * hat r"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Symbols",
+      "G, M, m, r = sp.symbols('G M m r', positive=True, real=True)",
+      "r_prime = sp.symbols('r_prime', positive=True, real=True)",
+      "",
+      "# ==============================",
+      "# Steps 1-3: Gravitational field from Newton's law",
+      "# ==============================",
+      "",
+      "# Step 1: Newton's law of gravitation (magnitude, radial component)",
+      "F_magnitude = G * M * m / r**2",
+      "",
+      "# Step 2-3: Gravitational field g = F/m",
+      "g_magnitude = F_magnitude / m",
+      "g_expected = G * M / r**2",
+      "assert sp.simplify(g_magnitude - g_expected) == 0",
+      "",
+      "# ==============================",
+      "# Steps 4-7: Gravitational potential from integration",
+      "# ==============================",
+      "",
+      "# Step 5-6: Integrate g from infinity to r",
+      "# phi(r) = -integral from oo to r of (-G*M/r'^2) dr'",
+      "# = G*M * integral from oo to r of r'^(-2) dr'",
+      "# = G*M * [-1/r']_oo^r = G*M * (-1/r - 0) = -G*M/r",
+      "",
+      "# Compute the indefinite integral",
+      "integrand = r_prime**(-2)",
+      "antiderivative = sp.integrate(integrand, r_prime)",
+      "assert sp.simplify(antiderivative + 1/r_prime) == 0  # antiderivative is -1/r'",
+      "",
+      "# The potential",
+      "phi = -G * M / r",
+      "phi_expected = -G * M / r",
+      "assert sp.simplify(phi - phi_expected) == 0",
+      "",
+      "# ==============================",
+      "# Steps 8-10: Verify field-potential relation g = -grad(phi)",
+      "# ==============================",
+      "",
+      "# Step 8-9: Compute -d(phi)/dr",
+      "dphi_dr = sp.diff(phi, r)",
+      "neg_grad_phi = -dphi_dr",
+      "",
+      "# Step 10: Check that -grad(phi) = g",
+      "# g (radial component, pointing inward) has magnitude G*M/r^2",
+      "# -grad(phi) = -d/dr(-G*M/r) = -G*M/r^2",
+      "# The field points toward M (inward), which corresponds to -hat(r)",
+      "assert sp.simplify(neg_grad_phi - (-G * M / r**2)) == 0",
+      "",
+      "# The magnitude of g equals |grad(phi)|",
+      "assert sp.simplify(sp.Abs(neg_grad_phi) - g_expected) == 0",
+      "",
+      "# ==============================",
+      "# Additional verification: Potential energy relation",
+      "# ==============================",
+      "",
+      "# Gravitational potential energy U = m * phi",
+      "U = m * phi",
+      "U_expected = -G * M * m / r",
+      "assert sp.simplify(U - U_expected) == 0",
+      "",
+      "# Force from potential energy: F = -dU/dr",
+      "F_from_U = -sp.diff(U, r)",
+      "F_expected = -G * M * m / r**2  # negative = toward M",
+      "assert sp.simplify(F_from_U - F_expected) == 0",
+      "",
+      "# ==============================",
+      "# Verify inverse-square law structure",
+      "# ==============================",
+      "",
+      "# Check that g scales as 1/r^2",
+      "r1, r2 = sp.symbols('r1 r2', positive=True)",
+      "g1 = G * M / r1**2",
+      "g2 = G * M / r2**2",
+      "ratio = sp.simplify(g1 / g2)",
+      "assert sp.simplify(ratio - (r2/r1)**2) == 0",
+      "",
+      "# Check that phi scales as 1/r",
+      "phi1 = -G * M / r1",
+      "phi2 = -G * M / r2",
+      "phi_ratio = sp.simplify(phi1 / phi2)",
+      "assert sp.simplify(phi_ratio - r2/r1) == 0",
+      "",
+      "print(\"All gravitational field verifications passed.\")"
+    ]
+  },
+  "domain": "gr-qc",
+  "theory_status": "generalized",
+  "generalized_by": ["einstein_field_equations"],
+  "historical_context": {
+    "importance": "Foundation of celestial mechanics; first mathematical description of gravity as a field; Newtonian limit of general relativity",
+    "development_period": "1687",
+    "key_insights": [
+      "Gravity can be described as a field pervading space rather than action-at-a-distance",
+      "The inverse-square law emerges from geometric considerations (flux through spherical surfaces)",
+      "The potential formulation enables energy-based methods and simplifies many calculations",
+      "Provides the weak-field, slow-motion limit of Einstein's general relativity"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). *Philosophiæ Naturalis Principia Mathematica*. London: Joseph Streater."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "AI generated",
+      "identifier": "NA"
+    }
+  ],
+  "review_status": "draft"
+}

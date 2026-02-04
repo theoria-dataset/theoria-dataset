@@ -22,7 +22,7 @@
 
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 35 Assumptions • Version 0.8.1</p>
+      <p class="subtitle">Browse All 36 Assumptions • Version 0.8.1</p>
       <div class="header-actions">
         <a href="index.html" class="cta-button">← Back to Home</a>
         <a href="entries_index.html" class="cta-button">Browse Entries</a>
@@ -51,7 +51,7 @@
     <nav class="domain-navigation">
       <h2>Assumption Types</h2>
       <div class="nav-links">
-                <a href="#principle" class="nav-link">Principles (18)</a>
+                <a href="#principle" class="nav-link">Principles (19)</a>
         <a href="#empirical" class="nav-link">Empirical (7)</a>
         <a href="#approximation" class="nav-link">Approximations (10)</a>
       </div>
@@ -84,6 +84,32 @@
         </div>
         <div class="assumption-usage">
           <strong>Used in:</strong> <a href="entries.html?entry=uncertainty_principle.json">Uncertainty Principle</a>, <a href="entries.html?entry=ladder_operators.json">Ladder Operators</a>
+        </div>
+      <span class="entry-status status-principle">PRINCIPLE</span>
+    </div>
+  
+      
+    <div class="entry-card assumption-card assumption-principle">
+      <h3 class="entry-title">
+        Canonical Field Anticommutation Relations
+      </h3>
+      <p class="entry-description">For a Dirac spinor field `psi_alpha(vec x, t)` and its conjugate momentum density `pi_alpha(vec x, t) = i*psi_alpha^(dagger)(vec x, t)`, the equal-time anticommutation relations are `{psi_alpha(vec x, t), psi_beta^(dagger)(vec y, t)} = delta_(alpha beta)*delta^3(vec x - vec y)`, `{psi_alpha(vec x, t), psi_beta(vec y, t)} = 0`, and `{psi_alpha^(dagger)(vec x, t), psi_beta^(dagger)(vec y, t)} = 0`. This is the fermionic analog of canonical commutation relations, required by the spin-statistics theorem for half-integer spin fields.</p>
+        <div class="assumption-math-section">
+          <h4>Mathematical Form:</h4>
+          <div class="assumption-math">`{psi_alpha(vec x, t), psi_beta^(dagger)(vec y, t)} = delta_(alpha beta)*delta^3(vec x - vec y)`</div>
+            <div class="assumption-math">`{psi_alpha(vec x, t), psi_beta(vec y, t)} = 0`</div>
+            <div class="assumption-math">`{psi_alpha^(dagger)(vec x, t), psi_beta^(dagger)(vec y, t)} = 0`</div>
+        </div>
+        <div class="assumption-symbols">
+          <h4>Symbols:</h4>
+          <div class="assumption-symbol-def"><strong>`psi_alpha(vec x, t)`</strong>: Dirac spinor field operator component `alpha` at position `vec x` and time `t`.</div>
+            <div class="assumption-symbol-def"><strong>`psi_alpha^(dagger)(vec x, t)`</strong>: Hermitian conjugate of the Dirac spinor field component.</div>
+            <div class="assumption-symbol-def"><strong>`{A, B}`</strong>: Anticommutator of operators, `{A, B} = A*B + B*A`.</div>
+            <div class="assumption-symbol-def"><strong>`delta_(alpha beta)`</strong>: Kronecker delta for spinor indices.</div>
+            <div class="assumption-symbol-def"><strong>`delta^3(vec x - vec y)`</strong>: Three-dimensional Dirac delta function.</div>
+        </div>
+        <div class="assumption-usage">
+          <strong>Used in:</strong> <a href="entries.html?entry=dirac_field_quantization.json">Dirac Field Quantization</a>
         </div>
       <span class="entry-status status-principle">PRINCIPLE</span>
     </div>
