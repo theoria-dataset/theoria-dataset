@@ -14,12 +14,59 @@
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
     
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav">
+      <a href="index.html" class="nav-item" data-page="home">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-label">Home</span>
+      </a>
+      <div class="nav-item nav-item-with-dropdown active" data-page="entries">
+        <a href="entries_index.html" class="nav-dropdown-trigger">
+          <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span class="nav-label">Entries</span>
+          <span class="nav-dropdown-indicator"></span>
+        </a>
+        <div class="category-dropdown">
+            <a href="#astro-ph" class="category-dropdown-link">Astrophysics</a>
+            <a href="#physics-class-ph" class="category-dropdown-link">Classical Physics</a>
+            <a href="#gr-qc" class="category-dropdown-link">General Relativity and Quantum Cosmology</a>
+            <a href="#hep-th" class="category-dropdown-link">High Energy Physics (Theory)</a>
+            <a href="#math-ph" class="category-dropdown-link">Mathematical Physics</a>
+            <a href="#quant-ph" class="category-dropdown-link">Quantum Physics</a>
+            <a href="#cond-mat-stat-mech" class="category-dropdown-link">Statistical Mechanics</a>
+        </div>
+      </div>
+      <a href="assumptions.html" class="nav-item" data-page="assumptions">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+        <span class="nav-label">Assumptions</span>
+      </a>
+      <a href="contribute/" class="nav-item" data-page="contribute">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        <span class="nav-label">Contribute</span>
+      </a>
+      <a href="https://github.com/theoria-dataset/theoria-dataset" class="nav-item" target="_blank">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span class="nav-label">GitHub</span>
+      </a>
+    </nav>
+
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All 24 Physics Entries (21 Reviewed, 3 AI-Generated) • Version 0.8.1</p>
-      <div class="header-actions">
-        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
-      </div>
+      <p class="subtitle">Browse All Physics Entries • Version 0.8.1</p>
     </header>
 
     <div class="ai-toggle-container">
@@ -35,23 +82,9 @@
       </div>
     </div>
 
-    
-    <nav class="domain-navigation">
-      <h2>Quick Navigation</h2>
-      <div class="nav-links">
-                <a href="#astro-ph" class="nav-link"><span>Astrophysics (2)</span></a>
-        <a href="#physics-class-ph" class="nav-link"><span>Classical Physics (4)</span></a>
-        <a href="#gr-qc" class="nav-link"><span>General Relativity and Quantum Cosmology (3)</span></a>
-        <a href="#hep-th" class="nav-link"><span>High Energy Physics (Theory) (7)</span></a>
-        <a href="#math-ph" class="nav-link"><span>Mathematical Physics (1)</span></a>
-        <a href="#quant-ph" class="nav-link"><span>Quantum Physics (6)</span></a>
-        <a href="#cond-mat-stat-mech" class="nav-link"><span>Statistical Mechanics (1)</span></a>
-      </div>
-    </nav>
-  
-
-    <main class="entries-browser hide-ai-entries">
-      
+    <div class="entries-layout">
+      <main class="entries-browser hide-ai-entries">
+        
     <section id="astro-ph" class="domain-section">
       <h2 class="domain-title">Astrophysics</h2>
       <div class="entry-grid">
@@ -62,7 +95,7 @@
           Kepler's Laws of Planetary Motion
         </h3>
         <p class="entry-description">Kepler's three laws describe planetary motion around the Sun: orbits are ellipses with the Sun at one focus, planets sweep equal areas in equal times, and the square of orbital period is proportional to the cube of the semi-major axis.  These empirical laws provided the foundation for Newton's law of gravitation and remain fundamental to celestial mechanics and orbital dynamics.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -73,7 +106,7 @@
           Vis-Viva Equation
         </h3>
         <p class="entry-description">The Vis-Viva equation relates the velocity of a particle in an elliptical, hyperbolic or parabolic orbit to the distance to the barycenter, mass of the body it's orbiting, and the semi-major axis of the orbit.  This sets the basis for velocity calculations in non-circular orbits and allows us to later derive equations like the equation for escape velocity with ease.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -103,7 +136,7 @@
           Maxwell Equations
         </h3>
         <p class="entry-description">Maxwell's equations form the foundation of classical electromagnetism, describing how electric and magnetic fields interact with charges and currents.  These four coupled partial differential equations unify electricity and magnetism into a single electromagnetic theory, predicting the existence of electromagnetic waves including light.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -114,7 +147,7 @@
           Principle of Least Action
         </h3>
         <p class="entry-description">The principle of least action states that the path taken by a physical system between two configurations is the one that makes the action stationary.  The action is defined as the time integral of the Lagrangian function.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -125,7 +158,7 @@
           Speed of Light from Maxwell's Equations
         </h3>
         <p class="entry-description">In vacuum, Maxwell's equations imply that disturbances of the electromagnetic field propagate as waves whose speed is fixed by the electric permittivity and magnetic permeability of free space.  Identifying this speed with the experimentally measured speed of light shows that light is an electromagnetic wave and sets the value of the universal constant `c` from purely electric and magnetic static measurements such as the force between charges or currents.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -155,7 +188,7 @@
           Relativistic Energy and Momentum
         </h3>
         <p class="entry-description">Einstein's special relativity revolutionizes our understanding of energy and momentum at high velocities.  By redefining force as the rate of change of relativistic momentum and calculating the work done to accelerate a particle, the theory derives the famous relativistic energy formula E = γmc².</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -166,7 +199,7 @@
           Special Relativity Coordinate Transformations
         </h3>
         <p class="entry-description">Einstein's special theory of relativity derives the coordinate transformations between inertial reference frames moving at constant relative velocity.  Built on two fundamental postulates - the relativity principle and the constancy of light speed - the theory reveals that space and time are unified into spacetime.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -196,7 +229,7 @@
           Canonical Quantization of the Free Scalar Field
         </h3>
         <p class="entry-description">Starting from the Klein-Gordon field and assuming canonical commutation relations, the mode operator algebra is derived and the Fock space of particle states is constructed.  The ladder algebra of the number operator shows that mode operators raise or lower particle number, justifying the names creation and annihilation operators.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -207,7 +240,7 @@
           Dirac Equation
         </h3>
         <p class="entry-description">The Dirac equation is the relativistic wave equation for spin-1/2 fermions.  It resolves the challenge of creating a quantum equation that is first-order in time, ensuring positive probability density, while being consistent with special relativity.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -218,7 +251,7 @@
           Fock Space
         </h3>
         <p class="entry-description">Fock space is the Hilbert space for systems with variable particle number, fundamental to quantum field theory.  It is constructed as the direct sum of n-particle Hilbert spaces, starting from the vacuum which contains no particles.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -229,7 +262,7 @@
           Klein-Gordon Lagrangian and Hamiltonian Density
         </h3>
         <p class="entry-description">The Klein-Gordon Lagrangian density provides the classical field theory foundation for the relativistic scalar field.  From this Lagrangian, the Klein-Gordon equation emerges via the Euler-Lagrange field equations.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -240,7 +273,7 @@
           Lorentz group and four-vectors
         </h3>
         <p class="entry-description">The Lorentz group is the set of linear transformations that preserve the Minkowski metric and therefore leave the spacetime interval invariant.  A four-vector is any object whose components transform with a Lorentz matrix, ensuring that Minkowski inner products are frame-independent.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -251,7 +284,7 @@
           Spin–Statistics Theorem
         </h3>
         <p class="entry-description">The spin–statistics theorem connects intrinsic spin with exchange symmetry of identical particles.  Integer-spin particles have symmetric many-particle states under exchange, while half-integer-spin particles have antisymmetric states.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -270,7 +303,7 @@
           Noether's Theorem
         </h3>
         <p class="entry-description">Noether's Theorem states that every differentiable symmetry of the action of a physical system has a corresponding conservation law.  This fundamental theorem links continuous symmetries in a system's Lagrangian to conserved quantities.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -289,7 +322,7 @@
           Blackbody Radiation
         </h3>
         <p class="entry-description">Planck's law describes the spectral energy density of black-body radiation as a function of frequency and temperature.  By quantizing electromagnetic modes with energy quanta `h*nu`, it resolves the ultraviolet catastrophe of classical physics and underpins modern quantum theory and thermal emission models.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -300,7 +333,7 @@
           Born Rule
         </h3>
         <p class="entry-description">The Born rule specifies how a quantum state yields measurable probabilities for any well-defined measurement.  Given a state and a measurement description, it assigns a normalized probability to each possible outcome in a way consistent with observed frequencies under repeated trials.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -311,7 +344,7 @@
           Klein-Gordon Equation
         </h3>
         <p class="entry-description">The Klein-Gordon equation is the relativistic wave equation for spin-0 (scalar) particles.  It arises from applying quantum mechanical operator substitutions to the relativistic energy-momentum relation `E^2 = (p*c)^2 + (m*c^2)^2`.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -322,7 +355,7 @@
           Ladder Operators for the Quantum Harmonic Oscillator
         </h3>
         <p class="entry-description">Ladder operators provide an algebraic method to solve the quantum harmonic oscillator without directly solving differential equations.  The annihilation operator `a` lowers the energy eigenstate by one quantum, while the creation operator `a^(**)` raises it.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -333,7 +366,7 @@
           Schrödinger Equation
         </h3>
         <p class="entry-description">The Schrödinger equation gives the time evolution of the quantum state of a nonrelativistic particle.  In its time-dependent form it is a linear first-order equation in time relating the complex wavefunction `psi(bbr,t)` to the Hamiltonian operator built from kinetic and potential energy.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -344,7 +377,7 @@
           Uncertainty Principle
         </h3>
         <p class="entry-description">The Heisenberg uncertainty principle states that for any pair of non-commuting observables their statistical spreads (standard deviations) `Delta A` and `Delta B` in a given quantum state cannot both be made arbitrarily small.  The general Robertson relation ties the product `Delta A * Delta B` to the expectation value of their commutator, while canonical coordinate-momentum pairs `(q_i, p_i)` satisfy `Delta q_i * Delta p_i >= hbar/2`.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
@@ -363,14 +396,15 @@
           Canonical Partition Function (Canonical Ensemble)
         </h3>
         <p class="entry-description">The canonical partition function is the quantity that collects the statistical weight of all microstates of a system in thermal equilibrium.  It is defined as a sum over microstates and acts as the normalization constant for the equilibrium probabilities.</p>
-        <span class="entry-status status-reviewed">REVIEWED</span>
+        
       </div>
     </a>
   
       </div>
     </section>
   
-    </main>
+      </main>
+    </div>
 
     <footer class="main-footer">
       <p>
@@ -490,10 +524,43 @@
         updateDisplay(showAI);
       });
       
-      // Update subtitle with dynamic count
-      const subtitle = document.querySelector('.subtitle');
-      const counts = countEntries();
-      subtitle.textContent = `Browse All ${counts.total} Physics Entries (${counts.reviewed} Reviewed, ${counts.ai} AI-Generated) • Version 0.8.1`;
+      // Subtitle is already set in HTML - no dynamic update needed
+
+      // Scroll spy for category sidebar
+      const categoryLinks = document.querySelectorAll('.category-link');
+      const domainSections = document.querySelectorAll('.domain-section');
+
+      function updateActiveCategory() {
+        let currentSection = '';
+        const scrollPos = window.scrollY + 150; // Offset for header
+
+        domainSections.forEach(section => {
+          if (section.offsetTop <= scrollPos) {
+            currentSection = section.id;
+          }
+        });
+
+        categoryLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveCategory);
+      updateActiveCategory(); // Initialize on load
+
+      // Smooth scroll for category links
+      categoryLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
     </script>
   </body>
 </html>

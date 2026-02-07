@@ -56,17 +56,18 @@ def generate_entry_card(entry, filename):
     """Generate entry card HTML"""
     short_desc = get_short_description(entry.get('explanation', ''))
     is_draft = entry.get('review_status') != 'reviewed'
-    status_class = 'status-reviewed' if entry.get('review_status') == 'reviewed' else 'status-draft'
-    status_text = 'REVIEWED' if entry.get('review_status') == 'reviewed' else 'DRAFT'
-    
+
     # Add AI badge and color-coding for draft entries
     card_class = 'entry-card entry-card-draft' if is_draft else 'entry-card'
-    status_text_with_emoji = f'🤖 {status_text}' if is_draft else status_text
-    status_link = f'<a href="contribute/" class="entry-status {status_class}" title="Click to help review this AI-generated entry">{status_text_with_emoji}</a>' if is_draft else f'<span class="entry-status {status_class}">{status_text_with_emoji}</span>'
-    
+
+    # Only show DRAFT badge, not REVIEWED
+    status_html = ''
+    if is_draft:
+        status_html = '<a href="contribute/" class="entry-status status-draft" title="Click to help review this AI-generated entry">🤖 DRAFT</a>'
+
     # Add ai-entry class to AI-generated entries
     link_class = 'entry-card-link ai-entry' if is_draft else 'entry-card-link'
-    
+
     return f'''
     <a href="entries.html?entry={filename}" class="{link_class}">
       <div class="{card_class}">
@@ -74,27 +75,12 @@ def generate_entry_card(entry, filename):
           {entry.get('result_name', '')}
         </h3>
         <p class="entry-description">{short_desc}</p>
-        {status_link}
+        {status_html}
       </div>
     </a>
   '''
 
 
-def generate_navigation(domain_groups):
-    """Generate navigation HTML"""
-    nav_items = []
-    for domain, group in sorted(domain_groups.items(), key=lambda x: x[1]['displayName']):
-        anchor = re.sub(r'[^a-zA-Z0-9]', '-', domain)
-        nav_items.append(f'<a href="#{anchor}" class="nav-link"><span>{group["displayName"]} ({len(group["entries"])})</span></a>')
-
-    return f'''
-    <nav class="domain-navigation">
-      <h2>Quick Navigation</h2>
-      <div class="nav-links">
-        {chr(10).join(f"        {item}" for item in nav_items)}
-      </div>
-    </nav>
-  '''
 
 
 def generate_domain_section(domain, group):
@@ -213,8 +199,6 @@ def generate_index_page():
             print(f"Error processing {entry_file.name}: {error}")
 
     # Generate HTML sections
-    navigation = generate_navigation(domain_groups)
-
     domain_sections = '\n\n    '.join(
         generate_domain_section(domain, group)
         for domain, group in sorted(domain_groups.items(), key=lambda x: x[1]['displayName'])
@@ -233,6 +217,60 @@ def generate_index_page():
             else:
                 ai_count += 1
     
+    # Generate category dropdown links
+    category_dropdown_links = []
+    for domain, group in sorted(domain_groups.items(), key=lambda x: x[1]['displayName']):
+        anchor = re.sub(r'[^a-zA-Z0-9]', '-', domain)
+        category_dropdown_links.append(f'<a href="#{anchor}" class="category-dropdown-link">{group["displayName"]}</a>')
+
+    category_dropdown_html = chr(10).join(f'            {link}' for link in category_dropdown_links)
+
+    # Floating nav HTML with refined SVG icons and category dropdown
+    floating_nav = f'''
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav">
+      <a href="index.html" class="nav-item" data-page="home">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-label">Home</span>
+      </a>
+      <div class="nav-item nav-item-with-dropdown active" data-page="entries">
+        <a href="entries_index.html" class="nav-dropdown-trigger">
+          <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span class="nav-label">Entries</span>
+          <span class="nav-dropdown-indicator"></span>
+        </a>
+        <div class="category-dropdown">
+{category_dropdown_html}
+        </div>
+      </div>
+      <a href="assumptions.html" class="nav-item" data-page="assumptions">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+        <span class="nav-label">Assumptions</span>
+      </a>
+      <a href="contribute/" class="nav-item" data-page="contribute">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        <span class="nav-label">Contribute</span>
+      </a>
+      <a href="https://github.com/theoria-dataset/theoria-dataset" class="nav-item" target="_blank">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span class="nav-label">GitHub</span>
+      </a>
+    </nav>'''
+
     html = f'''<!DOCTYPE html>
 <html lang="en" class="text-justify latex-dark">
   <head>
@@ -248,13 +286,11 @@ def generate_index_page():
   </head>
   <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
-    
+    {floating_nav}
+
     <header class="main-header">
       <h1>TheorIA Dataset</h1>
-      <p class="subtitle">Browse All {total_entries} Physics Entries ({reviewed_count} Reviewed, {ai_count} AI-Generated) • Version {version}</p>
-      <div class="header-actions">
-        <a href="index.html" class="btn btn-secondary">← Back to Home</a>
-      </div>
+      <p class="subtitle">Browse All Physics Entries • Version {version}</p>
     </header>
 
     <div class="ai-toggle-container">
@@ -270,11 +306,11 @@ def generate_index_page():
       </div>
     </div>
 
-    {navigation}
-
-    <main class="entries-browser hide-ai-entries">
-      {domain_sections}
-    </main>
+    <div class="entries-layout">
+      <main class="entries-browser hide-ai-entries">
+        {domain_sections}
+      </main>
+    </div>
 
     <footer class="main-footer">
       <p>
@@ -394,10 +430,43 @@ def generate_index_page():
         updateDisplay(showAI);
       }});
       
-      // Update subtitle with dynamic count
-      const subtitle = document.querySelector('.subtitle');
-      const counts = countEntries();
-      subtitle.textContent = `Browse All ${{counts.total}} Physics Entries (${{counts.reviewed}} Reviewed, ${{counts.ai}} AI-Generated) • Version {version}`;
+      // Subtitle is already set in HTML - no dynamic update needed
+
+      // Scroll spy for category sidebar
+      const categoryLinks = document.querySelectorAll('.category-link');
+      const domainSections = document.querySelectorAll('.domain-section');
+
+      function updateActiveCategory() {{
+        let currentSection = '';
+        const scrollPos = window.scrollY + 150; // Offset for header
+
+        domainSections.forEach(section => {{
+          if (section.offsetTop <= scrollPos) {{
+            currentSection = section.id;
+          }}
+        }});
+
+        categoryLinks.forEach(link => {{
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${{currentSection}}`) {{
+            link.classList.add('active');
+          }}
+        }});
+      }}
+
+      window.addEventListener('scroll', updateActiveCategory);
+      updateActiveCategory(); // Initialize on load
+
+      // Smooth scroll for category links
+      categoryLinks.forEach(link => {{
+        link.addEventListener('click', (e) => {{
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) {{
+            target.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+          }}
+        }});
+      }});
     </script>
   </body>
 </html>'''
