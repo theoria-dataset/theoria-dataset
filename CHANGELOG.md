@@ -5,6 +5,15 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.2] - Frontend revamp - 2025-02-07
+
+### Changed
+
+- Revamped frontend design with floating navigation bar (SVG icons, responsive layout)
+- Added category dropdown for quick navigation between physics domains
+- Improved entry page with subtle edit button and prev/next navigation
+- Enhanced styling consistency across all pages
+
 ## [0.8.1] - Scalar field quantization and QFT foundations new entries - 2025-02-03
 
 ### Added
