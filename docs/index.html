@@ -1,250 +1,298 @@
 <!DOCTYPE html>
 <html lang="en" class="text-justify latex-dark">
-  <head>
-    <meta charset="utf-8" />
-    <title>TheorIA — Theoretical Physics Dataset</title>
 
-    <!-- LaTeX.css dark theme -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css"
-    />
+<head>
+  <meta charset="utf-8" />
+  <title>TheorIA — Theoretical Physics Dataset</title>
 
-    <!-- MathJax for AsciiMath -->
-    <script src="mathjax-config.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"
-      async
-    ></script>
+  <!-- LaTeX.css dark theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latex.css@1.8.0/style.min.css" />
 
-    <!-- highlight.js -->
-    <link
-      id="hl-theme"
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
-      defer
-    ></script>
+  <!-- MathJax for AsciiMath -->
+  <script src="mathjax-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Google tag (gtag.js) -->
-    <script>
-      // Only load Google Analytics on hosted sites (not localhost)
-      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        (function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HYLF3HZJXE';
-          document.head.appendChild(script);
-        })();
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HYLF3HZJXE');
-      }
-    </script>
-  </head>
+  <!-- highlight.js -->
+  <link id="hl-theme" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" defer></script>
 
-  <body>
-    <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google tag (gtag.js) -->
+  <script>
+    // Only load Google Analytics on hosted sites (not localhost)
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      (function () {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HYLF3HZJXE';
+        document.head.appendChild(script);
+      })();
 
-    <!-- Home View -->
-    <div id="homeView" class="home-view">
-      <div class="hero">
-        <h1>TheorIA Dataset</h1>
-        <p>
-          <strong>Our Aspiration:</strong> Create a high-quality structured dataset containing all physics results. Complete, exact, and open-source for the global physics community.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-HYLF3HZJXE');
+    }
+  </script>
+</head>
+
+<body>
+  <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
+
+  <!-- Floating Navigation Bar -->
+  <nav class="floating-nav">
+    <a href="index.html" class="nav-item active" data-page="home">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a href="entries_index.html" class="nav-item" data-page="entries">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      <span class="nav-label">Entries</span>
+    </a>
+    <a href="assumptions.html" class="nav-item" data-page="assumptions">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+      </svg>
+      <span class="nav-label">Assumptions</span>
+    </a>
+    <a href="contribute/" class="nav-item" data-page="contribute">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+      </svg>
+      <span class="nav-label">Contribute</span>
+    </a>
+    <a href="https://github.com/theoria-dataset/theoria-dataset" class="nav-item" target="_blank">
+      <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      <span class="nav-label">GitHub</span>
+    </a>
+  </nav>
+
+  <!-- Home View -->
+  <div id="homeView" class="home-view">
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">TheorIA Dataset</h1>
+        <p class="hero-subtitle">
+          A comprehensive, structured dataset of theoretical physics derivations. Aspiring to be complete, exact, and
+          open-source for the global physics community.
         </p>
 
-        <a href="#how-to-contribute" class="contributor-badge">
-          <strong><span class="badge-icon">🚀</span> Looking for Contributors!</strong>
-          <p>If you want to contribute to an open source project at the intersection of physics and AI, this is your place!</p>
-        </a>
+        <div class="hero-stats">
+          <a href="entries_index.html" class="stat-card-link">
+            <div class="stat-card">
+              <div class="stat-number" id="entry-count">24</div>
+              <div class="stat-label">Curated<br>Physics Entries</div>
+            </div>
+          </a>
+          <a href="assumptions.html" class="stat-card-link">
+            <div class="stat-card">
+              <div class="stat-number">36</div>
+              <div class="stat-label">Core<br>Assumptions</div>
+            </div>
+          </a>
+        </div>
+        <div class="hero-badge">Open Source Physics Knowledge</div>
+      </div>
+    </div>
+    <a href="#how-to-contribute" class="contributor-badge">
+      <strong><span class="badge-icon">🚀</span> Looking for Contributors!</strong>
+      <p>If you want to contribute to an open source project at the intersection of physics and AI, this is your
+        place!</p>
+    </a>
 
-        <div class="entry-selector-container">
-          <a href="entries_index.html" class="cta-button">Browse All Entries</a>
-          <a href="assumptions.html" class="cta-button">Browse Assumptions</a>
+
+    <section>
+      <h2>Why TheorIA?</h2>
+      <p>
+        There is <a href="https://manuelsh.github.io/blog/2025/datasets-for-advancing-Theoretical-Physics/">a lack of
+          structured physiscs datasets</a> that systematically captures all physics results. TheorIA aims to serve both
+        as a useful reference for researchers and as training data for next-generation AI models and LLMs in physics.
+      </p>
+      <p>
+        <strong>Current Status:</strong> We have many entries generated by AI that require expert curation and
+        validation to meet our quality standards. We are also working on having a better structure for the dataset.
+      </p>
+      <p>
+        <strong>We Need You:</strong> We're seeking physicists to review and curate entries. Your expertise ensures
+        accuracy, and your name will be permanently associated with every entry you review, building your scientific
+        legacy.
+      </p>
+    </section>
+
+    <section>
+      <h2>What's Inside?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>📋 Structured Entries</h3>
+          <p>
+            Each entry of the dataset is a physics result, which is either validated by a physicist or generated by AI
+            and looking for a specialist to improve it.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>🧮 Formal Derivations</h3>
+          <p>
+            AsciiMath step by step, annotated for easier understanding and programmatic formalization to guarantee
+            correctness.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>📁 One JSON per Entry</h3>
+          <p>
+            Individual JSON files under <code class="inline">entries/</code> folder: one file per physics result,
+            enabling parallel contributions, clean version control, and conflict-free collaboration.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>🧠 Centralized Assumptions</h3>
+          <p>
+            Standardized database of physics assumptions ensuring consistent terminology across all entries.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>📚 Rich Context</h3>
+          <p>
+            Entries include unified assumptions, historical context, cross-entry dependencies, and domain
+            classifications (ArXiv-style tags) for comprehensive understanding.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>📓 Interactive Notebooks</h3>
+          <p>
+            Every entry includes an automatically generated Jupyter notebook that opens directly in Google Colab for
+            interactive exploration and verification of the physics derivations.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>🌐 Open License</h3>
+          <p>
+            <code class="inline">CC‑BY 4.0</code>—use it, remix it, teach with it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-contribute">
+      <h2>How to Contribute</h2>
+      <p>
+        We are <em>tiny</em> right now, every new entry counts! Multiple ways to contribute:
+      </p>
+
+      <div class="contribution-methods">
+        <div class="method-card recommended">
+          <div class="badge">Recommended</div>
+          <h3>🌐 Easy Web Form</h3>
+          <p>User-friendly contribution system designed for scientists and researchers</p>
+          <ul>
+            <li>✓ Step-by-step guidance</li>
+            <li>✓ Real-time math preview</li>
+            <li>✓ No technical setup required</li>
+          </ul>
+          <a href="contribute/" class="cta-button">Start Contributing</a>
         </div>
 
-        <a
-          href="https://github.com/theoria-dataset/theoria-dataset"
-          class="cta-button"
-          >GitHub Repository</a
-        >
-        
-        <a href="FAQ.html" class="cta-button">FAQ</a>
+        <div class="method-card">
+          <h3>🐙 GitHub Issues</h3>
+          <p>Submit entries through structured issue forms</p>
+          <ul>
+            <li>✓ Direct integration</li>
+            <li>✓ Community discussion</li>
+            <li>✓ Automatic processing</li>
+          </ul>
+          <a href="https://github.com/theoria-dataset/theoria-dataset/issues/new/choose" class="cta-button">Submit via
+            GitHub</a>
+        </div>
       </div>
 
-      <section>
-        <h2>Why TheorIA?</h2>
-        <p>
-          There is <a href="https://manuelsh.github.io/blog/2025/datasets-for-advancing-Theoretical-Physics/">a lack of structured physiscs datasets</a> that systematically captures all physics results. TheorIA aims to serve both as a useful reference for researchers and as training data for next-generation AI models and LLMs in physics.
-        </p>
-        <p>
-          <strong>Current Status:</strong> We have many entries generated by AI that require expert curation and validation to meet our quality standards. We are also working on having a better structure for the dataset.
-        </p>
-        <p>
-          <strong>We Need You:</strong> We're seeking physicists to review and curate entries. Your expertise ensures accuracy, and your name will be permanently associated with every entry you review, building your scientific legacy.
-        </p>
-      </section>
+      <details>
+        <summary><strong>For Coders: Direct Development</strong></summary>
+        <div class="advanced-method">
+          <div class="feature-card">
+            <h3><span class="step-number">1</span>Fork and Clone</h3>
+            <p>Fork the repository on GitHub and clone it to your local machine.</p>
+          </div>
 
-      <section>
-        <h2>What's Inside?</h2>
-        <div class="feature-grid">
           <div class="feature-card">
-            <h3>📋 Structured Entries</h3>
+            <h3><span class="step-number">2</span>Create a JSON Entry</h3>
             <p>
-              Each entry of the dataset is a physics result, which is either validated by a physicist or generated by AI and looking for a specialist to improve it.
+              Create a JSON file in the <code class="inline">entries/</code> folder following the
+              instructions in the <code class="inline">CONTRIBUTING.md</code> file
+              and the schema in <code class="inline">schemas/entry.schema.json</code>.
             </p>
           </div>
+
           <div class="feature-card">
-            <h3>🧮 Formal Derivations</h3>
+            <h3><span class="step-number">3</span>Submit a Pull Request</h3>
             <p>
-              AsciiMath step by step, annotated for easier understanding and programmatic formalization to guarantee correctness.
-            </p>
-          </div>
-          <div class="feature-card">
-            <h3>📁 One JSON per Entry</h3>
-            <p>
-              Individual JSON files under <code class="inline">entries/</code> folder: one file per physics result, enabling parallel contributions, clean version control, and conflict-free collaboration.
-            </p>
-          </div>
-          <div class="feature-card">
-            <h3>🧠 Centralized Assumptions</h3>
-            <p>
-              Standardized database of physics assumptions ensuring consistent terminology across all entries.
-            </p>
-          </div>
-          <div class="feature-card">
-            <h3>📚 Rich Context</h3>
-            <p>
-              Entries include unified assumptions, historical context, cross-entry dependencies, and domain classifications (ArXiv-style tags) for comprehensive understanding.
-            </p>
-          </div>
-          <div class="feature-card">
-            <h3>📓 Interactive Notebooks</h3>
-            <p>
-              Every entry includes an automatically generated Jupyter notebook that opens directly in Google Colab for interactive exploration and verification of the physics derivations.
-            </p>
-          </div>
-          <div class="feature-card">
-            <h3>🌐 Open License</h3>
-            <p>
-              <code class="inline">CC‑BY 4.0</code>—use it, remix it, teach with it.
+              CI will automatically validate your JSON against the schema. If it passes, we will review and merge it.
             </p>
           </div>
         </div>
-      </section>
+      </details>
+    </section>
 
-      <section id="how-to-contribute">
-        <h2>How to Contribute</h2>
-        <p>
-          We are <em>tiny</em> right now, every new entry counts! Multiple ways to contribute:
-        </p>
-
-        <div class="contribution-methods">
-          <div class="method-card recommended">
-            <div class="badge">Recommended</div>
-            <h3>🌐 Easy Web Form</h3>
-            <p>User-friendly contribution system designed for scientists and researchers</p>
-            <ul>
-              <li>✓ Step-by-step guidance</li>
-              <li>✓ Real-time math preview</li>
-              <li>✓ No technical setup required</li>
-            </ul>
-            <a href="contribute/" class="cta-button">Start Contributing</a>
-          </div>
-
-          <div class="method-card">
-            <h3>🐙 GitHub Issues</h3>
-            <p>Submit entries through structured issue forms</p>
-            <ul>
-              <li>✓ Direct integration</li>
-              <li>✓ Community discussion</li>
-              <li>✓ Automatic processing</li>
-            </ul>
-            <a href="https://github.com/theoria-dataset/theoria-dataset/issues/new/choose" class="cta-button">Submit via GitHub</a>
-          </div>
-        </div>
-
-        <details>
-          <summary><strong>For Coders: Direct Development</strong></summary>
-          <div class="advanced-method">
-            <div class="feature-card">
-              <h3><span class="step-number">1</span>Fork and Clone</h3>
-              <p>Fork the repository on GitHub and clone it to your local machine.</p>
-            </div>
-
-            <div class="feature-card">
-              <h3><span class="step-number">2</span>Create a JSON Entry</h3>
-              <p>
-                Create a JSON file in the <code class="inline">entries/</code> folder following the
-                instructions in the <code class="inline">CONTRIBUTING.md</code> file
-                and the schema in <code class="inline">schemas/entry.schema.json</code>.
-              </p>
-            </div>
-
-            <div class="feature-card">
-              <h3><span class="step-number">3</span>Submit a Pull Request</h3>
-              <p>
-                CI will automatically validate your JSON against the schema. If it passes, we will review and merge it.
-              </p>
-            </div>
-          </div>
-        </details>
-      </section>
-
-      <section>
-        <h2>Using TheorIA for Machine Learning</h2>
-        <p>
-          Generate a complete ML-ready dataset with resolved assumptions using our built-in script:
-        </p>
-        <pre><code># Generate dataset with only reviewed entries (recommended)
+    <section>
+      <h2>Using TheorIA for Machine Learning</h2>
+      <p>
+        Generate a complete ML-ready dataset with resolved assumptions using our built-in script:
+      </p>
+      <pre><code># Generate dataset with only reviewed entries (recommended)
 python scripts/build_ml_dataset.py
 
 # Include draft entries (for larger dataset)
 python scripts/build_ml_dataset.py --include-drafts</code></pre>
-        <p>
-          This creates <code class="inline">dataset.json</code> with all entries, resolved assumption text, and metadata ready for your ML pipeline.
-        </p>
-      </section>
+      <p>
+        This creates <code class="inline">dataset.json</code> with all entries, resolved assumption text, and metadata
+        ready for your ML pipeline.
+      </p>
+    </section>
 
-      <section>
-        <h2>License & Citation</h2>
-        <p>
-          Licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode.en">CC-BY 4.0 License</a>. If you use it please cite it as:
-        </p>
-        <pre><code id="citation">Loading citation...</code></pre>
-      </section>
+    <section>
+      <h2>License & Citation</h2>
+      <p>
+        Licensed under <a href="https://creativecommons.org/licenses/by/4.0/legalcode.en">CC-BY 4.0 License</a>. If you
+        use it please cite it as:
+      </p>
+      <pre><code id="citation">Loading citation...</code></pre>
+    </section>
 
-      <section>
-        <h2>Contact</h2>
-        <p>
-          Issues, questions, or exciting physics ideas? Drop an issue on GitHub—and let's build this thing together.
-        </p>
-      </section>
-    </div>
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Issues, questions, or exciting physics ideas? Drop an issue on GitHub, and let's build this thing together!
+      </p>
+    </section>
+  </div>
 
-    <script src="script.js" defer></script>
-    <script>
-      // Load and display the version from manifest.json
-      fetch(
-        "https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/refs/heads/main/manifest.json"
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          const citation = document.getElementById("citation");
-          citation.textContent = `TheorIA Dataset, 2025, v${data.dataset_version}. Available at: https://github.com/theoria-dataset/theoria-dataset`;
-        })
-        .catch((error) => {
-          console.error("Error loading manifest:", error);
-          document.getElementById("citation").textContent =
-            "TheorIA Dataset, 2025. Available at: https://github.com/theoria-dataset/theoria-dataset";
-        });
-    </script>
-  </body>
+  <script src="script.js" defer></script>
+  <script>
+    // Load and display the version from manifest.json
+    fetch(
+      "https://raw.githubusercontent.com/theoria-dataset/theoria-dataset/refs/heads/main/manifest.json"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const citation = document.getElementById("citation");
+        citation.textContent = `TheorIA Dataset, 2025, v${data.dataset_version}. Available at: https://github.com/theoria-dataset/theoria-dataset`;
+      })
+      .catch((error) => {
+        console.error("Error loading manifest:", error);
+        document.getElementById("citation").textContent =
+          "TheorIA Dataset, 2025. Available at: https://github.com/theoria-dataset/theoria-dataset";
+      });
+  </script>
+</body>
+
 </html>

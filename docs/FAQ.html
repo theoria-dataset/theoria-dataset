@@ -40,116 +40,165 @@
 
 <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
-    
-    <nav style="margin-bottom: 2rem;">
-        <a href="index.html">← Back to Home</a>
+
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav">
+      <a href="index.html" class="nav-item" data-page="home">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="entries_index.html" class="nav-item" data-page="entries">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="nav-label">Entries</span>
+      </a>
+      <a href="assumptions.html" class="nav-item" data-page="assumptions">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+        <span class="nav-label">Assumptions</span>
+      </a>
+      <a href="contribute/" class="nav-item" data-page="contribute">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        <span class="nav-label">Contribute</span>
+      </a>
+      <a href="https://github.com/theoria-dataset/theoria-dataset" class="nav-item" target="_blank">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span class="nav-label">GitHub</span>
+      </a>
     </nav>
-    
-    <h1>Frequently Asked Questions (FAQ)</h1>
 
-    <h2>Why TheorIA Dataset?</h2>
-    <p>TheorIA Dataset addresses the need for a high-quality, structured collection of theoretical physics derivations
-        that are self-contained and mathematically rigorous. Unlike scattered resources across textbooks and papers,
-        this dataset provides a unified format where each entry includes complete derivations, programmatic
-        verification, and clear explanations suitable for machine learning applications and educational purposes.</p>
-    <p>For example, in Wikipedia each physics entry has a different structure, the derivations are not clearly located,
-        there is a lot of context - we are reducing it to the strictly minimum necessary needed to understand the
-        concept and where it comes from.</p>
+    <h1 style="text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h1>
 
-    <h2>How can TheorIA Dataset be used?</h2>
-    <ul>
-        <li><strong>Educational Tools</strong>: As a reference to students that want something minimal and with the
-            correct information</li>
-        <li><strong>Research Tool</strong>: Allow reserchers to find new and more cleaner relationships between physics
-            concepts and results</li>
-        <li><strong>Knowledge Base Development</strong>: Building AI systems and training models that understand and
-            manipulate physics equations</li>
-        <li><strong>Academic Reference</strong>: Quick access to properly formatted, peer-reviewed physics derivations
-        </li>
+    <div class="faq-container">
+      <div class="faq-card">
+        <h3 class="faq-question">Why TheorIA Dataset?</h3>
+        <div class="faq-answer">
+          <p>TheorIA Dataset addresses the need for a high-quality, structured collection of theoretical physics derivations that are self-contained and mathematically rigorous. Unlike scattered resources across textbooks and papers, this dataset provides a unified format where each entry includes complete derivations, programmatic verification, and clear explanations suitable for machine learning applications and educational purposes.</p>
+          <p>For example, in Wikipedia each physics entry has a different structure, the derivations are not clearly located, there is a lot of context - we are reducing it to the strictly minimum necessary needed to understand the concept and where it comes from.</p>
+        </div>
+      </div>
 
-    </ul>
+      <div class="faq-card">
+        <h3 class="faq-question">How can TheorIA Dataset be used?</h3>
+        <div class="faq-answer">
+          <ul>
+            <li><strong>Educational Tools</strong>: As a reference to students that want something minimal and with the correct information</li>
+            <li><strong>Research Tool</strong>: Allow researchers to find new and cleaner relationships between physics concepts and results</li>
+            <li><strong>Knowledge Base Development</strong>: Building AI systems and training models that understand and manipulate physics equations</li>
+            <li><strong>Academic Reference</strong>: Quick access to properly formatted, peer-reviewed physics derivations</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>Will this remain a free initiative?</h2>
-    <div class="highlight">
-        <strong>Yes, absolutely.</strong> TheorIA Dataset is released under the CC-BY-4.0 license and will always remain
-        freely available to the academic community, researchers, educators, and anyone interested in theoretical
-        physics. This is a commitment to open science and knowledge sharing.
+      <div class="faq-card">
+        <h3 class="faq-question">Will this remain a free initiative?</h3>
+        <div class="faq-answer">
+          <p><strong>Yes, absolutely.</strong> TheorIA Dataset is released under the CC-BY-4.0 license and will always remain freely available to the academic community, researchers, educators, and anyone interested in theoretical physics. This is a commitment to open science and knowledge sharing.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">How can I participate?</h3>
+        <div class="faq-answer">
+          <p>There are several ways to contribute:</p>
+          <ul>
+            <li><strong>Submit new entries</strong>: Follow the guidelines in CONTRIBUTING.md to add new physics derivations</li>
+            <li><strong>Peer review</strong>: Review existing entries for accuracy and completeness</li>
+            <li><strong>Improve documentation</strong>: Help enhance explanations and fix errors</li>
+            <li><strong>Testing</strong>: Run validation scripts and report issues</li>
+            <li><strong>Community building</strong>: Share the project and engage in discussions</li>
+          </ul>
+          <p>See our <a href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md" target="_blank">Contributing Guidelines</a> for detailed instructions on how to get started.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">Why are there so many draft entries?</h3>
+        <div class="faq-answer">
+          <p>The draft entries are AI-generated and serve as a starting point for the dataset. However, they do not yet meet the quality standards we want to achieve for the final dataset. Current AI models are not as good yet at producing rigorous physics derivations, and that is, in part, the point of this collective effort - to create high-quality training data that can help improve future AI systems in physics.</p>
+          <p>This is precisely where people with knowledge in physics are needed - to review, refine, and validate these entries to ensure they meet our rigorous academic standards. Your expertise in physics is crucial for transforming these drafts into high-quality, peer-reviewed entries.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">What makes a good entry?</h3>
+        <div class="faq-answer">
+          <p>A good entry should be:</p>
+          <ul>
+            <li><strong>Self-contained</strong>: All symbols defined, assumptions clearly stated</li>
+            <li><strong>Mathematically rigorous</strong>: Complete derivations with all steps shown</li>
+            <li><strong>Programmatically verified</strong>: Include Python code that validates the mathematics</li>
+            <li><strong>Well-documented</strong>: Clear explanations and proper references</li>
+            <li><strong>Following standards</strong>: Comply with the JSON schema and use AsciiMath format</li>
+          </ul>
+          <p>Most importantly, one should follow the <a href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md" target="_blank">CONTRIBUTING guidelines</a> strictly to ensure consistency and quality across all entries.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">How do I know if my entry is correct?</h3>
+        <div class="faq-answer">
+          <p>Within the repository there are automatic ways to ensure that the entry meets some minimum format and types, it is called the schema. We also ensure that the programmatic verification runs without error.</p>
+          <p>If you are adding or modifying an entry by cloning the repository you can use:</p>
+          <ul>
+            <li><code>make validate FILE=your_entry</code> - Check schema compliance</li>
+            <li><code>make test-entry FILE=your_entry</code> - Run full validation including programmatic verification</li>
+            <li><code>make test</code> - Test all entries</li>
+          </ul>
+          <p>If you are doing it through the forms in the webpage, we will run them for you and keep some communication via email.</p>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">Can I suggest improvements to existing entries?</h3>
+        <div class="faq-answer">
+          <p>Yes! You can:</p>
+          <ul>
+            <li>Open an issue to discuss potential improvements</li>
+            <li>Submit a pull request with your suggested changes</li>
+            <li>Use the "modify-entry" issue template for structured feedback</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">What physics domains are included?</h3>
+        <div class="faq-answer">
+          <p>We follow the arXiv taxonomy for domain classification, including but not limited to:</p>
+          <ul>
+            <li>General Relativity and Quantum Cosmology (gr-qc)</li>
+            <li>High Energy Physics Theory (hep-th)</li>
+            <li>Condensed Matter Physics (cond-mat)</li>
+            <li>Quantum Physics (quant-ph)</li>
+            <li>Mathematical Physics (math-ph)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <h3 class="faq-question">How is quality ensured?</h3>
+        <div class="faq-answer">
+          <ul>
+            <li><strong>Schema validation</strong>: All entries must conform to strict JSON schema</li>
+            <li><strong>Programmatic verification</strong>: Each entry includes code that follows the derivations and verifies them</li>
+            <li><strong>Peer review</strong>: Community review process for all submissions</li>
+            <li><strong>Automated testing</strong>: Continuous integration checks all entries</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <h2>How can I participate?</h2>
-    <p>There are several ways to contribute:</p>
-    <ul>
-        <li><strong>Submit new entries</strong>: Follow the guidelines in CONTRIBUTING.md to add new physics derivations
-        </li>
-        <li><strong>Peer review</strong>: Review existing entries for accuracy and completeness</li>
-        <li><strong>Improve documentation</strong>: Help enhance explanations and fix errors</li>
-        <li><strong>Testing</strong>: Run validation scripts and report issues</li>
-        <li><strong>Community building</strong>: Share the project and engage in discussions</li>
-    </ul>
-    <p>See our <a href="CONTRIBUTING.md">Contributing Guidelines</a> for detailed instructions on how to get started.
-    </p>
-
-    <h2>Why are there so many draft entries?</h2>
-    <p>The draft entries are AI-generated and serve as a starting point for the dataset. However, they do not yet meet
-        the quality standards we want to achieve for the final dataset. Current AI models are not as good yet at
-        producing rigorous physics derivations, and that is, in part, the point of this collective effort - to create high-quality
-        training data that can help improve future AI systems in physics. This is precisely where people with knowledge
-        in physics are needed - to review, refine, and validate these entries to ensure they meet our rigorous academic
-        standards. Your expertise in physics is crucial for transforming these drafts into high-quality, peer-reviewed
-        entries.</p>
-
-    <h2>What makes a good entry?</h2>
-    <p>A good entry should be:</p>
-    <ul>
-        <li><strong>Self-contained</strong>: All symbols defined, assumptions clearly stated</li>
-        <li><strong>Mathematically rigorous</strong>: Complete derivations with all steps shown</li>
-        <li><strong>Programmatically verified</strong>: Include Python code that validates the mathematics</li>
-        <li><strong>Well-documented</strong>: Clear explanations and proper references</li>
-        <li><strong>Following standards</strong>: Comply with the JSON schema and use AsciiMath format</li>
-    </ul>
-    <p>Most importantly, one should follow the <a
-            href="https://github.com/theoria-dataset/theoria-dataset/blob/main/CONTRIBUTING.md"
-            target="_blank">CONTRIBUTING guidelines</a> strictly to ensure consistency and quality across all entries.
-    </p>
-
-    <h2>How do I know if my entry is correct?</h2>
-    <p>Within the repository there are automatic ways to ensure that the entry meets some minimum format and types, it
-        is called the schema. We also ensure that the programmatic verification runs without error.</p>
-    <p>If you are adding or modifying an entry by cloning the repository you can use:</p>
-    <ul>
-        <li><code>make validate FILE=your_entry</code> - Check schema compliance</li>
-        <li><code>make test-entry FILE=your_entry</code> - Run full validation including programmatic verification</li>
-        <li><code>make test</code> - Test all entries</li>
-    </ul>
-    <p>If you are doing it through the forms in the webpage, we will run them for you and keep some communication via
-        email.</p>
-
-    <h2>Can I suggest improvements to existing entries?</h2>
-    <p>Yes! You can:</p>
-    <ul>
-        <li>Open an issue to discuss potential improvements</li>
-        <li>Submit a pull request with your suggested changes</li>
-        <li>Use the "modify-entry" issue template for structured feedback</li>
-    </ul>
-
-    <h2>What physics domains are included?</h2>
-    <p>We follow the arXiv taxonomy for domain classification, including but not limited to:</p>
-    <ul>
-        <li>General Relativity and Quantum Cosmology (gr-qc)</li>
-        <li>High Energy Physics Theory (hep-th)</li>
-        <li>Condensed Matter Physics (cond-mat)</li>
-        <li>Quantum Physics (quant-ph)</li>
-        <li>Mathematical Physics (math-ph)</li>
-    </ul>
-
-    <h2>How is quality ensured?</h2>
-    <ul>
-        <li><strong>Schema validation</strong>: All entries must conform to strict JSON schema</li>
-        <li><strong>Programmatic verification</strong>: Each entry includes code that follows the derivations and
-            verifies them</li>
-        <li><strong>Peer review</strong>: Community review process for all submissions</li>
-        <li><strong>Automated testing</strong>: Continuous integration checks all entries</li>
-    </ul>
 
     <script src="script.js" defer></script>
 </body>

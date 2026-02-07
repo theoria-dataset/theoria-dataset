@@ -35,11 +35,49 @@
 
 <body>
     <button id="themeToggle" aria-label="Toggle theme">☀︎</button>
-    
+
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav">
+      <a href="../index.html" class="nav-item" data-page="home">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="../entries_index.html" class="nav-item" data-page="entries">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="nav-label">Entries</span>
+      </a>
+      <a href="../assumptions.html" class="nav-item" data-page="assumptions">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+        </svg>
+        <span class="nav-label">Assumptions</span>
+      </a>
+      <a href="./" class="nav-item active" data-page="contribute">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        <span class="nav-label">Contribute</span>
+      </a>
+      <a href="https://github.com/theoria-dataset/theoria-dataset" class="nav-item" target="_blank">
+        <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span class="nav-label">GitHub</span>
+      </a>
+    </nav>
+
     <div class="ai-review-callout">
         <div class="ai-review-content">
             <h2>🤖 AI-Generated Content Pending Review</h2>
-            <p>Many of our entries are currently synthetic—created by AI—and still awaiting detailed human review. If you'd like to contribute to this open-source project, simply select an entry marked DRAFT and start reviewing it. Once your review is complete, your name will be credited on that entry.</p>
+            <p>Some of our entries are currently synthetic, created by AI, and still awaiting detailed human review. If you'd like to contribute to this open-source project, simply select an entry marked DRAFT and start reviewing it. Once your review is complete, your name will be credited on that entry.</p>
             <a href="../entries_index.html" class="review-cta-button">🔍 Browse DRAFT Entries to Review</a>
         </div>
     </div>
@@ -47,11 +85,6 @@
     <header>
         <h1>Contribute to TheorIA Dataset</h1>
         <p>Help expand the theoretical physics knowledge base through open source collaboration</p>
-        <nav>
-            <a href="../index.html" class="nav-link">Home</a>
-            <a href="../FAQ.html" class="nav-link">FAQ</a>
-            <a href="../entries_index.html" class="nav-link">Browse Entries</a>
-        </nav>
     </header>
 
     <main>
