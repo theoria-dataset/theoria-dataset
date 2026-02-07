@@ -1,0 +1,154 @@
+{
+  "result_id": "quantum_harmonic_oscillator",
+  "result_name": "Quantum Harmonic Oscillator",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E_n = hbar omega (n + 1/2)"
+    },
+    {
+      "id": "eq2",
+      "equation": "psi_n(x) = (m omega/(pi hbar))^(1/4) (1/sqrt(2^n n!)) H_n(sqrt(m omega/hbar) x) exp(-m omega x^2/(2 hbar))"
+    }
+  ],
+  "explanation": "The quantum harmonic oscillator describes a quantum particle in a parabolic potential. Unlike the classical oscillator, energy levels are discrete and equally spaced, with a zero-point energy of ℏω/2. This model is fundamental in quantum mechanics, appearing in molecular vibrations, phonons, and quantum field theory.",
+  "definitions": [
+    {
+      "symbol": "E_n",
+      "definition": "Energy of the nth quantum state."
+    },
+    {
+      "symbol": "n",
+      "definition": "Quantum number (n = 0, 1, 2, ...)."
+    },
+    {
+      "symbol": "hbar",
+      "definition": "Reduced Planck constant."
+    },
+    {
+      "symbol": "omega",
+      "definition": "Classical angular frequency of the oscillator."
+    },
+    {
+      "symbol": "psi_n(x)",
+      "definition": "Normalized wavefunction of the nth state."
+    },
+    {
+      "symbol": "H_n",
+      "definition": "Hermite polynomial of order n."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the particle."
+    }
+  ],
+  "assumptions": [
+    "The potential is quadratic: `V(x) = (1/2) m omega^2 x^2`.",
+    "The particle is confined to one dimension and non-relativistic.",
+    "The Schrödinger equation applies with the harmonic oscillator potential.",
+    "Ladder operator algebra applies to find eigenvalues."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with the time-independent Schrödinger equation.",
+      "equation": "H psi = E psi"
+    },
+    {
+      "step": 2,
+      "description": "Write the Hamiltonian for the harmonic oscillator with kinetic and potential energy terms.",
+      "equation": "H = -(hbar^2/(2m)) d^2/dx^2 + (1/2) m omega^2 x^2"
+    },
+    {
+      "step": 3,
+      "description": "Define the lowering (annihilation) operator using position and momentum.",
+      "equation": "a = sqrt(m omega/(2 hbar)) (x + i p/(m omega))"
+    },
+    {
+      "step": 4,
+      "description": "Define the raising (creation) operator as the Hermitian conjugate of the lowering operator.",
+      "equation": "a^dagger = sqrt(m omega/(2 hbar)) (x - i p/(m omega))"
+    },
+    {
+      "step": 5,
+      "description": "Express the Hamiltonian in terms of ladder operators.",
+      "equation": "H = hbar omega (a^dagger a + 1/2)"
+    },
+    {
+      "step": 6,
+      "description": "Define the number operator as the product of creation and annihilation operators.",
+      "equation": "N = a^dagger a"
+    },
+    {
+      "step": 7,
+      "description": "The number operator has eigenvalues n = 0, 1, 2, ... corresponding to energy eigenstates.",
+      "equation": "N |n> = n |n>"
+    },
+    {
+      "step": 8,
+      "description": "The energy eigenvalues are equally spaced with zero-point energy ℏω/2.",
+      "equation": "E_n = hbar omega (n + 1/2)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "n, hbar, omega, m, x, E = sp.symbols('n hbar omega m x E', real=True, positive=True)",
+      "# Energy levels formula",
+      "E_n = hbar * omega * (n + sp.Rational(1, 2))",
+      "# Verify energy spacing",
+      "delta_E = E_n.subs(n, n+1) - E_n",
+      "assert sp.simplify(delta_E) == hbar * omega",
+      "# Verify zero-point energy (ground state n=0)",
+      "E_0 = E_n.subs(n, 0)",
+      "assert E_0 == hbar * omega / 2",
+      "# Verify that energy is always positive",
+      "assert E_n > 0",
+      "# Test specific energy levels",
+      "E_1 = E_n.subs(n, 1)",
+      "E_2 = E_n.subs(n, 2)",
+      "assert E_1 == 3 * hbar * omega / 2",
+      "assert E_2 == 5 * hbar * omega / 2",
+      "# Verify the classical limit (large n)",
+      "# Average energy is approximately ℏω*n for large n",
+      "E_classical_avg = E_n",
+      "assert sp.limit(E_n/n, n, sp.oo) == hbar * omega"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of quantum mechanics, model for molecular vibrations and phonons",
+    "development_period": "1925-1926",
+    "key_insights": [
+      "Quantized energy levels",
+      "Zero-point energy",
+      "Ladder operators",
+      "Foundation for quantum field theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Griffiths, D. J. (2018). *Introduction to Quantum Mechanics* (3rd ed.). Cambridge University Press."
+    },
+    {
+      "id": "R2",
+      "citation": "Shankar, R. (1994). *Principles of Quantum Mechanics* (2nd ed.). Springer."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "schroedingen_equation",
+    "simple_harmonic_oscillator"
+  ]
+}

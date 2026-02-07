@@ -1,0 +1,108 @@
+{
+  "result_id": "liouvilles_theorem",
+  "result_name": "Liouville's Theorem",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "<2 T> = - <sum_i r_i dot F_i>"
+    }
+  ],
+  "explanation": "Liouville's theorem relates the time-averaged kinetic energy `T` and potential energy of a bound system. For particles with positions `r_i` and forces `F_i`, it states `<2T> = -<sum r_i dot F_i>`. For power-law forces, this yields simple ratios: for Newton's gravity (1/r), `<T> = -1/2 <V>`. The theorem is useful in astrophysics and molecular physics for deducing properties of equilibrated systems.",
+  "definitions": [
+    {
+      "symbol": "T",
+      "definition": "Total kinetic energy of the system."
+    },
+    {
+      "symbol": "F_i",
+      "definition": "Force on particle i."
+    },
+    {
+      "symbol": "V",
+      "definition": "Total potential energy of the system."
+    },
+    {
+      "symbol": "<...>",
+      "definition": "Time average over a long duration."
+    }
+  ],
+  "assumptions": [
+    "The system is bound and in steady state (time averages are well-defined).",
+    "For power-law potentials `V propto r^n`, the force is `F_i = -del V/del r_i`, allowing a simple relation between `<T>` and `<V>`.",
+    "The moment of inertia `I` remains bounded so that `d^2 I/dt^2` averages to zero over time.",
+    "Each force is derived from a potential `V(r)`, so `r dot F = r_i del V/del r_i` allows relating the term to potential energy."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Define the moment of inertia `I` for the system of particles.",
+      "equation": "I = sum_i m_i r_i^2"
+    },
+    {
+      "step": 2,
+      "description": "Differentiate `I` twice using `a_i = F_i/m_i`. This yields an expression involving kinetic energy `T` and the sum `sum r_i dot F_i`.",
+      "equation": "d^2 I/dt^2 = 2 sum_i m_i (v_i^2 + r_i dot a_i) = 2 T + 2 sum_i r_i dot F_i"
+    },
+    {
+      "step": 3,
+      "description": "For a bound system in steady state, `I` oscillates but does not diverge, so `<d^2I/dt^2> = 0`. Set the time-average of the expression to zero.",
+      "equation": "<d^2 I/dt^2> = 0 => 2<T> + 2<sum_i r_i dot F_i> = 0"
+    },
+    {
+      "step": 4,
+      "description": "Rearrange to obtain the virial theorem relation. In particular cases (like `F propto r^n`), this gives specific energy ratios (e.g. `<T> = -1/2<V>` for `n=-1`).",
+      "equation": "<2 T> = - <sum_i r_i dot F_i>"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Step 1: choose a harmonic oscillator trajectory",
+      "t = sp.symbols('t', real=True)",
+      "m, k, A = sp.symbols('m k A', positive=True)",
+      "x = A*sp.cos(sp.sqrt(k/m)*t)",
+      "# Step 2: compute kinetic energy and r·F term",
+      "v = sp.diff(x, t)",
+      "T_t = m*v**2/2",
+      "F_t = -k*x",
+      "rF_t = x*F_t",
+      "# Step 3: average over one period",
+      "period = 2*sp.pi*sp.sqrt(m/k)",
+      "T_avg = sp.integrate(T_t, (t, 0, period))/period",
+      "rF_avg = sp.integrate(rF_t, (t, 0, period))/period",
+      "# Step 4: verify the virial relation 2<T> + <r·F> = 0",
+      "assert sp.simplify(2*T_avg + rF_avg) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of statistical mechanics, connects microscopic dynamics to thermodynamics",
+    "development_period": "1838",
+    "key_insights": [
+      "Phase space conservation",
+      "Statistical mechanics foundation",
+      "Connection between dynamics and statistics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Clausius, R. (1870). On a Mechanical Theorem Applicable to Heat. *Philosophical Magazine*, 40(265), 122-127."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H. (1980). *Classical Mechanics* (2nd ed.). Addison-Wesley. (Section on virial theorem)"
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": []
+}

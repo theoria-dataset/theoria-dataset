@@ -1,0 +1,114 @@
+{
+  "result_id": "coriolis_force",
+  "result_name": "Coriolis Force",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "vec F_c = 2 m (vec v cross vec Omega)"
+    }
+  ],
+  "explanation": "The Coriolis force is a fictitious force that appears in a rotating reference frame. It causes moving objects to be deflected relative to the Earth's surface or any rotating frame. The Coriolis acceleration is `2(vec v cross vec Omega)`, acting perpendicular to the velocity. This effect explains phenomena like the rotation of cyclones and the deflection of projectiles in latitude.",
+  "definitions": [
+    {
+      "symbol": "vec Omega",
+      "definition": "Angular velocity vector of the rotating frame (e.g., Earth, oriented along rotation axis)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the moving object."
+    },
+    {
+      "symbol": "vec v",
+      "definition": "Velocity of the object relative to the rotating frame."
+    },
+    {
+      "symbol": "vec F_c",
+      "definition": "Coriolis force on the object (in the rotating frame)."
+    }
+  ],
+  "assumptions": [
+    "The analysis is done in a uniformly rotating frame with angular velocity `vec Omega` (e.g., Earth).",
+    "The velocity `vec v` is measured relative to the rotating frame (moderate speed so that |vec v| << |vec Omega cross vec R| for Earth's scale).",
+    "Use the transformation formula for acceleration between an inertial frame and a frame rotating with `vec Omega`. Coriolis and centrifugal terms appear.",
+    "No actual force corresponds to these terms; they are apparent forces due to frame rotation."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Write the relation between accelerations in inertial vs rotating frame (including Coriolis and centrifugal terms).",
+      "equation": "vec a_inertial = vec a_rot + 2 vec Omega cross vec v + vec Omega cross (vec Omega cross vec r)"
+    },
+    {
+      "step": 2,
+      "description": "Newton's second law in the inertial frame relates real forces to inertial acceleration.",
+      "equation": "m vec a_inertial = vec F_real"
+    },
+    {
+      "step": 3,
+      "description": "Re-arrange in the rotating frame: fictitious force terms (Coriolis and centrifugal) are moved to the right-hand side.",
+      "equation": "m vec a_rot = vec F_real - 2 m(vec Omega cross vec v) - m vec Omega cross (vec Omega cross vec r)"
+    },
+    {
+      "step": 4,
+      "description": "Identify the Coriolis force `2 m(vec v cross vec Omega)` and centrifugal force in the rotating frame's equation of motion.",
+      "equation": "Identify vec F_c = 2 m(vec v cross vec Omega) and centrifugal vec F_cf = m vec Omega cross (vec Omega cross vec r)."
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Step 1: verify acceleration transformation for linear motion",
+      "t = sp.symbols('t', real=True)",
+      "Omega = sp.Matrix([0, 0, 1])",
+      "r = sp.Matrix([10*t, 0, 0])",
+      "v_rot = sp.diff(r, t) - Omega.cross(r)",
+      "a_rot = sp.diff(v_rot, t) - Omega.cross(v_rot)",
+      "a_inertial = sp.diff(r, t, 2)",
+      "formula = a_rot + 2*Omega.cross(v_rot) + Omega.cross(Omega.cross(r))",
+      "assert sp.simplify(a_inertial - formula) == sp.Matrix([0, 0, 0])",
+      "# Step 2: multiply by mass to obtain inertial force",
+      "m = sp.symbols('m')",
+      "F_real = m*a_inertial",
+      "# Step 3: express equation in rotating frame and verify fictitious terms",
+      "expr_rot = F_real - m*a_rot - 2*m*Omega.cross(v_rot) - m*Omega.cross(Omega.cross(r))",
+      "assert sp.simplify(expr_rot) == sp.Matrix([0, 0, 0])",
+      "# Step 4: test Coriolis force direction for eastward motion",
+      "v_sample = sp.Matrix([10, 0, 0])",
+      "F_c = 2*m*v_sample.cross(Omega)",
+      "# For positive mass and eastward velocity, Coriolis force points south (negative y)",
+      "F_c_numeric = F_c.subs(m, 1)",
+      "assert F_c_numeric[1] < 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "limiting_case",
+  "historical_context": {
+    "importance": "Explains atmospheric and oceanic circulation patterns, important for meteorology and ballistics",
+    "development_period": "1835",
+    "key_insights": [
+      "Fictitious forces in rotating frames",
+      "Explanation of cyclone rotation",
+      "Deflection of moving objects on Earth"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Coriolis, G. (1835). *Sur les équations du mouvement relatif des systèmes de corps*."
+    },
+    {
+      "id": "R2",
+      "citation": "Vallis, G. K. (2017). *Atmospheric and Oceanic Fluid Dynamics* (2nd ed.). Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": []
+}

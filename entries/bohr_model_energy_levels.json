@@ -1,0 +1,215 @@
+{
+  "result_id": "bohr_model_energy_levels",
+  "result_name": "Bohr Model Energy Levels",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "E_n = -13.6/n^2 text( eV)"
+    },
+    {
+      "id": "eq2",
+      "equation": "r_n = n^2 * a_0"
+    },
+    {
+      "id": "eq3",
+      "equation": "a_0 = 0.529 × 10^(-10) text( m)"
+    }
+  ],
+  "explanation": "The Bohr model describes the energy levels of hydrogen atoms through quantized circular orbits, where electrons can only exist at specific energy states. The energy is inversely proportional to the square of the principal quantum number, explaining the discrete line spectra observed in hydrogen. This semi-classical model provided the first successful quantitative theory of atomic structure and paved the way for modern quantum mechanics.",
+  "definitions": [
+    {
+      "symbol": "E_n",
+      "definition": "Energy of the electron in the nth energy level."
+    },
+    {
+      "symbol": "n",
+      "definition": "Principal quantum number (positive integer: 1, 2, 3, ...)."
+    },
+    {
+      "symbol": "r_n",
+      "definition": "Radius of the nth Bohr orbit."
+    },
+    {
+      "symbol": "a_0",
+      "definition": "Bohr radius, the radius of the first orbit (`n=1`)."
+    }
+  ],
+  "assumptions": [
+    "The electron orbits are circular and the nucleus is stationary.",
+    "Angular momentum is quantized: `L = n*hbar` where `n` is a positive integer.",
+    "The electron does not radiate energy while in a stationary orbit.",
+    "Classical electrostatics applies for the Coulomb force between proton and electron.",
+    "The electron follows classical circular motion under Coulomb attraction.",
+    "Angular momentum quantization condition `L = n*hbar` applies.",
+    "The total energy is the sum of kinetic and potential energies.",
+    "The virial theorem applies: `K = -(1/2)*U` for Coulomb potential."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Balance centripetal force with Coulomb attraction for circular orbit.",
+      "equation": "F_centripetal = F_coulomb"
+    },
+    {
+      "step": 2,
+      "description": "Write the force balance equation explicitly.",
+      "equation": "m*v^2/r = k*e^2/r^2"
+    },
+    {
+      "step": 3,
+      "description": "Simplify to relate kinetic energy to potential energy.",
+      "equation": "m*v^2 = k*e^2/r"
+    },
+    {
+      "step": 4,
+      "description": "Apply Bohr's quantization condition for angular momentum.",
+      "equation": "L = m*v*r = n*hbar"
+    },
+    {
+      "step": 5,
+      "description": "Express velocity in terms of quantum number and radius.",
+      "equation": "v = n*hbar/(m*r)"
+    },
+    {
+      "step": 6,
+      "description": "Substitute quantized velocity into the force balance equation.",
+      "equation": "m*(n*hbar/(m*r))^2 = k*e^2/r"
+    },
+    {
+      "step": 7,
+      "description": "Simplify the equation.",
+      "equation": "n^2*hbar^2/(m*r^2) = k*e^2/r"
+    },
+    {
+      "step": 8,
+      "description": "Multiply both sides by r to eliminate one power of r.",
+      "equation": "n^2*hbar^2/(m*r) = k*e^2"
+    },
+    {
+      "step": 9,
+      "description": "Solve for the orbital radius.",
+      "equation": "r = n^2*hbar^2/(m*k*e^2)"
+    },
+    {
+      "step": 10,
+      "description": "Define the Bohr radius as the smallest orbit radius (n=1).",
+      "equation": "a_0 = hbar^2/(m*k*e^2)"
+    },
+    {
+      "step": 11,
+      "description": "Express orbital radii in terms of Bohr radius.",
+      "equation": "r_n = n^2*a_0"
+    },
+    {
+      "step": 12,
+      "description": "Write total energy as sum of kinetic and potential energies.",
+      "equation": "E = K + U = (1/2)*m*v^2 - k*e^2/r"
+    },
+    {
+      "step": 13,
+      "description": "Use the virial theorem result for kinetic energy.",
+      "equation": "K = (1/2)*k*e^2/r"
+    },
+    {
+      "step": 14,
+      "description": "Calculate total energy using the virial theorem.",
+      "equation": "E = (1/2)*k*e^2/r - k*e^2/r = -(1/2)*k*e^2/r"
+    },
+    {
+      "step": 15,
+      "description": "Substitute the quantized radius expression.",
+      "equation": "E_n = -(1/2)*k*e^2/(n^2*a_0)"
+    },
+    {
+      "step": 16,
+      "description": "Express energy in terms of fundamental constants.",
+      "equation": "E_n = -(m*k^2*e^4)/(2*hbar^2*n^2)"
+    },
+    {
+      "step": 17,
+      "description": "Evaluate numerically to get the Rydberg energy scale.",
+      "equation": "E_n = -13.6/n^2 text( eV)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols and constants",
+      "n, m, e, k, hbar, r, v, E, a_0 = sp.symbols('n m e k hbar r v E a_0', positive=True, real=True)",
+      "",
+      "# Physical constants (in SI units)",
+      "m_e = 9.10938356e-31    # electron mass (kg)",
+      "e_charge = 1.602176634e-19  # elementary charge (C)",
+      "hbar_val = 1.054571817e-34  # reduced Planck constant (J⋅s)",
+      "k_val = 8.9875517923e9      # Coulomb constant (N⋅m²/C²)",
+      "",
+      "# Step 3: Force balance gives mv² = ke²/r",
+      "force_balance = sp.Eq(m*v**2, k*e**2/r)",
+      "",
+      "# Step 5: Quantization gives v = nℏ/(mr)",
+      "v_quantized = n*hbar/(m*r)",
+      "",
+      "# Step 6-9: Substitute and solve for r",
+      "substituted = force_balance.subs(v, v_quantized)",
+      "r_solution = sp.solve(substituted, r)[0]",
+      "",
+      "# Step 10-11: Define Bohr radius and orbital radii",
+      "a_0_def = hbar**2/(m*k*e**2)",
+      "r_n = n**2 * a_0_def",
+      "",
+      "# Verify r_solution equals r_n",
+      "assert sp.simplify(r_solution - r_n) == 0",
+      "",
+      "# Step 12-14: Calculate energy using virial theorem",
+      "# Total energy E = -½ ke²/r",
+      "E_formula = -k*e**2/(2*r_n)",
+      "",
+      "# Step 16: Express in terms of fundamental constants",
+      "E_n = -(m*k**2*e**4)/(2*hbar**2*n**2)",
+      "",
+      "# Verify they are equivalent",
+      "E_substituted = E_formula.subs(r_n, n**2*a_0_def)",
+      "assert sp.simplify(E_substituted - E_n) == 0",
+      "",
+      "# Step 17: Calculate numerical value",
+      "E_1_joules = -(m_e*k_val**2*e_charge**4)/(2*hbar_val**2)",
+      "E_1_eV = E_1_joules / e_charge  # Convert to eV",
+      "",
+      "# Verify this gives approximately -13.6 eV",
+      "expected_value = -13.6",
+      "relative_error = abs(E_1_eV - expected_value) / abs(expected_value)",
+      "",
+      "assert relative_error < 0.01  # Within 1% of expected value",
+      "",
+      "# Calculate Bohr radius",
+      "a_0_val = hbar_val**2 / (m_e * k_val * e_charge**2)",
+      "expected_a0 = 0.529e-10  # meters",
+      "a0_error = abs(a_0_val - expected_a0) / expected_a0",
+      "",
+      "assert a0_error < 0.01  # Within 1% of expected value"
+    ]
+  },
+  "domain": "physics.atom-ph",
+  "theory_status": "historical",
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bohr, N. (1913). 'On the Constitution of Atoms and Molecules.' Philosophical Magazine, 26, 1-25."
+    },
+    {
+      "id": "R2",
+      "citation": "Bethe, H. A., & Salpeter, E. E. (1957). Quantum Mechanics of One- and Two-Electron Atoms. Academic Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": []
+}

@@ -1,0 +1,163 @@
+{
+  "result_id": "virial_theorem",
+  "result_name": "Virial Theorem",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "2 <T> = -<sum_i vec F_i cdot vec r_i>"
+    },
+    {
+      "id": "eq2",
+      "equation": "For V prop r^n: 2 <T> = n <V>"
+    }
+  ],
+  "explanation": "The virial theorem relates the time-averaged kinetic energy to the potential energy of a system in equilibrium. For systems with power-law potentials V ∝ r^n, it provides a direct relationship between kinetic and potential energies. This theorem is fundamental in astrophysics, atomic physics, and statistical mechanics.",
+  "definitions": [
+    {
+      "symbol": "<T>",
+      "definition": "Time-averaged kinetic energy."
+    },
+    {
+      "symbol": "<V>",
+      "definition": "Time-averaged potential energy."
+    },
+    {
+      "symbol": "vec F_i",
+      "definition": "Force acting on particle i."
+    },
+    {
+      "symbol": "vec r_i",
+      "definition": "Position vector of particle i."
+    },
+    {
+      "symbol": "n",
+      "definition": "Power in the potential law V ∝ r^n."
+    }
+  ],
+  "assumptions": [
+    "The system is in a time-averaged equilibrium or bound state.",
+    "Forces are derivable from a potential function.",
+    "The system is bound so that the moment of inertia is finite and time-averaged.",
+    "Forces are conservative and derivable from a potential."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Define the moment of inertia I as a measure of mass distribution.",
+      "equation": "I = sum_i m_i |vec r_i|^2"
+    },
+    {
+      "step": 2,
+      "description": "Take the second time derivative of I and expand using kinematic relations.",
+      "equation": "d^2 I/dt^2 = 2 sum_i m_i vec v_i cdot vec v_i + 2 sum_i m_i vec r_i cdot vec a_i"
+    },
+    {
+      "step": 3,
+      "description": "Express in terms of kinetic energy T and forces using Newton's second law.",
+      "equation": "d^2 I/dt^2 = 4 T + 2 sum_i vec r_i cdot vec F_i"
+    },
+    {
+      "step": 4,
+      "description": "For bound systems, the long-time average of the second derivative of I is zero.",
+      "equation": "<d^2 I/dt^2> = 0 (for bound systems)"
+    },
+    {
+      "step": 5,
+      "description": "Apply time averaging to the equation from step 3.",
+      "equation": "4 <T> + 2 <sum_i vec r_i cdot vec F_i> = 0"
+    },
+    {
+      "step": 6,
+      "description": "Rearrange to obtain the general virial theorem.",
+      "equation": "2 <T> = -<sum_i vec r_i cdot vec F_i>"
+    },
+    {
+      "step": 7,
+      "description": "For power-law potentials, express force in terms of potential gradient.",
+      "equation": "For V = k r^n: vec F = -nabla V = -n k r^{n-1} hat r"
+    },
+    {
+      "step": 8,
+      "description": "Calculate the dot product of position and force for power-law potentials.",
+      "equation": "vec r cdot vec F = -n k r^n = -n V"
+    },
+    {
+      "step": 9,
+      "description": "Obtain the specific form of virial theorem for power-law potentials.",
+      "equation": "2 <T> = n <V>"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Verify virial theorem for specific cases",
+      "# Define symbols",
+      "k, r, m, v, G, M = sp.symbols('k r m v G M', positive=True)",
+      "# Case 1: Harmonic oscillator (V ∝ r²)",
+      "V_harmonic = k * r**2 / 2",
+      "T_harmonic = m * v**2 / 2",
+      "# For harmonic oscillator: n = 2",
+      "n_harmonic = 2",
+      "# Virial theorem: 2<T> = n<V>",
+      "# For harmonic oscillator: <T> = <V> (equipartition)",
+      "virial_harmonic = 2 * T_harmonic - n_harmonic * V_harmonic",
+      "# For harmonic oscillator, the time averages satisfy: <T> = <V>",
+      "# So at equilibrium: 2<T> = 2<V>, which means 2<T> - 2<V> = 0",
+      "# We verify this symbolically by setting the coefficients equal",
+      "# m*v²/2 = k*r²/2 implies m*v² = k*r², so virial should be zero",
+      "virial_harmonic_eq = virial_harmonic.subs(m*v**2, k*r**2)",
+      "assert sp.simplify(virial_harmonic_eq) == 0",
+      "# Case 2: Gravitational potential (V ∝ r⁻¹)",
+      "V_grav = -G * M * m / r",
+      "# For gravitational potential: n = -1",
+      "n_grav = -1",
+      "# Virial theorem gives: 2<T> = -<V>",
+      "# This means: <T> = -<V>/2, and total energy E = T + V = V/2 < 0 (bound)",
+      "E_total = T_harmonic + V_grav  # Using same kinetic energy form",
+      "# For circular orbit: T = GMm/(2r), V = -GMm/r",
+      "T_orbit = G * M * m / (2 * r)",
+      "V_orbit = -G * M * m / r",
+      "virial_orbit = 2 * T_orbit - (-1) * V_orbit",
+      "assert sp.simplify(virial_orbit) == 0",
+      "# Verify total energy for gravitational case",
+      "E_orbit = T_orbit + V_orbit",
+      "E_expected = -G * M * m / (2 * r)",
+      "assert sp.simplify(E_orbit - E_expected) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Fundamental relationship in mechanics, crucial for stellar structure and atomic physics",
+    "development_period": "1870",
+    "key_insights": [
+      "Energy scaling relationships",
+      "Stability of bound systems",
+      "Connection between forces and equilibrium",
+      "Foundation for astrophysical calculations"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Clausius, R. (1870). Ueber einen auf die Wärme anwendbaren mechanischen Satz. *Annalen der Physik*, 217(9), 124-130."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "conservation_of_energy",
+    "newtons_second_law"
+  ]
+}

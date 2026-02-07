@@ -1,0 +1,160 @@
+{
+  "result_id": "reynolds_number",
+  "result_name": "Reynolds Number",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "Re = (rho v L)/mu = (v L)/nu"
+    },
+    {
+      "id": "eq2",
+      "equation": "Re_crit approx 2300 (pipe flow)"
+    }
+  ],
+  "explanation": "The Reynolds number is a dimensionless quantity that characterizes the ratio of inertial forces to viscous forces in fluid flow. It determines whether flow is laminar or turbulent: low Reynolds numbers indicate laminar flow dominated by viscous effects, while high Reynolds numbers indicate turbulent flow dominated by inertial effects. This parameter is fundamental in fluid mechanics and engineering design.",
+  "definitions": [
+    {
+      "symbol": "Re",
+      "definition": "Reynolds number (dimensionless)."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Fluid density."
+    },
+    {
+      "symbol": "v",
+      "definition": "Characteristic velocity of the flow."
+    },
+    {
+      "symbol": "L",
+      "definition": "Characteristic length scale."
+    },
+    {
+      "symbol": "mu",
+      "definition": "Dynamic viscosity of the fluid."
+    },
+    {
+      "symbol": "nu",
+      "definition": "Kinematic viscosity (ν = μ/ρ)."
+    },
+    {
+      "symbol": "Re_crit",
+      "definition": "Critical Reynolds number for transition to turbulence."
+    }
+  ],
+  "assumptions": [
+    "The fluid is Newtonian with constant density and viscosity.",
+    "There is a characteristic velocity and length scale for the flow.",
+    "The Navier-Stokes equations apply for the fluid flow.",
+    "Characteristic scales can be identified for the flow problem."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with the Navier-Stokes equation for viscous fluid flow.",
+      "equation": "rho (partial vec v/partial t + vec v cdot nabla vec v) = -nabla p + mu nabla^2 vec v + rho vec g"
+    },
+    {
+      "step": 2,
+      "description": "Identify characteristic velocity, length, and time scales for the flow.",
+      "equation": "Characteristic scales: v ~ V, L ~ L_char, t ~ L_char/V"
+    },
+    {
+      "step": 3,
+      "description": "Estimate the magnitude of inertial terms using dimensional analysis.",
+      "equation": "Inertial term ~ rho V^2/L_char"
+    },
+    {
+      "step": 4,
+      "description": "Estimate the magnitude of viscous terms using dimensional analysis.",
+      "equation": "Viscous term ~ mu V/L_char^2"
+    },
+    {
+      "step": 5,
+      "description": "Form the ratio of inertial to viscous forces.",
+      "equation": "Ratio = (rho V^2/L_char)/(mu V/L_char^2) = (rho V L_char)/mu"
+    },
+    {
+      "step": 6,
+      "description": "Define the Reynolds number as this dimensionless ratio.",
+      "equation": "Re = (rho V L_char)/mu"
+    },
+    {
+      "step": 7,
+      "description": "Low Reynolds number indicates viscous-dominated laminar flow.",
+      "equation": "For Re << 1: viscous forces dominate (laminar flow)"
+    },
+    {
+      "step": 8,
+      "description": "High Reynolds number indicates inertia-dominated turbulent flow.",
+      "equation": "For Re >> 1: inertial forces dominate (turbulent flow)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "rho, v, L, mu, nu = sp.symbols('rho v L mu nu', positive=True)",
+      "# Reynolds number definition",
+      "Re = (rho * v * L) / mu",
+      "# Alternative form using kinematic viscosity",
+      "Re_alt = (v * L) / nu",
+      "# Verify equivalence when nu = mu/rho",
+      "Re_substituted = Re.subs(mu, nu * rho)",
+      "assert sp.simplify(Re_substituted - Re_alt) == 0",
+      "# Verify dimensionless nature",
+      "# [rho] = kg/m^3, [v] = m/s, [L] = m, [mu] = kg/(m·s)",
+      "# [Re] = (kg/m^3)(m/s)(m) / (kg/(m·s)) = dimensionless",
+      "# Check specific examples",
+      "# Water at room temperature: rho ~ 1000 kg/m^3, mu ~ 1e-3 kg/(m·s)",
+      "rho_water = 1000  # kg/m^3",
+      "mu_water = 1e-3   # kg/(m·s)",
+      "v_test = 1        # m/s",
+      "L_test = 0.1      # m (10 cm pipe)",
+      "Re_water = (rho_water * v_test * L_test) / mu_water",
+      "assert Re_water == 100000  # High Re, turbulent flow expected",
+      "# Air at room temperature: rho ~ 1.2 kg/m^3, mu ~ 1.8e-5 kg/(m·s)",
+      "rho_air = 1.2",
+      "mu_air = 1.8e-5",
+      "Re_air = (rho_air * v_test * L_test) / mu_air",
+      "assert abs(Re_air - 6667) < 1  # Also high Re",
+      "# Verify that Re is dimensionless",
+      "Re_numeric = Re.subs([(rho, rho_water), (v, v_test), (L, L_test), (mu, mu_water)])",
+      "assert float(Re_numeric) == 100000"
+    ]
+  },
+  "domain": "physics.flu-dyn",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Fundamental parameter in fluid mechanics, critical for engineering design and flow prediction",
+    "development_period": "1883",
+    "key_insights": [
+      "Laminar-turbulent transition",
+      "Dimensionless flow characterization",
+      "Similarity in fluid flows",
+      "Engineering design parameter"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Reynolds, O. (1883). An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous. *Philosophical Transactions of the Royal Society*, 174, 935-982."
+    },
+    {
+      "id": "R2",
+      "citation": "White, F. M. (2011). *Fluid Mechanics* (7th ed.). McGraw-Hill."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "navier_stokes_incompressible"
+  ]
+}

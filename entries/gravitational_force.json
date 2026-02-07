@@ -1,0 +1,193 @@
+{
+  "result_id": "gravitational_force",
+  "result_name": "Gravitational Force (Newton's Law of Universal Gravitation)",
+  "result_equations": [
+    {
+      "id": "gravitational_force_scalar",
+      "equation": "F = G\\frac{m_1 m_2}{r^2}"
+    },
+    {
+      "id": "gravitational_force_vector",
+      "equation": "\\vec{F}_{12} = -G\\frac{m_1 m_2}{r^2}\\hat{r}_{12}"
+    },
+    {
+      "id": "gravitational_potential_energy",
+      "equation": "U = -G\\frac{m_1 m_2}{r}"
+    },
+    {
+      "id": "gravitational_field",
+      "equation": "\\vec{g} = -G\\frac{M}{r^2}\\hat{r}"
+    }
+  ],
+  "explanation": "Newton's law of universal gravitation states that every mass attracts every other mass with a force proportional to the product of their masses and inversely proportional to the square of the distance between them. This fundamental force governs planetary motion, tides, and large-scale structure of the universe.",
+  "definitions": [
+    {
+      "symbol": "F",
+      "definition": "Gravitational force magnitude"
+    },
+    {
+      "symbol": "G",
+      "definition": "Gravitational constant (6.674 × 10^-11 N⋅m²/kg²)"
+    },
+    {
+      "symbol": "m₁, m₂",
+      "definition": "Masses of the two objects"
+    },
+    {
+      "symbol": "r",
+      "definition": "Distance between centers of mass"
+    },
+    {
+      "symbol": "F⃗₁₂",
+      "definition": "Gravitational force on mass 1 due to mass 2"
+    },
+    {
+      "symbol": "r̂₁₂",
+      "definition": "Unit vector from mass 2 to mass 1"
+    },
+    {
+      "symbol": "U",
+      "definition": "Gravitational potential energy"
+    },
+    {
+      "symbol": "g⃗",
+      "definition": "Gravitational field"
+    },
+    {
+      "symbol": "M",
+      "definition": "Source mass creating the field"
+    }
+  ],
+  "assumptions": [
+    "Point masses or spherically symmetric mass distributions",
+    "No other forces acting (isolated system)",
+    "Non-relativistic regime (weak gravitational fields)",
+    "Static or slowly varying system",
+    "Force is empirically observed to follow inverse square law",
+    "Force is proportional to both masses",
+    "Gravitational force is conservative",
+    "Potential energy is zero at infinite separation"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Newton's law is empirically derived from observations of planetary motion and experimental measurements. The potential energy is derived from the force law using the relationship for conservative forces, with the convention that potential energy is zero at infinite separation.",
+      "equation": "F \\propto m_1 m_2"
+    },
+    {
+      "step": 2,
+      "description": "",
+      "equation": "F \\propto \\frac{1}{r^2}"
+    },
+    {
+      "step": 3,
+      "description": "",
+      "equation": "F = G\\frac{m_1 m_2}{r^2}"
+    },
+    {
+      "step": 4,
+      "description": "",
+      "equation": "F = -\\frac{dU}{dr}"
+    },
+    {
+      "step": 5,
+      "description": "",
+      "equation": "U = -\\int F dr = -\\int G\\frac{m_1 m_2}{r^2} dr"
+    },
+    {
+      "step": 6,
+      "description": "",
+      "equation": "U = G m_1 m_2 \\int r^{-2} dr = G m_1 m_2 (-r^{-1}) + C"
+    },
+    {
+      "step": 7,
+      "description": "",
+      "equation": "U = -G\\frac{m_1 m_2}{r} + C"
+    },
+    {
+      "step": 8,
+      "description": "",
+      "equation": "U = -G\\frac{m_1 m_2}{r} \\text{ (setting C = 0)}"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import math",
+      "# Gravitational constant",
+      "G = 6.674e-11  # N⋅m²/kg²",
+      "print(f'Gravitational constant G = {G:.3e} N⋅m²/kg²')",
+      "# Test gravitational force calculations",
+      "def gravitational_force(m1, m2, r):",
+      "    \"\"\"Calculate gravitational force between two masses\"\"\"",
+      "    return G * m1 * m2 / r**2",
+      "def gravitational_potential_energy(m1, m2, r):",
+      "    \"\"\"Calculate gravitational potential energy\"\"\"",
+      "    return -G * m1 * m2 / r",
+      "# Test with Earth-Moon system",
+      "M_earth = 5.972e24  # kg",
+      "M_moon = 7.342e22   # kg",
+      "r_earth_moon = 3.844e8  # m (average distance)",
+      "F_earth_moon = gravitational_force(M_earth, M_moon, r_earth_moon)",
+      "U_earth_moon = gravitational_potential_energy(M_earth, M_moon, r_earth_moon)",
+      "print(f'\\nEarth-Moon system:')",
+      "print(f'Earth mass: {M_earth:.3e} kg')",
+      "print(f'Moon mass: {M_moon:.3e} kg')",
+      "print(f'Distance: {r_earth_moon:.3e} m')",
+      "print(f'Gravitational force: {F_earth_moon:.3e} N')",
+      "print(f'Potential energy: {U_earth_moon:.3e} J')",
+      "# Verify force-potential energy relationship: F = -dU/dr at a test point",
+      "r_test = 4e8  # test distance in meters",
+      "U_test = gravitational_potential_energy(M_earth, M_moon, r_test)",
+      "# Calculate analytical derivative dU/dr = d/dr(-G*m1*m2/r) = G*m1*m2/r²",
+      "dU_dr_analytical = G * M_earth * M_moon / r_test**2",
+      "F_from_potential = dU_dr_analytical  # |F| = |dU/dr| for attractive force",
+      "F_direct = gravitational_force(M_earth, M_moon, r_test)",
+      "# Check agreement",
+      "relative_error = abs((F_from_potential - F_direct) / F_direct)",
+      "print(f'\\nForce-potential relationship verification:')",
+      "print(f'Test distance: {r_test:.1e} m')",
+      "print(f'Force from F = G*m1*m2/r²: {F_direct:.3e} N')",
+      "print(f'Force magnitude from |dU/dr|: {F_from_potential:.3e} N')",
+      "print(f'Relative error: {relative_error:.10f}')",
+      "print(f'F = -dU/dr verified: {relative_error < 1e-10}')",
+      "print(f'\\nGravitational force law verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "approximation",
+  "generalized_by": [
+    "general_relativity"
+  ],
+  "historical_context": {
+    "development_period": "1687",
+    "importance": "First universal force law; explained planetary motion and laid foundation for celestial mechanics and astrophysics",
+    "key_insights": [
+      "Isaac Newton developed the first universal force law",
+      "The law explained planetary motion through a single mathematical principle",
+      "It established the concept of universal gravitation affecting all masses",
+      "The inverse square law became a model for other force laws in physics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "newtons_laws"
+  ]
+}

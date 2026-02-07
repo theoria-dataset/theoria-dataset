@@ -1,0 +1,171 @@
+{
+  "result_id": "nuclear_fusion",
+  "result_name": "Nuclear Fusion",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "^2 H + ^3 H -> ^4 He + n + 17.6 MeV"
+    },
+    {
+      "id": "eq2",
+      "equation": "Q = (sum M_reactants - sum M_products) c^2"
+    }
+  ],
+  "explanation": "Nuclear fusion is the process where light atomic nuclei combine to form heavier nuclei, releasing energy when the products have higher binding energy per nucleon. This process powers stars and is the basis for fusion energy research. The reaction requires overcoming the Coulomb barrier between positively charged nuclei, typically achieved at high temperatures and densities.",
+  "definitions": [
+    {
+      "symbol": "^2 H",
+      "definition": "Deuterium nucleus (one proton, one neutron)."
+    },
+    {
+      "symbol": "^3 H",
+      "definition": "Tritium nucleus (one proton, two neutrons)."
+    },
+    {
+      "symbol": "^4 He",
+      "definition": "Alpha particle (two protons, two neutrons)."
+    },
+    {
+      "symbol": "n",
+      "definition": "Neutron."
+    },
+    {
+      "symbol": "Q",
+      "definition": "Energy released in the fusion reaction (Q-value)."
+    },
+    {
+      "symbol": "M_reactants",
+      "definition": "Total rest mass of reactant nuclei."
+    },
+    {
+      "symbol": "M_products",
+      "definition": "Total rest mass of product nuclei and particles."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    "The nuclei have sufficient kinetic energy to overcome the Coulomb barrier.",
+    "The reaction products separate to infinite distance (complete energy release).",
+    "Conservation of energy, momentum, and nucleon number apply.",
+    "The reactant nuclei are initially at rest in the center-of-mass frame.",
+    "Non-relativistic kinematics apply for the reaction products."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Set up initial state with deuterium and tritium nuclei at rest.",
+      "equation": "Initial: ^2 H + ^3 H (at rest, total energy = M_D c^2 + M_T c^2)"
+    },
+    {
+      "step": 2,
+      "description": "Define final state with alpha particle and neutron having kinetic energies.",
+      "equation": "Final: ^4 He + n (with kinetic energies T_alpha + T_n)"
+    },
+    {
+      "step": 3,
+      "description": "Apply conservation of energy including rest mass energies and kinetic energies.",
+      "equation": "Energy conservation: M_D c^2 + M_T c^2 = M_alpha c^2 + M_n c^2 + T_alpha + T_n"
+    },
+    {
+      "step": 4,
+      "description": "Define Q-value as the energy available for kinetic energy of products.",
+      "equation": "Q = T_alpha + T_n = (M_D + M_T - M_alpha - M_n) c^2"
+    },
+    {
+      "step": 5,
+      "description": "Apply conservation of momentum: products have equal and opposite momenta.",
+      "equation": "Momentum conservation: vec p_alpha + vec p_n = 0"
+    },
+    {
+      "step": 6,
+      "description": "Since initial momentum is zero, final momenta are equal in magnitude.",
+      "equation": "|vec p_alpha| = |vec p_n| = p"
+    },
+    {
+      "step": 7,
+      "description": "Express kinetic energies in terms of momentum for non-relativistic particles.",
+      "equation": "T_alpha = p^2/(2 M_alpha), T_n = p^2/(2 M_n)"
+    },
+    {
+      "step": 8,
+      "description": "Determine energy sharing between neutron and alpha particle from momentum conservation.",
+      "equation": "T_n = Q * M_alpha/(M_alpha + M_n), T_alpha = Q * M_n/(M_alpha + M_n)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# D-T fusion reaction masses (in atomic mass units u)",
+      "# ^2H + ^3H -> ^4He + n + Q",
+      "M_D = sp.Rational(201410178, 100000000)    # 2.01410178 u (deuterium)",
+      "M_T = sp.Rational(301604928, 100000000)    # 3.01604928 u (tritium)",
+      "M_He4 = sp.Rational(400260325, 100000000)  # 4.00260325 u (helium-4)",
+      "M_n = sp.Rational(100866492, 100000000)    # 1.00866492 u (neutron)",
+      "c_squared = sp.symbols('c_squared', positive=True)  # c^2 conversion factor",
+      "# Q-value calculation",
+      "Q_value = (M_D + M_T - M_He4 - M_n) * c_squared",
+      "# Verify positive Q-value (exothermic reaction)",
+      "mass_diff = M_D + M_T - M_He4 - M_n",
+      "assert mass_diff > 0  # Energy is released",
+      "# Energy sharing between products",
+      "M_alpha = M_He4",
+      "# Neutron gets most energy due to lower mass",
+      "T_neutron_fraction = M_alpha / (M_alpha + M_n)",
+      "T_alpha_fraction = M_n / (M_alpha + M_n)",
+      "# Verify energy conservation",
+      "total_fraction = T_neutron_fraction + T_alpha_fraction",
+      "assert sp.simplify(total_fraction) == 1",
+      "# Numerical calculation",
+      "mass_diff_numeric = float(mass_diff)",
+      "# Conversion: 1 u = 931.494 MeV/c²",
+      "Q_MeV = mass_diff_numeric * 931.494",
+      "assert abs(Q_MeV - 17.59) < 0.1  # Should be approximately 17.6 MeV",
+      "# Neutron energy (about 14.1 MeV)",
+      "T_n_fraction_numeric = float(T_neutron_fraction)",
+      "T_n_MeV = Q_MeV * T_n_fraction_numeric",
+      "assert abs(T_n_MeV - 14.1) < 0.2  # Neutron gets ~14.1 MeV",
+      "# Alpha energy (about 3.5 MeV)",
+      "T_alpha_MeV = Q_MeV * float(T_alpha_fraction)",
+      "assert abs(T_alpha_MeV - 3.5) < 0.2  # Alpha gets ~3.5 MeV"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Powers stars, potential clean energy source, key to nucleosynthesis and cosmology",
+    "development_period": "1920-1950",
+    "key_insights": [
+      "Stellar energy source",
+      "Mass-energy conversion",
+      "Nuclear binding energy",
+      "Controlled fusion possibility"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bethe, H. A. (1939). Energy production in stars. *Physical Review*, 55(5), 434-456."
+    },
+    {
+      "id": "R2",
+      "citation": "Bosch, H. S., & Hale, G. M. (1992). Improved formulas for fusion cross-sections and thermal reactivities. *Nuclear Fusion*, 32(4), 611-631."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "nuclear_binding_energy",
+    "quantum_tunneling",
+    "mass_energy_equivalence"
+  ]
+}

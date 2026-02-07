@@ -1,0 +1,167 @@
+{
+  "result_id": "gibbs_free_energy",
+  "result_name": "Gibbs Free Energy",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "G = H - T S = U + P V - T S"
+    },
+    {
+      "id": "eq2",
+      "equation": "dG = V dP - S dT + sum_i mu_i dN_i"
+    }
+  ],
+  "explanation": "Gibbs free energy is a thermodynamic potential that measures the maximum reversible work that can be performed by a system at constant temperature and pressure. It determines the direction of spontaneous processes: reactions proceed when ΔG < 0. This function is fundamental in chemistry, materials science, and phase transitions.",
+  "definitions": [
+    {
+      "symbol": "G",
+      "definition": "Gibbs free energy."
+    },
+    {
+      "symbol": "H",
+      "definition": "Enthalpy (H = U + PV)."
+    },
+    {
+      "symbol": "U",
+      "definition": "Internal energy."
+    },
+    {
+      "symbol": "T",
+      "definition": "Absolute temperature."
+    },
+    {
+      "symbol": "S",
+      "definition": "Entropy."
+    },
+    {
+      "symbol": "P",
+      "definition": "Pressure."
+    },
+    {
+      "symbol": "V",
+      "definition": "Volume."
+    },
+    {
+      "symbol": "mu_i",
+      "definition": "Chemical potential of species i."
+    },
+    {
+      "symbol": "N_i",
+      "definition": "Number of particles of species i."
+    }
+  ],
+  "assumptions": [
+    "The system can exchange work and heat with surroundings but maintains constant temperature and pressure.",
+    "Reversible processes are considered for maximum work calculations.",
+    "The first law of thermodynamics applies with chemical work included.",
+    "The system is in quasi-static equilibrium during the process."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with the fundamental thermodynamic relation including chemical work.",
+      "equation": "dU = T dS - P dV + sum_i mu_i dN_i"
+    },
+    {
+      "step": 2,
+      "description": "Define enthalpy as internal energy plus pressure-volume work.",
+      "equation": "H = U + P V"
+    },
+    {
+      "step": 3,
+      "description": "Take the differential of enthalpy using the product rule.",
+      "equation": "dH = dU + P dV + V dP"
+    },
+    {
+      "step": 4,
+      "description": "Substitute the first law to express dH in terms of entropy, pressure, and chemical potentials.",
+      "equation": "dH = T dS + V dP + sum_i mu_i dN_i"
+    },
+    {
+      "step": 5,
+      "description": "Define Gibbs free energy as enthalpy minus temperature times entropy.",
+      "equation": "G = H - T S"
+    },
+    {
+      "step": 6,
+      "description": "Take the differential of G using the product rule.",
+      "equation": "dG = dH - T dS - S dT"
+    },
+    {
+      "step": 7,
+      "description": "Substitute the expression for dH to get the fundamental Gibbs relation.",
+      "equation": "dG = V dP - S dT + sum_i mu_i dN_i"
+    },
+    {
+      "step": 8,
+      "description": "At equilibrium under constant T and P, the Gibbs free energy is minimized.",
+      "equation": "At equilibrium: dG = 0 (at constant T, P)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define thermodynamic variables",
+      "U, H, S, T, P, V, G = sp.symbols('U H S T P V G')",
+      "mu, N = sp.symbols('mu N')",
+      "# Verify Gibbs free energy definition",
+      "G_def = H - T*S",
+      "# Alternative definition",
+      "G_alt = U + P*V - T*S",
+      "# These should be equivalent since H = U + PV",
+      "H_def = U + P*V",
+      "assert sp.simplify(G_def.subs(H, H_def) - G_alt) == 0",
+      "# Verify Maxwell relations from Gibbs potential",
+      "# From dG = -S dT + V dP, we get Maxwell relations:",
+      "# (∂S/∂P)_T = -(∂V/∂T)_P",
+      "# Verify thermodynamic identity for ideal gas",
+      "n, R = sp.symbols('n R', positive=True)  # moles, gas constant",
+      "# For ideal gas: PV = nRT",
+      "V_ideal = n*R*T/P",
+      "U_ideal = sp.Rational(3,2)*n*R*T  # monatomic ideal gas",
+      "H_ideal = U_ideal + P*V_ideal",
+      "# Verify H = U + PV for ideal gas",
+      "H_expected = sp.Rational(3,2)*n*R*T + n*R*T",
+      "H_simplified = sp.Rational(5,2)*n*R*T",
+      "assert sp.simplify(H_ideal - H_simplified) == 0",
+      "# Verify that enthalpy is extensive (scales with amount n)",
+      "H_2n = H_ideal.subs(n, 2*n)",
+      "assert sp.simplify(H_2n - 2*H_ideal) == 0"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Central concept in chemical thermodynamics, determines reaction spontaneity and equilibrium",
+    "development_period": "1873-1878",
+    "key_insights": [
+      "Chemical equilibrium criterion",
+      "Phase transition analysis",
+      "Maximum work principle",
+      "Foundation of chemical thermodynamics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Gibbs, J. W. (1878). On the equilibrium of heterogeneous substances. *American Journal of Science*, 16(96), 441-458."
+    },
+    {
+      "id": "R2",
+      "citation": "Lewis, G. N., & Randall, M. (1923). *Thermodynamics and the Free Energy of Chemical Substances*. McGraw-Hill."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "first_law_thermodynamics",
+    "second_law_thermodynamics_clausius"
+  ]
+}

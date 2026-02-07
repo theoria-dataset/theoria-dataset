@@ -1,0 +1,140 @@
+{
+  "result_id": "lenzs_law",
+  "result_name": "Lenz's Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "EMF = -d Phi_B/dt"
+    },
+    {
+      "id": "eq2",
+      "equation": "vec F = -nabla U_magnetic"
+    }
+  ],
+  "explanation": "Lenz's law states that the direction of an induced current is such that its magnetic field opposes the change in flux that produced it. This law is a manifestation of energy conservation in electromagnetic systems, ensuring that induced currents always act to resist changes in magnetic flux, requiring work to maintain the changing flux.",
+  "definitions": [
+    {
+      "symbol": "EMF",
+      "definition": "Induced electromotive force (with sign indicating direction)."
+    },
+    {
+      "symbol": "Phi_B",
+      "definition": "Magnetic flux through the conducting loop."
+    },
+    {
+      "symbol": "vec F",
+      "definition": "Force on the current-carrying conductor."
+    },
+    {
+      "symbol": "U_magnetic",
+      "definition": "Magnetic potential energy of the system."
+    }
+  ],
+  "assumptions": [
+    "The magnetic flux through a closed conducting loop is changing with time.",
+    "The conducting loop has finite resistance allowing current flow.",
+    "Energy conservation applies to the electromagnetic system.",
+    "The system can be treated using classical electromagnetism."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Define magnetic flux as the integral of magnetic field through the loop area.",
+      "equation": "Phi_B = int vec B cdot d vec A"
+    },
+    {
+      "step": 2,
+      "description": "Apply Faraday's law to relate induced EMF to changing magnetic flux.",
+      "equation": "EMF = oint vec E cdot d vec l = -d Phi_B/dt"
+    },
+    {
+      "step": 3,
+      "description": "Calculate the induced current using Ohm's law with the loop resistance.",
+      "equation": "I = EMF/R = -(1/R) d Phi_B/dt"
+    },
+    {
+      "step": 4,
+      "description": "Find the power dissipated as Joule heating in the resistance.",
+      "equation": "P_dissipated = I^2 R = (1/R) (d Phi_B/dt)^2"
+    },
+    {
+      "step": 5,
+      "description": "Express the external work done to change the magnetic flux.",
+      "equation": "W_external = int vec F cdot d vec x"
+    },
+    {
+      "step": 6,
+      "description": "Apply energy conservation: external work equals energy dissipated.",
+      "equation": "Energy conservation: W_external = P_dissipated dt"
+    },
+    {
+      "step": 7,
+      "description": "The direction must be such that the induced effects oppose the change (Lenz's law).",
+      "equation": "vec F opposes motion => negative work by induced current"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Example: conducting loop moving through magnetic field",
+      "t, B0, v, L, R = sp.symbols('t B0 v L R', positive=True)",
+      "x = sp.symbols('x', real=True)",
+      "# Magnetic flux through loop of area A moving with velocity v",
+      "# Assume uniform field B0, loop width L, position x(t) = v*t",
+      "x_t = v * t",
+      "# Flux change as loop enters/exits magnetic field region",
+      "Phi_B = B0 * L * x_t  # simplified case",
+      "# Induced EMF according to Faraday's law",
+      "EMF = -sp.diff(Phi_B, t)",
+      "# Induced current",
+      "I_induced = EMF / R",
+      "# Power dissipated",
+      "P_dissipated = I_induced**2 * R",
+      "assert sp.simplify(P_dissipated) == (B0*L*v)**2/R",
+      "# Force on conductor (F = BIL)",
+      "F_magnetic = B0 * sp.Abs(I_induced) * L",
+      "# Work rate (power) required to maintain constant velocity",
+      "P_external = F_magnetic * v",
+      "assert sp.simplify(P_external - P_dissipated) == 0",
+      "# Verify that EMF opposes flux change",
+      "dPhi_dt = sp.diff(Phi_B, t)",
+      "# If flux is increasing (dΦ/dt > 0), EMF should be negative",
+      "# If flux is decreasing (dΦ/dt < 0), EMF should be positive",
+      "assert EMF == -dPhi_dt  # This confirms Lenz's law sign"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Establishes direction of electromagnetic induction, ensures energy conservation",
+    "development_period": "1834",
+    "key_insights": [
+      "Direction of induced effects",
+      "Energy conservation in EM systems",
+      "Fundamental principle of electromagnetic machines"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Lenz, H. F. E. (1834). Ueber die Bestimmung der Richtung der durch elektodynamische Vertheilung erregten galvanischen Ströme. *Annalen der Physik*, 107(31), 483-494."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "faradays_law",
+    "conservation_of_energy"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "result_id": "radioactive_decay_law",
+  "result_name": "Radioactive Decay Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "N(t) = N_0 e^(-lambda t)"
+    },
+    {
+      "id": "eq2",
+      "equation": "t_(1/2) = ln(2)/lambda"
+    }
+  ],
+  "explanation": "The radioactive decay law describes the exponential decrease of unstable nuclei over time. The number of undecayed nuclei decreases exponentially with a characteristic decay constant λ. The half-life represents the time for half the nuclei to decay, independent of the initial amount.",
+  "definitions": [
+    {
+      "symbol": "N(t)",
+      "definition": "Number of undecayed nuclei at time t."
+    },
+    {
+      "symbol": "N_0",
+      "definition": "Initial number of nuclei at t = 0."
+    },
+    {
+      "symbol": "lambda",
+      "definition": "Decay constant (probability of decay per unit time)."
+    },
+    {
+      "symbol": "t_(1/2)",
+      "definition": "Half-life of the radioactive isotope."
+    }
+  ],
+  "assumptions": [
+    "The decay probability per unit time is constant for each nucleus.",
+    "Decay events are independent and random.",
+    "Each nucleus has the same probability λdt of decaying in time interval dt.",
+    "The large number limit applies (statistical behavior)."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "The rate of decay is proportional to the number of undecayed nuclei present.",
+      "equation": "dN/dt = -lambda N"
+    },
+    {
+      "step": 2,
+      "description": "Separate variables to integrate the differential equation.",
+      "equation": "dN/N = -lambda dt"
+    },
+    {
+      "step": 3,
+      "description": "Integrate both sides from initial conditions to time t.",
+      "equation": "int_(N_0)^N (dN'/N') = -lambda int_0^t dt'"
+    },
+    {
+      "step": 4,
+      "description": "Apply properties of logarithms to simplify the integral.",
+      "equation": "ln(N) - ln(N_0) = -lambda t"
+    },
+    {
+      "step": 5,
+      "description": "Exponentiate both sides to get the exponential decay law.",
+      "equation": "N(t) = N_0 e^(-lambda t)"
+    },
+    {
+      "step": 6,
+      "description": "Define half-life as the time when N(t) = N₀/2.",
+      "equation": "N(t_(1/2)) = N_0/2 = N_0 e^(-lambda t_(1/2))"
+    },
+    {
+      "step": 7,
+      "description": "Simplify the exponential equation for half-life.",
+      "equation": "1/2 = e^(-lambda t_(1/2))"
+    },
+    {
+      "step": 8,
+      "description": "Take the natural logarithm to solve for half-life.",
+      "equation": "t_(1/2) = ln(2)/lambda"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "t, N0, lam, t_half = sp.symbols('t N0 lambda t_half', positive=True)",
+      "# Decay law",
+      "N = N0 * sp.exp(-lam * t)",
+      "# Verify the differential equation is satisfied",
+      "dN_dt = sp.diff(N, t)",
+      "assert sp.simplify(dN_dt + lam * N) == 0",
+      "# Verify half-life formula",
+      "t_half_formula = sp.log(2) / lam",
+      "N_at_half_life = N.subs(t, t_half_formula)",
+      "assert sp.simplify(N_at_half_life - N0/2) == 0",
+      "# Test with specific values",
+      "test_vals = {N0: 1000, lam: 0.1}",
+      "N_test = N.subs(test_vals)",
+      "# At t = 0, N should equal N0",
+      "assert N_test.subs(t, 0) == 1000",
+      "# At t = ln(2)/λ, N should be N0/2",
+      "t_half_val = sp.log(2) / 0.1",
+      "N_half = N_test.subs(t, t_half_val)",
+      "assert abs(float(N_half) - 500) < 1e-10"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of nuclear physics and radiometric dating, medical applications",
+    "development_period": "1896-1910",
+    "key_insights": [
+      "Exponential decay",
+      "Statistical nature of radioactivity",
+      "Nuclear timescales",
+      "Atomic nuclear structure"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rutherford, E., & Soddy, F. (1903). Radioactive Change. *Philosophical Magazine*, 5(29), 576-591."
+    },
+    {
+      "id": "R2",
+      "citation": "Evans, R. D. (1955). *The Atomic Nucleus*. McGraw-Hill."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": []
+}

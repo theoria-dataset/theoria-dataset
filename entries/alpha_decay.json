@@ -1,0 +1,235 @@
+{
+  "result_id": "alpha_decay",
+  "result_name": "Alpha Decay",
+  "result_equations": [
+    {
+      "id": "decay_reaction",
+      "equation": "^(A)X_(Z) -> ^(A-4)Y_(Z-2) + ^4He_2"
+    },
+    {
+      "id": "q_value",
+      "equation": "Q_alpha = (M_parent - M_daughter - M_alpha)*c^2"
+    },
+    {
+      "id": "alpha_kinetic_energy",
+      "equation": "T_alpha = Q_alpha * (M_daughter/(M_daughter + M_alpha))"
+    },
+    {
+      "id": "gamow_factor",
+      "equation": "lambda_alpha propto exp(-2G)"
+    }
+  ],
+  "explanation": "Alpha decay is a type of radioactive decay where an atomic nucleus emits an alpha particle (helium-4 nucleus) consisting of two protons and two neutrons. This process occurs in heavy nuclei to reduce their mass and achieve greater stability through quantum tunneling through the Coulomb barrier. The decay energy Q-value determines the kinetic energies of the products and governs the decay probability.",
+  "definitions": [
+    {
+      "symbol": "A",
+      "definition": "Mass number of the parent nucleus."
+    },
+    {
+      "symbol": "Z",
+      "definition": "Atomic number (number of protons) of the parent nucleus."
+    },
+    {
+      "symbol": "X",
+      "definition": "Chemical symbol of the parent nucleus."
+    },
+    {
+      "symbol": "Y",
+      "definition": "Chemical symbol of the daughter nucleus."
+    },
+    {
+      "symbol": "Q_alpha",
+      "definition": "Q-value, the energy released in the alpha decay process."
+    },
+    {
+      "symbol": "M_parent",
+      "definition": "Rest mass of the parent nucleus."
+    },
+    {
+      "symbol": "M_daughter",
+      "definition": "Rest mass of the daughter nucleus."
+    },
+    {
+      "symbol": "M_alpha",
+      "definition": "Rest mass of the alpha particle (4.002603 u)."
+    },
+    {
+      "symbol": "T_alpha",
+      "definition": "Kinetic energy of the emitted alpha particle."
+    },
+    {
+      "symbol": "T_daughter",
+      "definition": "Recoil kinetic energy of the daughter nucleus."
+    },
+    {
+      "symbol": "lambda_alpha",
+      "definition": "Alpha decay constant (probability per unit time)."
+    },
+    {
+      "symbol": "G",
+      "definition": "Gamow factor accounting for quantum tunneling probability. G = (2*pi*eta)/sqrt(1-eta^2)."
+    },
+    {
+      "symbol": "eta",
+      "definition": "Sommerfeld parameter `eta = (Z_daughter*e^2)/(4pi*epsilon_0*hbar*v)`."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    "The alpha particle exists as a preformed cluster within the parent nucleus with binding energy much greater than nuclear excitation energies.",
+    "The nuclear interaction can be modeled by a potential well with a Coulomb barrier extending to infinity.",
+    "The parent nucleus is initially at rest in the center-of-mass frame.",
+    "Non-relativistic quantum mechanics applies to the tunneling process (`v_alpha << c`).",
+    "The nuclear radius `R approx r_0*A^(1/3)` where `r_0 approx 1.2` fm defines the boundary between nuclear and Coulomb potentials.",
+    "Spherically symmetric nuclear potential neglecting nuclear deformation effects."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Begin with Einstein's mass-energy equivalence applied to nuclear reactions. The initial rest energy equals final rest energy plus kinetic energies.",
+      "equation": "M_parent*c^2 = M_daughter*c^2 + M_alpha*c^2 + T_daughter + T_alpha"
+    },
+    {
+      "step": 2,
+      "description": "Define the Q-value as the mass difference converted to kinetic energy of the products.",
+      "equation": "Q_alpha = T_daughter + T_alpha = (M_parent - M_daughter - M_alpha)*c^2"
+    },
+    {
+      "step": 3,
+      "description": "Apply conservation of momentum. Since the parent nucleus is initially at rest, the momentum vectors of the products must sum to zero.",
+      "equation": "vec p_daughter + vec p_alpha = 0"
+    },
+    {
+      "step": 4,
+      "description": "From momentum conservation, the magnitudes of momenta are equal.",
+      "equation": "|vec p_daughter| = |vec p_alpha| = p"
+    },
+    {
+      "step": 5,
+      "description": "Express kinetic energies in terms of momentum using the non-relativistic approximation `T = p^2/(2M)`.",
+      "equation": "T_daughter = p^2/(2*M_daughter), T_alpha = p^2/(2*M_alpha)"
+    },
+    {
+      "step": 6,
+      "description": "Substitute the momentum expressions into the Q-value equation.",
+      "equation": "Q_alpha = p^2/2*(1/M_daughter + 1/M_alpha)"
+    },
+    {
+      "step": 7,
+      "description": "Solve for the momentum squared in terms of the Q-value and masses.",
+      "equation": "p^2 = (2*Q_alpha*M_daughter*M_alpha)/(M_daughter + M_alpha)"
+    },
+    {
+      "step": 8,
+      "description": "Calculate the alpha particle kinetic energy by substituting the momentum expression.",
+      "equation": "T_alpha = (p^2)/(2*M_alpha) = (Q_alpha*M_daughter)/(M_daughter + M_alpha)"
+    },
+    {
+      "step": 9,
+      "description": "Similarly, calculate the daughter nucleus recoil energy.",
+      "equation": "T_daughter = (p^2)/(2*M_daughter) = (Q_alpha*M_alpha)/(M_daughter + M_alpha)"
+    },
+    {
+      "step": 10,
+      "description": "For quantum tunneling through the Coulomb barrier, define the Sommerfeld parameter characterizing the strength of Coulomb interaction.",
+      "equation": "eta = (Z_daughter*e^2)/(4pi*epsilon_0*hbar*v_alpha)"
+    },
+    {
+      "step": 11,
+      "description": "The Gamow factor represents the quantum mechanical tunneling probability through the Coulomb barrier.",
+      "equation": "G = (2pi*eta)/sqrt(1-eta^2) approx 2pi*eta for eta >> 1"
+    },
+    {
+      "step": 12,
+      "description": "The alpha decay constant depends exponentially on the Gamow factor, giving the characteristic exponential dependence on nuclear charge and alpha particle energy.",
+      "equation": "lambda_alpha = nu_0*P propto nu_0*exp(-2G)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "print('Alpha Decay Verification')",
+      "print('=' * 30)",
+      "",
+      "# Define symbols",
+      "M_parent, M_daughter, M_alpha, c = sp.symbols('M_parent M_daughter M_alpha c', positive=True)",
+      "T_alpha, T_daughter, Q_alpha = sp.symbols('T_alpha T_daughter Q_alpha', positive=True)",
+      "p = sp.symbols('p', positive=True)",
+      "",
+      "# Step 2: Q-value definition",
+      "Q_def = (M_parent - M_daughter - M_alpha) * c**2",
+      "print(f'Q-value: Q_alpha = {Q_def}')",
+      "",
+      "# Step 5: Kinetic energies in terms of momentum",
+      "T_daughter_expr = p**2 / (2 * M_daughter)",
+      "T_alpha_expr = p**2 / (2 * M_alpha)",
+      "print(f'\\nKinetic energies:')",
+      "print(f'T_daughter = {T_daughter_expr}')",
+      "print(f'T_alpha = {T_alpha_expr}')",
+      "",
+      "# Step 6: Q-value in terms of momentum",
+      "Q_momentum = p**2/2 * (1/M_daughter + 1/M_alpha)",
+      "Q_momentum_simplified = sp.simplify(Q_momentum)",
+      "print(f'\\nQ-value from momentum: Q = {Q_momentum_simplified}')",
+      "",
+      "# Step 8: Alpha particle kinetic energy",
+      "T_alpha_final = Q_alpha * M_daughter / (M_daughter + M_alpha)",
+      "print(f'\\nAlpha kinetic energy: T_alpha = {T_alpha_final}')",
+      "",
+      "# Step 9: Daughter recoil energy",
+      "T_daughter_final = Q_alpha * M_alpha / (M_daughter + M_alpha)",
+      "print(f'Daughter recoil energy: T_daughter = {T_daughter_final}')",
+      "",
+      "# Verify energy conservation",
+      "total_kinetic = T_alpha_final + T_daughter_final",
+      "total_simplified = sp.simplify(total_kinetic)",
+      "print(f'\\nTotal kinetic energy: {total_simplified}')",
+      "print('Verified: Total kinetic energy equals Q-value')"
+    ]
+  },
+  "domain": "nucl-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "First type of radioactivity discovered, led to understanding of nuclear structure, quantum tunneling, and nuclear transmutation",
+    "development_period": "1896-1930",
+    "key_insights": [
+      "Discovery of radioactivity and nuclear transmutation (Rutherford)",
+      "Quantum tunneling explanation (Gamow, Condon, Gurney, 1928)",
+      "Mass-energy equivalence in nuclear reactions",
+      "Nuclear stability and the liquid drop model"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Rutherford, E. (1899). Uranium radiation and the electrical conduction produced by it. *Philosophical Magazine*, 47(284), 109-163."
+    },
+    {
+      "id": "R2",
+      "citation": "Gamow, G. (1928). Zur Quantentheorie des Atomkernes. *Zeitschrift für Physik*, 51(3-4), 204-212."
+    },
+    {
+      "id": "R3",
+      "citation": "Condon, E. U., & Gurney, R. W. (1928). Wave mechanics and radioactive disintegration. *Nature*, 122(3073), 439."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to improve this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "conservation_of_energy",
+    "conservation_of_momentum",
+    "quantum_tunneling",
+    "nuclear_binding_energy"
+  ]
+}

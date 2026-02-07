@@ -1,0 +1,165 @@
+{
+  "result_id": "maxwell_lorenz_gauge",
+  "result_name": "Maxwell's Equations (Lorenz Gauge)",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*phi = -rho/epsilon_0"
+    },
+    {
+      "id": "eq2",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*vec A = -mu_0*vec J"
+    },
+    {
+      "id": "eq3",
+      "equation": "nabla dot vec A + (1/c^2)*partial phi/partial t = 0"
+    }
+  ],
+  "explanation": "In Lorenz gauge, Maxwell's equations for the scalar (phi) and vector (vec A) electromagnetic potentials reduce to decoupled inhomogeneous wave equations driven by charge and current densities. These forms make the causal propagation of electromagnetic influences explicit, simplify relativistic formulations, and are widely used in field quantisation and numerical electrodynamics.",
+  "definitions": [
+    {
+      "symbol": "phi",
+      "definition": "Scalar electromagnetic potential."
+    },
+    {
+      "symbol": "vec A",
+      "definition": "Vector electromagnetic potential."
+    },
+    {
+      "symbol": "rho",
+      "definition": "Electric charge density."
+    },
+    {
+      "symbol": "vec J",
+      "definition": "Electric current density."
+    },
+    {
+      "symbol": "epsilon_0",
+      "definition": "Vacuum permittivity."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Vacuum permeability."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum, `c = 1/sqrt(mu_0*epsilon_0)`."
+    },
+    {
+      "symbol": "nabla",
+      "definition": "Vector differential operator with respect to spatial coordinates."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time coordinate."
+    }
+  ],
+  "assumptions": [
+    "Potentials satisfy the Lorenz gauge condition `nabla dot vec A + (1/c^2)*partial phi/partial t = 0`.",
+    "Vacuum permittivity `epsilon_0` and permeability `mu_0` are constants related by `c = 1/sqrt(mu_0*epsilon_0)`.",
+    "Sources are represented by smooth charge density `rho` and current density `vec J`.",
+    "Electromagnetic potentials exist such that `vec E = -nabla phi - partial vec A/partial t` and `vec B = nabla cross vec A`.",
+    "Lorenz gauge condition applies (`nabla dot vec A + (1/c^2)*partial phi/partial t = 0`).",
+    "Fields and sources are sufficiently smooth to permit interchange of derivatives."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with Gauss's law for electricity.",
+      "equation": "nabla dot vec E = rho/epsilon_0"
+    },
+    {
+      "step": 2,
+      "description": "Express the electric field in terms of scalar and vector potentials.",
+      "equation": "vec E = -nabla phi - partial vec A/partial t"
+    },
+    {
+      "step": 3,
+      "description": "Insert the potentials into Gauss's law and rearrange the derivatives.",
+      "equation": "-nabla^2 phi - partial/partial t(nabla dot vec A) = rho/epsilon_0"
+    },
+    {
+      "step": 4,
+      "description": "Impose the Lorenz gauge to relate the divergence of `vec A` to the time derivative of `phi`.",
+      "equation": "nabla dot vec A + (1/c^2)*partial phi/partial t = 0"
+    },
+    {
+      "step": 5,
+      "description": "Combine the previous two steps to obtain the inhomogeneous wave equation for the scalar potential.",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*phi = -rho/epsilon_0"
+    },
+    {
+      "step": 6,
+      "description": "Write Ampère–Maxwell law with Maxwell's displacement current term.",
+      "equation": "nabla cross vec B - (1/c^2)*partial vec E/partial t = mu_0*vec J"
+    },
+    {
+      "step": 7,
+      "description": "Express the magnetic field through the vector potential.",
+      "equation": "vec B = nabla cross vec A"
+    },
+    {
+      "step": 8,
+      "description": "Substitute potentials into Ampère–Maxwell law and use the vector identity `nabla cross (nabla cross vec A) = nabla(nabla dot vec A) - nabla^2 vec A`.",
+      "equation": "nabla cross (nabla cross vec A) + (1/c^2)*partial/partial t(nabla phi + partial vec A/partial t) = mu_0*vec J"
+    },
+    {
+      "step": 9,
+      "description": "Employ the Lorenz gauge again to isolate the vector potential, yielding its wave equation.",
+      "equation": "(nabla^2 - (1/c^2)*partial^2/(partial t^2))*vec A = -mu_0*vec J"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# ---- Plane-wave check of Lorenz gauge continuity ----",
+      "t, x, c = sp.symbols('t x c', positive=True)",
+      "epsilon0, mu0 = sp.symbols('epsilon0 mu0', positive=True)",
+      "k, omega = sp.symbols('k omega', real=True)",
+      "phi = sp.exp(sp.I*(k*x - omega*t))",
+      "Ax = Ay = Az = 0",
+      "def box(f):\n    return sp.diff(f, x, 2) - 1/c**2 * sp.diff(f, t, 2)",
+      "rho = -epsilon0*box(phi)",
+      "continuity = sp.diff(rho, t)",
+      "continuity = continuity.subs(mu0, 1/(epsilon0*c**2)).subs(omega, c*k)",
+      "assert sp.simplify(continuity) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "limiting_case",
+  "historical_context": {
+    "importance": "Useful gauge choice for electromagnetic calculations, simplifies wave equations",
+    "development_period": "1895-1900",
+    "key_insights": [
+      "Gauge freedom in electromagnetism",
+      "Simplified wave equations",
+      "Lorentz covariant formulation"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Jackson, J. D. (1999). *Classical Electrodynamics* (3rd ed.). Wiley."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2013). *Introduction to Electrodynamics* (4th ed.). Pearson."
+    },
+    {
+      "id": "R3",
+      "citation": "Lorenz, L. (1867). 'Über die Identität der Schwingungen des Lichts mit den elektrischen Strömen.' *Annalen der Physik und Chemie*, 131(10), 243–263."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "maxwell_equations"
+  ]
+}

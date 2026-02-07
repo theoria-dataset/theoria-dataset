@@ -1,0 +1,209 @@
+{
+  "result_id": "newtons_laws_of_motion",
+  "result_name": "Newton's Laws of Motion",
+  "result_equations": [
+    {
+      "id": "first_law",
+      "equation": "sum vec F = 0 => vec v = const"
+    },
+    {
+      "id": "second_law",
+      "equation": "vec F = m * vec a"
+    },
+    {
+      "id": "second_law_momentum",
+      "equation": "vec F = (d vec p)/(dt)"
+    },
+    {
+      "id": "third_law",
+      "equation": "vec F_(AB) = -vec F_(BA)"
+    }
+  ],
+  "explanation": "Newton's three laws of motion form the foundation of classical mechanics. The First Law (Law of Inertia) states that objects maintain constant velocity unless acted upon by a net force, defining inertial reference frames. The Second Law establishes that net force equals mass times acceleration, or the rate of change of momentum, providing the fundamental equation of motion. The Third Law states that forces occur in equal and opposite pairs, ensuring momentum conservation. Together, these laws enable the prediction and analysis of motion for all macroscopic objects in the classical regime.",
+  "definitions": [
+    {
+      "symbol": "vec F",
+      "definition": "Net force vector acting on an object."
+    },
+    {
+      "symbol": "vec v",
+      "definition": "Velocity vector of the object."
+    },
+    {
+      "symbol": "const",
+      "definition": "Constant value (independent of time)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the object (assumed constant for second_law)."
+    },
+    {
+      "symbol": "vec a",
+      "definition": "Acceleration vector of the object."
+    },
+    {
+      "symbol": "vec p",
+      "definition": "Momentum vector of the object (vec p = m * vec v)."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time coordinate."
+    },
+    {
+      "symbol": "vec F_(AB)",
+      "definition": "Force exerted by object A on object B."
+    },
+    {
+      "symbol": "vec F_(BA)",
+      "definition": "Force exerted by object B on object A."
+    }
+  ],
+  "assumptions": [
+    "Observations are made from inertial reference frames.",
+    "Classical mechanics applies (non-relativistic velocities).",
+    "For the Second Law constant-mass form, mass remains constant during motion.",
+    "Forces are well-defined and can be measured or calculated.",
+    "The concept of inertial reference frames can be defined operationally.",
+    "Force can be defined as the rate of change of momentum.",
+    "Mass is an intrinsic property that may be constant or variable.",
+    "For isolated systems, total momentum is conserved."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "The First Law establishes the existence of inertial reference frames where objects with no net force maintain constant velocity.",
+      "equation": "text(First Law: Establish inertial frames)"
+    },
+    {
+      "step": 2,
+      "description": "Mathematical expression: zero net force implies zero acceleration, hence constant velocity.",
+      "equation": "sum vec F = 0 => (d vec v)/(dt) = 0 => vec v = const"
+    },
+    {
+      "step": 3,
+      "description": "The Second Law provides the quantitative relationship between force and motion.",
+      "equation": "text(Second Law: Force-acceleration relationship)"
+    },
+    {
+      "step": 4,
+      "description": "Start with the most general form: force equals rate of change of momentum.",
+      "equation": "vec F = (d vec p)/(dt) = (d(m * vec v))/(dt)"
+    },
+    {
+      "step": 5,
+      "description": "Apply product rule to differentiate momentum.",
+      "equation": "vec F = m * (d vec v)/(dt) + vec v * (dm)/(dt)"
+    },
+    {
+      "step": 6,
+      "description": "For constant mass objects, the mass derivative term vanishes.",
+      "equation": "text(For constant mass: ) (dm)/(dt) = 0"
+    },
+    {
+      "step": 7,
+      "description": "This yields the familiar F = ma form for constant mass systems.",
+      "equation": "vec F = m * (d vec v)/(dt) = m * vec a"
+    },
+    {
+      "step": 8,
+      "description": "The Third Law emerges from momentum conservation in isolated systems.",
+      "equation": "text(Third Law: Momentum conservation for isolated system)"
+    },
+    {
+      "step": 9,
+      "description": "For an isolated two-body system, total momentum is conserved.",
+      "equation": "d/dt(vec p_A + vec p_B) = 0"
+    },
+    {
+      "step": 10,
+      "description": "The time derivative of total momentum equals the sum of individual force contributions.",
+      "equation": "(d vec p_A)/(dt) + (d vec p_B)/(dt) = 0"
+    },
+    {
+      "step": 11,
+      "description": "By the Second Law, these are the net forces on each object.",
+      "equation": "vec F_A + vec F_B = 0"
+    },
+    {
+      "step": 12,
+      "description": "For interaction forces only, this gives the action-reaction law.",
+      "equation": "vec F_(BA) + vec F_(AB) = 0 => vec F_(AB) = -vec F_(BA)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols",
+      "t, m, v0 = sp.symbols('t m v0', real=True, positive=True)",
+      "Fx_AB, Fy_AB, Fz_AB = sp.symbols('Fx_AB Fy_AB Fz_AB', real=True)",
+      "Fx_BA, Fy_BA, Fz_BA = sp.symbols('Fx_BA Fy_BA Fz_BA', real=True)",
+      "",
+      "# Test First Law: If net force is zero, velocity is constant",
+      "a = 0  # zero acceleration",
+      "v = sp.integrate(a, t) + v0  # integrate to get velocity",
+      "assert sp.diff(v, t) == 0  # velocity is constant",
+      "assert v == v0  # velocity equals initial velocity",
+      "",
+      "# Test Second Law: Verify F = dp/dt reduces to F = ma for constant mass",
+      "v_x_t = sp.Function('v_x')(t)",
+      "p_x = m * v_x_t  # momentum",
+      "F_x_momentum = sp.diff(p_x, t)  # F = dp/dt",
+      "F_x_ma = m * sp.diff(v_x_t, t)  # F = ma",
+      "assert sp.simplify(F_x_momentum - F_x_ma) == 0",
+      "",
+      "# Test Third Law: Action-reaction pairs sum to zero",
+      "F_AB = sp.Matrix([Fx_AB, Fy_AB, Fz_AB])",
+      "F_BA = sp.Matrix([Fx_BA, Fy_BA, Fz_BA])",
+      "",
+      "# Newton's third law: F_AB = -F_BA",
+      "substitutions = {Fx_BA: -Fx_AB, Fy_BA: -Fy_AB, Fz_BA: -Fz_AB}",
+      "total_force = F_AB + F_BA",
+      "total_force_substituted = total_force.subs(substitutions)",
+      "assert total_force_substituted == sp.Matrix([0, 0, 0])",
+      "",
+      "# Test momentum conservation consequence",
+      "F_AB_test = sp.Matrix([10, -5, 3])",
+      "F_BA_test = -F_AB_test",
+      "assert F_AB_test + F_BA_test == sp.Matrix([0, 0, 0])"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of classical mechanics, enables prediction of motion and understanding of force interactions",
+    "development_period": "1687",
+    "key_insights": [
+      "Concept of inertia and inertial frames",
+      "Quantitative relationship between force and acceleration",
+      "Action-reaction principle ensuring momentum conservation",
+      "Unified framework for analyzing motion"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). *Philosophiæ Naturalis Principia Mathematica*. Royal Society."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison-Wesley."
+    },
+    {
+      "id": "R3",
+      "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1963). *The Feynman Lectures on Physics* (Vol. 1). Addison-Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Consolidated from individual Newton's law entries",
+      "identifier": "Not provided"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "conservation_of_momentum"
+  ]
+}

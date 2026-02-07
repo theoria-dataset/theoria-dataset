@@ -1,0 +1,158 @@
+{
+  "result_id": "electromagnetic_waves",
+  "result_name": "Electromagnetic Waves",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "nabla^2 vec E - mu_0 epsilon_0 (partial^2 vec E)/(partial t^2) = 0"
+    },
+    {
+      "id": "eq2",
+      "equation": "c = 1/sqrt(mu_0 epsilon_0)"
+    },
+    {
+      "id": "eq3",
+      "equation": "vec E = vec E_0 cos(vec k cdot vec r - omega t + phi)"
+    }
+  ],
+  "explanation": "Electromagnetic waves are self-propagating oscillations of electric and magnetic fields that travel at the speed of light. They result from Maxwell's equations and include visible light, radio waves, X-rays, and all other forms of electromagnetic radiation. The wave equation shows that EM disturbances propagate at speed c = 1/√(μ₀ε₀).",
+  "definitions": [
+    {
+      "symbol": "vec E",
+      "definition": "Electric field vector."
+    },
+    {
+      "symbol": "vec B",
+      "definition": "Magnetic field vector."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Permeability of free space."
+    },
+    {
+      "symbol": "epsilon_0",
+      "definition": "Permittivity of free space."
+    },
+    {
+      "symbol": "vec k",
+      "definition": "Wave vector (direction and wavelength)."
+    },
+    {
+      "symbol": "omega",
+      "definition": "Angular frequency of the wave."
+    }
+  ],
+  "assumptions": [
+    "The medium is free space (vacuum) with no charges or currents.",
+    "Electric and magnetic fields are perpendicular to each other and to the direction of propagation.",
+    "Maxwell's equations apply in free space with no sources.",
+    "The curl-curl vector identity is used for the electric field."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with Faraday's law from Maxwell's equations.",
+      "equation": "nabla times vec E = -partial vec B/partial t"
+    },
+    {
+      "step": 2,
+      "description": "Use Ampère's law (with Maxwell's correction) in free space.",
+      "equation": "nabla times vec B = mu_0 epsilon_0 partial vec E/partial t"
+    },
+    {
+      "step": 3,
+      "description": "Take the curl of Faraday's law and substitute time derivative.",
+      "equation": "nabla times (nabla times vec E) = -partial/partial t (nabla times vec B)"
+    },
+    {
+      "step": 4,
+      "description": "Substitute Ampère's law to eliminate magnetic field.",
+      "equation": "nabla times (nabla times vec E) = -mu_0 epsilon_0 partial^2 vec E/partial t^2"
+    },
+    {
+      "step": 5,
+      "description": "Apply the vector identity for curl of curl.",
+      "equation": "nabla(nabla cdot vec E) - nabla^2 vec E = -mu_0 epsilon_0 partial^2 vec E/partial t^2"
+    },
+    {
+      "step": 6,
+      "description": "In free space, there are no charges, so divergence of E is zero.",
+      "equation": "nabla cdot vec E = 0 (in free space)"
+    },
+    {
+      "step": 7,
+      "description": "Obtain the wave equation for the electric field.",
+      "equation": "nabla^2 vec E - mu_0 epsilon_0 partial^2 vec E/partial t^2 = 0"
+    },
+    {
+      "step": 8,
+      "description": "Identify the wave speed as the speed of light.",
+      "equation": "c^2 = 1/(mu_0 epsilon_0)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "x, t, k, omega, c, mu0, eps0 = sp.symbols('x t k omega c mu0 eps0', real=True, positive=True)",
+      "# Plane wave solution",
+      "E = sp.cos(k*x - omega*t)",
+      "# Verify wave equation for 1D case",
+      "d2E_dx2 = sp.diff(E, x, 2)",
+      "d2E_dt2 = sp.diff(E, t, 2)",
+      "# Wave equation: d²E/dx² - (1/c²)d²E/dt² = 0",
+      "wave_eq = d2E_dx2 - (1/c**2)*d2E_dt2",
+      "# For plane wave, this should be satisfied when omega = c*k",
+      "wave_eq_substituted = wave_eq.subs(omega, c*k)",
+      "assert sp.simplify(wave_eq_substituted) == 0",
+      "# Verify speed of light relationship",
+      "c_formula = 1/sp.sqrt(mu0*eps0)",
+      "# Check that c² = 1/(μ₀ε₀)",
+      "c_squared = c_formula**2",
+      "expected = 1/(mu0*eps0)",
+      "assert sp.simplify(c_squared - expected) == 0",
+      "# Verify dispersion relation",
+      "dispersion = omega - c*k",
+      "# For EM waves in vacuum, ω = ck",
+      "assert dispersion.subs(omega, c*k) == 0"
+    ]
+  },
+  "domain": "physics.optics",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Unification of electricity and magnetism, foundation of modern communication and optics",
+    "development_period": "1860-1888",
+    "key_insights": [
+      "Light is electromagnetic",
+      "Electromagnetic spectrum",
+      "Wave-particle duality foundation",
+      "Electromagnetic radiation"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Maxwell, J. C. (1865). A dynamical theory of the electromagnetic field. *Philosophical Transactions of the Royal Society*, 155, 459-512."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "maxwell_equations"
+  ]
+}

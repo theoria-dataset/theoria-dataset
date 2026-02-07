@@ -1,0 +1,169 @@
+{
+  "result_id": "young_double_slit",
+  "result_name": "Young's Double Slit Experiment",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "delta = d sin(theta) approx d y/L"
+    },
+    {
+      "id": "eq2",
+      "equation": "y_bright = (m lambda L)/d, y_dark = ((m + 1/2) lambda L)/d"
+    }
+  ],
+  "explanation": "Young's double slit experiment demonstrates wave interference and the wave nature of light (and matter). When coherent light passes through two parallel slits, it creates an interference pattern with alternating bright and dark fringes. This experiment is fundamental to quantum mechanics, showing wave-particle duality when performed with individual photons or electrons.",
+  "definitions": [
+    {
+      "symbol": "delta",
+      "definition": "Path difference between waves from the two slits."
+    },
+    {
+      "symbol": "d",
+      "definition": "Distance between the centers of the two slits."
+    },
+    {
+      "symbol": "theta",
+      "definition": "Angle from the central axis to the observation point."
+    },
+    {
+      "symbol": "y",
+      "definition": "Distance on screen from central maximum to observation point."
+    },
+    {
+      "symbol": "L",
+      "definition": "Distance from slits to observation screen."
+    },
+    {
+      "symbol": "lambda",
+      "definition": "Wavelength of the light (or de Broglie wavelength for matter waves)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Integer representing the order of interference (m = 0, ±1, ±2, ...)."
+    }
+  ],
+  "assumptions": [
+    "The light source is coherent (constant phase relationship between waves from both slits).",
+    "The screen distance L is much larger than slit separation d and slit width.",
+    "Small angle approximation applies (sin θ ≈ tan θ ≈ θ).",
+    "Plane wave approximation applies at the observation screen.",
+    "The slits act as coherent point sources (Huygens' principle)."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Define path difference as the difference in distance traveled by waves from each slit.",
+      "equation": "Path difference: delta = r_2 - r_1"
+    },
+    {
+      "step": 2,
+      "description": "For the geometric setup, path difference depends on slit separation and observation angle.",
+      "equation": "For small angles: delta = d sin(theta)"
+    },
+    {
+      "step": 3,
+      "description": "Apply small angle approximation for distant screen observation.",
+      "equation": "tan(theta) = y/L approx sin(theta) = y/L"
+    },
+    {
+      "step": 4,
+      "description": "Express path difference in terms of measurable quantities y and L.",
+      "equation": "delta = d y/L"
+    },
+    {
+      "step": 5,
+      "description": "Constructive interference occurs when path difference is an integer multiple of wavelength.",
+      "equation": "Constructive interference: delta = m lambda"
+    },
+    {
+      "step": 6,
+      "description": "Solve for positions of bright fringes (maxima) on the screen.",
+      "equation": "Bright fringes: d y/L = m lambda => y = (m lambda L)/d"
+    },
+    {
+      "step": 7,
+      "description": "Destructive interference occurs when path difference is a half-integer multiple of wavelength.",
+      "equation": "Destructive interference: delta = (m + 1/2) lambda"
+    },
+    {
+      "step": 8,
+      "description": "Solve for positions of dark fringes (minima) on the screen.",
+      "equation": "Dark fringes: y = ((m + 1/2) lambda L)/d"
+    },
+    {
+      "step": 9,
+      "description": "Calculate the spacing between adjacent bright (or dark) fringes.",
+      "equation": "Fringe spacing: Delta y = lambda L/d"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "lam, d, L, m, y, theta = sp.symbols('lambda d L m y theta', real=True)",
+      "# Path difference in small angle approximation",
+      "delta = d * y / L",
+      "# Bright fringe condition",
+      "y_bright = m * lam * L / d",
+      "# Dark fringe condition",
+      "y_dark = (m + sp.Rational(1,2)) * lam * L / d",
+      "# Verify that bright fringes satisfy constructive interference",
+      "delta_bright = delta.subs(y, y_bright)",
+      "assert sp.simplify(delta_bright - m * lam) == 0",
+      "# Verify that dark fringes satisfy destructive interference",
+      "delta_dark = delta.subs(y, y_dark)",
+      "expected_dark = (m + sp.Rational(1,2)) * lam",
+      "assert sp.simplify(delta_dark - expected_dark) == 0",
+      "# Fringe spacing (distance between adjacent bright fringes)",
+      "y_bright_next = y_bright.subs(m, m + 1)",
+      "fringe_spacing = y_bright_next - y_bright",
+      "assert sp.simplify(fringe_spacing) == lam * L / d",
+      "# Verify central maximum at y = 0",
+      "y_central = y_bright.subs(m, 0)",
+      "assert y_central == 0",
+      "# Example calculation with numerical values",
+      "# Red light (λ = 650 nm), d = 1 mm, L = 1 m",
+      "test_vals = {lam: 650e-9, d: 1e-3, L: 1.0}",
+      "fringe_spacing_num = fringe_spacing.subs(test_vals)",
+      "assert abs(float(fringe_spacing_num) - 6.5e-4) < 1e-6  # 0.65 mm",
+      "# First bright fringe position",
+      "y_first_bright = y_bright.subs(m, 1).subs(test_vals)",
+      "assert abs(float(y_first_bright) - 6.5e-4) < 1e-6"
+    ]
+  },
+  "domain": "physics.optics",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Established wave nature of light, fundamental to quantum mechanics and wave-particle duality",
+    "development_period": "1801-1909",
+    "key_insights": [
+      "Wave interference",
+      "Wave nature of light",
+      "Quantum wave-particle duality",
+      "Foundation of quantum mechanics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Young, T. (1804). The Bakerian Lecture: Experiments and calculations relative to physical optics. *Philosophical Transactions of the Royal Society*, 94, 1-16."
+    },
+    {
+      "id": "R2",
+      "citation": "Feynman, R. P., Leighton, R. B., & Sands, M. (1965). *The Feynman Lectures on Physics, Volume III: Quantum Mechanics*. Addison-Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "wave_interference",
+    "de_broglie_wavelength"
+  ]
+}

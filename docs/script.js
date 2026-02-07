@@ -383,20 +383,10 @@ function render(data) {
     aiDisclaimer.style.display = isDraft ? 'block' : 'none';
   }
   
-  // Add edit button below theme toggle (top-right corner)
-  const existingEditBtn = document.querySelector('.edit-entry-btn');
-  if (existingEditBtn) {
-    existingEditBtn.remove(); // Remove existing button if any
-  }
-
+  // Add edit button after title
   const editButton = document.createElement('button');
-  editButton.className = 'edit-entry-btn';
-  editButton.setAttribute('aria-label', 'Edit this entry');
-  editButton.setAttribute('title', 'Edit this entry');
-  editButton.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-  </svg>`;
+  editButton.className = 'cta-button edit-entry-btn';
+  editButton.innerHTML = '✏️ Edit This Entry';
   editButton.onclick = () => {
     const params = new URLSearchParams(window.location.search);
     const entryFile = params.get("entry");
@@ -405,12 +395,13 @@ function render(data) {
       window.open(`contribute/form.html?entry=${entryId}`, '_blank');
     }
   };
-
-  // Insert edit button after theme toggle
-  const themeToggle = $("themeToggle");
-  if (themeToggle) {
-    themeToggle.insertAdjacentElement('afterend', editButton);
+  
+  // Insert edit button after title
+  const titleElement = $("title");
+  if (titleElement.nextElementSibling && titleElement.nextElementSibling.classList.contains('edit-entry-btn')) {
+    titleElement.nextElementSibling.remove(); // Remove existing button
   }
+  titleElement.insertAdjacentElement('afterend', editButton);
   
   $("explanation").innerHTML = data.explanation.replace(/\bhbar\b/g, "ℏ");
   // Show all sections and their headings
@@ -605,13 +596,6 @@ function render(data) {
 
   // Typeset math for the whole entry view as a fallback
   safeTypesetMathJax([qs("#entryView")]);
-
-  // Setup prev/next navigation by domain
-  const params = new URLSearchParams(window.location.search);
-  const entryFile = params.get("entry");
-  if (entryFile && data.domain) {
-    setupEntryNavigation(entryFile, data.domain);
-  }
 }
 
 function renderList(sel, arr, fn, rawHtml = false) {
@@ -638,204 +622,4 @@ function renderList(sel, arr, fn, rawHtml = false) {
     });
     el.insertAdjacentHTML("beforeend", `<li>${wrappedText}</li>`);
   });
-}
-
-// ============================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ============================================
-
-// Initialize fade-in animations for elements when they enter viewport
-if ('IntersectionObserver' in window) {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Wait for DOM to be ready
-  document.addEventListener('DOMContentLoaded', () => {
-    // Observe elements that should fade in
-    document.querySelectorAll('.feature-card, .method-card, .stat-card').forEach(el => {
-      el.classList.add('fade-in-observer');
-      observer.observe(el);
-    });
-  });
-}
-
-// Smooth scroll with offset for fixed header
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const offset = 80;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
-
-// ============================================
-// PREV/NEXT ENTRY NAVIGATION BY DOMAIN
-// ============================================
-
-// Cache for entries list
-let entriesListCache = null;
-
-// Load entries list from GitHub API or local manifest
-async function loadEntriesList() {
-  if (entriesListCache) return entriesListCache;
-
-  try {
-    // Now fetch each entry to get domain info
-    const entriesDir = isGitHubPages
-      ? 'https://api.github.com/repos/theoria-dataset/theoria-dataset/contents/entries'
-      : '../entries';
-
-    let files;
-    if (isGitHubPages) {
-      const response = await fetch(entriesDir);
-      const data = await response.json();
-      files = data.filter(f => f.name.endsWith('.json')).map(f => f.name);
-    } else {
-      // For local dev, use a hardcoded fetch of index
-      const indexResponse = await fetch('../entries/');
-      if (!indexResponse.ok) {
-        // Fallback: try parsing entries_index.html for entry links
-        const entriesIndexResponse = await fetch('entries_index.html');
-        const html = await entriesIndexResponse.text();
-        const matches = html.matchAll(/entry=([^"&]+\.json)/g);
-        files = [...new Set([...matches].map(m => m[1]))];
-      }
-    }
-
-    // Load each entry to group by domain
-    const entries = [];
-    for (const filename of files || []) {
-      try {
-        const entryUrl = `${baseUrl}/entries/${filename}`;
-        const entryResponse = await fetch(entryUrl);
-        if (entryResponse.ok) {
-          const data = await entryResponse.json();
-          entries.push({
-            filename,
-            domain: data.domain,
-            name: data.result_name,
-            id: data.result_id
-          });
-        }
-      } catch (e) {
-        console.warn('Could not load entry:', filename);
-      }
-    }
-
-    // Group by domain and sort by name within each domain
-    const byDomain = {};
-    entries.forEach(entry => {
-      if (!byDomain[entry.domain]) {
-        byDomain[entry.domain] = [];
-      }
-      byDomain[entry.domain].push(entry);
-    });
-
-    // Sort entries within each domain by name
-    Object.keys(byDomain).forEach(domain => {
-      byDomain[domain].sort((a, b) => a.name.localeCompare(b.name));
-    });
-
-    entriesListCache = byDomain;
-    return entriesListCache;
-  } catch (error) {
-    console.error('Error loading entries list:', error);
-    return null;
-  }
-}
-
-// Setup prev/next navigation for current entry
-async function setupEntryNavigation(currentEntry, currentDomain) {
-  const entryNav = $('entry-nav');
-  if (!entryNav) return;
-
-  const entriesByDomain = await loadEntriesList();
-  if (!entriesByDomain || !entriesByDomain[currentDomain]) {
-    entryNav.style.display = 'none';
-    return;
-  }
-
-  const domainEntries = entriesByDomain[currentDomain];
-  const currentFilename = currentEntry.endsWith('.json') ? currentEntry : `${currentEntry}.json`;
-  const currentIndex = domainEntries.findIndex(e => e.filename === currentFilename);
-
-  if (currentIndex === -1) {
-    entryNav.style.display = 'none';
-    return;
-  }
-
-  // Calculate prev/next indices (wrap around within domain)
-  const prevIndex = (currentIndex - 1 + domainEntries.length) % domainEntries.length;
-  const nextIndex = (currentIndex + 1) % domainEntries.length;
-
-  const prevEntry = domainEntries[prevIndex];
-  const nextEntry = domainEntries[nextIndex];
-
-  // Update nav links
-  const prevLink = $('prev-entry');
-  const nextLink = $('next-entry');
-  const domainLabel = $('current-domain');
-
-  if (prevLink) {
-    prevLink.href = `entries.html?entry=${prevEntry.filename}`;
-    prevLink.title = prevEntry.name;
-  }
-
-  if (nextLink) {
-    nextLink.href = `entries.html?entry=${nextEntry.filename}`;
-    nextLink.title = nextEntry.name;
-  }
-
-  if (domainLabel) {
-    // Format domain name nicely
-    const domainNames = {
-      'physics.class-ph': 'Classical Physics',
-      'physics': 'General Physics',
-      'physics.flu-dyn': 'Fluid Dynamics',
-      'physics.atom-ph': 'Atomic Physics',
-      'physics.cond-mat': 'Condensed Matter Physics',
-      'physics.optics': 'Optics',
-      'quant-ph': 'Quantum Physics',
-      'cond-mat': 'Condensed Matter Physics',
-      'cond-mat.stat-mech': 'Statistical Mechanics',
-      'cond-mat.mes-hall': 'Mesoscale and Nanoscale Physics',
-      'cond-mat.mtrl-sci': 'Materials Science',
-      'hep-th': 'High Energy Physics (Theory)',
-      'hep-ph': 'High Energy Physics (Phenomenology)',
-      'hep-ex': 'High Energy Physics (Experiment)',
-      'hep-lat': 'High Energy Physics (Lattice)',
-      'nucl-th': 'Nuclear Theory',
-      'astro-ph': 'Astrophysics',
-      'gr-qc': 'General Relativity and Quantum Cosmology',
-      'math-ph': 'Mathematical Physics'
-    };
-    domainLabel.textContent = domainNames[currentDomain] || currentDomain;
-  }
-
-  // Show the nav
-  entryNav.style.display = 'flex';
 }

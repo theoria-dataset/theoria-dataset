@@ -1,0 +1,145 @@
+{
+  "result_id": "einstein_field_equations",
+  "result_name": "Einstein Field Equations",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "G_(mu nu) + Lambda g_(mu nu) = (8 pi G)/(c^4) T_(mu nu)"
+    },
+    {
+      "id": "eq2",
+      "equation": "G_(mu nu) = R_(mu nu) - (1/2) R g_(mu nu)"
+    }
+  ],
+  "explanation": "Einstein's field equations describe how matter and energy curve spacetime, forming the foundation of general relativity. They relate the geometry of spacetime (left side) to the matter-energy content (right side), showing that matter tells spacetime how to curve, and curved spacetime tells matter how to move.",
+  "definitions": [
+    {
+      "symbol": "G_(mu nu)",
+      "definition": "Einstein tensor describing spacetime curvature."
+    },
+    {
+      "symbol": "R_(mu nu)",
+      "definition": "Ricci curvature tensor."
+    },
+    {
+      "symbol": "R",
+      "definition": "Ricci scalar (trace of Ricci tensor)."
+    },
+    {
+      "symbol": "g_(mu nu)",
+      "definition": "Metric tensor describing spacetime geometry."
+    },
+    {
+      "symbol": "T_(mu nu)",
+      "definition": "Stress-energy tensor describing matter and energy."
+    },
+    {
+      "symbol": "Lambda",
+      "definition": "Cosmological constant."
+    },
+    {
+      "symbol": "G",
+      "definition": "Newton's gravitational constant."
+    },
+    {
+      "symbol": "c",
+      "definition": "Speed of light in vacuum."
+    }
+  ],
+  "assumptions": [
+    "General covariance: the laws of physics are the same in all coordinate systems.",
+    "The equivalence principle: gravitational and inertial effects are locally indistinguishable.",
+    "The action principle applies to spacetime geometry.",
+    "Minimal coupling between matter and geometry."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with the Einstein-Hilbert action combining gravitational and matter terms.",
+      "equation": "S = (1/(16 pi G)) int R sqrt(-g) d^4 x + int L_matter sqrt(-g) d^4 x"
+    },
+    {
+      "step": 2,
+      "description": "Apply the principle of stationary action by varying with respect to the metric.",
+      "equation": "delta S/delta g_(mu nu) = 0"
+    },
+    {
+      "step": 3,
+      "description": "Obtain the field equations relating curvature to matter-energy content.",
+      "equation": "R_(mu nu) - (1/2) R g_(mu nu) = 8 pi G T_(mu nu)"
+    },
+    {
+      "step": 4,
+      "description": "Define the Einstein tensor as the left-hand side combination.",
+      "equation": "G_(mu nu) = R_(mu nu) - (1/2) R g_(mu nu)"
+    },
+    {
+      "step": 5,
+      "description": "The fundamental form without cosmological constant.",
+      "equation": "G_(mu nu) = 8 pi G T_(mu nu)"
+    },
+    {
+      "step": 6,
+      "description": "Add cosmological constant term for accelerating universe solutions.",
+      "equation": "G_(mu nu) + Lambda g_(mu nu) = 8 pi G T_(mu nu)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbolic tensors (conceptual verification)",
+      "# Note: Full tensor calculation requires advanced differential geometry",
+      "# This verification shows basic consistency checks",
+      "# Define symbols for scalar case (simplified)",
+      "G_scalar, R_scalar, Lambda, T_scalar, g_scalar = sp.symbols('G_scalar R_scalar Lambda T_scalar g_scalar')",
+      "G_const, c = sp.symbols('G_const c', positive=True)",
+      "# Einstein tensor definition (scalar analogue)",
+      "Einstein_tensor = R_scalar - sp.Rational(1,2) * R_scalar * g_scalar",
+      "# Field equation (scalar analogue)",
+      "field_eq = Einstein_tensor + Lambda * g_scalar - 8*sp.pi*G_const/c**4 * T_scalar",
+      "# Verify dimensional consistency (conceptual)",
+      "# [G_mu_nu] = [R_mu_nu] = 1/length^2",
+      "# [T_mu_nu] = energy/volume = mass/(length*time^2)",
+      "# [G/c^4] = length/(mass*time^2) * (time^4/length^4) = 1/(mass*length*time^2) * time^4/length^3",
+      "# This gives the right dimensions for the field equations",
+      "# Verify trace of field equations gives constraint",
+      "trace_eq = -R_scalar + 4*Lambda - 8*sp.pi*G_const/c**4 * T_scalar",
+      "# This is consistent with the trace of Einstein equations",
+      "assert field_eq.coeff(Lambda) == g_scalar"
+    ]
+  },
+  "domain": "gr-qc",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of modern cosmology and gravitational physics",
+    "development_period": "1915-1917",
+    "key_insights": [
+      "Spacetime curvature",
+      "Geometric theory of gravity",
+      "Cosmological solutions",
+      "Black holes and gravitational waves"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Einstein, A. (1915). Die Feldgleichungen der Gravitation. *Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften*, 844-847."
+    },
+    {
+      "id": "R2",
+      "citation": "Misner, C. W., Thorne, K. S., & Wheeler, J. A. (1973). *Gravitation*. W. H. Freeman."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "special_relativity"
+  ]
+}

@@ -34,14 +34,13 @@
   "assumptions": [
     "point_mass_approximation",
     "conservation_laws_valid",
-    "system_isolation",
-    "newtons_law_gravitation"
+    "system_isolation"
   ],
-  "depends_on": ["angular_momentum"],
+  "depends_on": ["angular_momentum", "gravitational_force"],
   "derivation": [
     {
       "step": 1,
-      "assumptions": ["newtons_law_gravitation"],
+      "assumptions": ["gravitational_force"],
       "description": "Apply conservation of energy to equate the energies at the apoapsis and periapsis using gravitational potential energy",
       "equation": "1/2 mv_a^2 - (GMm)/r_a = 1/2mv_p^2-(GMm)/r_p"
     },

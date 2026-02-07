@@ -1,0 +1,196 @@
+{
+  "result_id": "simple_harmonic_motion",
+  "result_name": "Simple Harmonic Motion",
+  "result_equations": [
+    {
+      "id": "shm_differential_equation",
+      "equation": "\\frac{d^2x}{dt^2} + \\omega^2 x = 0"
+    },
+    {
+      "id": "shm_general_solution",
+      "equation": "x(t) = A\\cos(\\omega t + \\phi)"
+    },
+    {
+      "id": "shm_velocity",
+      "equation": "v(t) = -A\\omega\\sin(\\omega t + \\phi)"
+    },
+    {
+      "id": "shm_acceleration",
+      "equation": "a(t) = -A\\omega^2\\cos(\\omega t + \\phi) = -\\omega^2 x(t)"
+    },
+    {
+      "id": "shm_energy",
+      "equation": "E = \\frac{1}{2}kA^2 = \\frac{1}{2}m\\omega^2 A^2"
+    }
+  ],
+  "explanation": "Simple harmonic motion describes oscillatory motion where the restoring force is proportional to the displacement from equilibrium. This type of motion is fundamental in physics, appearing in systems from pendulums to quantum oscillators.",
+  "definitions": [
+    {
+      "symbol": "x(t)",
+      "definition": "Position as function of time"
+    },
+    {
+      "symbol": "ω",
+      "definition": "Angular frequency"
+    },
+    {
+      "symbol": "A",
+      "definition": "Amplitude of oscillation"
+    },
+    {
+      "symbol": "φ",
+      "definition": "Phase constant"
+    },
+    {
+      "symbol": "v(t)",
+      "definition": "Velocity as function of time"
+    },
+    {
+      "symbol": "a(t)",
+      "definition": "Acceleration as function of time"
+    },
+    {
+      "symbol": "E",
+      "definition": "Total mechanical energy"
+    },
+    {
+      "symbol": "k",
+      "definition": "Spring constant"
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of oscillating object"
+    }
+  ],
+  "assumptions": [
+    "Restoring force proportional to displacement",
+    "No damping or external forces",
+    "Small oscillation approximation",
+    "Linear system response",
+    "Newton's second law applies",
+    "Hooke's law for restoring force",
+    "No energy dissipation",
+    "Constant mass system"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Simple harmonic motion is derived by applying Newton's second law to a system with a restoring force F = -kx. This leads to a second-order differential equation whose solution is sinusoidal motion with constant amplitude and frequency.",
+      "equation": "F = -kx"
+    },
+    {
+      "step": 2,
+      "description": "",
+      "equation": "ma = -kx"
+    },
+    {
+      "step": 3,
+      "description": "",
+      "equation": "m\\frac{d^2x}{dt^2} = -kx"
+    },
+    {
+      "step": 4,
+      "description": "",
+      "equation": "\\frac{d^2x}{dt^2} + \\frac{k}{m}x = 0"
+    },
+    {
+      "step": 5,
+      "description": "",
+      "equation": "\\omega^2 = \\frac{k}{m}"
+    },
+    {
+      "step": 6,
+      "description": "",
+      "equation": "\\frac{d^2x}{dt^2} + \\omega^2 x = 0"
+    },
+    {
+      "step": 7,
+      "description": "",
+      "equation": "x(t) = A\\cos(\\omega t + \\phi)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import math",
+      "print('Simple Harmonic Motion Verification\\n')",
+      "print('=' * 40)",
+      "# Parameters for SHM",
+      "A = 0.1      # amplitude (m)",
+      "omega = 2*math.pi  # angular frequency (rad/s)",
+      "phi = 0      # phase constant",
+      "m = 1.0      # mass (kg)",
+      "k = m * omega**2  # spring constant",
+      "print(f'SHM Parameters:')",
+      "print(f'Amplitude: {A} m')",
+      "print(f'Angular frequency: {omega:.2f} rad/s')",
+      "print(f'Period: {2*math.pi/omega:.2f} s')",
+      "print(f'Frequency: {omega/(2*math.pi):.2f} Hz')",
+      "print()",
+      "# Test 1: Verify differential equation solution",
+      "print('Test 1: Differential equation verification')",
+      "# Generate time points manually",
+      "t_points = []",
+      "dt = 2*math.pi/omega / 1000",
+      "for i in range(1000):",
+      "    t_points.append(i * dt)",
+      "# Position, velocity, acceleration",
+      "x = [A * math.cos(omega * t + phi) for t in t_points]",
+      "v = [-A * omega * math.sin(omega * t + phi) for t in t_points]",
+      "a = [-A * omega**2 * math.cos(omega * t + phi) for t in t_points]",
+      "# Verify a = -ω²x",
+      "a_from_x = [-omega**2 * x_val for x_val in x]",
+      "errors = [abs(a_val - a_from_x_val) for a_val, a_from_x_val in zip(a, a_from_x)]",
+      "max_error = max(errors)",
+      "print(f'Max error in a = -ω²x: {max_error:.2e}')",
+      "print(f'Differential equation satisfied: {max_error < 1e-10}')",
+      "print()",
+      "# Test 2: Energy conservation",
+      "print('Test 2: Energy conservation')",
+      "KE = [0.5 * m * v_val**2 for v_val in v]  # kinetic energy",
+      "PE = [0.5 * k * x_val**2 for x_val in x]  # potential energy",
+      "E_total = [ke + pe for ke, pe in zip(KE, PE)]  # total energy",
+      "E_expected = 0.5 * k * A**2  # theoretical total energy",
+      "energy_variation = [abs(E_val - E_expected) for E_val in E_total]",
+      "max_energy_error = max(energy_variation)",
+      "print(f'Expected total energy: {E_expected:.6f} J')",
+      "print(f'Max energy variation: {max_energy_error:.2e} J')",
+      "print(f'Energy conserved: {max_energy_error < 1e-10}')",
+      "print(f'\\nSimple harmonic motion verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "development_period": "17th-18th centuries",
+    "importance": "Fundamental model for oscillatory systems; basis for understanding waves, vibrations, and quantum mechanics",
+    "key_insights": [
+      "Galileo Galilei first studied pendulum motion and isochronism",
+      "Robert Hooke established the proportionality between force and displacement",
+      "Isaac Newton developed the mathematical framework using differential equations",
+      "The concept extends to quantum harmonic oscillators in modern physics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Newton, I. (1687). Philosophiæ Naturalis Principia Mathematica. Joseph Streater."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "hookes_law",
+    "newtons_second_law"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "result_id": "conservation_of_momentum",
+  "result_name": "Conservation of Momentum",
+  "result_equations": [
+    {
+      "id": "momentum_conservation",
+      "equation": "\\sum \\vec{p}_i = \\text{constant}"
+    },
+    {
+      "id": "momentum_definition",
+      "equation": "\\vec{p} = m\\vec{v}"
+    },
+    {
+      "id": "collision_conservation",
+      "equation": "\\sum m_i \\vec{v}_{i,initial} = \\sum m_i \\vec{v}_{i,final}"
+    },
+    {
+      "id": "center_of_mass",
+      "equation": "\\vec{v}_{cm} = \\frac{\\sum m_i \\vec{v}_i}{\\sum m_i}"
+    }
+  ],
+  "explanation": "Conservation of momentum states that the total momentum of a closed system remains constant over time. This fundamental principle applies to all interactions in the absence of external forces and is a direct consequence of Newton's third law.",
+  "definitions": [
+    {
+      "symbol": "p⃗",
+      "definition": "Momentum vector"
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of object"
+    },
+    {
+      "symbol": "v⃗",
+      "definition": "Velocity vector"
+    },
+    {
+      "symbol": "v⃗_cm",
+      "definition": "Center of mass velocity"
+    },
+    {
+      "symbol": "v⃗_i,initial",
+      "definition": "Initial velocity of object i"
+    },
+    {
+      "symbol": "v⃗_i,final",
+      "definition": "Final velocity of object i"
+    }
+  ],
+  "assumptions": [
+    "Closed system (no external forces)",
+    "Newton's laws apply",
+    "Inertial reference frame",
+    "Classical mechanics regime",
+    "Newton's third law",
+    "No external forces",
+    "Constant mass",
+    "Classical mechanics"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Conservation of momentum follows directly from Newton's third law. When two objects interact, they exert equal and opposite forces on each other, leading to equal and opposite changes in momentum, keeping the total momentum constant.",
+      "equation": "\\vec{F}_{12} = -\\vec{F}_{21}"
+    },
+    {
+      "step": 2,
+      "description": "",
+      "equation": "\\frac{d\\vec{p}_1}{dt} = -\\frac{d\\vec{p}_2}{dt}"
+    },
+    {
+      "step": 3,
+      "description": "",
+      "equation": "\\frac{d}{dt}(\\vec{p}_1 + \\vec{p}_2) = 0"
+    },
+    {
+      "step": 4,
+      "description": "",
+      "equation": "\\vec{p}_1 + \\vec{p}_2 = \\text{constant}"
+    },
+    {
+      "step": 5,
+      "description": "",
+      "equation": "\\sum_{i=1}^n \\vec{p}_i = \\text{constant}"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import math",
+      "print('Conservation of Momentum Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Elastic collision in 1D",
+      "def verify_elastic_collision_1d():",
+      "    \"\"\"Verify momentum conservation in 1D elastic collision\"\"\"",
+      "    print('Test 1: 1D Elastic Collision')",
+      "    ",
+      "    def elastic_collision_1d(m1, v1i, m2, v2i):",
+      "        \"\"\"Calculate final velocities in 1D elastic collision\"\"\"",
+      "        # Conservation of momentum and energy",
+      "        v1f = ((m1 - m2) * v1i + 2 * m2 * v2i) / (m1 + m2)",
+      "        v2f = ((m2 - m1) * v2i + 2 * m1 * v1i) / (m1 + m2)",
+      "        return v1f, v2f",
+      "    ",
+      "    # Test case",
+      "    m1, m2 = 2.0, 3.0  # masses in kg",
+      "    v1i, v2i = 5.0, -2.0  # initial velocities in m/s",
+      "    ",
+      "    # Calculate final velocities",
+      "    v1f, v2f = elastic_collision_1d(m1, v1i, m2, v2i)",
+      "    ",
+      "    # Verify momentum conservation",
+      "    p_initial = m1 * v1i + m2 * v2i",
+      "    p_final = m1 * v1f + m2 * v2f",
+      "    ",
+      "    print(f'  Mass 1: {m1} kg, Initial velocity: {v1i} m/s')",
+      "    print(f'  Mass 2: {m2} kg, Initial velocity: {v2i} m/s')",
+      "    print(f'  Initial momentum: {p_initial:.6f} kg⋅m/s')",
+      "    print(f'  Final momentum: {p_final:.6f} kg⋅m/s')",
+      "    print(f'  Momentum conserved: {math.isclose(p_initial, p_final)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(p_initial, p_final)",
+      "# Test 2: Inelastic collision",
+      "def verify_inelastic_collision():",
+      "    \"\"\"Verify momentum conservation in inelastic collision\"\"\"",
+      "    print('Test 2: Perfectly Inelastic Collision')",
+      "    ",
+      "    # Parameters",
+      "    m1, m2 = 1.5, 2.5  # masses in kg",
+      "    v1i, v2i = 8.0, 0.0  # initial velocities in m/s",
+      "    ",
+      "    # Final velocity (objects stick together)",
+      "    vf = (m1 * v1i + m2 * v2i) / (m1 + m2)",
+      "    ",
+      "    # Momentum before and after",
+      "    p_initial = m1 * v1i + m2 * v2i",
+      "    p_final = (m1 + m2) * vf",
+      "    ",
+      "    print(f'  Mass 1: {m1} kg, Initial velocity: {v1i} m/s')",
+      "    print(f'  Mass 2: {m2} kg, Initial velocity: {v2i} m/s')",
+      "    print(f'  Combined final velocity: {vf:.3f} m/s')",
+      "    print(f'  Initial momentum: {p_initial:.6f} kg⋅m/s')",
+      "    print(f'  Final momentum: {p_final:.6f} kg⋅m/s')",
+      "    print(f'  Momentum conserved: {math.isclose(p_initial, p_final)}')",
+      "    print()",
+      "    ",
+      "    return math.isclose(p_initial, p_final)",
+      "# Run tests",
+      "test1 = verify_elastic_collision_1d()",
+      "test2 = verify_inelastic_collision()",
+      "print('Summary of Momentum Conservation Tests:')",
+      "print(f'Elastic collision: {test1}')",
+      "print(f'Inelastic collision: {test2}')",
+      "print(f'All tests passed: {all([test1, test2])}')",
+      "print('\\nMomentum conservation verified!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "development_period": "17th-18th century",
+    "importance": "One of the fundamental conservation laws, essential for understanding collisions, rocket propulsion, and many other phenomena",
+    "key_insights": [
+      "Isaac Newton formulated the laws of motion which lead to momentum conservation",
+      "Gottfried Leibniz developed early concepts of conservation principles",
+      "René Descartes proposed an early principle of motion conservation"
+    ]
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "citation": "Halliday, D., Resnick, R., & Walker, J. (2013). Fundamentals of Physics. Wiley."
+    },
+    {
+      "id": "ref2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2001). Classical Mechanics. Addison Wesley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "newtons_laws"
+  ]
+}

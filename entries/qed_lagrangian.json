@@ -1,0 +1,186 @@
+{
+  "result_id": "qed_lagrangian",
+  "result_name": "QED Lagrangian Density",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "L = bar psi*(i*gamma^mu*D_mu - m)*psi - 1/4*F_(mu nu)*F^(mu nu)"
+    },
+    {
+      "id": "eq2",
+      "equation": "F_(mu nu) = partial_mu*A_nu - partial_nu*A_mu"
+    },
+    {
+      "id": "eq3",
+      "equation": "D_mu = partial_mu + i*e*A_mu"
+    }
+  ],
+  "explanation": "The QED Lagrangian density merges the standalone photon field contribution and the free spin-½ fermion action by using the simplest gauge-invariant prescription: replacing ordinary derivatives with a covariant derivative. It therefore fully specifies how light and charged matter propagate and interact under a local U(1) symmetry, and its variation directly yields Maxwell's laws sourced by the fermion current and the Dirac equation in an electromagnetic field.",
+  "definitions": [
+    {
+      "symbol": "L",
+      "definition": "QED Lagrangian density."
+    },
+    {
+      "symbol": "psi",
+      "definition": "Dirac spinor field describing a charged spin-1/2 fermion (such as an electron)."
+    },
+    {
+      "symbol": "bar psi",
+      "definition": "Dirac adjoint, defined as `barpsi(x) = psi^+(x) gamma^0`."
+    },
+    {
+      "symbol": "A_mu",
+      "definition": "Four-potential of the electromagnetic field. `A_mu(x) = (phi(x), vec A(x))`, where `phi(x)` is the scalar potential and `vec A(x)` is the vector potential."
+    },
+    {
+      "symbol": "F_(mu nu)",
+      "definition": "Electromagnetic field-strength tensor, `partial_mu*A_nu - partial_nu*A_mu`."
+    },
+    {
+      "symbol": "gamma^mu",
+      "definition": "Dirac gamma matrices satisfying the Clifford algebra `{gamma^mu, gamma^nu} = 2*g^(mu nu)`."
+    },
+    {
+      "symbol": "D_mu",
+      "definition": "Covariant derivative `partial_mu + i*e*A_mu`."
+    },
+    {
+      "symbol": "e",
+      "definition": "Electric charge of the fermion (magnitude)."
+    },
+    {
+      "symbol": "m",
+      "definition": "Rest mass of the fermion."
+    },
+    {
+      "symbol": "partial_mu",
+      "definition": "Partial derivative with respect to the coordinate `x^mu`."
+    }
+  ],
+  "assumptions": [
+    "Natural units are used, setting `c = hbar = 1`.",
+    "The space-time metric is Minkowskian with signature (+,−,−,−).",
+    "The theory is required to be invariant under local U(1) gauge transformations `psi -> exp(-i*e*alpha(x))*psi` and `A_mu -> A_mu + partial_mu alpha(x)`.",
+    "Local U(1) gauge invariance dictates the interaction structure.",
+    "Minimal coupling principle: replace `partial_mu` with `D_mu` to introduce electromagnetic interactions.",
+    "Flat Minkowski space-time with metric `g_(mu nu)`.",
+    "Natural units `c = hbar = 1` are employed."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "The free Dirac Lagrangian is chosen as it's the simplest Lorentz-invariant, first-order relativistic wave equation for spin-1/2 fields, yielding the Dirac equation.",
+      "equation": "L_(text(free)) = bar psi*(i*gamma^mu*partial_mu - m)*psi"
+    },
+    {
+      "step": 2,
+      "description": "This Lagrangian has a global U(1) symmetry (`psi -> exp(-i*alpha)*psi`), implying a conserved electric current via Noether's theorem.",
+      "equation": "psi -> exp(-i*alpha)*psi"
+    },
+    {
+      "step": 3,
+      "description": "Promoting the phase `alpha` to a local function `alpha(x)` breaks the Lagrangian's invariance due to the derivative term. A compensating gauge field is thus required.",
+      "equation": "alpha -> alpha(x)"
+    },
+    {
+      "step": 4,
+      "description": "The electromagnetic four-potential `A_mu(x)` is introduced as the gauge field. The covariant derivative `D_mu = partial_mu + i*e*A_mu` is defined to ensure `D_mu psi` transforms like `psi` under local `U(1)` gauge transformations (`psi -> exp(-i*e*alpha(x))*psi`, `A_mu -> A_mu + partial_mu alpha(x)`), restoring invariance.",
+      "equation": "D_mu = partial_mu + i*e*A_mu"
+    },
+    {
+      "step": 5,
+      "description": "Replacing `partial_mu` with `D_mu` in the Dirac Lagrangian (minimal coupling) introduces the interaction term `e*bar psi*gamma^mu*A_mu*psi`, describing fermion-photon interaction while maintaining local `U(1)` gauge invariance.",
+      "equation": "L_(Dirac) = bar psi*(i*gamma^mu*D_mu - m)*psi"
+    },
+    {
+      "step": 6,
+      "description": "A gauge-invariant kinetic term for `A_mu` is needed. This is built from the electromagnetic field strength tensor `F_(mu nu)`, defined by derivatives of `A_mu` as per the step's equation.",
+      "equation": "F_(mu nu) = partial_mu*A_nu - partial_nu*A_mu"
+    },
+    {
+      "step": 7,
+      "description": "The Maxwell Lagrangian, `L_(EM) = -1/4*F_(mu nu)*F^(mu nu)`, is a Lorentz scalar and gauge-invariant kinetic term for `A_mu`, describing free photon propagation.",
+      "equation": "L_(EM) = -1/4*F_(mu nu)*F^(mu nu)"
+    },
+    {
+      "step": 8,
+      "description": "The full QED Lagrangian is the sum of the interacting Dirac Lagrangian (`L_(Dirac)`) and the Maxwell Lagrangian (`L_(EM)`), describing fermions interacting with photons under local `U(1)` symmetry.",
+      "equation": "L = L_(EM) + L_(Dirac)"
+    },
+    {
+      "step": 9,
+      "description": "Varying the QED Lagrangian with respect to `bar psi` (Euler-Lagrange) yields the interacting Dirac equation, governing fermion dynamics in an electromagnetic field.",
+      "equation": "delta_L/delta_bar psi => (i*gamma^mu*D_mu - m)*psi = 0"
+    },
+    {
+      "step": 10,
+      "description": "Varying the QED Lagrangian with respect to `A_mu` yields Maxwell's equations, with the fermion current `e*bar psi*gamma^nu*psi` as the source of the electromagnetic field.",
+      "equation": "delta_L/delta_(A_nu) => partial_mu F^(mu nu) = e*bar psi*gamma^nu*psi"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp\n",
+      "t,x,y,z=sp.symbols('t x y z'); coords=[t,x,y,z]\n",
+      "alpha=sp.Function('a')(t,x,y,z); e=sp.symbols('e')\n",
+      "A=[sp.Function(f'A{i}')(t,x,y,z) for i in range(4)]\n",
+      "psi=sp.Function('psi')(t,x,y,z)\n",
+      "# helpers\n",
+      "D=lambda mu,ps,AA: sp.diff(ps,coords[mu])+sp.I*e*AA[mu]*ps\n",
+      "F=lambda mu,nu,AA: sp.diff(AA[nu],coords[mu])-sp.diff(AA[mu],coords[nu])\n",
+      "# gauge transform\n",
+      "psi_p=sp.exp(-sp.I*e*alpha)*psi\n",
+      "A_p=[A[i]+sp.diff(alpha,coords[i]) for i in range(4)]\n",
+      "# Step4: D transforms covariantly\n",
+      "assert sp.simplify(sp.exp(sp.I*e*alpha)*D(0,psi_p,A_p)-D(0,psi,A))==0\n",
+      "# Step6: F is gauge invariant (check 0,1)\n",
+      "assert sp.simplify(F(0,1,A_p)-F(0,1,A))==0\n",
+      "# Step7: sample Maxwell term invariant\n",
+      "L1=-sp.Rational(1,4)*F(0,1,A)**2; L1p=-sp.Rational(1,4)*F(0,1,A_p)**2\n",
+      "assert sp.simplify(L1p-L1)==0\n",
+      "print('Steps 4–7 verified')"
+    ]
+  },
+  "domain": "hep-th",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Most precisely tested theory in physics, foundation of quantum field theory",
+    "development_period": "1940-1950",
+    "key_insights": [
+      "Quantum field theory",
+      "Gauge invariance",
+      "Renormalization",
+      "Virtual particles",
+      "Quantum corrections"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Peskin, M. E., & Schroeder, D. V. (1995). *An Introduction to Quantum Field Theory*. Addison-Wesley."
+    },
+    {
+      "id": "R2",
+      "citation": "Weinberg, S. (1995). *The Quantum Theory of Fields, Vol. I: Foundations*. Cambridge University Press."
+    },
+    {
+      "id": "R3",
+      "citation": "Greiner, W., & Reinhardt, J. (1996). *Field Quantization*. Springer-Verlag."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "dirac_equation_em",
+    "maxwell_equations",
+    "noethers_theorem"
+  ]
+}

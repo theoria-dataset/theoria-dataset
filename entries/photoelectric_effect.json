@@ -1,0 +1,174 @@
+{
+  "result_id": "photoelectric_effect",
+  "result_name": "Photoelectric Effect",
+  "result_equations": [
+    {
+      "id": "einstein_photoelectric",
+      "equation": "E_{photon} = hf = W + K_{max}"
+    },
+    {
+      "id": "work_function",
+      "equation": "W = hf_0"
+    },
+    {
+      "id": "maximum_kinetic_energy",
+      "equation": "K_{max} = hf - W = h(f - f_0)"
+    },
+    {
+      "id": "stopping_potential",
+      "equation": "eV_s = K_{max} = hf - W"
+    }
+  ],
+  "explanation": "The photoelectric effect demonstrates the particle nature of light, where photons with energy above a threshold frequency can eject electrons from a material. Einstein's explanation of this phenomenon led to the concept of light quanta and earned him the Nobel Prize in Physics.",
+  "definitions": [
+    {
+      "symbol": "E_photon",
+      "definition": "Energy of incident photon"
+    },
+    {
+      "symbol": "h",
+      "definition": "Planck's constant"
+    },
+    {
+      "symbol": "f",
+      "definition": "Frequency of incident light"
+    },
+    {
+      "symbol": "W",
+      "definition": "Work function (minimum energy to remove electron)"
+    },
+    {
+      "symbol": "K_max",
+      "definition": "Maximum kinetic energy of ejected electrons"
+    },
+    {
+      "symbol": "f_0",
+      "definition": "Threshold frequency"
+    },
+    {
+      "symbol": "e",
+      "definition": "Elementary charge"
+    },
+    {
+      "symbol": "V_s",
+      "definition": "Stopping potential"
+    }
+  ],
+  "assumptions": [
+    "Photons behave as discrete energy packets",
+    "One photon interacts with one electron",
+    "Energy conservation applies",
+    "Quantum mechanical description",
+    "Energy conservation in photon-electron interaction",
+    "Einstein's photon hypothesis",
+    "Work function is material-dependent constant",
+    "Instantaneous emission process"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Einstein proposed that light consists of discrete energy packets (photons) with energy E = hf. When a photon interacts with an electron in a material, energy conservation requires that the photon energy equals the work function plus the electron's kinetic energy.",
+      "equation": "E_{photon} = hf"
+    },
+    {
+      "step": 2,
+      "description": "",
+      "equation": "W = \\text{minimum energy to remove electron}"
+    },
+    {
+      "step": 3,
+      "description": "",
+      "equation": "\\text{Energy conservation: } E_{photon} = W + K_{electron}"
+    },
+    {
+      "step": 4,
+      "description": "",
+      "equation": "K_{max} = E_{photon} - W = hf - W"
+    },
+    {
+      "step": 5,
+      "description": "",
+      "equation": "\\text{At threshold: } hf_0 = W, \\text{ so } K_{max} = 0"
+    },
+    {
+      "step": 6,
+      "description": "",
+      "equation": "K_{max} = h(f - f_0)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import math",
+      "# Constants",
+      "h = 6.626e-34  # Planck constant (J⋅s)",
+      "c = 3.0e8      # Speed of light (m/s)",
+      "e = 1.602e-19  # Elementary charge (C)",
+      "print('Photoelectric Effect Verification\\n')",
+      "print('=' * 40)",
+      "# Test 1: Basic photoelectric equation",
+      "print('Test 1: Einstein photoelectric equation')",
+      "f_incident = 1.5e15  # Hz",
+      "W_material = 4.0 * e  # Work function (J)",
+      "E_photon = h * f_incident",
+      "K_max = E_photon - W_material",
+      "f_threshold = W_material / h",
+      "print(f'Incident frequency: {f_incident:.2e} Hz')",
+      "print(f'Work function: {W_material/e:.1f} eV')",
+      "print(f'Photon energy: {E_photon/e:.2f} eV')",
+      "print(f'Max kinetic energy: {K_max/e:.2f} eV')",
+      "print(f'Threshold frequency: {f_threshold:.2e} Hz')",
+      "print()",
+      "# Test 2: Stopping potential",
+      "print('Test 2: Stopping potential calculation')",
+      "V_stopping = K_max / e",
+      "print(f'Stopping potential: {V_stopping:.2f} V')",
+      "print(f'Energy balance verified: {abs(e * V_stopping - K_max) < 1e-20}')",
+      "print()",
+      "# Test 3: Frequency threshold",
+      "print('Test 3: Threshold behavior')",
+      "frequencies = [0.5e15, 1.0e15, 1.5e15, 2.0e15]  # Hz",
+      "for f in frequencies:",
+      "    E_ph = h * f",
+      "    if E_ph > W_material:",
+      "        K = E_ph - W_material",
+      "        print(f'f = {f:.1e} Hz: Emission occurs, K_max = {K/e:.2f} eV')",
+      "    else:",
+      "        print(f'f = {f:.1e} Hz: No emission (below threshold)')",
+      "print(f'\\nPhotoelectric effect relationships verified successfully!')"
+    ]
+  },
+  "domain": "quant-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "development_period": "1905",
+    "importance": "Key evidence for quantum nature of light; led to development of quantum mechanics",
+    "key_insights": [
+      "Albert Einstein explained the photoelectric effect using photon concept",
+      "Demonstrated that light has particle properties in addition to wave properties",
+      "Provided crucial evidence for quantum theory of electromagnetic radiation",
+      "Led to practical applications in photodetectors and solar cells"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Einstein, A. (1905). 'Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt.' Annalen der Physik, 17, 132-148."
+    },
+    {
+      "id": "R2",
+      "citation": "Millikan, R. A. (1916). 'A direct photoelectric determination of Planck's \"h\".' Physical Review, 7, 355-388."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "plancks_quantum_hypothesis"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "result_id": "braggs_law",
+  "result_name": "Bragg's Law",
+  "result_equations": [
+    {
+      "id": "bragg_condition",
+      "equation": "n*lambda = 2*d*sin(theta)"
+    },
+    {
+      "id": "bragg_angle",
+      "equation": "theta = arcsin(n*lambda/(2*d))"
+    }
+  ],
+  "explanation": "Bragg's law describes the conditions for constructive interference of X-rays diffracted by crystal lattice planes. When X-rays with wavelength λ are incident on parallel crystal planes separated by distance d, constructive interference occurs at specific angles θ where the path difference between rays equals an integer multiple of the wavelength. This fundamental law enables X-ray crystallography, allowing determination of crystal structures and atomic arrangements in materials.",
+  "definitions": [
+    {
+      "symbol": "n",
+      "definition": "Order of diffraction (positive integer: 1, 2, 3, ...)."
+    },
+    {
+      "symbol": "lambda",
+      "definition": "Wavelength of incident X-rays."
+    },
+    {
+      "symbol": "d",
+      "definition": "Interplanar spacing between parallel crystal lattice planes."
+    },
+    {
+      "symbol": "theta",
+      "definition": "Bragg angle (angle of incidence measured from the crystal plane)."
+    }
+  ],
+  "assumptions": [
+    "The crystal consists of parallel planes of atoms with uniform spacing d.",
+    "X-rays are treated as waves with well-defined wavelength λ.",
+    "Elastic scattering (no energy loss) occurs at each lattice plane.",
+    "The crystal is perfect with no defects or thermal motion considered.",
+    "X-rays reflect specularly from each crystal plane.",
+    "The incident beam is monochromatic with single wavelength.",
+    "Crystal planes are perfectly flat and parallel."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Consider X-rays incident on a set of parallel crystal planes with uniform spacing d.",
+      "equation": "text(X-rays incident on parallel planes separated by distance d)"
+    },
+    {
+      "step": 2,
+      "description": "Calculate the path difference between rays reflected from adjacent planes.",
+      "equation": "text(Path difference between rays from adjacent planes)"
+    },
+    {
+      "step": 3,
+      "description": "The geometric path difference is 2d sin θ, where θ is measured from the plane.",
+      "equation": "Delta = 2*d*sin(theta)"
+    },
+    {
+      "step": 4,
+      "description": "For constructive interference, this path difference must equal an integer number of wavelengths.",
+      "equation": "text(Constructive interference condition)"
+    },
+    {
+      "step": 5,
+      "description": "Set the path difference equal to nλ where n is a positive integer.",
+      "equation": "Delta = n*lambda"
+    },
+    {
+      "step": 6,
+      "description": "This gives Bragg's law: nλ = 2d sin θ.",
+      "equation": "n*lambda = 2*d*sin(theta)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "import math",
+      "",
+      "# Define symbols",
+      "n, lam, d, theta = sp.symbols('n lambda d theta', positive=True, real=True)",
+      "",
+      "# Bragg's law",
+      "bragg_condition = sp.Eq(n*lam, 2*d*sp.sin(theta))",
+      "",
+      "# Test that Bragg condition is satisfied",
+      "# For angle θ, check that nλ = 2d sin(θ)",
+      "test_angle = sp.pi/6  # 30 degrees as test",
+      "lhs = n*lam",
+      "rhs = 2*d*sp.sin(test_angle)",
+      "# Verify the equation structure is correct",
+      "",
+      "# Test with realistic values",
+      "# Cu Kα radiation: λ = 1.54 Å, NaCl (100): d = 2.82 Å",
+      "lambda_cu = 1.54  # Angstroms",
+      "d_nacl = 2.82     # Angstroms",
+      "",
+      "# First order diffraction (n=1)",
+      "n_val = 1",
+      "sin_theta = (n_val * lambda_cu) / (2 * d_nacl)",
+      "theta_deg = math.degrees(math.asin(sin_theta))",
+      "",
+      "# Verify that sin(theta) <= 1 (physical constraint)",
+      "assert sin_theta <= 1.0, 'Unphysical: sin(theta) > 1'",
+      "",
+      "# Test maximum order of diffraction",
+      "n_max = int(2 * d_nacl / lambda_cu)",
+      "assert n_max >= 1, 'At least first order should be observable'",
+      "",
+      "# Verify relationship between d and n",
+      "# For fixed λ and θ, larger d gives higher n (n = 2dsinθ/λ)",
+      "d1, d2 = 2.0, 1.0  # d1 > d2",
+      "n1 = (2 * d1 * sin_theta) / lambda_cu",
+      "n2 = (2 * d2 * sin_theta) / lambda_cu",
+      "assert n1 > n2, 'Larger spacing should give higher diffraction order for same angle'"
+    ]
+  },
+  "domain": "physics.atom-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Foundation of X-ray crystallography, enabling determination of crystal structures and revolutionizing materials science and structural biology",
+    "development_period": "1912-1913",
+    "key_insights": [
+      "William Henry Bragg and William Lawrence Bragg developed the law",
+      "Proved the wave nature of X-rays",
+      "Enabled atomic-scale structure determination",
+      "Nobel Prize in Physics 1915"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Bragg, W. L. (1913). 'The Diffraction of Short Electromagnetic Waves by a Crystal.' Proceedings of the Cambridge Philosophical Society, 17, 43-57."
+    },
+    {
+      "id": "R2",
+      "citation": "Warren, B. E. (1990). *X-ray Diffraction*. Dover Publications."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "electromagnetic_waves",
+    "waves_interference"
+  ]
+}

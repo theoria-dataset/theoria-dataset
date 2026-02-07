@@ -1,0 +1,163 @@
+{
+  "result_id": "carnot_efficiency",
+  "result_name": "Carnot Efficiency",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "eta_Carnot = 1 - T_C/T_H"
+    },
+    {
+      "id": "eq2",
+      "equation": "eta_Carnot = W/Q_H = (Q_H - Q_C)/Q_H"
+    }
+  ],
+  "explanation": "Carnot efficiency represents the maximum theoretical efficiency of any heat engine operating between two thermal reservoirs. It depends only on the absolute temperatures of the hot and cold reservoirs, establishing an upper limit that no real heat engine can exceed. This efficiency is achieved by the reversible Carnot cycle and is fundamental to understanding the second law of thermodynamics.",
+  "definitions": [
+    {
+      "symbol": "eta_Carnot",
+      "definition": "Carnot efficiency (dimensionless fraction)."
+    },
+    {
+      "symbol": "T_H",
+      "definition": "Absolute temperature of the hot reservoir."
+    },
+    {
+      "symbol": "T_C",
+      "definition": "Absolute temperature of the cold reservoir."
+    },
+    {
+      "symbol": "W",
+      "definition": "Net work output per cycle."
+    },
+    {
+      "symbol": "Q_H",
+      "definition": "Heat absorbed from the hot reservoir per cycle."
+    },
+    {
+      "symbol": "Q_C",
+      "definition": "Heat rejected to the cold reservoir per cycle."
+    }
+  ],
+  "assumptions": [
+    "The heat engine operates between two thermal reservoirs at fixed temperatures T_H and T_C.",
+    "All processes in the Carnot cycle are reversible (quasi-static and frictionless).",
+    "The second law of thermodynamics applies (entropy of universe cannot decrease).",
+    "The reservoirs are large enough that their temperatures remain constant."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "For a reversible process, the total entropy change of the universe is zero.",
+      "equation": "Delta S_universe = Delta S_H + Delta S_C + Delta S_engine = 0"
+    },
+    {
+      "step": 2,
+      "description": "Calculate entropy changes of the hot and cold reservoirs.",
+      "equation": "Delta S_H = -Q_H/T_H, Delta S_C = +Q_C/T_C"
+    },
+    {
+      "step": 3,
+      "description": "For a reversible cycle, the working substance returns to its initial state.",
+      "equation": "Delta S_engine = 0 (reversible cycle)"
+    },
+    {
+      "step": 4,
+      "description": "Set the total entropy change to zero for reversible operation.",
+      "equation": "-Q_H/T_H + Q_C/T_C = 0"
+    },
+    {
+      "step": 5,
+      "description": "Solve for the ratio of heat transfers between reservoirs.",
+      "equation": "Q_C/Q_H = T_C/T_H"
+    },
+    {
+      "step": 6,
+      "description": "Apply conservation of energy: work equals net heat absorbed.",
+      "equation": "W = Q_H - Q_C"
+    },
+    {
+      "step": 7,
+      "description": "Define efficiency as the ratio of work output to heat input.",
+      "equation": "eta = W/Q_H = (Q_H - Q_C)/Q_H = 1 - Q_C/Q_H"
+    },
+    {
+      "step": 8,
+      "description": "Substitute the temperature ratio to get Carnot efficiency.",
+      "equation": "eta_Carnot = 1 - T_C/T_H"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Define symbols",
+      "T_H, T_C, Q_H, Q_C, W = sp.symbols('T_H T_C Q_H Q_C W', positive=True)",
+      "# Carnot efficiency",
+      "eta_carnot = 1 - T_C/T_H",
+      "# Verify thermodynamic relationships",
+      "# For reversible cycle: Q_C/Q_H = T_C/T_H",
+      "heat_ratio = Q_C/Q_H",
+      "temp_ratio = T_C/T_H",
+      "# Energy conservation: W = Q_H - Q_C",
+      "work_conservation = sp.Eq(W, Q_H - Q_C)",
+      "# Efficiency definition",
+      "eta_def = W/Q_H",
+      "# For Carnot cycle: Q_C/Q_H = T_C/T_H, so Q_C = Q_H * T_C/T_H",
+      "# Substitute this into W = Q_H - Q_C",
+      "W_carnot = Q_H - Q_H * T_C/T_H",
+      "W_carnot_simplified = sp.simplify(W_carnot)",
+      "# Now calculate efficiency: eta = W/Q_H",
+      "eta_derived = W_carnot_simplified / Q_H",
+      "eta_derived_simplified = sp.simplify(eta_derived)",
+      "# Verify they are equivalent",
+      "print(f'eta_derived: {eta_derived_simplified}')",
+      "print(f'eta_carnot: {eta_carnot}')",
+      "difference = sp.simplify(eta_derived_simplified - eta_carnot)",
+      "print(f'Difference: {difference}')",
+      "assert difference == 0",
+      "# Verify limiting cases",
+      "# As T_C approaches 0, efficiency approaches 1",
+      "eta_limit_cold = sp.limit(eta_carnot, T_C, 0)",
+      "assert eta_limit_cold == 1",
+      "# As T_C approaches T_H, efficiency approaches 0",
+      "eta_limit_equal = sp.limit(eta_carnot, T_C, T_H)",
+      "assert eta_limit_equal == 0",
+      "# Verify that efficiency is always less than 1 for T_C > 0",
+      "assert eta_carnot < 1  # for T_C > 0 and T_H > T_C"
+    ]
+  },
+  "domain": "cond-mat.stat-mech",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Establishes fundamental limit on heat engine efficiency, cornerstone of thermodynamics",
+    "development_period": "1824",
+    "key_insights": [
+      "Maximum efficiency principle",
+      "Temperature-based efficiency",
+      "Second law implications",
+      "Foundation for all heat engines"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Carnot, S. (1824). *Réflexions sur la puissance motrice du feu et sur les machines propres à développer cette puissance*. Bachelier."
+    },
+    {
+      "id": "R2",
+      "citation": "Clausius, R. (1850). Ueber die bewegende Kraft der Wärme. *Annalen der Physik*, 155(3), 368-397."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "second_law_thermodynamics_clausius",
+    "first_law_thermodynamics"
+  ]
+}

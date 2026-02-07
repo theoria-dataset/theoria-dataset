@@ -1,0 +1,148 @@
+{
+  "result_id": "biot_savart_law",
+  "result_name": "Biot-Savart Law",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "d vec B = (mu_0)/(4 pi) (I d vec l times hat r)/(r^2)"
+    },
+    {
+      "id": "eq2",
+      "equation": "vec B = (mu_0 I)/(4 pi) oint (d vec l times hat r)/(r^2)"
+    }
+  ],
+  "explanation": "The Biot-Savart law calculates the magnetic field produced by a steady current. It states that the magnetic field contribution from a current element is proportional to the current, the length element, and inversely proportional to the square of the distance. This law is fundamental for calculating magnetic fields from arbitrary current distributions.",
+  "definitions": [
+    {
+      "symbol": "d vec B",
+      "definition": "Magnetic field contribution from current element."
+    },
+    {
+      "symbol": "vec B",
+      "definition": "Total magnetic field vector."
+    },
+    {
+      "symbol": "mu_0",
+      "definition": "Permeability of free space."
+    },
+    {
+      "symbol": "I",
+      "definition": "Electric current magnitude."
+    },
+    {
+      "symbol": "d vec l",
+      "definition": "Differential current element vector."
+    },
+    {
+      "symbol": "hat r",
+      "definition": "Unit vector from current element to field point."
+    },
+    {
+      "symbol": "r",
+      "definition": "Distance from current element to field point."
+    }
+  ],
+  "assumptions": [
+    "The current is steady (time-independent).",
+    "The medium is non-magnetic (relative permeability = 1).",
+    "Maxwell's equations apply for static magnetic fields.",
+    "The current flows in thin wires (line current approximation)."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start with Ampère's law in differential form from Maxwell's equations.",
+      "equation": "nabla times vec B = mu_0 vec J"
+    },
+    {
+      "step": 2,
+      "description": "Use the fact that magnetic field is divergence-free (no magnetic monopoles).",
+      "equation": "nabla cdot vec B = 0"
+    },
+    {
+      "step": 3,
+      "description": "Solve the magnetic field equations using Green's function method.",
+      "equation": "vec B(vec r) = (mu_0)/(4 pi) int (vec J(vec r') times (vec r - vec r'))/|vec r - vec r'|^3 d^3 r'"
+    },
+    {
+      "step": 4,
+      "description": "Express current density in terms of line current for thin wires.",
+      "equation": "vec J d^3 r' = I d vec l"
+    },
+    {
+      "step": 5,
+      "description": "Transform volume integral to line integral along the current path.",
+      "equation": "vec B(vec r) = (mu_0 I)/(4 pi) oint (d vec l times (vec r - vec r'))/|vec r - vec r'|^3"
+    },
+    {
+      "step": 6,
+      "description": "Define unit vector from source to field point.",
+      "equation": "hat r = (vec r - vec r')/|vec r - vec r'|"
+    },
+    {
+      "step": 7,
+      "description": "Obtain the Biot-Savart law for the magnetic field contribution.",
+      "equation": "d vec B = (mu_0)/(4 pi) (I d vec l times hat r)/(r^2)"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "# Example: magnetic field on axis of circular loop",
+      "mu0, I, R, z = sp.symbols('mu0 I R z', real=True, positive=True)",
+      "# For a circular loop of radius R, current I, field on axis at distance z",
+      "# Using Biot-Savart law integrated around the loop",
+      "r = sp.sqrt(R**2 + z**2)",
+      "# The magnetic field on axis is:",
+      "B_axis = (mu0 * I * R**2) / (2 * (R**2 + z**2)**(sp.Rational(3,2)))",
+      "# Verify limiting cases",
+      "# At center (z=0): B = mu0*I/(2*R)",
+      "B_center = B_axis.subs(z, 0)",
+      "expected_center = mu0 * I / (2 * R)",
+      "assert sp.simplify(B_center - expected_center) == 0",
+      "# Far from loop (z >> R): Check dimensional consistency",
+      "# B should scale as 1/z^3 for large z (magnetic dipole field)",
+      "# Substitute specific values to verify the formula works",
+      "B_test = B_axis.subs([(mu0, 1), (I, 1), (R, 1), (z, 10)])",
+      "expected_test = 1 / (2 * (1 + 100)**(sp.Rational(3,2)))",
+      "assert sp.simplify(B_test - expected_test) == 0",
+      "# Verify units: [B] = [mu0]*[I]/[length] = T",
+      "# This is dimensionally correct for magnetic field",
+      "print('Biot-Savart law verification passed!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Fundamental law for calculating magnetic fields, complements Ampère's law",
+    "development_period": "1820",
+    "key_insights": [
+      "Magnetic field from current elements",
+      "Vector nature of magnetic field",
+      "Foundation for electromagnetic theory"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Biot, J.-B., & Savart, F. (1820). Note sur le magnétisme de la pile de Volta. *Annales de chimie et de physique*, 15, 222-223."
+    },
+    {
+      "id": "R2",
+      "citation": "Griffiths, D. J. (2017). *Introduction to Electrodynamics* (4th ed.). Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "amperes_law",
+    "maxwell_equations"
+  ]
+}

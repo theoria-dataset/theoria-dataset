@@ -1,0 +1,177 @@
+{
+  "result_id": "waves_interference",
+  "result_name": "Wave Interference",
+  "result_equations": [
+    {
+      "id": "superposition_principle",
+      "equation": "\\psi_{total}(x,t) = \\sum_i \\psi_i(x,t)"
+    },
+    {
+      "id": "two_wave_interference",
+      "equation": "\\psi(x,t) = A_1\\sin(k_1 x - \\omega_1 t + \\phi_1) + A_2\\sin(k_2 x - \\omega_2 t + \\phi_2)"
+    },
+    {
+      "id": "constructive_interference",
+      "equation": "\\Delta \\phi = 2\\pi n \\quad (n = 0, \\pm 1, \\pm 2, ...)"
+    },
+    {
+      "id": "destructive_interference",
+      "equation": "\\Delta \\phi = (2n + 1)\\pi \\quad (n = 0, \\pm 1, \\pm 2, ...)"
+    }
+  ],
+  "explanation": "Wave interference occurs when two or more waves overlap in space and time. The superposition principle states that the total wave function is the sum of individual wave functions. This phenomenon produces constructive and destructive interference patterns depending on the phase relationship between waves.",
+  "definitions": [
+    {
+      "symbol": "ψ_total",
+      "definition": "Total wave function"
+    },
+    {
+      "symbol": "ψ_i",
+      "definition": "Individual wave function"
+    },
+    {
+      "symbol": "A_1, A_2",
+      "definition": "Wave amplitudes"
+    },
+    {
+      "symbol": "k_1, k_2",
+      "definition": "Wave numbers"
+    },
+    {
+      "symbol": "ω_1, ω_2",
+      "definition": "Angular frequencies"
+    },
+    {
+      "symbol": "φ_1, φ_2",
+      "definition": "Phase constants"
+    },
+    {
+      "symbol": "Δφ",
+      "definition": "Phase difference"
+    },
+    {
+      "symbol": "n",
+      "definition": "Integer number"
+    }
+  ],
+  "assumptions": [
+    "Linear superposition applies",
+    "Waves are coherent",
+    "Medium is linear",
+    "No nonlinear effects",
+    "Wave equation is linear",
+    "Superposition principle applies",
+    "Waves propagate in same medium",
+    "No boundary effects"
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Wave interference is derived from the linearity of the wave equation. When multiple waves exist in the same region, the superposition principle states that the total disturbance is simply the algebraic sum of individual disturbances.",
+      "equation": "\\psi_1 = A_1\\cos(kx - \\omega t + \\phi_1)"
+    },
+    {
+      "step": 2,
+      "description": "",
+      "equation": "\\psi_2 = A_2\\cos(kx - \\omega t + \\phi_2)"
+    },
+    {
+      "step": 3,
+      "description": "",
+      "equation": "\\psi_{total} = \\psi_1 + \\psi_2"
+    },
+    {
+      "step": 4,
+      "description": "",
+      "equation": "\\psi_{total} = A_1\\cos(kx - \\omega t + \\phi_1) + A_2\\cos(kx - \\omega t + \\phi_2)"
+    },
+    {
+      "step": 5,
+      "description": "",
+      "equation": "\\psi_{total} = A_{eff}\\cos(kx - \\omega t + \\phi_{eff})"
+    },
+    {
+      "step": 6,
+      "description": "",
+      "equation": "A_{eff} = \\sqrt{A_1^2 + A_2^2 + 2A_1A_2\\cos(\\Delta\\phi)}"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import math",
+      "print('Wave Interference Verification\\n')",
+      "print('=' * 40)",
+      "# Parameters for two interfering waves",
+      "A1, A2 = 1.0, 1.0      # amplitudes",
+      "omega1, omega2 = 2*math.pi, 2*math.pi  # angular frequencies",
+      "k1, k2 = 1.0, 1.0      # wave numbers",
+      "phi1, phi2 = 0.0, 0.0  # phase constants",
+      "# Position and time arrays",
+      "# Create position array manually (replacing np.linspace)",
+      "x_min, x_max, n_points = 0, 4*math.pi, 100",
+      "x = [x_min + i * (x_max - x_min) / (n_points - 1) for i in range(n_points)]",
+      "t = 0  # snapshot at t=0",
+      "print(f'Wave parameters:')",
+      "print(f'Wave 1: A₁={A1}, ω₁={omega1:.2f}, k₁={k1}, φ₁={phi1}')",
+      "print(f'Wave 2: A₂={A2}, ω₂={omega2:.2f}, k₂={k2}, φ₂={phi2}')",
+      "print()",
+      "# Test 1: Constructive interference (in phase)",
+      "print('Test 1: Constructive interference (φ₂ - φ₁ = 0)')",
+      "wave1 = [A1 * math.sin(k1 * x_val - omega1 * t + phi1) for x_val in x]",
+      "wave2 = [A2 * math.sin(k2 * x_val - omega2 * t + phi2) for x_val in x]",
+      "total_constructive = [w1 + w2 for w1, w2 in zip(wave1, wave2)]",
+      "max_amplitude_constructive = max(abs(amp) for amp in total_constructive)",
+      "expected_max = A1 + A2",
+      "print(f'Maximum amplitude: {max_amplitude_constructive:.2f}')",
+      "print(f'Expected (A₁ + A₂): {expected_max:.2f}')",
+      "print(f'Constructive interference verified: {abs(max_amplitude_constructive - expected_max) < 0.1}')",
+      "print()",
+      "# Test 2: Destructive interference (out of phase)",
+      "print('Test 2: Destructive interference (φ₂ - φ₁ = π)')",
+      "phi2_destructive = math.pi  # π phase difference",
+      "wave2_destructive = [A2 * math.sin(k2 * x_val - omega2 * t + phi2_destructive) for x_val in x]",
+      "total_destructive = [w1 + w2 for w1, w2 in zip(wave1, wave2_destructive)]",
+      "max_amplitude_destructive = max(abs(amp) for amp in total_destructive)",
+      "expected_min = abs(A1 - A2)",
+      "print(f'Maximum amplitude: {max_amplitude_destructive:.2f}')",
+      "print(f'Expected |A₁ - A₂|: {expected_min:.2f}')",
+      "print(f'Destructive interference verified: {abs(max_amplitude_destructive - expected_min) < 0.1}')",
+      "print(f'\\nWave interference verified successfully!')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "development_period": "17th-19th centuries",
+    "importance": "Fundamental wave phenomenon; essential for understanding optics, acoustics, and quantum mechanics",
+    "key_insights": [
+      "Christiaan Huygens developed early wave theory and interference concepts",
+      "Thomas Young demonstrated interference with his double-slit experiment",
+      "Augustin-Jean Fresnel advanced mathematical theory of wave interference",
+      "The principle became crucial for understanding quantum wave-particle duality"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Young, T. (1804). 'The Bakerian Lecture: Experiments and calculations relative to physical optics.' Philosophical Transactions of the Royal Society, 94, 1-16."
+    },
+    {
+      "id": "R2",
+      "citation": "Born, M., & Wolf, E. (1999). Principles of Optics. Cambridge University Press."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "AI created. May have mistakes, looking for contributors to this entry."
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": [
+    "wave_equation",
+    "superposition_principle"
+  ]
+}

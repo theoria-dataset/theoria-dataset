@@ -1,0 +1,133 @@
+{
+  "result_id": "first_law_thermodynamics",
+  "result_name": "First Law of Thermodynamics",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "Delta U = Q - W"
+    }
+  ],
+  "explanation": "The first law states that for any closed system the change in internal energy `Delta U` equals heat supplied `Q` minus work done `W`. It enforces macroscopic energy conservation without specifying microscopic details, underpinning calorimetry, engine-cycle analysis and phase-transition studies. Engineers apply it to compute energy balances, determine heating requirements and set upper limits on process efficiency.",
+  "definitions": [
+    {
+      "symbol": "Delta U",
+      "definition": "Change in internal energy between two equilibrium states."
+    },
+    {
+      "symbol": "Q",
+      "definition": "Net heat added to the system during the process."
+    },
+    {
+      "symbol": "W",
+      "definition": "Net work done by the system during the process."
+    },
+    {
+      "symbol": "U",
+      "definition": "Internal energy of the system."
+    },
+    {
+      "symbol": "E_kin",
+      "definition": "Macroscopic kinetic energy of the system."
+    },
+    {
+      "symbol": "E_pot",
+      "definition": "Macroscopic potential energy of the system."
+    }
+  ],
+  "assumptions": [
+    "System mass remains constant; no matter crosses the boundary.",
+    "Positive `Q` denotes heat added to the system, while positive `W` denotes work done by the system.",
+    "Mechanical work is limited to quasi-static `p*V` expansion/compression at the system boundary.",
+    "Closed system: no mass crosses the boundary during the process.",
+    "Macroscopic kinetic energy change is negligible, so `dE_kin = 0`.",
+    "Macroscopic potential energy change is negligible, so `dE_pot = 0`.",
+    "Positive `Q` denotes heat added to the system; positive `W` denotes work done by the system."
+  ],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Apply conservation of energy to a closed system: any change in total energy equals energy added as heat minus energy lost as work.",
+      "equation": "dE = dQ - dW"
+    },
+    {
+      "step": 2,
+      "description": "Resolve total energy into internal, kinetic and potential contributions.",
+      "equation": "E = U + E_kin + E_pot"
+    },
+    {
+      "step": 3,
+      "description": "Differentiate to relate infinitesimal changes of the individual energy modes.",
+      "equation": "dE = dU + dE_kin + dE_pot"
+    },
+    {
+      "step": 4,
+      "description": "Assume the centre-of-mass velocity is constant, eliminating kinetic energy changes.",
+      "equation": "dE_kin = 0"
+    },
+    {
+      "step": 5,
+      "description": "Assume the system's elevation in a gravitational field is unchanged, eliminating potential energy changes.",
+      "equation": "dE_pot = 0"
+    },
+    {
+      "step": 6,
+      "description": "Substitute the previous two results into the energy balance to isolate the differential change in internal energy.",
+      "equation": "dU = dQ - dW"
+    },
+    {
+      "step": 7,
+      "description": "Integrate the differential relation between two equilibrium states to obtain the finite difference form.",
+      "equation": "Delta U = Q - W"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# Define symbols for initial and final internal energy and path quantities (Step 7)",
+      "U1, U2, Q12, W12 = sp.symbols('U1 U2 Q12 W12')",
+      "",
+      "# Integrated first-law expression (Step 7)",
+      "expr = sp.Eq(U2 - U1, Q12 - W12)",
+      "",
+      "# Provide a consistent numerical example to validate the equality",
+      "vals = {U1: 50, Q12: 40, W12: 10}",
+      "vals[U2] = vals[U1] + vals[Q12] - vals[W12]",
+      "",
+      "lhs_val = expr.lhs.subs(vals)",
+      "rhs_val = expr.rhs.subs(vals)",
+      "assert sp.simplify(lhs_val - rhs_val) == 0"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "Fundamental law of energy conservation in thermodynamics, foundation of energy analysis",
+    "development_period": "1842-1850",
+    "key_insights": [
+      "Energy conservation principle",
+      "Equivalence of heat and work",
+      "Internal energy concept"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Fermi, E. (1937). *Thermodynamics*. Prentice-Hall."
+    },
+    {
+      "id": "R2",
+      "citation": "Callen, H. B. (1985). *Thermodynamics and an Introduction to Thermostatistics* (2nd ed.). Wiley."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Synthetic entry",
+      "identifier": "created with AI, may have mistakes. Looking for contributors to review all fields"
+    }
+  ],
+  "review_status": "draft",
+  "depends_on": []
+}
