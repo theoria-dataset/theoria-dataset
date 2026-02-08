@@ -2744,58 +2744,58 @@ section p {
 
 /* 768px breakpoint - tablets and smaller */
 @media (max-width: 768px) {
-  /* Slightly larger base font for mobile */
+  /* Keep base font readable on mobile - don't let it shrink */
   html {
-    font-size: 1.1rem;
+    font-size: 1.15rem !important;
   }
 
   /* Better line-height for body text */
   body {
-    line-height: 1.7;
+    line-height: 1.75 !important;
   }
 
   /* Landing page improvements */
   .hero-subtitle {
-    line-height: 1.8;
-    font-size: var(--text-base);
+    line-height: 1.8 !important;
+    font-size: 1.1rem !important;
   }
 
   .feature-card p {
-    line-height: 1.7;
+    line-height: 1.75 !important;
   }
 
   #explanation {
-    line-height: 1.8;
+    line-height: 1.8 !important;
   }
 
   /* Equation readability - don't shrink as much */
   mjx-container {
-    font-size: 0.95em !important;
+    font-size: 1em !important;
   }
 
   .step-eq {
-    font-size: 1rem;
-    line-height: 1.9;
+    font-size: 1.05rem !important;
+    line-height: 2 !important;
   }
 
   /* Better spacing for content sections */
   .entry-view {
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-md) var(--space-sm) !important;
   }
 
   .derivation-section {
-    padding: var(--space-md);
+    padding: var(--space-md) !important;
   }
 
   /* Code block readability */
   #pv-code {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
   }
 
   /* Entry cards on browse page */
   .entry-description {
-    line-height: 1.7;
+    line-height: 1.75 !important;
   }
 }
 
@@ -2803,40 +2803,40 @@ section p {
 @media (max-width: 480px) {
   /* Landing page - more readable text */
   .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
   }
 
   .feature-card p {
-    font-size: 0.95rem;
+    font-size: 1rem !important;
   }
 
-  /* Equation sizing - slightly larger than before */
+  /* Equation sizing - keep readable */
   mjx-container {
-    font-size: 0.9em !important;
+    font-size: 0.95em !important;
   }
 
   .step-eq {
-    font-size: 0.95rem;
+    font-size: 1rem !important;
   }
 
   /* Code blocks for small screens */
   #pv-code {
-    font-size: 0.8rem;
+    font-size: 0.85rem !important;
   }
 
   /* Table readability for definitions */
   #definitions table {
-    font-size: 0.9rem;
+    font-size: 0.95rem !important;
   }
 
   #definitions td,
   #definitions th {
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-xs) var(--space-sm) !important;
   }
 
   /* Entry cards */
   .entry-description {
-    font-size: 0.9rem;
+    font-size: 0.95rem !important;
   }
 }

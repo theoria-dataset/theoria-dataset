@@ -5,6 +5,14 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.3] - Mobile enhancements - 2025-02-08
+
+### Changed
+
+- Mobile readability improvements: better line-height, font sizing, and spacing for tablets and phones
+- New "blocks" icon for Assumptions in floating navigation
+- Added FAQ link to floating navigation bar
+
 ## [0.8.2] - Frontend revamp - 2025-02-07
 
 ### Changed
