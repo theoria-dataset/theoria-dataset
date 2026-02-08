@@ -1810,23 +1810,12 @@ select option {
 /* Responsive equation handling */
 @media (max-width: 768px) {
   .step-eq {
-    font-size: 0.9rem;
     word-break: break-all;
-  }
-  
-  .mjx-math {
-    font-size: 0.85em !important;
   }
 }
 
 @media (max-width: 480px) {
-  .step-eq {
-    font-size: 0.85rem;
-  }
-  
-  .mjx-math {
-    font-size: 0.8em !important;
-  }
+  /* Additional mobile-specific equation handling covered in Mobile Readability section */
 }
 
 /* Google Colab badge styling */
@@ -2746,4 +2735,78 @@ section p {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary);
+}
+
+/* ============================================
+   MOBILE READABILITY IMPROVEMENTS
+   All changes inside media queries - desktop unchanged
+   ============================================ */
+
+/* 768px breakpoint - tablets and smaller */
+@media (max-width: 768px) {
+  /* Slightly larger base font for mobile */
+  html {
+    font-size: 1.1rem;
+  }
+
+  /* Better line-height for body text */
+  body {
+    line-height: 1.7;
+  }
+
+  #explanation {
+    line-height: 1.8;
+  }
+
+  /* Equation readability - don't shrink as much */
+  mjx-container {
+    font-size: 0.95em !important;
+  }
+
+  .step-eq {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  /* Better spacing for content sections */
+  .entry-view {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .derivation-section {
+    padding: var(--space-md);
+  }
+
+  /* Code block readability */
+  #pv-code {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* 480px breakpoint - phones */
+@media (max-width: 480px) {
+  /* Equation sizing - slightly larger than before */
+  mjx-container {
+    font-size: 0.9em !important;
+  }
+
+  .step-eq {
+    font-size: 0.95rem;
+  }
+
+  /* Code blocks for small screens */
+  #pv-code {
+    font-size: 0.8rem;
+  }
+
+  /* Table readability for definitions */
+  #definitions table {
+    font-size: 0.9rem;
+  }
+
+  #definitions td,
+  #definitions th {
+    padding: var(--space-xs) var(--space-sm);
+  }
 }
