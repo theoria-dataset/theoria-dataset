@@ -2754,6 +2754,16 @@ section p {
     line-height: 1.7;
   }
 
+  /* Landing page improvements */
+  .hero-subtitle {
+    line-height: 1.8;
+    font-size: var(--text-base);
+  }
+
+  .feature-card p {
+    line-height: 1.7;
+  }
+
   #explanation {
     line-height: 1.8;
   }
@@ -2782,10 +2792,25 @@ section p {
     font-size: 0.85rem;
     line-height: 1.5;
   }
+
+  /* Entry cards on browse page */
+  .entry-description {
+    line-height: 1.7;
+  }
 }
 
 /* 480px breakpoint - phones */
 @media (max-width: 480px) {
+  /* Landing page - more readable text */
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+
   /* Equation sizing - slightly larger than before */
   mjx-container {
     font-size: 0.9em !important;
@@ -2808,5 +2833,10 @@ section p {
   #definitions td,
   #definitions th {
     padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Entry cards */
+  .entry-description {
+    font-size: 0.9rem;
   }
 }
