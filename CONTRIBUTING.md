@@ -153,6 +153,8 @@ make validate FILE=name
 docker-compose run --rm theoria-tests
 ```
 
+For Docker environment setup, troubleshooting, and release process, see [DEVELOPMENT.md](DEVELOPMENT.md).
+
 ## Version Control & Collaboration
 
 - We will use Git and GitHub for versioning.
