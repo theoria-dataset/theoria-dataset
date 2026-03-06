@@ -5,7 +5,15 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.3] - Mobile enhancements - 2025-02-08
+
+## [0.8.4] - Agentic enhancements and new entries - 2026-03-07
+
+- Agents files have been refactored to work in line with https://github.com/manuelsh/theoria-agents
+- New entry: 'euler_lagrange_equations' done with agents
+- Small corrections in a few other enries.
+
+
+## [0.8.3] - Mobile enhancements - 2026-02-08
 
 ### Changed
 
@@ -13,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New "blocks" icon for Assumptions in floating navigation
 - Added FAQ link to floating navigation bar
 
-## [0.8.2] - Frontend revamp - 2025-02-07
+## [0.8.2] - Frontend revamp - 2026-02-07
 
 ### Changed
 
@@ -22,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved entry page with subtle edit button and prev/next navigation
 - Enhanced styling consistency across all pages
 
-## [0.8.1] - Scalar field quantization and QFT foundations new entries - 2025-02-03
+## [0.8.1] - Scalar field quantization and QFT foundations new entries - 2026-02-03
 
 ### Added
 
@@ -32,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New entry: `scalar_field_quantization`, canonical quantization of the free real scalar field
 
 
-## [0.8.0] - Terminology update: superseded → generalized, and two new entries added - 2025-01-19
+## [0.8.0] - Terminology update: superseded → generalized, and two new entries added - 2026-01-19
 
 ### Added
 
