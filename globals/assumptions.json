@@ -858,7 +858,7 @@
           "definition": "Unit vector pointing from `M` toward `m`"
         }
       ],
-      "used_in": ["gravitational_field", "vis_viva"]
+      "used_in": ["gravitational_field", "vis_viva", "keplers_laws"]
     }
   ]
 }

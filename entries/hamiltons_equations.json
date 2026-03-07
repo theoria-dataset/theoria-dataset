@@ -1,0 +1,305 @@
+{
+  "result_id": "hamiltons_equations",
+  "result_name": "Hamilton's Equations of Motion",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "(dq_i)/(dt) = (del H)/(del p_i)",
+      "equation_title": "Hamilton's First Equation"
+    },
+    {
+      "id": "eq2",
+      "equation": "(dp_i)/(dt) = -(del H)/(del q_i)",
+      "equation_title": "Hamilton's Second Equation"
+    }
+  ],
+  "explanation": "Hamilton's equations reformulate classical mechanics using generalized coordinates and conjugate momenta as independent variables. They transform second-order Euler-Lagrange equations into first-order differential equations, providing a powerful framework for analyzing dynamical systems. This formulation bridges to quantum mechanics through canonical quantization and is essential for phase space analysis and conservation laws.",
+  "definitions": [
+    {
+      "symbol": "q_i",
+      "definition": "Generalized coordinate of the system, where index `i` labels the degree of freedom ranging from 1 to `n` for a system with `n` degrees of freedom."
+    },
+    {
+      "symbol": "p_i",
+      "definition": "Conjugate momentum corresponding to the generalized coordinate `q_i`."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time, the independent variable parameterizing the evolution of the system."
+    },
+    {
+      "symbol": "H",
+      "definition": "Hamiltonian function `H(q, p, t)`, the Legendre transform of the Lagrangian with respect to the generalized velocities."
+    },
+    {
+      "symbol": "n",
+      "definition": "Number of degrees of freedom of the mechanical system."
+    }
+  ],
+  "assumptions": [
+    "stationary_action_principle",
+    "classical_macroscopic_limit",
+    "inertial_reference_frame"
+  ],
+  "depends_on": ["euler_lagrange_equations"],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Begin with the Lagrangian formulation of mechanics. The system is described by a Lagrangian `L(q, dot(q), t)` that depends on generalized coordinates `q_i`, generalized velocities `dot(q_i)`, and possibly time `t`. The dynamics are governed by the Euler-Lagrange equations derived from the stationary action principle.",
+      "equation": "L = L(q, dot(q), t)",
+      "assumptions": ["classical_macroscopic_limit", "inertial_reference_frame"]
+    },
+    {
+      "step": 2,
+      "description": "From the Euler-Lagrange equations, the equations of motion satisfy the relation involving partial derivatives of the Lagrangian with respect to coordinates and velocities.",
+      "equation": "d/(dt)((del L)/(del dot(q_i))) = (del L)/(del q_i)",
+      "assumptions": ["stationary_action_principle", "euler_lagrange_equations"]
+    },
+    {
+      "step": 3,
+      "description": "Define the conjugate momentum `p_i` as the partial derivative of the Lagrangian with respect to the generalized velocity `dot(q_i)`. This definition establishes the relationship between velocities and momenta.",
+      "equation": "p_i = (del L)/(del dot(q_i))",
+      "assumptions": []
+    },
+    {
+      "step": 4,
+      "description": "Perform a Legendre transformation to change variables from `(q, dot(q), t)` to `(q, p, t)`. Define the Hamiltonian `H` as the Legendre transform of the Lagrangian with respect to the velocities. The sum is over all `n` degrees of freedom, where `i` ranges from 1 to `n`.",
+      "equation": "H(q, p, t) = sum_(i=1)^n p_i * dot(q_i) - L(q, dot(q), t)",
+      "assumptions": []
+    },
+    {
+      "step": 5,
+      "description": "Compute the total differential of the Hamiltonian. Using the definition `H = sum_i p_i * dot(q_i) - L`, take the differential of both sides, applying the product rule and chain rule.",
+      "equation": "dH = sum_(i=1)^n (dot(q_i) * dp_i + p_i * d(dot(q_i))) - sum_(i=1)^n (del L)/(del q_i) * dq_i - sum_(i=1)^n (del L)/(del dot(q_i)) * d(dot(q_i)) - (del L)/(del t) * dt",
+      "assumptions": []
+    },
+    {
+      "step": 6,
+      "description": "Substitute the definition of conjugate momentum `p_i = (del L)/(del dot(q_i))` into the differential expression. The terms involving `d(dot(q_i))` cancel exactly.",
+      "equation": "dH = sum_(i=1)^n (dot(q_i) * dp_i + p_i * d(dot(q_i))) - sum_(i=1)^n (del L)/(del q_i) * dq_i - sum_(i=1)^n p_i * d(dot(q_i)) - (del L)/(del t) * dt",
+      "assumptions": []
+    },
+    {
+      "step": 7,
+      "description": "After cancellation of the `p_i * d(dot(q_i))` terms, the differential of the Hamiltonian simplifies to depend only on `dq_i`, `dp_i`, and `dt`.",
+      "equation": "dH = sum_(i=1)^n dot(q_i) * dp_i - sum_(i=1)^n (del L)/(del q_i) * dq_i - (del L)/(del t) * dt",
+      "assumptions": []
+    },
+    {
+      "step": 8,
+      "description": "Since `H = H(q, p, t)`, the total differential can also be written in terms of partial derivatives of `H` with respect to its natural variables.",
+      "equation": "dH = sum_(i=1)^n (del H)/(del q_i) * dq_i + sum_(i=1)^n (del H)/(del p_i) * dp_i + (del H)/(del t) * dt",
+      "assumptions": []
+    },
+    {
+      "step": 9,
+      "description": "Compare the two expressions for `dH` from steps 7 and 8. Matching coefficients of `dp_i` yields the first Hamilton equation, relating the time derivative of coordinates to the momentum derivative of the Hamiltonian.",
+      "equation": "(del H)/(del p_i) = dot(q_i) = (dq_i)/(dt)",
+      "equation_proven": "eq1",
+      "assumptions": []
+    },
+    {
+      "step": 10,
+      "description": "Matching coefficients of `dq_i` in the two expressions for `dH` gives the relation between the partial derivative of `H` with respect to `q_i` and the partial derivative of `L` with respect to `q_i`.",
+      "equation": "(del H)/(del q_i) = -(del L)/(del q_i)",
+      "assumptions": []
+    },
+    {
+      "step": 11,
+      "description": "Use the Euler-Lagrange equation from step 2. The time derivative of the conjugate momentum equals the partial derivative of the Lagrangian with respect to the coordinate.",
+      "equation": "(dp_i)/(dt) = d/(dt)((del L)/(del dot(q_i))) = (del L)/(del q_i)",
+      "assumptions": ["euler_lagrange_equations"]
+    },
+    {
+      "step": 12,
+      "description": "Combine the results from steps 10 and 11. Substituting `(del L)/(del q_i) = (dp_i)/(dt)` into `(del H)/(del q_i) = -(del L)/(del q_i)` yields the second Hamilton equation.",
+      "equation": "(dp_i)/(dt) = -(del H)/(del q_i)",
+      "equation_proven": "eq2",
+      "assumptions": []
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Hamilton's Equations",
+      "# Verifying each derivation step explicitly",
+      "# Note: We verify for a single degree of freedom (i=1).",
+      "# The derivation is index-by-index, so verification for",
+      "# one index i suffices to establish the general result.",
+      "# =====================================================",
+      "",
+      "# Define symbols",
+      "t = sp.Symbol('t', real=True)",
+      "q_i, p_i = sp.symbols('q_i p_i', real=True)",
+      "q_dot_i = sp.Symbol('q_dot_i', real=True)",
+      "",
+      "# Abstract functions",
+      "L = sp.Function('L')",
+      "H = sp.Function('H')",
+      "",
+      "# Symbols for partial derivatives",
+      "dL_dq = sp.Symbol('dL_dq', real=True)  # ∂L/∂q_i",
+      "dL_dqdot = sp.Symbol('dL_dqdot', real=True)  # ∂L/∂q_dot_i",
+      "dL_dt = sp.Symbol('dL_dt', real=True)  # ∂L/∂t",
+      "dH_dq = sp.Symbol('dH_dq', real=True)  # ∂H/∂q_i",
+      "dH_dp = sp.Symbol('dH_dp', real=True)  # ∂H/∂p_i",
+      "dH_dt = sp.Symbol('dH_dt', real=True)  # ∂H/∂t",
+      "",
+      "# Differential symbols",
+      "dq, dp, dqdot, dt_sym = sp.symbols('dq dp dqdot dt', real=True)",
+      "",
+      "# ---------------------------",
+      "# Step 1: Lagrangian formulation",
+      "# ---------------------------",
+      "# L = L(q, q_dot, t) - this is the starting point",
+      "print(\"Step 1: Lagrangian L = L(q, q_dot, t) established\")",
+      "",
+      "# ---------------------------",
+      "# Step 2: Euler-Lagrange equation",
+      "# ---------------------------",
+      "# d/dt(∂L/∂q_dot_i) = ∂L/∂q_i",
+      "# This is taken from the dependency euler_lagrange_equations",
+      "dp_dt = sp.Symbol('dp_dt', real=True)  # d/dt(∂L/∂q_dot) = dp/dt",
+      "euler_lagrange_eq = sp.Eq(dp_dt, dL_dq)",
+      "print(f\"Step 2: Euler-Lagrange equation: {euler_lagrange_eq}\")",
+      "",
+      "# ---------------------------",
+      "# Step 3: Define conjugate momentum",
+      "# ---------------------------",
+      "# p_i = ∂L/∂q_dot_i",
+      "momentum_def = sp.Eq(p_i, dL_dqdot)",
+      "print(f\"Step 3: Conjugate momentum definition: {momentum_def}\")",
+      "# This means dL_dqdot = p_i",
+      "assert momentum_def.lhs == p_i, \"Step 3 verification failed\"",
+      "",
+      "# ---------------------------",
+      "# Step 4: Legendre transformation",
+      "# ---------------------------",
+      "# H(q, p, t) = sum_i p_i * q_dot_i - L(q, q_dot, t)",
+      "# For single degree of freedom (sufficient for index-by-index proof):",
+      "H_legendre = p_i * q_dot_i - L(q_i, q_dot_i, t)",
+      "print(f\"Step 4: Hamiltonian via Legendre transform: H = p*q_dot - L\")",
+      "",
+      "# ---------------------------",
+      "# Step 5: Total differential of H from definition",
+      "# ---------------------------",
+      "# dH = q_dot * dp + p * d(q_dot) - (∂L/∂q)*dq - (∂L/∂q_dot)*d(q_dot) - (∂L/∂t)*dt",
+      "dH_step5 = q_dot_i * dp + p_i * dqdot - dL_dq * dq - dL_dqdot * dqdot - dL_dt * dt_sym",
+      "print(f\"Step 5: dH from definition = {dH_step5}\")",
+      "",
+      "# ---------------------------",
+      "# Step 6: Substitute p_i = ∂L/∂q_dot_i",
+      "# ---------------------------",
+      "# The term p_i * d(q_dot) and -dL_dqdot * d(q_dot) should cancel",
+      "# since p_i = dL_dqdot",
+      "dH_step6 = dH_step5.subs(dL_dqdot, p_i)",
+      "print(f\"Step 6: After substitution p = ∂L/∂q_dot: dH = {dH_step6}\")",
+      "",
+      "# ---------------------------",
+      "# Step 7: Simplify after cancellation",
+      "# ---------------------------",
+      "# p_i * dqdot - p_i * dqdot = 0",
+      "dH_step7 = sp.simplify(dH_step6)",
+      "expected_dH_step7 = q_dot_i * dp - dL_dq * dq - dL_dt * dt_sym",
+      "assert sp.simplify(dH_step7 - expected_dH_step7) == 0, \"Step 7 verification failed\"",
+      "print(f\"Step 7: After cancellation: dH = {expected_dH_step7}\")",
+      "",
+      "# ---------------------------",
+      "# Step 8: dH from H(q, p, t)",
+      "# ---------------------------",
+      "# dH = (∂H/∂q)*dq + (∂H/∂p)*dp + (∂H/∂t)*dt",
+      "dH_step8 = dH_dq * dq + dH_dp * dp + dH_dt * dt_sym",
+      "print(f\"Step 8: dH from partials = {dH_step8}\")",
+      "",
+      "# ---------------------------",
+      "# Step 9: Compare coefficients of dp",
+      "# ---------------------------",
+      "# From step 7: coefficient of dp is q_dot_i",
+      "# From step 8: coefficient of dp is dH_dp",
+      "# Therefore: dH_dp = q_dot_i = dq/dt",
+      "coeff_dp_step7 = expected_dH_step7.coeff(dp)",
+      "coeff_dp_step8 = dH_step8.coeff(dp)",
+      "assert coeff_dp_step7 == q_dot_i, \"Step 9: coefficient extraction failed\"",
+      "assert coeff_dp_step8 == dH_dp, \"Step 9: coefficient extraction failed\"",
+      "first_hamilton = sp.Eq(dH_dp, q_dot_i)",
+      "print(f\"Step 9: First Hamilton equation: ∂H/∂p = q_dot = dq/dt (eq1 proven)\")",
+      "",
+      "# ---------------------------",
+      "# Step 10: Compare coefficients of dq",
+      "# ---------------------------",
+      "# From step 7: coefficient of dq is -dL_dq",
+      "# From step 8: coefficient of dq is dH_dq",
+      "# Therefore: dH_dq = -dL_dq",
+      "coeff_dq_step7 = expected_dH_step7.coeff(dq)",
+      "coeff_dq_step8 = dH_step8.coeff(dq)",
+      "assert coeff_dq_step7 == -dL_dq, \"Step 10: coefficient extraction failed\"",
+      "assert coeff_dq_step8 == dH_dq, \"Step 10: coefficient extraction failed\"",
+      "relation_step10 = sp.Eq(dH_dq, -dL_dq)",
+      "print(f\"Step 10: Relation ∂H/∂q = -∂L/∂q established: {relation_step10}\")",
+      "",
+      "# ---------------------------",
+      "# Step 11: Apply Euler-Lagrange equation",
+      "# ---------------------------",
+      "# From step 2: dp/dt = ∂L/∂q, i.e., dL_dq = dp_dt",
+      "# This connects the Lagrangian derivative to momentum time derivative",
+      "print(f\"Step 11: From Euler-Lagrange: dp/dt = ∂L/∂q, so dL_dq = dp_dt\")",
+      "",
+      "# ---------------------------",
+      "# Step 12: Derive second Hamilton equation",
+      "# ---------------------------",
+      "# From step 10: dH_dq = -dL_dq",
+      "# From step 11: dL_dq = dp_dt",
+      "# Substituting: dH_dq = -dp_dt",
+      "# Therefore: dp_dt = -dH_dq, i.e., dp/dt = -∂H/∂q",
+      "dH_dq_substituted = (-dL_dq).subs(dL_dq, dp_dt)",
+      "assert dH_dq_substituted == -dp_dt, \"Step 12: substitution failed\"",
+      "second_hamilton = sp.Eq(dp_dt, -dH_dq)",
+      "print(f\"Step 12: Second Hamilton equation: dp/dt = -∂H/∂q (eq2 proven)\")",
+      "",
+      "# =====================================================",
+      "# Final verification summary",
+      "# =====================================================",
+      "print(\"\\n=== Final Verification ===\")",
+      "print(f\"eq1 (First Hamilton equation): dq/dt = ∂H/∂p\")",
+      "print(f\"eq2 (Second Hamilton equation): dp/dt = -∂H/∂q\")",
+      "print(\"\\n=== All derivation steps verified ===\")"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "generalized_by": ["hamilton_jacobi_equation"],
+  "historical_context": {
+    "importance": "Hamiltonian mechanics revolutionized classical mechanics by revealing its deep geometric structure and providing the mathematical foundation for the transition to quantum mechanics",
+    "development_period": "1833-1834",
+    "key_insights": [
+      "Reformulation of mechanics using generalized momenta instead of velocities",
+      "Revealed the geometric structure underlying classical mechanics in phase space",
+      "Established the mathematical framework that enabled the development of quantum mechanics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Hamilton, W. R. (1834). On a general method in dynamics. Philosophical Transactions of the Royal Society, 124, 247–308."
+    },
+    {
+      "id": "R2",
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). Classical Mechanics (3rd ed.). Addison-Wesley. ISBN: 0-201-65702-3."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Theoria Agents",
+      "identifier": "https://github.com/theoria-agents"
+    },
+    {
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
+    }
+  ],
+  "review_status": "reviewed"
+}

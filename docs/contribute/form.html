@@ -10,7 +10,7 @@
     
     <!-- MathJax for AsciiMath -->
     <script src="../mathjax-config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@4/startup.js" defer></script>
     
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -240,7 +240,7 @@
             <div class="form-section">
                 <h3>🧮 Main Equations</h3>
                 <div class="guidelines" data-field="result_equations">
-                    <strong>Guidelines:</strong> <span class="guideline-text">List of equations in AsciiMath format. Provide each equation with a unique ID (e.g., 'eq1', 'eq2'). Use AsciiMath format for all equations.</span>
+                    <strong>Guidelines:</strong> <span class="guideline-text">List of physics laws or theorems being derived, in AsciiMath format. Include only the main results that the entry proves - equations that would be the focus of a textbook section. Do NOT include notation definitions (e.g., 'L = L(q, dot(q), t)') or auxiliary equations - those belong in definitions or derivation steps. Provide each equation with a unique ID (e.g., 'eq1', 'eq2'). Use AsciiMath format for all equations.</span>
                 </div>
                 
                 <div id="equations_container">
