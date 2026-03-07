@@ -46,7 +46,7 @@
     {
       "step": 2,
       "description": "Consider a variation of the path `q_i(t) -> q_i(t) + epsilon*eta_i(t)` where `epsilon` is a small parameter and `eta_i(t)` are arbitrary smooth functions that vanish at the endpoints: `eta_i(t_1) = eta_i(t_2) = 0`. The velocity varies correspondingly as `dot(q)_i -> dot(q)_i + epsilon*dot(eta)_i`.",
-      "equation": "q_i(t) -> q_i(t) + epsilon*eta_i(t),   dot(q)_i(t) -> dot(q)_i(t) + epsilon*dot(eta)_i(t),   eta_i(t_1) = eta_i(t_2) = 0",
+      "equation": "q_i(t) -> q_i(t) + epsilon*eta_i(t);   dot(q)_i(t) -> dot(q)_i(t) + epsilon*dot(eta)_i(t);   eta_i(t_1) = eta_i(t_2) = 0",
       "assumptions": ["variational_calculus_framework"]
     },
     {
