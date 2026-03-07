@@ -8,9 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.8.4] - Agentic enhancements, new entries, and MathJax upgrade - 2026-03-07
 
 - Agents files have been refactored to work in line with https://github.com/manuelsh/theoria-agents
-- New entry: 'euler_lagrange_equations' done with agents
+- New entries done with agents: 'euler_lagrange_equations', 'hamiltons_equations'
 - Small corrections in a few other entries.
 - Upgraded MathJax from v3 to v4, enabling automatic line breaking for long equations that previously overflowed their containers.
+- Improved testing with a new step that ensures that the id's in the "depends_on" fields appear later in the derivation steps.
 
 ## [0.8.3] - Mobile enhancements - 2026-02-08
 

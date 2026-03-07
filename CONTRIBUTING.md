@@ -141,6 +141,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 - **`depends_on`:**
   - Array of entry IDs that this derivation depends on
   - Each dependency must reference an existing entry result_id
+  - IMPORTANT: Every dependency listed here MUST be referenced in at least one derivation step's 'assumptions' array
+  - Do NOT add redundant parenthetical phrases like '(derived in the dependency entry)' in step descriptions - the dependency is already declared here
 
 - **`review_status`:**
   - Review status of the entry

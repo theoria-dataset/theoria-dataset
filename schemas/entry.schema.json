@@ -49,7 +49,7 @@
       ],
       "items": {
         "type": "object",
-        "required": ["id", "equation"],
+        "required": ["id", "equation", "equation_title"],
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -62,7 +62,7 @@
           },
           "equation_title": {
             "type": "string",
-            "description": "Optional human-readable title for this equation (e.g., 'Newton's Second Law', 'Lorentz Transformation', 'Planck's Law'). Use this to identify well-known, named equations or laws. For reviewed entries, all result equations MUST have an equation_title. When an equation has an equation_title, at least one derivation step must reference it with equation_proven."
+            "description": "Human-readable title for this equation (e.g., 'Newton's Second Law', 'Lorentz Transformation', 'Planck's Law'). REQUIRED for all entries. Use this to identify well-known, named equations or laws. At least one derivation step must reference it with equation_proven."
           }
         }
       }
@@ -155,7 +155,7 @@
 
     "depends_on": {
       "type": "array",
-      "description": "Array of entry IDs that this derivation depends on. Each dependency must reference an existing entry result_id.",
+      "description": "Array of entry IDs that this derivation depends on. Each dependency must reference an existing entry result_id. IMPORTANT: Every dependency listed here MUST be referenced in at least one derivation step's 'assumptions' array. Do NOT add redundant parenthetical phrases like '(derived in the dependency entry)' in step descriptions - the dependency is already declared here.",
       "items": {
         "type": "string",
         "pattern": "^[a-z0-9_]+$",
