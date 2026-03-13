@@ -181,11 +181,9 @@ def validate_dependencies_and_references():
     # 4. Check assumption references
     print("\n4. Checking assumption references...")
     invalid_assumption_errors = []
-    invalid_assumption_warnings = []
 
     for entry_id, entry_info in entries.items():
         assumptions = entry_info['data'].get('assumptions', [])
-        is_reviewed = entry_info['review_status'] == 'reviewed'
 
         for i, assumption in enumerate(assumptions):
             if isinstance(assumption, str):
@@ -193,19 +191,13 @@ def validate_dependencies_and_references():
                 if assumption in global_assumptions:
                     continue  # Valid reference
                 else:
-                    # Invalid assumption reference
+                    # Invalid assumption reference - always an error (draft or reviewed)
                     error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) has invalid assumption ID '{assumption}' at index {i}"
+                    invalid_assumption_errors.append((entry_id, assumption, i))
+                    errors.append(f"[ERROR] {error_msg} - all entries must only reference existing global assumption IDs from globals/assumptions.json")
 
-                    if is_reviewed:
-                        invalid_assumption_errors.append((entry_id, assumption, i))
-                        errors.append(f"[ERROR] {error_msg} - reviewed entries must only reference global assumption IDs")
-                    else:
-                        invalid_assumption_warnings.append((entry_id, assumption, i))
-                        warnings.append(f"[WARNING] {error_msg} - should reference global assumption IDs from globals/assumptions.json")
-
-    total_invalid = len(invalid_assumption_errors) + len(invalid_assumption_warnings)
-    if total_invalid > 0:
-        print(f"  Found {total_invalid} invalid assumption references ({len(invalid_assumption_errors)} errors, {len(invalid_assumption_warnings)} warnings)")
+    if len(invalid_assumption_errors) > 0:
+        print(f"  Found {len(invalid_assumption_errors)} invalid assumption references")
     else:
         print("  [OK] All assumption references are valid")
 

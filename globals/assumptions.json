@@ -46,7 +46,7 @@
           "definition": "Characteristic length scale of the system or apparatus"
         }
       ],
-      "used_in": ["special_relativity_transformations"]
+      "used_in": ["special_relativity_transformations", "hamiltons_equations"]
     },
     {
       "id": "point_mass_approximation",
@@ -62,7 +62,8 @@
       "type": "principle",
       "used_in": [
         "special_relativity_transformations",
-        "lorentz_group_and_four_vectors"
+        "lorentz_group_and_four_vectors",
+        "hamiltons_equations"
       ]
     },
     {
@@ -202,7 +203,11 @@
       "title": "Stationary Action Principle",
       "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
       "type": "principle",
-      "used_in": ["noethers_theorem", "klein_gordon_lagrangian"]
+      "used_in": [
+        "noethers_theorem",
+        "klein_gordon_lagrangian",
+        "hamiltons_equations"
+      ]
     },
     {
       "id": "flat_spacetime",
