@@ -1799,19 +1799,9 @@ select option {
   max-width: 100%;
 }
 
-/* Ensure MathJax equations can break */
+/* MathJax handles line breaking natively via displayOverflow: 'linebreak' config */
 .mjx-math {
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  word-break: break-all !important;
   line-height: 1.4 !important;
-}
-
-/* Responsive equation handling */
-@media (max-width: 768px) {
-  .step-eq {
-    word-break: break-all;
-  }
 }
 
 @media (max-width: 480px) {

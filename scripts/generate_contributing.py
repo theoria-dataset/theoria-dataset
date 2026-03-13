@@ -136,6 +136,8 @@ def generate_contributing_md(requirements_file, output_file):
         "make validate FILE=name",
         "docker-compose run --rm theoria-tests",
         "```",
+        "",
+        "For Docker environment setup, troubleshooting, and release process, see [DEVELOPMENT.md](DEVELOPMENT.md).",
         ""
     ])
 

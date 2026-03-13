@@ -22,7 +22,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Should clearly identify the physics concept
 
 - **`result_equations`:**
-  - List of equations in AsciiMath format
+  - List of physics laws or theorems being derived, in AsciiMath format
+  - Include only the main results that the entry proves - equations that would be the focus of a textbook section
+  - Do NOT include notation definitions (e.g., 'L = L(q, dot(q), t)') or auxiliary equations - those belong in definitions or derivation steps
   - Provide each equation with a unique ID (e.g., 'eq1', 'eq2')
   - Use AsciiMath format for all equations
   - Example:
@@ -46,7 +48,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
     `Lorentz transformations describe how space and time coordinates change between inertial frames moving relative to each other, ensuring the invariance of the speed of light and the spacetime interval. They are foundational to special relativity and crucial for understanding time dilation and length contraction.`
 
 - **`definitions`:**
-  - Define every symbol used in the result_equations to ensure the entry is self-contained by defining all symbols
+  - Define every BASE symbol used in result_equations (variables like q, t, m; constants like c, hbar; functions like L, V)
+  - Do NOT define intermediate expressions such as partial derivatives, time derivatives, or compound expressions - only define the fundamental symbols themselves
+  - Keep definitions concise (1-2 sentences)
   - Each definition should include a symbol field, with the symbol represented in AsciiMath format and a definition field
   - If there are math symbols or equations included in the definition, they must be enclosed in backticks (``) and written in AsciiMath format
   - Example:
@@ -65,6 +69,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Global assumptions are categorized into three types: (1) principle: core theoretical/mathematical postulates (e.g., 'conservation_laws_valid', 'stationary_action_principle'); (2) empirical: experimentally established facts and measured constants (e.g., 'light_speed_constant', 'electromagnetic_polarization'); (3) approximation: validity restrictions and simplifying modeling choices (e.g., 'classical_mechanics_framework', 'point_mass_approximation')
   - If you need a new global assumption that doesn't exist yet, propose adding it to globals/assumptions.json via pull request before referencing it in your entry
   - See schemas/assumptions.schema.json for the complete structure and browse the file globals/assumptions.json for all existing assumptions
+  - All assumption IDs MUST exist in globals/assumptions.json - entries will fail validation if they reference non-existent assumptions
+  - If the assumption doesn't exist, either use an existing one, propose adding it via PR first, or create a dependency entry instead if it's a derivable result
 
 - **`derivation`:**
   - Provide a formal derivation of the result, including all steps, equations in AsciiMath format, and descriptions
@@ -72,6 +78,9 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Each step should contain the `step` (an integer, in sequential order), `description` (textual rationale), and `equation` (AsciiMath format) fields
   - Include all steps for complete derivation
   - Use very explicit detail level for easy following
+  - Mark the step(s) that prove each result equation using the optional `equation_proven` field with the equation ID (e.g., 'eq1')
+  - The derivation should conclude when all result_equations are proven - do NOT add steps after the last equation_proven step
+  - Explanatory content about how to use the result belongs in `explanation` or `historical_context`, not in additional derivation steps
   - Example:
     ```json
     [
@@ -123,6 +132,7 @@ Each entry of the dataset should be a self contained relevant physics result. Th
   - Title
   - Publisher/Journal, volume(issue), pages
   - DOI/URL
+  - For historical results, include at least one seminal/original reference when available - modern textbook references are valuable but should not replace the original source
   - Example:
     ```json
     [
@@ -136,6 +146,8 @@ Each entry of the dataset should be a self contained relevant physics result. Th
 - **`depends_on`:**
   - Array of entry IDs that this derivation depends on
   - Each dependency must reference an existing entry result_id
+  - IMPORTANT: Every dependency listed here MUST be referenced in at least one derivation step's 'assumptions' array
+  - Do NOT add redundant parenthetical phrases like '(derived in the dependency entry)' in step descriptions - the dependency is already declared here
 
 - **`review_status`:**
   - Review status of the entry
@@ -152,6 +164,8 @@ make test-entry FILE=name
 make validate FILE=name
 docker-compose run --rm theoria-tests
 ```
+
+For Docker environment setup, troubleshooting, and release process, see [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Version Control & Collaboration
 
