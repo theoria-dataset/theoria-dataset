@@ -18,7 +18,7 @@
       "equation_title": "Field-Potential Relation"
     }
   ],
-  "explanation": "The gravitational field describes the gravitational influence that a massive body extends into the space around it. Defined as the force per unit mass experienced by a test particle, the field provides a local characterization of gravitational effects. The gravitational potential is a scalar field whose negative gradient yields the gravitational field vector, enabling energy-based analysis of gravitational systems. This formulation is foundational for celestial mechanics and serves as the Newtonian limit of general relativity.",
+  "explanation": "The gravitational field describes the gravitational influence that a massive body extends into the space around it. Defined as the force per unit mass experienced by a particle, the field provides a local characterization of gravitational effects. The gravitational potential is a scalar field whose negative gradient yields the gravitational field vector, enabling energy-based analysis of gravitational systems. This formulation is foundational for celestial mechanics and serves as the Newtonian limit of general relativity.",
   "definitions": [
     {
       "symbol": "vec g",
@@ -26,7 +26,7 @@
     },
     {
       "symbol": "G",
-      "definition": "Gravitational constant, `G ≈ 6.674 * 10^(-11) N cdot m^2 cdot kg^(-2)`."
+      "definition": "Gravitational constant, `G ≈ 6.6743 * 10^(-11) N cdot m^2 cdot kg^(-2)`."
     },
     {
       "symbol": "M",
@@ -49,10 +49,7 @@
       "definition": "Gradient operator, `grad = (del)/(del x) hat x + (del)/(del y) hat y + (del)/(del z) hat z`."
     }
   ],
-  "assumptions": [
-    "newtons_law_gravitation",
-    "point_mass_approximation"
-  ],
+  "assumptions": ["newtons_law_gravitation", "point_mass_approximation"],
   "depends_on": [],
   "derivation": [
     {
@@ -79,8 +76,8 @@
     },
     {
       "step": 5,
-      "description": "For radial motion, `d vec r' = d r' * hat r`, and `vec g cdot hat r = -G * M / r'^2`. Substitute into the integral.",
-      "equation": "phi(r) = -int_(oo)^r (-G * M / r'^2) d r'"
+      "description": "For radial motion, `d vec r' = d r' * hat r`, and `vec g cdot hat r = -G * M / (r'^2)`. Substitute into the integral.",
+      "equation": "phi(r) = -int_(oo)^r (-G * M / (r'^2)) d r'"
     },
     {
       "step": 6,
@@ -90,7 +87,7 @@
     {
       "step": 7,
       "equation_proven": "gravitational_potential",
-      "description": "Apply the limits. As `r' -> oo`, `1/r' -> 0`. The gravitational potential is negative, reflecting that work must be done against gravity to move mass to infinity.",
+      "description": "Apply the limits. As `r' -> oo`, `1/(r') -> 0`. The gravitational potential is negative, reflecting that work must be done against gravity to move mass to infinity.",
       "equation": "phi(r) = G * M * (-1/r - 0) = -G * M / r"
     },
     {
@@ -100,7 +97,7 @@
     },
     {
       "step": 9,
-      "description": "Evaluate the derivative using `d/dr(r^(-1)) = -r^(-2)`.",
+      "description": "Evaluate the derivative using `d/(dr)(r^(-1)) = -r^(-2)`.",
       "equation": "grad phi = -G * M * (-1/r^2) * hat r = G * M / r^2 * hat r"
     },
     {
@@ -227,9 +224,9 @@
   ],
   "contributors": [
     {
-      "full_name": "AI generated",
-      "identifier": "NA"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }

@@ -830,7 +830,7 @@
       "type": "empirical",
       "mathematical_expressions": [
         "vec F = -G * (M * m)/(r^2) * hat r",
-        "G ≈ 6.674 * 10^(-11) text{ N} cdot text{m}^2 cdot text{kg}^(-2)"
+        "G ≈ 6.6743 * 10^(-11) text{ N} cdot text{m}^2 cdot text{kg}^(-2)"
       ],
       "symbol_definitions": [
         {
