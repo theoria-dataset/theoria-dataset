@@ -53,7 +53,7 @@
       "title": "Point Mass Approximation",
       "text": "Both bodies can be treated as point masses with spherically symmetric mass distributions",
       "type": "approximation",
-      "used_in": ["keplers_laws", "vis_viva"]
+      "used_in": ["keplers_laws", "vis_viva", "gravitational_field"]
     },
     {
       "id": "inertial_reference_frame",

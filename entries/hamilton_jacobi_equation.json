@@ -44,46 +44,32 @@
       "definition": "Time parameter."
     }
   ],
-  "assumptions": [
-    "classical_mechanics_framework",
-    "smooth_functions"
-  ],
-  "depends_on": [
-    "hamiltons_equations",
-    "canonical_transformations"
-  ],
+  "assumptions": [],
+  "depends_on": ["hamiltons_equations", "canonical_transformations"],
   "derivation": [
     {
       "step": 1,
       "description": "Start from Hamilton's equations of motion in canonical form.",
       "equation": "dot q_k = (del H)/(del p_k), quad dot p_k = -(del H)/(del q_k)",
-      "assumptions": [
-        "hamiltons_equations"
-      ]
+      "assumptions": ["hamiltons_equations"]
     },
     {
       "step": 2,
       "description": "Consider a canonical transformation from old variables (q, p) to new variables (Q, P) using a type-2 generating function G_2(q, P, t). The transformation relations are given by the partial derivatives of the generating function.",
       "equation": "p = (del G_2)/(del q), quad Q = (del G_2)/(del P)",
-      "assumptions": [
-        "canonical_transformations"
-      ]
+      "assumptions": ["canonical_transformations"]
     },
     {
       "step": 3,
       "description": "Under a canonical transformation with generating function G_2, the new Hamiltonian K is related to the old Hamiltonian H by adding the partial time derivative of the generating function.",
       "equation": "K(Q, P, t) = H(q, p, t) + (del G_2)/(del t)",
-      "assumptions": [
-        "canonical_transformations"
-      ]
+      "assumptions": ["canonical_transformations"]
     },
     {
       "step": 4,
       "description": "Hamilton's equations preserve their form under canonical transformations. In the new variables, the equations of motion are expressed with the new Hamiltonian K.",
       "equation": "dot Q = (del K)/(del P), quad dot P = -(del K)/(del Q)",
-      "assumptions": [
-        "canonical_transformations"
-      ]
+      "assumptions": ["canonical_transformations"]
     },
     {
       "step": 5,

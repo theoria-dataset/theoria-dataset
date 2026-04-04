@@ -71,7 +71,8 @@
     },
     {
       "step": 4,
-      "description": "To find the gravitational potential, consider a test mass moving radially. The work done per unit mass by the gravitational field along a path from infinity to distance `r` defines the potential.",
+      "assumptions": ["point_mass_approximation"],
+      "description": "To find the gravitational potential, consider a point mass moving radially. The work done per unit mass by the gravitational field along a path from infinity to distance `r` defines the potential.",
       "equation": "phi(r) = -int_(oo)^r vec g cdot d vec r'"
     },
     {
