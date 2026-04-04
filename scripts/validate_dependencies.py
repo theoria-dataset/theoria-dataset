@@ -181,11 +181,9 @@ def validate_dependencies_and_references():
     # 4. Check assumption references
     print("\n4. Checking assumption references...")
     invalid_assumption_errors = []
-    invalid_assumption_warnings = []
 
     for entry_id, entry_info in entries.items():
         assumptions = entry_info['data'].get('assumptions', [])
-        is_reviewed = entry_info['review_status'] == 'reviewed'
 
         for i, assumption in enumerate(assumptions):
             if isinstance(assumption, str):
@@ -193,19 +191,13 @@ def validate_dependencies_and_references():
                 if assumption in global_assumptions:
                     continue  # Valid reference
                 else:
-                    # Invalid assumption reference
+                    # Invalid assumption reference - always an error (draft or reviewed)
                     error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) has invalid assumption ID '{assumption}' at index {i}"
+                    invalid_assumption_errors.append((entry_id, assumption, i))
+                    errors.append(f"[ERROR] {error_msg} - all entries must only reference existing global assumption IDs from globals/assumptions.json")
 
-                    if is_reviewed:
-                        invalid_assumption_errors.append((entry_id, assumption, i))
-                        errors.append(f"[ERROR] {error_msg} - reviewed entries must only reference global assumption IDs")
-                    else:
-                        invalid_assumption_warnings.append((entry_id, assumption, i))
-                        warnings.append(f"[WARNING] {error_msg} - should reference global assumption IDs from globals/assumptions.json")
-
-    total_invalid = len(invalid_assumption_errors) + len(invalid_assumption_warnings)
-    if total_invalid > 0:
-        print(f"  Found {total_invalid} invalid assumption references ({len(invalid_assumption_errors)} errors, {len(invalid_assumption_warnings)} warnings)")
+    if len(invalid_assumption_errors) > 0:
+        print(f"  Found {len(invalid_assumption_errors)} invalid assumption references")
     else:
         print("  [OK] All assumption references are valid")
 
@@ -292,8 +284,43 @@ def validate_dependencies_and_references():
     else:
         print("  [OK] All used_in fields are accurate")
 
-    # 7. Summary statistics
-    print("\n7. Dependency statistics...")
+    # 7. Check that declared dependencies are used in step-level assumptions
+    print("\n7. Checking dependency usage in derivation steps...")
+    unused_dependency_errors = []
+    unused_dependency_warnings = []
+
+    for entry_id, entry_info in entries.items():
+        dependencies = entry_info['dependencies']
+        if not dependencies:
+            continue  # No dependencies to check
+
+        # Collect all assumptions referenced in derivation steps
+        derivation = entry_info['data'].get('derivation', [])
+        step_assumptions_used = set()
+        for step in derivation:
+            step_assumptions_used.update(step.get('assumptions', []))
+
+        # Check each dependency is referenced in at least one step's assumptions
+        is_reviewed = entry_info['review_status'] == 'reviewed'
+        for dep_id in dependencies:
+            if dep_id not in step_assumptions_used:
+                error_msg = f"Entry '{entry_id}' ({entry_info['filename']}) has '{dep_id}' in depends_on but it is not referenced in any derivation step's assumptions array"
+
+                if is_reviewed:
+                    unused_dependency_errors.append((entry_id, dep_id))
+                    errors.append(f"[ERROR] {error_msg}")
+                else:
+                    unused_dependency_warnings.append((entry_id, dep_id))
+                    warnings.append(f"[WARNING] {error_msg}")
+
+    total_unused_deps = len(unused_dependency_errors) + len(unused_dependency_warnings)
+    if total_unused_deps > 0:
+        print(f"  Found {total_unused_deps} unused dependencies ({len(unused_dependency_errors)} errors, {len(unused_dependency_warnings)} warnings)")
+    else:
+        print("  [OK] All declared dependencies are used in derivation step assumptions")
+
+    # 8. Summary statistics
+    print("\n8. Dependency statistics...")
     reviewed_entries = [e for e in entries.values() if e['review_status'] == 'reviewed']
     draft_entries = [e for e in entries.values() if e['review_status'] == 'draft']
     
