@@ -63,7 +63,8 @@
       "used_in": [
         "special_relativity_transformations",
         "lorentz_group_and_four_vectors",
-        "hamiltons_equations"
+        "hamiltons_equations",
+        "angular_momentum"
       ]
     },
     {

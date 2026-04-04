@@ -71,7 +71,7 @@
     },
     {
       "step": 4,
-      "assumptions": ["inertial_reference_frame", "newtons_laws_of_motion"],
+      "assumptions": ["inertial_reference_frame", "newtons_second_law"],
       "description": "In an inertial frame, Newton's second law gives the rate of change of momentum.",
       "equation": "(d vec p)/(dt) = vec F"
     },
@@ -88,7 +88,7 @@
     },
     {
       "step": 7,
-      "assumptions": ["newtons_laws_of_motion"],
+      "assumptions": ["newtons_second_law"],
       "description": "Decompose the total torque into internal and external parts. For internal forces satisfying Newton's third law and acting along the line joining each interacting pair, the internal torques cancel pairwise.",
       "equation": "sum_i vec tau_i = vec tau_(ext) + vec tau_(int),   vec tau_(int) = 0"
     },
@@ -238,5 +238,5 @@
       "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }
