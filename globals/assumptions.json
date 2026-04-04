@@ -202,7 +202,18 @@
     {
       "id": "stationary_action_principle",
       "title": "Stationary Action Principle",
-      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
+      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary.",
+      "mathematical_expressions": ["delta S = 0"],
+      "symbol_definitions": [
+        {
+          "symbol": "S",
+          "definition": "Action functional, defined as the time integral of the Lagrangian along a path"
+        },
+        {
+          "symbol": "delta S",
+          "definition": "First variation of the action with respect to arbitrary variations of the path"
+        }
+      ],
       "type": "principle",
       "used_in": [
         "noethers_theorem",
