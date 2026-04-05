@@ -37,29 +37,39 @@
     "system_isolation",
     "newtons_law_gravitation"
   ],
-  "depends_on": ["angular_momentum"],
+  "depends_on": [
+    "angular_momentum"
+  ],
   "derivation": [
     {
       "step": 1,
-      "assumptions": ["newtons_law_gravitation"],
+      "assumptions": [
+        "newtons_law_gravitation"
+      ],
       "description": "Apply conservation of energy to equate the energies at the apoapsis and periapsis using gravitational potential energy",
       "equation": "1/2 mv_a^2 - (GMm)/r_a = 1/2mv_p^2-(GMm)/r_p"
     },
     {
       "step": 2,
-      "assumptions": ["point_mass_approximation"],
+      "assumptions": [
+        "point_mass_approximation"
+      ],
       "description": "Rearrange and simplify, treating bodies as point masses with spherically symmetric mass distributions",
       "equation": "v_a^2/2 - v_p^2/2 = (GM)/r_a - (GM)/r_p"
     },
     {
       "step": 3,
-      "assumptions": ["angular_momentum"],
+      "assumptions": [
+        "angular_momentum"
+      ],
       "description": "Use conservation of angular momentum to obtain an expression for `v_p` in terms of `r_a`, `r_p` and `v_a`",
       "equation": "L=const=v_ar_a=v_pr_p => v_p = (r_av_a)/r_p"
     },
     {
       "step": 4,
-      "assumptions": ["conservation_laws_valid"],
+      "assumptions": [
+        "conservation_laws_valid"
+      ],
       "description": "Substitute the angular momentum expression into the energy equation from step 2, using conservation laws",
       "equation": "1/2(1-(r_a/r_p)^2)v_a^2 = (GM)/r_a - (GM)/r_p"
     },
@@ -75,7 +85,9 @@
     },
     {
       "step": 7,
-      "assumptions": ["system_isolation"],
+      "assumptions": [
+        "system_isolation"
+      ],
       "description": "Equate the total energy at any point in the orbit where the particle's velocity is v with the velocity at the apoapsis, assuming the system is isolated from external perturbations",
       "equation": "v^2/2 - (GM)/r = v_a^2/2 - (GM)/r_a = -(GM)/(2a)"
     },
@@ -90,41 +102,50 @@
     "language": "python 3.11.12",
     "library": "sympy 1.13.1",
     "code": [
-      "# imports",
       "import sympy as sp",
-      "from math import sqrt",
-      "# set symbols",
-      "G, M, a, r, v= sp.symbols('G M a r v', positive=True)",
+      "",
+      "# Symbols",
+      "G, M, a, r, v = sp.symbols('G M a r v', positive=True)",
       "v_a, v_p, r_a, r_p = sp.symbols('v_a v_p r_a r_p', positive=True)",
-      "# Step 1 - 2: get an expression of the specific energy for periapsis and apoapsis, equate and simplify",
-      "E_a = 1/2 *  v_a**2 - (G*M)/(r_a)",
-      "E_p = 1/2 *  v_p**2 - (G*M)/(r_p)",
-      "energy_conservation = sp.simplify(sp.Eq(E_a, E_p)) # this should simplify the two",
-      "# step 3: obtain an expression for v_p in terms of r_p, v_a and r_a",
-      "# L_a and L_p are the angular momentum at the apoapsis and periapsis respectively",
-      "L_a = v_a*r_a",
-      "L_p = v_p*r_p",
-      "angular_momentum_conservation = sp.Eq(L_p, L_a) # using conservation of angular momentum",
-      "# Solve for v_p from angular momentum conservation",
-      "expr_for_v_p = sp.solve(angular_momentum_conservation, v_p)[0]  # Get first solution",
-      "# Step 4: substitute v_p into energy conservation equation",
-      "energy_conservation = sp.simplify(energy_conservation.subs(v_p, expr_for_v_p))",
-      "# step 5: rearrange for v_a^2/2 a.k.a the specific Kinetic energy at apoapsis",
-      "energy_conservation = sp.solve(energy_conservation, v_a**2)[0]",
-      "energy_conservation /= 2",
-      "# step 6: use identity r_p + r_a = 2a to simplify",
-      "energy_conservation = sp.simplify(energy_conservation.subs(r_p, 2*a - r_a))",
-      "# step 7: use the expression in step 6 to rewrite the energy E_a in terms of just G, M and a",
-      "E_a = sp.simplify(E_a.subs(v_a**2, energy_conservation*2))",
-      "# step 8",
-      "# equate E_a to the formula for the specific energy at any arbritrary point where the distance to the barycenter is r and the velocity is v",
-      "E_general = v**2/2 - (G*M)/r",
-      "vis_viva_equation = sp.Eq(E_a, E_general)",
-      "# rearrange for v^2",
-      "vis_viva_equation = sp.simplify(sp.solve(vis_viva_equation, v**2)[0])",
-      "# check that this is equal to the vis viva equation we derived earlier",
+      "",
+      "# Step 1-2: specific-energy equality between apoapsis and periapsis",
+      "E_a = sp.Rational(1, 2) * v_a**2 - (G*M)/r_a",
+      "E_p = sp.Rational(1, 2) * v_p**2 - (G*M)/r_p",
+      "eq_energy = sp.Eq(E_a, E_p)",
+      "step2_expected = sp.Eq(sp.Rational(1, 2) * (v_a**2 - v_p**2), G*M*(1/r_a - 1/r_p))",
+      "assert sp.simplify(eq_energy.lhs - eq_energy.rhs - (step2_expected.lhs - step2_expected.rhs)) == 0",
+      "",
+      "# Step 3: angular momentum conservation gives v_p = (r_a/r_p)*v_a",
+      "eq_angmom = sp.Eq(v_a*r_a, v_p*r_p)",
+      "v_p_from_L = sp.solve(eq_angmom, v_p)[0]",
+      "assert sp.simplify(v_p_from_L - (r_a*v_a)/r_p) == 0",
+      "",
+      "# Step 4: substitute v_p into Step-2 relation",
+      "eq_step4 = sp.simplify(step2_expected.subs(v_p, v_p_from_L))",
+      "step4_expected = sp.Eq(sp.Rational(1, 2) * (1 - (r_a/r_p)**2) * v_a**2, G*M*(1/r_a - 1/r_p))",
+      "assert sp.simplify((eq_step4.lhs - eq_step4.rhs) + (step4_expected.lhs - step4_expected.rhs)) == 0",
+      "",
+      "# Step 5: solve for v_a^2/2",
+      "va2_over_2 = sp.simplify(sp.solve(eq_step4, v_a**2)[0] / 2)",
+      "step5_expected = sp.simplify(G*M * r_p / (r_a * (r_p + r_a)))",
+      "assert sp.simplify(va2_over_2 - step5_expected) == 0",
+      "",
+      "# Step 6: use r_p + r_a = 2a and simplify",
+      "va2_over_2_step6 = sp.simplify(va2_over_2.subs(r_p, 2*a - r_a))",
+      "step6_expected = sp.simplify(G*M/r_a - G*M/(2*a))",
+      "assert sp.simplify(va2_over_2_step6 - step6_expected) == 0",
+      "",
+      "# Step 7: specific orbital energy is constant and equals -GM/(2a)",
+      "E_constant = sp.simplify(E_a.subs(v_a**2, 2*va2_over_2_step6))",
+      "assert sp.simplify(E_constant + G*M/(2*a)) == 0",
+      "",
+      "# Step 8: at arbitrary radius r and speed v, recover vis-viva relation",
+      "E_general = sp.Rational(1, 2) * v**2 - (G*M)/r",
+      "v2_expr = sp.simplify(sp.solve(sp.Eq(E_general, E_constant), v**2)[0])",
       "vis_viva_expected = G*M*(2/r - 1/a)",
-      "assert sp.simplify(vis_viva_equation - vis_viva_expected) == 0"
+      "assert sp.simplify(v2_expr - vis_viva_expected) == 0",
+      "",
+      "print('Vis-viva programmatic verification passed')"
     ]
   },
   "domain": "astro-ph",
@@ -132,7 +153,10 @@
   "historical_context": {
     "importance": "Heavily used in astrophysics and astrodynamics to calculate the velocities of orbiting objects. From this equation one can easily derive other equations such as the formula for escape velocity.",
     "development_period": "1676–1689",
-    "key_insights": ["Orbital velocities", "Conservation of energy in orbits"]
+    "key_insights": [
+      "Orbital velocities",
+      "Conservation of energy in orbits"
+    ]
   },
   "references": [
     {
