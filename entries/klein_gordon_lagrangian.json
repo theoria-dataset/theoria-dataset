@@ -66,7 +66,7 @@
     "lorentz_covariance",
     "stationary_action_principle"
   ],
-  "depends_on": ["klein_gordon_equation", "euler_lagrange_equation"],
+  "depends_on": ["klein_gordon_equation", "euler_lagrange_equations"],
   "derivation": [
     {
       "step": 1,
@@ -76,7 +76,10 @@
     },
     {
       "step": 2,
-      "assumptions": ["stationary_action_principle", "euler_lagrange_equation"],
+      "assumptions": [
+        "stationary_action_principle",
+        "euler_lagrange_equations"
+      ],
       "description": "For a scalar field theory, we seek the minimal Lagrangian that produces the Klein-Gordon equation. Minimal means: (i) depends only on first derivatives (to yield second-order equations of motion), and (ii) contains the fewest terms consistent with the symmetries. The Euler-Lagrange equation for fields is:",
       "equation": "del_mu ((del cc L)/(del (del_mu phi))) - (del cc L)/(del phi) = 0"
     },

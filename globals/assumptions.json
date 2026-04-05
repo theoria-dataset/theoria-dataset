@@ -197,7 +197,7 @@
           "definition": "Initial and final times (fixed endpoints)"
         }
       ],
-      "used_in": ["least_action_principle"]
+      "used_in": ["euler_lagrange_equations"]
     },
     {
       "id": "stationary_action_principle",
@@ -241,7 +241,8 @@
       "used_in": [
         "noethers_theorem",
         "klein_gordon_lagrangian",
-        "hamiltons_equations"
+        "hamiltons_equations",
+        "euler_lagrange_equations"
       ]
     },
     {
