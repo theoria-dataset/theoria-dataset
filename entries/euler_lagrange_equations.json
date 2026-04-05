@@ -35,7 +35,7 @@
     "variational_calculus_framework",
     "stationary_action_principle"
   ],
-  "depends_on": ["least_action_principle"],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
