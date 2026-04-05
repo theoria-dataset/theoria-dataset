@@ -8,7 +8,7 @@
       "equation_title": "Euler-Lagrange Equation"
     }
   ],
-  "explanation": "The Euler-Lagrange equations are second-order differential equations that determine the equations of motion for a mechanical system from its Lagrangian. They arise from requiring the action functional to be stationary under arbitrary variations of the path. Any trajectory satisfying these equations represents a physically realizable motion of the system. This formulation is equivalent to Newton's laws but offers advantages for constrained systems and generalizes naturally to field theories.",
+  "explanation": "The Euler-Lagrange equations are second-order differential equations that determine the equations of motion for a mechanical system from its Lagrangian. They arise from requiring the action functional to be stationary under arbitrary variations of the path. Any trajectory satisfying these equations represents a physically realizable motion of the system. Within classical mechanics, the Euler-Lagrange equations are equivalent to the equations of motion obtained from Newtonian mechanics, while being especially convenient for generalized coordinates, constrained systems, and later generalization to field theory",
   "definitions": [
     {
       "symbol": "L",
@@ -35,7 +35,7 @@
     "variational_calculus_framework",
     "stationary_action_principle"
   ],
-  "depends_on": ["least_action_principle"],
+  "depends_on": [],
   "derivation": [
     {
       "step": 1,
@@ -53,25 +53,22 @@
       "step": 3,
       "description": "The variation of the action is defined as the first-order change in S with respect to `epsilon`. For the action to be stationary, this variation must vanish for all admissible variations `eta_i(t)`.",
       "equation": "delta S = [d/(d epsilon) S[q + epsilon*eta]]_(epsilon=0) = 0",
-      "assumptions": ["variational_calculus_framework"]
+      "assumptions": ["stationary_action_principle"]
     },
     {
       "step": 4,
       "description": "Expand the Lagrangian to first order in `epsilon` using Taylor expansion. The Lagrangian evaluated on the varied path is `L(q_i + epsilon*eta_i, dot(q)_i + epsilon*dot(eta)_i, t)`.",
-      "equation": "L(q_i + epsilon*eta_i, dot(q)_i + epsilon*dot(eta)_i, t) = L(q_i, dot(q)_i, t) + epsilon*sum_(i=1)^n ((partial L)/(partial q_i)*eta_i + (partial L)/(partial dot(q)_i)*dot(eta)_i) + O(epsilon^2)",
-      "assumptions": ["variational_calculus_framework"]
+      "equation": "L(q_i + epsilon*eta_i, dot(q)_i + epsilon*dot(eta)_i, t) = L(q_i, dot(q)_i, t) + epsilon*sum_(i=1)^n ((partial L)/(partial q_i)*eta_i + (partial L)/(partial dot(q)_i)*dot(eta)_i) + O(epsilon^2)"
     },
     {
       "step": 5,
       "description": "Substitute the expansion into the action integral and differentiate with respect to `epsilon` at `epsilon = 0`. This gives the first variation of the action as an integral.",
-      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ((partial L)/(partial q_i)*eta_i + (partial L)/(partial dot(q)_i)*dot(eta)_i) dt",
-      "assumptions": ["variational_calculus_framework"]
+      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ((partial L)/(partial q_i)*eta_i + (partial L)/(partial dot(q)_i)*dot(eta)_i) dt"
     },
     {
       "step": 6,
       "description": "Apply integration by parts to the second term involving `dot(eta)_i`. Let `u = (partial L)/(partial dot(q)_i)` and `dv = dot(eta)_i dt = d eta_i`, so `du = d/dt((partial L)/(partial dot(q)_i)) dt` and `v = eta_i`.",
-      "equation": "int_(t_1)^(t_2) (partial L)/(partial dot(q)_i)*dot(eta)_i dt = [(partial L)/(partial dot(q)_i)*eta_i]_(t_1)^(t_2) - int_(t_1)^(t_2) d/dt((partial L)/(partial dot(q)_i))*eta_i dt",
-      "assumptions": ["variational_calculus_framework"]
+      "equation": "int_(t_1)^(t_2) (partial L)/(partial dot(q)_i)*dot(eta)_i dt = [(partial L)/(partial dot(q)_i)*eta_i]_(t_1)^(t_2) - int_(t_1)^(t_2) d/dt((partial L)/(partial dot(q)_i))*eta_i dt"
     },
     {
       "step": 7,
@@ -82,8 +79,7 @@
     {
       "step": 8,
       "description": "Substitute the result of integration by parts back into the expression for `delta S`. All terms now contain `eta_i` as a common factor under the integral.",
-      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ((partial L)/(partial q_i) - d/dt((partial L)/(partial dot(q)_i)))*eta_i dt",
-      "assumptions": ["variational_calculus_framework"]
+      "equation": "delta S = int_(t_1)^(t_2) sum_(i=1)^n ((partial L)/(partial q_i) - d/dt((partial L)/(partial dot(q)_i)))*eta_i dt"
     },
     {
       "step": 9,
@@ -96,7 +92,7 @@
     },
     {
       "step": 10,
-      "description": "Rearranging the equation from step 9 gives the Euler-Lagrange equations in their standard form. These n second-order ordinary differential equations (one for each degree of freedom i) determine the equations of motion for the system.",
+      "description": "Rearranging the equation from step 9 gives the Euler-Lagrange equations in their standard form. These `n` second-order ordinary differential equations (one for each degree of freedom `i`) determine the equations of motion for the system.",
       "equation": "d/dt((partial L)/(partial dot(q)_i)) - (partial L)/(partial q_i) = 0,   i = 1, ..., n",
       "assumptions": ["stationary_action_principle"],
       "equation_proven": "eq1"
@@ -317,9 +313,9 @@
   ],
   "contributors": [
     {
-      "full_name": "Theoria Agents",
-      "identifier": "https://github.com/manuelsh/theoria-agents"
+      "full_name": "Manuel Sanchez Hernandez",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }

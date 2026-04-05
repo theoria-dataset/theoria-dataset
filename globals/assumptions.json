@@ -197,17 +197,52 @@
           "definition": "Initial and final times (fixed endpoints)"
         }
       ],
-      "used_in": ["least_action_principle"]
+      "used_in": ["euler_lagrange_equations"]
     },
     {
       "id": "stationary_action_principle",
       "title": "Stationary Action Principle",
-      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary, leading to the Euler-Lagrange equations",
+      "text": "The system obeys the principle of stationary action (least action principle), meaning the path taken by the system makes the action stationary.",
+      "mathematical_expressions": [
+        "delta S = 0",
+        "S = int_(t_1)^(t_2) L(q_i, dot q_i, t) dt"
+      ],
+      "symbol_definitions": [
+        {
+          "symbol": "S",
+          "definition": "Action functional, defined as the time integral of the Lagrangian along a path"
+        },
+        {
+          "symbol": "delta S",
+          "definition": "First variation of the action with respect to arbitrary variations of the path"
+        },
+        {
+          "symbol": "L",
+          "definition": "Lagrangian function of the system"
+        },
+        {
+          "symbol": "t",
+          "definition": "Time parameter"
+        },
+        {
+          "symbol": "t_1, t_2",
+          "definition": "Initial and final times defining the time interval for the action integral"
+        },
+        {
+          "symbol": "q_i",
+          "definition": "Generalized coordinates describing the system configuration"
+        },
+        {
+          "symbol": "dot q_i",
+          "definition": "Time derivatives of generalized coordinates (generalized velocities)"
+        }
+      ],
       "type": "principle",
       "used_in": [
         "noethers_theorem",
         "klein_gordon_lagrangian",
-        "hamiltons_equations"
+        "hamiltons_equations",
+        "euler_lagrange_equations"
       ]
     },
     {
