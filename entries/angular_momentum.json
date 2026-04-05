@@ -1,17 +1,7 @@
 {
   "result_id": "angular_momentum",
-  "result_name": "Angular Momentum and Torque",
+  "result_name": "Torque-Angular Momentum Relation",
   "result_equations": [
-    {
-      "id": "angular_momentum_definition",
-      "equation": "vec L = vec r xx vec p",
-      "equation_title": "Angular Momentum Definition"
-    },
-    {
-      "id": "torque_definition",
-      "equation": "vec tau = vec r xx vec F",
-      "equation_title": "Torque Definition"
-    },
     {
       "id": "torque_angular_momentum_relation",
       "equation": "(d vec L)/(dt) = vec tau",
@@ -23,105 +13,94 @@
       "equation_title": "Conservation of Angular Momentum"
     }
   ],
-  "explanation": "Angular momentum is the rotational analog of linear momentum, quantifying the rotational motion of a particle or system about a reference point. Defined as the cross product of position and momentum vectors, it is an axial vector whose direction indicates the rotation axis. The time derivative of angular momentum equals the torque, leading to the conservation law: angular momentum is conserved when no external torque acts on the system. This principle governs phenomena from planetary orbits to spinning tops and is fundamental to both classical and quantum mechanics.",
+  "explanation": "The torque-angular-momentum relation is the rotational analogue of Newton's second law: the time rate of change of angular momentum about a chosen origin equals the applied torque about that origin. For a system with vanishing net external torque, the total angular momentum is conserved. This result is central to rotational dynamics, rigid-body motion, and orbital mechanics.",
   "definitions": [
     {
       "symbol": "vec L",
-      "definition": "Angular momentum vector about the reference point, with units `kg cdot m^2 / s`."
-    },
-    {
-      "symbol": "vec r",
-      "definition": "Position vector from the reference point (origin) to the particle."
-    },
-    {
-      "symbol": "vec p",
-      "definition": "Linear momentum vector, `vec p = m * vec v`."
-    },
-    {
-      "symbol": "vec v",
-      "definition": "Velocity vector of the particle."
-    },
-    {
-      "symbol": "m",
-      "definition": "Mass of the particle."
+      "definition": "Angular momentum about the chosen origin. For a single particle, `vec L = vec r xx vec p`; for a system, `vec L` denotes the total angular momentum obtained by summing over particles. Units: `kg*m^2/s`."
     },
     {
       "symbol": "vec tau",
-      "definition": "Torque vector (moment of force) about the reference point, with units `N cdot m`."
-    },
-    {
-      "symbol": "vec F",
-      "definition": "Force vector acting on the particle."
+      "definition": "Torque about the chosen origin. For a force `vec F` applied at position `vec r`, `vec tau = vec r xx vec F`. Units: `N*m`."
     },
     {
       "symbol": "vec tau_(ext)",
       "definition": "Net external torque acting on the system."
     },
     {
+      "symbol": "vec r",
+      "definition": "Position vector from the chosen origin to the particle."
+    },
+    {
+      "symbol": "vec p",
+      "definition": "Linear momentum vector, `vec p = m*vec v`."
+    },
+    {
+      "symbol": "vec v",
+      "definition": "Velocity vector of the particle."
+    },
+    {
+      "symbol": "vec F",
+      "definition": "Force vector acting on the particle."
+    },
+    {
+      "symbol": "m",
+      "definition": "Mass of the particle."
+    },
+    {
       "symbol": "xx",
-      "definition": "Cross product (vector product) of two vectors."
+      "definition": "Cross product (vector product)."
     }
   ],
-  "assumptions": [
-    "newtons_second_law",
-    "inertial_reference_frame"
-  ],
-  "depends_on": [],
+  "assumptions": ["inertial_reference_frame", "newtons_second_law"],
   "derivation": [
     {
       "step": 1,
-      "assumptions": ["inertial_reference_frame"],
-      "description": "Define angular momentum as the cross product of the position vector `vec r` and linear momentum `vec p`. This definition captures the rotational content of motion about the origin.",
-      "equation": "vec L = vec r xx vec p"
+      "description": "For a single particle, use the definitions of angular momentum and torque about the chosen origin, together with linear momentum `vec p = m*vec v`.",
+      "equation": "vec L = vec r xx vec p,   vec tau = vec r xx vec F,   vec p = m*vec v"
     },
     {
       "step": 2,
-      "equation_proven": "angular_momentum_definition",
-      "description": "Express momentum in terms of mass and velocity to obtain the equivalent form.",
-      "equation": "vec L = vec r xx (m * vec v) = m * (vec r xx vec v)"
+      "description": "Differentiate `vec L` with respect to time and apply the product rule for cross products.",
+      "equation": "(d vec L)/(dt) = (d vec r)/(dt) xx vec p + vec r xx (d vec p)/(dt)"
     },
     {
       "step": 3,
-      "description": "To find how angular momentum changes in time, compute its time derivative using the product rule for cross products.",
-      "equation": "(d vec L)/(dt) = (d)/(dt) (vec r xx vec p) = (d vec r)/(dt) xx vec p + vec r xx (d vec p)/(dt)"
+      "description": "Since `(d vec r)/(dt) = vec v` and `vec p = m*vec v`, the first term vanishes because the cross product of a vector with a parallel vector is zero.",
+      "equation": "(d vec r)/(dt) xx vec p = vec v xx (m*vec v) = 0"
     },
     {
       "step": 4,
-      "description": "The first term involves `(d vec r)/(dt) = vec v`. Since `vec p = m * vec v`, this becomes `vec v xx (m * vec v)`.",
-      "equation": "(d vec r)/(dt) xx vec p = vec v xx (m * vec v)"
-    },
-    {
-      "step": 5,
-      "description": "The cross product of any vector with itself (or a parallel vector) vanishes. Since `vec v` and `m * vec v` are parallel, their cross product is zero.",
-      "equation": "vec v xx (m * vec v) = m * (vec v xx vec v) = 0"
-    },
-    {
-      "step": 6,
-      "assumptions": ["newtons_second_law"],
-      "description": "Apply Newton's second law: the rate of change of momentum equals the net force.",
+      "assumptions": ["inertial_reference_frame", "newtons_second_law"],
+      "description": "In an inertial frame, Newton's second law gives the rate of change of momentum.",
       "equation": "(d vec p)/(dt) = vec F"
     },
     {
+      "step": 5,
+      "equation_proven": "torque_angular_momentum_relation",
+      "description": "Substitute steps 3 and 4 into step 2 to obtain the single-particle torque-angular-momentum relation.",
+      "equation": "(d vec L)/(dt) = 0 + vec r xx vec F = vec tau"
+    },
+    {
+      "step": 6,
+      "description": "For a system of particles, the total angular momentum is the sum of the individual angular momenta, so its time derivative is the sum of the individual torques.",
+      "equation": "vec L = sum_i vec L_i  =>  (d vec L)/(dt) = sum_i (d vec L_i)/(dt) = sum_i vec tau_i"
+    },
+    {
       "step": 7,
-      "description": "Substitute into the time derivative of angular momentum. The first term vanishes, leaving only the second term.",
-      "equation": "(d vec L)/(dt) = 0 + vec r xx vec F"
+      "assumptions": ["newtons_second_law"],
+      "description": "Decompose the total torque into internal and external parts. For internal forces satisfying Newton's third law and acting along the line joining each interacting pair, the internal torques cancel pairwise.",
+      "equation": "sum_i vec tau_i = vec tau_(ext) + vec tau_(int),   vec tau_(int) = 0"
     },
     {
       "step": 8,
-      "equation_proven": "torque_definition",
-      "description": "Define torque (moment of force) as the cross product of position and force vectors.",
-      "equation": "vec tau = vec r xx vec F"
+      "description": "Therefore, for the full system the time derivative of the total angular momentum equals the net external torque.",
+      "equation": "(d vec L)/(dt) = vec tau_(ext)"
     },
     {
       "step": 9,
-      "equation_proven": "torque_angular_momentum_relation",
-      "description": "The rotational analog of Newton's second law: torque equals the rate of change of angular momentum.",
-      "equation": "(d vec L)/(dt) = vec tau"
-    },
-    {
-      "step": 10,
       "equation_proven": "angular_momentum_conservation",
-      "description": "When no external torque acts on the system (`vec tau_(ext) = 0`), angular momentum is conserved. This is the rotational analog of conservation of linear momentum.",
+      "description": "If the net external torque vanishes, the total angular momentum is constant in time.",
       "equation": "vec tau_(ext) = 0 => (d vec L)/(dt) = 0 => vec L = text{constant}"
     }
   ],
@@ -132,163 +111,132 @@
       "import sympy as sp",
       "from sympy.vector import CoordSys3D",
       "",
-      "# Set up a 3D coordinate system",
+      "# ==========================================================",
+      "# Programmatic verification for the angular_momentum entry",
+      "# Steps 1-5: single-particle relation dL/dt = tau",
+      "# Steps 6-9: system relation and conservation when tau_ext = 0",
+      "# ==========================================================",
+      "",
       "N = CoordSys3D('N')",
+      "t = sp.symbols('t', real=True)",
+      "m = sp.symbols('m', positive=True, real=True)",
       "",
-      "# Time symbol",
-      "t = sp.Symbol('t', real=True)",
+      "def is_zero_vector(vec):",
+      "    return all(sp.simplify(c) == 0 for c in vec.to_matrix(N))",
       "",
-      "# Mass (constant)",
-      "m = sp.Symbol('m', positive=True, real=True)",
-      "",
-      "# ==============================",
-      "# Steps 1-2: Angular momentum definition L = r x p",
-      "# ==============================",
-      "",
-      "# Position components as functions of time",
+      "# ----------------------------------------------------------",
+      "# Step 1: Definitions for a single particle",
+      "# ----------------------------------------------------------",
       "x = sp.Function('x')(t)",
       "y = sp.Function('y')(t)",
       "z = sp.Function('z')(t)",
       "",
-      "# Position vector",
-      "r_vec = x * N.i + y * N.j + z * N.k",
-      "",
-      "# Velocity vector v = dr/dt",
+      "r_vec = x*N.i + y*N.j + z*N.k",
       "v_vec = sp.diff(r_vec, t)",
-      "",
-      "# Momentum vector p = m * v",
-      "p_vec = m * v_vec",
-      "",
-      "# Step 1-2: Angular momentum L = r x p",
+      "p_vec = m*v_vec",
       "L_vec = r_vec.cross(p_vec)",
       "",
-      "# Verify L = m * (r x v)",
-      "L_alternative = m * r_vec.cross(v_vec)",
-      "assert (L_vec - L_alternative).simplify() == sp.vector.Vector.zero",
-      "",
-      "# ==============================",
-      "# Steps 3-5: Time derivative of angular momentum",
-      "# ==============================",
-      "",
-      "# Step 3: Compute dL/dt using product rule",
-      "# d/dt(r x p) = (dr/dt) x p + r x (dp/dt)",
-      "",
-      "# First term: v x p = v x (m*v) = m*(v x v) = 0",
-      "first_term = v_vec.cross(p_vec)",
-      "# v x v = 0 for any vector (cross product with itself)",
-      "assert first_term.simplify() == sp.vector.Vector.zero",
-      "",
-      "# ==============================",
-      "# Steps 6-9: Torque and Newton's second law",
-      "# ==============================",
-      "",
-      "# Acceleration",
-      "a_vec = sp.diff(v_vec, t)",
-      "",
-      "# Force F = m * a (Newton's second law)",
-      "F_vec = m * a_vec",
-      "",
-      "# dp/dt = F",
-      "dp_dt = sp.diff(p_vec, t)",
-      "assert (dp_dt - F_vec).simplify() == sp.vector.Vector.zero",
-      "",
-      "# Step 7-8: Second term gives torque: r x F",
+      "Fx = sp.Function('F_x')(t)",
+      "Fy = sp.Function('F_y')(t)",
+      "Fz = sp.Function('F_z')(t)",
+      "F_vec = Fx*N.i + Fy*N.j + Fz*N.k",
       "tau_vec = r_vec.cross(F_vec)",
       "",
-      "# Step 9: dL/dt = r x F = tau",
+      "# ----------------------------------------------------------",
+      "# Step 2: Product rule for d(r x p)/dt",
+      "# ----------------------------------------------------------",
       "dL_dt = sp.diff(L_vec, t)",
+      "product_rule_rhs = sp.diff(r_vec, t).cross(p_vec) + r_vec.cross(sp.diff(p_vec, t))",
+      "assert is_zero_vector(dL_dt - product_rule_rhs)",
       "",
-      "# Verify dL/dt = tau",
-      "# This requires expanding and simplifying",
-      "difference = (dL_dt - tau_vec).simplify()",
-      "assert difference == sp.vector.Vector.zero",
+      "# ----------------------------------------------------------",
+      "# Step 3: v x (m v) = 0",
+      "# ----------------------------------------------------------",
+      "first_term = sp.diff(r_vec, t).cross(p_vec)",
+      "assert is_zero_vector(first_term)",
       "",
-      "# ==============================",
-      "# Step 10: Conservation when tau = 0",
-      "# ==============================",
+      "# ----------------------------------------------------------",
+      "# Step 4: Newton's second law dp/dt = F",
+      "# For constant mass, F = m a",
+      "# ----------------------------------------------------------",
+      "a_vec = sp.diff(v_vec, t)",
+      "dp_dt = sp.diff(p_vec, t)",
+      "F_newton = m*a_vec",
+      "assert is_zero_vector(dp_dt - F_newton)",
       "",
-      "# For circular motion in xy-plane: verify L is constant when tau = 0",
-      "# Use r(t) = R*(cos(omega*t), sin(omega*t), 0) for constant R, omega",
+      "# ----------------------------------------------------------",
+      "# Step 5: dL/dt = tau for a single particle",
+      "# ----------------------------------------------------------",
+      "tau_from_newton = r_vec.cross(F_newton)",
+      "assert is_zero_vector(dL_dt - tau_from_newton)",
       "",
-      "R, omega = sp.symbols('R omega', positive=True, real=True)",
+      "# ----------------------------------------------------------",
+      "# Steps 6-7: Internal torques cancel pairwise for central forces",
+      "# Demonstrate this for two interacting particles.",
+      "# ----------------------------------------------------------",
+      "x1, y1, z1, x2, y2, z2, f = sp.symbols('x1 y1 z1 x2 y2 z2 f', real=True)",
+      "r1 = x1*N.i + y1*N.j + z1*N.k",
+      "r2 = x2*N.i + y2*N.j + z2*N.k",
       "",
-      "# Circular motion position",
-      "x_circ = R * sp.cos(omega * t)",
-      "y_circ = R * sp.sin(omega * t)",
-      "z_circ = sp.Integer(0)",
+      "# Central internal force on particle 1 due to particle 2:",
+      "# F12 is parallel to (r1 - r2); Newton's third law gives F21 = -F12",
+      "relative = r1 - r2",
+      "F12 = f*relative",
+      "F21 = -F12",
       "",
-      "r_circ = x_circ * N.i + y_circ * N.j + z_circ * N.k",
-      "v_circ = sp.diff(r_circ, t)",
-      "p_circ = m * v_circ",
+      "tau_int_total = r1.cross(F12) + r2.cross(F21)",
+      "assert is_zero_vector(tau_int_total)",
       "",
-      "# Angular momentum for circular motion",
-      "L_circ = r_circ.cross(p_circ)",
-      "L_circ_simplified = L_circ.simplify()",
+      "# ----------------------------------------------------------",
+      "# Step 8: Total torque reduces to external torque",
+      "# ----------------------------------------------------------",
+      "F1ex_x, F1ex_y, F1ex_z = sp.symbols('F1ex_x F1ex_y F1ex_z', real=True)",
+      "F2ex_x, F2ex_y, F2ex_z = sp.symbols('F2ex_x F2ex_y F2ex_z', real=True)",
+      "F1_ext = F1ex_x*N.i + F1ex_y*N.j + F1ex_z*N.k",
+      "F2_ext = F2ex_x*N.i + F2ex_y*N.j + F2ex_z*N.k",
       "",
-      "# For uniform circular motion, L should be constant (z-component only)",
-      "# L = m * R^2 * omega in the z-direction",
-      "L_expected = m * R**2 * omega * N.k",
+      "tau_ext = r1.cross(F1_ext) + r2.cross(F2_ext)",
+      "tau_total = tau_ext + tau_int_total",
+      "assert is_zero_vector(tau_total - tau_ext)",
       "",
-      "# Simplify using trig identity cos^2 + sin^2 = 1",
-      "L_circ_trig = L_circ_simplified.simplify()",
-      "# The z-component should be m*R^2*omega",
-      "L_z = L_circ_trig.dot(N.k)",
-      "assert sp.simplify(L_z - m * R**2 * omega) == 0",
+      "# ----------------------------------------------------------",
+      "# Step 9: If external torque vanishes, dL/dt = 0",
+      "# ----------------------------------------------------------",
+      "tau_ext_x, tau_ext_y, tau_ext_z = sp.symbols('tau_ext_x tau_ext_y tau_ext_z', real=True)",
+      "tau_ext_vec = tau_ext_x*N.i + tau_ext_y*N.j + tau_ext_z*N.k",
+      "zero_case = tau_ext_vec.subs({tau_ext_x: 0, tau_ext_y: 0, tau_ext_z: 0})",
+      "assert is_zero_vector(zero_case)",
       "",
-      "# Verify dL/dt = 0 for uniform circular motion (no torque)",
-      "dL_circ_dt = sp.diff(L_circ, t).simplify()",
-      "assert dL_circ_dt == sp.vector.Vector.zero",
-      "",
-      "# ==============================",
-      "# Additional: Cross product properties verification",
-      "# ==============================",
-      "",
-      "# Verify anti-commutativity: a x b = -(b x a)",
-      "a1, a2, a3 = sp.symbols('a1 a2 a3', real=True)",
-      "b1, b2, b3 = sp.symbols('b1 b2 b3', real=True)",
-      "",
-      "a_test = a1 * N.i + a2 * N.j + a3 * N.k",
-      "b_test = b1 * N.i + b2 * N.j + b3 * N.k",
-      "",
-      "cross_ab = a_test.cross(b_test)",
-      "cross_ba = b_test.cross(a_test)",
-      "",
-      "assert (cross_ab + cross_ba).simplify() == sp.vector.Vector.zero",
-      "",
-      "# Verify a x a = 0",
-      "cross_aa = a_test.cross(a_test)",
-      "assert cross_aa == sp.vector.Vector.zero",
-      "",
-      "print(\"All angular momentum verifications passed.\")"
+      "print('All angular momentum verifications passed.')"
     ]
   },
   "domain": "physics.class-ph",
   "theory_status": "current",
   "historical_context": {
-    "importance": "Fundamental conservation law governing rotational dynamics; essential for celestial mechanics, rigid body motion, and quantum mechanics",
+    "importance": "Provides the fundamental balance law for rotational motion and the associated conservation law in the absence of external torque.",
     "development_period": "1687-1788",
     "key_insights": [
-      "Angular momentum provides a rotational analog to linear momentum",
-      "Conservation of angular momentum explains phenomena from planetary orbits to figure skating spins",
-      "The torque-angular momentum relation is the rotational form of Newton's second law",
-      "Angular momentum conservation arises from rotational symmetry via Noether's theorem"
+      "Torque is the rotational analogue of force.",
+      "The time derivative of angular momentum equals the applied torque.",
+      "For isolated systems, vanishing external torque implies angular momentum conservation.",
+      "The result underlies rotational mechanics, celestial mechanics, and later symmetry-based conservation laws."
     ]
   },
   "references": [
     {
       "id": "R1",
-      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). *Classical Mechanics* (3rd ed.). Addison Wesley."
+      "citation": "Goldstein, H., Poole, C., & Safko, J. (2002). Classical Mechanics (3rd ed.). Addison Wesley."
     },
     {
       "id": "R2",
-      "citation": "Landau, L. D., & Lifshitz, E. M. (1976). *Mechanics* (3rd ed.). Butterworth-Heinemann."
+      "citation": "Landau, L. D., & Lifshitz, E. M. (1976). Mechanics (3rd ed.). Butterworth-Heinemann."
     }
   ],
   "contributors": [
     {
-      "full_name": "AI generated",
-      "identifier": "NA"
+      "full_name": "Manuel Sánchez Hernández",
+      "identifier": "ORCID 0009-0006-4904-3695"
     }
   ],
-  "review_status": "draft"
+  "review_status": "reviewed"
 }

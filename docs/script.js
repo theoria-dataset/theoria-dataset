@@ -296,7 +296,7 @@ function loadEntry(filename) {
     "meta-status",
     "metadata",
   ];
-  
+
   $("title").style.display = "";
   sections.forEach((id) => {
     const el = $(id) || qs(`.${id}`);
@@ -308,11 +308,11 @@ function loadEntry(filename) {
   document
     .querySelectorAll("#entryView h2")
     .forEach((h) => (h.style.display = ""));
-  
+
   // Load the entry using the appropriate base URL
   const entryUrl = `${baseUrl}/entries/${filename}`;
   console.log("Fetching entry from:", entryUrl);
-  
+
   fetch(entryUrl)
     .then((r) => {
       console.log("Fetch response status:", r.status);
@@ -325,7 +325,7 @@ function loadEntry(filename) {
       console.log("Entry data loaded successfully:", data.result_name);
       // Load global assumptions before rendering
       await loadGlobalAssumptions();
-      render(data);
+      await render(data);
     })
     .catch((error) => {
       console.error('Error loading entry:', error);
@@ -364,7 +364,7 @@ function generateColabLink(data) {
 }
 
 // Render function
-function render(data) {
+async function render(data) {
   $("title").style.display = "";
   
   // Check if this is a draft entry
@@ -449,10 +449,8 @@ function render(data) {
       return `<p>${titleSpan}${formatLongEquation(eq.equation)}</p>`;
     })
     .join("");
-  safeTypesetMathJax([eqDiv]);
   // Render prerequisites (assumptions + dependencies) with unified structure
   renderPrerequisites(data);
-  safeTypesetMathJax([qs("#assumptions")]);
 
   // Ensure derivation sections are visible
   $("derivation").style.display = "";
@@ -506,7 +504,6 @@ function render(data) {
     }
     ol.insertAdjacentHTML("beforeend", `<li>${html}</li>`);
   });
-  safeTypesetMathJax([qs("#derivationSteps")]);
 
   const tbody = qs("#definitions tbody");
   tbody.innerHTML = "";
@@ -521,7 +518,6 @@ function render(data) {
       `<tr><td>${symbol}</td><td>${definitionFixed}</td></tr>`
     );
   });
-  safeTypesetMathJax([qs("#definitions")]);
 
   // Programmatic verification
   $("pv-language").textContent = data.programmatic_verification.language;
@@ -532,11 +528,8 @@ function render(data) {
   
   // Generate Google Colab link
   generateColabLink(data);
-  
-  safeTypesetMathJax([qs("#programmaticVerification")]);
 
   renderList("#references ul", data.references, (r) => r.citation);
-  safeTypesetMathJax([qs("#references")]);
 
   // Render validity regime
   // validity_regime section removed - now integrated into assumptions
@@ -558,7 +551,6 @@ function render(data) {
       data.historical_context.key_insights || [],
       (i) => i
     );
-    safeTypesetMathJax([qs("#historicalContext")]);
   }
 
   // Dependencies section - now integrated into prerequisites section
@@ -572,7 +564,6 @@ function render(data) {
       (d) => `<a href="entries.html?entry=${d}.json">${d.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())}</a>`,
       true
     );
-    safeTypesetMathJax([qs("#generalizedBy")]);
   } else {
     qs("#generalizedBy").style.display = "none";
   }
@@ -603,8 +594,8 @@ function render(data) {
   const metaSection = qs(".metadata");
   if (metaSection) metaSection.style.display = "";
 
-  // Typeset math for the whole entry view as a fallback
-  safeTypesetMathJax([qs("#entryView")]);
+  // Typeset all math in the entry view
+  await safeTypesetMathJax([qs("#entryView")]);
 
   // Setup prev/next navigation by domain
   const params = new URLSearchParams(window.location.search);

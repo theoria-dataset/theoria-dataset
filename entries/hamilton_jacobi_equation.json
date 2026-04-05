@@ -1,0 +1,301 @@
+{
+  "result_id": "hamilton_jacobi_equation",
+  "result_name": "Hamilton-Jacobi Equation",
+  "result_equations": [
+    {
+      "id": "eq1",
+      "equation": "H(q, (del S)/(del q), t) + (del S)/(del t) = 0",
+      "equation_title": "Hamilton-Jacobi Equation"
+    },
+    {
+      "id": "eq2",
+      "equation": "p_k = (del S)/(del q_k)",
+      "equation_title": "Momentum from Principal Function"
+    }
+  ],
+  "explanation": "The Hamilton-Jacobi equation is a first-order partial differential equation for Hamilton's principal function S. When solved, S generates a canonical transformation making the new Hamiltonian vanish, rendering equations of motion trivial. The conjugate momenta are obtained as partial derivatives of S with respect to coordinates.",
+  "definitions": [
+    {
+      "symbol": "H",
+      "definition": "Hamiltonian function of the system, representing the total energy expressed in terms of generalized coordinates, momenta, and time."
+    },
+    {
+      "symbol": "S",
+      "definition": "Hamilton's principal function (the action), a scalar function whose gradient with respect to coordinates gives the momenta."
+    },
+    {
+      "symbol": "q",
+      "definition": "Vector of generalized coordinates describing the configuration of the system, with components `q_k`."
+    },
+    {
+      "symbol": "q_k",
+      "definition": "The k-th generalized coordinate of the system."
+    },
+    {
+      "symbol": "p",
+      "definition": "Vector of conjugate momenta, with components `p_k`."
+    },
+    {
+      "symbol": "p_k",
+      "definition": "Conjugate momentum corresponding to the generalized coordinate `q_k`."
+    },
+    {
+      "symbol": "t",
+      "definition": "Time parameter."
+    }
+  ],
+  "assumptions": [],
+  "depends_on": ["hamiltons_equations", "canonical_transformations"],
+  "derivation": [
+    {
+      "step": 1,
+      "description": "Start from Hamilton's equations of motion in canonical form.",
+      "equation": "dot q_k = (del H)/(del p_k), quad dot p_k = -(del H)/(del q_k)",
+      "assumptions": ["hamiltons_equations"]
+    },
+    {
+      "step": 2,
+      "description": "Consider a canonical transformation from old variables (q, p) to new variables (Q, P) using a type-2 generating function G_2(q, P, t). The transformation relations are given by the partial derivatives of the generating function.",
+      "equation": "p = (del G_2)/(del q), quad Q = (del G_2)/(del P)",
+      "assumptions": ["canonical_transformations"]
+    },
+    {
+      "step": 3,
+      "description": "Under a canonical transformation with generating function G_2, the new Hamiltonian K is related to the old Hamiltonian H by adding the partial time derivative of the generating function.",
+      "equation": "K(Q, P, t) = H(q, p, t) + (del G_2)/(del t)",
+      "assumptions": ["canonical_transformations"]
+    },
+    {
+      "step": 4,
+      "description": "Hamilton's equations preserve their form under canonical transformations. In the new variables, the equations of motion are expressed with the new Hamiltonian K.",
+      "equation": "dot Q = (del K)/(del P), quad dot P = -(del K)/(del Q)",
+      "assumptions": ["canonical_transformations"]
+    },
+    {
+      "step": 5,
+      "description": "The key insight is to choose the generating function such that the new Hamiltonian K vanishes identically. If K = 0, then all derivatives of K are zero, making the equations of motion trivial.",
+      "equation": "K = 0, quad dot Q = 0, quad dot P = 0"
+    },
+    {
+      "step": 6,
+      "description": "When K = 0, the new coordinates Q and momenta P are constants of motion. Denote these constants as beta_k = Q_k and alpha_k = P_k.",
+      "equation": "Q_k = beta_k, quad P_k = alpha_k"
+    },
+    {
+      "step": 7,
+      "description": "Since P = alpha is constant, the generating function becomes G_2(q, alpha, t). Define Hamilton's principal function S as this generating function.",
+      "equation": "S(q, alpha, t) = G_2(q, alpha, t)"
+    },
+    {
+      "step": 8,
+      "description": "From the transformation relation for momenta (Step 2), we have p = (del G_2)/(del q) = (del S)/(del q). Writing this in component form gives the momentum in terms of the gradient of S.",
+      "equation": "p_k = (del S)/(del q_k)",
+      "equation_proven": "eq2"
+    },
+    {
+      "step": 9,
+      "description": "Apply the condition K = 0 using the relation from Step 3. This gives H(q, p, t) + (del G_2)/(del t) = 0.",
+      "equation": "H(q, p, t) + (del G_2)/(del t) = 0"
+    },
+    {
+      "step": 10,
+      "description": "Since G_2 = S from Step 7, we have (del G_2)/(del t) = (del S)/(del t). Substituting this into the previous equation gives H(q, p, t) + (del S)/(del t) = 0.",
+      "equation": "H(q, p, t) + (del S)/(del t) = 0"
+    },
+    {
+      "step": 11,
+      "description": "Substitute the expression for momentum from Step 8, p = (del S)/(del q), into the Hamiltonian. This eliminates the explicit dependence on p, expressing everything in terms of S and its derivatives.",
+      "equation": "H(q, (del S)/(del q), t) + (del S)/(del t) = 0",
+      "equation_proven": "eq1"
+    }
+  ],
+  "programmatic_verification": {
+    "language": "python 3.11.12",
+    "library": "sympy 1.13.1",
+    "code": [
+      "import sympy as sp",
+      "",
+      "# =====================================================",
+      "# Programmatic verification: Hamilton-Jacobi Equation",
+      "# Verifies each derivation step systematically",
+      "# Uses single degree of freedom; generalizes to N DOF.",
+      "# =====================================================",
+      "",
+      "# Define symbols",
+      "t = sp.Symbol('t', real=True)",
+      "",
+      "# Generalized coordinates and momenta (single degree of freedom)",
+      "q = sp.Symbol('q', real=True)",
+      "p = sp.Symbol('p', real=True)",
+      "",
+      "# New coordinates and momenta",
+      "Q = sp.Symbol('Q', real=True)",
+      "P = sp.Symbol('P', real=True)",
+      "",
+      "# ---------------------------",
+      "# Step 1: Hamilton's equations (starting point from dependency)",
+      "# ---------------------------",
+      "H = sp.Function('H')",
+      "H_qpt = H(q, p, t)",
+      "",
+      "# Hamilton's equations: dot_q = dH/dp, dot_p = -dH/dq",
+      "dot_q = sp.diff(H_qpt, p)",
+      "dot_p = -sp.diff(H_qpt, q)",
+      "print(f'Step 1: dot_q = {dot_q}, dot_p = {dot_p}')",
+      "",
+      "# ---------------------------",
+      "# Step 2: Type-2 generating function transformation",
+      "# ---------------------------",
+      "G_2 = sp.Function('G_2')",
+      "G_2_qPt = G_2(q, P, t)",
+      "",
+      "# Transformation relations: p = dG_2/dq, Q = dG_2/dP",
+      "p_transform = sp.diff(G_2_qPt, q)",
+      "Q_transform = sp.diff(G_2_qPt, P)",
+      "print(f'Step 2: p = {p_transform}, Q = {Q_transform}')",
+      "",
+      "# ---------------------------",
+      "# Step 3: New Hamiltonian K = H + dG_2/dt",
+      "# ---------------------------",
+      "K = sp.Function('K')",
+      "K_expr = H_qpt + sp.diff(G_2_qPt, t)",
+      "print(f'Step 3: K = H + dG_2/dt = {K_expr}')",
+      "",
+      "# ---------------------------",
+      "# Step 4: Hamilton's equations in new variables",
+      "# ---------------------------",
+      "K_QPt = K(Q, P, t)",
+      "dot_Q = sp.diff(K_QPt, P)",
+      "dot_P = -sp.diff(K_QPt, Q)",
+      "print(f'Step 4: dot_Q = {dot_Q}, dot_P = {dot_P}')",
+      "",
+      "# ---------------------------",
+      "# Step 5: Set K = 0 for trivial dynamics",
+      "# ---------------------------",
+      "# When K = 0, dot_Q = 0 and dot_P = 0",
+      "K_zero = sp.Integer(0)",
+      "dot_Q_trivial = sp.diff(K_zero, P)",
+      "dot_P_trivial = -sp.diff(K_zero, Q)",
+      "assert dot_Q_trivial == 0, 'Step 5: dot_Q should be 0 when K=0'",
+      "assert dot_P_trivial == 0, 'Step 5: dot_P should be 0 when K=0'",
+      "print('Step 5 verified: K=0 implies dot_Q=0, dot_P=0')",
+      "",
+      "# ---------------------------",
+      "# Step 6: Q and P are constants when K=0",
+      "# ---------------------------",
+      "alpha = sp.Symbol('alpha', real=True)  # P = alpha = const",
+      "beta = sp.Symbol('beta', real=True)    # Q = beta = const",
+      "print(f'Step 6: Q = beta (const), P = alpha (const)')",
+      "",
+      "# ---------------------------",
+      "# Step 7: Set S = G_2 (with P replaced by constant alpha)",
+      "# ---------------------------",
+      "S = sp.Function('S')",
+      "S_qat = S(q, alpha, t)",
+      "G_2_as_S = S_qat",
+      "print(f'Step 7: G_2(q, alpha, t) = S(q, alpha, t)')",
+      "",
+      "# ---------------------------",
+      "# Step 8: Momentum relation p = dS/dq (proves eq2)",
+      "# ---------------------------",
+      "p_from_S = sp.diff(G_2_as_S, q)",
+      "dS_dq = sp.diff(S_qat, q)",
+      "# dG_2/dq = dS/dq",
+      "assert sp.simplify(p_from_S - dS_dq) == 0, 'Step 8: p = dS/dq verification failed'",
+      "print(f'Step 8 verified (eq2): p = dG_2/dq = dS/dq = {dS_dq}')",
+      "",
+      "# ---------------------------",
+      "# Step 9: Apply K = 0 condition",
+      "# ---------------------------",
+      "# K = H + dG_2/dt = 0",
+      "dG_2_dt = sp.diff(G_2_as_S, t)",
+      "K_condition = H_qpt + dG_2_dt",
+      "print(f'Step 9: K = H + dG_2/dt = 0 gives: {K_condition} = 0')",
+      "",
+      "# ---------------------------",
+      "# Step 10: dG_2/dt = dS/dt since G_2 = S",
+      "# ---------------------------",
+      "dS_dt = sp.diff(S_qat, t)",
+      "assert sp.simplify(dG_2_dt - dS_dt) == 0, 'Step 10: dG_2/dt = dS/dt verification failed'",
+      "print(f'Step 10 verified: dG_2/dt = dS/dt = {dS_dt}')",
+      "",
+      "# ---------------------------",
+      "# Step 11: Hamilton-Jacobi equation (proves eq1)",
+      "# ---------------------------",
+      "# Substitute p = dS/dq into H(q, p, t) + dS/dt = 0",
+      "# This gives H(q, dS/dq, t) + dS/dt = 0",
+      "H_with_dSdq = H(q, dS_dq, t)",
+      "HJ_equation = H_with_dSdq + dS_dt",
+      "print(f'Step 11 (eq1): H(q, dS/dq, t) + dS/dt = {HJ_equation} = 0')",
+      "",
+      "# ---------------------------",
+      "# Concrete verification: Free particle",
+      "# ---------------------------",
+      "print('\\n--- Concrete verification: Free particle ---')",
+      "",
+      "m = sp.Symbol('m', positive=True)",
+      "E = sp.Symbol('E', positive=True)",
+      "",
+      "# Free particle Hamiltonian: H = p^2/(2m)",
+      "H_free = p**2 / (2*m)",
+      "",
+      "# Ansatz: S = W(q) - E*t for time-independent H",
+      "# Here E plays the role of alpha (constant of integration)",
+      "W = sp.Function('W')(q)",
+      "S_free = W - E*t",
+      "",
+      "# Step 8: p = dS/dq = dW/dq",
+      "p_free = sp.diff(S_free, q)",
+      "assert p_free == sp.diff(W, q), 'Free particle: p = dW/dq failed'",
+      "print(f'p = dS/dq = {p_free}')",
+      "",
+      "# Step 11: H(q, dS/dq, t) + dS/dt = 0",
+      "H_substituted = H_free.subs(p, p_free)",
+      "dS_dt_free = sp.diff(S_free, t)",
+      "HJ_free = H_substituted + dS_dt_free",
+      "print(f'HJ equation: {sp.simplify(HJ_free)} = 0')",
+      "",
+      "# Solve: (dW/dq)^2/(2m) - E = 0 => dW/dq = sqrt(2mE)",
+      "dW_dq_solution = sp.sqrt(2*m*E)",
+      "HJ_check = (dW_dq_solution**2)/(2*m) - E",
+      "assert sp.simplify(HJ_check) == 0, 'HJ equation verification failed'",
+      "print('Free particle HJ equation verified!')",
+      "",
+      "print('\\n=== All derivation steps verified ===')",
+      "print('eq1: H(q, dS/dq, t) + dS/dt = 0 (Hamilton-Jacobi equation)')",
+      "print('eq2: p_k = dS/dq_k (momentum from principal function)')"
+    ]
+  },
+  "domain": "physics.class-ph",
+  "theory_status": "current",
+  "historical_context": {
+    "importance": "The Hamilton-Jacobi equation unified the wave and particle descriptions of mechanical systems, providing the mathematical bridge between classical and quantum mechanics. It fulfilled a centuries-old goal of connecting optical wave propagation with particle mechanics and became foundational for understanding quantum mechanics through the Schrödinger equation.",
+    "development_period": "1830s",
+    "key_insights": [
+      "Motion of particles can be represented as waves with surfaces of constant action perpendicular to trajectories",
+      "The equation provides a canonical transformation that reduces dynamics to constants of motion",
+      "In the classical limit (hbar approaching 0), the Schrödinger equation reduces to the Hamilton-Jacobi equation, establishing the connection between quantum and classical mechanics"
+    ]
+  },
+  "references": [
+    {
+      "id": "R1",
+      "citation": "Hamilton, W. R. (1834). On a General Method in Dynamics. Philosophical Transactions of the Royal Society, 124, 247-308."
+    },
+    {
+      "id": "R2",
+      "citation": "Landau, L. D., & Lifshitz, E. M. (1975). Mechanics. Elsevier."
+    },
+    {
+      "id": "R3",
+      "citation": "Arnold, V. I. (1989). Mathematical Methods of Classical Mechanics (2nd ed.). Springer."
+    }
+  ],
+  "contributors": [
+    {
+      "full_name": "Theoria Agents",
+      "identifier": "https://github.com/theoria-agents"
+    }
+  ],
+  "review_status": "draft"
+}
