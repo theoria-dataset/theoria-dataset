@@ -56,7 +56,7 @@
     },
     {
       "symbol": "F_2",
-      "definition": "Type-2 generating function `F_2(q,P,t)` used to construct a canonical transformation."
+      "definition": "Type-2 generating function, a canonical-transformation generator depending on the old coordinates `q`, the new momenta `P`, and possibly time `t`."
     },
     {
       "symbol": "t",
@@ -95,8 +95,8 @@
   "derivation": [
     {
       "step": 1,
-      "description": "Start from Hamilton's equations in the old canonical variables `(q_i,p_i)`, using the dependency `hamiltons_equations`.",
-      "equation": "(dq_i)/(dt) = (del H)/(del p_i), quad (dp_i)/(dt) = -(del H)/(del q_i)",
+      "description": "Start from Hamilton's equations in the old canonical variables `(q_i,p_i)`.",
+      "equation": "(dq_i)/(dt) = (del H)/(del p_i); (dp_i)/(dt) = -(del H)/(del q_i)",
       "assumptions": ["hamiltons_equations"]
     },
     {
@@ -107,7 +107,7 @@
     },
     {
       "step": 3,
-      "description": "For the two canonical descriptions to produce the same stationary trajectories, their Poincare-Cartan integrands may differ only by a total time derivative of a type-1 generating function `F_1(q,Q,t)`.",
+      "description": "The old and new variables must describe the same dynamics. Writing the action in Hamiltonian form replaces the Lagrangian by its Legendre-transform expression in phase-space variables, so the two action integrands may differ only by a total time derivative of a generating function.",
       "equation": "sum_(i=1)^n p_i*(dq_i)/(dt) - H = sum_(i=1)^n P_i*(dQ_i)/(dt) - K + (dF_1)/(dt)",
       "assumptions": ["stationary_action_principle"]
     },
