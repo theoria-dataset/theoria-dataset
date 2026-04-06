@@ -5,11 +5,18 @@ All notable changes to the Theoretical Physics Inference Dataset will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.5] - Fixing the least action principle entry - 2026-04-05
+
+### Changed
+
+- Fixed the principle of least action entry, dependencies, and set it as assumption.
+- Reviewed the programmatic verifications of all entries automatically
+
 ## [0.8.4] - Agentic enhancements, new entries, and MathJax upgrade - 2026-03-07
 
 ### Changed
 
-- Entry reviewed: Gravitational field.
+- Entries reviewed: gravitational_field, angular_momentum, euler_lagrange_equation
 - Agents files have been refactored to work in line with https://github.com/manuelsh/theoria-agents
 - New entries done with agents: 'euler_lagrange_equations', 'hamiltons_equations'
 - Small corrections in a few other entries.
